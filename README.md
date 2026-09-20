@@ -93,3 +93,8 @@ a vendor publishes under, which is the distinction that namespace exists to make
 [nango]: https://github.com/NangoHQ/nango
 [icons]: https://simpleicons.org
 [mcp]: https://registry.modelcontextprotocol.io
+
+## License
+
+Apache 2.0. The API descriptions and marks belong to the companies that publish them;
+see LICENSE for the details.
