@@ -139,7 +139,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards",
+    "url": "https://api.trello.com/1/boards",
     "path": [],
     "query": [],
     "header": [],
@@ -197,7 +197,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/calendarKey/generate",
+    "url": "https://api.trello.com/1/boards/{idBoard}/calendarKey/generate",
     "path": [
      "idBoard"
     ],
@@ -229,7 +229,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/checklists",
+    "url": "https://api.trello.com/1/boards/{idBoard}/checklists",
     "path": [
      "idBoard"
     ],
@@ -259,7 +259,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/emailKey/generate",
+    "url": "https://api.trello.com/1/boards/{idBoard}/emailKey/generate",
     "path": [
      "idBoard"
     ],
@@ -295,7 +295,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/labels",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labels",
     "path": [
      "idBoard"
     ],
@@ -334,7 +334,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/lists",
+    "url": "https://api.trello.com/1/boards/{idBoard}/lists",
     "path": [
      "idBoard"
     ],
@@ -365,7 +365,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/markAsViewed",
+    "url": "https://api.trello.com/1/boards/{idBoard}/markAsViewed",
     "path": [
      "idBoard"
     ],
@@ -397,7 +397,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/boards/{idBoard}/powerUps",
+    "url": "https://api.trello.com/1/boards/{idBoard}/powerUps",
     "path": [
      "idBoard"
     ],
@@ -485,7 +485,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards",
+    "url": "https://api.trello.com/1/cards",
     "path": [],
     "query": [],
     "header": [],
@@ -532,7 +532,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/actions/comments",
+    "url": "https://api.trello.com/1/cards/{idCard}/actions/comments",
     "path": [
      "idCard"
     ],
@@ -578,7 +578,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/attachments",
+    "url": "https://api.trello.com/1/cards/{idCard}/attachments",
     "path": [
      "idCard"
     ],
@@ -624,7 +624,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem",
     "path": [
      "idCard",
      "idChecklist"
@@ -666,7 +666,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/convertToCard",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/convertToCard",
     "path": [
      "idCard",
      "idChecklist",
@@ -708,7 +708,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/checklists",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklists",
     "path": [
      "idCard"
     ],
@@ -744,7 +744,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/idLabels",
+    "url": "https://api.trello.com/1/cards/{idCard}/idLabels",
     "path": [
      "idCard"
     ],
@@ -778,7 +778,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/idMembers",
+    "url": "https://api.trello.com/1/cards/{idCard}/idMembers",
     "path": [
      "idCard"
     ],
@@ -820,7 +820,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/labels",
+    "url": "https://api.trello.com/1/cards/{idCard}/labels",
     "path": [
      "idCard"
     ],
@@ -852,7 +852,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/markAssociatedNotificationsRead",
+    "url": "https://api.trello.com/1/cards/{idCard}/markAssociatedNotificationsRead",
     "path": [
      "idCard"
     ],
@@ -884,7 +884,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/membersVoted",
+    "url": "https://api.trello.com/1/cards/{idCard}/membersVoted",
     "path": [
      "idCard"
     ],
@@ -934,7 +934,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/cards/{idCard}/stickers",
+    "url": "https://api.trello.com/1/cards/{idCard}/stickers",
     "path": [
      "idCard"
     ],
@@ -982,7 +982,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/checklists",
+    "url": "https://api.trello.com/1/checklists",
     "path": [],
     "query": [],
     "header": [],
@@ -1026,7 +1026,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/checklists/{idChecklist}/checkItems",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/checkItems",
     "path": [
      "idChecklist"
     ],
@@ -1064,7 +1064,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/labels",
+    "url": "https://api.trello.com/1/labels",
     "path": [],
     "query": [],
     "header": [],
@@ -1112,7 +1112,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/lists",
+    "url": "https://api.trello.com/1/lists",
     "path": [],
     "query": [],
     "header": [],
@@ -1145,7 +1145,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/lists/{idList}/archiveAllCards",
+    "url": "https://api.trello.com/1/lists/{idList}/archiveAllCards",
     "path": [
      "idList"
     ],
@@ -1193,7 +1193,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/lists/{idList}/cards",
+    "url": "https://api.trello.com/1/lists/{idList}/cards",
     "path": [
      "idList"
     ],
@@ -1231,7 +1231,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/lists/{idList}/moveAllCards",
+    "url": "https://api.trello.com/1/lists/{idList}/moveAllCards",
     "path": [
      "idList"
     ],
@@ -1265,7 +1265,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/avatar",
+    "url": "https://api.trello.com/1/members/{idMember}/avatar",
     "path": [
      "idMember"
     ],
@@ -1307,7 +1307,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/boardBackgrounds",
+    "url": "https://api.trello.com/1/members/{idMember}/boardBackgrounds",
     "path": [
      "idMember"
     ],
@@ -1347,7 +1347,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/boardStars",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars",
     "path": [
      "idMember"
     ],
@@ -1390,7 +1390,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/customBoardBackgrounds",
+    "url": "https://api.trello.com/1/members/{idMember}/customBoardBackgrounds",
     "path": [
      "idMember"
     ],
@@ -1430,7 +1430,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/customEmoji",
+    "url": "https://api.trello.com/1/members/{idMember}/customEmoji",
     "path": [
      "idMember"
     ],
@@ -1465,7 +1465,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/customStickers",
+    "url": "https://api.trello.com/1/members/{idMember}/customStickers",
     "path": [
      "idMember"
     ],
@@ -1499,7 +1499,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/oneTimeMessagesDismissed",
+    "url": "https://api.trello.com/1/members/{idMember}/oneTimeMessagesDismissed",
     "path": [
      "idMember"
     ],
@@ -1541,7 +1541,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches",
     "path": [
      "idMember"
     ],
@@ -1566,7 +1566,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/notifications/all/read",
+    "url": "https://api.trello.com/1/notifications/all/read",
     "path": [],
     "query": [],
     "header": [],
@@ -1634,7 +1634,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/organizations",
+    "url": "https://api.trello.com/1/organizations",
     "path": [],
     "query": [],
     "header": [],
@@ -1677,7 +1677,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/organizations/{idOrg}/logo",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/logo",
     "path": [
      "idOrg"
     ],
@@ -1709,7 +1709,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/sessions",
+    "url": "https://api.trello.com/1/sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -1744,7 +1744,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/tokens/{token}/webhooks",
+    "url": "https://api.trello.com/1/tokens/{token}/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -1784,7 +1784,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.trello.com/webhooks",
+    "url": "https://api.trello.com/1/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -1815,7 +1815,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/actions/{idAction}",
+    "url": "https://api.trello.com/1/actions/{idAction}",
     "path": [
      "idAction"
     ],
@@ -1848,7 +1848,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/boards/{idBoard}/members/{idMember}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members/{idMember}",
     "path": [
      "idBoard",
      "idMember"
@@ -1882,7 +1882,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/boards/{idBoard}/powerUps/{powerUp}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/powerUps/{powerUp}",
     "path": [
      "idBoard",
      "powerUp"
@@ -1916,7 +1916,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/actions/{idAction}/comments",
+    "url": "https://api.trello.com/1/cards/{idCard}/actions/{idAction}/comments",
     "path": [
      "idCard",
      "idAction"
@@ -1950,7 +1950,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/attachments/{idAttachment}",
+    "url": "https://api.trello.com/1/cards/{idCard}/attachments/{idAttachment}",
     "path": [
      "idCard",
      "idAttachment"
@@ -1979,7 +1979,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}",
+    "url": "https://api.trello.com/1/cards/{idCard}",
     "path": [
      "idCard"
     ],
@@ -2017,7 +2017,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}",
     "path": [
      "idCard",
      "idChecklist",
@@ -2052,7 +2052,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/checklists/{idChecklist}",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklists/{idChecklist}",
     "path": [
      "idCard",
      "idChecklist"
@@ -2086,7 +2086,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/idLabels/{idLabel}",
+    "url": "https://api.trello.com/1/cards/{idCard}/idLabels/{idLabel}",
     "path": [
      "idCard",
      "idLabel"
@@ -2120,7 +2120,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/idMembers/{idMember}",
+    "url": "https://api.trello.com/1/cards/{idCard}/idMembers/{idMember}",
     "path": [
      "idCard",
      "idMember"
@@ -2154,7 +2154,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/labels/{color}",
+    "url": "https://api.trello.com/1/cards/{idCard}/labels/{color}",
     "path": [
      "idCard",
      "color"
@@ -2188,7 +2188,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/membersVoted/{idMember}",
+    "url": "https://api.trello.com/1/cards/{idCard}/membersVoted/{idMember}",
     "path": [
      "idCard",
      "idMember"
@@ -2222,7 +2222,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/cards/{idCard}/stickers/{idSticker}",
+    "url": "https://api.trello.com/1/cards/{idCard}/stickers/{idSticker}",
     "path": [
      "idCard",
      "idSticker"
@@ -2251,7 +2251,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/checklists/{idChecklist}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}",
     "path": [
      "idChecklist"
     ],
@@ -2284,7 +2284,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/checklists/{idChecklist}/checkItems/{idCheckItem}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/checkItems/{idCheckItem}",
     "path": [
      "idChecklist",
      "idCheckItem"
@@ -2313,7 +2313,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/labels/{idLabel}",
+    "url": "https://api.trello.com/1/labels/{idLabel}",
     "path": [
      "idLabel"
     ],
@@ -2346,7 +2346,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/members/{idMember}/boardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -2380,7 +2380,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/members/{idMember}/boardStars/{idBoardStar}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars/{idBoardStar}",
     "path": [
      "idMember",
      "idBoardStar"
@@ -2414,7 +2414,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -2448,7 +2448,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/members/{idMember}/customStickers/{idCustomSticker}",
+    "url": "https://api.trello.com/1/members/{idMember}/customStickers/{idCustomSticker}",
     "path": [
      "idMember",
      "idCustomSticker"
@@ -2482,7 +2482,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -2511,7 +2511,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}",
     "path": [
      "idOrg"
     ],
@@ -2539,7 +2539,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}/logo",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/logo",
     "path": [
      "idOrg"
     ],
@@ -2572,7 +2572,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{idMember}/all",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{idMember}/all",
     "path": [
      "idOrg",
      "idMember"
@@ -2606,7 +2606,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{idMember}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{idMember}",
     "path": [
      "idOrg",
      "idMember"
@@ -2635,7 +2635,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/associatedDomain",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/associatedDomain",
     "path": [
      "idOrg"
     ],
@@ -2668,7 +2668,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/orgInviteRestrict",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/orgInviteRestrict",
     "path": [
      "idOrg"
     ],
@@ -2691,7 +2691,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/tokens/{token}",
+    "url": "https://api.trello.com/1/tokens/{token}",
     "path": [],
     "query": [],
     "header": [],
@@ -2717,7 +2717,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/tokens/{token}/webhooks/{idWebhook}",
+    "url": "https://api.trello.com/1/tokens/{token}/webhooks/{idWebhook}",
     "path": [
      "idWebhook"
     ],
@@ -2745,7 +2745,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.trello.com/webhooks/{idWebhook}",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}",
     "path": [
      "idWebhook"
     ],
@@ -2777,7 +2777,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/board",
+    "url": "https://api.trello.com/1/actions/{idAction}/board",
     "path": [
      "idAction"
     ],
@@ -2812,7 +2812,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/board/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/board/{field}",
     "path": [
      "idAction",
      "field"
@@ -2869,7 +2869,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}",
+    "url": "https://api.trello.com/1/actions/{idAction}",
     "path": [
      "idAction"
     ],
@@ -2910,7 +2910,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/{field}",
     "path": [
      "idAction",
      "field"
@@ -2943,7 +2943,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/card",
+    "url": "https://api.trello.com/1/actions/{idAction}/card",
     "path": [
      "idAction"
     ],
@@ -2978,7 +2978,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/card/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/card/{field}",
     "path": [
      "idAction",
      "field"
@@ -3007,7 +3007,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/display",
+    "url": "https://api.trello.com/1/actions/{idAction}/display",
     "path": [
      "idAction"
     ],
@@ -3035,7 +3035,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/entities",
+    "url": "https://api.trello.com/1/actions/{idAction}/entities",
     "path": [
      "idAction"
     ],
@@ -3067,7 +3067,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/list",
+    "url": "https://api.trello.com/1/actions/{idAction}/list",
     "path": [
      "idAction"
     ],
@@ -3102,7 +3102,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/list/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/list/{field}",
     "path": [
      "idAction",
      "field"
@@ -3135,7 +3135,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/member",
+    "url": "https://api.trello.com/1/actions/{idAction}/member",
     "path": [
      "idAction"
     ],
@@ -3170,7 +3170,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/member/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/member/{field}",
     "path": [
      "idAction",
      "field"
@@ -3203,7 +3203,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/memberCreator",
+    "url": "https://api.trello.com/1/actions/{idAction}/memberCreator",
     "path": [
      "idAction"
     ],
@@ -3238,7 +3238,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/memberCreator/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/memberCreator/{field}",
     "path": [
      "idAction",
      "field"
@@ -3271,7 +3271,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/organization",
+    "url": "https://api.trello.com/1/actions/{idAction}/organization",
     "path": [
      "idAction"
     ],
@@ -3306,7 +3306,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/actions/{idAction}/organization/{field}",
+    "url": "https://api.trello.com/1/actions/{idAction}/organization/{field}",
     "path": [
      "idAction",
      "field"
@@ -3335,7 +3335,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/batch",
+    "url": "https://api.trello.com/1/batch",
     "path": [],
     "query": [
      "urls"
@@ -3419,7 +3419,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/actions",
+    "url": "https://api.trello.com/1/boards/{idBoard}/actions",
     "path": [
      "idBoard"
     ],
@@ -3466,7 +3466,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/boardStars",
+    "url": "https://api.trello.com/1/boards/{idBoard}/boardStars",
     "path": [
      "idBoard"
     ],
@@ -3644,7 +3644,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}",
+    "url": "https://api.trello.com/1/boards/{idBoard}",
     "path": [
      "idBoard"
     ],
@@ -3715,7 +3715,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/{field}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/{field}",
     "path": [
      "idBoard",
      "field"
@@ -3796,7 +3796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/cards",
+    "url": "https://api.trello.com/1/boards/{idBoard}/cards",
     "path": [
      "idBoard"
     ],
@@ -3843,7 +3843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/cards/{filter}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/cards/{filter}",
     "path": [
      "idBoard",
      "filter"
@@ -3941,7 +3941,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/cards/{idCard}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/cards/{idCard}",
     "path": [
      "idBoard",
      "idCard"
@@ -4011,7 +4011,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/checklists",
+    "url": "https://api.trello.com/1/boards/{idBoard}/checklists",
     "path": [
      "idBoard"
     ],
@@ -4056,7 +4056,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/deltas",
+    "url": "https://api.trello.com/1/boards/{idBoard}/deltas",
     "path": [
      "idBoard"
     ],
@@ -4095,7 +4095,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/labels",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labels",
     "path": [
      "idBoard"
     ],
@@ -4135,7 +4135,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/labels/{idLabel}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labels/{idLabel}",
     "path": [
      "idBoard",
      "idLabel"
@@ -4182,7 +4182,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/lists",
+    "url": "https://api.trello.com/1/boards/{idBoard}/lists",
     "path": [
      "idBoard"
     ],
@@ -4220,7 +4220,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/lists/{filter}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/lists/{filter}",
     "path": [
      "idBoard",
      "filter"
@@ -4261,7 +4261,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/members",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members",
     "path": [
      "idBoard"
     ],
@@ -4298,7 +4298,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/members/{filter}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members/{filter}",
     "path": [
      "idBoard",
      "filter"
@@ -4384,7 +4384,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/members/{idMember}/cards",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members/{idMember}/cards",
     "path": [
      "idBoard",
      "idMember"
@@ -4431,7 +4431,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/membersInvited",
+    "url": "https://api.trello.com/1/boards/{idBoard}/membersInvited",
     "path": [
      "idBoard"
     ],
@@ -4466,7 +4466,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/membersInvited/{field}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/membersInvited/{field}",
     "path": [
      "idBoard",
      "field"
@@ -4507,7 +4507,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/memberships",
+    "url": "https://api.trello.com/1/boards/{idBoard}/memberships",
     "path": [
      "idBoard"
     ],
@@ -4552,7 +4552,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/memberships/{idMembership}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/memberships/{idMembership}",
     "path": [
      "idBoard",
      "idMembership"
@@ -4584,7 +4584,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs",
     "path": [
      "idBoard"
     ],
@@ -4616,7 +4616,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/organization",
+    "url": "https://api.trello.com/1/boards/{idBoard}/organization",
     "path": [
      "idBoard"
     ],
@@ -4651,7 +4651,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/boards/{idBoard}/organization/{field}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/organization/{field}",
     "path": [
      "idBoard",
      "field"
@@ -4736,7 +4736,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/actions",
+    "url": "https://api.trello.com/1/cards/{idCard}/actions",
     "path": [
      "idCard"
     ],
@@ -4787,7 +4787,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/attachments",
+    "url": "https://api.trello.com/1/cards/{idCard}/attachments",
     "path": [
      "idCard"
     ],
@@ -4827,7 +4827,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/attachments/{idAttachment}",
+    "url": "https://api.trello.com/1/cards/{idCard}/attachments/{idAttachment}",
     "path": [
      "idCard",
      "idAttachment"
@@ -4862,7 +4862,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/board",
+    "url": "https://api.trello.com/1/cards/{idCard}/board",
     "path": [
      "idCard"
     ],
@@ -4897,7 +4897,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/board/{field}",
+    "url": "https://api.trello.com/1/cards/{idCard}/board/{field}",
     "path": [
      "idCard",
      "field"
@@ -5018,7 +5018,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}",
+    "url": "https://api.trello.com/1/cards/{idCard}",
     "path": [
      "idCard"
     ],
@@ -5075,7 +5075,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/{field}",
+    "url": "https://api.trello.com/1/cards/{idCard}/{field}",
     "path": [
      "idCard",
      "field"
@@ -5108,7 +5108,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/checkItemStates",
+    "url": "https://api.trello.com/1/cards/{idCard}/checkItemStates",
     "path": [
      "idCard"
     ],
@@ -5162,7 +5162,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/checklists",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklists",
     "path": [
      "idCard"
     ],
@@ -5201,7 +5201,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/list",
+    "url": "https://api.trello.com/1/cards/{idCard}/list",
     "path": [
      "idCard"
     ],
@@ -5236,7 +5236,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/list/{field}",
+    "url": "https://api.trello.com/1/cards/{idCard}/list/{field}",
     "path": [
      "idCard",
      "field"
@@ -5269,7 +5269,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/members",
+    "url": "https://api.trello.com/1/cards/{idCard}/members",
     "path": [
      "idCard"
     ],
@@ -5303,7 +5303,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/membersVoted",
+    "url": "https://api.trello.com/1/cards/{idCard}/membersVoted",
     "path": [
      "idCard"
     ],
@@ -5337,7 +5337,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/stickers",
+    "url": "https://api.trello.com/1/cards/{idCard}/stickers",
     "path": [
      "idCard"
     ],
@@ -5376,7 +5376,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/cards/{idCard}/stickers/{idSticker}",
+    "url": "https://api.trello.com/1/cards/{idCard}/stickers/{idSticker}",
     "path": [
      "idCard",
      "idSticker"
@@ -5411,7 +5411,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/board",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/board",
     "path": [
      "idChecklist"
     ],
@@ -5446,7 +5446,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/board/{field}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/board/{field}",
     "path": [
      "idChecklist",
      "field"
@@ -5495,7 +5495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}",
     "path": [
      "idChecklist"
     ],
@@ -5534,7 +5534,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/{field}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/{field}",
     "path": [
      "idChecklist",
      "field"
@@ -5615,7 +5615,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/cards",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/cards",
     "path": [
      "idChecklist"
     ],
@@ -5662,7 +5662,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/cards/{filter}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/cards/{filter}",
     "path": [
      "idChecklist",
      "filter"
@@ -5699,7 +5699,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/checkItems",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/checkItems",
     "path": [
      "idChecklist"
     ],
@@ -5739,7 +5739,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/checklists/{idChecklist}/checkItems/{idCheckItem}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/checkItems/{idCheckItem}",
     "path": [
      "idChecklist",
      "idCheckItem"
@@ -5774,7 +5774,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/labels/{idLabel}/board",
+    "url": "https://api.trello.com/1/labels/{idLabel}/board",
     "path": [
      "idLabel"
     ],
@@ -5809,7 +5809,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/labels/{idLabel}/board/{field}",
+    "url": "https://api.trello.com/1/labels/{idLabel}/board/{field}",
     "path": [
      "idLabel",
      "field"
@@ -5842,7 +5842,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/labels/{idLabel}",
+    "url": "https://api.trello.com/1/labels/{idLabel}",
     "path": [
      "idLabel"
     ],
@@ -5928,7 +5928,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/actions",
+    "url": "https://api.trello.com/1/lists/{idList}/actions",
     "path": [
      "idList"
     ],
@@ -5975,7 +5975,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/board",
+    "url": "https://api.trello.com/1/lists/{idList}/board",
     "path": [
      "idList"
     ],
@@ -6010,7 +6010,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/board/{field}",
+    "url": "https://api.trello.com/1/lists/{idList}/board/{field}",
     "path": [
      "idList",
      "field"
@@ -6059,7 +6059,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}",
+    "url": "https://api.trello.com/1/lists/{idList}",
     "path": [
      "idList"
     ],
@@ -6098,7 +6098,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/{field}",
+    "url": "https://api.trello.com/1/lists/{idList}/{field}",
     "path": [
      "idList",
      "field"
@@ -6179,7 +6179,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/cards",
+    "url": "https://api.trello.com/1/lists/{idList}/cards",
     "path": [
      "idList"
     ],
@@ -6226,7 +6226,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/lists/{idList}/cards/{filter}",
+    "url": "https://api.trello.com/1/lists/{idList}/cards/{filter}",
     "path": [
      "idList",
      "filter"
@@ -6311,7 +6311,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/actions",
+    "url": "https://api.trello.com/1/members/{idMember}/actions",
     "path": [
      "idMember"
     ],
@@ -6358,7 +6358,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardBackgrounds",
+    "url": "https://api.trello.com/1/members/{idMember}/boardBackgrounds",
     "path": [
      "idMember"
     ],
@@ -6397,7 +6397,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -6428,7 +6428,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardStars",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars",
     "path": [
      "idMember"
     ],
@@ -6461,7 +6461,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardStars/{idBoardStar}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars/{idBoardStar}",
     "path": [
      "idMember",
      "idBoardStar"
@@ -6538,7 +6538,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boards",
+    "url": "https://api.trello.com/1/members/{idMember}/boards",
     "path": [
      "idMember"
     ],
@@ -6584,7 +6584,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boards/{filter}",
+    "url": "https://api.trello.com/1/members/{idMember}/boards/{filter}",
     "path": [
      "idMember",
      "filter"
@@ -6617,7 +6617,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardsInvited",
+    "url": "https://api.trello.com/1/members/{idMember}/boardsInvited",
     "path": [
      "idMember"
     ],
@@ -6652,7 +6652,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/boardsInvited/{field}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardsInvited/{field}",
     "path": [
      "idMember",
      "field"
@@ -6889,7 +6889,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}",
+    "url": "https://api.trello.com/1/members/{idMember}",
     "path": [
      "idMember"
     ],
@@ -6975,7 +6975,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/{field}",
+    "url": "https://api.trello.com/1/members/{idMember}/{field}",
     "path": [
      "idMember",
      "field"
@@ -7056,7 +7056,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/cards",
+    "url": "https://api.trello.com/1/members/{idMember}/cards",
     "path": [
      "idMember"
     ],
@@ -7103,7 +7103,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/cards/{filter}",
+    "url": "https://api.trello.com/1/members/{idMember}/cards/{filter}",
     "path": [
      "idMember",
      "filter"
@@ -7136,7 +7136,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customBoardBackgrounds",
+    "url": "https://api.trello.com/1/members/{idMember}/customBoardBackgrounds",
     "path": [
      "idMember"
     ],
@@ -7175,7 +7175,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -7210,7 +7210,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customEmoji",
+    "url": "https://api.trello.com/1/members/{idMember}/customEmoji",
     "path": [
      "idMember"
     ],
@@ -7249,7 +7249,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customEmoji/{idCustomEmoji}",
+    "url": "https://api.trello.com/1/members/{idMember}/customEmoji/{idCustomEmoji}",
     "path": [
      "idMember",
      "idCustomEmoji"
@@ -7284,7 +7284,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customStickers",
+    "url": "https://api.trello.com/1/members/{idMember}/customStickers",
     "path": [
      "idMember"
     ],
@@ -7323,7 +7323,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/customStickers/{idCustomSticker}",
+    "url": "https://api.trello.com/1/members/{idMember}/customStickers/{idCustomSticker}",
     "path": [
      "idMember",
      "idCustomSticker"
@@ -7364,7 +7364,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/deltas",
+    "url": "https://api.trello.com/1/members/{idMember}/deltas",
     "path": [
      "idMember"
     ],
@@ -7439,7 +7439,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/notifications",
+    "url": "https://api.trello.com/1/members/{idMember}/notifications",
     "path": [
      "idMember"
     ],
@@ -7484,7 +7484,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/notifications/{filter}",
+    "url": "https://api.trello.com/1/members/{idMember}/notifications/{filter}",
     "path": [
      "idMember",
      "filter"
@@ -7525,7 +7525,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/organizations",
+    "url": "https://api.trello.com/1/members/{idMember}/organizations",
     "path": [
      "idMember"
     ],
@@ -7562,7 +7562,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/organizations/{filter}",
+    "url": "https://api.trello.com/1/members/{idMember}/organizations/{filter}",
     "path": [
      "idMember",
      "filter"
@@ -7595,7 +7595,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/organizationsInvited",
+    "url": "https://api.trello.com/1/members/{idMember}/organizationsInvited",
     "path": [
      "idMember"
     ],
@@ -7630,7 +7630,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/organizationsInvited/{field}",
+    "url": "https://api.trello.com/1/members/{idMember}/organizationsInvited/{field}",
     "path": [
      "idMember",
      "field"
@@ -7659,7 +7659,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches",
     "path": [
      "idMember"
     ],
@@ -7692,7 +7692,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -7725,7 +7725,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/members/{idMember}/tokens",
+    "url": "https://api.trello.com/1/members/{idMember}/tokens",
     "path": [
      "idMember"
     ],
@@ -7759,7 +7759,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/board",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/board",
     "path": [
      "idNotification"
     ],
@@ -7794,7 +7794,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/board/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/board/{field}",
     "path": [
      "idNotification",
      "field"
@@ -7879,7 +7879,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}",
     "path": [
      "idNotification"
     ],
@@ -7927,7 +7927,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/{field}",
     "path": [
      "idNotification",
      "field"
@@ -7960,7 +7960,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/card",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/card",
     "path": [
      "idNotification"
     ],
@@ -7995,7 +7995,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/card/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/card/{field}",
     "path": [
      "idNotification",
      "field"
@@ -8024,7 +8024,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/display",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/display",
     "path": [
      "idNotification"
     ],
@@ -8052,7 +8052,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/entities",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/entities",
     "path": [
      "idNotification"
     ],
@@ -8084,7 +8084,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/list",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/list",
     "path": [
      "idNotification"
     ],
@@ -8119,7 +8119,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/list/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/list/{field}",
     "path": [
      "idNotification",
      "field"
@@ -8152,7 +8152,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/member",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/member",
     "path": [
      "idNotification"
     ],
@@ -8187,7 +8187,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/member/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/member/{field}",
     "path": [
      "idNotification",
      "field"
@@ -8220,7 +8220,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/memberCreator",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/memberCreator",
     "path": [
      "idNotification"
     ],
@@ -8255,7 +8255,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/memberCreator/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/memberCreator/{field}",
     "path": [
      "idNotification",
      "field"
@@ -8288,7 +8288,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/organization",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/organization",
     "path": [
      "idNotification"
     ],
@@ -8323,7 +8323,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/notifications/{idNotification}/organization/{field}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/organization/{field}",
     "path": [
      "idNotification",
      "field"
@@ -8408,7 +8408,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/actions",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/actions",
     "path": [
      "idOrg"
     ],
@@ -8499,7 +8499,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/boards",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/boards",
     "path": [
      "idOrg"
     ],
@@ -8545,7 +8545,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/boards/{filter}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/boards/{filter}",
     "path": [
      "idOrg",
      "filter"
@@ -8674,7 +8674,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}",
     "path": [
      "idOrg"
     ],
@@ -8733,7 +8733,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/{field}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/{field}",
     "path": [
      "idOrg",
      "field"
@@ -8772,7 +8772,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/deltas",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/deltas",
     "path": [
      "idOrg"
     ],
@@ -8815,7 +8815,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/members",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members",
     "path": [
      "idOrg"
     ],
@@ -8852,7 +8852,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{filter}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{filter}",
     "path": [
      "idOrg",
      "filter"
@@ -8938,7 +8938,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{idMember}/cards",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{idMember}/cards",
     "path": [
      "idOrg",
      "idMember"
@@ -8985,7 +8985,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/membersInvited",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/membersInvited",
     "path": [
      "idOrg"
     ],
@@ -9020,7 +9020,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/membersInvited/{field}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/membersInvited/{field}",
     "path": [
      "idOrg",
      "field"
@@ -9061,7 +9061,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/memberships",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/memberships",
     "path": [
      "idOrg"
     ],
@@ -9106,7 +9106,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/organizations/{idOrg}/memberships/{idMembership}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/memberships/{idMembership}",
     "path": [
      "idOrg",
      "idMembership"
@@ -9215,7 +9215,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/search",
+    "url": "https://api.trello.com/1/search",
     "path": [],
     "query": [
      "query",
@@ -9278,7 +9278,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/search/members",
+    "url": "https://api.trello.com/1/search/members",
     "path": [],
     "query": [
      "query",
@@ -9303,7 +9303,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/sessions/socket",
+    "url": "https://api.trello.com/1/sessions/socket",
     "path": [],
     "query": [],
     "header": [],
@@ -9331,7 +9331,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}",
+    "url": "https://api.trello.com/1/tokens/{token}",
     "path": [],
     "query": [
      "fields",
@@ -9360,7 +9360,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}/{field}",
+    "url": "https://api.trello.com/1/tokens/{token}/{field}",
     "path": [
      "field"
     ],
@@ -9386,7 +9386,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}/member",
+    "url": "https://api.trello.com/1/tokens/{token}/member",
     "path": [],
     "query": [
      "fields"
@@ -9414,7 +9414,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}/member/{field}",
+    "url": "https://api.trello.com/1/tokens/{token}/member/{field}",
     "path": [
      "field"
     ],
@@ -9435,7 +9435,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}/webhooks",
+    "url": "https://api.trello.com/1/tokens/{token}/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -9461,7 +9461,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/tokens/{token}/webhooks/{idWebhook}",
+    "url": "https://api.trello.com/1/tokens/{token}/webhooks/{idWebhook}",
     "path": [
      "idWebhook"
     ],
@@ -9489,7 +9489,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/types/{id}",
+    "url": "https://api.trello.com/1/types/{id}",
     "path": [
      "id"
     ],
@@ -9517,7 +9517,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/webhooks/{idWebhook}",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}",
     "path": [
      "idWebhook"
     ],
@@ -9550,7 +9550,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.trello.com/webhooks/{idWebhook}/{field}",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}/{field}",
     "path": [
      "idWebhook",
      "field"
@@ -9583,7 +9583,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/actions/{idAction}",
+    "url": "https://api.trello.com/1/actions/{idAction}",
     "path": [
      "idAction"
     ],
@@ -9617,7 +9617,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/actions/{idAction}/text",
+    "url": "https://api.trello.com/1/actions/{idAction}/text",
     "path": [
      "idAction"
     ],
@@ -9771,7 +9771,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}",
+    "url": "https://api.trello.com/1/boards/{idBoard}",
     "path": [
      "idBoard"
     ],
@@ -9835,7 +9835,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/closed",
+    "url": "https://api.trello.com/1/boards/{idBoard}/closed",
     "path": [
      "idBoard"
     ],
@@ -9869,7 +9869,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/desc",
+    "url": "https://api.trello.com/1/boards/{idBoard}/desc",
     "path": [
      "idBoard"
     ],
@@ -9903,7 +9903,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/idOrganization",
+    "url": "https://api.trello.com/1/boards/{idBoard}/idOrganization",
     "path": [
      "idBoard"
     ],
@@ -9937,7 +9937,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/blue",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/blue",
     "path": [
      "idBoard"
     ],
@@ -9971,7 +9971,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/green",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/green",
     "path": [
      "idBoard"
     ],
@@ -10005,7 +10005,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/orange",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/orange",
     "path": [
      "idBoard"
     ],
@@ -10039,7 +10039,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/purple",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/purple",
     "path": [
      "idBoard"
     ],
@@ -10073,7 +10073,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/red",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/red",
     "path": [
      "idBoard"
     ],
@@ -10107,7 +10107,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/labelNames/yellow",
+    "url": "https://api.trello.com/1/boards/{idBoard}/labelNames/yellow",
     "path": [
      "idBoard"
     ],
@@ -10137,7 +10137,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/members",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members",
     "path": [
      "idBoard"
     ],
@@ -10170,7 +10170,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/members/{idMember}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/members/{idMember}",
     "path": [
      "idBoard",
      "idMember"
@@ -10212,7 +10212,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/memberships/{idMembership}",
+    "url": "https://api.trello.com/1/boards/{idBoard}/memberships/{idMembership}",
     "path": [
      "idBoard",
      "idMembership"
@@ -10248,7 +10248,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/emailPosition",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/emailPosition",
     "path": [
      "idBoard"
     ],
@@ -10282,7 +10282,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/idEmailList",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/idEmailList",
     "path": [
      "idBoard"
     ],
@@ -10316,7 +10316,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/showListGuide",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/showListGuide",
     "path": [
      "idBoard"
     ],
@@ -10350,7 +10350,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/showSidebarActivity",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/showSidebarActivity",
     "path": [
      "idBoard"
     ],
@@ -10384,7 +10384,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/showSidebarBoardActions",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/showSidebarBoardActions",
     "path": [
      "idBoard"
     ],
@@ -10418,7 +10418,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/showSidebar",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/showSidebar",
     "path": [
      "idBoard"
     ],
@@ -10452,7 +10452,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/myPrefs/showSidebarMembers",
+    "url": "https://api.trello.com/1/boards/{idBoard}/myPrefs/showSidebarMembers",
     "path": [
      "idBoard"
     ],
@@ -10486,7 +10486,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/name",
+    "url": "https://api.trello.com/1/boards/{idBoard}/name",
     "path": [
      "idBoard"
     ],
@@ -10520,7 +10520,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/background",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/background",
     "path": [
      "idBoard"
     ],
@@ -10554,7 +10554,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/calendarFeedEnabled",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/calendarFeedEnabled",
     "path": [
      "idBoard"
     ],
@@ -10588,7 +10588,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/cardAging",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/cardAging",
     "path": [
      "idBoard"
     ],
@@ -10622,7 +10622,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/cardCovers",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/cardCovers",
     "path": [
      "idBoard"
     ],
@@ -10656,7 +10656,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/comments",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/comments",
     "path": [
      "idBoard"
     ],
@@ -10690,7 +10690,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/invitations",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/invitations",
     "path": [
      "idBoard"
     ],
@@ -10720,7 +10720,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/permissionLevel",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/permissionLevel",
     "path": [
      "idBoard"
     ],
@@ -10752,7 +10752,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/selfJoin",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/selfJoin",
     "path": [
      "idBoard"
     ],
@@ -10786,7 +10786,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/prefs/voting",
+    "url": "https://api.trello.com/1/boards/{idBoard}/prefs/voting",
     "path": [
      "idBoard"
     ],
@@ -10820,7 +10820,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/boards/{idBoard}/subscribed",
+    "url": "https://api.trello.com/1/boards/{idBoard}/subscribed",
     "path": [
      "idBoard"
     ],
@@ -10859,7 +10859,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/actions/{idAction}/comments",
+    "url": "https://api.trello.com/1/cards/{idCard}/actions/{idAction}/comments",
     "path": [
      "idCard",
      "idAction"
@@ -10954,7 +10954,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}",
+    "url": "https://api.trello.com/1/cards/{idCard}",
     "path": [
      "idCard"
     ],
@@ -11025,7 +11025,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklistCurrent}/checkItem/{idCheckItem}",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklistCurrent}/checkItem/{idCheckItem}",
     "path": [
      "idCard",
      "idChecklistCurrent",
@@ -11074,7 +11074,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/name",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/name",
     "path": [
      "idCard",
      "idChecklist",
@@ -11120,7 +11120,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/pos",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/pos",
     "path": [
      "idCard",
      "idChecklist",
@@ -11166,7 +11166,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/state",
+    "url": "https://api.trello.com/1/cards/{idCard}/checklist/{idChecklist}/checkItem/{idCheckItem}/state",
     "path": [
      "idCard",
      "idChecklist",
@@ -11202,7 +11202,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/closed",
+    "url": "https://api.trello.com/1/cards/{idCard}/closed",
     "path": [
      "idCard"
     ],
@@ -11236,7 +11236,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/desc",
+    "url": "https://api.trello.com/1/cards/{idCard}/desc",
     "path": [
      "idCard"
     ],
@@ -11270,7 +11270,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/due",
+    "url": "https://api.trello.com/1/cards/{idCard}/due",
     "path": [
      "idCard"
     ],
@@ -11304,7 +11304,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/idAttachmentCover",
+    "url": "https://api.trello.com/1/cards/{idCard}/idAttachmentCover",
     "path": [
      "idCard"
     ],
@@ -11342,7 +11342,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/idBoard",
+    "url": "https://api.trello.com/1/cards/{idCard}/idBoard",
     "path": [
      "idCard"
     ],
@@ -11377,7 +11377,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/idList",
+    "url": "https://api.trello.com/1/cards/{idCard}/idList",
     "path": [
      "idCard"
     ],
@@ -11411,7 +11411,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/idMembers",
+    "url": "https://api.trello.com/1/cards/{idCard}/idMembers",
     "path": [
      "idCard"
     ],
@@ -11453,7 +11453,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/labels",
+    "url": "https://api.trello.com/1/cards/{idCard}/labels",
     "path": [
      "idCard"
     ],
@@ -11489,7 +11489,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/name",
+    "url": "https://api.trello.com/1/cards/{idCard}/name",
     "path": [
      "idCard"
     ],
@@ -11523,7 +11523,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/pos",
+    "url": "https://api.trello.com/1/cards/{idCard}/pos",
     "path": [
      "idCard"
     ],
@@ -11578,7 +11578,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/stickers/{idSticker}",
+    "url": "https://api.trello.com/1/cards/{idCard}/stickers/{idSticker}",
     "path": [
      "idCard",
      "idSticker"
@@ -11617,7 +11617,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/cards/{idCard}/subscribed",
+    "url": "https://api.trello.com/1/cards/{idCard}/subscribed",
     "path": [
      "idCard"
     ],
@@ -11667,7 +11667,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/checklists/{idChecklist}",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}",
     "path": [
      "idChecklist"
     ],
@@ -11705,7 +11705,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/checklists/{idChecklist}/idCard",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/idCard",
     "path": [
      "idChecklist"
     ],
@@ -11739,7 +11739,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/checklists/{idChecklist}/name",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/name",
     "path": [
      "idChecklist"
     ],
@@ -11773,7 +11773,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/checklists/{idChecklist}/pos",
+    "url": "https://api.trello.com/1/checklists/{idChecklist}/pos",
     "path": [
      "idChecklist"
     ],
@@ -11815,7 +11815,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/labels/{idLabel}",
+    "url": "https://api.trello.com/1/labels/{idLabel}",
     "path": [
      "idLabel"
     ],
@@ -11851,7 +11851,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/labels/{idLabel}/color",
+    "url": "https://api.trello.com/1/labels/{idLabel}/color",
     "path": [
      "idLabel"
     ],
@@ -11885,7 +11885,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/labels/{idLabel}/name",
+    "url": "https://api.trello.com/1/labels/{idLabel}/name",
     "path": [
      "idLabel"
     ],
@@ -11939,7 +11939,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}",
+    "url": "https://api.trello.com/1/lists/{idList}",
     "path": [
      "idList"
     ],
@@ -11978,7 +11978,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}/closed",
+    "url": "https://api.trello.com/1/lists/{idList}/closed",
     "path": [
      "idList"
     ],
@@ -12016,7 +12016,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}/idBoard",
+    "url": "https://api.trello.com/1/lists/{idList}/idBoard",
     "path": [
      "idList"
     ],
@@ -12051,7 +12051,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}/name",
+    "url": "https://api.trello.com/1/lists/{idList}/name",
     "path": [
      "idList"
     ],
@@ -12085,7 +12085,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}/pos",
+    "url": "https://api.trello.com/1/lists/{idList}/pos",
     "path": [
      "idList"
     ],
@@ -12119,7 +12119,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/lists/{idList}/subscribed",
+    "url": "https://api.trello.com/1/lists/{idList}/subscribed",
     "path": [
      "idList"
     ],
@@ -12153,7 +12153,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/avatarSource",
+    "url": "https://api.trello.com/1/members/{idMember}/avatarSource",
     "path": [
      "idMember"
     ],
@@ -12187,7 +12187,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/bio",
+    "url": "https://api.trello.com/1/members/{idMember}/bio",
     "path": [
      "idMember"
     ],
@@ -12234,7 +12234,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/boardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -12280,7 +12280,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/boardStars/{idBoardStar}",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars/{idBoardStar}",
     "path": [
      "idMember",
      "idBoardStar"
@@ -12321,7 +12321,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/boardStars/{idBoardStar}/idBoard",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars/{idBoardStar}/idBoard",
     "path": [
      "idMember",
      "idBoardStar"
@@ -12361,7 +12361,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/boardStars/{idBoardStar}/pos",
+    "url": "https://api.trello.com/1/members/{idMember}/boardStars/{idBoardStar}/pos",
     "path": [
      "idMember",
      "idBoardStar"
@@ -12424,7 +12424,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}",
+    "url": "https://api.trello.com/1/members/{idMember}",
     "path": [
      "idMember"
     ],
@@ -12478,7 +12478,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
+    "url": "https://api.trello.com/1/members/{idMember}/customBoardBackgrounds/{idBoardBackground}",
     "path": [
      "idMember",
      "idBoardBackground"
@@ -12515,7 +12515,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/fullName",
+    "url": "https://api.trello.com/1/members/{idMember}/fullName",
     "path": [
      "idMember"
     ],
@@ -12549,7 +12549,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/initials",
+    "url": "https://api.trello.com/1/members/{idMember}/initials",
     "path": [
      "idMember"
     ],
@@ -12583,7 +12583,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/prefs/colorBlind",
+    "url": "https://api.trello.com/1/members/{idMember}/prefs/colorBlind",
     "path": [
      "idMember"
     ],
@@ -12617,7 +12617,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/prefs/locale",
+    "url": "https://api.trello.com/1/members/{idMember}/prefs/locale",
     "path": [
      "idMember"
     ],
@@ -12651,7 +12651,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/prefs/minutesBetweenSummaries",
+    "url": "https://api.trello.com/1/members/{idMember}/prefs/minutesBetweenSummaries",
     "path": [
      "idMember"
     ],
@@ -12698,7 +12698,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -12740,7 +12740,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}/name",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}/name",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -12780,7 +12780,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}/pos",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}/pos",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -12820,7 +12820,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/savedSearches/{idSavedSearch}/query",
+    "url": "https://api.trello.com/1/members/{idMember}/savedSearches/{idSavedSearch}/query",
     "path": [
      "idMember",
      "idSavedSearch"
@@ -12855,7 +12855,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/members/{idMember}/username",
+    "url": "https://api.trello.com/1/members/{idMember}/username",
     "path": [
      "idMember"
     ],
@@ -12889,7 +12889,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/notifications/{idNotification}",
+    "url": "https://api.trello.com/1/notifications/{idNotification}",
     "path": [
      "idNotification"
     ],
@@ -12923,7 +12923,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/notifications/{idNotification}/unread",
+    "url": "https://api.trello.com/1/notifications/{idNotification}/unread",
     "path": [
      "idNotification"
     ],
@@ -13001,7 +13001,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}",
     "path": [
      "idOrg"
     ],
@@ -13046,7 +13046,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/desc",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/desc",
     "path": [
      "idOrg"
     ],
@@ -13080,7 +13080,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/displayName",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/displayName",
     "path": [
      "idOrg"
     ],
@@ -13110,7 +13110,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/members",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members",
     "path": [
      "idOrg"
     ],
@@ -13143,7 +13143,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{idMember}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{idMember}",
     "path": [
      "idOrg",
      "idMember"
@@ -13181,7 +13181,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/members/{idMember}/deactivated",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/members/{idMember}/deactivated",
     "path": [
      "idOrg",
      "idMember"
@@ -13225,7 +13225,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/memberships/{idMembership}",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/memberships/{idMembership}",
     "path": [
      "idOrg",
      "idMembership"
@@ -13261,7 +13261,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/name",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/name",
     "path": [
      "idOrg"
     ],
@@ -13295,7 +13295,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/associatedDomain",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/associatedDomain",
     "path": [
      "idOrg"
     ],
@@ -13325,7 +13325,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/boardVisibilityRestrict/org",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/boardVisibilityRestrict/org",
     "path": [
      "idOrg"
     ],
@@ -13353,7 +13353,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/boardVisibilityRestrict/private",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/boardVisibilityRestrict/private",
     "path": [
      "idOrg"
     ],
@@ -13381,7 +13381,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/boardVisibilityRestrict/public",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/boardVisibilityRestrict/public",
     "path": [
      "idOrg"
     ],
@@ -13413,7 +13413,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/externalMembersDisabled",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/externalMembersDisabled",
     "path": [
      "idOrg"
     ],
@@ -13447,7 +13447,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/googleAppsVersion",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/googleAppsVersion",
     "path": [
      "idOrg"
     ],
@@ -13481,7 +13481,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/orgInviteRestrict",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/orgInviteRestrict",
     "path": [
      "idOrg"
     ],
@@ -13511,7 +13511,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/prefs/permissionLevel",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/prefs/permissionLevel",
     "path": [
      "idOrg"
     ],
@@ -13543,7 +13543,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/organizations/{idOrg}/website",
+    "url": "https://api.trello.com/1/organizations/{idOrg}/website",
     "path": [
      "idOrg"
     ],
@@ -13581,7 +13581,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/sessions/{idSession}",
+    "url": "https://api.trello.com/1/sessions/{idSession}",
     "path": [
      "idSession"
     ],
@@ -13616,7 +13616,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/sessions/{idSession}/status",
+    "url": "https://api.trello.com/1/sessions/{idSession}/status",
     "path": [
      "idSession"
     ],
@@ -13652,7 +13652,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/tokens/{token}/webhooks",
+    "url": "https://api.trello.com/1/tokens/{token}/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -13675,7 +13675,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/",
+    "url": "https://api.trello.com/1/webhooks/",
     "path": [],
     "query": [],
     "header": [],
@@ -13705,7 +13705,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/{idWebhook}/active",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}/active",
     "path": [
      "idWebhook"
     ],
@@ -13735,7 +13735,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/{idWebhook}",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}",
     "path": [
      "idWebhook"
     ],
@@ -13767,7 +13767,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/{idWebhook}/callbackURL",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}/callbackURL",
     "path": [
      "idWebhook"
     ],
@@ -13801,7 +13801,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/{idWebhook}/description",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}/description",
     "path": [
      "idWebhook"
     ],
@@ -13835,7 +13835,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.trello.com/webhooks/{idWebhook}/idModel",
+    "url": "https://api.trello.com/1/webhooks/{idWebhook}/idModel",
     "path": [
      "idWebhook"
     ],

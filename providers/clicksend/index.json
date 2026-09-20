@@ -31,7 +31,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/account/usage/{year}/{month}/{type}",
+    "url": "https://rest.clicksend.com/v3/account/usage/{year}/{month}/{type}",
     "path": [
      "year",
      "month",
@@ -54,7 +54,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/fax/receipts",
+    "url": "https://rest.clicksend.com/v3/fax/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -73,7 +73,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/inbound",
+    "url": "https://rest.clicksend.com/v3/sms/inbound",
     "path": [],
     "query": [],
     "header": [],
@@ -99,7 +99,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/numbers/buy/{dedicated_number}",
+    "url": "https://rest.clicksend.com/v3/numbers/buy/{dedicated_number}",
     "path": [
      "dedicated_number"
     ],
@@ -149,7 +149,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/direct-mail/campaigns/price",
+    "url": "https://rest.clicksend.com/v3/post/direct-mail/campaigns/price",
     "path": [],
     "query": [],
     "header": [],
@@ -175,7 +175,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email-campaigns/price",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/price",
     "path": [],
     "query": [],
     "header": [],
@@ -215,7 +215,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms-campaigns/price",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/price",
     "path": [],
     "query": [],
     "header": [],
@@ -251,7 +251,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/postcards/price",
+    "url": "https://rest.clicksend.com/v3/post/postcards/price",
     "path": [],
     "query": [],
     "header": [],
@@ -280,7 +280,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/{message_id}/cancel",
+    "url": "https://rest.clicksend.com/v3/sms/{message_id}/cancel",
     "path": [
      "message_id"
     ],
@@ -308,7 +308,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/voice/{message_id}/cancel",
+    "url": "https://rest.clicksend.com/v3/voice/{message_id}/cancel",
     "path": [
      "message_id"
     ],
@@ -329,7 +329,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/mms/cancel-all",
+    "url": "https://rest.clicksend.com/v3/mms/cancel-all",
     "path": [],
     "query": [],
     "header": [],
@@ -348,7 +348,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/cancel-all",
+    "url": "https://rest.clicksend.com/v3/sms/cancel-all",
     "path": [],
     "query": [],
     "header": [],
@@ -367,7 +367,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/voice/cancel-all",
+    "url": "https://rest.clicksend.com/v3/voice/cancel-all",
     "path": [],
     "query": [],
     "header": [],
@@ -393,7 +393,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}/cancel",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{sms_campaign_id}/cancel",
     "path": [
      "sms_campaign_id"
     ],
@@ -421,7 +421,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}/cancel",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/{email_campaign_id}/cancel",
     "path": [
      "email_campaign_id"
     ],
@@ -449,7 +449,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/mms/{message_id}/cancel",
+    "url": "https://rest.clicksend.com/v3/mms/{message_id}/cancel",
     "path": [
      "message_id"
     ],
@@ -512,7 +512,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/account",
+    "url": "https://rest.clicksend.com/v3/account",
     "path": [],
     "query": [],
     "header": [],
@@ -612,7 +612,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/lists/{list_id}/contacts",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/contacts",
     "path": [
      "list_id"
     ],
@@ -657,7 +657,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/lists",
+    "url": "https://rest.clicksend.com/v3/lists",
     "path": [],
     "query": [],
     "header": [],
@@ -705,7 +705,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/fax/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/fax/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -767,7 +767,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/sms/inbound/",
+    "url": "https://rest.clicksend.com/v3/automations/sms/inbound/",
     "path": [],
     "query": [],
     "header": [],
@@ -850,7 +850,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/subaccounts",
+    "url": "https://rest.clicksend.com/v3/subaccounts",
     "path": [],
     "query": [],
     "header": [],
@@ -882,7 +882,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/return-addresses",
+    "url": "https://rest.clicksend.com/v3/post/return-addresses",
     "path": [],
     "query": [],
     "header": [],
@@ -913,7 +913,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/templates",
+    "url": "https://rest.clicksend.com/v3/sms/templates",
     "path": [],
     "query": [],
     "header": [],
@@ -946,7 +946,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/addresses",
+    "url": "https://rest.clicksend.com/v3/email/addresses",
     "path": [],
     "query": [],
     "header": [],
@@ -994,7 +994,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/delivery-issues",
+    "url": "https://rest.clicksend.com/v3/delivery-issues",
     "path": [],
     "query": [],
     "header": [],
@@ -1019,7 +1019,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email-campaigns/send",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/send",
     "path": [],
     "query": [],
     "header": [],
@@ -1049,7 +1049,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/email-sms",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms",
     "path": [],
     "query": [],
     "header": [],
@@ -1100,7 +1100,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/direct-mail/campaigns/send",
+    "url": "https://rest.clicksend.com/v3/post/direct-mail/campaigns/send",
     "path": [],
     "query": [],
     "header": [],
@@ -1138,7 +1138,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/templates",
+    "url": "https://rest.clicksend.com/v3/email/templates",
     "path": [],
     "query": [],
     "header": [],
@@ -1160,7 +1160,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/reseller/accounts",
+    "url": "https://rest.clicksend.com/v3/reseller/accounts",
     "path": [],
     "query": [],
     "header": [],
@@ -1226,7 +1226,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/reseller/accounts-public",
+    "url": "https://rest.clicksend.com/v3/reseller/accounts-public",
     "path": [],
     "query": [],
     "header": [],
@@ -1262,7 +1262,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms-stripped-strings",
     "path": [],
     "query": [],
     "header": [],
@@ -1290,7 +1290,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/receipts/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -1318,7 +1318,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -1351,7 +1351,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/contacts/{contact_id}",
     "path": [
      "list_id",
      "contact_id"
@@ -1380,7 +1380,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}",
     "path": [
      "list_id"
     ],
@@ -1408,7 +1408,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "url": "https://rest.clicksend.com/v3/subaccounts/{subaccount_id}",
     "path": [
      "subaccount_id"
     ],
@@ -1436,7 +1436,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/sms/templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/sms/templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -1464,7 +1464,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/email/addresses/{email_address_id}",
+    "url": "https://rest.clicksend.com/v3/email/addresses/{email_address_id}",
     "path": [
      "email_address_id"
     ],
@@ -1492,7 +1492,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/email/receipt/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -1520,7 +1520,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -1548,7 +1548,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -1576,7 +1576,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/voice/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -1604,7 +1604,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/email/templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -1632,7 +1632,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms/{email_address_id}",
     "path": [
      "email_address_id"
     ],
@@ -1660,7 +1660,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "url": "https://rest.clicksend.com/v3/post/return-addresses/{return_address_id}",
     "path": [
      "return_address_id"
     ],
@@ -1688,7 +1688,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms-stripped-strings/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -1709,7 +1709,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/letters/detect-address",
+    "url": "https://rest.clicksend.com/v3/post/letters/detect-address",
     "path": [],
     "query": [],
     "header": [],
@@ -1728,7 +1728,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/history",
+    "url": "https://rest.clicksend.com/v3/email/history",
     "path": [],
     "query": [],
     "header": [],
@@ -1786,7 +1786,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/price",
+    "url": "https://rest.clicksend.com/v3/email/price",
     "path": [],
     "query": [],
     "header": [],
@@ -1851,7 +1851,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/send",
+    "url": "https://rest.clicksend.com/v3/email/send",
     "path": [],
     "query": [],
     "header": [],
@@ -1891,7 +1891,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists/{list_id}/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/export?filename={filename}",
     "path": [
      "filename",
      "list_id"
@@ -1920,7 +1920,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/fax/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/fax/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -1948,7 +1948,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/email/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -1976,7 +1976,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/mms/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/mms/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -2004,7 +2004,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/letters/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/post/letters/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -2032,7 +2032,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/postcards/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/post/postcards/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -2060,7 +2060,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/sms/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -2088,7 +2088,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/voice/history/export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/voice/history/export?filename={filename}",
     "path": [
      "filename"
     ],
@@ -2116,7 +2116,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms-stripped-strings/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -2144,7 +2144,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/forgot-password",
+    "url": "https://rest.clicksend.com/v3/forgot-password",
     "path": [],
     "query": [],
     "header": [],
@@ -2178,7 +2178,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/forgot-username",
+    "url": "https://rest.clicksend.com/v3/forgot-username",
     "path": [],
     "query": [],
     "header": [],
@@ -2213,7 +2213,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/contacts/{contact_id}",
     "path": [
      "list_id",
      "contact_id"
@@ -2242,7 +2242,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}",
     "path": [
      "list_id"
     ],
@@ -2270,7 +2270,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/receipts/{message_id}",
+    "url": "https://rest.clicksend.com/v3/sms/receipts/{message_id}",
     "path": [
      "message_id"
     ],
@@ -2298,7 +2298,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/fax/receipts/{message_id}",
+    "url": "https://rest.clicksend.com/v3/fax/receipts/{message_id}",
     "path": [
      "message_id"
     ],
@@ -2326,7 +2326,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/receipts/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -2354,7 +2354,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -2382,7 +2382,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "url": "https://rest.clicksend.com/v3/subaccounts/{subaccount_id}",
     "path": [
      "subaccount_id"
     ],
@@ -2410,7 +2410,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/recharge/transactions/{transaction_id}",
+    "url": "https://rest.clicksend.com/v3/recharge/transactions/{transaction_id}",
     "path": [
      "transaction_id"
     ],
@@ -2431,7 +2431,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/account",
+    "url": "https://rest.clicksend.com/v3/account",
     "path": [],
     "query": [],
     "header": [],
@@ -2450,7 +2450,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/addresses",
+    "url": "https://rest.clicksend.com/v3/email/addresses",
     "path": [],
     "query": [],
     "header": [],
@@ -2469,7 +2469,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists",
+    "url": "https://rest.clicksend.com/v3/lists",
     "path": [],
     "query": [],
     "header": [],
@@ -2495,7 +2495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists/{list_id}/contacts",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/contacts",
     "path": [
      "list_id"
     ],
@@ -2516,7 +2516,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/countries",
+    "url": "https://rest.clicksend.com/v3/countries",
     "path": [],
     "query": [],
     "header": [],
@@ -2535,7 +2535,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/numbers",
+    "url": "https://rest.clicksend.com/v3/numbers",
     "path": [],
     "query": [],
     "header": [],
@@ -2554,7 +2554,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/mms/receipts",
+    "url": "https://rest.clicksend.com/v3/mms/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -2573,7 +2573,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email-campaigns",
+    "url": "https://rest.clicksend.com/v3/email-campaigns",
     "path": [],
     "query": [],
     "header": [],
@@ -2592,7 +2592,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/templates",
+    "url": "https://rest.clicksend.com/v3/email/templates",
     "path": [],
     "query": [],
     "header": [],
@@ -2623,7 +2623,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/history?date_from={date_from}&date_to={date_to}",
+    "url": "https://rest.clicksend.com/v3/sms/history?date_from={date_from}&date_to={date_to}",
     "path": [
      "date_from",
      "date_to"
@@ -2645,7 +2645,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/inbound",
+    "url": "https://rest.clicksend.com/v3/sms/inbound",
     "path": [],
     "query": [],
     "header": [],
@@ -2664,7 +2664,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/master-templates",
+    "url": "https://rest.clicksend.com/v3/email/master-templates",
     "path": [],
     "query": [],
     "header": [],
@@ -2683,7 +2683,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/master-templates-categories",
+    "url": "https://rest.clicksend.com/v3/email/master-templates-categories",
     "path": [],
     "query": [],
     "header": [],
@@ -2702,7 +2702,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/subaccounts",
+    "url": "https://rest.clicksend.com/v3/subaccounts",
     "path": [],
     "query": [],
     "header": [],
@@ -2728,7 +2728,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/master-templates-categories/{category_id}/master-templates",
+    "url": "https://rest.clicksend.com/v3/email/master-templates-categories/{category_id}/master-templates",
     "path": [
      "category_id"
     ],
@@ -2749,7 +2749,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/email/receipt",
+    "url": "https://rest.clicksend.com/v3/automations/email/receipt",
     "path": [],
     "query": [],
     "header": [],
@@ -2775,7 +2775,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/email/receipt/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -2796,7 +2796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/fax/inbound",
+    "url": "https://rest.clicksend.com/v3/automations/fax/inbound",
     "path": [],
     "query": [],
     "header": [],
@@ -2822,7 +2822,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -2843,7 +2843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/sms/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/sms/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -2869,7 +2869,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -2890,7 +2890,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/voice/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/voice/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -2916,7 +2916,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/voice/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -2949,7 +2949,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/pricing/{country}?currency={currency}",
+    "url": "https://rest.clicksend.com/v3/pricing/{country}?currency={currency}",
     "path": [
      "country",
      "currency"
@@ -2971,7 +2971,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/recharge/credit-card",
+    "url": "https://rest.clicksend.com/v3/recharge/credit-card",
     "path": [],
     "query": [],
     "header": [],
@@ -2990,7 +2990,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/delivery-issues",
+    "url": "https://rest.clicksend.com/v3/delivery-issues",
     "path": [],
     "query": [],
     "header": [],
@@ -3016,7 +3016,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/mms/receipts/{message_id}",
+    "url": "https://rest.clicksend.com/v3/mms/receipts/{message_id}",
     "path": [
      "message_id"
     ],
@@ -3059,7 +3059,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/fax/history?date_from={date_from}&date_to={date_to}&q={q}&order_by={order_by}",
+    "url": "https://rest.clicksend.com/v3/fax/history?date_from={date_from}&date_to={date_to}&q={q}&order_by={order_by}",
     "path": [
      "date_from",
      "date_to",
@@ -3090,7 +3090,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/lists/{list_id}/import-fields",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/import-fields",
     "path": [
      "list_id"
     ],
@@ -3111,7 +3111,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/return-addresses",
+    "url": "https://rest.clicksend.com/v3/post/return-addresses",
     "path": [],
     "query": [],
     "header": [],
@@ -3130,7 +3130,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/referral/accounts",
+    "url": "https://rest.clicksend.com/v3/referral/accounts",
     "path": [],
     "query": [],
     "header": [],
@@ -3149,7 +3149,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms-campaigns",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns",
     "path": [],
     "query": [],
     "header": [],
@@ -3190,7 +3190,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/mms/history?q={q}&order_by={order_by}&date_from={date_from}&date_to={date_to}",
+    "url": "https://rest.clicksend.com/v3/mms/history?q={q}&order_by={order_by}&date_from={date_from}&date_to={date_to}",
     "path": [
      "q",
      "order_by",
@@ -3214,7 +3214,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/letters/history",
+    "url": "https://rest.clicksend.com/v3/post/letters/history",
     "path": [],
     "query": [],
     "header": [],
@@ -3240,7 +3240,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "url": "https://rest.clicksend.com/v3/post/return-addresses/{return_address_id}",
     "path": [
      "return_address_id"
     ],
@@ -3261,7 +3261,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/postcards/history",
+    "url": "https://rest.clicksend.com/v3/post/postcards/history",
     "path": [],
     "query": [],
     "header": [],
@@ -3330,7 +3330,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/mms/price",
+    "url": "https://rest.clicksend.com/v3/mms/price",
     "path": [],
     "query": [],
     "header": [],
@@ -3368,7 +3368,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/reseller/accounts/{client_user_id}",
+    "url": "https://rest.clicksend.com/v3/reseller/accounts/{client_user_id}",
     "path": [
      "client_user_id"
     ],
@@ -3389,7 +3389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/reseller",
+    "url": "https://rest.clicksend.com/v3/reseller",
     "path": [],
     "query": [],
     "header": [],
@@ -3415,7 +3415,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{sms_campaign_id}",
     "path": [
      "sms_campaign_id"
     ],
@@ -3436,7 +3436,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/receipts",
+    "url": "https://rest.clicksend.com/v3/sms/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -3455,7 +3455,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/statistics/sms",
+    "url": "https://rest.clicksend.com/v3/statistics/sms",
     "path": [],
     "query": [],
     "header": [],
@@ -3481,7 +3481,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/addresses/{email_address_id}",
+    "url": "https://rest.clicksend.com/v3/email/addresses/{email_address_id}",
     "path": [
      "email_address_id"
     ],
@@ -3509,7 +3509,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/{email_campaign_id}",
     "path": [
      "email_campaign_id"
     ],
@@ -3537,7 +3537,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email-campaigns/{campaign_id}/history",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/{campaign_id}/history",
     "path": [
      "campaign_id"
     ],
@@ -3565,7 +3565,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/email/templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3593,7 +3593,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/master-templates-categories/{category_id}",
+    "url": "https://rest.clicksend.com/v3/email/master-templates-categories/{category_id}",
     "path": [
      "category_id"
     ],
@@ -3621,7 +3621,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms/{email_address_id}",
     "path": [
      "email_address_id"
     ],
@@ -3649,7 +3649,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/inbound/{outbound_message_id}",
+    "url": "https://rest.clicksend.com/v3/sms/inbound/{outbound_message_id}",
     "path": [
      "outbound_message_id"
     ],
@@ -3677,7 +3677,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/email/master-templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/email/master-templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3705,7 +3705,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/voice/receipts/{message_id}",
+    "url": "https://rest.clicksend.com/v3/voice/receipts/{message_id}",
     "path": [
      "message_id"
     ],
@@ -3726,7 +3726,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/timezones",
+    "url": "https://rest.clicksend.com/v3/timezones",
     "path": [],
     "query": [],
     "header": [],
@@ -3745,7 +3745,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/recharge/transactions",
+    "url": "https://rest.clicksend.com/v3/recharge/transactions",
     "path": [],
     "query": [],
     "header": [],
@@ -3776,7 +3776,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/voice/history?date_from={date_from}&date_to={date_to}",
+    "url": "https://rest.clicksend.com/v3/voice/history?date_from={date_from}&date_to={date_to}",
     "path": [
      "date_from",
      "date_to"
@@ -3798,7 +3798,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/voice/receipts",
+    "url": "https://rest.clicksend.com/v3/voice/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -3817,7 +3817,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/statistics/voice",
+    "url": "https://rest.clicksend.com/v3/statistics/voice",
     "path": [],
     "query": [],
     "header": [],
@@ -3853,7 +3853,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/lists/{list_id}/import",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/import",
     "path": [
      "list_id"
     ],
@@ -3884,7 +3884,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-statistics",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{campaign_id}/link-statistics",
     "path": [
      "campaign_id"
     ],
@@ -3912,7 +3912,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-tracking",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{campaign_id}/link-tracking",
     "path": [
      "campaign_id"
     ],
@@ -3945,7 +3945,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-export?filename={filename}",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{campaign_id}/link-export?filename={filename}",
     "path": [
      "campaign_id",
      "filename"
@@ -3967,7 +3967,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/contact-suggestions",
+    "url": "https://rest.clicksend.com/v3/contact-suggestions",
     "path": [],
     "query": [],
     "header": [],
@@ -3986,7 +3986,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/direct-mail/campaigns",
+    "url": "https://rest.clicksend.com/v3/post/direct-mail/campaigns",
     "path": [],
     "query": [],
     "header": [],
@@ -4005,7 +4005,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/email-sms",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms",
     "path": [],
     "query": [],
     "header": [],
@@ -4024,7 +4024,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/fax/receipts",
+    "url": "https://rest.clicksend.com/v3/fax/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4050,7 +4050,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/recharge/packages?country={country}",
+    "url": "https://rest.clicksend.com/v3/recharge/packages?country={country}",
     "path": [
      "country"
     ],
@@ -4071,7 +4071,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/reseller/accounts",
+    "url": "https://rest.clicksend.com/v3/reseller/accounts",
     "path": [],
     "query": [],
     "header": [],
@@ -4090,7 +4090,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/templates",
+    "url": "https://rest.clicksend.com/v3/sms/templates",
     "path": [],
     "query": [],
     "header": [],
@@ -4109,7 +4109,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/fax/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/fax/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4128,7 +4128,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/automations/sms/inbound",
+    "url": "https://rest.clicksend.com/v3/automations/sms/inbound",
     "path": [],
     "query": [],
     "header": [],
@@ -4147,7 +4147,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms-stripped-strings",
     "path": [],
     "query": [],
     "header": [],
@@ -4173,7 +4173,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/inbound-read/{message_id}",
+    "url": "https://rest.clicksend.com/v3/sms/inbound-read/{message_id}",
     "path": [
      "message_id"
     ],
@@ -4201,7 +4201,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/inbound-read",
+    "url": "https://rest.clicksend.com/v3/sms/inbound-read",
     "path": [],
     "query": [],
     "header": [],
@@ -4227,7 +4227,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/receipts-read",
+    "url": "https://rest.clicksend.com/v3/sms/receipts-read",
     "path": [],
     "query": [],
     "header": [],
@@ -4253,7 +4253,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/fax/receipts-read",
+    "url": "https://rest.clicksend.com/v3/fax/receipts-read",
     "path": [],
     "query": [],
     "header": [],
@@ -4274,7 +4274,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/mms/receipts-read",
+    "url": "https://rest.clicksend.com/v3/mms/receipts-read",
     "path": [],
     "query": [],
     "header": [],
@@ -4300,7 +4300,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/voice/receipts-read?date_before={date_before}",
+    "url": "https://rest.clicksend.com/v3/voice/receipts-read?date_before={date_before}",
     "path": [
      "date_before"
     ],
@@ -4348,7 +4348,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/email/receipt",
+    "url": "https://rest.clicksend.com/v3/automations/email/receipt",
     "path": [],
     "query": [],
     "header": [],
@@ -4373,7 +4373,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/fax/inbound",
+    "url": "https://rest.clicksend.com/v3/automations/fax/inbound",
     "path": [],
     "query": [],
     "header": [],
@@ -4392,7 +4392,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/sms/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/sms/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4411,7 +4411,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/automations/voice/receipts",
+    "url": "https://rest.clicksend.com/v3/automations/voice/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4430,7 +4430,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/receipts",
+    "url": "https://rest.clicksend.com/v3/email/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4449,7 +4449,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/fax/price",
+    "url": "https://rest.clicksend.com/v3/fax/price",
     "path": [],
     "query": [],
     "header": [],
@@ -4495,7 +4495,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/letters/price",
+    "url": "https://rest.clicksend.com/v3/post/letters/price",
     "path": [],
     "query": [],
     "header": [],
@@ -4557,7 +4557,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/price",
+    "url": "https://rest.clicksend.com/v3/sms/price",
     "path": [],
     "query": [],
     "header": [],
@@ -4585,7 +4585,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/receipts",
+    "url": "https://rest.clicksend.com/v3/sms/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4649,7 +4649,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/voice/price",
+    "url": "https://rest.clicksend.com/v3/voice/price",
     "path": [],
     "query": [],
     "header": [],
@@ -4679,7 +4679,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/voice/receipts",
+    "url": "https://rest.clicksend.com/v3/voice/receipts",
     "path": [],
     "query": [],
     "header": [],
@@ -4705,7 +4705,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/recharge/purchase/{package_id}",
+    "url": "https://rest.clicksend.com/v3/recharge/purchase/{package_id}",
     "path": [
      "package_id"
     ],
@@ -4753,7 +4753,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/email/receipt/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -4787,7 +4787,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -4815,7 +4815,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -4843,7 +4843,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/voice/receipts/{receipt_rule_id}",
     "path": [
      "receipt_rule_id"
     ],
@@ -4871,7 +4871,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}/regen-api-key",
+    "url": "https://rest.clicksend.com/v3/subaccounts/{subaccount_id}/regen-api-key",
     "path": [
      "subaccount_id"
     ],
@@ -4904,7 +4904,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/lists/{list_id}/remove-duplicates",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/remove-duplicates",
     "path": [
      "list_id"
     ],
@@ -4939,7 +4939,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/lists/{list_id}/remove-opted-out-contacts/{opt_out_list_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/remove-opted-out-contacts/{opt_out_list_id}",
     "path": [
      "list_id",
      "opt_out_list_id"
@@ -4968,7 +4968,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/reseller/{subdomain}",
+    "url": "https://rest.clicksend.com/v3/reseller/{subdomain}",
     "path": [
      "subdomain"
     ],
@@ -4996,7 +4996,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/sdk-download/{type}",
+    "url": "https://rest.clicksend.com/v3/sdk-download/{type}",
     "path": [
      "type"
     ],
@@ -5024,7 +5024,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/search/contacts-lists?q={q}",
+    "url": "https://rest.clicksend.com/v3/search/contacts-lists?q={q}",
     "path": [
      "q"
     ],
@@ -5062,7 +5062,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/numbers/search/{country}?{search}=1&{search_type}=2",
+    "url": "https://rest.clicksend.com/v3/numbers/search/{country}?{search}=1&{search_type}=2",
     "path": [
      "country",
      "search",
@@ -5097,7 +5097,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/post/direct-mail/locations/search/{country}/?q={query}",
+    "url": "https://rest.clicksend.com/v3/post/direct-mail/locations/search/{country}/?q={query}",
     "path": [
      "country",
      "query"
@@ -5168,7 +5168,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/voice/send",
+    "url": "https://rest.clicksend.com/v3/voice/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5212,7 +5212,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/account-verify/send",
+    "url": "https://rest.clicksend.com/v3/account-verify/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5275,7 +5275,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms/send",
+    "url": "https://rest.clicksend.com/v3/sms/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5304,7 +5304,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/fax/send",
+    "url": "https://rest.clicksend.com/v3/fax/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5373,7 +5373,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/mms/send",
+    "url": "https://rest.clicksend.com/v3/mms/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5431,7 +5431,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/letters/send",
+    "url": "https://rest.clicksend.com/v3/post/letters/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5469,7 +5469,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/post/postcards/send",
+    "url": "https://rest.clicksend.com/v3/post/postcards/send",
     "path": [],
     "query": [],
     "header": [],
@@ -5498,7 +5498,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/email/address-verify/{email_address_id}/send",
+    "url": "https://rest.clicksend.com/v3/email/address-verify/{email_address_id}/send",
     "path": [
      "email_address_id"
     ],
@@ -5531,7 +5531,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/lists/{list_id}/import-csv-preview",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/import-csv-preview",
     "path": [
      "list_id"
     ],
@@ -5571,7 +5571,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/lists/{from_list_id}/contacts/{contact_id}/{to_list_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{from_list_id}/contacts/{contact_id}/{to_list_id}",
     "path": [
      "from_list_id",
      "contact_id",
@@ -5611,7 +5611,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/reseller/transfer-credit",
+    "url": "https://rest.clicksend.com/v3/reseller/transfer-credit",
     "path": [],
     "query": [],
     "header": [],
@@ -5661,7 +5661,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/fax/receipts/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -5725,7 +5725,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "url": "https://rest.clicksend.com/v3/automations/sms/inbound/{inbound_rule_id}",
     "path": [
      "inbound_rule_id"
     ],
@@ -5829,7 +5829,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}/contacts/{contact_id}",
     "path": [
      "list_id",
      "contact_id"
@@ -5879,7 +5879,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "url": "https://rest.clicksend.com/v3/lists/{list_id}",
     "path": [
      "list_id"
     ],
@@ -5953,7 +5953,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "url": "https://rest.clicksend.com/v3/subaccounts/{subaccount_id}",
     "path": [
      "subaccount_id"
     ],
@@ -6003,7 +6003,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/sms/templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -6086,7 +6086,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/account",
+    "url": "https://rest.clicksend.com/v3/account",
     "path": [],
     "query": [],
     "header": [],
@@ -6135,7 +6135,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "url": "https://rest.clicksend.com/v3/email/templates/{template_id}",
     "path": [
      "template_id"
     ],
@@ -6189,7 +6189,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/{sms_campaign_id}",
     "path": [
      "sms_campaign_id"
     ],
@@ -6246,7 +6246,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/recharge/credit-card",
+    "url": "https://rest.clicksend.com/v3/recharge/credit-card",
     "path": [],
     "query": [],
     "header": [],
@@ -6307,7 +6307,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}",
+    "url": "https://rest.clicksend.com/v3/email-campaigns/{email_campaign_id}",
     "path": [
      "email_campaign_id"
     ],
@@ -6352,7 +6352,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms/{email_address_id}",
     "path": [
      "email_address_id"
     ],
@@ -6383,7 +6383,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "url": "https://rest.clicksend.com/v3/post/return-addresses/{return_address_id}",
     "path": [
      "return_address_id"
     ],
@@ -6411,7 +6411,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/reseller/accounts/{client_user_id}",
+    "url": "https://rest.clicksend.com/v3/reseller/accounts/{client_user_id}",
     "path": [
      "client_user_id"
     ],
@@ -6479,7 +6479,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/reseller",
+    "url": "https://rest.clicksend.com/v3/reseller",
     "path": [],
     "query": [],
     "header": [],
@@ -6519,7 +6519,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "url": "https://rest.clicksend.com/v3/sms/email-sms-stripped-strings/{rule_id}",
     "path": [
      "rule_id"
     ],
@@ -6542,7 +6542,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/uploads?convert={convert}",
+    "url": "https://rest.clicksend.com/v3/uploads?convert={convert}",
     "path": [],
     "query": [],
     "header": [],
@@ -6576,7 +6576,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/email/templates-images/{template_id}",
+    "url": "https://rest.clicksend.com/v3/email/templates-images/{template_id}",
     "path": [
      "template_id"
     ],
@@ -6630,7 +6630,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://rest.clicksend.com/sms-campaigns/send",
+    "url": "https://rest.clicksend.com/v3/sms-campaigns/send",
     "path": [],
     "query": [],
     "header": [],
@@ -6668,7 +6668,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/email/address-verify/{email_address_id}/verify/{activation_token}",
+    "url": "https://rest.clicksend.com/v3/email/address-verify/{email_address_id}/verify/{activation_token}",
     "path": [
      "email_address_id",
      "activation_token"
@@ -6707,7 +6707,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/forgot-password/verify",
+    "url": "https://rest.clicksend.com/v3/forgot-password/verify",
     "path": [],
     "query": [],
     "header": [],
@@ -6737,7 +6737,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://rest.clicksend.com/account-verify/verify/{activation_token}",
+    "url": "https://rest.clicksend.com/v3/account-verify/verify/{activation_token}",
     "path": [
      "activation_token"
     ],
@@ -6758,7 +6758,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://rest.clicksend.com/voice/lang",
+    "url": "https://rest.clicksend.com/v3/voice/lang",
     "path": [],
     "query": [],
     "header": [],

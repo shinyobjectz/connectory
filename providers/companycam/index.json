@@ -21,7 +21,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.companycam.com/projects/{id}/archive",
+    "url": "https://api.companycam.com/v2/projects/{id}/archive",
     "path": [
      "id"
     ],
@@ -58,7 +58,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/projects/{project_id}/assigned_users/{user_id}",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/assigned_users/{user_id}",
     "path": [
      "project_id",
      "user_id"
@@ -91,7 +91,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/groups",
+    "url": "https://api.companycam.com/v2/groups",
     "path": [],
     "query": [],
     "header": [
@@ -125,7 +125,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/invitations",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/invitations",
     "path": [
      "project_id"
     ],
@@ -163,7 +163,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/photos/{photo_id}/comments",
+    "url": "https://api.companycam.com/v2/photos/{photo_id}/comments",
     "path": [
      "photo_id"
     ],
@@ -199,7 +199,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/photos/{photo_id}/tags",
+    "url": "https://api.companycam.com/v2/photos/{photo_id}/tags",
     "path": [
      "photo_id"
     ],
@@ -247,7 +247,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects",
+    "url": "https://api.companycam.com/v2/projects",
     "path": [],
     "query": [],
     "header": [
@@ -289,7 +289,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/checklists",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/checklists",
     "path": [
      "project_id"
     ],
@@ -329,7 +329,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/comments",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/comments",
     "path": [
      "project_id"
     ],
@@ -369,7 +369,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/documents",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/documents",
     "path": [
      "project_id"
     ],
@@ -405,7 +405,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/labels",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/labels",
     "path": [
      "project_id"
     ],
@@ -444,7 +444,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/projects/{project_id}/photos",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/photos",
     "path": [
      "project_id"
     ],
@@ -474,7 +474,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/tags",
+    "url": "https://api.companycam.com/v2/tags",
     "path": [],
     "query": [],
     "header": [],
@@ -504,7 +504,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/users",
+    "url": "https://api.companycam.com/v2/users",
     "path": [],
     "query": [],
     "header": [
@@ -540,7 +540,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/webhooks",
+    "url": "https://api.companycam.com/v2/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -570,7 +570,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/groups/{id}",
+    "url": "https://api.companycam.com/v2/groups/{id}",
     "path": [
      "id"
     ],
@@ -602,7 +602,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/photos/{id}",
+    "url": "https://api.companycam.com/v2/photos/{id}",
     "path": [
      "id"
     ],
@@ -632,7 +632,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/projects/{id}",
+    "url": "https://api.companycam.com/v2/projects/{id}",
     "path": [
      "id"
     ],
@@ -665,7 +665,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/projects/{project_id}/labels/{id}",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/labels/{id}",
     "path": [
      "id",
      "project_id"
@@ -694,7 +694,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/tags/{id}",
+    "url": "https://api.companycam.com/v2/tags/{id}",
     "path": [
      "id"
     ],
@@ -726,7 +726,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/users/{id}",
+    "url": "https://api.companycam.com/v2/users/{id}",
     "path": [
      "id"
     ],
@@ -756,7 +756,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/webhooks/{id}",
+    "url": "https://api.companycam.com/v2/webhooks/{id}",
     "path": [
      "id"
     ],
@@ -777,7 +777,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/company",
+    "url": "https://api.companycam.com/v2/company",
     "path": [],
     "query": [],
     "header": [],
@@ -796,7 +796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/users/current",
+    "url": "https://api.companycam.com/v2/users/current",
     "path": [],
     "query": [],
     "header": [],
@@ -822,7 +822,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/groups/{id}",
+    "url": "https://api.companycam.com/v2/groups/{id}",
     "path": [
      "id"
     ],
@@ -850,7 +850,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/photos/{id}",
+    "url": "https://api.companycam.com/v2/photos/{id}",
     "path": [
      "id"
     ],
@@ -878,7 +878,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{id}",
+    "url": "https://api.companycam.com/v2/projects/{id}",
     "path": [
      "id"
     ],
@@ -911,7 +911,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/checklists/{id}",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/checklists/{id}",
     "path": [
      "project_id",
      "id"
@@ -940,7 +940,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/tags/{id}",
+    "url": "https://api.companycam.com/v2/tags/{id}",
     "path": [
      "id"
     ],
@@ -968,7 +968,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/users/{id}",
+    "url": "https://api.companycam.com/v2/users/{id}",
     "path": [
      "id"
     ],
@@ -996,7 +996,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/videos/{id}",
+    "url": "https://api.companycam.com/v2/videos/{id}",
     "path": [
      "id"
     ],
@@ -1024,7 +1024,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/webhooks/{id}",
+    "url": "https://api.companycam.com/v2/webhooks/{id}",
     "path": [
      "id"
     ],
@@ -1045,7 +1045,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/templates/checklists",
+    "url": "https://api.companycam.com/v2/templates/checklists",
     "path": [],
     "query": [],
     "header": [],
@@ -1077,7 +1077,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/checklists",
+    "url": "https://api.companycam.com/v2/checklists",
     "path": [],
     "query": [
      "page",
@@ -1109,7 +1109,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/groups",
+    "url": "https://api.companycam.com/v2/groups",
     "path": [],
     "query": [
      "page",
@@ -1146,7 +1146,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/photos/{photo_id}/comments",
+    "url": "https://api.companycam.com/v2/photos/{photo_id}/comments",
     "path": [
      "photo_id"
     ],
@@ -1185,7 +1185,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/photos/{photo_id}/tags",
+    "url": "https://api.companycam.com/v2/photos/{photo_id}/tags",
     "path": [
      "photo_id"
     ],
@@ -1250,7 +1250,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/photos",
+    "url": "https://api.companycam.com/v2/photos",
     "path": [],
     "query": [
      "page",
@@ -1295,7 +1295,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/assigned_users",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/assigned_users",
     "path": [
      "project_id"
     ],
@@ -1326,7 +1326,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/checklists",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/checklists",
     "path": [
      "project_id"
     ],
@@ -1362,7 +1362,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/collaborators",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/collaborators",
     "path": [
      "project_id"
     ],
@@ -1401,7 +1401,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/comments",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/comments",
     "path": [
      "project_id"
     ],
@@ -1440,7 +1440,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/documents",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/documents",
     "path": [
      "project_id"
     ],
@@ -1479,7 +1479,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/invitations",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/invitations",
     "path": [
      "project_id"
     ],
@@ -1518,7 +1518,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/labels",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/labels",
     "path": [
      "project_id"
     ],
@@ -1585,7 +1585,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/photos",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/photos",
     "path": [
      "project_id"
     ],
@@ -1651,7 +1651,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects/{project_id}/videos",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/videos",
     "path": [
      "project_id"
     ],
@@ -1705,7 +1705,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/projects",
+    "url": "https://api.companycam.com/v2/projects",
     "path": [],
     "query": [
      "page",
@@ -1739,7 +1739,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/tags",
+    "url": "https://api.companycam.com/v2/tags",
     "path": [],
     "query": [
      "page",
@@ -1770,7 +1770,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/users",
+    "url": "https://api.companycam.com/v2/users",
     "path": [],
     "query": [
      "page",
@@ -1825,7 +1825,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/videos",
+    "url": "https://api.companycam.com/v2/videos",
     "path": [],
     "query": [
      "page",
@@ -1862,7 +1862,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.companycam.com/webhooks",
+    "url": "https://api.companycam.com/v2/webhooks",
     "path": [],
     "query": [
      "page",
@@ -1900,7 +1900,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.companycam.com/projects/{project_id}/assigned_users/{user_id}",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/assigned_users/{user_id}",
     "path": [
      "project_id",
      "user_id"
@@ -1931,7 +1931,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/projects/{id}/restore",
+    "url": "https://api.companycam.com/v2/projects/{id}/restore",
     "path": [
      "id"
     ],
@@ -1963,7 +1963,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/groups/{id}",
+    "url": "https://api.companycam.com/v2/groups/{id}",
     "path": [
      "id"
     ],
@@ -1997,7 +1997,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/photos/{id}",
+    "url": "https://api.companycam.com/v2/photos/{id}",
     "path": [
      "id"
     ],
@@ -2031,7 +2031,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.companycam.com/photos/{photo_id}/descriptions",
+    "url": "https://api.companycam.com/v2/photos/{photo_id}/descriptions",
     "path": [
      "photo_id"
     ],
@@ -2077,7 +2077,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/projects/{id}",
+    "url": "https://api.companycam.com/v2/projects/{id}",
     "path": [
      "id"
     ],
@@ -2115,7 +2115,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/projects/{project_id}/notepad",
+    "url": "https://api.companycam.com/v2/projects/{project_id}/notepad",
     "path": [
      "project_id"
     ],
@@ -2149,7 +2149,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/tags/{id}",
+    "url": "https://api.companycam.com/v2/tags/{id}",
     "path": [
      "id"
     ],
@@ -2203,7 +2203,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/users/{id}",
+    "url": "https://api.companycam.com/v2/users/{id}",
     "path": [
      "id"
     ],
@@ -2251,7 +2251,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.companycam.com/webhooks/{id}",
+    "url": "https://api.companycam.com/v2/webhooks/{id}",
     "path": [
      "id"
     ],

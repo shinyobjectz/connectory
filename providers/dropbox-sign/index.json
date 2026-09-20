@@ -33,7 +33,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/account/create",
+    "url": "https://api.hellosign.com/v3/account/create",
     "path": [],
     "query": [],
     "header": [],
@@ -66,7 +66,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/account",
+    "url": "https://api.hellosign.com/v3/account",
     "path": [],
     "query": [
      "account_id",
@@ -101,7 +101,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/account",
+    "url": "https://api.hellosign.com/v3/account",
     "path": [],
     "query": [],
     "header": [],
@@ -131,7 +131,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/account/verify",
+    "url": "https://api.hellosign.com/v3/account/verify",
     "path": [],
     "query": [],
     "header": [],
@@ -184,7 +184,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/api_app",
+    "url": "https://api.hellosign.com/v3/api_app",
     "path": [],
     "query": [],
     "header": [],
@@ -218,7 +218,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.hellosign.com/api_app/{client_id}",
+    "url": "https://api.hellosign.com/v3/api_app/{client_id}",
     "path": [
      "client_id"
     ],
@@ -246,7 +246,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/api_app/{client_id}",
+    "url": "https://api.hellosign.com/v3/api_app/{client_id}",
     "path": [
      "client_id"
     ],
@@ -276,7 +276,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/api_app/list",
+    "url": "https://api.hellosign.com/v3/api_app/list",
     "path": [],
     "query": [
      "page",
@@ -333,7 +333,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/api_app/{client_id}",
+    "url": "https://api.hellosign.com/v3/api_app/{client_id}",
     "path": [
      "client_id"
     ],
@@ -377,7 +377,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/bulk_send_job/{bulk_send_job_id}",
+    "url": "https://api.hellosign.com/v3/bulk_send_job/{bulk_send_job_id}",
     "path": [
      "bulk_send_job_id"
     ],
@@ -410,7 +410,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/bulk_send_job/list",
+    "url": "https://api.hellosign.com/v3/bulk_send_job/list",
     "path": [],
     "query": [
      "page",
@@ -479,7 +479,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/embedded/edit_url/{template_id}",
+    "url": "https://api.hellosign.com/v3/embedded/edit_url/{template_id}",
     "path": [
      "template_id"
     ],
@@ -518,7 +518,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/embedded/sign_url/{signature_id}",
+    "url": "https://api.hellosign.com/v3/embedded/sign_url/{signature_id}",
     "path": [
      "signature_id"
     ],
@@ -546,7 +546,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.hellosign.com/fax/{fax_id}",
+    "url": "https://api.hellosign.com/v3/fax/{fax_id}",
     "path": [
      "fax_id"
     ],
@@ -574,7 +574,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax/files/{fax_id}",
+    "url": "https://api.hellosign.com/v3/fax/files/{fax_id}",
     "path": [
      "fax_id"
     ],
@@ -602,7 +602,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax/{fax_id}",
+    "url": "https://api.hellosign.com/v3/fax/{fax_id}",
     "path": [
      "fax_id"
     ],
@@ -638,7 +638,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/fax_line/add_user",
+    "url": "https://api.hellosign.com/v3/fax_line/add_user",
     "path": [],
     "query": [],
     "header": [],
@@ -713,7 +713,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax_line/area_codes",
+    "url": "https://api.hellosign.com/v3/fax_line/area_codes",
     "path": [],
     "query": [
      "country",
@@ -762,7 +762,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/fax_line/create",
+    "url": "https://api.hellosign.com/v3/fax_line/create",
     "path": [],
     "query": [],
     "header": [],
@@ -793,7 +793,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.hellosign.com/fax_line",
+    "url": "https://api.hellosign.com/v3/fax_line",
     "path": [],
     "query": [],
     "header": [],
@@ -821,7 +821,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax_line",
+    "url": "https://api.hellosign.com/v3/fax_line",
     "path": [],
     "query": [
      "number"
@@ -859,7 +859,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax_line/list",
+    "url": "https://api.hellosign.com/v3/fax_line/list",
     "path": [],
     "query": [
      "account_id",
@@ -898,7 +898,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/fax_line/remove_user",
+    "url": "https://api.hellosign.com/v3/fax_line/remove_user",
     "path": [],
     "query": [],
     "header": [],
@@ -930,7 +930,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/fax/list",
+    "url": "https://api.hellosign.com/v3/fax/list",
     "path": [],
     "query": [
      "page",
@@ -991,7 +991,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/fax/send",
+    "url": "https://api.hellosign.com/v3/fax/send",
     "path": [],
     "query": [],
     "header": [],
@@ -1047,7 +1047,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/oauth/token",
+    "url": "https://api.hellosign.com/v3/oauth/token",
     "path": [],
     "query": [],
     "header": [],
@@ -1092,7 +1092,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/oauth/token?refresh",
+    "url": "https://api.hellosign.com/v3/oauth/token?refresh",
     "path": [],
     "query": [],
     "header": [],
@@ -1133,7 +1133,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/report/create",
+    "url": "https://api.hellosign.com/v3/report/create",
     "path": [],
     "query": [],
     "header": [],
@@ -1212,7 +1212,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/bulk_create_embedded_with_template",
+    "url": "https://api.hellosign.com/v3/signature_request/bulk_create_embedded_with_template",
     "path": [],
     "query": [],
     "header": [],
@@ -1300,7 +1300,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/bulk_send_with_template",
+    "url": "https://api.hellosign.com/v3/signature_request/bulk_send_with_template",
     "path": [],
     "query": [],
     "header": [],
@@ -1340,7 +1340,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/cancel/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/cancel/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -1464,7 +1464,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/create_embedded",
+    "url": "https://api.hellosign.com/v3/signature_request/create_embedded",
     "path": [],
     "query": [],
     "header": [],
@@ -1574,7 +1574,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/create_embedded_with_template",
+    "url": "https://api.hellosign.com/v3/signature_request/create_embedded_with_template",
     "path": [],
     "query": [],
     "header": [],
@@ -1720,7 +1720,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/signature_request/edit/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/edit/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -1876,7 +1876,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/signature_request/edit_embedded/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/edit_embedded/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -1993,7 +1993,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/signature_request/edit_embedded_with_template/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/edit_embedded_with_template/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2103,7 +2103,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/signature_request/edit_with_template/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/edit_with_template/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2156,7 +2156,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/signature_request/files/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/files/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2186,7 +2186,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/signature_request/files_as_data_uri/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/files_as_data_uri/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2218,7 +2218,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/signature_request/files_as_file_url/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/files_as_file_url/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2248,7 +2248,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/signature_request/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2286,7 +2286,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/signature_request/list",
+    "url": "https://api.hellosign.com/v3/signature_request/list",
     "path": [],
     "query": [
      "account_id",
@@ -2317,7 +2317,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/release_hold/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/release_hold/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2354,7 +2354,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/remind/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/remind/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2385,7 +2385,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/remove/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/remove/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2511,7 +2511,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/send",
+    "url": "https://api.hellosign.com/v3/signature_request/send",
     "path": [],
     "query": [],
     "header": [],
@@ -2625,7 +2625,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/send_with_template",
+    "url": "https://api.hellosign.com/v3/signature_request/send_with_template",
     "path": [],
     "query": [],
     "header": [],
@@ -2685,7 +2685,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/signature_request/update/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/signature_request/update/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],
@@ -2734,7 +2734,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/team/add_member",
+    "url": "https://api.hellosign.com/v3/team/add_member",
     "path": [],
     "query": [
      "team_id"
@@ -2764,7 +2764,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/team/create",
+    "url": "https://api.hellosign.com/v3/team/create",
     "path": [],
     "query": [],
     "header": [],
@@ -2785,7 +2785,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.hellosign.com/team/destroy",
+    "url": "https://api.hellosign.com/v3/team/destroy",
     "path": [],
     "query": [],
     "header": [],
@@ -2804,7 +2804,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/team",
+    "url": "https://api.hellosign.com/v3/team",
     "path": [],
     "query": [],
     "header": [],
@@ -2828,7 +2828,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/team/info",
+    "url": "https://api.hellosign.com/v3/team/info",
     "path": [],
     "query": [
      "team_id"
@@ -2854,7 +2854,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/team/invites",
+    "url": "https://api.hellosign.com/v3/team/invites",
     "path": [],
     "query": [
      "email_address"
@@ -2890,7 +2890,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/team/members/{team_id}",
+    "url": "https://api.hellosign.com/v3/team/members/{team_id}",
     "path": [
      "team_id"
     ],
@@ -2941,7 +2941,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/team/remove_member",
+    "url": "https://api.hellosign.com/v3/team/remove_member",
     "path": [],
     "query": [],
     "header": [],
@@ -2981,7 +2981,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/team/sub_teams/{team_id}",
+    "url": "https://api.hellosign.com/v3/team/sub_teams/{team_id}",
     "path": [
      "team_id"
     ],
@@ -3010,7 +3010,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.hellosign.com/team",
+    "url": "https://api.hellosign.com/v3/team",
     "path": [],
     "query": [],
     "header": [],
@@ -3050,7 +3050,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/add_user/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/add_user/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3155,7 +3155,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/create",
+    "url": "https://api.hellosign.com/v3/template/create",
     "path": [],
     "query": [],
     "header": [],
@@ -3301,7 +3301,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/create_embedded_draft",
+    "url": "https://api.hellosign.com/v3/template/create_embedded_draft",
     "path": [],
     "query": [],
     "header": [],
@@ -3354,7 +3354,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/delete/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/delete/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3390,7 +3390,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/template/files/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/files/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3420,7 +3420,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/template/files_as_data_uri/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/files_as_data_uri/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3452,7 +3452,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/template/files_as_file_url/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/files_as_file_url/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3482,7 +3482,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/template/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3520,7 +3520,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.hellosign.com/template/list",
+    "url": "https://api.hellosign.com/v3/template/list",
     "path": [],
     "query": [
      "account_id",
@@ -3559,7 +3559,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/remove_user/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/remove_user/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3614,7 +3614,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/template/update_files/{template_id}",
+    "url": "https://api.hellosign.com/v3/template/update_files/{template_id}",
     "path": [
      "template_id"
     ],
@@ -3749,7 +3749,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/unclaimed_draft/create",
+    "url": "https://api.hellosign.com/v3/unclaimed_draft/create",
     "path": [],
     "query": [],
     "header": [],
@@ -3950,7 +3950,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/unclaimed_draft/create_embedded",
+    "url": "https://api.hellosign.com/v3/unclaimed_draft/create_embedded",
     "path": [],
     "query": [],
     "header": [],
@@ -4132,7 +4132,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/unclaimed_draft/create_embedded_with_template",
+    "url": "https://api.hellosign.com/v3/unclaimed_draft/create_embedded_with_template",
     "path": [],
     "query": [],
     "header": [],
@@ -4222,7 +4222,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.hellosign.com/unclaimed_draft/edit_and_resend/{signature_request_id}",
+    "url": "https://api.hellosign.com/v3/unclaimed_draft/edit_and_resend/{signature_request_id}",
     "path": [
      "signature_request_id"
     ],

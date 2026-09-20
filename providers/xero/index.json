@@ -65,7 +65,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.xero.com/Files/{FileId}/Associations",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}/Associations",
     "path": [
      "FileId"
     ],
@@ -121,7 +121,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.xero.com/Folders",
+    "url": "https://api.xero.com/files.xro/1.0/Folders",
     "path": [],
     "query": [],
     "header": [
@@ -160,7 +160,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.xero.com/Files/{FileId}",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}",
     "path": [
      "FileId"
     ],
@@ -200,7 +200,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.xero.com/Files/{FileId}/Associations/{ObjectId}",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}/Associations/{ObjectId}",
     "path": [
      "FileId",
      "ObjectId"
@@ -236,7 +236,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.xero.com/Folders/{FolderId}",
+    "url": "https://api.xero.com/files.xro/1.0/Folders/{FolderId}",
     "path": [
      "FolderId"
     ],
@@ -271,7 +271,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Associations/{ObjectId}",
+    "url": "https://api.xero.com/files.xro/1.0/Associations/{ObjectId}",
     "path": [
      "ObjectId"
     ],
@@ -306,7 +306,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Files/{FileId}",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}",
     "path": [
      "FileId"
     ],
@@ -341,7 +341,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Files/{FileId}/Associations",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}/Associations",
     "path": [
      "FileId"
     ],
@@ -376,7 +376,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Files/{FileId}/Content",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}/Content",
     "path": [
      "FileId"
     ],
@@ -423,7 +423,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Files",
+    "url": "https://api.xero.com/files.xro/1.0/Files",
     "path": [],
     "query": [
      "pagesize",
@@ -460,7 +460,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Folders/{FolderId}",
+    "url": "https://api.xero.com/files.xro/1.0/Folders/{FolderId}",
     "path": [
      "FolderId"
     ],
@@ -499,7 +499,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Folders",
+    "url": "https://api.xero.com/files.xro/1.0/Folders",
     "path": [],
     "query": [
      "sort"
@@ -529,7 +529,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.xero.com/Inbox",
+    "url": "https://api.xero.com/files.xro/1.0/Inbox",
     "path": [],
     "query": [],
     "header": [
@@ -598,7 +598,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.xero.com/Files/{FileId}",
+    "url": "https://api.xero.com/files.xro/1.0/Files/{FileId}",
     "path": [
      "FileId"
     ],
@@ -663,7 +663,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.xero.com/Folders/{FolderId}",
+    "url": "https://api.xero.com/files.xro/1.0/Folders/{FolderId}",
     "path": [
      "FolderId"
     ],
@@ -719,7 +719,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.xero.com/Files",
+    "url": "https://api.xero.com/files.xro/1.0/Files",
     "path": [],
     "query": [
      "FolderId"

@@ -21,7 +21,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{environment}.paylocity.com/v2/credentials/secrets",
+    "url": "https://{environment}.paylocity.com/api/v2/credentials/secrets",
     "path": [],
     "query": [],
     "header": [],
@@ -49,7 +49,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees",
     "path": [
      "companyId"
     ],
@@ -106,7 +106,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
     "path": [
      "companyId",
      "employeeId"
@@ -322,7 +322,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{environment}.paylocity.com/v2/weblinkstaging/companies/{companyId}/employees/newemployees",
+    "url": "https://{environment}.paylocity.com/api/v2/weblinkstaging/companies/{companyId}/employees/newemployees",
     "path": [
      "companyId"
     ],
@@ -449,7 +449,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/additionalRates",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/additionalRates",
     "path": [
      "companyId",
      "employeeId"
@@ -586,7 +586,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/earnings",
     "path": [
      "companyId",
      "employeeId"
@@ -725,7 +725,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/emergencyContacts",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/emergencyContacts",
     "path": [
      "companyId",
      "employeeId"
@@ -836,7 +836,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/nonprimaryStateTax",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/nonprimaryStateTax",
     "path": [
      "companyId",
      "employeeId"
@@ -937,7 +937,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/primaryStateTax",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/primaryStateTax",
     "path": [
      "companyId",
      "employeeId"
@@ -1001,7 +1001,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
     "path": [
      "companyId",
      "employeeId"
@@ -1050,7 +1050,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
     "path": [
      "companyId",
      "employeeId",
@@ -1091,7 +1091,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
     "path": [
      "companyId",
      "employeeId",
@@ -1126,7 +1126,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/codes/{codeResource}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/codes/{codeResource}",
     "path": [
      "companyId",
      "codeResource"
@@ -1160,7 +1160,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/customfields/{category}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/customfields/{category}",
     "path": [
      "companyId",
      "category"
@@ -1194,7 +1194,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/directDeposit",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/directDeposit",
     "path": [
      "companyId",
      "employeeId"
@@ -1228,7 +1228,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/earnings",
     "path": [
      "companyId",
      "employeeId"
@@ -1269,7 +1269,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/",
     "path": [
      "companyId"
     ],
@@ -1306,7 +1306,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
     "path": [
      "companyId",
      "employeeId"
@@ -1335,7 +1335,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/openapi",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/openapi",
     "path": [
      "companyId"
     ],
@@ -1378,7 +1378,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
     "path": [
      "companyId",
      "employeeId",
@@ -1419,7 +1419,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}",
     "path": [
      "companyId",
      "employeeId",
@@ -1454,7 +1454,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}",
     "path": [
      "companyId",
      "employeeId"
@@ -1493,7 +1493,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
     "path": [
      "companyId",
      "employeeId",
@@ -1528,7 +1528,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
     "path": [
      "companyId",
      "employeeId"
@@ -1583,7 +1583,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}",
     "path": [
      "companyId",
      "employeeId",
@@ -1649,7 +1649,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}/{checkDate}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}/{checkDate}",
     "path": [
      "companyId",
      "employeeId",
@@ -1711,7 +1711,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}",
     "path": [
      "companyId",
      "employeeId",
@@ -1777,7 +1777,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}/{checkDate}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}/{checkDate}",
     "path": [
      "companyId",
      "employeeId",
@@ -1818,7 +1818,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}",
     "path": [
      "companyId",
      "employeeId"
@@ -1876,7 +1876,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/benefitSetup",
+    "url": "https://{environment}.paylocity.com/api/v2/companies/{companyId}/employees/{employeeId}/benefitSetup",
     "path": [
      "companyId",
      "employeeId"

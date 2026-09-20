@@ -42,7 +42,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{subdomain}.qualtrics.com/directories/{DirectoryId}/mailinglists/{MailingListId}/contacts",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/directories/{DirectoryId}/mailinglists/{MailingListId}/contacts",
     "path": [
      "DirectoryId",
      "MailingListId"
@@ -94,7 +94,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{subdomain}.qualtrics.com/distributions",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/distributions",
     "path": [],
     "query": [],
     "header": [],
@@ -127,7 +127,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{subdomain}.qualtrics.com/distributions",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/distributions",
     "path": [],
     "query": [
      "surveyId"
@@ -155,7 +155,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/{SubscriptionId}",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/eventsubscriptions/{SubscriptionId}",
     "path": [
      "SubscriptionId"
     ],
@@ -183,7 +183,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{subdomain}.qualtrics.com/survey-definitions/{SurveyId}",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/survey-definitions/{SurveyId}",
     "path": [
      "SurveyId"
     ],
@@ -216,7 +216,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://{subdomain}.qualtrics.com/distributions/{DistributionId}/links",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/distributions/{DistributionId}/links",
     "path": [
      "DistributionId"
     ],
@@ -239,7 +239,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/eventsubscriptions/",
     "path": [],
     "query": [],
     "header": [],
@@ -258,7 +258,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/",
+    "url": "https://{subdomain}.qualtrics.com/API/v3/eventsubscriptions/",
     "path": [],
     "query": [],
     "header": [],

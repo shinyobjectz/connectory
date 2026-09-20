@@ -53,7 +53,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl/{ruleId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
     "path": [
      "calendarId",
      "ruleId"
@@ -121,7 +121,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl/{ruleId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
     "path": [
      "calendarId",
      "ruleId"
@@ -208,7 +208,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
     "path": [
      "calendarId"
     ],
@@ -293,7 +293,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl",
     "path": [
      "calendarId"
     ],
@@ -388,7 +388,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl/{ruleId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
     "path": [
      "calendarId",
      "ruleId"
@@ -487,7 +487,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl/{ruleId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/{ruleId}",
     "path": [
      "calendarId",
      "ruleId"
@@ -609,7 +609,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/acl/watch",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/acl/watch",
     "path": [
      "calendarId"
     ],
@@ -685,7 +685,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://www.googleapis.com/users/me/calendarList/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -747,7 +747,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/users/me/calendarList/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -883,7 +883,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/users/me/calendarList",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList",
     "path": [],
     "query": [
      "alt",
@@ -988,7 +988,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/users/me/calendarList",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList",
     "path": [],
     "query": [
      "alt",
@@ -1134,7 +1134,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://www.googleapis.com/users/me/calendarList/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -1297,7 +1297,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://www.googleapis.com/users/me/calendarList/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -1440,7 +1440,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/users/me/calendarList/watch",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/calendarList/watch",
     "path": [],
     "query": [
      "alt",
@@ -1516,7 +1516,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/clear",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/clear",
     "path": [
      "calendarId"
     ],
@@ -1578,7 +1578,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://www.googleapis.com/calendars/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -1640,7 +1640,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -1728,7 +1728,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars",
+    "url": "https://www.googleapis.com/calendar/v3/calendars",
     "path": [],
     "query": [
      "alt",
@@ -1829,7 +1829,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://www.googleapis.com/calendars/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -1932,7 +1932,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://www.googleapis.com/calendars/{calendarId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}",
     "path": [
      "calendarId"
     ],
@@ -2033,7 +2033,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/channels/stop",
+    "url": "https://www.googleapis.com/calendar/v3/channels/stop",
     "path": [],
     "query": [
      "alt",
@@ -2097,7 +2097,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/colors",
+    "url": "https://www.googleapis.com/calendar/v3/colors",
     "path": [],
     "query": [
      "alt",
@@ -2175,7 +2175,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
     "path": [
      "calendarId",
      "eventId"
@@ -2257,7 +2257,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
     "path": [
      "calendarId",
      "eventId"
@@ -2491,7 +2491,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/import",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/import",
     "path": [
      "calendarId"
     ],
@@ -2781,7 +2781,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
     "path": [
      "calendarId"
     ],
@@ -2930,7 +2930,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}/instances",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/instances",
     "path": [
      "calendarId",
      "eventId"
@@ -3078,7 +3078,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events",
     "path": [
      "calendarId"
     ],
@@ -3181,7 +3181,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}/move",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}/move",
     "path": [
      "calendarId",
      "eventId"
@@ -3441,7 +3441,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
     "path": [
      "calendarId",
      "eventId"
@@ -3569,7 +3569,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/quickAdd",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/quickAdd",
     "path": [
      "calendarId"
     ],
@@ -3828,7 +3828,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/{eventId}",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/{eventId}",
     "path": [
      "calendarId",
      "eventId"
@@ -4050,7 +4050,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/calendars/{calendarId}/events/watch",
+    "url": "https://www.googleapis.com/calendar/v3/calendars/{calendarId}/events/watch",
     "path": [
      "calendarId"
     ],
@@ -4158,7 +4158,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/freeBusy",
+    "url": "https://www.googleapis.com/calendar/v3/freeBusy",
     "path": [],
     "query": [
      "alt",
@@ -4225,7 +4225,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/users/me/settings/{setting}",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/settings/{setting}",
     "path": [
      "setting"
     ],
@@ -4293,7 +4293,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://www.googleapis.com/users/me/settings",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/settings",
     "path": [],
     "query": [
      "alt",
@@ -4398,7 +4398,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://www.googleapis.com/users/me/settings/watch",
+    "url": "https://www.googleapis.com/calendar/v3/users/me/settings/watch",
     "path": [],
     "query": [
      "alt",

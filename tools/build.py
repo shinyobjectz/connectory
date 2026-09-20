@@ -23,6 +23,7 @@ import json
 import os
 import re
 import sys
+import urllib.parse
 import urllib.request
 
 from common import directory
@@ -113,14 +114,40 @@ def is_auth(name):
 
 
 def base_of(spec, provider):
-    if provider.get("base"):
-        return provider["base"]
+    """Where the calls actually go — which neither source knows on its own.
+
+    The directory knows the host, including the ones that are per-tenant
+    (`https://{subdomain}.zendesk.com`). The description knows the path the API is mounted
+    at, which is usually a version: Discord's directory entry says `https://discord.com` and
+    its own OpenAPI says `https://discord.com/api/v10`. Taking either alone builds URLs that
+    404 at the vendor, so take the host from one and the prefix from the other.
+    """
+    declared = ""
     servers = spec.get("servers")
     if isinstance(servers, list) and servers and isinstance(servers[0], dict):
-        return str(servers[0].get("url", "")).rstrip("/")
-    if spec.get("host"):
-        return "https://" + spec["host"] + (spec.get("basePath") or "")
-    return ""
+        declared = str(servers[0].get("url", "")).rstrip("/")
+    elif spec.get("host"):
+        declared = "https://" + spec["host"] + (spec.get("basePath") or "")
+
+    base = (provider.get("base") or "").rstrip("/")
+    if not base:
+        return declared
+    if not declared:
+        return base
+
+    prefix = urllib.parse.urlparse(declared).path.rstrip("/")
+    host = urllib.parse.urlparse(declared).netloc
+    templated = "{" in base
+
+    # A per-tenant address stays; only the prefix is borrowed.
+    if templated:
+        return base + prefix
+    # Same host: the description is the more complete of the two.
+    if host and host == urllib.parse.urlparse(base).netloc:
+        return declared
+    # Different hosts — the directory is right about where this account lives, and the
+    # description is still right about the prefix.
+    return base + prefix
 
 
 def op_slug(provider_slug, op, method, path):

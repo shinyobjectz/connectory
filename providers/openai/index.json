@@ -26,7 +26,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions/{session_id}/accept",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/accept",
     "path": [
      "session_id"
     ],
@@ -116,7 +116,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/calls/{call_id}/accept",
+    "url": "https://api.openai.com/v1/realtime/calls/{call_id}/accept",
     "path": [
      "call_id"
     ],
@@ -159,7 +159,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/certificates/activate",
+    "url": "https://api.openai.com/v1/organization/certificates/activate",
     "path": [],
     "query": [],
     "header": [],
@@ -192,7 +192,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/certificates/activate",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/certificates/activate",
     "path": [
      "project_id"
     ],
@@ -227,7 +227,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/groups/{group_id}/users",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/users",
     "path": [
      "group_id"
     ],
@@ -267,7 +267,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/groups",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/groups",
     "path": [
      "project_id"
     ],
@@ -303,7 +303,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/uploads/{upload_id}/parts",
+    "url": "https://api.openai.com/v1/uploads/{upload_id}/parts",
     "path": [
      "upload_id"
     ],
@@ -337,7 +337,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/admin_api_keys",
+    "url": "https://api.openai.com/v1/organization/admin_api_keys",
     "path": [],
     "query": [],
     "header": [],
@@ -366,7 +366,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/admin_api_keys/{key_id}",
+    "url": "https://api.openai.com/v1/organization/admin_api_keys/{key_id}",
     "path": [
      "key_id"
     ],
@@ -394,7 +394,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/admin_api_keys/{key_id}",
+    "url": "https://api.openai.com/v1/organization/admin_api_keys/{key_id}",
     "path": [
      "key_id"
     ],
@@ -432,7 +432,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/admin_api_keys",
+    "url": "https://api.openai.com/v1/organization/admin_api_keys",
     "path": [],
     "query": [
      "after",
@@ -462,7 +462,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/archive",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/archive",
     "path": [
      "project_id"
     ],
@@ -495,7 +495,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/groups/{group_id}/roles",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/roles",
     "path": [
      "group_id"
     ],
@@ -535,7 +535,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/projects/{project_id}/groups/{group_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/groups/{group_id}/roles",
     "path": [
      "project_id",
      "group_id"
@@ -576,7 +576,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/projects/{project_id}/users/{user_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/users/{user_id}/roles",
     "path": [
      "project_id",
      "user_id"
@@ -612,7 +612,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/users/{user_id}/roles",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}/roles",
     "path": [
      "user_id"
     ],
@@ -646,7 +646,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/{response_id}/cancel?beta=true",
+    "url": "https://api.openai.com/v1/responses/{response_id}/cancel?beta=true",
     "path": [
      "response_id"
     ],
@@ -708,7 +708,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/compact?beta=true",
+    "url": "https://api.openai.com/v1/responses/compact?beta=true",
     "path": [],
     "query": [],
     "header": [
@@ -743,7 +743,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses?beta=true",
+    "url": "https://api.openai.com/v1/responses?beta=true",
     "path": [],
     "query": [],
     "header": [
@@ -775,7 +775,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/responses/{response_id}?beta=true",
+    "url": "https://api.openai.com/v1/responses/{response_id}?beta=true",
     "path": [
      "response_id"
     ],
@@ -825,7 +825,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/responses/{response_id}?beta=true",
+    "url": "https://api.openai.com/v1/responses/{response_id}?beta=true",
     "path": [
      "response_id"
     ],
@@ -910,7 +910,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/input_tokens?beta=true",
+    "url": "https://api.openai.com/v1/responses/input_tokens?beta=true",
     "path": [],
     "query": [],
     "header": [
@@ -975,7 +975,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/responses/{response_id}/input_items?beta=true",
+    "url": "https://api.openai.com/v1/responses/{response_id}/input_items?beta=true",
     "path": [
      "response_id"
     ],
@@ -1010,7 +1010,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/batches/{batch_id}/cancel",
+    "url": "https://api.openai.com/v1/batches/{batch_id}/cancel",
     "path": [
      "batch_id"
     ],
@@ -1038,7 +1038,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/chatkit/sessions/{session_id}/cancel",
+    "url": "https://api.openai.com/v1/chatkit/sessions/{session_id}/cancel",
     "path": [
      "session_id"
     ],
@@ -1071,7 +1071,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/evals/{eval_id}/runs/{run_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs/{run_id}",
     "path": [
      "eval_id",
      "run_id"
@@ -1100,7 +1100,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -1128,7 +1128,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/{response_id}/cancel",
+    "url": "https://api.openai.com/v1/responses/{response_id}/cancel",
     "path": [
      "response_id"
     ],
@@ -1161,7 +1161,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}/cancel",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/cancel",
     "path": [
      "thread_id",
      "run_id"
@@ -1190,7 +1190,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/uploads/{upload_id}/cancel",
+    "url": "https://api.openai.com/v1/uploads/{upload_id}/cancel",
     "path": [
      "upload_id"
     ],
@@ -1223,7 +1223,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/file_batches/{batch_id}/cancel",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}/cancel",
     "path": [
      "vector_store_id",
      "batch_id"
@@ -1280,7 +1280,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/compact",
+    "url": "https://api.openai.com/v1/responses/compact",
     "path": [],
     "query": [],
     "header": [],
@@ -1324,7 +1324,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/uploads/{upload_id}/complete",
+    "url": "https://api.openai.com/v1/uploads/{upload_id}/complete",
     "path": [
      "upload_id"
     ],
@@ -1399,7 +1399,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents",
+    "url": "https://api.openai.com/v1/agents",
     "path": [],
     "query": [],
     "header": [],
@@ -1435,7 +1435,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/environments/{environment_id}/files",
+    "url": "https://api.openai.com/v1/agents/environments/{environment_id}/files",
     "path": [
      "environment_id"
     ],
@@ -1514,7 +1514,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/environments/templates",
+    "url": "https://api.openai.com/v1/agents/environments/templates",
     "path": [],
     "query": [],
     "header": [],
@@ -1580,7 +1580,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/sessions",
+    "url": "https://api.openai.com/v1/agents/sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -1623,7 +1623,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/events",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/events",
     "path": [
      "session_id"
     ],
@@ -1686,7 +1686,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/batches",
+    "url": "https://api.openai.com/v1/batches",
     "path": [],
     "query": [],
     "header": [],
@@ -1711,7 +1711,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/chat/completions",
+    "url": "https://api.openai.com/v1/chat/completions",
     "path": [],
     "query": [],
     "header": [],
@@ -1754,7 +1754,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/chatkit/sessions",
+    "url": "https://api.openai.com/v1/chatkit/sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -1855,7 +1855,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/completions",
+    "url": "https://api.openai.com/v1/completions",
     "path": [],
     "query": [],
     "header": [],
@@ -1926,7 +1926,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/containers",
+    "url": "https://api.openai.com/v1/containers",
     "path": [],
     "query": [],
     "header": [],
@@ -1967,7 +1967,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/containers/{container_id}/files",
+    "url": "https://api.openai.com/v1/containers/{container_id}/files",
     "path": [
      "container_id"
     ],
@@ -2000,7 +2000,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/conversations",
+    "url": "https://api.openai.com/v1/conversations",
     "path": [],
     "query": [],
     "header": [],
@@ -2038,7 +2038,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/conversations/{conversation_id}/items",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}/items",
     "path": [
      "conversation_id"
     ],
@@ -2091,7 +2091,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/embeddings",
+    "url": "https://api.openai.com/v1/embeddings",
     "path": [],
     "query": [],
     "header": [],
@@ -2136,7 +2136,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/evals",
+    "url": "https://api.openai.com/v1/evals",
     "path": [],
     "query": [],
     "header": [],
@@ -2180,7 +2180,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/evals/{eval_id}/runs",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs",
     "path": [
      "eval_id"
     ],
@@ -2229,7 +2229,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/files",
+    "url": "https://api.openai.com/v1/files",
     "path": [],
     "query": [],
     "header": [],
@@ -2264,7 +2264,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions",
+    "url": "https://api.openai.com/v1/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions",
     "path": [
      "fine_tuned_model_checkpoint"
     ],
@@ -2327,7 +2327,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/jobs",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs",
     "path": [],
     "query": [],
     "header": [],
@@ -2363,7 +2363,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/groups",
+    "url": "https://api.openai.com/v1/organization/groups",
     "path": [],
     "query": [],
     "header": [],
@@ -2475,7 +2475,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/images/generations",
+    "url": "https://api.openai.com/v1/images/generations",
     "path": [],
     "query": [],
     "header": [],
@@ -2573,7 +2573,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/images/edits",
+    "url": "https://api.openai.com/v1/images/edits",
     "path": [],
     "query": [],
     "header": [],
@@ -2644,7 +2644,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/images/variations",
+    "url": "https://api.openai.com/v1/images/variations",
     "path": [],
     "query": [],
     "header": [],
@@ -2682,7 +2682,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions",
+    "url": "https://api.openai.com/v1/live/sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -2733,7 +2733,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/messages",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/messages",
     "path": [
      "thread_id"
     ],
@@ -2770,7 +2770,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/moderations",
+    "url": "https://api.openai.com/v1/moderations",
     "path": [],
     "query": [],
     "header": [],
@@ -2820,7 +2820,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/spend_alerts",
+    "url": "https://api.openai.com/v1/organization/spend_alerts",
     "path": [],
     "query": [],
     "header": [],
@@ -2863,7 +2863,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects",
+    "url": "https://api.openai.com/v1/organization/projects",
     "path": [],
     "query": [],
     "header": [],
@@ -2908,7 +2908,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/projects/{project_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/roles",
     "path": [
      "project_id"
     ],
@@ -2953,7 +2953,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts",
     "path": [
      "project_id"
     ],
@@ -3011,7 +3011,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_alerts",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_alerts",
     "path": [
      "project_id"
     ],
@@ -3057,7 +3057,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/users",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/users",
     "path": [
      "project_id"
     ],
@@ -3093,7 +3093,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/calls",
+    "url": "https://api.openai.com/v1/realtime/calls",
     "path": [],
     "query": [],
     "header": [],
@@ -3124,7 +3124,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/client_secrets",
+    "url": "https://api.openai.com/v1/realtime/client_secrets",
     "path": [],
     "query": [],
     "header": [],
@@ -3213,7 +3213,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/sessions",
+    "url": "https://api.openai.com/v1/realtime/sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -3275,7 +3275,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/transcription_sessions",
+    "url": "https://api.openai.com/v1/realtime/transcription_sessions",
     "path": [],
     "query": [],
     "header": [],
@@ -3311,7 +3311,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/translations/client_secrets",
+    "url": "https://api.openai.com/v1/realtime/translations/client_secrets",
     "path": [],
     "query": [],
     "header": [],
@@ -3333,7 +3333,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses",
+    "url": "https://api.openai.com/v1/responses",
     "path": [],
     "query": [],
     "header": [],
@@ -3368,7 +3368,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/roles",
+    "url": "https://api.openai.com/v1/organization/roles",
     "path": [],
     "query": [],
     "header": [],
@@ -3471,7 +3471,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/runs",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs",
     "path": [
      "thread_id"
     ],
@@ -3519,7 +3519,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/skills",
+    "url": "https://api.openai.com/v1/skills",
     "path": [],
     "query": [],
     "header": [],
@@ -3556,7 +3556,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/skills/{skill_id}/versions",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/versions",
     "path": [
      "skill_id"
     ],
@@ -3625,7 +3625,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/speech",
+    "url": "https://api.openai.com/v1/audio/speech",
     "path": [],
     "query": [],
     "header": [],
@@ -3665,7 +3665,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads",
+    "url": "https://api.openai.com/v1/threads",
     "path": [],
     "query": [],
     "header": [],
@@ -3755,7 +3755,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/runs",
+    "url": "https://api.openai.com/v1/threads/runs",
     "path": [],
     "query": [],
     "header": [],
@@ -3859,7 +3859,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/transcriptions",
+    "url": "https://api.openai.com/v1/audio/transcriptions",
     "path": [],
     "query": [],
     "header": [],
@@ -3924,7 +3924,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/translations",
+    "url": "https://api.openai.com/v1/audio/translations",
     "path": [],
     "query": [],
     "header": [],
@@ -3981,7 +3981,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/uploads",
+    "url": "https://api.openai.com/v1/uploads",
     "path": [],
     "query": [],
     "header": [],
@@ -4018,7 +4018,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vaults",
+    "url": "https://api.openai.com/v1/vaults",
     "path": [],
     "query": [],
     "header": [],
@@ -4052,7 +4052,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vaults/{vault_id}/credentials",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}/credentials",
     "path": [
      "vault_id"
     ],
@@ -4100,7 +4100,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores",
+    "url": "https://api.openai.com/v1/vector_stores",
     "path": [],
     "query": [],
     "header": [],
@@ -4146,7 +4146,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files",
     "path": [
      "vector_store_id"
     ],
@@ -4194,7 +4194,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/file_batches",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/file_batches",
     "path": [
      "vector_store_id"
     ],
@@ -4237,7 +4237,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/voices",
+    "url": "https://api.openai.com/v1/audio/voices",
     "path": [],
     "query": [],
     "header": [],
@@ -4277,7 +4277,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/voice_consents",
+    "url": "https://api.openai.com/v1/audio/voice_consents",
     "path": [],
     "query": [],
     "header": [],
@@ -4317,7 +4317,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/webhook_endpoints",
+    "url": "https://api.openai.com/v1/webhook_endpoints",
     "path": [],
     "query": [],
     "header": [],
@@ -4364,7 +4364,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts/{service_account_id}/api_keys",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts/{service_account_id}/api_keys",
     "path": [
      "project_id",
      "service_account_id"
@@ -4402,7 +4402,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/external_storage",
+    "url": "https://api.openai.com/v1/organization/external_storage",
     "path": [],
     "query": [],
     "header": [],
@@ -4431,7 +4431,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/content_provenance_checks",
+    "url": "https://api.openai.com/v1/content_provenance_checks",
     "path": [],
     "query": [],
     "header": [],
@@ -4459,7 +4459,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/certificates/deactivate",
+    "url": "https://api.openai.com/v1/organization/certificates/deactivate",
     "path": [],
     "query": [],
     "header": [],
@@ -4492,7 +4492,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/certificates/deactivate",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/certificates/deactivate",
     "path": [
      "project_id"
     ],
@@ -4522,7 +4522,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/agents/{agent_id}",
+    "url": "https://api.openai.com/v1/agents/{agent_id}",
     "path": [
      "agent_id"
     ],
@@ -4550,7 +4550,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/agents/environments/templates/{environment_template_id}",
+    "url": "https://api.openai.com/v1/agents/environments/templates/{environment_template_id}",
     "path": [
      "environment_template_id"
     ],
@@ -4578,7 +4578,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/agents/sessions/{session_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}",
     "path": [
      "session_id"
     ],
@@ -4611,7 +4611,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/artifacts/{artifact_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/artifacts/{artifact_id}",
     "path": [
      "session_id",
      "artifact_id"
@@ -4640,7 +4640,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/certificates/{certificate_id}",
+    "url": "https://api.openai.com/v1/organization/certificates/{certificate_id}",
     "path": [
      "certificate_id"
     ],
@@ -4668,7 +4668,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/chat/completions/{completion_id}",
+    "url": "https://api.openai.com/v1/chat/completions/{completion_id}",
     "path": [
      "completion_id"
     ],
@@ -4696,7 +4696,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/containers/{container_id}",
+    "url": "https://api.openai.com/v1/containers/{container_id}",
     "path": [
      "container_id"
     ],
@@ -4729,7 +4729,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/containers/{container_id}/files/{file_id}",
+    "url": "https://api.openai.com/v1/containers/{container_id}/files/{file_id}",
     "path": [
      "container_id",
      "file_id"
@@ -4758,7 +4758,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/conversations/{conversation_id}",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}",
     "path": [
      "conversation_id"
     ],
@@ -4791,7 +4791,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/conversations/{conversation_id}/items/{item_id}",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}/items/{item_id}",
     "path": [
      "conversation_id",
      "item_id"
@@ -4820,7 +4820,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/evals/{eval_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}",
     "path": [
      "eval_id"
     ],
@@ -4853,7 +4853,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/evals/{eval_id}/runs/{run_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs/{run_id}",
     "path": [
      "eval_id",
      "run_id"
@@ -4882,7 +4882,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/files/{file_id}",
+    "url": "https://api.openai.com/v1/files/{file_id}",
     "path": [
      "file_id"
     ],
@@ -4915,7 +4915,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions/{permission_id}",
+    "url": "https://api.openai.com/v1/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions/{permission_id}",
     "path": [
      "fine_tuned_model_checkpoint",
      "permission_id"
@@ -4944,7 +4944,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/groups/{group_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}",
     "path": [
      "group_id"
     ],
@@ -4972,7 +4972,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/invites/{invite_id}",
+    "url": "https://api.openai.com/v1/organization/invites/{invite_id}",
     "path": [
      "invite_id"
     ],
@@ -5005,7 +5005,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/threads/{thread_id}/messages/{message_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/messages/{message_id}",
     "path": [
      "thread_id",
      "message_id"
@@ -5034,7 +5034,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/models/{model}",
+    "url": "https://api.openai.com/v1/models/{model}",
     "path": [
      "model"
     ],
@@ -5062,7 +5062,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/spend_alerts/{alert_id}",
     "path": [
      "alert_id"
     ],
@@ -5095,7 +5095,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/api_keys/{api_key_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/api_keys/{api_key_id}",
     "path": [
      "project_id",
      "api_key_id"
@@ -5124,7 +5124,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/model_permissions",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/model_permissions",
     "path": [
      "project_id"
     ],
@@ -5157,7 +5157,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/projects/{project_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/roles/{role_id}",
     "path": [
      "project_id",
      "role_id"
@@ -5191,7 +5191,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts/{service_account_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts/{service_account_id}",
     "path": [
      "project_id",
      "service_account_id"
@@ -5225,7 +5225,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_alerts/{alert_id}",
     "path": [
      "project_id",
      "alert_id"
@@ -5259,7 +5259,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/users/{user_id}",
     "path": [
      "project_id",
      "user_id"
@@ -5288,7 +5288,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/responses/{response_id}",
+    "url": "https://api.openai.com/v1/responses/{response_id}",
     "path": [
      "response_id"
     ],
@@ -5316,7 +5316,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/roles/{role_id}",
     "path": [
      "role_id"
     ],
@@ -5344,7 +5344,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/skills/{skill_id}",
+    "url": "https://api.openai.com/v1/skills/{skill_id}",
     "path": [
      "skill_id"
     ],
@@ -5377,7 +5377,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/skills/{skill_id}/versions/{version}",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/versions/{version}",
     "path": [
      "skill_id",
      "version"
@@ -5406,7 +5406,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/threads/{thread_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}",
     "path": [
      "thread_id"
     ],
@@ -5434,7 +5434,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/chatkit/threads/{thread_id}",
+    "url": "https://api.openai.com/v1/chatkit/threads/{thread_id}",
     "path": [
      "thread_id"
     ],
@@ -5462,7 +5462,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}",
     "path": [
      "user_id"
     ],
@@ -5490,7 +5490,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/vaults/{vault_id}",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}",
     "path": [
      "vault_id"
     ],
@@ -5523,7 +5523,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/vaults/{vault_id}/credentials/{credential_id}",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}/credentials/{credential_id}",
     "path": [
      "vault_id",
      "credential_id"
@@ -5552,7 +5552,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}",
     "path": [
      "vector_store_id"
     ],
@@ -5585,7 +5585,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files/{file_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files/{file_id}",
     "path": [
      "vector_store_id",
      "file_id"
@@ -5614,7 +5614,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/audio/voice_consents/{consent_id}",
+    "url": "https://api.openai.com/v1/audio/voice_consents/{consent_id}",
     "path": [
      "consent_id"
     ],
@@ -5642,7 +5642,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/webhook_endpoints/{webhook_endpoint_id}",
+    "url": "https://api.openai.com/v1/webhook_endpoints/{webhook_endpoint_id}",
     "path": [
      "webhook_endpoint_id"
     ],
@@ -5670,7 +5670,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/external_storage/{external_storage_id}",
+    "url": "https://api.openai.com/v1/organization/external_storage/{external_storage_id}",
     "path": [
      "external_storage_id"
     ],
@@ -5691,7 +5691,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/spend_limit",
+    "url": "https://api.openai.com/v1/organization/spend_limit",
     "path": [],
     "query": [],
     "header": [],
@@ -5717,7 +5717,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_limit",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_limit",
     "path": [
      "project_id"
     ],
@@ -5745,7 +5745,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/files/{file_id}/content",
+    "url": "https://api.openai.com/v1/files/{file_id}/content",
     "path": [
      "file_id"
     ],
@@ -5773,7 +5773,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/live/sessions/{session_id}/content",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/content",
     "path": [
      "session_id"
     ],
@@ -5810,7 +5810,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions/{session_id}/fork",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/fork",
     "path": [
      "session_id"
     ],
@@ -5845,7 +5845,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/certificates/{certificate_id}",
+    "url": "https://api.openai.com/v1/organization/certificates/{certificate_id}",
     "path": [
      "certificate_id"
     ],
@@ -5875,7 +5875,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chat/completions/{completion_id}",
+    "url": "https://api.openai.com/v1/chat/completions/{completion_id}",
     "path": [
      "completion_id"
     ],
@@ -5919,7 +5919,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chat/completions/{completion_id}/messages",
+    "url": "https://api.openai.com/v1/chat/completions/{completion_id}/messages",
     "path": [
      "completion_id"
     ],
@@ -5951,7 +5951,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/conversations/{conversation_id}",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}",
     "path": [
      "conversation_id"
     ],
@@ -5988,7 +5988,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/conversations/{conversation_id}/items/{item_id}",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}/items/{item_id}",
     "path": [
      "conversation_id",
      "item_id"
@@ -6019,7 +6019,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals/{eval_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}",
     "path": [
      "eval_id"
     ],
@@ -6052,7 +6052,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals/{eval_id}/runs/{run_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs/{run_id}",
     "path": [
      "eval_id",
      "run_id"
@@ -6091,7 +6091,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals/{eval_id}/runs/{run_id}/output_items/{output_item_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs/{run_id}/output_items/{output_item_id}",
     "path": [
      "eval_id",
      "run_id",
@@ -6150,7 +6150,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals/{eval_id}/runs/{run_id}/output_items",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs/{run_id}/output_items",
     "path": [
      "eval_id",
      "run_id"
@@ -6211,7 +6211,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals/{eval_id}/runs",
+    "url": "https://api.openai.com/v1/evals/{eval_id}/runs",
     "path": [
      "eval_id"
     ],
@@ -6249,7 +6249,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/messages/{message_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/messages/{message_id}",
     "path": [
      "thread_id",
      "message_id"
@@ -6294,7 +6294,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/responses/{response_id}",
+    "url": "https://api.openai.com/v1/responses/{response_id}",
     "path": [
      "response_id"
     ],
@@ -6332,7 +6332,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}",
     "path": [
      "thread_id",
      "run_id"
@@ -6375,7 +6375,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}/steps/{step_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps/{step_id}",
     "path": [
      "thread_id",
      "run_id",
@@ -6407,7 +6407,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills/{skill_id}",
+    "url": "https://api.openai.com/v1/skills/{skill_id}",
     "path": [
      "skill_id"
     ],
@@ -6435,7 +6435,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills/{skill_id}/content",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/content",
     "path": [
      "skill_id"
     ],
@@ -6468,7 +6468,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills/{skill_id}/versions/{version}",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/versions/{version}",
     "path": [
      "skill_id",
      "version"
@@ -6502,7 +6502,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills/{skill_id}/versions/{version}/content",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/versions/{version}/content",
     "path": [
      "skill_id",
      "version"
@@ -6531,7 +6531,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}",
     "path": [
      "thread_id"
     ],
@@ -6559,7 +6559,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chatkit/threads/{thread_id}",
+    "url": "https://api.openai.com/v1/chatkit/threads/{thread_id}",
     "path": [
      "thread_id"
     ],
@@ -6587,7 +6587,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}",
     "path": [
      "vector_store_id"
     ],
@@ -6620,7 +6620,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files/{file_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files/{file_id}",
     "path": [
      "vector_store_id",
      "file_id"
@@ -6654,7 +6654,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/file_batches/{batch_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}",
     "path": [
      "vector_store_id",
      "batch_id"
@@ -6683,7 +6683,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/audio/voice_consents/{consent_id}",
+    "url": "https://api.openai.com/v1/audio/voice_consents/{consent_id}",
     "path": [
      "consent_id"
     ],
@@ -6711,7 +6711,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/external_storage/{external_storage_id}",
+    "url": "https://api.openai.com/v1/organization/external_storage/{external_storage_id}",
     "path": [
      "external_storage_id"
     ],
@@ -6785,7 +6785,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/responses/input_tokens",
+    "url": "https://api.openai.com/v1/responses/input_tokens",
     "path": [],
     "query": [],
     "header": [],
@@ -6817,7 +6817,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/spend_limit",
+    "url": "https://api.openai.com/v1/organization/spend_limit",
     "path": [],
     "query": [],
     "header": [],
@@ -6843,7 +6843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/safety/alerts/{id}",
+    "url": "https://api.openai.com/v1/safety/alerts/{id}",
     "path": [
      "id"
     ],
@@ -6871,7 +6871,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_limit",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_limit",
     "path": [
      "project_id"
     ],
@@ -6899,7 +6899,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/safety/cases/{id}",
+    "url": "https://api.openai.com/v1/safety/cases/{id}",
     "path": [
      "id"
     ],
@@ -6927,7 +6927,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions/{session_id}/hangup",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/hangup",
     "path": [
      "session_id"
     ],
@@ -6955,7 +6955,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/calls/{call_id}/hangup",
+    "url": "https://api.openai.com/v1/realtime/calls/{call_id}/hangup",
     "path": [
      "call_id"
     ],
@@ -6996,7 +6996,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/invites",
+    "url": "https://api.openai.com/v1/organization/invites",
     "path": [],
     "query": [],
     "header": [],
@@ -7052,7 +7052,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/environments/{environment_id}/files",
+    "url": "https://api.openai.com/v1/agents/environments/{environment_id}/files",
     "path": [
      "environment_id"
     ],
@@ -7095,7 +7095,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/environments/templates",
+    "url": "https://api.openai.com/v1/agents/environments/templates",
     "path": [],
     "query": [
      "limit",
@@ -7154,7 +7154,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/artifacts",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/artifacts",
     "path": [
      "session_id"
     ],
@@ -7187,7 +7187,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/events",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/events",
     "path": [
      "session_id"
     ],
@@ -7231,7 +7231,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/items",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/items",
     "path": [
      "session_id"
     ],
@@ -7284,7 +7284,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents/{subagent_id}/items",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents/{subagent_id}/items",
     "path": [
      "session_id",
      "subagent_id"
@@ -7343,7 +7343,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents/{subagent_id}/turns/{turn_id}/items",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents/{subagent_id}/turns/{turn_id}/items",
     "path": [
      "session_id",
      "subagent_id",
@@ -7398,7 +7398,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents/{subagent_id}/turns",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents/{subagent_id}/turns",
     "path": [
      "session_id",
      "subagent_id"
@@ -7447,7 +7447,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents",
     "path": [
      "session_id"
     ],
@@ -7495,7 +7495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/turns",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/turns",
     "path": [
      "session_id"
     ],
@@ -7544,7 +7544,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions",
+    "url": "https://api.openai.com/v1/agents/sessions",
     "path": [],
     "query": [
      "limit",
@@ -7588,7 +7588,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents",
+    "url": "https://api.openai.com/v1/agents",
     "path": [],
     "query": [
      "limit",
@@ -7652,7 +7652,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/audit_logs",
+    "url": "https://api.openai.com/v1/organization/audit_logs",
     "path": [],
     "query": [
      "effective_at",
@@ -7691,7 +7691,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/batches",
+    "url": "https://api.openai.com/v1/batches",
     "path": [],
     "query": [
      "after",
@@ -7738,7 +7738,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chat/completions",
+    "url": "https://api.openai.com/v1/chat/completions",
     "path": [],
     "query": [
      "model",
@@ -7786,7 +7786,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/containers/{container_id}/files",
+    "url": "https://api.openai.com/v1/containers/{container_id}/files",
     "path": [
      "container_id"
     ],
@@ -7832,7 +7832,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/containers",
+    "url": "https://api.openai.com/v1/containers",
     "path": [],
     "query": [
      "limit",
@@ -7883,7 +7883,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/conversations/{conversation_id}/items",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}/items",
     "path": [
      "conversation_id"
     ],
@@ -7934,7 +7934,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/evals",
+    "url": "https://api.openai.com/v1/evals",
     "path": [],
     "query": [
      "after",
@@ -7979,7 +7979,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/files",
+    "url": "https://api.openai.com/v1/files",
     "path": [],
     "query": [
      "purpose",
@@ -8045,7 +8045,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/file_batches/{batch_id}/files",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/file_batches/{batch_id}/files",
     "path": [
      "vector_store_id",
      "batch_id"
@@ -8100,7 +8100,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions",
+    "url": "https://api.openai.com/v1/fine_tuning/checkpoints/{fine_tuned_model_checkpoint}/permissions",
     "path": [
      "fine_tuned_model_checkpoint"
     ],
@@ -8141,7 +8141,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}/events",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}/events",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -8180,7 +8180,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}/checkpoints",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -8227,7 +8227,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups/{group_id}/roles",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/roles",
     "path": [
      "group_id"
     ],
@@ -8275,7 +8275,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups/{group_id}/users",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/users",
     "path": [
      "group_id"
     ],
@@ -8317,7 +8317,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups",
+    "url": "https://api.openai.com/v1/organization/groups",
     "path": [],
     "query": [
      "limit",
@@ -8367,7 +8367,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/responses/{response_id}/input_items",
+    "url": "https://api.openai.com/v1/responses/{response_id}/input_items",
     "path": [
      "response_id"
     ],
@@ -8402,7 +8402,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/invites",
+    "url": "https://api.openai.com/v1/organization/invites",
     "path": [],
     "query": [
      "limit",
@@ -8455,7 +8455,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/messages",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/messages",
     "path": [
      "thread_id"
     ],
@@ -8482,7 +8482,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/models",
+    "url": "https://api.openai.com/v1/models",
     "path": [],
     "query": [],
     "header": [],
@@ -8518,7 +8518,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/certificates",
+    "url": "https://api.openai.com/v1/organization/certificates",
     "path": [],
     "query": [
      "limit",
@@ -8562,7 +8562,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/spend_alerts",
+    "url": "https://api.openai.com/v1/organization/spend_alerts",
     "path": [],
     "query": [
      "limit",
@@ -8599,7 +8599,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/fine_tuning/jobs",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs",
     "path": [],
     "query": [
      "after",
@@ -8646,7 +8646,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/api_keys",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/api_keys",
     "path": [
      "project_id"
     ],
@@ -8694,7 +8694,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/certificates",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/certificates",
     "path": [
      "project_id"
     ],
@@ -8747,7 +8747,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/groups/{group_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/groups/{group_id}/roles",
     "path": [
      "project_id",
      "group_id"
@@ -8796,7 +8796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/groups",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/groups",
     "path": [
      "project_id"
     ],
@@ -8840,7 +8840,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/rate_limits",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/rate_limits",
     "path": [
      "project_id"
     ],
@@ -8888,7 +8888,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/roles",
     "path": [
      "project_id"
     ],
@@ -8928,7 +8928,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts",
     "path": [
      "project_id"
     ],
@@ -8979,7 +8979,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_alerts",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_alerts",
     "path": [
      "project_id"
     ],
@@ -9033,7 +9033,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/users/{user_id}/roles",
+    "url": "https://api.openai.com/v1/projects/{project_id}/users/{user_id}/roles",
     "path": [
      "project_id",
      "user_id"
@@ -9074,7 +9074,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/users",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/users",
     "path": [
      "project_id"
     ],
@@ -9111,7 +9111,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects",
+    "url": "https://api.openai.com/v1/organization/projects",
     "path": [],
     "query": [
      "limit",
@@ -9151,7 +9151,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/roles",
+    "url": "https://api.openai.com/v1/organization/roles",
     "path": [],
     "query": [
      "limit",
@@ -9210,7 +9210,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}/steps",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/steps",
     "path": [
      "thread_id",
      "run_id"
@@ -9265,7 +9265,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/threads/{thread_id}/runs",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs",
     "path": [
      "thread_id"
     ],
@@ -9314,7 +9314,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills/{skill_id}/versions",
+    "url": "https://api.openai.com/v1/skills/{skill_id}/versions",
     "path": [
      "skill_id"
     ],
@@ -9356,7 +9356,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/skills",
+    "url": "https://api.openai.com/v1/skills",
     "path": [],
     "query": [
      "limit",
@@ -9406,7 +9406,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chatkit/threads/{thread_id}/items",
+    "url": "https://api.openai.com/v1/chatkit/threads/{thread_id}/items",
     "path": [
      "thread_id"
     ],
@@ -9457,7 +9457,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/chatkit/threads",
+    "url": "https://api.openai.com/v1/chatkit/threads",
     "path": [],
     "query": [
      "limit",
@@ -9505,7 +9505,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/users/{user_id}/roles",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}/roles",
     "path": [
      "user_id"
     ],
@@ -9543,7 +9543,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/users",
+    "url": "https://api.openai.com/v1/organization/users",
     "path": [],
     "query": [
      "limit",
@@ -9596,7 +9596,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vaults/{vault_id}/credentials",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}/credentials",
     "path": [
      "vault_id"
     ],
@@ -9646,7 +9646,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vaults",
+    "url": "https://api.openai.com/v1/vaults",
     "path": [],
     "query": [
      "order",
@@ -9707,7 +9707,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files",
     "path": [
      "vector_store_id"
     ],
@@ -9755,7 +9755,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores",
+    "url": "https://api.openai.com/v1/vector_stores",
     "path": [],
     "query": [
      "limit",
@@ -9788,7 +9788,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/audio/voice_consents",
+    "url": "https://api.openai.com/v1/audio/voice_consents",
     "path": [],
     "query": [
      "after",
@@ -9819,7 +9819,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/webhook_endpoints",
+    "url": "https://api.openai.com/v1/webhook_endpoints",
     "path": [],
     "query": [
      "limit",
@@ -9841,7 +9841,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/webhook_event_types",
+    "url": "https://api.openai.com/v1/webhook_event_types",
     "path": [],
     "query": [],
     "header": [],
@@ -9881,7 +9881,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/external_storage",
+    "url": "https://api.openai.com/v1/organization/external_storage",
     "path": [],
     "query": [
      "project_id",
@@ -9916,7 +9916,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/certificates/{certificate_id}",
+    "url": "https://api.openai.com/v1/organization/certificates/{certificate_id}",
     "path": [
      "certificate_id"
     ],
@@ -9955,7 +9955,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/messages/{message_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/messages/{message_id}",
     "path": [
      "thread_id",
      "message_id"
@@ -9998,7 +9998,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}",
     "path": [
      "project_id"
     ],
@@ -10039,7 +10039,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/users/{user_id}",
     "path": [
      "project_id",
      "user_id"
@@ -10079,7 +10079,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}",
     "path": [
      "thread_id",
      "run_id"
@@ -10118,7 +10118,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}",
+    "url": "https://api.openai.com/v1/threads/{thread_id}",
     "path": [
      "thread_id"
     ],
@@ -10165,7 +10165,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}",
     "path": [
      "user_id"
     ],
@@ -10210,7 +10210,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}",
     "path": [
      "vector_store_id"
     ],
@@ -10242,7 +10242,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}/pause",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}/pause",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -10275,7 +10275,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions/{session_id}/refer",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/refer",
     "path": [
      "session_id"
     ],
@@ -10310,7 +10310,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/calls/{call_id}/refer",
+    "url": "https://api.openai.com/v1/realtime/calls/{call_id}/refer",
     "path": [
      "call_id"
     ],
@@ -10345,7 +10345,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/live/sessions/{session_id}/reject",
+    "url": "https://api.openai.com/v1/live/sessions/{session_id}/reject",
     "path": [
      "session_id"
     ],
@@ -10379,7 +10379,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/realtime/calls/{call_id}/reject",
+    "url": "https://api.openai.com/v1/realtime/calls/{call_id}/reject",
     "path": [
      "call_id"
     ],
@@ -10414,7 +10414,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/groups/{group_id}/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/users/{user_id}",
     "path": [
      "group_id",
      "user_id"
@@ -10448,7 +10448,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/projects/{project_id}/groups/{group_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/groups/{group_id}",
     "path": [
      "project_id",
      "group_id"
@@ -10477,7 +10477,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}/resume",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}/resume",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -10505,7 +10505,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/{agent_id}",
+    "url": "https://api.openai.com/v1/agents/{agent_id}",
     "path": [
      "agent_id"
     ],
@@ -10533,7 +10533,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/environments/{environment_id}",
+    "url": "https://api.openai.com/v1/agents/environments/{environment_id}",
     "path": [
      "environment_id"
     ],
@@ -10561,7 +10561,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/environments/templates/{environment_template_id}",
+    "url": "https://api.openai.com/v1/agents/environments/templates/{environment_template_id}",
     "path": [
      "environment_template_id"
     ],
@@ -10589,7 +10589,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}",
     "path": [
      "session_id"
     ],
@@ -10622,7 +10622,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/artifacts/{artifact_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/artifacts/{artifact_id}",
     "path": [
      "session_id",
      "artifact_id"
@@ -10656,7 +10656,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/artifacts/{artifact_id}/content",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/artifacts/{artifact_id}/content",
     "path": [
      "session_id",
      "artifact_id"
@@ -10690,7 +10690,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents/{subagent_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents/{subagent_id}",
     "path": [
      "session_id",
      "subagent_id"
@@ -10729,7 +10729,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/subagents/{subagent_id}/turns/{turn_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/subagents/{subagent_id}/turns/{turn_id}",
     "path": [
      "session_id",
      "subagent_id",
@@ -10764,7 +10764,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/agents/sessions/{session_id}/turns/{turn_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}/turns/{turn_id}",
     "path": [
      "session_id",
      "turn_id"
@@ -10793,7 +10793,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/batches/{batch_id}",
+    "url": "https://api.openai.com/v1/batches/{batch_id}",
     "path": [
      "batch_id"
     ],
@@ -10821,7 +10821,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/containers/{container_id}",
+    "url": "https://api.openai.com/v1/containers/{container_id}",
     "path": [
      "container_id"
     ],
@@ -10854,7 +10854,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/containers/{container_id}/files/{file_id}",
+    "url": "https://api.openai.com/v1/containers/{container_id}/files/{file_id}",
     "path": [
      "container_id",
      "file_id"
@@ -10888,7 +10888,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/containers/{container_id}/files/{file_id}/content",
+    "url": "https://api.openai.com/v1/containers/{container_id}/files/{file_id}/content",
     "path": [
      "container_id",
      "file_id"
@@ -10917,7 +10917,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/files/{file_id}",
+    "url": "https://api.openai.com/v1/files/{file_id}",
     "path": [
      "file_id"
     ],
@@ -10945,7 +10945,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/fine_tuning/jobs/{fine_tuning_job_id}",
+    "url": "https://api.openai.com/v1/fine_tuning/jobs/{fine_tuning_job_id}",
     "path": [
      "fine_tuning_job_id"
     ],
@@ -10973,7 +10973,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups/{group_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}",
     "path": [
      "group_id"
     ],
@@ -11006,7 +11006,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups/{group_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/roles/{role_id}",
     "path": [
      "group_id",
      "role_id"
@@ -11040,7 +11040,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/groups/{group_id}/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/users/{user_id}",
     "path": [
      "group_id",
      "user_id"
@@ -11069,7 +11069,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/invites/{invite_id}",
+    "url": "https://api.openai.com/v1/organization/invites/{invite_id}",
     "path": [
      "invite_id"
     ],
@@ -11097,7 +11097,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/models/{model}",
+    "url": "https://api.openai.com/v1/models/{model}",
     "path": [
      "model"
     ],
@@ -11118,7 +11118,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/data_retention",
+    "url": "https://api.openai.com/v1/organization/data_retention",
     "path": [],
     "query": [],
     "header": [],
@@ -11144,7 +11144,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/spend_alerts/{alert_id}",
     "path": [
      "alert_id"
     ],
@@ -11172,7 +11172,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}",
     "path": [
      "project_id"
     ],
@@ -11205,7 +11205,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/api_keys/{api_key_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/api_keys/{api_key_id}",
     "path": [
      "project_id",
      "api_key_id"
@@ -11234,7 +11234,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/data_retention",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/data_retention",
     "path": [
      "project_id"
     ],
@@ -11275,7 +11275,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/groups/{group_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/groups/{group_id}",
     "path": [
      "project_id",
      "group_id"
@@ -11316,7 +11316,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/groups/{group_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/groups/{group_id}/roles/{role_id}",
     "path": [
      "project_id",
      "group_id",
@@ -11346,7 +11346,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/hosted_tool_permissions",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/hosted_tool_permissions",
     "path": [
      "project_id"
     ],
@@ -11374,7 +11374,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/model_permissions",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/model_permissions",
     "path": [
      "project_id"
     ],
@@ -11407,7 +11407,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/roles/{role_id}",
     "path": [
      "project_id",
      "role_id"
@@ -11441,7 +11441,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts/{service_account_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts/{service_account_id}",
     "path": [
      "project_id",
      "service_account_id"
@@ -11475,7 +11475,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_alerts/{alert_id}",
     "path": [
      "project_id",
      "alert_id"
@@ -11509,7 +11509,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/projects/{project_id}/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/users/{user_id}",
     "path": [
      "project_id",
      "user_id"
@@ -11548,7 +11548,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/projects/{project_id}/users/{user_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/users/{user_id}/roles/{role_id}",
     "path": [
      "project_id",
      "user_id",
@@ -11578,7 +11578,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/roles/{role_id}",
     "path": [
      "role_id"
     ],
@@ -11606,7 +11606,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/users/{user_id}",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}",
     "path": [
      "user_id"
     ],
@@ -11639,7 +11639,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/users/{user_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}/roles/{role_id}",
     "path": [
      "user_id",
      "role_id"
@@ -11668,7 +11668,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vaults/{vault_id}",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}",
     "path": [
      "vault_id"
     ],
@@ -11701,7 +11701,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vaults/{vault_id}/credentials/{credential_id}",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}/credentials/{credential_id}",
     "path": [
      "vault_id",
      "credential_id"
@@ -11735,7 +11735,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files/{file_id}/content",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files/{file_id}/content",
     "path": [
      "vector_store_id",
      "file_id"
@@ -11764,7 +11764,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/webhook_endpoints/{webhook_endpoint_id}",
+    "url": "https://api.openai.com/v1/webhook_endpoints/{webhook_endpoint_id}",
     "path": [
      "webhook_endpoint_id"
     ],
@@ -11797,7 +11797,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vaults/{vault_id}/credentials/{credential_id}",
+    "url": "https://api.openai.com/v1/vaults/{vault_id}/credentials/{credential_id}",
     "path": [
      "vault_id",
      "credential_id"
@@ -11830,7 +11830,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/webhook_endpoints/{webhook_endpoint_id}/rotate_secret",
+    "url": "https://api.openai.com/v1/webhook_endpoints/{webhook_endpoint_id}/rotate_secret",
     "path": [
      "webhook_endpoint_id"
     ],
@@ -11869,7 +11869,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/alpha/graders/run",
+    "url": "https://api.openai.com/v1/fine_tuning/alpha/graders/run",
     "path": [],
     "query": [],
     "header": [],
@@ -11920,7 +11920,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/search",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/search",
     "path": [
      "vector_store_id"
     ],
@@ -11968,7 +11968,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
+    "url": "https://api.openai.com/v1/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
     "path": [
      "thread_id",
      "run_id"
@@ -12019,7 +12019,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/webhook_endpoints/{webhook_endpoint_id}/test",
+    "url": "https://api.openai.com/v1/webhook_endpoints/{webhook_endpoint_id}/test",
     "path": [
      "webhook_endpoint_id"
     ],
@@ -12054,7 +12054,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/groups/{group_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}/roles/{role_id}",
     "path": [
      "group_id",
      "role_id"
@@ -12093,7 +12093,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/projects/{project_id}/groups/{group_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/groups/{group_id}/roles/{role_id}",
     "path": [
      "project_id",
      "group_id",
@@ -12133,7 +12133,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/projects/{project_id}/users/{user_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/users/{user_id}/roles/{role_id}",
     "path": [
      "project_id",
      "user_id",
@@ -12168,7 +12168,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.openai.com/organization/users/{user_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/users/{user_id}/roles/{role_id}",
     "path": [
      "user_id",
      "role_id"
@@ -12245,7 +12245,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/{agent_id}",
+    "url": "https://api.openai.com/v1/agents/{agent_id}",
     "path": [
      "agent_id"
     ],
@@ -12340,7 +12340,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/environments/templates/{environment_template_id}",
+    "url": "https://api.openai.com/v1/agents/environments/templates/{environment_template_id}",
     "path": [
      "environment_template_id"
     ],
@@ -12389,7 +12389,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/agents/sessions/{session_id}",
+    "url": "https://api.openai.com/v1/agents/sessions/{session_id}",
     "path": [
      "session_id"
     ],
@@ -12425,7 +12425,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/chat/completions/{completion_id}",
+    "url": "https://api.openai.com/v1/chat/completions/{completion_id}",
     "path": [
      "completion_id"
     ],
@@ -12460,7 +12460,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/conversations/{conversation_id}",
+    "url": "https://api.openai.com/v1/conversations/{conversation_id}",
     "path": [
      "conversation_id"
     ],
@@ -12498,7 +12498,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/evals/{eval_id}",
+    "url": "https://api.openai.com/v1/evals/{eval_id}",
     "path": [
      "eval_id"
     ],
@@ -12534,7 +12534,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/groups/{group_id}",
+    "url": "https://api.openai.com/v1/organization/groups/{group_id}",
     "path": [
      "group_id"
     ],
@@ -12570,7 +12570,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/data_retention",
+    "url": "https://api.openai.com/v1/organization/data_retention",
     "path": [],
     "query": [],
     "header": [],
@@ -12624,7 +12624,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/spend_alerts/{alert_id}",
     "path": [
      "alert_id"
     ],
@@ -12670,7 +12670,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/data_retention",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/data_retention",
     "path": [
      "project_id"
     ],
@@ -12720,7 +12720,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/hosted_tool_permissions",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/hosted_tool_permissions",
     "path": [
      "project_id"
     ],
@@ -12768,7 +12768,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/model_permissions",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/model_permissions",
     "path": [
      "project_id"
     ],
@@ -12828,7 +12828,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/rate_limits/{rate_limit_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/rate_limits/{rate_limit_id}",
     "path": [
      "project_id",
      "rate_limit_id"
@@ -12881,7 +12881,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/projects/{project_id}/roles/{role_id}",
+    "url": "https://api.openai.com/v1/projects/{project_id}/roles/{role_id}",
     "path": [
      "project_id",
      "role_id"
@@ -12931,7 +12931,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/service_accounts/{service_account_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/service_accounts/{service_account_id}",
     "path": [
      "project_id",
      "service_account_id"
@@ -12994,7 +12994,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_alerts/{alert_id}",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_alerts/{alert_id}",
     "path": [
      "project_id",
      "alert_id"
@@ -13040,7 +13040,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/roles/{role_id}",
+    "url": "https://api.openai.com/v1/organization/roles/{role_id}",
     "path": [
      "role_id"
     ],
@@ -13077,7 +13077,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/skills/{skill_id}",
+    "url": "https://api.openai.com/v1/skills/{skill_id}",
     "path": [
      "skill_id"
     ],
@@ -13117,7 +13117,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/vector_stores/{vector_store_id}/files/{file_id}",
+    "url": "https://api.openai.com/v1/vector_stores/{vector_store_id}/files/{file_id}",
     "path": [
      "vector_store_id",
      "file_id"
@@ -13153,7 +13153,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/audio/voice_consents/{consent_id}",
+    "url": "https://api.openai.com/v1/audio/voice_consents/{consent_id}",
     "path": [
      "consent_id"
     ],
@@ -13195,7 +13195,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/webhook_endpoints/{webhook_endpoint_id}",
+    "url": "https://api.openai.com/v1/webhook_endpoints/{webhook_endpoint_id}",
     "path": [
      "webhook_endpoint_id"
     ],
@@ -13243,7 +13243,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/spend_limit",
+    "url": "https://api.openai.com/v1/organization/spend_limit",
     "path": [],
     "query": [],
     "header": [],
@@ -13294,7 +13294,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/projects/{project_id}/spend_limit",
+    "url": "https://api.openai.com/v1/organization/projects/{project_id}/spend_limit",
     "path": [
      "project_id"
     ],
@@ -13330,7 +13330,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/certificates",
+    "url": "https://api.openai.com/v1/organization/certificates",
     "path": [],
     "query": [],
     "header": [],
@@ -13400,7 +13400,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/audio_speeches",
+    "url": "https://api.openai.com/v1/organization/usage/audio_speeches",
     "path": [],
     "query": [
      "start_time",
@@ -13478,7 +13478,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/audio_transcriptions",
+    "url": "https://api.openai.com/v1/organization/usage/audio_transcriptions",
     "path": [],
     "query": [
      "start_time",
@@ -13544,7 +13544,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/code_interpreter_sessions",
+    "url": "https://api.openai.com/v1/organization/usage/code_interpreter_sessions",
     "path": [],
     "query": [
      "start_time",
@@ -13623,7 +13623,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/completions",
+    "url": "https://api.openai.com/v1/organization/usage/completions",
     "path": [],
     "query": [
      "start_time",
@@ -13696,7 +13696,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/costs",
+    "url": "https://api.openai.com/v1/organization/costs",
     "path": [],
     "query": [
      "start_time",
@@ -13773,7 +13773,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/embeddings",
+    "url": "https://api.openai.com/v1/organization/usage/embeddings",
     "path": [],
     "query": [
      "start_time",
@@ -13851,7 +13851,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/file_search_calls",
+    "url": "https://api.openai.com/v1/organization/usage/file_search_calls",
     "path": [],
     "query": [
      "start_time",
@@ -13937,7 +13937,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/images",
+    "url": "https://api.openai.com/v1/organization/usage/images",
     "path": [],
     "query": [
      "start_time",
@@ -14017,7 +14017,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/moderations",
+    "url": "https://api.openai.com/v1/organization/usage/moderations",
     "path": [],
     "query": [
      "start_time",
@@ -14083,7 +14083,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/vector_stores",
+    "url": "https://api.openai.com/v1/organization/usage/vector_stores",
     "path": [],
     "query": [
      "start_time",
@@ -14162,7 +14162,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.openai.com/organization/usage/web_search_calls",
+    "url": "https://api.openai.com/v1/organization/usage/web_search_calls",
     "path": [],
     "query": [
      "start_time",
@@ -14200,7 +14200,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/fine_tuning/alpha/graders/validate",
+    "url": "https://api.openai.com/v1/fine_tuning/alpha/graders/validate",
     "path": [],
     "query": [],
     "header": [],
@@ -14228,7 +14228,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.openai.com/organization/external_storage/{external_storage_id}/validate",
+    "url": "https://api.openai.com/v1/organization/external_storage/{external_storage_id}/validate",
     "path": [
      "external_storage_id"
     ],

@@ -25,7 +25,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.spotify.com/me/player/queue",
+    "url": "https://api.spotify.com/v1/me/player/queue",
     "path": [],
     "query": [
      "uri",
@@ -62,7 +62,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
     "path": [
      "playlist_id"
     ],
@@ -112,7 +112,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/playlists/{playlist_id}",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}",
     "path": [
      "playlist_id"
     ],
@@ -154,7 +154,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/following/contains",
+    "url": "https://api.spotify.com/v1/me/following/contains",
     "path": [],
     "query": [
      "type",
@@ -188,7 +188,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/followers/contains",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/followers/contains",
     "path": [
      "playlist_id"
     ],
@@ -218,7 +218,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/albums/contains",
+    "url": "https://api.spotify.com/v1/me/albums/contains",
     "path": [],
     "query": [
      "ids"
@@ -246,7 +246,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/audiobooks/contains",
+    "url": "https://api.spotify.com/v1/me/audiobooks/contains",
     "path": [],
     "query": [
      "ids"
@@ -274,7 +274,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/episodes/contains",
+    "url": "https://api.spotify.com/v1/me/episodes/contains",
     "path": [],
     "query": [
      "ids"
@@ -302,7 +302,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/shows/contains",
+    "url": "https://api.spotify.com/v1/me/shows/contains",
     "path": [],
     "query": [
      "ids"
@@ -330,7 +330,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/tracks/contains",
+    "url": "https://api.spotify.com/v1/me/tracks/contains",
     "path": [],
     "query": [
      "ids"
@@ -375,7 +375,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.spotify.com/users/{user_id}/playlists",
+    "url": "https://api.spotify.com/v1/users/{user_id}/playlists",
     "path": [
      "user_id"
     ],
@@ -417,7 +417,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/following",
+    "url": "https://api.spotify.com/v1/me/following",
     "path": [],
     "query": [
      "type",
@@ -452,7 +452,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/followers",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/followers",
     "path": [
      "playlist_id"
     ],
@@ -494,7 +494,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/browse/categories/{category_id}/playlists",
+    "url": "https://api.spotify.com/v1/browse/categories/{category_id}/playlists",
     "path": [
      "category_id"
     ],
@@ -534,7 +534,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/browse/categories/{category_id}",
+    "url": "https://api.spotify.com/v1/browse/categories/{category_id}",
     "path": [
      "category_id"
     ],
@@ -569,7 +569,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/chapters/{id}",
+    "url": "https://api.spotify.com/v1/chapters/{id}",
     "path": [
      "id"
     ],
@@ -601,7 +601,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/playlists",
+    "url": "https://api.spotify.com/v1/me/playlists",
     "path": [],
     "query": [
      "limit",
@@ -634,7 +634,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/shows/{id}",
+    "url": "https://api.spotify.com/v1/shows/{id}",
     "path": [
      "id"
     ],
@@ -676,7 +676,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/shows/{id}/episodes",
+    "url": "https://api.spotify.com/v1/shows/{id}/episodes",
     "path": [
      "id"
     ],
@@ -701,7 +701,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/player/devices",
+    "url": "https://api.spotify.com/v1/me/player/devices",
     "path": [],
     "query": [],
     "header": [],
@@ -731,7 +731,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/albums/{id}",
+    "url": "https://api.spotify.com/v1/albums/{id}",
     "path": [
      "id"
     ],
@@ -773,7 +773,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/albums/{id}/tracks",
+    "url": "https://api.spotify.com/v1/albums/{id}/tracks",
     "path": [
      "id"
     ],
@@ -805,7 +805,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/artists/{id}",
+    "url": "https://api.spotify.com/v1/artists/{id}",
     "path": [
      "id"
     ],
@@ -849,7 +849,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/artists/{id}/albums",
+    "url": "https://api.spotify.com/v1/artists/{id}/albums",
     "path": [
      "id"
     ],
@@ -882,7 +882,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/artists/{id}/related-artists",
+    "url": "https://api.spotify.com/v1/artists/{id}/related-artists",
     "path": [
      "id"
     ],
@@ -914,7 +914,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/artists/{id}/top-tracks",
+    "url": "https://api.spotify.com/v1/artists/{id}/top-tracks",
     "path": [
      "id"
     ],
@@ -948,7 +948,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audiobooks/{id}",
+    "url": "https://api.spotify.com/v1/audiobooks/{id}",
     "path": [
      "id"
     ],
@@ -982,7 +982,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/episodes/{id}",
+    "url": "https://api.spotify.com/v1/episodes/{id}",
     "path": [
      "id"
     ],
@@ -1012,7 +1012,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audio-analysis/{id}",
+    "url": "https://api.spotify.com/v1/audio-analysis/{id}",
     "path": [
      "id"
     ],
@@ -1040,7 +1040,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audio-features/{id}",
+    "url": "https://api.spotify.com/v1/audio-features/{id}",
     "path": [
      "id"
     ],
@@ -1080,7 +1080,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audiobooks/{id}/chapters",
+    "url": "https://api.spotify.com/v1/audiobooks/{id}/chapters",
     "path": [
      "id"
     ],
@@ -1105,7 +1105,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/markets",
+    "url": "https://api.spotify.com/v1/markets",
     "path": [],
     "query": [],
     "header": [],
@@ -1141,7 +1141,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/browse/categories",
+    "url": "https://api.spotify.com/v1/browse/categories",
     "path": [],
     "query": [
      "country",
@@ -1165,7 +1165,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me",
+    "url": "https://api.spotify.com/v1/me",
     "path": [],
     "query": [],
     "header": [],
@@ -1205,7 +1205,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/browse/featured-playlists",
+    "url": "https://api.spotify.com/v1/browse/featured-playlists",
     "path": [],
     "query": [
      "country",
@@ -1248,7 +1248,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/following",
+    "url": "https://api.spotify.com/v1/me/following",
     "path": [],
     "query": [
      "type",
@@ -1280,7 +1280,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/player",
+    "url": "https://api.spotify.com/v1/me/player",
     "path": [],
     "query": [
      "market",
@@ -1317,7 +1317,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/users/{user_id}/playlists",
+    "url": "https://api.spotify.com/v1/users/{user_id}/playlists",
     "path": [
      "user_id"
     ],
@@ -1352,7 +1352,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/albums",
+    "url": "https://api.spotify.com/v1/albums",
     "path": [],
     "query": [
      "ids",
@@ -1381,7 +1381,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/artists",
+    "url": "https://api.spotify.com/v1/artists",
     "path": [],
     "query": [
      "ids"
@@ -1413,7 +1413,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audiobooks",
+    "url": "https://api.spotify.com/v1/audiobooks",
     "path": [],
     "query": [
      "ids",
@@ -1446,7 +1446,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/episodes",
+    "url": "https://api.spotify.com/v1/episodes",
     "path": [],
     "query": [
      "ids",
@@ -1479,7 +1479,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/shows",
+    "url": "https://api.spotify.com/v1/shows",
     "path": [],
     "query": [
      "market",
@@ -1514,7 +1514,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/browse/new-releases",
+    "url": "https://api.spotify.com/v1/browse/new-releases",
     "path": [],
     "query": [
      "country",
@@ -1556,7 +1556,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/playlists/{playlist_id}",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}",
     "path": [
      "playlist_id"
     ],
@@ -1588,7 +1588,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/images",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/images",
     "path": [
      "playlist_id"
     ],
@@ -1636,7 +1636,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
     "path": [
      "playlist_id"
     ],
@@ -1663,7 +1663,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/player/queue",
+    "url": "https://api.spotify.com/v1/me/player/queue",
     "path": [],
     "query": [],
     "header": [],
@@ -1695,7 +1695,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/player/recently-played",
+    "url": "https://api.spotify.com/v1/me/player/recently-played",
     "path": [],
     "query": [
      "limit",
@@ -1718,7 +1718,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/recommendations/available-genre-seeds",
+    "url": "https://api.spotify.com/v1/recommendations/available-genre-seeds",
     "path": [],
     "query": [],
     "header": [],
@@ -1930,7 +1930,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/recommendations",
+    "url": "https://api.spotify.com/v1/recommendations",
     "path": [],
     "query": [
      "limit",
@@ -2004,7 +2004,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/audio-features",
+    "url": "https://api.spotify.com/v1/audio-features",
     "path": [],
     "query": [
      "ids"
@@ -2036,7 +2036,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/chapters",
+    "url": "https://api.spotify.com/v1/chapters",
     "path": [],
     "query": [
      "ids",
@@ -2069,7 +2069,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/tracks",
+    "url": "https://api.spotify.com/v1/tracks",
     "path": [],
     "query": [
      "market",
@@ -2100,7 +2100,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/player/currently-playing",
+    "url": "https://api.spotify.com/v1/me/player/currently-playing",
     "path": [],
     "query": [
      "market",
@@ -2133,7 +2133,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/tracks/{id}",
+    "url": "https://api.spotify.com/v1/tracks/{id}",
     "path": [
      "id"
     ],
@@ -2163,7 +2163,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/users/{user_id}",
+    "url": "https://api.spotify.com/v1/users/{user_id}",
     "path": [
      "user_id"
     ],
@@ -2197,7 +2197,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/albums",
+    "url": "https://api.spotify.com/v1/me/albums",
     "path": [],
     "query": [
      "limit",
@@ -2229,7 +2229,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/audiobooks",
+    "url": "https://api.spotify.com/v1/me/audiobooks",
     "path": [],
     "query": [
      "limit",
@@ -2264,7 +2264,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/episodes",
+    "url": "https://api.spotify.com/v1/me/episodes",
     "path": [],
     "query": [
      "market",
@@ -2296,7 +2296,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/shows",
+    "url": "https://api.spotify.com/v1/me/shows",
     "path": [],
     "query": [
      "limit",
@@ -2331,7 +2331,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/tracks",
+    "url": "https://api.spotify.com/v1/me/tracks",
     "path": [],
     "query": [
      "market",
@@ -2377,7 +2377,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/me/top/{type}",
+    "url": "https://api.spotify.com/v1/me/top/{type}",
     "path": [
      "type"
     ],
@@ -2407,7 +2407,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/pause",
+    "url": "https://api.spotify.com/v1/me/player/pause",
     "path": [],
     "query": [
      "device_id"
@@ -2435,7 +2435,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/albums",
+    "url": "https://api.spotify.com/v1/me/albums",
     "path": [],
     "query": [
      "ids"
@@ -2465,7 +2465,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/audiobooks",
+    "url": "https://api.spotify.com/v1/me/audiobooks",
     "path": [],
     "query": [
      "ids"
@@ -2493,7 +2493,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/episodes",
+    "url": "https://api.spotify.com/v1/me/episodes",
     "path": [],
     "query": [
      "ids"
@@ -2527,7 +2527,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/shows",
+    "url": "https://api.spotify.com/v1/me/shows",
     "path": [],
     "query": [
      "ids",
@@ -2565,7 +2565,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
     "path": [
      "playlist_id"
     ],
@@ -2596,7 +2596,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/tracks",
+    "url": "https://api.spotify.com/v1/me/tracks",
     "path": [],
     "query": [
      "ids"
@@ -2646,7 +2646,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/tracks",
     "path": [
      "playlist_id"
     ],
@@ -2682,7 +2682,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/albums",
+    "url": "https://api.spotify.com/v1/me/albums",
     "path": [],
     "query": [
      "ids"
@@ -2712,7 +2712,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/audiobooks",
+    "url": "https://api.spotify.com/v1/me/audiobooks",
     "path": [],
     "query": [
      "ids"
@@ -2741,7 +2741,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/episodes",
+    "url": "https://api.spotify.com/v1/me/episodes",
     "path": [],
     "query": [
      "ids"
@@ -2771,7 +2771,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/shows",
+    "url": "https://api.spotify.com/v1/me/shows",
     "path": [],
     "query": [
      "ids"
@@ -2800,7 +2800,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/tracks",
+    "url": "https://api.spotify.com/v1/me/tracks",
     "path": [],
     "query": [
      "ids"
@@ -2854,7 +2854,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.spotify.com/search",
+    "url": "https://api.spotify.com/v1/search",
     "path": [],
     "query": [
      "q",
@@ -2891,7 +2891,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/seek",
+    "url": "https://api.spotify.com/v1/me/player/seek",
     "path": [],
     "query": [
      "position_ms",
@@ -2924,7 +2924,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/repeat",
+    "url": "https://api.spotify.com/v1/me/player/repeat",
     "path": [],
     "query": [
      "state",
@@ -2957,7 +2957,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/volume",
+    "url": "https://api.spotify.com/v1/me/player/volume",
     "path": [],
     "query": [
      "volume_percent",
@@ -2984,7 +2984,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.spotify.com/me/player/next",
+    "url": "https://api.spotify.com/v1/me/player/next",
     "path": [],
     "query": [
      "device_id"
@@ -3010,7 +3010,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.spotify.com/me/player/previous",
+    "url": "https://api.spotify.com/v1/me/player/previous",
     "path": [],
     "query": [
      "device_id"
@@ -3052,7 +3052,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/play",
+    "url": "https://api.spotify.com/v1/me/player/play",
     "path": [],
     "query": [
      "device_id"
@@ -3089,7 +3089,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player/shuffle",
+    "url": "https://api.spotify.com/v1/me/player/shuffle",
     "path": [],
     "query": [
      "state",
@@ -3122,7 +3122,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/me/player",
+    "url": "https://api.spotify.com/v1/me/player",
     "path": [],
     "query": [],
     "header": [],
@@ -3160,7 +3160,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/me/following",
+    "url": "https://api.spotify.com/v1/me/following",
     "path": [],
     "query": [
      "type",
@@ -3191,7 +3191,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/followers",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/followers",
     "path": [
      "playlist_id"
     ],
@@ -3219,7 +3219,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.spotify.com/playlists/{playlist_id}/images",
+    "url": "https://api.spotify.com/v1/playlists/{playlist_id}/images",
     "path": [
      "playlist_id"
     ],

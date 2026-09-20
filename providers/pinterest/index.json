@@ -100,7 +100,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -131,7 +131,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/ad_account_countries",
+    "url": "https://api.pinterest.com/v5/resources/ad_account_countries",
     "path": [],
     "query": [],
     "header": [],
@@ -245,7 +245,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/targeting_analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/targeting_analytics",
     "path": [
      "ad_account_id"
     ],
@@ -307,7 +307,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences/shared/accounts",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences/shared/accounts",
     "path": [
      "ad_account_id"
     ],
@@ -382,7 +382,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts",
+    "url": "https://api.pinterest.com/v5/ad_accounts",
     "path": [],
     "query": [],
     "header": [],
@@ -414,7 +414,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}",
     "path": [
      "ad_account_id"
     ],
@@ -448,7 +448,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts",
+    "url": "https://api.pinterest.com/v5/ad_accounts",
     "path": [],
     "query": [
      "include_shared_accounts",
@@ -483,7 +483,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}",
     "path": [
      "ad_account_id",
      "subscription_id"
@@ -517,7 +517,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads/subscriptions/{subscription_id}",
     "path": [
      "ad_account_id",
      "subscription_id"
@@ -554,7 +554,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads/subscriptions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads/subscriptions",
     "path": [
      "ad_account_id"
     ],
@@ -598,7 +598,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads/subscriptions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads/subscriptions",
     "path": [
      "ad_account_id"
     ],
@@ -718,7 +718,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -788,7 +788,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/audience_sizing",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/audience_sizing",
     "path": [
      "ad_account_id"
     ],
@@ -832,7 +832,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/bid_floor",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/bid_floor",
     "path": [
      "ad_account_id"
     ],
@@ -863,7 +863,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups",
     "path": [
      "ad_account_id"
     ],
@@ -896,7 +896,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/csv",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/csv",
     "path": [
      "ad_account_id",
      "ad_group_id"
@@ -930,7 +930,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/status",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/status",
     "path": [
      "ad_account_id",
      "ad_group_id"
@@ -964,7 +964,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/uploads",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles/uploads",
     "path": [
      "ad_account_id",
      "ad_group_id"
@@ -1003,7 +1003,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}/dynamic_titles",
     "path": [
      "ad_account_id",
      "ad_group_id"
@@ -1039,7 +1039,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/{ad_group_id}",
     "path": [
      "ad_group_id",
      "ad_account_id"
@@ -1100,7 +1100,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups",
     "path": [
      "ad_account_id"
     ],
@@ -1237,7 +1237,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups/targeting_analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups/targeting_analytics",
     "path": [
      "ad_account_id"
     ],
@@ -1280,7 +1280,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_groups",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_groups",
     "path": [
      "ad_account_id"
     ],
@@ -1389,7 +1389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/pins/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/pins/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -1428,7 +1428,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ad_previews",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ad_previews",
     "path": [
      "ad_account_id"
     ],
@@ -1557,7 +1557,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads/targeting_analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads/targeting_analytics",
     "path": [
      "ad_account_id"
     ],
@@ -1691,7 +1691,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -1732,7 +1732,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads",
     "path": [
      "ad_account_id"
     ],
@@ -1770,7 +1770,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads_credit/redeem",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads_credit/redeem",
     "path": [
      "ad_account_id"
     ],
@@ -1809,7 +1809,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads_credit/discounts",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads_credit/discounts",
     "path": [
      "ad_account_id"
     ],
@@ -1845,7 +1845,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads/{ad_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads/{ad_id}",
     "path": [
      "ad_id",
      "ad_account_id"
@@ -1906,7 +1906,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads",
     "path": [
      "ad_account_id"
     ],
@@ -1942,7 +1942,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ads",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ads",
     "path": [
      "ad_account_id"
     ],
@@ -1979,7 +1979,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/advanced_auction/items/get",
+    "url": "https://api.pinterest.com/v5/advanced_auction/items/get",
     "path": [],
     "query": [
      "ad_account_id"
@@ -2019,7 +2019,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/advanced_auction/items/submit",
+    "url": "https://api.pinterest.com/v5/advanced_auction/items/submit",
     "path": [],
     "query": [
      "ad_account_id"
@@ -2055,7 +2055,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/advertiser_defined_events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/advertiser_defined_events",
     "path": [
      "ad_account_id"
     ],
@@ -2090,7 +2090,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/advertiser_defined_events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/advertiser_defined_events",
     "path": [
      "ad_account_id"
     ],
@@ -2120,7 +2120,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/advertiser_defined_events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/advertiser_defined_events",
     "path": [
      "ad_account_id"
     ],
@@ -2153,7 +2153,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/advertiser_defined_events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/advertiser_defined_events",
     "path": [
      "ad_account_id"
     ],
@@ -2290,7 +2290,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/reports/brand_category_sku",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/reports/brand_category_sku",
     "path": [
      "ad_account_id"
     ],
@@ -2389,7 +2389,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/mmm_reports",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/mmm_reports",
     "path": [
      "ad_account_id"
     ],
@@ -2616,7 +2616,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/reports",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/reports",
     "path": [
      "ad_account_id"
     ],
@@ -2700,7 +2700,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/templates/{template_id}/reports",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/templates/{template_id}/reports",
     "path": [
      "ad_account_id",
      "template_id"
@@ -2733,7 +2733,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/reports/brand_category_sku",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/reports/brand_category_sku",
     "path": [
      "ad_account_id"
     ],
@@ -2761,7 +2761,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/mmm_reports",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/mmm_reports",
     "path": [
      "ad_account_id"
     ],
@@ -2789,7 +2789,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/reports",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/reports",
     "path": [
      "ad_account_id"
     ],
@@ -2822,7 +2822,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/businesses/{business_id}/requests/assets/access",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/requests/assets/access",
     "path": [
      "business_id"
     ],
@@ -2871,7 +2871,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/businesses/{business_id}/asset_groups",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/asset_groups",
     "path": [
      "business_id"
     ],
@@ -2909,7 +2909,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/asset_groups",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/asset_groups",
     "path": [
      "business_id"
     ],
@@ -2951,7 +2951,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/asset_groups",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/asset_groups",
     "path": [
      "business_id"
     ],
@@ -2993,7 +2993,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audience_insights",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audience_insights",
     "path": [
      "ad_account_id"
     ],
@@ -3023,7 +3023,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/insights/audiences",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/insights/audiences",
     "path": [
      "ad_account_id"
     ],
@@ -3074,7 +3074,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences",
     "path": [
      "ad_account_id"
     ],
@@ -3113,7 +3113,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences/{audience_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences/{audience_id}",
     "path": [
      "audience_id",
      "ad_account_id"
@@ -3170,7 +3170,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences",
     "path": [
      "ad_account_id"
     ],
@@ -3240,7 +3240,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences/{audience_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences/{audience_id}",
     "path": [
      "audience_id",
      "ad_account_id"
@@ -3281,7 +3281,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/billing_invoice/{billing_invoice_id}/download",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/billing_invoice/{billing_invoice_id}/download",
     "path": [
      "ad_account_id",
      "billing_invoice_id"
@@ -3361,7 +3361,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/billing_invoices",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/billing_invoices",
     "path": [
      "ad_account_id"
     ],
@@ -3411,7 +3411,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/billing_profiles",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/billing_profiles",
     "path": [
      "ad_account_id"
     ],
@@ -3456,7 +3456,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/boards/{board_id}/sections",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/sections",
     "path": [
      "board_id"
     ],
@@ -3498,7 +3498,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/boards/{board_id}/sections/{section_id}",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/sections/{section_id}",
     "path": [
      "board_id",
      "section_id"
@@ -3541,7 +3541,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/boards/{board_id}/sections",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/sections",
     "path": [
      "board_id"
     ],
@@ -3590,7 +3590,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/boards/{board_id}/sections/{section_id}/pins",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/sections/{section_id}/pins",
     "path": [
      "board_id",
      "section_id"
@@ -3641,7 +3641,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/boards/{board_id}/sections/{section_id}",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/sections/{section_id}",
     "path": [
      "board_id",
      "section_id"
@@ -3696,7 +3696,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/boards",
+    "url": "https://api.pinterest.com/v5/boards",
     "path": [],
     "query": [
      "ad_account_id"
@@ -3733,7 +3733,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/boards/{board_id}",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}",
     "path": [
      "board_id"
     ],
@@ -3767,7 +3767,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/boards/{board_id}",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}",
     "path": [
      "board_id"
     ],
@@ -3814,7 +3814,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/boards",
+    "url": "https://api.pinterest.com/v5/boards",
     "path": [],
     "query": [
      "ad_account_id",
@@ -3865,7 +3865,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/boards/{board_id}/pins",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}/pins",
     "path": [
      "board_id"
     ],
@@ -3919,7 +3919,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/boards/{board_id}",
+    "url": "https://api.pinterest.com/v5/boards/{board_id}",
     "path": [
      "board_id"
     ],
@@ -3963,7 +3963,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/following/boards",
+    "url": "https://api.pinterest.com/v5/user_account/following/boards",
     "path": [],
     "query": [
      "ad_account_id",
@@ -4035,7 +4035,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts",
+    "url": "https://api.pinterest.com/v5/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts",
     "path": [
      "business_hierarchy_id"
     ],
@@ -4113,7 +4113,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts/{brand_account_id}",
+    "url": "https://api.pinterest.com/v5/business_access/business_hierarchy/{business_hierarchy_id}/brand_accounts/{brand_account_id}",
     "path": [
      "brand_account_id",
      "business_hierarchy_id"
@@ -4173,7 +4173,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/bulk/download",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/bulk/download",
     "path": [
      "ad_account_id"
     ],
@@ -4216,7 +4216,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/bulk/{bulk_request_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/bulk/{bulk_request_id}",
     "path": [
      "ad_account_id",
      "bulk_request_id"
@@ -4255,7 +4255,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/bulk/upsert",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/bulk/upsert",
     "path": [
      "ad_account_id"
     ],
@@ -4308,7 +4308,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/audiences/shared/accounts",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/audiences/shared/accounts",
     "path": [
      "business_id"
     ],
@@ -4362,7 +4362,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/assets/{asset_id}/members",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/assets/{asset_id}/members",
     "path": [
      "business_id",
      "asset_id"
@@ -4413,7 +4413,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/assets/{asset_id}/partners",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/assets/{asset_id}/partners",
     "path": [
      "business_id",
      "asset_id"
@@ -4481,7 +4481,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/assets",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/assets",
     "path": [
      "business_id"
     ],
@@ -4586,7 +4586,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members/{member_id}/assets",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members/{member_id}/assets",
     "path": [
      "business_id",
      "member_id"
@@ -4631,7 +4631,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members/assets/access",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members/assets/access",
     "path": [
      "business_id"
     ],
@@ -4666,7 +4666,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members/assets/access",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members/assets/access",
     "path": [
      "business_id"
     ],
@@ -4763,7 +4763,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/partners/{partner_id}/assets",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/partners/{partner_id}/assets",
     "path": [
      "business_id",
      "partner_id"
@@ -4802,7 +4802,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaign_ad_preview",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaign_ad_preview",
     "path": [
      "ad_account_id"
     ],
@@ -4835,7 +4835,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaign_ad_preview",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaign_ad_preview",
     "path": [
      "ad_account_id"
     ],
@@ -4870,7 +4870,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaign_ad_preview",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaign_ad_preview",
     "path": [
      "ad_account_id"
     ],
@@ -4993,7 +4993,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns/targeting_analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns/targeting_analytics",
     "path": [
      "ad_account_id"
     ],
@@ -5122,7 +5122,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -5162,7 +5162,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns",
     "path": [
      "ad_account_id"
     ],
@@ -5195,7 +5195,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns/{campaign_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns/{campaign_id}",
     "path": [
      "campaign_id",
      "ad_account_id"
@@ -5248,7 +5248,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns",
     "path": [
      "ad_account_id"
     ],
@@ -5282,7 +5282,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns",
     "path": [
      "ad_account_id"
     ],
@@ -5315,7 +5315,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/invites",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/invites",
     "path": [
      "business_id"
     ],
@@ -5389,7 +5389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/available_filter_values",
+    "url": "https://api.pinterest.com/v5/catalogs/available_filter_values",
     "path": [],
     "query": [
      "catalog_id",
@@ -5435,7 +5435,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs",
+    "url": "https://api.pinterest.com/v5/catalogs",
     "path": [],
     "query": [
      "ad_account_id"
@@ -5472,7 +5472,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs",
+    "url": "https://api.pinterest.com/v5/catalogs",
     "path": [],
     "query": [
      "ad_account_id",
@@ -5511,7 +5511,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_inventory_items/batch",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_inventory_items/batch",
     "path": [
      "catalog_id"
     ],
@@ -5552,7 +5552,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_inventory_items/query",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_inventory_items/query",
     "path": [
      "catalog_id"
     ],
@@ -5588,7 +5588,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_stores",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_stores",
     "path": [
      "catalog_id"
     ],
@@ -5627,7 +5627,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_stores",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_stores",
     "path": [
      "catalog_id"
     ],
@@ -5674,7 +5674,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_stores",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_stores",
     "path": [
      "catalog_id"
     ],
@@ -5711,7 +5711,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/local_stores",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/local_stores",
     "path": [
      "catalog_id"
     ],
@@ -5757,7 +5757,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/product_groups/{product_group_id}/products",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/{product_group_id}/products",
     "path": [
      "product_group_id"
     ],
@@ -5788,7 +5788,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/product_groups",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups",
     "path": [],
     "query": [
      "ad_account_id"
@@ -5814,7 +5814,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/product_groups/multiple",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/multiple",
     "path": [],
     "query": [
      "ad_account_id"
@@ -5846,7 +5846,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/catalogs/product_groups/{product_group_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/{product_group_id}",
     "path": [
      "product_group_id"
     ],
@@ -5880,7 +5880,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/catalogs/product_groups/multiple",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/multiple",
     "path": [],
     "query": [
      "id",
@@ -5913,7 +5913,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/product_groups/{product_group_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/{product_group_id}",
     "path": [
      "product_group_id"
     ],
@@ -5961,7 +5961,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/product_groups",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups",
     "path": [],
     "query": [
      "id",
@@ -5998,7 +5998,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/product_groups/{product_group_id}/product_counts",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/{product_group_id}/product_counts",
     "path": [
      "product_group_id"
     ],
@@ -6032,7 +6032,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/catalogs/product_groups/{product_group_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/product_groups/{product_group_id}",
     "path": [
      "product_group_id"
     ],
@@ -6071,7 +6071,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/{catalog_id}/supplemental_items/batch/{batch_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/{catalog_id}/supplemental_items/batch/{batch_id}",
     "path": [
      "catalog_id",
      "batch_id"
@@ -6107,7 +6107,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_deletion_requests",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_deletion_requests",
     "path": [
      "ad_account_id"
     ],
@@ -6142,7 +6142,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}",
     "path": [
      "request_id",
      "ad_account_id"
@@ -6176,7 +6176,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_deletion_requests/{request_id}",
     "path": [
      "request_id",
      "ad_account_id"
@@ -6221,7 +6221,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_deletion_requests",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_deletion_requests",
     "path": [
      "ad_account_id"
     ],
@@ -6288,7 +6288,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_eqs",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_eqs",
     "path": [
      "ad_account_id"
     ],
@@ -6357,7 +6357,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_tags",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_tags",
     "path": [
      "ad_account_id"
     ],
@@ -6400,7 +6400,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_tags/{conversion_tag_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_tags/{conversion_tag_id}",
     "path": [
      "ad_account_id",
      "conversion_tag_id"
@@ -6433,7 +6433,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_tags",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_tags",
     "path": [
      "ad_account_id"
     ],
@@ -6473,7 +6473,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/keywords/metrics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/keywords/metrics",
     "path": [
      "ad_account_id"
     ],
@@ -6509,7 +6509,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/businesses/{business_id}/invites/assets/access",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/invites/assets/access",
     "path": [
      "business_id"
     ],
@@ -6567,7 +6567,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/businesses/{business_id}/invites",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/invites",
     "path": [
      "business_id"
     ],
@@ -6619,7 +6619,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads",
     "path": [
      "ad_account_id",
      "customer_list_id"
@@ -6661,7 +6661,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}",
     "path": [
      "ad_account_id",
      "customer_list_id",
@@ -6701,7 +6701,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}/run",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}/uploads/{customer_list_upload_id}/run",
     "path": [
      "ad_account_id",
      "customer_list_id",
@@ -6760,7 +6760,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists",
     "path": [
      "ad_account_id"
     ],
@@ -6799,7 +6799,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}",
     "path": [
      "ad_account_id",
      "customer_list_id"
@@ -6848,7 +6848,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists",
     "path": [
      "ad_account_id"
     ],
@@ -6903,7 +6903,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_lists/{customer_list_id}",
     "path": [
      "ad_account_id",
      "customer_list_id"
@@ -6946,7 +6946,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_segments",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_segments",
     "path": [
      "ad_account_id"
     ],
@@ -7001,7 +7001,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_segments",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_segments",
     "path": [
      "ad_account_id"
     ],
@@ -7053,7 +7053,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/customer_segments",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/customer_segments",
     "path": [
      "ad_account_id"
     ],
@@ -7090,7 +7090,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members",
     "path": [
      "business_id"
     ],
@@ -7134,7 +7134,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/partners",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/partners",
     "path": [
      "business_id"
     ],
@@ -7170,7 +7170,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/businesses/{business_id}/partners/assets",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/partners/assets",
     "path": [
      "business_id"
     ],
@@ -7202,7 +7202,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/delivery_metrics",
+    "url": "https://api.pinterest.com/v5/resources/delivery_metrics",
     "path": [],
     "query": [
      "report_type"
@@ -7239,7 +7239,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/events",
     "path": [
      "ad_account_id"
     ],
@@ -7283,7 +7283,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/feeds/{feed_id}/processing_results",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds/{feed_id}/processing_results",
     "path": [
      "feed_id"
     ],
@@ -7313,7 +7313,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/feeds",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds",
     "path": [],
     "query": [
      "ad_account_id"
@@ -7345,7 +7345,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/catalogs/feeds/{feed_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds/{feed_id}",
     "path": [
      "feed_id"
     ],
@@ -7379,7 +7379,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/feeds/{feed_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds/{feed_id}",
     "path": [
      "feed_id"
     ],
@@ -7413,7 +7413,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/feeds/{feed_id}/ingest",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds/{feed_id}/ingest",
     "path": [
      "feed_id"
     ],
@@ -7453,7 +7453,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/feeds",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds",
     "path": [],
     "query": [
      "catalog_id",
@@ -7488,7 +7488,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/catalogs/feeds/{feed_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/feeds/{feed_id}",
     "path": [
      "feed_id"
     ],
@@ -7522,7 +7522,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/user_account/following/{username}",
+    "url": "https://api.pinterest.com/v5/user_account/following/{username}",
     "path": [
      "username"
     ],
@@ -7554,7 +7554,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/followers",
+    "url": "https://api.pinterest.com/v5/user_account/followers",
     "path": [],
     "query": [
      "bookmark",
@@ -7604,7 +7604,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotion_applied_entities",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotion_applied_entities",
     "path": [
      "ad_account_id"
     ],
@@ -7643,7 +7643,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/employers",
+    "url": "https://api.pinterest.com/v5/businesses/employers",
     "path": [],
     "query": [
      "assets_summary",
@@ -7701,7 +7701,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members",
     "path": [
      "business_id"
     ],
@@ -7769,7 +7769,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/partners",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/partners",
     "path": [
      "business_id"
     ],
@@ -7805,7 +7805,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/campaigns/delivery_estimates",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/campaigns/delivery_estimates",
     "path": [
      "ad_account_id"
     ],
@@ -7858,7 +7858,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/invites",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/invites",
     "path": [
      "business_id"
     ],
@@ -7892,7 +7892,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/integrations/commerce/{external_business_id}",
+    "url": "https://api.pinterest.com/v5/integrations/commerce/{external_business_id}",
     "path": [
      "external_business_id"
     ],
@@ -7920,7 +7920,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/integrations/commerce/{external_business_id}",
+    "url": "https://api.pinterest.com/v5/integrations/commerce/{external_business_id}",
     "path": [
      "external_business_id"
     ],
@@ -7996,7 +7996,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/integrations/commerce/{external_business_id}",
+    "url": "https://api.pinterest.com/v5/integrations/commerce/{external_business_id}",
     "path": [
      "external_business_id"
     ],
@@ -8083,7 +8083,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/integrations/commerce",
+    "url": "https://api.pinterest.com/v5/integrations/commerce",
     "path": [],
     "query": [],
     "header": [],
@@ -8123,7 +8123,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/integrations/{id}",
+    "url": "https://api.pinterest.com/v5/integrations/{id}",
     "path": [
      "id"
     ],
@@ -8153,7 +8153,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/integrations",
+    "url": "https://api.pinterest.com/v5/integrations",
     "path": [],
     "query": [
      "bookmark",
@@ -8182,7 +8182,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/integrations/logs",
+    "url": "https://api.pinterest.com/v5/integrations/logs",
     "path": [],
     "query": [],
     "header": [],
@@ -8210,7 +8210,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/targeting/interests/{interest_id}",
+    "url": "https://api.pinterest.com/v5/resources/targeting/interests/{interest_id}",
     "path": [
      "interest_id"
     ],
@@ -8242,7 +8242,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/items/batch/{batch_id}",
+    "url": "https://api.pinterest.com/v5/catalogs/items/batch/{batch_id}",
     "path": [
      "batch_id"
     ],
@@ -8270,7 +8270,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/items/batch",
+    "url": "https://api.pinterest.com/v5/catalogs/items/batch",
     "path": [],
     "query": [
      "ad_account_id"
@@ -8332,7 +8332,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/processing_results/{processing_result_id}/item_issues",
+    "url": "https://api.pinterest.com/v5/catalogs/processing_results/{processing_result_id}/item_issues",
     "path": [
      "processing_result_id"
     ],
@@ -8394,7 +8394,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/items",
+    "url": "https://api.pinterest.com/v5/catalogs/items",
     "path": [],
     "query": [
      "ad_account_id"
@@ -8436,7 +8436,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/keywords",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/keywords",
     "path": [
      "ad_account_id"
     ],
@@ -8491,7 +8491,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/keywords",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/keywords",
     "path": [
      "ad_account_id"
     ],
@@ -8530,7 +8530,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/keywords",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/keywords",
     "path": [
      "ad_account_id"
     ],
@@ -8570,7 +8570,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/labels/{label_id}/apply",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/labels/{label_id}/apply",
     "path": [
      "ad_account_id",
      "label_id"
@@ -8606,7 +8606,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/labels",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/labels",
     "path": [
      "ad_account_id"
     ],
@@ -8660,7 +8660,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/labels",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/labels",
     "path": [
      "ad_account_id"
     ],
@@ -8705,7 +8705,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/labels/{label_id}/remove",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/labels/{label_id}/remove",
     "path": [
      "ad_account_id",
      "label_id"
@@ -8741,7 +8741,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/labels",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/labels",
     "path": [
      "ad_account_id"
     ],
@@ -8776,7 +8776,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/lead_forms/{lead_form_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/lead_forms/{lead_form_id}",
     "path": [
      "lead_form_id",
      "ad_account_id"
@@ -8798,7 +8798,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/lead_form_questions",
+    "url": "https://api.pinterest.com/v5/resources/lead_form_questions",
     "path": [],
     "query": [],
     "header": [],
@@ -8834,7 +8834,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/lead_forms/{lead_form_id}/test",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/lead_forms/{lead_form_id}/test",
     "path": [
      "ad_account_id",
      "lead_form_id"
@@ -8865,7 +8865,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/lead_forms",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/lead_forms",
     "path": [
      "ad_account_id"
     ],
@@ -8909,7 +8909,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/lead_forms",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/lead_forms",
     "path": [
      "ad_account_id"
     ],
@@ -8941,7 +8941,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/lead_forms",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/lead_forms",
     "path": [
      "ad_account_id"
     ],
@@ -8984,7 +8984,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads_export",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads_export",
     "path": [
      "ad_account_id"
     ],
@@ -9021,7 +9021,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/leads_export/{leads_export_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/leads_export/{leads_export_id}",
     "path": [
      "ad_account_id",
      "leads_export_id"
@@ -9043,7 +9043,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/businesses",
+    "url": "https://api.pinterest.com/v5/user_account/businesses",
     "path": [],
     "query": [],
     "header": [],
@@ -9072,7 +9072,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/media",
+    "url": "https://api.pinterest.com/v5/media",
     "path": [],
     "query": [],
     "header": [],
@@ -9100,7 +9100,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/media/{media_id}",
+    "url": "https://api.pinterest.com/v5/media/{media_id}",
     "path": [
      "media_id"
     ],
@@ -9130,7 +9130,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/media",
+    "url": "https://api.pinterest.com/v5/media",
     "path": [],
     "query": [
      "bookmark",
@@ -9159,7 +9159,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/metrics_ready_state",
+    "url": "https://api.pinterest.com/v5/resources/metrics_ready_state",
     "path": [],
     "query": [
      "date"
@@ -9286,7 +9286,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/msot/events",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/msot/events",
     "path": [
      "ad_account_id"
     ],
@@ -9360,7 +9360,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/pins/analytics",
+    "url": "https://api.pinterest.com/v5/pins/analytics",
     "path": [],
     "query": [
      "pin_ids",
@@ -9386,7 +9386,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/notifications",
+    "url": "https://api.pinterest.com/v5/notifications",
     "path": [],
     "query": [],
     "header": [],
@@ -9405,7 +9405,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/oauth/conversion_token",
+    "url": "https://api.pinterest.com/v5/oauth/conversion_token",
     "path": [],
     "query": [],
     "header": [],
@@ -9456,7 +9456,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/oauth/token",
+    "url": "https://api.pinterest.com/v5/oauth/token",
     "path": [],
     "query": [],
     "header": [],
@@ -9489,7 +9489,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_tags/ocpm_eligible",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_tags/ocpm_eligible",
     "path": [
      "ad_account_id"
     ],
@@ -9522,7 +9522,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/order_lines/{order_line_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/order_lines/{order_line_id}",
     "path": [
      "order_line_id",
      "ad_account_id"
@@ -9567,7 +9567,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/order_lines",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/order_lines",
     "path": [
      "ad_account_id"
     ],
@@ -9615,7 +9615,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/conversion_tags/page_visit",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/conversion_tags/page_visit",
     "path": [
      "ad_account_id"
     ],
@@ -9684,7 +9684,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/pins/{pin_id}/analytics",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}/analytics",
     "path": [
      "pin_id"
     ],
@@ -9761,7 +9761,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/pins",
+    "url": "https://api.pinterest.com/v5/pins",
     "path": [],
     "query": [
      "ad_account_id"
@@ -9805,7 +9805,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/pins/{pin_id}",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}",
     "path": [
      "pin_id"
     ],
@@ -9843,7 +9843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/pins/{pin_id}",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}",
     "path": [
      "pin_id"
     ],
@@ -9920,7 +9920,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/pins",
+    "url": "https://api.pinterest.com/v5/pins",
     "path": [],
     "query": [
      "pin_filter",
@@ -9970,7 +9970,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/pins/{pin_id}/save",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}/save",
     "path": [
      "pin_id"
     ],
@@ -10039,7 +10039,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/pins/{pin_id}",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}",
     "path": [
      "pin_id"
     ],
@@ -10088,7 +10088,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/product_group_promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/product_group_promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10124,7 +10124,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/product_group_promotions/{product_group_promotion_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/product_group_promotions/{product_group_promotion_id}",
     "path": [
      "ad_account_id",
      "product_group_promotion_id"
@@ -10181,7 +10181,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/product_group_promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/product_group_promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10226,7 +10226,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/product_group_promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/product_group_promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10341,7 +10341,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/product_groups/analytics",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/product_groups/analytics",
     "path": [
      "ad_account_id"
     ],
@@ -10385,7 +10385,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/pins/{pin_id}/product_tags",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}/product_tags",
     "path": [
      "pin_id"
     ],
@@ -10420,7 +10420,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/pins/{pin_id}/product_tags/bulk-delete",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}/product_tags/bulk-delete",
     "path": [
      "pin_id"
     ],
@@ -10450,7 +10450,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/pins/{pin_id}/product_tags",
+    "url": "https://api.pinterest.com/v5/pins/{pin_id}/product_tags",
     "path": [
      "pin_id"
     ],
@@ -10488,7 +10488,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/products/get_by_product_group_filters",
+    "url": "https://api.pinterest.com/v5/catalogs/products/get_by_product_group_filters",
     "path": [],
     "query": [
      "bookmark",
@@ -10519,7 +10519,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10552,7 +10552,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotions/{promotion_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotions/{promotion_id}",
     "path": [
      "promotion_id",
      "ad_account_id"
@@ -10586,7 +10586,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotions/{promotion_id}",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotions/{promotion_id}",
     "path": [
      "promotion_id",
      "ad_account_id"
@@ -10631,7 +10631,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10663,7 +10663,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/promotions",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/promotions",
     "path": [
      "ad_account_id"
     ],
@@ -10689,7 +10689,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/catalogs/reports",
+    "url": "https://api.pinterest.com/v5/catalogs/reports",
     "path": [],
     "query": [
      "ad_account_id"
@@ -10715,7 +10715,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/reports",
+    "url": "https://api.pinterest.com/v5/catalogs/reports",
     "path": [],
     "query": [
      "ad_account_id"
@@ -10755,7 +10755,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/catalogs/reports/stats",
+    "url": "https://api.pinterest.com/v5/catalogs/reports/stats",
     "path": [],
     "query": [
      "ad_account_id",
@@ -10786,7 +10786,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/invites",
+    "url": "https://api.pinterest.com/v5/businesses/invites",
     "path": [],
     "query": [],
     "header": [],
@@ -10814,7 +10814,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/sandbox",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/sandbox",
     "path": [
      "ad_account_id"
     ],
@@ -10842,7 +10842,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/schedules",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/schedules",
     "path": [
      "ad_account_id"
     ],
@@ -10903,7 +10903,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/schedules",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/schedules",
     "path": [
      "ad_account_id"
     ],
@@ -10938,7 +10938,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/schedules",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/schedules",
     "path": [
      "ad_account_id"
     ],
@@ -10983,7 +10983,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/search/partner/pins",
+    "url": "https://api.pinterest.com/v5/search/partner/pins",
     "path": [],
     "query": [
      "term",
@@ -11025,7 +11025,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/search/boards",
+    "url": "https://api.pinterest.com/v5/search/boards",
     "path": [],
     "query": [
      "ad_account_id",
@@ -11064,7 +11064,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/search/pins",
+    "url": "https://api.pinterest.com/v5/search/pins",
     "path": [],
     "query": [
      "ad_account_id",
@@ -11110,7 +11110,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/businesses/{business_id}/audiences",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/audiences",
     "path": [
      "business_id"
     ],
@@ -11142,7 +11142,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/accounts",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/accounts",
     "path": [
      "ad_account_id"
     ],
@@ -11292,7 +11292,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/insertion_orders",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/insertion_orders",
     "path": [
      "ad_account_id"
     ],
@@ -11407,7 +11407,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/insertion_orders",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/insertion_orders",
     "path": [
      "ad_account_id"
     ],
@@ -11460,7 +11460,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/insertion_orders/status",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/insertion_orders/status",
     "path": [
      "ad_account_id"
     ],
@@ -11496,7 +11496,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/insertion_orders/{pin_order_id}/status",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/insertion_orders/{pin_order_id}/status",
     "path": [
      "ad_account_id",
      "pin_order_id"
@@ -11537,7 +11537,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/ssio/order_lines",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/ssio/order_lines",
     "path": [
      "ad_account_id"
     ],
@@ -11579,7 +11579,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/system_users/{system_user_id}",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/system_users/{system_user_id}",
     "path": [
      "business_id",
      "system_user_id"
@@ -11638,7 +11638,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/resources/targeting/{targeting_type}",
+    "url": "https://api.pinterest.com/v5/resources/targeting/{targeting_type}",
     "path": [
      "targeting_type"
     ],
@@ -11703,7 +11703,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/targeting_templates",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/targeting_templates",
     "path": [
      "ad_account_id"
     ],
@@ -11762,7 +11762,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/targeting_templates",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/targeting_templates",
     "path": [
      "ad_account_id"
     ],
@@ -11814,7 +11814,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/targeting_templates",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/targeting_templates",
     "path": [
      "ad_account_id"
     ],
@@ -11862,7 +11862,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/templates",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/templates",
     "path": [
      "ad_account_id"
     ],
@@ -11902,7 +11902,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/terms_of_service",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/terms_of_service",
     "path": [
      "ad_account_id"
     ],
@@ -11933,7 +11933,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/terms/related",
+    "url": "https://api.pinterest.com/v5/terms/related",
     "path": [],
     "query": [
      "terms"
@@ -11965,7 +11965,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/terms/suggested",
+    "url": "https://api.pinterest.com/v5/terms/suggested",
     "path": [],
     "query": [
      "term",
@@ -11996,7 +11996,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/oauth/token/revoke",
+    "url": "https://api.pinterest.com/v5/oauth/token/revoke",
     "path": [],
     "query": [],
     "header": [],
@@ -12077,7 +12077,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/trends/keywords/{region}/top/{trend_type}",
+    "url": "https://api.pinterest.com/v5/trends/keywords/{region}/top/{trend_type}",
     "path": [
      "region",
      "trend_type"
@@ -12119,7 +12119,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/trends/editorial_articles",
+    "url": "https://api.pinterest.com/v5/trends/editorial_articles",
     "path": [],
     "query": [
      "region"
@@ -12170,7 +12170,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/trends/topics/featured",
+    "url": "https://api.pinterest.com/v5/trends/topics/featured",
     "path": [],
     "query": [
      "interest",
@@ -12228,7 +12228,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/trends/product_categories/details",
+    "url": "https://api.pinterest.com/v5/trends/product_categories/details",
     "path": [],
     "query": [
      "product_categories",
@@ -12285,7 +12285,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/trends/product_categories/trending",
+    "url": "https://api.pinterest.com/v5/trends/product_categories/trending",
     "path": [],
     "query": [
      "region",
@@ -12317,7 +12317,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.pinterest.com/user_account/websites",
+    "url": "https://api.pinterest.com/v5/user_account/websites",
     "path": [],
     "query": [
      "website"
@@ -12364,7 +12364,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences/ad_accounts/shared",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences/ad_accounts/shared",
     "path": [
      "ad_account_id"
     ],
@@ -12415,7 +12415,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/ad_accounts/{ad_account_id}/audiences/businesses/shared",
+    "url": "https://api.pinterest.com/v5/ad_accounts/{ad_account_id}/audiences/businesses/shared",
     "path": [
      "ad_account_id"
     ],
@@ -12447,7 +12447,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/members",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/members",
     "path": [
      "business_id"
     ],
@@ -12494,7 +12494,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/audiences/ad_accounts/shared",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/audiences/ad_accounts/shared",
     "path": [
      "business_id"
     ],
@@ -12545,7 +12545,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/audiences/businesses/shared",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/audiences/businesses/shared",
     "path": [
      "business_id"
     ],
@@ -12582,7 +12582,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.pinterest.com/businesses/{business_id}/partners/assets",
+    "url": "https://api.pinterest.com/v5/businesses/{business_id}/partners/assets",
     "path": [
      "business_id"
     ],
@@ -12687,7 +12687,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/analytics",
+    "url": "https://api.pinterest.com/v5/user_account/analytics",
     "path": [],
     "query": [
      "start_date",
@@ -12811,7 +12811,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/analytics/top_pins",
+    "url": "https://api.pinterest.com/v5/user_account/analytics/top_pins",
     "path": [],
     "query": [
      "start_date",
@@ -12941,7 +12941,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/analytics/top_video_pins",
+    "url": "https://api.pinterest.com/v5/user_account/analytics/top_video_pins",
     "path": [],
     "query": [
      "start_date",
@@ -12988,7 +12988,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/users/{username}/interests/follow",
+    "url": "https://api.pinterest.com/v5/users/{username}/interests/follow",
     "path": [
      "username"
     ],
@@ -13017,7 +13017,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account",
+    "url": "https://api.pinterest.com/v5/user_account",
     "path": [],
     "query": [
      "ad_account_id"
@@ -13065,7 +13065,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/following",
+    "url": "https://api.pinterest.com/v5/user_account/following",
     "path": [],
     "query": [
      "ad_account_id",
@@ -13099,7 +13099,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/websites",
+    "url": "https://api.pinterest.com/v5/user_account/websites",
     "path": [],
     "query": [
      "bookmark",
@@ -13139,7 +13139,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.pinterest.com/user_account/websites",
+    "url": "https://api.pinterest.com/v5/user_account/websites",
     "path": [],
     "query": [
      "ad_account_id"
@@ -13168,7 +13168,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.pinterest.com/user_account/websites/verification",
+    "url": "https://api.pinterest.com/v5/user_account/websites/verification",
     "path": [],
     "query": [
      "ad_account_id"

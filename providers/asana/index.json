@@ -29,7 +29,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/addCustomFieldSetting",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/addCustomFieldSetting",
     "path": [
      "portfolio_gid"
     ],
@@ -69,7 +69,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/addCustomFieldSetting",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/addCustomFieldSetting",
     "path": [
      "project_gid"
     ],
@@ -113,7 +113,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/addDependencies",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/addDependencies",
     "path": [
      "task_gid"
     ],
@@ -158,7 +158,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/addDependents",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/addDependents",
     "path": [
      "task_gid"
     ],
@@ -203,7 +203,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/addFollowers",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/addFollowers",
     "path": [
      "goal_gid"
     ],
@@ -248,7 +248,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/addFollowers",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/addFollowers",
     "path": [
      "project_gid"
     ],
@@ -293,7 +293,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/addFollowers",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/addFollowers",
     "path": [
      "task_gid"
     ],
@@ -338,7 +338,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/addItem",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/addItem",
     "path": [
      "portfolio_gid"
     ],
@@ -383,7 +383,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/addMembers",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/addMembers",
     "path": [
      "portfolio_gid"
     ],
@@ -428,7 +428,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/addMembers",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/addMembers",
     "path": [
      "project_gid"
     ],
@@ -473,7 +473,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/addProject",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/addProject",
     "path": [
      "task_gid"
     ],
@@ -518,7 +518,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/addSupportingRelationship",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/addSupportingRelationship",
     "path": [
      "goal_gid"
     ],
@@ -563,7 +563,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/addTag",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/addTag",
     "path": [
      "task_gid"
     ],
@@ -608,7 +608,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/sections/{section_gid}/addTask",
+    "url": "https://app.asana.com/api/1.0/sections/{section_gid}/addTask",
     "path": [
      "section_gid"
     ],
@@ -653,7 +653,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/teams/{team_gid}/addUser",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/addUser",
     "path": [
      "team_gid"
     ],
@@ -698,7 +698,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/addUser",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/addUser",
     "path": [
      "workspace_gid"
     ],
@@ -766,7 +766,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/attachments",
+    "url": "https://app.asana.com/api/1.0/attachments",
     "path": [],
     "query": [
      "opt_pretty",
@@ -808,7 +808,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/batch",
+    "url": "https://app.asana.com/api/1.0/batch",
     "path": [],
     "query": [
      "opt_pretty",
@@ -853,7 +853,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/custom_fields",
+    "url": "https://app.asana.com/api/1.0/custom_fields",
     "path": [],
     "query": [
      "opt_pretty",
@@ -906,7 +906,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/custom_fields/{custom_field_gid}/enum_options",
+    "url": "https://app.asana.com/api/1.0/custom_fields/{custom_field_gid}/enum_options",
     "path": [
      "custom_field_gid"
     ],
@@ -955,7 +955,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals",
+    "url": "https://app.asana.com/api/1.0/goals",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1000,7 +1000,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/setMetric",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/setMetric",
     "path": [
      "goal_gid"
     ],
@@ -1047,7 +1047,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/organization_exports",
+    "url": "https://app.asana.com/api/1.0/organization_exports",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1086,7 +1086,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios",
+    "url": "https://app.asana.com/api/1.0/portfolios",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1123,7 +1123,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects",
+    "url": "https://app.asana.com/api/1.0/projects",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1166,7 +1166,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/project_briefs",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/project_briefs",
     "path": [
      "project_gid"
     ],
@@ -1211,7 +1211,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/teams/{team_gid}/projects",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/projects",
     "path": [
      "team_gid"
     ],
@@ -1256,7 +1256,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/projects",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/projects",
     "path": [
      "workspace_gid"
     ],
@@ -1301,7 +1301,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/project_statuses",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/project_statuses",
     "path": [
      "project_gid"
     ],
@@ -1346,7 +1346,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/sections",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/sections",
     "path": [
      "project_gid"
     ],
@@ -1393,7 +1393,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/status_updates",
+    "url": "https://app.asana.com/api/1.0/status_updates",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1438,7 +1438,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/stories",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/stories",
     "path": [
      "task_gid"
     ],
@@ -1483,7 +1483,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/subtasks",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/subtasks",
     "path": [
      "task_gid"
     ],
@@ -1522,7 +1522,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tags",
+    "url": "https://app.asana.com/api/1.0/tags",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1565,7 +1565,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/tags",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/tags",
     "path": [
      "workspace_gid"
     ],
@@ -1604,7 +1604,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks",
+    "url": "https://app.asana.com/api/1.0/tasks",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1649,7 +1649,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/teams",
+    "url": "https://app.asana.com/api/1.0/teams",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1688,7 +1688,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/webhooks",
+    "url": "https://app.asana.com/api/1.0/webhooks",
     "path": [],
     "query": [
      "opt_pretty",
@@ -1727,7 +1727,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/attachments/{attachment_gid}",
+    "url": "https://app.asana.com/api/1.0/attachments/{attachment_gid}",
     "path": [
      "attachment_gid"
     ],
@@ -1766,7 +1766,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/custom_fields/{custom_field_gid}",
+    "url": "https://app.asana.com/api/1.0/custom_fields/{custom_field_gid}",
     "path": [
      "custom_field_gid"
     ],
@@ -1805,7 +1805,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/goals/{goal_gid}",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}",
     "path": [
      "goal_gid"
     ],
@@ -1844,7 +1844,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}",
     "path": [
      "portfolio_gid"
     ],
@@ -1883,7 +1883,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/projects/{project_gid}",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}",
     "path": [
      "project_gid"
     ],
@@ -1922,7 +1922,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/project_briefs/{project_brief_gid}",
+    "url": "https://app.asana.com/api/1.0/project_briefs/{project_brief_gid}",
     "path": [
      "project_brief_gid"
     ],
@@ -1961,7 +1961,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/project_statuses/{project_status_gid}",
+    "url": "https://app.asana.com/api/1.0/project_statuses/{project_status_gid}",
     "path": [
      "project_status_gid"
     ],
@@ -2000,7 +2000,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/sections/{section_gid}",
+    "url": "https://app.asana.com/api/1.0/sections/{section_gid}",
     "path": [
      "section_gid"
     ],
@@ -2039,7 +2039,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/status_updates/{status_gid}",
+    "url": "https://app.asana.com/api/1.0/status_updates/{status_gid}",
     "path": [
      "status_gid"
     ],
@@ -2078,7 +2078,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/stories/{story_gid}",
+    "url": "https://app.asana.com/api/1.0/stories/{story_gid}",
     "path": [
      "story_gid"
     ],
@@ -2125,7 +2125,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/tags/{tag_gid}",
+    "url": "https://app.asana.com/api/1.0/tags/{tag_gid}",
     "path": [
      "tag_gid"
     ],
@@ -2166,7 +2166,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/tasks/{task_gid}",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}",
     "path": [
      "task_gid"
     ],
@@ -2205,7 +2205,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://app.asana.com/webhooks/{webhook_gid}",
+    "url": "https://app.asana.com/api/1.0/webhooks/{webhook_gid}",
     "path": [
      "webhook_gid"
     ],
@@ -2248,7 +2248,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/duplicate",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/duplicate",
     "path": [
      "project_gid"
     ],
@@ -2293,7 +2293,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/duplicate",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/duplicate",
     "path": [
      "task_gid"
     ],
@@ -2334,7 +2334,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/attachments/{attachment_gid}",
+    "url": "https://app.asana.com/api/1.0/attachments/{attachment_gid}",
     "path": [
      "attachment_gid"
     ],
@@ -2381,7 +2381,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/attachments",
+    "url": "https://app.asana.com/api/1.0/attachments",
     "path": [],
     "query": [
      "opt_pretty",
@@ -2452,7 +2452,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/audit_log_events",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/audit_log_events",
     "path": [
      "workspace_gid"
     ],
@@ -2497,7 +2497,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/custom_fields/{custom_field_gid}",
+    "url": "https://app.asana.com/api/1.0/custom_fields/{custom_field_gid}",
     "path": [
      "custom_field_gid"
     ],
@@ -2544,7 +2544,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/custom_field_settings",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/custom_field_settings",
     "path": [
      "portfolio_gid"
     ],
@@ -2593,7 +2593,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/custom_field_settings",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/custom_field_settings",
     "path": [
      "project_gid"
     ],
@@ -2642,7 +2642,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/custom_fields",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/custom_fields",
     "path": [
      "workspace_gid"
     ],
@@ -2691,7 +2691,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/dependencies",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/dependencies",
     "path": [
      "task_gid"
     ],
@@ -2740,7 +2740,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/dependents",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/dependents",
     "path": [
      "task_gid"
     ],
@@ -2785,7 +2785,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/events",
+    "url": "https://app.asana.com/api/1.0/events",
     "path": [],
     "query": [
      "resource",
@@ -2842,7 +2842,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}/favorites",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}/favorites",
     "path": [
      "user_gid"
     ],
@@ -2883,7 +2883,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/goals/{goal_gid}",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}",
     "path": [
      "goal_gid"
     ],
@@ -2922,7 +2922,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/goal_relationships/{goal_relationship_gid}",
+    "url": "https://app.asana.com/api/1.0/goal_relationships/{goal_relationship_gid}",
     "path": [
      "goal_relationship_gid"
     ],
@@ -2965,7 +2965,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/goal_relationships",
+    "url": "https://app.asana.com/api/1.0/goal_relationships",
     "path": [],
     "query": [
      "opt_pretty",
@@ -3030,7 +3030,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/goals",
+    "url": "https://app.asana.com/api/1.0/goals",
     "path": [],
     "query": [
      "opt_pretty",
@@ -3083,7 +3083,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/items",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/items",
     "path": [
      "portfolio_gid"
     ],
@@ -3124,7 +3124,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/jobs/{job_gid}",
+    "url": "https://app.asana.com/api/1.0/jobs/{job_gid}",
     "path": [
      "job_gid"
     ],
@@ -3163,7 +3163,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/organization_exports/{organization_export_gid}",
+    "url": "https://app.asana.com/api/1.0/organization_exports/{organization_export_gid}",
     "path": [
      "organization_export_gid"
     ],
@@ -3202,7 +3202,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/goals/{goal_gid}/parentGoals",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/parentGoals",
     "path": [
      "goal_gid"
     ],
@@ -3241,7 +3241,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}",
     "path": [
      "portfolio_gid"
     ],
@@ -3280,7 +3280,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolio_memberships/{portfolio_membership_gid}",
+    "url": "https://app.asana.com/api/1.0/portfolio_memberships/{portfolio_membership_gid}",
     "path": [
      "portfolio_membership_gid"
     ],
@@ -3333,7 +3333,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolio_memberships",
+    "url": "https://app.asana.com/api/1.0/portfolio_memberships",
     "path": [],
     "query": [
      "portfolio",
@@ -3387,7 +3387,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/portfolio_memberships",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/portfolio_memberships",
     "path": [
      "portfolio_gid"
     ],
@@ -3442,7 +3442,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/portfolios",
+    "url": "https://app.asana.com/api/1.0/portfolios",
     "path": [],
     "query": [
      "opt_pretty",
@@ -3483,7 +3483,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}",
     "path": [
      "project_gid"
     ],
@@ -3522,7 +3522,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/project_briefs/{project_brief_gid}",
+    "url": "https://app.asana.com/api/1.0/project_briefs/{project_brief_gid}",
     "path": [
      "project_brief_gid"
     ],
@@ -3561,7 +3561,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/project_memberships/{project_membership_gid}",
+    "url": "https://app.asana.com/api/1.0/project_memberships/{project_membership_gid}",
     "path": [
      "project_membership_gid"
     ],
@@ -3612,7 +3612,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/project_memberships",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/project_memberships",
     "path": [
      "project_gid"
     ],
@@ -3654,7 +3654,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/project_statuses/{project_status_gid}",
+    "url": "https://app.asana.com/api/1.0/project_statuses/{project_status_gid}",
     "path": [
      "project_status_gid"
     ],
@@ -3701,7 +3701,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/project_statuses",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/project_statuses",
     "path": [
      "project_gid",
      "project_gid"
@@ -3745,7 +3745,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/project_templates/{project_template_gid}",
+    "url": "https://app.asana.com/api/1.0/project_templates/{project_template_gid}",
     "path": [
      "project_template_gid"
     ],
@@ -3794,7 +3794,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/project_templates",
+    "url": "https://app.asana.com/api/1.0/project_templates",
     "path": [],
     "query": [
      "opt_pretty",
@@ -3843,7 +3843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/teams/{team_gid}/project_templates",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/project_templates",
     "path": [
      "team_gid"
     ],
@@ -3898,7 +3898,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects",
+    "url": "https://app.asana.com/api/1.0/projects",
     "path": [],
     "query": [
      "opt_pretty",
@@ -3948,7 +3948,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/projects",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/projects",
     "path": [
      "task_gid"
     ],
@@ -4001,7 +4001,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/teams/{team_gid}/projects",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/projects",
     "path": [
      "team_gid"
     ],
@@ -4055,7 +4055,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/projects",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/projects",
     "path": [
      "workspace_gid"
     ],
@@ -4097,7 +4097,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/sections/{section_gid}",
+    "url": "https://app.asana.com/api/1.0/sections/{section_gid}",
     "path": [
      "section_gid"
     ],
@@ -4144,7 +4144,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/sections",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/sections",
     "path": [
      "project_gid"
     ],
@@ -4185,7 +4185,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/status_updates/{status_gid}",
+    "url": "https://app.asana.com/api/1.0/status_updates/{status_gid}",
     "path": [
      "status_gid"
     ],
@@ -4236,7 +4236,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/status_updates",
+    "url": "https://app.asana.com/api/1.0/status_updates",
     "path": [],
     "query": [
      "opt_pretty",
@@ -4285,7 +4285,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/stories",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/stories",
     "path": [
      "task_gid"
     ],
@@ -4334,7 +4334,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/stories/{story_gid}",
+    "url": "https://app.asana.com/api/1.0/stories/{story_gid}",
     "path": [
      "story_gid"
     ],
@@ -4383,7 +4383,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/subtasks",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/subtasks",
     "path": [
      "task_gid"
     ],
@@ -4432,7 +4432,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tags/{tag_gid}",
+    "url": "https://app.asana.com/api/1.0/tags/{tag_gid}",
     "path": [
      "tag_gid"
     ],
@@ -4479,7 +4479,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tags",
+    "url": "https://app.asana.com/api/1.0/tags",
     "path": [],
     "query": [
      "opt_pretty",
@@ -4527,7 +4527,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}/tags",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/tags",
     "path": [
      "task_gid"
     ],
@@ -4576,7 +4576,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/tags",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/tags",
     "path": [
      "workspace_gid"
     ],
@@ -4617,7 +4617,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks/{task_gid}",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}",
     "path": [
      "task_gid"
     ],
@@ -4664,7 +4664,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/task_counts",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/task_counts",
     "path": [
      "project_gid"
     ],
@@ -4731,7 +4731,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tasks",
+    "url": "https://app.asana.com/api/1.0/tasks",
     "path": [],
     "query": [
      "opt_pretty",
@@ -4788,7 +4788,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/projects/{project_gid}/tasks",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/tasks",
     "path": [
      "project_gid"
     ],
@@ -4838,7 +4838,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/sections/{section_gid}/tasks",
+    "url": "https://app.asana.com/api/1.0/sections/{section_gid}/tasks",
     "path": [
      "section_gid"
     ],
@@ -4887,7 +4887,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/tags/{tag_gid}/tasks",
+    "url": "https://app.asana.com/api/1.0/tags/{tag_gid}/tasks",
     "path": [
      "tag_gid"
     ],
@@ -4940,7 +4940,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/user_task_lists/{user_task_list_gid}/tasks",
+    "url": "https://app.asana.com/api/1.0/user_task_lists/{user_task_list_gid}/tasks",
     "path": [
      "user_task_list_gid"
     ],
@@ -4990,7 +4990,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/teams/{team_gid}",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}",
     "path": [
      "team_gid"
     ],
@@ -5031,7 +5031,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/team_memberships/{team_membership_gid}",
+    "url": "https://app.asana.com/api/1.0/team_memberships/{team_membership_gid}",
     "path": [
      "team_membership_gid"
     ],
@@ -5084,7 +5084,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/team_memberships",
+    "url": "https://app.asana.com/api/1.0/team_memberships",
     "path": [],
     "query": [
      "opt_pretty",
@@ -5134,7 +5134,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/teams/{team_gid}/team_memberships",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/team_memberships",
     "path": [
      "team_gid"
     ],
@@ -5188,7 +5188,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}/team_memberships",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}/team_memberships",
     "path": [
      "user_gid"
     ],
@@ -5243,7 +5243,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}/teams",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}/teams",
     "path": [
      "user_gid"
     ],
@@ -5293,7 +5293,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/teams",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/teams",
     "path": [
      "workspace_gid"
     ],
@@ -5334,7 +5334,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/time_periods/{time_period_gid}",
+    "url": "https://app.asana.com/api/1.0/time_periods/{time_period_gid}",
     "path": [
      "time_period_gid"
     ],
@@ -5389,7 +5389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/time_periods",
+    "url": "https://app.asana.com/api/1.0/time_periods",
     "path": [],
     "query": [
      "opt_pretty",
@@ -5431,7 +5431,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}",
     "path": [
      "user_gid"
     ],
@@ -5470,7 +5470,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/user_task_lists/{user_task_list_gid}",
+    "url": "https://app.asana.com/api/1.0/user_task_lists/{user_task_list_gid}",
     "path": [
      "user_task_list_gid"
     ],
@@ -5514,7 +5514,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}/user_task_list",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}/user_task_list",
     "path": [
      "user_gid"
     ],
@@ -5564,7 +5564,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users",
+    "url": "https://app.asana.com/api/1.0/users",
     "path": [],
     "query": [
      "workspace",
@@ -5609,7 +5609,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/teams/{team_gid}/users",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/users",
     "path": [
      "team_gid"
     ],
@@ -5653,7 +5653,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/users",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/users",
     "path": [
      "workspace_gid"
     ],
@@ -5693,7 +5693,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/webhooks/{webhook_gid}",
+    "url": "https://app.asana.com/api/1.0/webhooks/{webhook_gid}",
     "path": [
      "webhook_gid"
     ],
@@ -5744,7 +5744,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/webhooks",
+    "url": "https://app.asana.com/api/1.0/webhooks",
     "path": [],
     "query": [
      "opt_pretty",
@@ -5785,7 +5785,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}",
     "path": [
      "workspace_gid"
     ],
@@ -5824,7 +5824,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspace_memberships/{workspace_membership_gid}",
+    "url": "https://app.asana.com/api/1.0/workspace_memberships/{workspace_membership_gid}",
     "path": [
      "workspace_membership_gid"
     ],
@@ -5871,7 +5871,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/users/{user_gid}/workspace_memberships",
+    "url": "https://app.asana.com/api/1.0/users/{user_gid}/workspace_memberships",
     "path": [
      "user_gid"
     ],
@@ -5924,7 +5924,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/workspace_memberships",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/workspace_memberships",
     "path": [
      "workspace_gid"
     ],
@@ -5968,7 +5968,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces",
+    "url": "https://app.asana.com/api/1.0/workspaces",
     "path": [],
     "query": [
      "opt_pretty",
@@ -6011,7 +6011,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/custom_fields/{custom_field_gid}/enum_options/insert",
+    "url": "https://app.asana.com/api/1.0/custom_fields/{custom_field_gid}/enum_options/insert",
     "path": [
      "custom_field_gid"
     ],
@@ -6056,7 +6056,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/sections/insert",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/sections/insert",
     "path": [
      "project_gid"
     ],
@@ -6101,7 +6101,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/project_templates/{project_template_gid}/instantiateProject",
+    "url": "https://app.asana.com/api/1.0/project_templates/{project_template_gid}/instantiateProject",
     "path": [
      "project_template_gid"
     ],
@@ -6146,7 +6146,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/saveAsTemplate",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/saveAsTemplate",
     "path": [
      "project_gid"
     ],
@@ -6187,7 +6187,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/removeCustomFieldSetting",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/removeCustomFieldSetting",
     "path": [
      "portfolio_gid"
     ],
@@ -6227,7 +6227,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/removeCustomFieldSetting",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/removeCustomFieldSetting",
     "path": [
      "project_gid"
     ],
@@ -6271,7 +6271,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/removeDependencies",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/removeDependencies",
     "path": [
      "task_gid"
     ],
@@ -6316,7 +6316,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/removeDependents",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/removeDependents",
     "path": [
      "task_gid"
     ],
@@ -6361,7 +6361,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/removeFollowers",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/removeFollowers",
     "path": [
      "task_gid"
     ],
@@ -6406,7 +6406,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/removeFollowers",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/removeFollowers",
     "path": [
      "goal_gid"
     ],
@@ -6451,7 +6451,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/removeFollowers",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/removeFollowers",
     "path": [
      "project_gid"
     ],
@@ -6496,7 +6496,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/removeItem",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/removeItem",
     "path": [
      "portfolio_gid"
     ],
@@ -6541,7 +6541,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}/removeMembers",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}/removeMembers",
     "path": [
      "portfolio_gid"
     ],
@@ -6586,7 +6586,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/projects/{project_gid}/removeMembers",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}/removeMembers",
     "path": [
      "project_gid"
     ],
@@ -6631,7 +6631,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/removeProject",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/removeProject",
     "path": [
      "task_gid"
     ],
@@ -6676,7 +6676,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/removeSupportingRelationship",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/removeSupportingRelationship",
     "path": [
      "goal_gid"
     ],
@@ -6721,7 +6721,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/removeTag",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/removeTag",
     "path": [
      "task_gid"
     ],
@@ -6766,7 +6766,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/teams/{team_gid}/removeUser",
+    "url": "https://app.asana.com/api/1.0/teams/{team_gid}/removeUser",
     "path": [
      "team_gid"
     ],
@@ -6811,7 +6811,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/removeUser",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/removeUser",
     "path": [
      "workspace_gid"
     ],
@@ -7071,7 +7071,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/tasks/search",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/tasks/search",
     "path": [
      "workspace_gid"
     ],
@@ -7166,7 +7166,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/tasks/{task_gid}/setParent",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}/setParent",
     "path": [
      "task_gid"
     ],
@@ -7241,7 +7241,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}/typeahead",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}/typeahead",
     "path": [
      "workspace_gid"
     ],
@@ -7288,7 +7288,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/custom_fields/{custom_field_gid}",
+    "url": "https://app.asana.com/api/1.0/custom_fields/{custom_field_gid}",
     "path": [
      "custom_field_gid"
     ],
@@ -7333,7 +7333,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/enum_options/{enum_option_gid}",
+    "url": "https://app.asana.com/api/1.0/enum_options/{enum_option_gid}",
     "path": [
      "enum_option_gid"
     ],
@@ -7378,7 +7378,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/goals/{goal_gid}",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}",
     "path": [
      "goal_gid"
     ],
@@ -7423,7 +7423,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://app.asana.com/goals/{goal_gid}/setMetricCurrentValue",
+    "url": "https://app.asana.com/api/1.0/goals/{goal_gid}/setMetricCurrentValue",
     "path": [
      "goal_gid"
     ],
@@ -7468,7 +7468,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/goal_relationships/{goal_relationship_gid}",
+    "url": "https://app.asana.com/api/1.0/goal_relationships/{goal_relationship_gid}",
     "path": [
      "goal_relationship_gid"
     ],
@@ -7513,7 +7513,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/portfolios/{portfolio_gid}",
+    "url": "https://app.asana.com/api/1.0/portfolios/{portfolio_gid}",
     "path": [
      "portfolio_gid"
     ],
@@ -7558,7 +7558,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/projects/{project_gid}",
+    "url": "https://app.asana.com/api/1.0/projects/{project_gid}",
     "path": [
      "project_gid"
     ],
@@ -7603,7 +7603,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/project_briefs/{project_brief_gid}",
+    "url": "https://app.asana.com/api/1.0/project_briefs/{project_brief_gid}",
     "path": [
      "project_brief_gid"
     ],
@@ -7648,7 +7648,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/sections/{section_gid}",
+    "url": "https://app.asana.com/api/1.0/sections/{section_gid}",
     "path": [
      "section_gid"
     ],
@@ -7693,7 +7693,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/stories/{story_gid}",
+    "url": "https://app.asana.com/api/1.0/stories/{story_gid}",
     "path": [
      "story_gid"
     ],
@@ -7742,7 +7742,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/tags/{tag_gid}",
+    "url": "https://app.asana.com/api/1.0/tags/{tag_gid}",
     "path": [
      "tag_gid"
     ],
@@ -7787,7 +7787,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/tasks/{task_gid}",
+    "url": "https://app.asana.com/api/1.0/tasks/{task_gid}",
     "path": [
      "task_gid"
     ],
@@ -7834,7 +7834,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/teams",
+    "url": "https://app.asana.com/api/1.0/teams",
     "path": [],
     "query": [
      "opt_pretty",
@@ -7879,7 +7879,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/webhooks/{webhook_gid}",
+    "url": "https://app.asana.com/api/1.0/webhooks/{webhook_gid}",
     "path": [
      "webhook_gid"
     ],
@@ -7924,7 +7924,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://app.asana.com/workspaces/{workspace_gid}",
+    "url": "https://app.asana.com/api/1.0/workspaces/{workspace_gid}",
     "path": [
      "workspace_gid"
     ],

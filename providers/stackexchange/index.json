@@ -37,7 +37,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/access-tokens/{accessTokens}",
+    "url": "https://api.stackexchange.com/2.0/access-tokens/{accessTokens}",
     "path": [
      "accessTokens"
     ],
@@ -86,7 +86,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/access-tokens/{accessTokens}/invalidate",
+    "url": "https://api.stackexchange.com/2.0/access-tokens/{accessTokens}/invalidate",
     "path": [
      "accessTokens"
     ],
@@ -168,7 +168,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/answers",
+    "url": "https://api.stackexchange.com/2.0/answers",
     "path": [],
     "query": [
      "order",
@@ -260,7 +260,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/answers/{ids}",
+    "url": "https://api.stackexchange.com/2.0/answers/{ids}",
     "path": [
      "ids"
     ],
@@ -353,7 +353,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/answers/{ids}/comments",
+    "url": "https://api.stackexchange.com/2.0/answers/{ids}/comments",
     "path": [
      "ids"
     ],
@@ -409,7 +409,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/apps/{accessTokens}/de-authenticate",
+    "url": "https://api.stackexchange.com/2.0/apps/{accessTokens}/de-authenticate",
     "path": [
      "accessTokens"
     ],
@@ -495,7 +495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges",
+    "url": "https://api.stackexchange.com/2.0/badges",
     "path": [],
     "query": [
      "inname",
@@ -588,7 +588,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges/{ids}",
+    "url": "https://api.stackexchange.com/2.0/badges/{ids}",
     "path": [
      "ids"
     ],
@@ -657,7 +657,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges/{ids}/recipients",
+    "url": "https://api.stackexchange.com/2.0/badges/{ids}/recipients",
     "path": [
      "ids"
     ],
@@ -745,7 +745,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges/name",
+    "url": "https://api.stackexchange.com/2.0/badges/name",
     "path": [],
     "query": [
      "inname",
@@ -808,7 +808,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges/recipients",
+    "url": "https://api.stackexchange.com/2.0/badges/recipients",
     "path": [],
     "query": [
      "fromdate",
@@ -894,7 +894,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/badges/tags",
+    "url": "https://api.stackexchange.com/2.0/badges/tags",
     "path": [],
     "query": [
      "inname",
@@ -981,7 +981,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/comments",
+    "url": "https://api.stackexchange.com/2.0/comments",
     "path": [],
     "query": [
      "order",
@@ -1072,7 +1072,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/comments/{ids}",
+    "url": "https://api.stackexchange.com/2.0/comments/{ids}",
     "path": [
      "ids"
     ],
@@ -1122,7 +1122,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/errors",
+    "url": "https://api.stackexchange.com/2.0/errors",
     "path": [],
     "query": [
      "pagesize",
@@ -1153,7 +1153,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/errors/{id}",
+    "url": "https://api.stackexchange.com/2.0/errors/{id}",
     "path": [
      "id"
     ],
@@ -1201,7 +1201,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/events",
+    "url": "https://api.stackexchange.com/2.0/events",
     "path": [],
     "query": [
      "pagesize",
@@ -1244,7 +1244,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/filters/create",
+    "url": "https://api.stackexchange.com/2.0/filters/create",
     "path": [],
     "query": [
      "base",
@@ -1275,7 +1275,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/filters/{filters}",
+    "url": "https://api.stackexchange.com/2.0/filters/{filters}",
     "path": [
      "filters"
     ],
@@ -1313,7 +1313,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/inbox",
+    "url": "https://api.stackexchange.com/2.0/inbox",
     "path": [],
     "query": [
      "pagesize",
@@ -1358,7 +1358,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/inbox/unread",
+    "url": "https://api.stackexchange.com/2.0/inbox/unread",
     "path": [],
     "query": [
      "pagesize",
@@ -1390,7 +1390,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/info",
+    "url": "https://api.stackexchange.com/2.0/info",
     "path": [],
     "query": [
      "site"
@@ -1468,7 +1468,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me",
+    "url": "https://api.stackexchange.com/2.0/me",
     "path": [],
     "query": [
      "order",
@@ -1555,7 +1555,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/answers",
+    "url": "https://api.stackexchange.com/2.0/me/answers",
     "path": [],
     "query": [
      "order",
@@ -1603,7 +1603,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/associated",
+    "url": "https://api.stackexchange.com/2.0/me/associated",
     "path": [],
     "query": [
      "pagesize",
@@ -1683,7 +1683,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/badges",
+    "url": "https://api.stackexchange.com/2.0/me/badges",
     "path": [],
     "query": [
      "order",
@@ -1769,7 +1769,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/comments",
+    "url": "https://api.stackexchange.com/2.0/me/comments",
     "path": [],
     "query": [
      "order",
@@ -1860,7 +1860,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/comments/{toId}",
+    "url": "https://api.stackexchange.com/2.0/me/comments/{toId}",
     "path": [
      "toId"
     ],
@@ -1950,7 +1950,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/favorites",
+    "url": "https://api.stackexchange.com/2.0/me/favorites",
     "path": [],
     "query": [
      "order",
@@ -2004,7 +2004,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/inbox",
+    "url": "https://api.stackexchange.com/2.0/me/inbox",
     "path": [],
     "query": [
      "pagesize",
@@ -2056,7 +2056,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/inbox/unread",
+    "url": "https://api.stackexchange.com/2.0/me/inbox/unread",
     "path": [],
     "query": [
      "pagesize",
@@ -2137,7 +2137,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/mentioned",
+    "url": "https://api.stackexchange.com/2.0/me/mentioned",
     "path": [],
     "query": [
      "order",
@@ -2185,7 +2185,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/merges",
+    "url": "https://api.stackexchange.com/2.0/me/merges",
     "path": [],
     "query": [
      "pagesize",
@@ -2232,7 +2232,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/notifications",
+    "url": "https://api.stackexchange.com/2.0/me/notifications",
     "path": [],
     "query": [
      "pagesize",
@@ -2280,7 +2280,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/notifications/unread",
+    "url": "https://api.stackexchange.com/2.0/me/notifications/unread",
     "path": [],
     "query": [
      "pagesize",
@@ -2328,7 +2328,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/privileges",
+    "url": "https://api.stackexchange.com/2.0/me/privileges",
     "path": [],
     "query": [
      "pagesize",
@@ -2409,7 +2409,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/questions",
+    "url": "https://api.stackexchange.com/2.0/me/questions",
     "path": [],
     "query": [
      "order",
@@ -2496,7 +2496,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/questions/featured",
+    "url": "https://api.stackexchange.com/2.0/me/questions/featured",
     "path": [],
     "query": [
      "order",
@@ -2583,7 +2583,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/questions/no-answers",
+    "url": "https://api.stackexchange.com/2.0/me/questions/no-answers",
     "path": [],
     "query": [
      "order",
@@ -2670,7 +2670,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/questions/unaccepted",
+    "url": "https://api.stackexchange.com/2.0/me/questions/unaccepted",
     "path": [],
     "query": [
      "order",
@@ -2757,7 +2757,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/questions/unanswered",
+    "url": "https://api.stackexchange.com/2.0/me/questions/unanswered",
     "path": [],
     "query": [
      "order",
@@ -2803,7 +2803,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/reputation",
+    "url": "https://api.stackexchange.com/2.0/me/reputation",
     "path": [],
     "query": [
      "filter",
@@ -2849,7 +2849,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/reputation-history",
+    "url": "https://api.stackexchange.com/2.0/me/reputation-history",
     "path": [],
     "query": [
      "pagesize",
@@ -2897,7 +2897,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/reputation-history/full",
+    "url": "https://api.stackexchange.com/2.0/me/reputation-history/full",
     "path": [],
     "query": [
      "pagesize",
@@ -2978,7 +2978,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/suggested-edits",
+    "url": "https://api.stackexchange.com/2.0/me/suggested-edits",
     "path": [],
     "query": [
      "order",
@@ -3065,7 +3065,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/tags",
+    "url": "https://api.stackexchange.com/2.0/me/tags",
     "path": [],
     "query": [
      "order",
@@ -3157,7 +3157,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/tags/{tags}/top-answers",
+    "url": "https://api.stackexchange.com/2.0/me/tags/{tags}/top-answers",
     "path": [
      "tags"
     ],
@@ -3255,7 +3255,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/tags/{tags}/top-questions",
+    "url": "https://api.stackexchange.com/2.0/me/tags/{tags}/top-questions",
     "path": [
      "tags"
     ],
@@ -3319,7 +3319,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/timeline",
+    "url": "https://api.stackexchange.com/2.0/me/timeline",
     "path": [],
     "query": [
      "fromdate",
@@ -3369,7 +3369,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/top-answer-tags",
+    "url": "https://api.stackexchange.com/2.0/me/top-answer-tags",
     "path": [],
     "query": [
      "pagesize",
@@ -3417,7 +3417,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/top-question-tags",
+    "url": "https://api.stackexchange.com/2.0/me/top-question-tags",
     "path": [],
     "query": [
      "pagesize",
@@ -3465,7 +3465,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/me/write-permissions",
+    "url": "https://api.stackexchange.com/2.0/me/write-permissions",
     "path": [],
     "query": [
      "pagesize",
@@ -3507,7 +3507,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/notifications",
+    "url": "https://api.stackexchange.com/2.0/notifications",
     "path": [],
     "query": [
      "pagesize",
@@ -3548,7 +3548,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/notifications/unread",
+    "url": "https://api.stackexchange.com/2.0/notifications/unread",
     "path": [],
     "query": [
      "pagesize",
@@ -3628,7 +3628,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/posts",
+    "url": "https://api.stackexchange.com/2.0/posts",
     "path": [],
     "query": [
      "order",
@@ -3720,7 +3720,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/posts/{ids}",
+    "url": "https://api.stackexchange.com/2.0/posts/{ids}",
     "path": [
      "ids"
     ],
@@ -3813,7 +3813,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/posts/{ids}/comments",
+    "url": "https://api.stackexchange.com/2.0/posts/{ids}/comments",
     "path": [
      "ids"
     ],
@@ -3882,7 +3882,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/posts/{ids}/revisions",
+    "url": "https://api.stackexchange.com/2.0/posts/{ids}/revisions",
     "path": [
      "ids"
     ],
@@ -3972,7 +3972,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/posts/{ids}/suggested-edits",
+    "url": "https://api.stackexchange.com/2.0/posts/{ids}/suggested-edits",
     "path": [
      "ids"
     ],
@@ -4028,7 +4028,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/privileges",
+    "url": "https://api.stackexchange.com/2.0/privileges",
     "path": [],
     "query": [
      "pagesize",
@@ -4117,7 +4117,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions",
+    "url": "https://api.stackexchange.com/2.0/questions",
     "path": [],
     "query": [
      "tagged",
@@ -4209,7 +4209,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/featured",
+    "url": "https://api.stackexchange.com/2.0/questions/featured",
     "path": [],
     "query": [
      "tagged",
@@ -4302,7 +4302,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}",
     "path": [
      "ids"
     ],
@@ -4396,7 +4396,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}/answers",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}/answers",
     "path": [
      "ids"
     ],
@@ -4489,7 +4489,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}/comments",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}/comments",
     "path": [
      "ids"
     ],
@@ -4584,7 +4584,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}/linked",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}/linked",
     "path": [
      "ids"
     ],
@@ -4679,7 +4679,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}/related",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}/related",
     "path": [
      "ids"
     ],
@@ -4748,7 +4748,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/{ids}/timeline",
+    "url": "https://api.stackexchange.com/2.0/questions/{ids}/timeline",
     "path": [
      "ids"
     ],
@@ -4837,7 +4837,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/no-answers",
+    "url": "https://api.stackexchange.com/2.0/questions/no-answers",
     "path": [],
     "query": [
      "tagged",
@@ -4929,7 +4929,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/questions/unanswered",
+    "url": "https://api.stackexchange.com/2.0/questions/unanswered",
     "path": [],
     "query": [
      "tagged",
@@ -4997,7 +4997,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/revisions/{ids}",
+    "url": "https://api.stackexchange.com/2.0/revisions/{ids}",
     "path": [
      "ids"
     ],
@@ -5095,7 +5095,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/search",
+    "url": "https://api.stackexchange.com/2.0/search",
     "path": [],
     "query": [
      "tagged",
@@ -5262,7 +5262,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/search/advanced",
+    "url": "https://api.stackexchange.com/2.0/search/advanced",
     "path": [],
     "query": [
      "tagged",
@@ -5376,7 +5376,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/similar",
+    "url": "https://api.stackexchange.com/2.0/similar",
     "path": [],
     "query": [
      "tagged",
@@ -5427,7 +5427,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/sites",
+    "url": "https://api.stackexchange.com/2.0/sites",
     "path": [],
     "query": [
      "pagesize",
@@ -5507,7 +5507,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/suggested-edits",
+    "url": "https://api.stackexchange.com/2.0/suggested-edits",
     "path": [],
     "query": [
      "order",
@@ -5599,7 +5599,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/suggested-edits/{ids}",
+    "url": "https://api.stackexchange.com/2.0/suggested-edits/{ids}",
     "path": [
      "ids"
     ],
@@ -5692,7 +5692,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags",
+    "url": "https://api.stackexchange.com/2.0/tags",
     "path": [],
     "query": [
      "inname",
@@ -5784,7 +5784,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/moderator-only",
+    "url": "https://api.stackexchange.com/2.0/tags/moderator-only",
     "path": [],
     "query": [
      "inname",
@@ -5876,7 +5876,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/required",
+    "url": "https://api.stackexchange.com/2.0/tags/required",
     "path": [],
     "query": [
      "inname",
@@ -5964,7 +5964,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/synonyms",
+    "url": "https://api.stackexchange.com/2.0/tags/synonyms",
     "path": [],
     "query": [
      "order",
@@ -6032,7 +6032,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tag}/top-answerers/{period}",
+    "url": "https://api.stackexchange.com/2.0/tags/{tag}/top-answerers/{period}",
     "path": [
      "tag",
      "period"
@@ -6097,7 +6097,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tag}/top-askers/{period}",
+    "url": "https://api.stackexchange.com/2.0/tags/{tag}/top-askers/{period}",
     "path": [
      "tag",
      "period"
@@ -6153,7 +6153,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tags}/faq",
+    "url": "https://api.stackexchange.com/2.0/tags/{tags}/faq",
     "path": [
      "tags"
     ],
@@ -6241,7 +6241,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tags}/info",
+    "url": "https://api.stackexchange.com/2.0/tags/{tags}/info",
     "path": [
      "tags"
     ],
@@ -6302,7 +6302,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tags}/related",
+    "url": "https://api.stackexchange.com/2.0/tags/{tags}/related",
     "path": [
      "tags"
     ],
@@ -6390,7 +6390,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tags}/synonyms",
+    "url": "https://api.stackexchange.com/2.0/tags/{tags}/synonyms",
     "path": [
      "tags"
     ],
@@ -6451,7 +6451,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/tags/{tags}/wikis",
+    "url": "https://api.stackexchange.com/2.0/tags/{tags}/wikis",
     "path": [
      "tags"
     ],
@@ -6539,7 +6539,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users",
+    "url": "https://api.stackexchange.com/2.0/users",
     "path": [],
     "query": [
      "inname",
@@ -6599,7 +6599,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/inbox",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/inbox",
     "path": [
      "id"
     ],
@@ -6658,7 +6658,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/inbox/unread",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/inbox/unread",
     "path": [
      "id"
     ],
@@ -6714,7 +6714,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/notifications",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/notifications",
     "path": [
      "id"
     ],
@@ -6769,7 +6769,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/notifications/unread",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/notifications/unread",
     "path": [
      "id"
     ],
@@ -6824,7 +6824,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/privileges",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/privileges",
     "path": [
      "id"
     ],
@@ -6879,7 +6879,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/reputation-history/full",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/reputation-history/full",
     "path": [
      "id"
     ],
@@ -6972,7 +6972,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/tags/{tags}/top-answers",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/tags/{tags}/top-answers",
     "path": [
      "id",
      "tags"
@@ -7072,7 +7072,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/tags/{tags}/top-questions",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/tags/{tags}/top-questions",
     "path": [
      "id",
      "tags"
@@ -7134,7 +7134,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/top-answer-tags",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/top-answer-tags",
     "path": [
      "id"
     ],
@@ -7189,7 +7189,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/top-question-tags",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/top-question-tags",
     "path": [
      "id"
     ],
@@ -7244,7 +7244,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{id}/write-permissions",
+    "url": "https://api.stackexchange.com/2.0/users/{id}/write-permissions",
     "path": [
      "id"
     ],
@@ -7333,7 +7333,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}",
     "path": [
      "ids"
     ],
@@ -7427,7 +7427,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/answers",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/answers",
     "path": [
      "ids"
     ],
@@ -7483,7 +7483,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/associated",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/associated",
     "path": [
      "ids"
     ],
@@ -7571,7 +7571,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/badges",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/badges",
     "path": [
      "ids"
     ],
@@ -7664,7 +7664,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/comments",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/comments",
     "path": [
      "ids"
     ],
@@ -7762,7 +7762,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/comments/{toid}",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/comments/{toid}",
     "path": [
      "ids",
      "toid"
@@ -7858,7 +7858,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/favorites",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/favorites",
     "path": [
      "ids"
     ],
@@ -7951,7 +7951,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/mentioned",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/mentioned",
     "path": [
      "ids"
     ],
@@ -8007,7 +8007,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/merges",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/merges",
     "path": [
      "ids"
     ],
@@ -8094,7 +8094,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/questions",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/questions",
     "path": [
      "ids"
     ],
@@ -8188,7 +8188,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/questions/featured",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/questions/featured",
     "path": [
      "ids"
     ],
@@ -8282,7 +8282,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/questions/no-answers",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/questions/no-answers",
     "path": [
      "ids"
     ],
@@ -8376,7 +8376,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/questions/unaccepted",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/questions/unaccepted",
     "path": [
      "ids"
     ],
@@ -8470,7 +8470,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/questions/unanswered",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/questions/unanswered",
     "path": [
      "ids"
     ],
@@ -8539,7 +8539,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/reputation",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/reputation",
     "path": [
      "ids"
     ],
@@ -8596,7 +8596,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/reputation-history",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/reputation-history",
     "path": [
      "ids"
     ],
@@ -8684,7 +8684,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/suggested-edits",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/suggested-edits",
     "path": [
      "ids"
     ],
@@ -8778,7 +8778,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/tags",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/tags",
     "path": [
      "ids"
     ],
@@ -8847,7 +8847,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/{ids}/timeline",
+    "url": "https://api.stackexchange.com/2.0/users/{ids}/timeline",
     "path": [
      "ids"
     ],
@@ -8933,7 +8933,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/moderators",
+    "url": "https://api.stackexchange.com/2.0/users/moderators",
     "path": [],
     "query": [
      "order",
@@ -9021,7 +9021,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.stackexchange.com/users/moderators/elected",
+    "url": "https://api.stackexchange.com/2.0/users/moderators/elected",
     "path": [],
     "query": [
      "order",
@@ -9076,7 +9076,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.stackexchange.com/comments/{id}/delete",
+    "url": "https://api.stackexchange.com/2.0/comments/{id}/delete",
     "path": [
      "id"
     ],
@@ -9130,7 +9130,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.stackexchange.com/comments/{id}/edit",
+    "url": "https://api.stackexchange.com/2.0/comments/{id}/edit",
     "path": [
      "id"
     ],
@@ -9185,7 +9185,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.stackexchange.com/posts/{id}/comments/add",
+    "url": "https://api.stackexchange.com/2.0/posts/{id}/comments/add",
     "path": [
      "id"
     ],

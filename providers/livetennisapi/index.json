@@ -25,7 +25,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.livetennisapi.com/webhooks",
+    "url": "https://api.livetennisapi.com/api/public/v1/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -47,7 +47,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/ws-token",
+    "url": "https://api.livetennisapi.com/api/public/v1/ws-token",
     "path": [],
     "query": [],
     "header": [],
@@ -73,7 +73,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.livetennisapi.com/webhooks/{webhookId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/webhooks/{webhookId}",
     "path": [
      "webhookId"
     ],
@@ -101,7 +101,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/archive/career",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/archive/career",
     "path": [],
     "query": [
      "name"
@@ -129,7 +129,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/archive/matches/{archiveId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/archive/matches/{archiveId}",
     "path": [
      "archiveId"
     ],
@@ -157,7 +157,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/archive/matches/{archiveId}/tape",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/archive/matches/{archiveId}/tape",
     "path": [
      "archiveId"
     ],
@@ -185,7 +185,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/charting/matches/{chartingMatchId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/charting/matches/{chartingMatchId}",
     "path": [
      "chartingMatchId"
     ],
@@ -221,7 +221,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/charting/players",
+    "url": "https://api.livetennisapi.com/api/public/v1/charting/players",
     "path": [],
     "query": [
      "name",
@@ -255,7 +255,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/h2h",
+    "url": "https://api.livetennisapi.com/api/public/v1/h2h",
     "path": [],
     "query": [
      "p1",
@@ -277,7 +277,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/coverage",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/coverage",
     "path": [],
     "query": [],
     "header": [],
@@ -324,7 +324,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/packages/{period}",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/packages/{period}",
     "path": [
      "period"
     ],
@@ -359,7 +359,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/markets/{matchId}/prices",
+    "url": "https://api.livetennisapi.com/api/public/v1/markets/{matchId}/prices",
     "path": [
      "matchId"
     ],
@@ -389,7 +389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}",
     "path": [
      "matchId"
     ],
@@ -417,7 +417,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/analysis",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/analysis",
     "path": [
      "matchId"
     ],
@@ -449,7 +449,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/points",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/points",
     "path": [
      "matchId"
     ],
@@ -487,7 +487,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/matches/{matchId}/rally",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/matches/{matchId}/rally",
     "path": [
      "matchId"
     ],
@@ -518,7 +518,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/score",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/score",
     "path": [
      "matchId"
     ],
@@ -546,7 +546,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/statistics",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/statistics",
     "path": [
      "matchId"
     ],
@@ -582,7 +582,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/status-history",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/status-history",
     "path": [
      "matchId"
     ],
@@ -629,7 +629,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/matches/{matchId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/matches/{matchId}",
     "path": [
      "matchId"
     ],
@@ -660,7 +660,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/players/{playerId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/players/{playerId}",
     "path": [
      "playerId"
     ],
@@ -696,7 +696,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/rally/matches/{rallyMatchId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/rally/matches/{rallyMatchId}",
     "path": [
      "rallyMatchId"
     ],
@@ -727,7 +727,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/tournaments/{tournamentId}",
+    "url": "https://api.livetennisapi.com/api/public/v1/tournaments/{tournamentId}",
     "path": [
      "tournamentId"
     ],
@@ -748,7 +748,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/usage",
+    "url": "https://api.livetennisapi.com/api/public/v1/usage",
     "path": [],
     "query": [],
     "header": [],
@@ -767,7 +767,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/health",
+    "url": "https://api.livetennisapi.com/api/public/v1/health",
     "path": [],
     "query": [],
     "header": [],
@@ -837,7 +837,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/archive/matches",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/archive/matches",
     "path": [],
     "query": [
      "tour",
@@ -886,7 +886,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/archive/players",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/archive/players",
     "path": [],
     "query": [
      "name",
@@ -981,7 +981,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/matches",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/matches",
     "path": [],
     "query": [
      "has_market",
@@ -1041,7 +1041,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/fixtures",
+    "url": "https://api.livetennisapi.com/api/public/v1/fixtures",
     "path": [],
     "query": [
      "tour",
@@ -1080,7 +1080,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/matches/{matchId}/prices",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/matches/{matchId}/prices",
     "path": [
      "matchId"
     ],
@@ -1121,7 +1121,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/history/packages",
+    "url": "https://api.livetennisapi.com/api/public/v1/history/packages",
     "path": [],
     "query": [
      "kind",
@@ -1150,7 +1150,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/markets",
+    "url": "https://api.livetennisapi.com/api/public/v1/markets",
     "path": [],
     "query": [
      "match_id"
@@ -1186,7 +1186,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/events",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/events",
     "path": [
      "matchId"
     ],
@@ -1229,7 +1229,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches/{matchId}/prices",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches/{matchId}/prices",
     "path": [
      "matchId"
     ],
@@ -1328,7 +1328,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/matches",
+    "url": "https://api.livetennisapi.com/api/public/v1/matches",
     "path": [],
     "query": [
      "status",
@@ -1389,7 +1389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/players/{playerId}/injuries",
+    "url": "https://api.livetennisapi.com/api/public/v1/players/{playerId}/injuries",
     "path": [
      "playerId"
     ],
@@ -1443,7 +1443,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/players/{playerId}/stoppages",
+    "url": "https://api.livetennisapi.com/api/public/v1/players/{playerId}/stoppages",
     "path": [
      "playerId"
     ],
@@ -1503,7 +1503,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/rally/matches",
+    "url": "https://api.livetennisapi.com/api/public/v1/rally/matches",
     "path": [],
     "query": [
      "player",
@@ -1575,7 +1575,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/rankings",
+    "url": "https://api.livetennisapi.com/api/public/v1/rankings",
     "path": [],
     "query": [
      "player",
@@ -1622,7 +1622,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/events",
+    "url": "https://api.livetennisapi.com/api/public/v1/events",
     "path": [],
     "query": [
      "type",
@@ -1678,7 +1678,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/tournaments",
+    "url": "https://api.livetennisapi.com/api/public/v1/tournaments",
     "path": [],
     "query": [
      "search",
@@ -1703,7 +1703,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/webhooks",
+    "url": "https://api.livetennisapi.com/api/public/v1/webhooks",
     "path": [],
     "query": [],
     "header": [],
@@ -1735,7 +1735,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.livetennisapi.com/players",
+    "url": "https://api.livetennisapi.com/api/public/v1/players",
     "path": [],
     "query": [
      "search",

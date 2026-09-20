@@ -39,7 +39,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/account/settings.json",
+    "url": "https://api.twitter.com/1.1/account/settings.json",
     "path": [],
     "query": [
      "trend_location_woeid",
@@ -90,7 +90,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/settings.json",
+    "url": "https://api.twitter.com/1.1/account/settings.json",
     "path": [],
     "query": [
      "trend_location_woeid",
@@ -127,7 +127,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/update_delivery_device.json",
+    "url": "https://api.twitter.com/1.1/account/update_delivery_device.json",
     "path": [],
     "query": [
      "device",
@@ -174,7 +174,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/update_profile.json",
+    "url": "https://api.twitter.com/1.1/account/update_profile.json",
     "path": [],
     "query": [
      "name",
@@ -223,7 +223,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/update_profile_background_image.json",
+    "url": "https://api.twitter.com/1.1/account/update_profile_background_image.json",
     "path": [],
     "query": [
      "tile",
@@ -278,7 +278,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/update_profile_colors.json",
+    "url": "https://api.twitter.com/1.1/account/update_profile_colors.json",
     "path": [],
     "query": [
      "profile_background_color",
@@ -316,7 +316,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/account/update_profile_image.json",
+    "url": "https://api.twitter.com/1.1/account/update_profile_image.json",
     "path": [],
     "query": [
      "skip_status"
@@ -344,7 +344,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/application/rate_limit_status.json",
+    "url": "https://api.twitter.com/1.1/application/rate_limit_status.json",
     "path": [],
     "query": [
      "resources"
@@ -374,7 +374,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/blocks/create.json",
+    "url": "https://api.twitter.com/1.1/blocks/create.json",
     "path": [],
     "query": [
      "include_entities",
@@ -405,7 +405,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/blocks/destroy.json",
+    "url": "https://api.twitter.com/1.1/blocks/destroy.json",
     "path": [],
     "query": [
      "include_entities",
@@ -436,7 +436,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/blocks/ids.json",
+    "url": "https://api.twitter.com/1.1/blocks/ids.json",
     "path": [],
     "query": [
      "stringify_ids",
@@ -471,7 +471,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/blocks/list.json",
+    "url": "https://api.twitter.com/1.1/blocks/list.json",
     "path": [],
     "query": [
      "include_entities",
@@ -519,7 +519,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/direct_messages.json",
+    "url": "https://api.twitter.com/1.1/direct_messages.json",
     "path": [],
     "query": [
      "count",
@@ -556,7 +556,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/direct_messages/destroy.json",
+    "url": "https://api.twitter.com/1.1/direct_messages/destroy.json",
     "path": [],
     "query": [
      "id",
@@ -585,7 +585,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/direct_messages/new.json",
+    "url": "https://api.twitter.com/1.1/direct_messages/new.json",
     "path": [],
     "query": [
      "text"
@@ -627,7 +627,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/direct_messages/sent.json",
+    "url": "https://api.twitter.com/1.1/direct_messages/sent.json",
     "path": [],
     "query": [
      "count",
@@ -659,7 +659,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/direct_messages/show.json",
+    "url": "https://api.twitter.com/1.1/direct_messages/show.json",
     "path": [],
     "query": [
      "id"
@@ -691,7 +691,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/favorites/create.json",
+    "url": "https://api.twitter.com/1.1/favorites/create.json",
     "path": [],
     "query": [
      "id",
@@ -724,7 +724,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/favorites/destroy.json",
+    "url": "https://api.twitter.com/1.1/favorites/destroy.json",
     "path": [],
     "query": [
      "id",
@@ -763,7 +763,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/favorites/list.json",
+    "url": "https://api.twitter.com/1.1/favorites/list.json",
     "path": [],
     "query": [
      "count",
@@ -796,7 +796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/followers/ids.json",
+    "url": "https://api.twitter.com/1.1/followers/ids.json",
     "path": [],
     "query": [
      "stringify_ids",
@@ -827,7 +827,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/friends/ids.json",
+    "url": "https://api.twitter.com/1.1/friends/ids.json",
     "path": [],
     "query": [
      "stringify_ids",
@@ -854,7 +854,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/friendships/create.json",
+    "url": "https://api.twitter.com/1.1/friendships/create.json",
     "path": [],
     "query": [
      "follow"
@@ -875,7 +875,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/friendships/destroy.json",
+    "url": "https://api.twitter.com/1.1/friendships/destroy.json",
     "path": [],
     "query": [],
     "header": [],
@@ -903,7 +903,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/friendships/incoming.json",
+    "url": "https://api.twitter.com/1.1/friendships/incoming.json",
     "path": [],
     "query": [
      "stringify_ids",
@@ -925,7 +925,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/friendships/lookup.json",
+    "url": "https://api.twitter.com/1.1/friendships/lookup.json",
     "path": [],
     "query": [],
     "header": [],
@@ -953,7 +953,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/friendships/outgoing.json",
+    "url": "https://api.twitter.com/1.1/friendships/outgoing.json",
     "path": [],
     "query": [
      "stringify_ids",
@@ -995,7 +995,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/friendships/show.json",
+    "url": "https://api.twitter.com/1.1/friendships/show.json",
     "path": [],
     "query": [
      "source_id",
@@ -1031,7 +1031,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/friendships/update.json",
+    "url": "https://api.twitter.com/1.1/friendships/update.json",
     "path": [],
     "query": [
      "device",
@@ -1060,7 +1060,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/geo/id/{place_id}.json",
+    "url": "https://api.twitter.com/1.1/geo/id/{place_id}.json",
     "path": [
      "place_id"
     ],
@@ -1090,7 +1090,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/geo/places.json",
+    "url": "https://api.twitter.com/1.1/geo/places.json",
     "path": [],
     "query": [
      "attribute:street_address",
@@ -1140,7 +1140,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/geo/reverse_geocode.json",
+    "url": "https://api.twitter.com/1.1/geo/reverse_geocode.json",
     "path": [],
     "query": [
      "lat",
@@ -1187,7 +1187,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/geo/search.json",
+    "url": "https://api.twitter.com/1.1/geo/search.json",
     "path": [],
     "query": [
      "accuracy",
@@ -1225,7 +1225,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/geo/similar_places.json",
+    "url": "https://api.twitter.com/1.1/geo/similar_places.json",
     "path": [],
     "query": [
      "contained_within",
@@ -1248,7 +1248,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/help/configuration.json",
+    "url": "https://api.twitter.com/1.1/help/configuration.json",
     "path": [],
     "query": [],
     "header": [],
@@ -1267,7 +1267,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/help/languages.json",
+    "url": "https://api.twitter.com/1.1/help/languages.json",
     "path": [],
     "query": [],
     "header": [],
@@ -1286,7 +1286,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/help/privacy.json",
+    "url": "https://api.twitter.com/1.1/help/privacy.json",
     "path": [],
     "query": [],
     "header": [],
@@ -1305,7 +1305,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/help/tos.json",
+    "url": "https://api.twitter.com/1.1/help/tos.json",
     "path": [],
     "query": [],
     "header": [],
@@ -1339,7 +1339,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/create.json",
+    "url": "https://api.twitter.com/1.1/lists/create.json",
     "path": [],
     "query": [
      "name",
@@ -1371,7 +1371,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/destroy.json",
+    "url": "https://api.twitter.com/1.1/lists/destroy.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1405,7 +1405,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/list.json",
+    "url": "https://api.twitter.com/1.1/lists/list.json",
     "path": [],
     "query": [
      "screen_name",
@@ -1448,7 +1448,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/members.json",
+    "url": "https://api.twitter.com/1.1/lists/members.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1482,7 +1482,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/members/create.json",
+    "url": "https://api.twitter.com/1.1/lists/members/create.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1521,7 +1521,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/members/create_all.json",
+    "url": "https://api.twitter.com/1.1/lists/members/create_all.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1573,7 +1573,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/members/destroy.json",
+    "url": "https://api.twitter.com/1.1/lists/members/destroy.json",
     "path": [],
     "query": [
      "list_id",
@@ -1616,7 +1616,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/members/destroy_all.json",
+    "url": "https://api.twitter.com/1.1/lists/members/destroy_all.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1657,7 +1657,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/members/show.json",
+    "url": "https://api.twitter.com/1.1/lists/members/show.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1698,7 +1698,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/memberships.json",
+    "url": "https://api.twitter.com/1.1/lists/memberships.json",
     "path": [],
     "query": [
      "user_id",
@@ -1731,7 +1731,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/show.json",
+    "url": "https://api.twitter.com/1.1/lists/show.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1784,7 +1784,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/statuses.json",
+    "url": "https://api.twitter.com/1.1/lists/statuses.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1832,7 +1832,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/subscribers.json",
+    "url": "https://api.twitter.com/1.1/lists/subscribers.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1866,7 +1866,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/subscribers/create.json",
+    "url": "https://api.twitter.com/1.1/lists/subscribers/create.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1897,7 +1897,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/subscribers/destroy.json",
+    "url": "https://api.twitter.com/1.1/lists/subscribers/destroy.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1936,7 +1936,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/subscribers/show.json",
+    "url": "https://api.twitter.com/1.1/lists/subscribers/show.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -1969,7 +1969,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/lists/subscriptions.json",
+    "url": "https://api.twitter.com/1.1/lists/subscriptions.json",
     "path": [],
     "query": [
      "count",
@@ -2012,7 +2012,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/lists/update.json",
+    "url": "https://api.twitter.com/1.1/lists/update.json",
     "path": [],
     "query": [
      "owner_screen_name",
@@ -2044,7 +2044,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/saved_searches/create.json",
+    "url": "https://api.twitter.com/1.1/saved_searches/create.json",
     "path": [],
     "query": [
      "query"
@@ -2072,7 +2072,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/saved_searches/destroy/{id}.json",
+    "url": "https://api.twitter.com/1.1/saved_searches/destroy/{id}.json",
     "path": [
      "id"
     ],
@@ -2093,7 +2093,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/saved_searches/list.json",
+    "url": "https://api.twitter.com/1.1/saved_searches/list.json",
     "path": [],
     "query": [],
     "header": [],
@@ -2119,7 +2119,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/saved_searches/show/{id}.json",
+    "url": "https://api.twitter.com/1.1/saved_searches/show/{id}.json",
     "path": [
      "id"
     ],
@@ -2187,7 +2187,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/search/tweets.json",
+    "url": "https://api.twitter.com/1.1/search/tweets.json",
     "path": [],
     "query": [
      "q",
@@ -2229,7 +2229,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/statuses/destroy/{id}.json",
+    "url": "https://api.twitter.com/1.1/statuses/destroy/{id}.json",
     "path": [
      "id"
     ],
@@ -2277,7 +2277,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/home_timeline.json",
+    "url": "https://api.twitter.com/1.1/statuses/home_timeline.json",
     "path": [],
     "query": [
      "count",
@@ -2328,7 +2328,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/mentions_timeline.json",
+    "url": "https://api.twitter.com/1.1/statuses/mentions_timeline.json",
     "path": [],
     "query": [
      "count",
@@ -2389,7 +2389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/oembed.json",
+    "url": "https://api.twitter.com/1.1/statuses/oembed.json",
     "path": [],
     "query": [
      "maxwidth",
@@ -2431,7 +2431,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/retweets/{id}.json",
+    "url": "https://api.twitter.com/1.1/statuses/retweets/{id}.json",
     "path": [
      "id"
     ],
@@ -2474,7 +2474,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/show/{id}.json",
+    "url": "https://api.twitter.com/1.1/statuses/show/{id}.json",
     "path": [
      "id"
     ],
@@ -2535,7 +2535,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/statuses/update.json",
+    "url": "https://api.twitter.com/1.1/statuses/update.json",
     "path": [],
     "query": [
      "status",
@@ -2603,7 +2603,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/statuses/update_with_media.json",
+    "url": "https://api.twitter.com/1.1/statuses/update_with_media.json",
     "path": [],
     "query": [
      "status",
@@ -2662,7 +2662,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/statuses/user_timeline.json",
+    "url": "https://api.twitter.com/1.1/statuses/user_timeline.json",
     "path": [],
     "query": [
      "count",
@@ -2700,7 +2700,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/statuses/retweet/{id}.json",
+    "url": "https://api.twitter.com/1.1/statuses/retweet/{id}.json",
     "path": [
      "id"
     ],
@@ -2723,7 +2723,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/trends/available.json",
+    "url": "https://api.twitter.com/1.1/trends/available.json",
     "path": [],
     "query": [],
     "header": [],
@@ -2751,7 +2751,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/trends/closest.json",
+    "url": "https://api.twitter.com/1.1/trends/closest.json",
     "path": [],
     "query": [
      "lat",
@@ -2784,7 +2784,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/trends/place.json",
+    "url": "https://api.twitter.com/1.1/trends/place.json",
     "path": [],
     "query": [
      "id",
@@ -2815,7 +2815,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/contributees.json",
+    "url": "https://api.twitter.com/1.1/users/contributees.json",
     "path": [],
     "query": [
      "include_entities",
@@ -2846,7 +2846,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/contributors.json",
+    "url": "https://api.twitter.com/1.1/users/contributors.json",
     "path": [],
     "query": [
      "include_entities",
@@ -2881,7 +2881,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/lookup.json",
+    "url": "https://api.twitter.com/1.1/users/lookup.json",
     "path": [],
     "query": [
      "screen_name",
@@ -2904,7 +2904,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.twitter.com/users/report_spam.json",
+    "url": "https://api.twitter.com/1.1/users/report_spam.json",
     "path": [],
     "query": [],
     "header": [],
@@ -2942,7 +2942,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/search.json",
+    "url": "https://api.twitter.com/1.1/users/search.json",
     "path": [],
     "query": [
      "q",
@@ -2982,7 +2982,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/show.json",
+    "url": "https://api.twitter.com/1.1/users/show.json",
     "path": [],
     "query": [
      "screen_name",
@@ -3010,7 +3010,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/suggestions.json",
+    "url": "https://api.twitter.com/1.1/users/suggestions.json",
     "path": [],
     "query": [
      "lang"
@@ -3042,7 +3042,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/suggestions/{slug}.json",
+    "url": "https://api.twitter.com/1.1/users/suggestions/{slug}.json",
     "path": [
      "slug"
     ],
@@ -3072,7 +3072,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.twitter.com/users/suggestions/{slug}/members.json",
+    "url": "https://api.twitter.com/1.1/users/suggestions/{slug}/members.json",
     "path": [
      "slug"
     ],

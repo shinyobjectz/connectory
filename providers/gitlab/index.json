@@ -21,7 +21,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/groups/{id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}",
     "path": [
      "id"
     ],
@@ -54,7 +54,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/groups/{id}/access_requests/{user_id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}/access_requests/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -88,7 +88,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/groups/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -117,7 +117,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/hooks/{id}",
+    "url": "https://gitlab.com/api/v3/hooks/{id}",
     "path": [
      "id"
     ],
@@ -145,7 +145,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}",
     "path": [
      "id"
     ],
@@ -178,7 +178,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/access_requests/{user_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/access_requests/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -217,7 +217,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
     "path": [
      "id",
      "board_id",
@@ -252,7 +252,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys/{key_id}",
     "path": [
      "id",
      "key_id"
@@ -286,7 +286,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys/{key_id}/disable",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys/{key_id}/disable",
     "path": [
      "id",
      "key_id"
@@ -320,7 +320,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/environments/{environment_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/environments/{environment_id}",
     "path": [
      "id",
      "environment_id"
@@ -349,7 +349,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/fork",
+    "url": "https://gitlab.com/api/v3/projects/{id}/fork",
     "path": [
      "id"
     ],
@@ -382,7 +382,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/hooks/{hook_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/hooks/{hook_id}",
     "path": [
      "id",
      "hook_id"
@@ -416,7 +416,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}",
     "path": [
      "id",
      "issue_id"
@@ -455,7 +455,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -500,7 +500,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -541,7 +541,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -576,7 +576,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -610,7 +610,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys/{key_id}",
     "path": [
      "id",
      "key_id"
@@ -644,7 +644,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/keys/{key_id}/disable",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys/{key_id}/disable",
     "path": [
      "id",
      "key_id"
@@ -678,7 +678,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/labels",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels",
     "path": [
      "id"
     ],
@@ -713,7 +713,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/labels/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -747,7 +747,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -781,7 +781,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -815,7 +815,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}",
     "path": [
      "id",
      "merge_request_id"
@@ -854,7 +854,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -899,7 +899,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -940,7 +940,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -975,7 +975,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -1009,7 +1009,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches/{branch}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches/{branch}",
     "path": [
      "id",
      "branch"
@@ -1061,7 +1061,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/files",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/files",
     "path": [
      "id"
     ],
@@ -1095,7 +1095,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/merged_branches",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/merged_branches",
     "path": [
      "id"
     ],
@@ -1128,7 +1128,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags/{tag_name}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags/{tag_name}",
     "path": [
      "id",
      "tag_name"
@@ -1162,7 +1162,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/runners/{runner_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/runners/{runner_id}",
     "path": [
      "id",
      "runner_id"
@@ -1210,7 +1210,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/services/{service_slug}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/{service_slug}",
     "path": [
      "service_slug",
      "id"
@@ -1244,7 +1244,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/share/{group_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/share/{group_id}",
     "path": [
      "id",
      "group_id"
@@ -1283,7 +1283,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -1318,7 +1318,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}",
     "path": [
      "id",
      "snippet_id"
@@ -1357,7 +1357,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -1402,7 +1402,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -1433,7 +1433,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/star",
+    "url": "https://gitlab.com/api/v3/projects/{id}/star",
     "path": [
      "id"
     ],
@@ -1461,7 +1461,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/triggers/{token}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/triggers/{token}",
     "path": [
      "id"
     ],
@@ -1489,7 +1489,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/projects/{id}/variables/{key}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/variables/{key}",
     "path": [
      "id"
     ],
@@ -1517,7 +1517,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/runners/{id}",
+    "url": "https://gitlab.com/api/v3/runners/{id}",
     "path": [
      "id"
     ],
@@ -1545,7 +1545,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/snippets/{id}",
+    "url": "https://gitlab.com/api/v3/snippets/{id}",
     "path": [
      "id"
     ],
@@ -1566,7 +1566,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/todos",
+    "url": "https://gitlab.com/api/v3/todos",
     "path": [],
     "query": [],
     "header": [],
@@ -1592,7 +1592,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/todos/{id}",
+    "url": "https://gitlab.com/api/v3/todos/{id}",
     "path": [
      "id"
     ],
@@ -1620,7 +1620,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/user/emails/{email_id}",
+    "url": "https://gitlab.com/api/v3/user/emails/{email_id}",
     "path": [
      "email_id"
     ],
@@ -1648,7 +1648,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/user/keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/user/keys/{key_id}",
     "path": [
      "key_id"
     ],
@@ -1676,7 +1676,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/users/{id}",
+    "url": "https://gitlab.com/api/v3/users/{id}",
     "path": [
      "id"
     ],
@@ -1709,7 +1709,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/users/{id}/emails/{email_id}",
+    "url": "https://gitlab.com/api/v3/users/{id}/emails/{email_id}",
     "path": [
      "id",
      "email_id"
@@ -1743,7 +1743,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://gitlab.com/v3/users/{id}/keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/users/{id}/keys/{key_id}",
     "path": [
      "id",
      "key_id"
@@ -1765,7 +1765,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/application/settings",
+    "url": "https://gitlab.com/api/v3/application/settings",
     "path": [],
     "query": [],
     "header": [],
@@ -1784,7 +1784,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/deploy_keys",
+    "url": "https://gitlab.com/api/v3/deploy_keys",
     "path": [],
     "query": [],
     "header": [],
@@ -1803,7 +1803,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/dockerfiles",
+    "url": "https://gitlab.com/api/v3/dockerfiles",
     "path": [],
     "query": [],
     "header": [],
@@ -1829,7 +1829,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/dockerfiles/{name}",
+    "url": "https://gitlab.com/api/v3/dockerfiles/{name}",
     "path": [
      "name"
     ],
@@ -1850,7 +1850,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/gitignores",
+    "url": "https://gitlab.com/api/v3/gitignores",
     "path": [],
     "query": [],
     "header": [],
@@ -1876,7 +1876,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/gitignores/{name}",
+    "url": "https://gitlab.com/api/v3/gitignores/{name}",
     "path": [
      "name"
     ],
@@ -1897,7 +1897,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/gitlab_ci_ymls",
+    "url": "https://gitlab.com/api/v3/gitlab_ci_ymls",
     "path": [],
     "query": [],
     "header": [],
@@ -1923,7 +1923,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/gitlab_ci_ymls/{name}",
+    "url": "https://gitlab.com/api/v3/gitlab_ci_ymls/{name}",
     "path": [
      "name"
     ],
@@ -1985,7 +1985,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups",
+    "url": "https://gitlab.com/api/v3/groups",
     "path": [],
     "query": [
      "statistics",
@@ -2021,7 +2021,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}",
     "path": [
      "id"
     ],
@@ -2057,7 +2057,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/access_requests",
+    "url": "https://gitlab.com/api/v3/groups/{id}/access_requests",
     "path": [
      "id"
     ],
@@ -2129,7 +2129,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/issues",
+    "url": "https://gitlab.com/api/v3/groups/{id}/issues",
     "path": [
      "id"
     ],
@@ -2177,7 +2177,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/members",
+    "url": "https://gitlab.com/api/v3/groups/{id}/members",
     "path": [
      "id"
     ],
@@ -2214,7 +2214,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -2243,7 +2243,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/notification_settings",
+    "url": "https://gitlab.com/api/v3/groups/{id}/notification_settings",
     "path": [
      "id"
     ],
@@ -2320,7 +2320,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/{id}/projects",
+    "url": "https://gitlab.com/api/v3/groups/{id}/projects",
     "path": [
      "id"
     ],
@@ -2363,7 +2363,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/groups/owned",
+    "url": "https://gitlab.com/api/v3/groups/owned",
     "path": [],
     "query": [
      "page",
@@ -2386,7 +2386,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/hooks",
+    "url": "https://gitlab.com/api/v3/hooks",
     "path": [],
     "query": [],
     "header": [],
@@ -2412,7 +2412,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/hooks/{id}",
+    "url": "https://gitlab.com/api/v3/hooks/{id}",
     "path": [
      "id"
     ],
@@ -2433,7 +2433,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/internal/broadcast_message",
+    "url": "https://gitlab.com/api/v3/internal/broadcast_message",
     "path": [],
     "query": [],
     "header": [],
@@ -2452,7 +2452,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/internal/check",
+    "url": "https://gitlab.com/api/v3/internal/check",
     "path": [],
     "query": [],
     "header": [],
@@ -2471,7 +2471,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/internal/discover",
+    "url": "https://gitlab.com/api/v3/internal/discover",
     "path": [],
     "query": [],
     "header": [],
@@ -2490,7 +2490,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/internal/merge_request_urls",
+    "url": "https://gitlab.com/api/v3/internal/merge_request_urls",
     "path": [],
     "query": [],
     "header": [],
@@ -2551,7 +2551,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/issues",
+    "url": "https://gitlab.com/api/v3/issues",
     "path": [],
     "query": [
      "state",
@@ -2585,7 +2585,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/keys/{id}",
+    "url": "https://gitlab.com/api/v3/keys/{id}",
     "path": [
      "id"
     ],
@@ -2611,7 +2611,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/licenses",
+    "url": "https://gitlab.com/api/v3/licenses",
     "path": [],
     "query": [
      "popular"
@@ -2639,7 +2639,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/licenses/{name}",
+    "url": "https://gitlab.com/api/v3/licenses/{name}",
     "path": [
      "name"
     ],
@@ -2673,7 +2673,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/namespaces",
+    "url": "https://gitlab.com/api/v3/namespaces",
     "path": [],
     "query": [
      "search",
@@ -2696,7 +2696,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/notification_settings",
+    "url": "https://gitlab.com/api/v3/notification_settings",
     "path": [],
     "query": [],
     "header": [],
@@ -2765,7 +2765,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects",
+    "url": "https://gitlab.com/api/v3/projects",
     "path": [],
     "query": [
      "order_by",
@@ -2847,7 +2847,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/all",
+    "url": "https://gitlab.com/api/v3/projects/all",
     "path": [],
     "query": [
      "order_by",
@@ -2883,7 +2883,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}",
     "path": [
      "id"
     ],
@@ -2919,7 +2919,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/access_requests",
+    "url": "https://gitlab.com/api/v3/projects/{id}/access_requests",
     "path": [
      "id"
     ],
@@ -2950,7 +2950,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/boards",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards",
     "path": [
      "id"
     ],
@@ -2983,7 +2983,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/boards/{board_id}/lists",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards/{board_id}/lists",
     "path": [
      "id",
      "board_id"
@@ -3022,7 +3022,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
     "path": [
      "id",
      "board_id",
@@ -3071,7 +3071,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/builds",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds",
     "path": [
      "id"
     ],
@@ -3113,7 +3113,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/artifacts/{ref_name}/download",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/artifacts/{ref_name}/download",
     "path": [
      "id",
      "ref_name"
@@ -3149,7 +3149,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}",
     "path": [
      "id",
      "build_id"
@@ -3183,7 +3183,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/artifacts",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/artifacts",
     "path": [
      "id",
      "build_id"
@@ -3217,7 +3217,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/trace",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/trace",
     "path": [
      "id",
      "build_id"
@@ -3246,7 +3246,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys",
     "path": [
      "id"
     ],
@@ -3279,7 +3279,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys/{key_id}",
     "path": [
      "id",
      "key_id"
@@ -3316,7 +3316,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/deployments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deployments",
     "path": [
      "id"
     ],
@@ -3352,7 +3352,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/deployments/{deployment_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deployments/{deployment_id}",
     "path": [
      "id",
      "deployment_id"
@@ -3389,7 +3389,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/environments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/environments",
     "path": [
      "id"
     ],
@@ -3428,7 +3428,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/events",
+    "url": "https://gitlab.com/api/v3/projects/{id}/events",
     "path": [
      "id"
     ],
@@ -3467,7 +3467,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/hooks",
+    "url": "https://gitlab.com/api/v3/projects/{id}/hooks",
     "path": [
      "id"
     ],
@@ -3503,7 +3503,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/hooks/{hook_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/hooks/{hook_id}",
     "path": [
      "id",
      "hook_id"
@@ -3577,7 +3577,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues",
     "path": [
      "id"
     ],
@@ -3619,7 +3619,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}",
     "path": [
      "id",
      "issue_id"
@@ -3661,7 +3661,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/award_emoji",
     "path": [
      "id",
      "issue_id"
@@ -3703,7 +3703,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -3751,7 +3751,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "issue_id",
@@ -3799,7 +3799,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -3835,7 +3835,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/time_stats",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/time_stats",
     "path": [
      "id",
      "issue_id"
@@ -3877,7 +3877,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -3919,7 +3919,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "note_id",
@@ -3949,7 +3949,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/keys",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys",
     "path": [
      "id"
     ],
@@ -3982,7 +3982,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys/{key_id}",
     "path": [
      "id",
      "key_id"
@@ -4011,7 +4011,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/labels",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels",
     "path": [
      "id"
     ],
@@ -4051,7 +4051,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/members",
+    "url": "https://gitlab.com/api/v3/projects/{id}/members",
     "path": [
      "id"
     ],
@@ -4088,7 +4088,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -4122,7 +4122,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}",
     "path": [
      "id",
      "merge_request_id"
@@ -4156,7 +4156,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/changes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/changes",
     "path": [
      "id",
      "merge_request_id"
@@ -4198,7 +4198,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/closes_issues",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/closes_issues",
     "path": [
      "id",
      "merge_request_id"
@@ -4243,7 +4243,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/comments",
     "path": [
      "id",
      "merge_request_id"
@@ -4280,7 +4280,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/commits",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/commits",
     "path": [
      "id",
      "merge_request_id"
@@ -4347,7 +4347,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests",
     "path": [
      "id"
     ],
@@ -4388,7 +4388,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}",
     "path": [
      "id",
      "merge_request_id"
@@ -4430,7 +4430,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
     "path": [
      "id",
      "merge_request_id"
@@ -4472,7 +4472,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -4507,7 +4507,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/changes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/changes",
     "path": [
      "id",
      "merge_request_id"
@@ -4549,7 +4549,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/closes_issues",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/closes_issues",
     "path": [
      "id",
      "merge_request_id"
@@ -4594,7 +4594,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/comments",
     "path": [
      "id",
      "merge_request_id"
@@ -4631,7 +4631,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/commits",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/commits",
     "path": [
      "id",
      "merge_request_id"
@@ -4678,7 +4678,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "merge_request_id",
@@ -4726,7 +4726,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -4762,7 +4762,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/time_stats",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/time_stats",
     "path": [
      "id",
      "merge_request_id"
@@ -4796,7 +4796,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/versions",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/versions",
     "path": [
      "id",
      "merge_request_id"
@@ -4835,7 +4835,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/versions/{version_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/versions/{version_id}",
     "path": [
      "id",
      "merge_request_id",
@@ -4878,7 +4878,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -4920,7 +4920,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "note_id",
@@ -4971,7 +4971,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/milestones",
+    "url": "https://gitlab.com/api/v3/projects/{id}/milestones",
     "path": [
      "id"
     ],
@@ -5010,7 +5010,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/milestones/{milestone_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/milestones/{milestone_id}",
     "path": [
      "id",
      "milestone_id"
@@ -5052,7 +5052,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/milestones/{milestone_id}/issues",
+    "url": "https://gitlab.com/api/v3/projects/{id}/milestones/{milestone_id}/issues",
     "path": [
      "id",
      "milestone_id"
@@ -5084,7 +5084,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/notification_settings",
+    "url": "https://gitlab.com/api/v3/projects/{id}/notification_settings",
     "path": [
      "id"
     ],
@@ -5129,7 +5129,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/pipelines",
+    "url": "https://gitlab.com/api/v3/projects/{id}/pipelines",
     "path": [
      "id"
     ],
@@ -5166,7 +5166,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/pipelines/{pipeline_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/pipelines/{pipeline_id}",
     "path": [
      "id",
      "pipeline_id"
@@ -5203,7 +5203,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/archive",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/archive",
     "path": [
      "id"
     ],
@@ -5244,7 +5244,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/blobs/{sha}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/blobs/{sha}",
     "path": [
      "id",
      "sha"
@@ -5275,7 +5275,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches",
     "path": [
      "id"
     ],
@@ -5308,7 +5308,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches/{branch}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches/{branch}",
     "path": [
      "id",
      "branch"
@@ -5361,7 +5361,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits",
     "path": [
      "id"
     ],
@@ -5401,7 +5401,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}",
     "path": [
      "id",
      "sha"
@@ -5440,7 +5440,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/blob",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/blob",
     "path": [
      "id",
      "sha"
@@ -5495,7 +5495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/builds",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/builds",
     "path": [
      "id",
      "sha"
@@ -5541,7 +5541,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/comments",
     "path": [
      "id",
      "sha"
@@ -5578,7 +5578,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/diff",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/diff",
     "path": [
      "id",
      "sha"
@@ -5636,7 +5636,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/statuses",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/statuses",
     "path": [
      "id",
      "sha"
@@ -5682,7 +5682,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/compare",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/compare",
     "path": [
      "id"
     ],
@@ -5713,7 +5713,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/contributors",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/contributors",
     "path": [
      "id"
     ],
@@ -5751,7 +5751,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/files",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/files",
     "path": [
      "id"
     ],
@@ -5787,7 +5787,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/raw_blobs/{sha}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/raw_blobs/{sha}",
     "path": [
      "id",
      "sha"
@@ -5816,7 +5816,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags",
     "path": [
      "id"
     ],
@@ -5849,7 +5849,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags/{tag_name}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags/{tag_name}",
     "path": [
      "id",
      "tag_name"
@@ -5890,7 +5890,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tree",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tree",
     "path": [
      "id"
     ],
@@ -5941,7 +5941,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/runners",
+    "url": "https://gitlab.com/api/v3/projects/{id}/runners",
     "path": [
      "id"
     ],
@@ -5992,7 +5992,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/services/{service_slug}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/{service_slug}",
     "path": [
      "service_slug",
      "id"
@@ -6029,7 +6029,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets",
     "path": [
      "id"
     ],
@@ -6073,7 +6073,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -6115,7 +6115,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "note_id",
@@ -6150,7 +6150,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}",
     "path": [
      "id",
      "snippet_id"
@@ -6192,7 +6192,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
     "path": [
      "id",
      "snippet_id"
@@ -6234,7 +6234,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -6282,7 +6282,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "snippet_id",
@@ -6330,7 +6330,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji/{award_id}",
     "path": [
      "award_id",
      "id",
@@ -6366,7 +6366,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/raw",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/raw",
     "path": [
      "id",
      "snippet_id"
@@ -6403,7 +6403,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/triggers",
+    "url": "https://gitlab.com/api/v3/projects/{id}/triggers",
     "path": [
      "id"
     ],
@@ -6434,7 +6434,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/triggers/{token}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/triggers/{token}",
     "path": [
      "id"
     ],
@@ -6474,7 +6474,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/users",
+    "url": "https://gitlab.com/api/v3/projects/{id}/users",
     "path": [
      "id"
     ],
@@ -6514,7 +6514,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/variables",
+    "url": "https://gitlab.com/api/v3/projects/{id}/variables",
     "path": [
      "id"
     ],
@@ -6545,7 +6545,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/{id}/variables/{key}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/variables/{key}",
     "path": [
      "id"
     ],
@@ -6620,7 +6620,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/owned",
+    "url": "https://gitlab.com/api/v3/projects/owned",
     "path": [],
     "query": [
      "order_by",
@@ -6684,7 +6684,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/search/{query}",
+    "url": "https://gitlab.com/api/v3/projects/search/{query}",
     "path": [
      "query"
     ],
@@ -6760,7 +6760,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/starred",
+    "url": "https://gitlab.com/api/v3/projects/starred",
     "path": [],
     "query": [
      "order_by",
@@ -6838,7 +6838,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/projects/visible",
+    "url": "https://gitlab.com/api/v3/projects/visible",
     "path": [],
     "query": [
      "order_by",
@@ -6884,7 +6884,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/runners",
+    "url": "https://gitlab.com/api/v3/runners",
     "path": [],
     "query": [
      "scope",
@@ -6927,7 +6927,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/runners/all",
+    "url": "https://gitlab.com/api/v3/runners/all",
     "path": [],
     "query": [
      "scope",
@@ -6957,7 +6957,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/runners/{id}",
+    "url": "https://gitlab.com/api/v3/runners/{id}",
     "path": [
      "id"
     ],
@@ -6978,7 +6978,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/sidekiq/compound_metrics",
+    "url": "https://gitlab.com/api/v3/sidekiq/compound_metrics",
     "path": [],
     "query": [],
     "header": [],
@@ -6997,7 +6997,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/sidekiq/job_stats",
+    "url": "https://gitlab.com/api/v3/sidekiq/job_stats",
     "path": [],
     "query": [],
     "header": [],
@@ -7016,7 +7016,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/sidekiq/process_metrics",
+    "url": "https://gitlab.com/api/v3/sidekiq/process_metrics",
     "path": [],
     "query": [],
     "header": [],
@@ -7035,7 +7035,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/sidekiq/queue_metrics",
+    "url": "https://gitlab.com/api/v3/sidekiq/queue_metrics",
     "path": [],
     "query": [],
     "header": [],
@@ -7063,7 +7063,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/snippets",
+    "url": "https://gitlab.com/api/v3/snippets",
     "path": [],
     "query": [
      "page",
@@ -7092,7 +7092,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/snippets/{id}",
+    "url": "https://gitlab.com/api/v3/snippets/{id}",
     "path": [
      "id"
     ],
@@ -7120,7 +7120,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/snippets/{id}/raw",
+    "url": "https://gitlab.com/api/v3/snippets/{id}/raw",
     "path": [
      "id"
     ],
@@ -7150,7 +7150,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/snippets/public",
+    "url": "https://gitlab.com/api/v3/snippets/public",
     "path": [],
     "query": [
      "page",
@@ -7172,7 +7172,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/dockerfiles",
+    "url": "https://gitlab.com/api/v3/templates/dockerfiles",
     "path": [],
     "query": [],
     "header": [],
@@ -7198,7 +7198,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/dockerfiles/{name}",
+    "url": "https://gitlab.com/api/v3/templates/dockerfiles/{name}",
     "path": [
      "name"
     ],
@@ -7219,7 +7219,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/gitignores",
+    "url": "https://gitlab.com/api/v3/templates/gitignores",
     "path": [],
     "query": [],
     "header": [],
@@ -7245,7 +7245,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/gitignores/{name}",
+    "url": "https://gitlab.com/api/v3/templates/gitignores/{name}",
     "path": [
      "name"
     ],
@@ -7266,7 +7266,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/gitlab_ci_ymls",
+    "url": "https://gitlab.com/api/v3/templates/gitlab_ci_ymls",
     "path": [],
     "query": [],
     "header": [],
@@ -7292,7 +7292,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/gitlab_ci_ymls/{name}",
+    "url": "https://gitlab.com/api/v3/templates/gitlab_ci_ymls/{name}",
     "path": [
      "name"
     ],
@@ -7318,7 +7318,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/licenses",
+    "url": "https://gitlab.com/api/v3/templates/licenses",
     "path": [],
     "query": [
      "popular"
@@ -7346,7 +7346,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/templates/licenses/{name}",
+    "url": "https://gitlab.com/api/v3/templates/licenses/{name}",
     "path": [
      "name"
     ],
@@ -7376,7 +7376,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/todos",
+    "url": "https://gitlab.com/api/v3/todos",
     "path": [],
     "query": [
      "page",
@@ -7398,7 +7398,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/user",
+    "url": "https://gitlab.com/api/v3/user",
     "path": [],
     "query": [],
     "header": [],
@@ -7417,7 +7417,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/user/emails",
+    "url": "https://gitlab.com/api/v3/user/emails",
     "path": [],
     "query": [],
     "header": [],
@@ -7443,7 +7443,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/user/emails/{email_id}",
+    "url": "https://gitlab.com/api/v3/user/emails/{email_id}",
     "path": [
      "email_id"
     ],
@@ -7464,7 +7464,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/user/keys",
+    "url": "https://gitlab.com/api/v3/user/keys",
     "path": [],
     "query": [],
     "header": [],
@@ -7490,7 +7490,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/user/keys/{key_id}",
+    "url": "https://gitlab.com/api/v3/user/keys/{key_id}",
     "path": [
      "key_id"
     ],
@@ -7540,7 +7540,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/users",
+    "url": "https://gitlab.com/api/v3/users",
     "path": [],
     "query": [
      "username",
@@ -7574,7 +7574,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/users/{id}",
+    "url": "https://gitlab.com/api/v3/users/{id}",
     "path": [
      "id"
     ],
@@ -7602,7 +7602,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/users/{id}/emails",
+    "url": "https://gitlab.com/api/v3/users/{id}/emails",
     "path": [
      "id"
     ],
@@ -7638,7 +7638,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/users/{id}/events",
+    "url": "https://gitlab.com/api/v3/users/{id}/events",
     "path": [
      "id"
     ],
@@ -7669,7 +7669,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/users/{id}/keys",
+    "url": "https://gitlab.com/api/v3/users/{id}/keys",
     "path": [
      "id"
     ],
@@ -7690,7 +7690,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://gitlab.com/v3/version",
+    "url": "https://gitlab.com/api/v3/version",
     "path": [],
     "query": [],
     "header": [],
@@ -7716,7 +7716,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/ci/lint",
+    "url": "https://gitlab.com/api/v3/ci/lint",
     "path": [],
     "query": [],
     "header": [],
@@ -7765,7 +7765,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/groups",
+    "url": "https://gitlab.com/api/v3/groups",
     "path": [],
     "query": [],
     "header": [],
@@ -7798,7 +7798,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/groups/{id}/access_requests",
+    "url": "https://gitlab.com/api/v3/groups/{id}/access_requests",
     "path": [
      "id"
     ],
@@ -7840,7 +7840,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/groups/{id}/members",
+    "url": "https://gitlab.com/api/v3/groups/{id}/members",
     "path": [
      "id"
     ],
@@ -7877,7 +7877,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/groups/{id}/projects/{project_id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}/projects/{project_id}",
     "path": [
      "id",
      "project_id"
@@ -7918,7 +7918,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/hooks",
+    "url": "https://gitlab.com/api/v3/hooks",
     "path": [],
     "query": [],
     "header": [],
@@ -7942,7 +7942,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/internal/allowed",
+    "url": "https://gitlab.com/api/v3/internal/allowed",
     "path": [],
     "query": [],
     "header": [],
@@ -7961,7 +7961,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/internal/lfs_authenticate",
+    "url": "https://gitlab.com/api/v3/internal/lfs_authenticate",
     "path": [],
     "query": [],
     "header": [],
@@ -7980,7 +7980,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/internal/two_factor_recovery_codes",
+    "url": "https://gitlab.com/api/v3/internal/two_factor_recovery_codes",
     "path": [],
     "query": [],
     "header": [],
@@ -8083,7 +8083,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects",
+    "url": "https://gitlab.com/api/v3/projects",
     "path": [],
     "query": [],
     "header": [],
@@ -8133,7 +8133,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/fork/{id}",
+    "url": "https://gitlab.com/api/v3/projects/fork/{id}",
     "path": [
      "id"
     ],
@@ -8163,7 +8163,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/access_requests",
+    "url": "https://gitlab.com/api/v3/projects/{id}/access_requests",
     "path": [
      "id"
     ],
@@ -8191,7 +8191,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/archive",
+    "url": "https://gitlab.com/api/v3/projects/{id}/archive",
     "path": [
      "id"
     ],
@@ -8229,7 +8229,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/boards/{board_id}/lists",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards/{board_id}/lists",
     "path": [
      "id",
      "board_id"
@@ -8265,7 +8265,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/artifacts/keep",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/artifacts/keep",
     "path": [
      "id",
      "build_id"
@@ -8299,7 +8299,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/cancel",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/cancel",
     "path": [
      "id",
      "build_id"
@@ -8333,7 +8333,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/erase",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/erase",
     "path": [
      "id",
      "build_id"
@@ -8367,7 +8367,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/play",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/play",
     "path": [
      "id",
      "build_id"
@@ -8401,7 +8401,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/builds/{build_id}/retry",
+    "url": "https://gitlab.com/api/v3/projects/{id}/builds/{build_id}/retry",
     "path": [
      "id",
      "build_id"
@@ -8435,7 +8435,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys",
     "path": [
      "id"
     ],
@@ -8470,7 +8470,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/deploy_keys/{key_id}/enable",
+    "url": "https://gitlab.com/api/v3/projects/{id}/deploy_keys/{key_id}/enable",
     "path": [
      "id",
      "key_id"
@@ -8512,7 +8512,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/environments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/environments",
     "path": [
      "id"
     ],
@@ -8549,7 +8549,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/fork/{forked_from_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/fork/{forked_from_id}",
     "path": [
      "id",
      "forked_from_id"
@@ -8619,7 +8619,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/hooks",
+    "url": "https://gitlab.com/api/v3/projects/{id}/hooks",
     "path": [
      "id"
     ],
@@ -8695,7 +8695,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues",
     "path": [
      "id"
     ],
@@ -8743,7 +8743,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/add_spent_time",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/add_spent_time",
     "path": [
      "id",
      "issue_id"
@@ -8784,7 +8784,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/award_emoji",
     "path": [
      "id",
      "issue_id"
@@ -8825,7 +8825,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/move",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/move",
     "path": [
      "id",
      "issue_id"
@@ -8871,7 +8871,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "issue_id",
@@ -8908,7 +8908,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/reset_spent_time",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/reset_spent_time",
     "path": [
      "id",
      "issue_id"
@@ -8942,7 +8942,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/reset_time_estimate",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/reset_time_estimate",
     "path": [
      "id",
      "issue_id"
@@ -8981,7 +8981,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/time_estimate",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/time_estimate",
     "path": [
      "id",
      "issue_id"
@@ -9017,7 +9017,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}/todo",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}/todo",
     "path": [
      "id",
      "issue_id"
@@ -9060,7 +9060,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -9097,7 +9097,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -9131,7 +9131,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/keys",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys",
     "path": [
      "id"
     ],
@@ -9166,7 +9166,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/keys/{key_id}/enable",
+    "url": "https://gitlab.com/api/v3/projects/{id}/keys/{key_id}/enable",
     "path": [
      "id",
      "key_id"
@@ -9213,7 +9213,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/labels",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels",
     "path": [
      "id"
     ],
@@ -9251,7 +9251,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/labels/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -9294,7 +9294,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/members",
+    "url": "https://gitlab.com/api/v3/projects/{id}/members",
     "path": [
      "id"
     ],
@@ -9331,7 +9331,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/cancel_merge_when_build_succeeds",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/cancel_merge_when_build_succeeds",
     "path": [
      "id",
      "merge_request_id"
@@ -9370,7 +9370,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/comments",
     "path": [
      "id",
      "merge_request_id"
@@ -9406,7 +9406,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -9474,7 +9474,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests",
     "path": [
      "id"
     ],
@@ -9522,7 +9522,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/add_spent_time",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/add_spent_time",
     "path": [
      "id",
      "merge_request_id"
@@ -9563,7 +9563,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/award_emoji",
     "path": [
      "id",
      "merge_request_id"
@@ -9599,7 +9599,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/cancel_merge_when_build_succeeds",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/cancel_merge_when_build_succeeds",
     "path": [
      "id",
      "merge_request_id"
@@ -9638,7 +9638,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/comments",
     "path": [
      "id",
      "merge_request_id"
@@ -9684,7 +9684,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "merge_request_id",
@@ -9721,7 +9721,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/reset_spent_time",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/reset_spent_time",
     "path": [
      "id",
      "merge_request_id"
@@ -9755,7 +9755,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/reset_time_estimate",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/reset_time_estimate",
     "path": [
      "id",
      "merge_request_id"
@@ -9794,7 +9794,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/time_estimate",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/time_estimate",
     "path": [
      "id",
      "merge_request_id"
@@ -9830,7 +9830,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/todo",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/todo",
     "path": [
      "id",
      "merge_request_id"
@@ -9873,7 +9873,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -9910,7 +9910,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{subscribable_id}/subscription",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{subscribable_id}/subscription",
     "path": [
      "id",
      "subscribable_id"
@@ -9956,7 +9956,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/milestones",
+    "url": "https://gitlab.com/api/v3/projects/{id}/milestones",
     "path": [
      "id"
     ],
@@ -9994,7 +9994,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/pipeline",
+    "url": "https://gitlab.com/api/v3/projects/{id}/pipeline",
     "path": [
      "id"
     ],
@@ -10029,7 +10029,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/pipelines/{pipeline_id}/cancel",
+    "url": "https://gitlab.com/api/v3/projects/{id}/pipelines/{pipeline_id}/cancel",
     "path": [
      "id",
      "pipeline_id"
@@ -10063,7 +10063,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/pipelines/{pipeline_id}/retry",
+    "url": "https://gitlab.com/api/v3/projects/{id}/pipelines/{pipeline_id}/retry",
     "path": [
      "id",
      "pipeline_id"
@@ -10097,7 +10097,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/(ref/{ref}/)trigger/builds",
+    "url": "https://gitlab.com/api/v3/projects/{id}/(ref/{ref}/)trigger/builds",
     "path": [
      "id",
      "ref"
@@ -10136,7 +10136,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches",
     "path": [
      "id"
     ],
@@ -10190,7 +10190,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits",
     "path": [
      "id"
     ],
@@ -10234,7 +10234,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/cherry_pick",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/cherry_pick",
     "path": [
      "id",
      "sha"
@@ -10293,7 +10293,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/commits/{sha}/comments",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/commits/{sha}/comments",
     "path": [
      "id",
      "sha"
@@ -10362,7 +10362,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/files",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/files",
     "path": [
      "id"
     ],
@@ -10416,7 +10416,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags",
     "path": [
      "id"
     ],
@@ -10459,7 +10459,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags/{tag_name}/release",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags/{tag_name}/release",
     "path": [
      "id",
      "tag_name"
@@ -10495,7 +10495,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/runners",
+    "url": "https://gitlab.com/api/v3/projects/{id}/runners",
     "path": [
      "id"
     ],
@@ -10525,7 +10525,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/services/mattermost_slash_commands/trigger",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/mattermost_slash_commands/trigger",
     "path": [
      "id"
     ],
@@ -10553,7 +10553,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/services/slack_slash_commands/trigger",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/slack_slash_commands/trigger",
     "path": [
      "id"
     ],
@@ -10601,7 +10601,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/share",
+    "url": "https://gitlab.com/api/v3/projects/{id}/share",
     "path": [
      "id"
     ],
@@ -10658,7 +10658,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets",
     "path": [
      "id"
     ],
@@ -10705,7 +10705,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{noteable_id}/notes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{noteable_id}/notes",
     "path": [
      "id",
      "noteable_id"
@@ -10747,7 +10747,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/award_emoji",
     "path": [
      "id",
      "snippet_id"
@@ -10793,7 +10793,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}/notes/{note_id}/award_emoji",
     "path": [
      "id",
      "snippet_id",
@@ -10825,7 +10825,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/star",
+    "url": "https://gitlab.com/api/v3/projects/{id}/star",
     "path": [
      "id"
     ],
@@ -10890,7 +10890,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/statuses/{sha}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/statuses/{sha}",
     "path": [
      "id",
      "sha"
@@ -10926,7 +10926,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/triggers",
+    "url": "https://gitlab.com/api/v3/projects/{id}/triggers",
     "path": [
      "id"
     ],
@@ -10954,7 +10954,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/unarchive",
+    "url": "https://gitlab.com/api/v3/projects/{id}/unarchive",
     "path": [
      "id"
     ],
@@ -10987,7 +10987,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/uploads",
+    "url": "https://gitlab.com/api/v3/projects/{id}/uploads",
     "path": [
      "id"
     ],
@@ -11022,7 +11022,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/{id}/variables",
+    "url": "https://gitlab.com/api/v3/projects/{id}/variables",
     "path": [
      "id"
     ],
@@ -11134,7 +11134,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/projects/user/{user_id}",
+    "url": "https://gitlab.com/api/v3/projects/user/{user_id}",
     "path": [
      "user_id"
     ],
@@ -11190,7 +11190,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/session",
+    "url": "https://gitlab.com/api/v3/session",
     "path": [],
     "query": [],
     "header": [],
@@ -11239,7 +11239,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/snippets",
+    "url": "https://gitlab.com/api/v3/snippets",
     "path": [],
     "query": [],
     "header": [],
@@ -11270,7 +11270,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/user/emails",
+    "url": "https://gitlab.com/api/v3/user/emails",
     "path": [],
     "query": [],
     "header": [],
@@ -11298,7 +11298,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/user/keys",
+    "url": "https://gitlab.com/api/v3/user/keys",
     "path": [],
     "query": [],
     "header": [],
@@ -11397,7 +11397,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/users",
+    "url": "https://gitlab.com/api/v3/users",
     "path": [],
     "query": [],
     "header": [],
@@ -11447,7 +11447,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/users/{id}/emails",
+    "url": "https://gitlab.com/api/v3/users/{id}/emails",
     "path": [
      "id"
     ],
@@ -11482,7 +11482,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://gitlab.com/v3/users/{id}/keys",
+    "url": "https://gitlab.com/api/v3/users/{id}/keys",
     "path": [
      "id"
     ],
@@ -11819,7 +11819,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/application/settings",
+    "url": "https://gitlab.com/api/v3/application/settings",
     "path": [],
     "query": [],
     "header": [],
@@ -11934,7 +11934,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/groups/{id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}",
     "path": [
      "id"
     ],
@@ -11978,7 +11978,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/groups/{id}/access_requests/{user_id}/approve",
+    "url": "https://gitlab.com/api/v3/groups/{id}/access_requests/{user_id}/approve",
     "path": [
      "id",
      "user_id"
@@ -12023,7 +12023,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/groups/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/groups/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -12107,7 +12107,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/groups/{id}/notification_settings",
+    "url": "https://gitlab.com/api/v3/groups/{id}/notification_settings",
     "path": [
      "id"
     ],
@@ -12199,7 +12199,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/notification_settings",
+    "url": "https://gitlab.com/api/v3/notification_settings",
     "path": [],
     "query": [],
     "header": [],
@@ -12317,7 +12317,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}",
     "path": [
      "id"
     ],
@@ -12373,7 +12373,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/access_requests/{user_id}/approve",
+    "url": "https://gitlab.com/api/v3/projects/{id}/access_requests/{user_id}/approve",
     "path": [
      "id",
      "user_id"
@@ -12419,7 +12419,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/boards/{board_id}/lists/{list_id}",
     "path": [
      "id",
      "board_id",
@@ -12468,7 +12468,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/environments/{environment_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/environments/{environment_id}",
     "path": [
      "id",
      "environment_id"
@@ -12547,7 +12547,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/hooks/{hook_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/hooks/{hook_id}",
     "path": [
      "id",
      "hook_id"
@@ -12636,7 +12636,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{issue_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{issue_id}",
     "path": [
      "id",
      "issue_id"
@@ -12691,7 +12691,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/issues/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -12744,7 +12744,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/labels",
+    "url": "https://gitlab.com/api/v3/projects/{id}/labels",
     "path": [
      "id"
     ],
@@ -12792,7 +12792,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/members/{user_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/members/{user_id}",
     "path": [
      "id",
      "user_id"
@@ -12866,7 +12866,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}",
     "path": [
      "id",
      "merge_request_id"
@@ -12925,7 +12925,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_request/{merge_request_id}/merge",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_request/{merge_request_id}/merge",
     "path": [
      "id",
      "merge_request_id"
@@ -13001,7 +13001,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}",
     "path": [
      "id",
      "merge_request_id"
@@ -13060,7 +13060,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{merge_request_id}/merge",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{merge_request_id}/merge",
     "path": [
      "id",
      "merge_request_id"
@@ -13109,7 +13109,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/merge_requests/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -13170,7 +13170,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/milestones/{milestone_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/milestones/{milestone_id}",
     "path": [
      "id",
      "milestone_id"
@@ -13257,7 +13257,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/notification_settings",
+    "url": "https://gitlab.com/api/v3/projects/{id}/notification_settings",
     "path": [
      "id"
     ],
@@ -13312,7 +13312,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches/{branch}/protect",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches/{branch}/protect",
     "path": [
      "id",
      "branch"
@@ -13349,7 +13349,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/branches/{branch}/unprotect",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/branches/{branch}/unprotect",
     "path": [
      "id",
      "branch"
@@ -13413,7 +13413,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/files",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/files",
     "path": [
      "id"
     ],
@@ -13459,7 +13459,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/repository/tags/{tag_name}/release",
+    "url": "https://gitlab.com/api/v3/projects/{id}/repository/tags/{tag_name}/release",
     "path": [
      "id",
      "tag_name"
@@ -13498,7 +13498,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/asana",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/asana",
     "path": [
      "id"
     ],
@@ -13537,7 +13537,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/assembla",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/assembla",
     "path": [
      "id"
     ],
@@ -13592,7 +13592,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/bamboo",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/bamboo",
     "path": [
      "id"
     ],
@@ -13653,7 +13653,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/bugzilla",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/bugzilla",
     "path": [
      "id"
     ],
@@ -13701,7 +13701,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/buildkite",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/buildkite",
     "path": [
      "id"
     ],
@@ -13750,7 +13750,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/builds-email",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/builds-email",
     "path": [
      "id"
     ],
@@ -13795,7 +13795,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/campfire",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/campfire",
     "path": [
      "id"
     ],
@@ -13854,7 +13854,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/custom-issue-tracker",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/custom-issue-tracker",
     "path": [
      "id"
     ],
@@ -13910,7 +13910,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/drone-ci",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/drone-ci",
     "path": [
      "id"
     ],
@@ -13965,7 +13965,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/emails-on-push",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/emails-on-push",
     "path": [
      "id"
     ],
@@ -14004,7 +14004,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/external-wiki",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/external-wiki",
     "path": [
      "id"
     ],
@@ -14038,7 +14038,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/flowdock",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/flowdock",
     "path": [
      "id"
     ],
@@ -14072,7 +14072,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/gemnasium",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/gemnasium",
     "path": [
      "id"
     ],
@@ -14150,7 +14150,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/hipchat",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/hipchat",
     "path": [
      "id"
     ],
@@ -14216,7 +14216,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/irker",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/irker",
     "path": [
      "id"
     ],
@@ -14281,7 +14281,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/jira",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/jira",
     "path": [
      "id"
     ],
@@ -14331,7 +14331,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/kubernetes",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/kubernetes",
     "path": [
      "id"
     ],
@@ -14404,7 +14404,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/mattermost",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/mattermost",
     "path": [
      "id"
     ],
@@ -14443,7 +14443,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/mattermost-slash-commands",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/mattermost-slash-commands",
     "path": [
      "id"
     ],
@@ -14484,7 +14484,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/pipelines-email",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/pipelines-email",
     "path": [
      "id"
     ],
@@ -14524,7 +14524,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/pivotaltracker",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/pivotaltracker",
     "path": [
      "id"
     ],
@@ -14579,7 +14579,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/pushover",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/pushover",
     "path": [
      "id"
     ],
@@ -14636,7 +14636,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/redmine",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/redmine",
     "path": [
      "id"
     ],
@@ -14719,7 +14719,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/slack",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/slack",
     "path": [
      "id"
     ],
@@ -14760,7 +14760,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/slack-slash-commands",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/slack-slash-commands",
     "path": [
      "id"
     ],
@@ -14812,7 +14812,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/services/teamcity",
+    "url": "https://gitlab.com/api/v3/projects/{id}/services/teamcity",
     "path": [
      "id"
     ],
@@ -14861,7 +14861,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{noteable_id}/notes/{note_id}",
     "path": [
      "id",
      "noteable_id",
@@ -14919,7 +14919,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/snippets/{snippet_id}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/snippets/{snippet_id}",
     "path": [
      "id",
      "snippet_id"
@@ -14957,7 +14957,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/projects/{id}/variables/{key}",
+    "url": "https://gitlab.com/api/v3/projects/{id}/variables/{key}",
     "path": [
      "id"
     ],
@@ -15007,7 +15007,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/runners/{id}",
+    "url": "https://gitlab.com/api/v3/runners/{id}",
     "path": [
      "id"
     ],
@@ -15062,7 +15062,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/snippets/{id}",
+    "url": "https://gitlab.com/api/v3/snippets/{id}",
     "path": [
      "id"
     ],
@@ -15167,7 +15167,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/users/{id}",
+    "url": "https://gitlab.com/api/v3/users/{id}",
     "path": [
      "id"
     ],
@@ -15214,7 +15214,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/users/{id}/block",
+    "url": "https://gitlab.com/api/v3/users/{id}/block",
     "path": [
      "id"
     ],
@@ -15242,7 +15242,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://gitlab.com/v3/users/{id}/unblock",
+    "url": "https://gitlab.com/api/v3/users/{id}/unblock",
     "path": [
      "id"
     ],

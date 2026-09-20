@@ -36,7 +36,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations",
     "path": [
      "workspace",
      "repo_slug",
@@ -82,7 +82,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables",
     "path": [
      "workspace",
      "repo_slug",
@@ -124,7 +124,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/environments/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/environments/",
     "path": [
      "workspace",
      "repo_slug"
@@ -180,7 +180,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -234,7 +234,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -277,7 +277,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/",
     "path": [
      "workspace",
      "repo_slug"
@@ -308,7 +308,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/variables",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/variables",
     "path": [
      "workspace"
     ],
@@ -346,7 +346,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/",
     "path": [
      "workspace",
      "repo_slug"
@@ -387,7 +387,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/",
     "path": [
      "workspace",
      "repo_slug"
@@ -428,7 +428,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/variables/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/variables/",
     "path": [
      "workspace",
      "repo_slug"
@@ -452,7 +452,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/addon",
+    "url": "https://api.bitbucket.org/2.0/addon",
     "path": [],
     "query": [],
     "header": [],
@@ -478,7 +478,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values",
     "path": [
      "linker_key"
     ],
@@ -511,7 +511,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values/{value_id}",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values/{value_id}",
     "path": [
      "linker_key",
      "value_id"
@@ -560,7 +560,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -612,7 +612,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -659,7 +659,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables/{variable_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -700,7 +700,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -735,7 +735,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "variable_uuid"
@@ -784,7 +784,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -831,7 +831,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -871,7 +871,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}",
     "path": [
      "repo_slug",
      "workspace"
@@ -912,7 +912,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
     "path": [
      "id",
      "repo_slug",
@@ -952,7 +952,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/approve",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/approve",
     "path": [
      "commit",
      "repo_slug",
@@ -997,7 +997,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
     "path": [
      "comment_id",
      "commit",
@@ -1038,7 +1038,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
     "path": [
      "repo_slug",
      "target_username",
@@ -1078,7 +1078,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
     "path": [
      "key_id",
      "repo_slug",
@@ -1118,7 +1118,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/downloads/{filename}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/downloads/{filename}",
     "path": [
      "filename",
      "repo_slug",
@@ -1158,7 +1158,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/hooks/{uid}",
     "path": [
      "repo_slug",
      "uid",
@@ -1198,7 +1198,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
     "path": [
      "issue_id",
      "repo_slug",
@@ -1243,7 +1243,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments/{path}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments/{path}",
     "path": [
      "issue_id",
      "path",
@@ -1289,7 +1289,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "issue_id",
@@ -1330,7 +1330,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
     "path": [
      "issue_id",
      "repo_slug",
@@ -1370,7 +1370,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
     "path": [
      "issue_id",
      "repo_slug",
@@ -1410,7 +1410,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
     "path": [
      "group_slug",
      "repo_slug",
@@ -1450,7 +1450,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
     "path": [
      "repo_slug",
      "selected_user_id",
@@ -1490,7 +1490,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/approve",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/approve",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -1535,7 +1535,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "pull_request_id",
@@ -1576,7 +1576,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/request-changes",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/request-changes",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -1616,7 +1616,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/branches/{name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/branches/{name}",
     "path": [
      "name",
      "repo_slug",
@@ -1656,7 +1656,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/tags/{name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/tags/{name}",
     "path": [
      "name",
      "repo_slug",
@@ -1701,7 +1701,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -1742,7 +1742,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -1782,7 +1782,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines-config/caches",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines-config/caches",
     "path": [
      "workspace",
      "repo_slug"
@@ -1818,7 +1818,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
     "path": [
      "workspace",
      "repo_slug"
@@ -1857,7 +1857,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -1897,7 +1897,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -1937,7 +1937,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -1972,7 +1972,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}",
     "path": [
      "encoded_id",
      "workspace"
@@ -2011,7 +2011,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "encoded_id",
@@ -2051,7 +2051,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{node_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{node_id}",
     "path": [
      "encoded_id",
      "node_id",
@@ -2086,7 +2086,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/watch",
     "path": [
      "encoded_id",
      "workspace"
@@ -2125,7 +2125,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/users/{selected_user}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/properties/{app_key}/{property_name}",
     "path": [
      "selected_user",
      "app_key",
@@ -2160,7 +2160,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/users/{selected_user}/ssh-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/ssh-keys/{key_id}",
     "path": [
      "key_id",
      "selected_user"
@@ -2194,7 +2194,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/hooks/{uid}",
     "path": [
      "uid",
      "workspace"
@@ -2228,7 +2228,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}",
     "path": [
      "project_key",
      "workspace"
@@ -2267,7 +2267,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
     "path": [
      "project_key",
      "selected_user",
@@ -2307,7 +2307,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}",
     "path": [
      "key_id",
      "project_key",
@@ -2330,7 +2330,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/addon/linkers",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers",
     "path": [],
     "query": [],
     "header": [],
@@ -2356,7 +2356,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}",
     "path": [
      "linker_key"
     ],
@@ -2384,7 +2384,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values",
     "path": [
      "linker_key"
     ],
@@ -2417,7 +2417,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values/{value_id}",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values/{value_id}",
     "path": [
      "linker_key",
      "value_id"
@@ -2466,7 +2466,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations/{annotationId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2513,7 +2513,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}/annotations",
     "path": [
      "workspace",
      "repo_slug",
@@ -2564,7 +2564,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2606,7 +2606,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments/{deployment_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments/{deployment_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2646,7 +2646,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables",
     "path": [
      "workspace",
      "repo_slug",
@@ -2681,7 +2681,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments/",
     "path": [
      "workspace",
      "repo_slug"
@@ -2720,7 +2720,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2755,7 +2755,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/environments/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/environments/",
     "path": [
      "workspace",
      "repo_slug"
@@ -2777,7 +2777,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/hook_events",
+    "url": "https://api.bitbucket.org/2.0/hook_events",
     "path": [],
     "query": [],
     "header": [],
@@ -2807,7 +2807,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/hook_events/{subject_type}",
+    "url": "https://api.bitbucket.org/2.0/hook_events/{subject_type}",
     "path": [
      "subject_type"
     ],
@@ -2835,7 +2835,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/identity/oidc/.well-known/openid-configuration",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/identity/oidc/.well-known/openid-configuration",
     "path": [
      "workspace"
     ],
@@ -2863,7 +2863,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/identity/oidc/keys.json",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/identity/oidc/keys.json",
     "path": [
      "workspace"
     ],
@@ -2911,7 +2911,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/logs/{log_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/logs/{log_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2953,7 +2953,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -2998,7 +2998,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -3044,7 +3044,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/log",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/log",
     "path": [
      "workspace",
      "repo_slug",
@@ -3085,7 +3085,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/",
     "path": [
      "workspace",
      "repo_slug",
@@ -3135,7 +3135,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports/test_cases/{test_case_uuid}/test_case_reasons",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports/test_cases/{test_case_uuid}/test_case_reasons",
     "path": [
      "workspace",
      "repo_slug",
@@ -3182,7 +3182,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports/test_cases",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports/test_cases",
     "path": [
      "workspace",
      "repo_slug",
@@ -3228,7 +3228,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/steps/{step_uuid}/test_reports",
     "path": [
      "workspace",
      "repo_slug",
@@ -3264,7 +3264,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "variable_uuid"
@@ -3293,7 +3293,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/variables",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/variables",
     "path": [
      "workspace"
     ],
@@ -3326,7 +3326,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/",
     "path": [
      "workspace",
      "repo_slug"
@@ -3375,7 +3375,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -3425,7 +3425,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/pullrequests",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/pullrequests",
     "path": [
      "workspace",
      "repo_slug",
@@ -3468,7 +3468,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/pullrequests/{selected_user}",
+    "url": "https://api.bitbucket.org/2.0/pullrequests/{selected_user}",
     "path": [
      "selected_user"
     ],
@@ -3513,7 +3513,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports/{reportId}",
     "path": [
      "workspace",
      "repo_slug",
@@ -3554,7 +3554,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/reports",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/reports",
     "path": [
      "workspace",
      "repo_slug",
@@ -3600,7 +3600,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories",
+    "url": "https://api.bitbucket.org/2.0/repositories",
     "path": [],
     "query": [
      "after",
@@ -3649,7 +3649,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}",
     "path": [
      "workspace"
     ],
@@ -3686,7 +3686,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}",
     "path": [
      "repo_slug",
      "workspace"
@@ -3728,7 +3728,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branch-restrictions",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branch-restrictions",
     "path": [
      "repo_slug",
      "workspace"
@@ -3770,7 +3770,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
     "path": [
      "id",
      "repo_slug",
@@ -3805,7 +3805,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branching-model",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branching-model",
     "path": [
      "repo_slug",
      "workspace"
@@ -3839,7 +3839,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branching-model/settings",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branching-model/settings",
     "path": [
      "repo_slug",
      "workspace"
@@ -3878,7 +3878,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}",
     "path": [
      "commit",
      "repo_slug",
@@ -3926,7 +3926,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/comments",
     "path": [
      "commit",
      "repo_slug",
@@ -3974,7 +3974,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
     "path": [
      "comment_id",
      "commit",
@@ -4023,7 +4023,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses",
     "path": [
      "commit",
      "repo_slug",
@@ -4066,7 +4066,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key}",
     "path": [
      "commit",
      "repo_slug",
@@ -4101,7 +4101,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commits",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commits",
     "path": [
      "repo_slug",
      "workspace"
@@ -4140,7 +4140,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commits/{revision}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commits/{revision}",
     "path": [
      "repo_slug",
      "revision",
@@ -4175,7 +4175,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/components",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/components",
     "path": [
      "repo_slug",
      "workspace"
@@ -4214,7 +4214,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/components/{component_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/components/{component_id}",
     "path": [
      "component_id",
      "repo_slug",
@@ -4249,7 +4249,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/default-reviewers",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/default-reviewers",
     "path": [
      "repo_slug",
      "workspace"
@@ -4288,7 +4288,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
     "path": [
      "repo_slug",
      "target_username",
@@ -4323,7 +4323,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deploy-keys",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deploy-keys",
     "path": [
      "repo_slug",
      "workspace"
@@ -4362,7 +4362,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
     "path": [
      "key_id",
      "repo_slug",
@@ -4430,7 +4430,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/diff/{spec}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/diff/{spec}",
     "path": [
      "repo_slug",
      "spec",
@@ -4498,7 +4498,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/diffstat/{spec}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/diffstat/{spec}",
     "path": [
      "repo_slug",
      "spec",
@@ -4539,7 +4539,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/downloads",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/downloads",
     "path": [
      "repo_slug",
      "workspace"
@@ -4578,7 +4578,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/downloads/{filename}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/downloads/{filename}",
     "path": [
      "filename",
      "repo_slug",
@@ -4613,7 +4613,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/effective-branching-model",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/effective-branching-model",
     "path": [
      "repo_slug",
      "workspace"
@@ -4647,7 +4647,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/effective-default-reviewers",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/effective-default-reviewers",
     "path": [
      "repo_slug",
      "workspace"
@@ -4703,7 +4703,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/filehistory/{commit}/{path}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/filehistory/{commit}/{path}",
     "path": [
      "commit",
      "path",
@@ -4761,7 +4761,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/forks",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/forks",
     "path": [
      "repo_slug",
      "workspace"
@@ -4799,7 +4799,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/hooks",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/hooks",
     "path": [
      "repo_slug",
      "workspace"
@@ -4838,7 +4838,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/hooks/{uid}",
     "path": [
      "repo_slug",
      "uid",
@@ -4873,7 +4873,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues",
     "path": [
      "repo_slug",
      "workspace"
@@ -4917,7 +4917,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/export/{repo_name}-issues-{task_id}.zip",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/export/{repo_name}-issues-{task_id}.zip",
     "path": [
      "repo_name",
      "repo_slug",
@@ -4953,7 +4953,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/import",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/import",
     "path": [
      "repo_slug",
      "workspace"
@@ -4992,7 +4992,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5032,7 +5032,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5077,7 +5077,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments/{path}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments/{path}",
     "path": [
      "issue_id",
      "path",
@@ -5126,7 +5126,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5174,7 +5174,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes/{change_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes/{change_id}",
     "path": [
      "change_id",
      "issue_id",
@@ -5219,7 +5219,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5266,7 +5266,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "issue_id",
@@ -5307,7 +5307,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5347,7 +5347,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
     "path": [
      "issue_id",
      "repo_slug",
@@ -5387,7 +5387,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/merge-base/{revspec}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/merge-base/{revspec}",
     "path": [
      "repo_slug",
      "revspec",
@@ -5422,7 +5422,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/milestones",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/milestones",
     "path": [
      "repo_slug",
      "workspace"
@@ -5461,7 +5461,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/milestones/{milestone_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/milestones/{milestone_id}",
     "path": [
      "milestone_id",
      "repo_slug",
@@ -5496,7 +5496,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/override-settings",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/override-settings",
     "path": [
      "repo_slug",
      "workspace"
@@ -5535,7 +5535,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/patch/{spec}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/patch/{spec}",
     "path": [
      "repo_slug",
      "spec",
@@ -5570,7 +5570,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/groups",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/groups",
     "path": [
      "repo_slug",
      "workspace"
@@ -5609,7 +5609,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
     "path": [
      "group_slug",
      "repo_slug",
@@ -5644,7 +5644,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/users",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/users",
     "path": [
      "repo_slug",
      "workspace"
@@ -5683,7 +5683,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
     "path": [
      "repo_slug",
      "selected_user_id",
@@ -5728,7 +5728,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests",
     "path": [
      "repo_slug",
      "workspace"
@@ -5764,7 +5764,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/activity",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/activity",
     "path": [
      "repo_slug",
      "workspace"
@@ -5803,7 +5803,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -5843,7 +5843,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/activity",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/activity",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -5883,7 +5883,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -5928,7 +5928,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "pull_request_id",
@@ -5969,7 +5969,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/commits",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/commits",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6009,7 +6009,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/diff",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/diff",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6049,7 +6049,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/diffstat",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/diffstat",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6094,7 +6094,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/merge/task-status/{task_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/merge/task-status/{task_id}",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6135,7 +6135,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/patch",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/patch",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6183,7 +6183,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/statuses",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/statuses",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -6229,7 +6229,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs",
     "path": [
      "repo_slug",
      "workspace"
@@ -6274,7 +6274,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/branches",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/branches",
     "path": [
      "repo_slug",
      "workspace"
@@ -6316,7 +6316,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/branches/{name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/branches/{name}",
     "path": [
      "name",
      "repo_slug",
@@ -6359,7 +6359,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/tags",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/tags",
     "path": [
      "repo_slug",
      "workspace"
@@ -6401,7 +6401,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/tags/{name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/tags/{name}",
     "path": [
      "name",
      "repo_slug",
@@ -6443,7 +6443,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/src",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/src",
     "path": [
      "repo_slug",
      "workspace"
@@ -6509,7 +6509,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/src/{commit}/{path}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/src/{commit}/{path}",
     "path": [
      "commit",
      "path",
@@ -6550,7 +6550,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/versions",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/versions",
     "path": [
      "repo_slug",
      "workspace"
@@ -6589,7 +6589,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/versions/{version_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/versions/{version_id}",
     "path": [
      "repo_slug",
      "version_id",
@@ -6624,7 +6624,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/watchers",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/watchers",
     "path": [
      "repo_slug",
      "workspace"
@@ -6668,7 +6668,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -6709,7 +6709,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid}/content-uri",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines-config/caches/{cache_uuid}/content-uri",
     "path": [
      "workspace",
      "repo_slug",
@@ -6744,7 +6744,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines-config/caches/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines-config/caches/",
     "path": [
      "workspace",
      "repo_slug"
@@ -6778,7 +6778,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config",
     "path": [
      "workspace",
      "repo_slug"
@@ -6817,7 +6817,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -6852,7 +6852,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/",
     "path": [
      "workspace",
      "repo_slug"
@@ -6891,7 +6891,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -6931,7 +6931,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}/executions/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}/executions/",
     "path": [
      "workspace",
      "repo_slug",
@@ -6966,7 +6966,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/",
     "path": [
      "workspace",
      "repo_slug"
@@ -7000,7 +7000,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
     "path": [
      "workspace",
      "repo_slug"
@@ -7039,7 +7039,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -7074,7 +7074,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/variables/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/variables/",
     "path": [
      "workspace",
      "repo_slug"
@@ -7106,7 +7106,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets",
+    "url": "https://api.bitbucket.org/2.0/snippets",
     "path": [],
     "query": [
      "role"
@@ -7143,7 +7143,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}",
     "path": [
      "workspace"
     ],
@@ -7178,7 +7178,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}",
     "path": [
      "encoded_id",
      "workspace"
@@ -7212,7 +7212,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/comments",
     "path": [
      "encoded_id",
      "workspace"
@@ -7251,7 +7251,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "encoded_id",
@@ -7286,7 +7286,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/commits",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/commits",
     "path": [
      "encoded_id",
      "workspace"
@@ -7325,7 +7325,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/commits/{revision}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/commits/{revision}",
     "path": [
      "encoded_id",
      "revision",
@@ -7365,7 +7365,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/files/{path}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/files/{path}",
     "path": [
      "encoded_id",
      "path",
@@ -7405,7 +7405,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{node_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{node_id}",
     "path": [
      "encoded_id",
      "node_id",
@@ -7450,7 +7450,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{node_id}/files/{path}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{node_id}/files/{path}",
     "path": [
      "encoded_id",
      "node_id",
@@ -7495,7 +7495,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{revision}/diff",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{revision}/diff",
     "path": [
      "encoded_id",
      "revision",
@@ -7537,7 +7537,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{revision}/patch",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{revision}/patch",
     "path": [
      "encoded_id",
      "revision",
@@ -7572,7 +7572,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/watch",
     "path": [
      "encoded_id",
      "workspace"
@@ -7594,7 +7594,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/user",
+    "url": "https://api.bitbucket.org/2.0/user",
     "path": [],
     "query": [],
     "header": [],
@@ -7613,7 +7613,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/user/emails",
+    "url": "https://api.bitbucket.org/2.0/user/emails",
     "path": [],
     "query": [],
     "header": [],
@@ -7639,7 +7639,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/user/emails/{email}",
+    "url": "https://api.bitbucket.org/2.0/user/emails/{email}",
     "path": [
      "email"
     ],
@@ -7669,7 +7669,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/user/permissions/repositories",
+    "url": "https://api.bitbucket.org/2.0/user/permissions/repositories",
     "path": [],
     "query": [
      "q",
@@ -7700,7 +7700,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/user/permissions/workspaces",
+    "url": "https://api.bitbucket.org/2.0/user/permissions/workspaces",
     "path": [],
     "query": [
      "q",
@@ -7729,7 +7729,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/users/{selected_user}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}",
     "path": [
      "selected_user"
     ],
@@ -7757,7 +7757,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/users/{selected_user}/ssh-keys",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/ssh-keys",
     "path": [
      "selected_user"
     ],
@@ -7790,7 +7790,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/users/{selected_user}/ssh-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/ssh-keys/{key_id}",
     "path": [
      "key_id",
      "selected_user"
@@ -7830,7 +7830,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces",
+    "url": "https://api.bitbucket.org/2.0/workspaces",
     "path": [],
     "query": [
      "role",
@@ -7860,7 +7860,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}",
     "path": [
      "workspace"
     ],
@@ -7888,7 +7888,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/hooks",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/hooks",
     "path": [
      "workspace"
     ],
@@ -7921,7 +7921,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/hooks/{uid}",
     "path": [
      "uid",
      "workspace"
@@ -7950,7 +7950,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/members",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/members",
     "path": [
      "workspace"
     ],
@@ -7983,7 +7983,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/members/{member}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/members/{member}",
     "path": [
      "member",
      "workspace"
@@ -8016,7 +8016,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/permissions",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/permissions",
     "path": [
      "workspace"
     ],
@@ -8054,7 +8054,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/permissions/repositories",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/permissions/repositories",
     "path": [
      "workspace"
     ],
@@ -8098,7 +8098,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/permissions/repositories/{repo_slug}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/permissions/repositories/{repo_slug}",
     "path": [
      "repo_slug",
      "workspace"
@@ -8130,7 +8130,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects",
     "path": [
      "workspace"
     ],
@@ -8163,7 +8163,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}",
     "path": [
      "project_key",
      "workspace"
@@ -8197,7 +8197,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/branching-model",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/branching-model",
     "path": [
      "project_key",
      "workspace"
@@ -8231,7 +8231,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/branching-model/settings",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/branching-model/settings",
     "path": [
      "project_key",
      "workspace"
@@ -8265,7 +8265,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/default-reviewers",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/default-reviewers",
     "path": [
      "project_key",
      "workspace"
@@ -8304,7 +8304,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
     "path": [
      "project_key",
      "selected_user",
@@ -8339,7 +8339,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/deploy-keys",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/deploy-keys",
     "path": [
      "project_key",
      "workspace"
@@ -8378,7 +8378,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/deploy-keys/{key_id}",
     "path": [
      "key_id",
      "project_key",
@@ -8408,7 +8408,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values",
     "path": [
      "linker_key"
     ],
@@ -8446,7 +8446,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}",
     "path": [
      "repo_slug",
      "workspace"
@@ -8487,7 +8487,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branch-restrictions",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branch-restrictions",
     "path": [
      "repo_slug",
      "workspace"
@@ -8528,7 +8528,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/approve",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/approve",
     "path": [
      "commit",
      "repo_slug",
@@ -8568,7 +8568,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/comments",
     "path": [
      "commit",
      "repo_slug",
@@ -8613,7 +8613,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build",
     "path": [
      "commit",
      "repo_slug",
@@ -8650,7 +8650,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commits",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commits",
     "path": [
      "repo_slug",
      "workspace"
@@ -8689,7 +8689,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commits/{revision}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commits/{revision}",
     "path": [
      "repo_slug",
      "revision",
@@ -8724,7 +8724,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deploy-keys",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deploy-keys",
     "path": [
      "repo_slug",
      "workspace"
@@ -8758,7 +8758,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/downloads",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/downloads",
     "path": [
      "repo_slug",
      "workspace"
@@ -8797,7 +8797,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/forks",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/forks",
     "path": [
      "repo_slug",
      "workspace"
@@ -8833,7 +8833,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/hooks",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/hooks",
     "path": [
      "repo_slug",
      "workspace"
@@ -8872,7 +8872,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues",
     "path": [
      "repo_slug",
      "workspace"
@@ -8929,7 +8929,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/export",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/export",
     "path": [
      "repo_slug",
      "workspace"
@@ -8969,7 +8969,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/import",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/import",
     "path": [
      "repo_slug",
      "workspace"
@@ -9008,7 +9008,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/attachments",
     "path": [
      "issue_id",
      "repo_slug",
@@ -9081,7 +9081,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/changes",
     "path": [
      "issue_id",
      "repo_slug",
@@ -9130,7 +9130,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments",
     "path": [
      "issue_id",
      "repo_slug",
@@ -9170,7 +9170,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests",
     "path": [
      "repo_slug",
      "workspace"
@@ -9211,7 +9211,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/approve",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/approve",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -9251,7 +9251,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -9291,7 +9291,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/decline",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/decline",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -9357,7 +9357,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/merge",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/merge",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -9404,7 +9404,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/request-changes",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/request-changes",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -9439,7 +9439,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/branches",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/branches",
     "path": [
      "repo_slug",
      "workspace"
@@ -9490,7 +9490,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/refs/tags",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/refs/tags",
     "path": [
      "repo_slug",
      "workspace"
@@ -9549,7 +9549,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/src",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/src",
     "path": [
      "repo_slug",
      "workspace"
@@ -9577,7 +9577,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/snippets",
+    "url": "https://api.bitbucket.org/2.0/snippets",
     "path": [],
     "query": [],
     "header": [],
@@ -9603,7 +9603,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/snippets/{workspace}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}",
     "path": [
      "workspace"
     ],
@@ -9641,7 +9641,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/comments",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/comments",
     "path": [
      "encoded_id",
      "workspace"
@@ -9672,7 +9672,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/users/{selected_user}/ssh-keys",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/ssh-keys",
     "path": [
      "selected_user"
     ],
@@ -9700,7 +9700,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/hooks",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/hooks",
     "path": [
      "workspace"
     ],
@@ -9728,7 +9728,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects",
     "path": [
      "workspace"
     ],
@@ -9761,7 +9761,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/deploy-keys",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/deploy-keys",
     "path": [
      "project_key",
      "workspace"
@@ -9783,7 +9783,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/addon",
+    "url": "https://api.bitbucket.org/2.0/addon",
     "path": [],
     "query": [],
     "header": [],
@@ -9809,7 +9809,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/addon/linkers/{linker_key}/values",
+    "url": "https://api.bitbucket.org/2.0/addon/linkers/{linker_key}/values",
     "path": [
      "linker_key"
     ],
@@ -9847,7 +9847,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}",
     "path": [
      "repo_slug",
      "workspace"
@@ -9893,7 +9893,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branch-restrictions/{id}",
     "path": [
      "id",
      "repo_slug",
@@ -9930,7 +9930,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/branching-model/settings",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/branching-model/settings",
     "path": [
      "repo_slug",
      "workspace"
@@ -9974,7 +9974,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/comments/{comment_id}",
     "path": [
      "comment_id",
      "commit",
@@ -10020,7 +10020,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/statuses/build/{key}",
     "path": [
      "commit",
      "repo_slug",
@@ -10062,7 +10062,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/default-reviewers/{target_username}",
     "path": [
      "repo_slug",
      "target_username",
@@ -10102,7 +10102,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deploy-keys/{key_id}",
     "path": [
      "key_id",
      "repo_slug",
@@ -10142,7 +10142,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/hooks/{uid}",
     "path": [
      "repo_slug",
      "uid",
@@ -10182,7 +10182,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}",
     "path": [
      "issue_id",
      "repo_slug",
@@ -10227,7 +10227,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "issue_id",
@@ -10268,7 +10268,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/vote",
     "path": [
      "issue_id",
      "repo_slug",
@@ -10308,7 +10308,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/issues/{issue_id}/watch",
     "path": [
      "issue_id",
      "repo_slug",
@@ -10343,7 +10343,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/override-settings",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/override-settings",
     "path": [
      "repo_slug",
      "workspace"
@@ -10382,7 +10382,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/groups/{group_slug}",
     "path": [
      "group_slug",
      "repo_slug",
@@ -10422,7 +10422,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/permissions-config/users/{selected_user_id}",
     "path": [
      "repo_slug",
      "selected_user_id",
@@ -10467,7 +10467,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}",
     "path": [
      "pull_request_id",
      "repo_slug",
@@ -10514,7 +10514,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pull_request_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "pull_request_id",
@@ -10550,7 +10550,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}",
     "path": [
      "encoded_id",
      "workspace"
@@ -10594,7 +10594,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/comments/{comment_id}",
     "path": [
      "comment_id",
      "encoded_id",
@@ -10636,7 +10636,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/{node_id}",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/{node_id}",
     "path": [
      "encoded_id",
      "node_id",
@@ -10671,7 +10671,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/snippets/{workspace}/{encoded_id}/watch",
+    "url": "https://api.bitbucket.org/2.0/snippets/{workspace}/{encoded_id}/watch",
     "path": [
      "encoded_id",
      "workspace"
@@ -10705,7 +10705,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/users/{selected_user}/ssh-keys/{key_id}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/ssh-keys/{key_id}",
     "path": [
      "key_id",
      "selected_user"
@@ -10739,7 +10739,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/hooks/{uid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/hooks/{uid}",
     "path": [
      "uid",
      "workspace"
@@ -10773,7 +10773,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}",
     "path": [
      "project_key",
      "workspace"
@@ -10807,7 +10807,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/branching-model/settings",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/branching-model/settings",
     "path": [
      "project_key",
      "workspace"
@@ -10846,7 +10846,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/projects/{project_key}/default-reviewers/{selected_user}",
     "path": [
      "project_key",
      "selected_user",
@@ -10886,7 +10886,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/users/{selected_user}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/properties/{app_key}/{property_name}",
     "path": [
      "selected_user",
      "app_key",
@@ -10929,7 +10929,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/users/{selected_user}/search/code",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/search/code",
     "path": [
      "selected_user"
     ],
@@ -10974,7 +10974,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/teams/{username}/search/code",
+    "url": "https://api.bitbucket.org/2.0/teams/{username}/search/code",
     "path": [
      "username"
     ],
@@ -11019,7 +11019,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/search/code",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/search/code",
     "path": [
      "workspace"
     ],
@@ -11061,7 +11061,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/stopPipeline",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines/{pipeline_uuid}/stopPipeline",
     "path": [
      "workspace",
      "repo_slug",
@@ -11111,7 +11111,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/commit/{commit}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11163,7 +11163,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/deployments_config/environments/{environment_uuid}/variables/{variable_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11206,7 +11206,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}/changes/",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/environments/{environment_uuid}/changes/",
     "path": [
      "workspace",
      "repo_slug",
@@ -11241,7 +11241,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/workspaces/{workspace}/pipelines-config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "variable_uuid"
@@ -11290,7 +11290,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pullrequests/{pullrequest_id}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11332,7 +11332,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/build_number",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/build_number",
     "path": [
      "workspace",
      "repo_slug"
@@ -11378,7 +11378,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/properties/{app_key}/{property_name}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11419,7 +11419,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config",
     "path": [
      "workspace",
      "repo_slug"
@@ -11460,7 +11460,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/key_pair",
     "path": [
      "workspace",
      "repo_slug"
@@ -11506,7 +11506,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/ssh/known_hosts/{known_host_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11553,7 +11553,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/schedules/{schedule_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11600,7 +11600,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
+    "url": "https://api.bitbucket.org/2.0/repositories/{workspace}/{repo_slug}/pipelines_config/variables/{variable_uuid}",
     "path": [
      "workspace",
      "repo_slug",
@@ -11642,7 +11642,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.bitbucket.org/users/{selected_user}/properties/{app_key}/{property_name}",
+    "url": "https://api.bitbucket.org/2.0/users/{selected_user}/properties/{app_key}/{property_name}",
     "path": [
      "selected_user",
      "app_key",

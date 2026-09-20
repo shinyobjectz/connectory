@@ -43,7 +43,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/addStickerToSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/addStickerToSet",
     "path": [],
     "query": [],
     "header": [],
@@ -92,7 +92,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/answerCallbackQuery",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/answerCallbackQuery",
     "path": [],
     "query": [],
     "header": [],
@@ -149,7 +149,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/answerInlineQuery",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/answerInlineQuery",
     "path": [],
     "query": [],
     "header": [],
@@ -192,7 +192,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/answerPreCheckoutQuery",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/answerPreCheckoutQuery",
     "path": [],
     "query": [],
     "header": [],
@@ -235,7 +235,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/answerShippingQuery",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/answerShippingQuery",
     "path": [],
     "query": [],
     "header": [],
@@ -259,7 +259,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/close",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/close",
     "path": [],
     "query": [],
     "header": [],
@@ -323,7 +323,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/copyMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/copyMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -391,7 +391,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/createNewStickerSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/createNewStickerSet",
     "path": [],
     "query": [],
     "header": [],
@@ -426,7 +426,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/deleteChatPhoto",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/deleteChatPhoto",
     "path": [],
     "query": [],
     "header": [],
@@ -454,7 +454,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/deleteChatStickerSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/deleteChatStickerSet",
     "path": [],
     "query": [],
     "header": [],
@@ -487,7 +487,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/deleteMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/deleteMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -516,7 +516,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/deleteStickerFromSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/deleteStickerFromSet",
     "path": [],
     "query": [],
     "header": [],
@@ -542,7 +542,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/deleteWebhook",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/deleteWebhook",
     "path": [],
     "query": [],
     "header": [],
@@ -592,7 +592,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/editMessageCaption",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/editMessageCaption",
     "path": [],
     "query": [],
     "header": [],
@@ -659,7 +659,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/editMessageLiveLocation",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/editMessageLiveLocation",
     "path": [],
     "query": [],
     "header": [],
@@ -711,7 +711,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/editMessageMedia",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/editMessageMedia",
     "path": [],
     "query": [],
     "header": [],
@@ -753,7 +753,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/editMessageReplyMarkup",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/editMessageReplyMarkup",
     "path": [],
     "query": [],
     "header": [],
@@ -812,7 +812,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/editMessageText",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/editMessageText",
     "path": [],
     "query": [],
     "header": [],
@@ -847,7 +847,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/exportChatInviteLink",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/exportChatInviteLink",
     "path": [],
     "query": [],
     "header": [],
@@ -889,7 +889,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/forwardMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/forwardMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -920,7 +920,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getChat",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getChat",
     "path": [],
     "query": [],
     "header": [],
@@ -948,7 +948,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getChatAdministrators",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getChatAdministrators",
     "path": [],
     "query": [],
     "header": [],
@@ -981,7 +981,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getChatMember",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getChatMember",
     "path": [],
     "query": [],
     "header": [],
@@ -1010,7 +1010,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getChatMembersCount",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getChatMembersCount",
     "path": [],
     "query": [],
     "header": [],
@@ -1038,7 +1038,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getFile",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getFile",
     "path": [],
     "query": [],
     "header": [],
@@ -1078,7 +1078,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getGameHighScores",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getGameHighScores",
     "path": [],
     "query": [],
     "header": [],
@@ -1102,7 +1102,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getMe",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getMe",
     "path": [],
     "query": [],
     "header": [],
@@ -1121,7 +1121,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getMyCommands",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getMyCommands",
     "path": [],
     "query": [],
     "header": [],
@@ -1147,7 +1147,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getStickerSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getStickerSet",
     "path": [],
     "query": [],
     "header": [],
@@ -1185,7 +1185,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getUpdates",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getUpdates",
     "path": [],
     "query": [],
     "header": [],
@@ -1224,7 +1224,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getUserProfilePhotos",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getUserProfilePhotos",
     "path": [],
     "query": [],
     "header": [],
@@ -1247,7 +1247,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/getWebhookInfo",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/getWebhookInfo",
     "path": [],
     "query": [],
     "header": [],
@@ -1282,7 +1282,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/kickChatMember",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/kickChatMember",
     "path": [],
     "query": [],
     "header": [],
@@ -1312,7 +1312,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/leaveChat",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/leaveChat",
     "path": [],
     "query": [],
     "header": [],
@@ -1333,7 +1333,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/logOut",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/logOut",
     "path": [],
     "query": [],
     "header": [],
@@ -1368,7 +1368,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/pinChatMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/pinChatMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -1439,7 +1439,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/promoteChatMember",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/promoteChatMember",
     "path": [],
     "query": [],
     "header": [],
@@ -1491,7 +1491,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/restrictChatMember",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/restrictChatMember",
     "path": [],
     "query": [],
     "header": [],
@@ -1571,7 +1571,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendAnimation",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendAnimation",
     "path": [],
     "query": [],
     "header": [],
@@ -1660,7 +1660,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendAudio",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendAudio",
     "path": [],
     "query": [],
     "header": [],
@@ -1705,7 +1705,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendChatAction",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendChatAction",
     "path": [],
     "query": [],
     "header": [],
@@ -1768,7 +1768,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendContact",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendContact",
     "path": [],
     "query": [],
     "header": [],
@@ -1831,7 +1831,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendDice",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendDice",
     "path": [],
     "query": [],
     "header": [],
@@ -1905,7 +1905,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendDocument",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendDocument",
     "path": [],
     "query": [],
     "header": [],
@@ -1964,7 +1964,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendGame",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendGame",
     "path": [],
     "query": [],
     "header": [],
@@ -2096,7 +2096,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendInvoice",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendInvoice",
     "path": [],
     "query": [],
     "header": [],
@@ -2189,7 +2189,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendLocation",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendLocation",
     "path": [],
     "query": [],
     "header": [],
@@ -2244,7 +2244,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendMediaGroup",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendMediaGroup",
     "path": [],
     "query": [],
     "header": [],
@@ -2309,7 +2309,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -2378,7 +2378,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendPhoto",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendPhoto",
     "path": [],
     "query": [],
     "header": [],
@@ -2480,7 +2480,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendPoll",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendPoll",
     "path": [],
     "query": [],
     "header": [],
@@ -2545,7 +2545,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendSticker",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendSticker",
     "path": [],
     "query": [],
     "header": [],
@@ -2630,7 +2630,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendVenue",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendVenue",
     "path": [],
     "query": [],
     "header": [],
@@ -2723,7 +2723,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendVideo",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendVideo",
     "path": [],
     "query": [],
     "header": [],
@@ -2797,7 +2797,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendVideoNote",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendVideoNote",
     "path": [],
     "query": [],
     "header": [],
@@ -2870,7 +2870,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/sendVoice",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/sendVoice",
     "path": [],
     "query": [],
     "header": [],
@@ -2917,7 +2917,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatAdministratorCustomTitle",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatAdministratorCustomTitle",
     "path": [],
     "query": [],
     "header": [],
@@ -2951,7 +2951,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatDescription",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatDescription",
     "path": [],
     "query": [],
     "header": [],
@@ -2985,7 +2985,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatPermissions",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatPermissions",
     "path": [],
     "query": [],
     "header": [],
@@ -3019,7 +3019,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatPhoto",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatPhoto",
     "path": [],
     "query": [],
     "header": [],
@@ -3053,7 +3053,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatStickerSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatStickerSet",
     "path": [],
     "query": [],
     "header": [],
@@ -3087,7 +3087,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setChatTitle",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setChatTitle",
     "path": [],
     "query": [],
     "header": [],
@@ -3141,7 +3141,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setGameScore",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setGameScore",
     "path": [],
     "query": [],
     "header": [],
@@ -3175,7 +3175,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setMyCommands",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setMyCommands",
     "path": [],
     "query": [],
     "header": [],
@@ -3208,7 +3208,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setPassportDataErrors",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setPassportDataErrors",
     "path": [],
     "query": [],
     "header": [],
@@ -3242,7 +3242,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setStickerPositionInSet",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setStickerPositionInSet",
     "path": [],
     "query": [],
     "header": [],
@@ -3280,7 +3280,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setStickerSetThumb",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setStickerSetThumb",
     "path": [],
     "query": [],
     "header": [],
@@ -3330,7 +3330,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/setWebhook",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/setWebhook",
     "path": [],
     "query": [],
     "header": [],
@@ -3373,7 +3373,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/stopMessageLiveLocation",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/stopMessageLiveLocation",
     "path": [],
     "query": [],
     "header": [],
@@ -3413,7 +3413,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/stopPoll",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/stopPoll",
     "path": [],
     "query": [],
     "header": [],
@@ -3452,7 +3452,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/unbanChatMember",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/unbanChatMember",
     "path": [],
     "query": [],
     "header": [],
@@ -3482,7 +3482,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/unpinAllChatMessages",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/unpinAllChatMessages",
     "path": [],
     "query": [],
     "header": [],
@@ -3514,7 +3514,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/unpinChatMessage",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/unpinChatMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -3548,7 +3548,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.telegram.org/bot{apiKey}/uploadStickerFile",
+    "url": "https://api.telegram.org/bot{apiKey}/bot{token}/uploadStickerFile",
     "path": [],
     "query": [],
     "header": [],

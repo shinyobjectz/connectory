@@ -27,7 +27,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.apps.approve",
+    "url": "https://mcp.slack.com/api/admin.apps.approve",
     "path": [],
     "query": [],
     "header": [],
@@ -67,7 +67,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.apps.approved.list",
+    "url": "https://mcp.slack.com/api/admin.apps.approved.list",
     "path": [],
     "query": [
      "limit",
@@ -104,7 +104,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.apps.requests.list",
+    "url": "https://mcp.slack.com/api/admin.apps.requests.list",
     "path": [],
     "query": [
      "limit",
@@ -140,7 +140,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.apps.restrict",
+    "url": "https://mcp.slack.com/api/admin.apps.restrict",
     "path": [],
     "query": [],
     "header": [],
@@ -180,7 +180,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.apps.restricted.list",
+    "url": "https://mcp.slack.com/api/admin.apps.restricted.list",
     "path": [],
     "query": [
      "limit",
@@ -211,7 +211,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.archive",
+    "url": "https://mcp.slack.com/api/admin.conversations.archive",
     "path": [],
     "query": [],
     "header": [],
@@ -239,7 +239,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.convertToPrivate",
+    "url": "https://mcp.slack.com/api/admin.conversations.convertToPrivate",
     "path": [],
     "query": [],
     "header": [],
@@ -284,7 +284,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.create",
+    "url": "https://mcp.slack.com/api/admin.conversations.create",
     "path": [],
     "query": [],
     "header": [],
@@ -316,7 +316,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.delete",
+    "url": "https://mcp.slack.com/api/admin.conversations.delete",
     "path": [],
     "query": [],
     "header": [],
@@ -348,7 +348,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.disconnectShared",
+    "url": "https://mcp.slack.com/api/admin.conversations.disconnectShared",
     "path": [],
     "query": [],
     "header": [],
@@ -387,7 +387,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.conversations.ekm.listOriginalConnectedChannelInfo",
+    "url": "https://mcp.slack.com/api/admin.conversations.ekm.listOriginalConnectedChannelInfo",
     "path": [],
     "query": [
      "channel_ids",
@@ -418,7 +418,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.conversations.getConversationPrefs",
+    "url": "https://mcp.slack.com/api/admin.conversations.getConversationPrefs",
     "path": [],
     "query": [
      "channel_id"
@@ -454,7 +454,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.conversations.getTeams",
+    "url": "https://mcp.slack.com/api/admin.conversations.getTeams",
     "path": [],
     "query": [
      "channel_id",
@@ -489,7 +489,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.invite",
+    "url": "https://mcp.slack.com/api/admin.conversations.invite",
     "path": [],
     "query": [],
     "header": [],
@@ -523,7 +523,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.rename",
+    "url": "https://mcp.slack.com/api/admin.conversations.rename",
     "path": [],
     "query": [],
     "header": [],
@@ -561,7 +561,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.restrictAccess.addGroup",
+    "url": "https://mcp.slack.com/api/admin.conversations.restrictAccess.addGroup",
     "path": [],
     "query": [],
     "header": [],
@@ -595,7 +595,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.conversations.restrictAccess.listGroups",
+    "url": "https://mcp.slack.com/api/admin.conversations.restrictAccess.listGroups",
     "path": [],
     "query": [
      "channel_id",
@@ -634,7 +634,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.restrictAccess.removeGroup",
+    "url": "https://mcp.slack.com/api/admin.conversations.restrictAccess.removeGroup",
     "path": [],
     "query": [],
     "header": [],
@@ -686,7 +686,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.conversations.search",
+    "url": "https://mcp.slack.com/api/admin.conversations.search",
     "path": [],
     "query": [
      "team_ids",
@@ -725,7 +725,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.setConversationPrefs",
+    "url": "https://mcp.slack.com/api/admin.conversations.setConversationPrefs",
     "path": [],
     "query": [],
     "header": [],
@@ -766,7 +766,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.setTeams",
+    "url": "https://mcp.slack.com/api/admin.conversations.setTeams",
     "path": [],
     "query": [],
     "header": [],
@@ -797,7 +797,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.conversations.unarchive",
+    "url": "https://mcp.slack.com/api/admin.conversations.unarchive",
     "path": [],
     "query": [],
     "header": [],
@@ -830,7 +830,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.emoji.add",
+    "url": "https://mcp.slack.com/api/admin.emoji.add",
     "path": [],
     "query": [],
     "header": [],
@@ -864,7 +864,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.emoji.addAlias",
+    "url": "https://mcp.slack.com/api/admin.emoji.addAlias",
     "path": [],
     "query": [],
     "header": [],
@@ -895,7 +895,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.emoji.list",
+    "url": "https://mcp.slack.com/api/admin.emoji.list",
     "path": [],
     "query": [
      "cursor",
@@ -924,7 +924,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.emoji.remove",
+    "url": "https://mcp.slack.com/api/admin.emoji.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -957,7 +957,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.emoji.rename",
+    "url": "https://mcp.slack.com/api/admin.emoji.rename",
     "path": [],
     "query": [],
     "header": [],
@@ -979,7 +979,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.inviteRequests.approve",
+    "url": "https://mcp.slack.com/api/admin.inviteRequests.approve",
     "path": [],
     "query": [],
     "header": [],
@@ -1011,7 +1011,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.inviteRequests.approved.list",
+    "url": "https://mcp.slack.com/api/admin.inviteRequests.approved.list",
     "path": [],
     "query": [
      "team_id",
@@ -1047,7 +1047,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.inviteRequests.denied.list",
+    "url": "https://mcp.slack.com/api/admin.inviteRequests.denied.list",
     "path": [],
     "query": [
      "team_id",
@@ -1070,7 +1070,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.inviteRequests.deny",
+    "url": "https://mcp.slack.com/api/admin.inviteRequests.deny",
     "path": [],
     "query": [],
     "header": [],
@@ -1102,7 +1102,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.inviteRequests.list",
+    "url": "https://mcp.slack.com/api/admin.inviteRequests.list",
     "path": [],
     "query": [
      "team_id",
@@ -1140,7 +1140,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.teams.admins.list",
+    "url": "https://mcp.slack.com/api/admin.teams.admins.list",
     "path": [],
     "query": [
      "limit",
@@ -1183,7 +1183,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.create",
+    "url": "https://mcp.slack.com/api/admin.teams.create",
     "path": [],
     "query": [],
     "header": [],
@@ -1216,7 +1216,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.teams.list",
+    "url": "https://mcp.slack.com/api/admin.teams.list",
     "path": [],
     "query": [
      "limit",
@@ -1253,7 +1253,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.teams.owners.list",
+    "url": "https://mcp.slack.com/api/admin.teams.owners.list",
     "path": [],
     "query": [
      "team_id",
@@ -1283,7 +1283,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.teams.settings.info",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.info",
     "path": [],
     "query": [
      "team_id"
@@ -1316,7 +1316,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.settings.setDefaultChannels",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.setDefaultChannels",
     "path": [],
     "query": [],
     "header": [],
@@ -1350,7 +1350,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.settings.setDescription",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.setDescription",
     "path": [],
     "query": [],
     "header": [],
@@ -1384,7 +1384,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.settings.setDiscoverability",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.setDiscoverability",
     "path": [],
     "query": [],
     "header": [],
@@ -1418,7 +1418,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.settings.setIcon",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.setIcon",
     "path": [],
     "query": [],
     "header": [],
@@ -1452,7 +1452,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.teams.settings.setName",
+    "url": "https://mcp.slack.com/api/admin.teams.settings.setName",
     "path": [],
     "query": [],
     "header": [],
@@ -1490,7 +1490,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.usergroups.addChannels",
+    "url": "https://mcp.slack.com/api/admin.usergroups.addChannels",
     "path": [],
     "query": [],
     "header": [],
@@ -1529,7 +1529,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.usergroups.addTeams",
+    "url": "https://mcp.slack.com/api/admin.usergroups.addTeams",
     "path": [],
     "query": [],
     "header": [],
@@ -1567,7 +1567,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.usergroups.listChannels",
+    "url": "https://mcp.slack.com/api/admin.usergroups.listChannels",
     "path": [],
     "query": [
      "usergroup_id",
@@ -1602,7 +1602,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.usergroups.removeChannels",
+    "url": "https://mcp.slack.com/api/admin.usergroups.removeChannels",
     "path": [],
     "query": [],
     "header": [],
@@ -1648,7 +1648,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.assign",
+    "url": "https://mcp.slack.com/api/admin.users.assign",
     "path": [],
     "query": [],
     "header": [],
@@ -1714,7 +1714,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.invite",
+    "url": "https://mcp.slack.com/api/admin.users.invite",
     "path": [],
     "query": [],
     "header": [],
@@ -1758,7 +1758,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/admin.users.list",
+    "url": "https://mcp.slack.com/api/admin.users.list",
     "path": [],
     "query": [
      "team_id",
@@ -1793,7 +1793,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.remove",
+    "url": "https://mcp.slack.com/api/admin.users.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -1827,7 +1827,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.session.invalidate",
+    "url": "https://mcp.slack.com/api/admin.users.session.invalidate",
     "path": [],
     "query": [],
     "header": [],
@@ -1864,7 +1864,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.session.reset",
+    "url": "https://mcp.slack.com/api/admin.users.session.reset",
     "path": [],
     "query": [],
     "header": [],
@@ -1899,7 +1899,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.setAdmin",
+    "url": "https://mcp.slack.com/api/admin.users.setAdmin",
     "path": [],
     "query": [],
     "header": [],
@@ -1938,7 +1938,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.setExpiration",
+    "url": "https://mcp.slack.com/api/admin.users.setExpiration",
     "path": [],
     "query": [],
     "header": [],
@@ -1973,7 +1973,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.setOwner",
+    "url": "https://mcp.slack.com/api/admin.users.setOwner",
     "path": [],
     "query": [],
     "header": [],
@@ -2007,7 +2007,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/admin.users.setRegular",
+    "url": "https://mcp.slack.com/api/admin.users.setRegular",
     "path": [],
     "query": [],
     "header": [],
@@ -2038,7 +2038,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/api.test",
+    "url": "https://mcp.slack.com/api/api.test",
     "path": [],
     "query": [
      "error",
@@ -2075,7 +2075,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.event.authorizations.list",
+    "url": "https://mcp.slack.com/api/apps.event.authorizations.list",
     "path": [],
     "query": [
      "event_context",
@@ -2098,7 +2098,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.info",
+    "url": "https://mcp.slack.com/api/apps.permissions.info",
     "path": [],
     "query": [],
     "header": [],
@@ -2129,7 +2129,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.request",
+    "url": "https://mcp.slack.com/api/apps.permissions.request",
     "path": [],
     "query": [
      "scopes",
@@ -2160,7 +2160,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.resources.list",
+    "url": "https://mcp.slack.com/api/apps.permissions.resources.list",
     "path": [],
     "query": [
      "cursor",
@@ -2182,7 +2182,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.scopes.list",
+    "url": "https://mcp.slack.com/api/apps.permissions.scopes.list",
     "path": [],
     "query": [],
     "header": [],
@@ -2210,7 +2210,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.users.list",
+    "url": "https://mcp.slack.com/api/apps.permissions.users.list",
     "path": [],
     "query": [
      "cursor",
@@ -2249,7 +2249,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.permissions.users.request",
+    "url": "https://mcp.slack.com/api/apps.permissions.users.request",
     "path": [],
     "query": [
      "scopes",
@@ -2281,7 +2281,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/apps.uninstall",
+    "url": "https://mcp.slack.com/api/apps.uninstall",
     "path": [],
     "query": [
      "client_id",
@@ -2308,7 +2308,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/auth.revoke",
+    "url": "https://mcp.slack.com/api/auth.revoke",
     "path": [],
     "query": [
      "test"
@@ -2329,7 +2329,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/auth.test",
+    "url": "https://mcp.slack.com/api/auth.test",
     "path": [],
     "query": [],
     "header": [],
@@ -2353,7 +2353,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/bots.info",
+    "url": "https://mcp.slack.com/api/bots.info",
     "path": [],
     "query": [
      "bot"
@@ -2410,7 +2410,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/calls.add",
+    "url": "https://mcp.slack.com/api/calls.add",
     "path": [],
     "query": [],
     "header": [],
@@ -2449,7 +2449,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/calls.end",
+    "url": "https://mcp.slack.com/api/calls.end",
     "path": [],
     "query": [],
     "header": [],
@@ -2478,7 +2478,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/calls.info",
+    "url": "https://mcp.slack.com/api/calls.info",
     "path": [],
     "query": [
      "id"
@@ -2511,7 +2511,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/calls.participants.add",
+    "url": "https://mcp.slack.com/api/calls.participants.add",
     "path": [],
     "query": [],
     "header": [],
@@ -2545,7 +2545,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/calls.participants.remove",
+    "url": "https://mcp.slack.com/api/calls.participants.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -2586,7 +2586,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/calls.update",
+    "url": "https://mcp.slack.com/api/calls.update",
     "path": [],
     "query": [],
     "header": [],
@@ -2623,7 +2623,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.delete",
+    "url": "https://mcp.slack.com/api/chat.delete",
     "path": [],
     "query": [],
     "header": [],
@@ -2662,7 +2662,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.deleteScheduledMessage",
+    "url": "https://mcp.slack.com/api/chat.deleteScheduledMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -2697,7 +2697,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/chat.getPermalink",
+    "url": "https://mcp.slack.com/api/chat.getPermalink",
     "path": [],
     "query": [
      "channel",
@@ -2728,7 +2728,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.meMessage",
+    "url": "https://mcp.slack.com/api/chat.meMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -2802,7 +2802,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.postEphemeral",
+    "url": "https://mcp.slack.com/api/chat.postEphemeral",
     "path": [],
     "query": [],
     "header": [],
@@ -2897,7 +2897,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.postMessage",
+    "url": "https://mcp.slack.com/api/chat.postMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -2981,7 +2981,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.scheduleMessage",
+    "url": "https://mcp.slack.com/api/chat.scheduleMessage",
     "path": [],
     "query": [],
     "header": [],
@@ -3034,7 +3034,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/chat.scheduledMessages.list",
+    "url": "https://mcp.slack.com/api/chat.scheduledMessages.list",
     "path": [],
     "query": [
      "channel",
@@ -3087,7 +3087,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.unfurl",
+    "url": "https://mcp.slack.com/api/chat.unfurl",
     "path": [],
     "query": [],
     "header": [],
@@ -3149,7 +3149,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/chat.update",
+    "url": "https://mcp.slack.com/api/chat.update",
     "path": [],
     "query": [],
     "header": [],
@@ -3182,7 +3182,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.archive",
+    "url": "https://mcp.slack.com/api/conversations.archive",
     "path": [],
     "query": [],
     "header": [],
@@ -3208,7 +3208,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.close",
+    "url": "https://mcp.slack.com/api/conversations.close",
     "path": [],
     "query": [],
     "header": [],
@@ -3238,7 +3238,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.create",
+    "url": "https://mcp.slack.com/api/conversations.create",
     "path": [],
     "query": [],
     "header": [],
@@ -3285,7 +3285,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/conversations.history",
+    "url": "https://mcp.slack.com/api/conversations.history",
     "path": [],
     "query": [
      "channel",
@@ -3324,7 +3324,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/conversations.info",
+    "url": "https://mcp.slack.com/api/conversations.info",
     "path": [],
     "query": [
      "channel",
@@ -3356,7 +3356,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.invite",
+    "url": "https://mcp.slack.com/api/conversations.invite",
     "path": [],
     "query": [],
     "header": [],
@@ -3383,7 +3383,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.join",
+    "url": "https://mcp.slack.com/api/conversations.join",
     "path": [],
     "query": [],
     "header": [],
@@ -3413,7 +3413,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.kick",
+    "url": "https://mcp.slack.com/api/conversations.kick",
     "path": [],
     "query": [],
     "header": [],
@@ -3440,7 +3440,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.leave",
+    "url": "https://mcp.slack.com/api/conversations.leave",
     "path": [],
     "query": [],
     "header": [],
@@ -3478,7 +3478,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/conversations.list",
+    "url": "https://mcp.slack.com/api/conversations.list",
     "path": [],
     "query": [
      "exclude_archived",
@@ -3511,7 +3511,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.mark",
+    "url": "https://mcp.slack.com/api/conversations.mark",
     "path": [],
     "query": [],
     "header": [],
@@ -3546,7 +3546,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/conversations.members",
+    "url": "https://mcp.slack.com/api/conversations.members",
     "path": [],
     "query": [
      "channel",
@@ -3582,7 +3582,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.open",
+    "url": "https://mcp.slack.com/api/conversations.open",
     "path": [],
     "query": [],
     "header": [],
@@ -3614,7 +3614,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.rename",
+    "url": "https://mcp.slack.com/api/conversations.rename",
     "path": [],
     "query": [],
     "header": [],
@@ -3665,7 +3665,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/conversations.replies",
+    "url": "https://mcp.slack.com/api/conversations.replies",
     "path": [],
     "query": [
      "channel",
@@ -3701,7 +3701,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.setPurpose",
+    "url": "https://mcp.slack.com/api/conversations.setPurpose",
     "path": [],
     "query": [],
     "header": [],
@@ -3732,7 +3732,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.setTopic",
+    "url": "https://mcp.slack.com/api/conversations.setTopic",
     "path": [],
     "query": [],
     "header": [],
@@ -3759,7 +3759,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/conversations.unarchive",
+    "url": "https://mcp.slack.com/api/conversations.unarchive",
     "path": [],
     "query": [],
     "header": [],
@@ -3792,7 +3792,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/dialog.open",
+    "url": "https://mcp.slack.com/api/dialog.open",
     "path": [],
     "query": [
      "dialog",
@@ -3814,7 +3814,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/dnd.endDnd",
+    "url": "https://mcp.slack.com/api/dnd.endDnd",
     "path": [],
     "query": [],
     "header": [],
@@ -3833,7 +3833,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/dnd.endSnooze",
+    "url": "https://mcp.slack.com/api/dnd.endSnooze",
     "path": [],
     "query": [],
     "header": [],
@@ -3857,7 +3857,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/dnd.info",
+    "url": "https://mcp.slack.com/api/dnd.info",
     "path": [],
     "query": [
      "user"
@@ -3885,7 +3885,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/dnd.setSnooze",
+    "url": "https://mcp.slack.com/api/dnd.setSnooze",
     "path": [],
     "query": [],
     "header": [],
@@ -3911,7 +3911,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/dnd.teamInfo",
+    "url": "https://mcp.slack.com/api/dnd.teamInfo",
     "path": [],
     "query": [
      "users"
@@ -3932,7 +3932,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/emoji.list",
+    "url": "https://mcp.slack.com/api/emoji.list",
     "path": [],
     "query": [],
     "header": [],
@@ -3960,7 +3960,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.comments.delete",
+    "url": "https://mcp.slack.com/api/files.comments.delete",
     "path": [],
     "query": [],
     "header": [],
@@ -3987,7 +3987,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.delete",
+    "url": "https://mcp.slack.com/api/files.delete",
     "path": [],
     "query": [],
     "header": [],
@@ -4029,7 +4029,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/files.info",
+    "url": "https://mcp.slack.com/api/files.info",
     "path": [],
     "query": [
      "file",
@@ -4087,7 +4087,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/files.list",
+    "url": "https://mcp.slack.com/api/files.list",
     "path": [],
     "query": [
      "user",
@@ -4140,7 +4140,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.remote.add",
+    "url": "https://mcp.slack.com/api/files.remote.add",
     "path": [],
     "query": [],
     "header": [],
@@ -4175,7 +4175,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/files.remote.info",
+    "url": "https://mcp.slack.com/api/files.remote.info",
     "path": [],
     "query": [
      "file",
@@ -4218,7 +4218,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/files.remote.list",
+    "url": "https://mcp.slack.com/api/files.remote.list",
     "path": [],
     "query": [
      "channel",
@@ -4252,7 +4252,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.remote.remove",
+    "url": "https://mcp.slack.com/api/files.remote.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -4287,7 +4287,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/files.remote.share",
+    "url": "https://mcp.slack.com/api/files.remote.share",
     "path": [],
     "query": [
      "file",
@@ -4339,7 +4339,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.remote.update",
+    "url": "https://mcp.slack.com/api/files.remote.update",
     "path": [],
     "query": [],
     "header": [],
@@ -4371,7 +4371,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.revokePublicURL",
+    "url": "https://mcp.slack.com/api/files.revokePublicURL",
     "path": [],
     "query": [],
     "header": [],
@@ -4397,7 +4397,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.sharedPublicURL",
+    "url": "https://mcp.slack.com/api/files.sharedPublicURL",
     "path": [],
     "query": [],
     "header": [],
@@ -4451,7 +4451,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/files.upload",
+    "url": "https://mcp.slack.com/api/files.upload",
     "path": [],
     "query": [],
     "header": [],
@@ -4494,7 +4494,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/migration.exchange",
+    "url": "https://mcp.slack.com/api/migration.exchange",
     "path": [],
     "query": [
      "users",
@@ -4538,7 +4538,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/oauth.access",
+    "url": "https://mcp.slack.com/api/oauth.access",
     "path": [],
     "query": [
      "client_id",
@@ -4584,7 +4584,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/oauth.token",
+    "url": "https://mcp.slack.com/api/oauth.token",
     "path": [],
     "query": [
      "client_id",
@@ -4628,7 +4628,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/oauth.v2.access",
+    "url": "https://mcp.slack.com/api/oauth.v2.access",
     "path": [],
     "query": [
      "client_id",
@@ -4663,7 +4663,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/pins.add",
+    "url": "https://mcp.slack.com/api/pins.add",
     "path": [],
     "query": [],
     "header": [],
@@ -4692,7 +4692,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/pins.list",
+    "url": "https://mcp.slack.com/api/pins.list",
     "path": [],
     "query": [
      "channel"
@@ -4724,7 +4724,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/pins.remove",
+    "url": "https://mcp.slack.com/api/pins.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -4763,7 +4763,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/reactions.add",
+    "url": "https://mcp.slack.com/api/reactions.add",
     "path": [],
     "query": [],
     "header": [],
@@ -4807,7 +4807,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/reactions.get",
+    "url": "https://mcp.slack.com/api/reactions.get",
     "path": [],
     "query": [
      "channel",
@@ -4857,7 +4857,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/reactions.list",
+    "url": "https://mcp.slack.com/api/reactions.list",
     "path": [],
     "query": [
      "user",
@@ -4906,7 +4906,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/reactions.remove",
+    "url": "https://mcp.slack.com/api/reactions.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -4947,7 +4947,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/reminders.add",
+    "url": "https://mcp.slack.com/api/reminders.add",
     "path": [],
     "query": [],
     "header": [],
@@ -4975,7 +4975,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/reminders.complete",
+    "url": "https://mcp.slack.com/api/reminders.complete",
     "path": [],
     "query": [],
     "header": [],
@@ -5001,7 +5001,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/reminders.delete",
+    "url": "https://mcp.slack.com/api/reminders.delete",
     "path": [],
     "query": [],
     "header": [],
@@ -5027,7 +5027,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/reminders.info",
+    "url": "https://mcp.slack.com/api/reminders.info",
     "path": [],
     "query": [
      "reminder"
@@ -5048,7 +5048,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/reminders.list",
+    "url": "https://mcp.slack.com/api/reminders.list",
     "path": [],
     "query": [],
     "header": [],
@@ -5076,7 +5076,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/rtm.connect",
+    "url": "https://mcp.slack.com/api/rtm.connect",
     "path": [],
     "query": [
      "batch_presence_aware",
@@ -5125,7 +5125,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/search.messages",
+    "url": "https://mcp.slack.com/api/search.messages",
     "path": [],
     "query": [
      "count",
@@ -5168,7 +5168,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/stars.add",
+    "url": "https://mcp.slack.com/api/stars.add",
     "path": [],
     "query": [],
     "header": [],
@@ -5209,7 +5209,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/stars.list",
+    "url": "https://mcp.slack.com/api/stars.list",
     "path": [],
     "query": [
      "count",
@@ -5250,7 +5250,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/stars.remove",
+    "url": "https://mcp.slack.com/api/stars.remove",
     "path": [],
     "query": [],
     "header": [],
@@ -5287,7 +5287,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/team.accessLogs",
+    "url": "https://mcp.slack.com/api/team.accessLogs",
     "path": [],
     "query": [
      "before",
@@ -5315,7 +5315,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/team.billableInfo",
+    "url": "https://mcp.slack.com/api/team.billableInfo",
     "path": [],
     "query": [
      "user"
@@ -5341,7 +5341,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/team.info",
+    "url": "https://mcp.slack.com/api/team.info",
     "path": [],
     "query": [
      "team"
@@ -5387,7 +5387,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/team.integrationLogs",
+    "url": "https://mcp.slack.com/api/team.integrationLogs",
     "path": [],
     "query": [
      "app_id",
@@ -5418,7 +5418,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/team.profile.get",
+    "url": "https://mcp.slack.com/api/team.profile.get",
     "path": [],
     "query": [
      "visibility"
@@ -5462,7 +5462,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/usergroups.create",
+    "url": "https://mcp.slack.com/api/usergroups.create",
     "path": [],
     "query": [],
     "header": [],
@@ -5498,7 +5498,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/usergroups.disable",
+    "url": "https://mcp.slack.com/api/usergroups.disable",
     "path": [],
     "query": [],
     "header": [],
@@ -5531,7 +5531,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/usergroups.enable",
+    "url": "https://mcp.slack.com/api/usergroups.enable",
     "path": [],
     "query": [],
     "header": [],
@@ -5566,7 +5566,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/usergroups.list",
+    "url": "https://mcp.slack.com/api/usergroups.list",
     "path": [],
     "query": [
      "include_users",
@@ -5616,7 +5616,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/usergroups.update",
+    "url": "https://mcp.slack.com/api/usergroups.update",
     "path": [],
     "query": [],
     "header": [],
@@ -5653,7 +5653,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/usergroups.users.list",
+    "url": "https://mcp.slack.com/api/usergroups.users.list",
     "path": [],
     "query": [
      "include_disabled",
@@ -5691,7 +5691,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/usergroups.users.update",
+    "url": "https://mcp.slack.com/api/usergroups.users.update",
     "path": [],
     "query": [],
     "header": [],
@@ -5735,7 +5735,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.conversations",
+    "url": "https://mcp.slack.com/api/users.conversations",
     "path": [],
     "query": [
      "user",
@@ -5760,7 +5760,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/users.deletePhoto",
+    "url": "https://mcp.slack.com/api/users.deletePhoto",
     "path": [],
     "query": [],
     "header": [],
@@ -5784,7 +5784,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.getPresence",
+    "url": "https://mcp.slack.com/api/users.getPresence",
     "path": [],
     "query": [
      "user"
@@ -5805,7 +5805,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.identity",
+    "url": "https://mcp.slack.com/api/users.identity",
     "path": [],
     "query": [],
     "header": [],
@@ -5833,7 +5833,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.info",
+    "url": "https://mcp.slack.com/api/users.info",
     "path": [],
     "query": [
      "include_locale",
@@ -5868,7 +5868,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.list",
+    "url": "https://mcp.slack.com/api/users.list",
     "path": [],
     "query": [
      "limit",
@@ -5898,7 +5898,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.lookupByEmail",
+    "url": "https://mcp.slack.com/api/users.lookupByEmail",
     "path": [],
     "query": [
      "email"
@@ -5928,7 +5928,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/users.profile.get",
+    "url": "https://mcp.slack.com/api/users.profile.get",
     "path": [],
     "query": [
      "include_labels",
@@ -5967,7 +5967,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/users.profile.set",
+    "url": "https://mcp.slack.com/api/users.profile.set",
     "path": [],
     "query": [],
     "header": [],
@@ -5991,7 +5991,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/users.setActive",
+    "url": "https://mcp.slack.com/api/users.setActive",
     "path": [],
     "query": [],
     "header": [],
@@ -6027,7 +6027,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/users.setPhoto",
+    "url": "https://mcp.slack.com/api/users.setPhoto",
     "path": [],
     "query": [],
     "header": [],
@@ -6058,7 +6058,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://mcp.slack.com/users.setPresence",
+    "url": "https://mcp.slack.com/api/users.setPresence",
     "path": [],
     "query": [],
     "header": [],
@@ -6091,7 +6091,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/views.open",
+    "url": "https://mcp.slack.com/api/views.open",
     "path": [],
     "query": [
      "trigger_id",
@@ -6129,7 +6129,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/views.publish",
+    "url": "https://mcp.slack.com/api/views.publish",
     "path": [],
     "query": [
      "user_id",
@@ -6164,7 +6164,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/views.push",
+    "url": "https://mcp.slack.com/api/views.push",
     "path": [],
     "query": [
      "trigger_id",
@@ -6203,7 +6203,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/views.update",
+    "url": "https://mcp.slack.com/api/views.update",
     "path": [],
     "query": [
      "view_id",
@@ -6238,7 +6238,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/workflows.stepCompleted",
+    "url": "https://mcp.slack.com/api/workflows.stepCompleted",
     "path": [],
     "query": [
      "workflow_step_execute_id",
@@ -6272,7 +6272,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/workflows.stepFailed",
+    "url": "https://mcp.slack.com/api/workflows.stepFailed",
     "path": [],
     "query": [
      "workflow_step_execute_id",
@@ -6317,7 +6317,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://mcp.slack.com/workflows.updateStep",
+    "url": "https://mcp.slack.com/api/workflows.updateStep",
     "path": [],
     "query": [
      "workflow_step_edit_id",

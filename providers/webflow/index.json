@@ -33,7 +33,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "url": "https://api.webflow.com/v2/pages/{page_id}/custom_code",
     "path": [
      "page_id"
     ],
@@ -77,7 +77,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_code",
     "path": [
      "site_id"
     ],
@@ -102,7 +102,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/token/authorized_by",
+    "url": "https://api.webflow.com/v2/token/authorized_by",
     "path": [],
     "query": [],
     "header": [],
@@ -133,7 +133,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/batchCreate",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/batchCreate",
     "path": [
      "site_id"
     ],
@@ -168,7 +168,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/batchDelete",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/batchDelete",
     "path": [
      "site_id"
     ],
@@ -198,7 +198,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{collection_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}",
     "path": [
      "collection_id"
     ],
@@ -240,7 +240,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/assets",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/assets",
     "path": [
      "site_id"
     ],
@@ -281,7 +281,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/asset_folders",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/asset_folders",
     "path": [
      "site_id"
     ],
@@ -330,7 +330,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/collections",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/collections",
     "path": [
      "site_id"
     ],
@@ -373,7 +373,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}/replies",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/comments/{comment_thread_id}/replies",
     "path": [
      "site_id",
      "comment_thread_id"
@@ -445,7 +445,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts",
     "path": [
      "site_id"
     ],
@@ -481,7 +481,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/collections/{collection_id}/fields",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/fields",
     "path": [
      "collection_id"
     ],
@@ -513,7 +513,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items",
     "path": [
      "collection_id"
     ],
@@ -547,7 +547,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/live",
     "path": [
      "collection_id"
     ],
@@ -610,7 +610,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/bulk",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/bulk",
     "path": [
      "collection_id"
     ],
@@ -666,7 +666,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/products",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products",
     "path": [
      "site_id"
     ],
@@ -710,7 +710,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/redirects",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/redirects",
     "path": [
      "site_id"
     ],
@@ -755,7 +755,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/workspaces/{workspace_id}/sites",
+    "url": "https://api.webflow.com/v2/workspaces/{workspace_id}/sites",
     "path": [
      "workspace_id"
     ],
@@ -805,7 +805,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}/skus",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products/{product_id}/skus",
     "path": [
      "site_id",
      "product_id"
@@ -883,7 +883,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/webhooks",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/webhooks",
     "path": [
      "site_id"
     ],
@@ -920,7 +920,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/assets/{asset_id}",
+    "url": "https://api.webflow.com/v2/assets/{asset_id}",
     "path": [
      "asset_id"
     ],
@@ -948,7 +948,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}",
     "path": [
      "collection_id"
     ],
@@ -981,7 +981,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/{font_id}",
     "path": [
      "site_id",
      "font_id"
@@ -1015,7 +1015,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}/fields/{field_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/fields/{field_id}",
     "path": [
      "collection_id",
      "field_id"
@@ -1044,7 +1044,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/form_submissions/{form_submission_id}",
     "path": [
      "form_submission_id"
     ],
@@ -1077,7 +1077,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/form_submissions/{form_submission_id}",
     "path": [
      "site_id",
      "form_submission_id"
@@ -1111,7 +1111,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags/{tag_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/integrations/google_tags/{tag_id}",
     "path": [
      "site_id",
      "tag_id"
@@ -1140,7 +1140,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/integrations/google_tags",
     "path": [
      "site_id"
     ],
@@ -1177,7 +1177,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}",
     "path": [
      "collection_id",
      "item_id"
@@ -1217,7 +1217,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}/live",
     "path": [
      "collection_id",
      "item_id"
@@ -1253,7 +1253,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items",
     "path": [
      "collection_id"
     ],
@@ -1288,7 +1288,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/live",
     "path": [
      "collection_id"
     ],
@@ -1318,7 +1318,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "url": "https://api.webflow.com/v2/pages/{page_id}/custom_code",
     "path": [
      "page_id"
     ],
@@ -1351,7 +1351,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/redirects/{redirect_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/redirects/{redirect_id}",
     "path": [
      "site_id",
      "redirect_id"
@@ -1388,7 +1388,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/robots_txt",
     "path": [
      "site_id"
     ],
@@ -1419,7 +1419,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}",
     "path": [
      "site_id"
     ],
@@ -1447,7 +1447,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_code",
     "path": [
      "site_id"
     ],
@@ -1479,7 +1479,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/sites/{site_id}/well_known",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/well_known",
     "path": [
      "site_id"
     ],
@@ -1509,7 +1509,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/ecommerce/settings",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/ecommerce/settings",
     "path": [
      "site_id"
     ],
@@ -1546,7 +1546,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/fulfill",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders/{order_id}/fulfill",
     "path": [
      "site_id",
      "order_id"
@@ -1646,7 +1646,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/time_on_page",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/analyze/reports/time_on_page",
     "path": [
      "site_id"
     ],
@@ -1776,7 +1776,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_dimensions",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/analyze/reports/top_dimensions",
     "path": [
      "site_id"
     ],
@@ -1879,7 +1879,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_events",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/analyze/reports/top_events",
     "path": [
      "site_id"
     ],
@@ -1993,7 +1993,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_pages",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/analyze/reports/top_pages",
     "path": [
      "site_id"
     ],
@@ -2107,7 +2107,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/traffic",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/analyze/reports/traffic",
     "path": [
      "site_id"
     ],
@@ -2154,7 +2154,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/assets/{asset_id}",
+    "url": "https://api.webflow.com/v2/assets/{asset_id}",
     "path": [
      "asset_id"
     ],
@@ -2184,7 +2184,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/asset_folders/{asset_folder_id}",
+    "url": "https://api.webflow.com/v2/asset_folders/{asset_folder_id}",
     "path": [
      "asset_folder_id"
     ],
@@ -2245,7 +2245,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/comments/{comment_thread_id}",
     "path": [
      "site_id",
      "comment_thread_id"
@@ -2305,7 +2305,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/dom",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/components/{component_id}/dom",
     "path": [
      "site_id",
      "component_id"
@@ -2365,7 +2365,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/properties",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/components/{component_id}/properties",
     "path": [
      "site_id",
      "component_id"
@@ -2400,7 +2400,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_domains",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_domains",
     "path": [
      "site_id"
     ],
@@ -2433,7 +2433,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/{font_id}",
     "path": [
      "site_id",
      "font_id"
@@ -2462,7 +2462,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/forms/{form_id}",
+    "url": "https://api.webflow.com/v2/forms/{form_id}",
     "path": [
      "form_id"
     ],
@@ -2490,7 +2490,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/form_submissions/{form_submission_id}",
     "path": [
      "form_submission_id"
     ],
@@ -2523,7 +2523,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/form_submissions/{form_submission_id}",
     "path": [
      "site_id",
      "form_submission_id"
@@ -2565,7 +2565,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}",
     "path": [
      "collection_id",
      "item_id"
@@ -2610,7 +2610,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}/live",
     "path": [
      "collection_id",
      "item_id"
@@ -2647,7 +2647,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders/{order_id}",
     "path": [
      "site_id",
      "order_id"
@@ -2676,7 +2676,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "url": "https://api.webflow.com/v2/pages/{page_id}/custom_code",
     "path": [
      "page_id"
     ],
@@ -2712,7 +2712,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/pages/{page_id}",
+    "url": "https://api.webflow.com/v2/pages/{page_id}",
     "path": [
      "page_id"
     ],
@@ -2748,7 +2748,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products/{product_id}",
     "path": [
      "site_id",
      "product_id"
@@ -2777,7 +2777,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/redirects",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/redirects",
     "path": [
      "site_id"
     ],
@@ -2805,7 +2805,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/robots_txt",
     "path": [
      "site_id"
     ],
@@ -2833,7 +2833,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/registered_scripts",
     "path": [
      "site_id"
     ],
@@ -2861,7 +2861,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}",
     "path": [
      "site_id"
     ],
@@ -2897,7 +2897,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/activity_logs",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/activity_logs",
     "path": [
      "site_id"
     ],
@@ -2928,7 +2928,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_code",
     "path": [
      "site_id"
     ],
@@ -2964,7 +2964,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_code/blocks",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_code/blocks",
     "path": [
      "site_id"
     ],
@@ -2995,7 +2995,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/plan",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/plan",
     "path": [
      "site_id"
     ],
@@ -3039,7 +3039,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/pages/{page_id}/dom",
+    "url": "https://api.webflow.com/v2/pages/{page_id}/dom",
     "path": [
      "page_id"
     ],
@@ -3072,7 +3072,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/webhooks/{webhook_id}",
+    "url": "https://api.webflow.com/v2/webhooks/{webhook_id}",
     "path": [
      "webhook_id"
     ],
@@ -3136,7 +3136,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/workspaces/{workspace_id_or_slug}/audit_logs",
+    "url": "https://api.webflow.com/v2/workspaces/{workspace_id_or_slug}/audit_logs",
     "path": [
      "workspace_id_or_slug"
     ],
@@ -3164,7 +3164,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/token/introspect",
+    "url": "https://api.webflow.com/v2/token/introspect",
     "path": [],
     "query": [],
     "header": [],
@@ -3190,7 +3190,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/asset_folders",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/asset_folders",
     "path": [
      "site_id"
     ],
@@ -3234,7 +3234,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/assets",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/assets",
     "path": [
      "site_id"
     ],
@@ -3330,7 +3330,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items",
     "path": [
      "collection_id"
     ],
@@ -3435,7 +3435,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/live",
     "path": [
      "collection_id"
     ],
@@ -3477,7 +3477,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/collections",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/collections",
     "path": [
      "site_id"
     ],
@@ -3538,7 +3538,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}/replies",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/comments/{comment_thread_id}/replies",
     "path": [
      "site_id",
      "comment_thread_id"
@@ -3601,7 +3601,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/comments",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/comments",
     "path": [
      "site_id"
     ],
@@ -3647,7 +3647,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/components",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/components",
     "path": [
      "site_id"
     ],
@@ -3687,7 +3687,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts",
     "path": [
      "site_id"
     ],
@@ -3726,7 +3726,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/forms",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/forms",
     "path": [
      "site_id"
     ],
@@ -3757,7 +3757,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/integrations/google_tags",
     "path": [
      "site_id"
     ],
@@ -3790,7 +3790,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/collections/{sku_collection_id}/items/{sku_id}/inventory",
+    "url": "https://api.webflow.com/v2/collections/{sku_collection_id}/items/{sku_id}/inventory",
     "path": [
      "sku_collection_id",
      "sku_id"
@@ -3839,7 +3839,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/orders",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders",
     "path": [
      "site_id"
     ],
@@ -3883,7 +3883,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/pages",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/pages",
     "path": [
      "site_id"
     ],
@@ -3923,7 +3923,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/products",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products",
     "path": [
      "site_id"
     ],
@@ -3947,7 +3947,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites",
+    "url": "https://api.webflow.com/v2/sites",
     "path": [],
     "query": [],
     "header": [],
@@ -3981,7 +3981,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/forms/{form_id}/submissions",
+    "url": "https://api.webflow.com/v2/forms/{form_id}/submissions",
     "path": [
      "form_id"
     ],
@@ -4025,7 +4025,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/forms/{form_id}/submissions",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/forms/{form_id}/submissions",
     "path": [
      "site_id",
      "form_id"
@@ -4069,7 +4069,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/form_submissions",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/form_submissions",
     "path": [
      "site_id"
     ],
@@ -4101,7 +4101,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.webflow.com/sites/{site_id}/webhooks",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/webhooks",
     "path": [
      "site_id"
     ],
@@ -4133,7 +4133,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/form_submissions/{form_submission_id}",
     "path": [
      "form_submission_id"
     ],
@@ -4172,7 +4172,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/form_submissions/{form_submission_id}",
     "path": [
      "site_id",
      "form_submission_id"
@@ -4215,7 +4215,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/assets/{asset_id}",
+    "url": "https://api.webflow.com/v2/assets/{asset_id}",
     "path": [
      "asset_id"
     ],
@@ -4264,7 +4264,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}",
     "path": [
      "collection_id"
     ],
@@ -4321,7 +4321,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts/hosted",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/registered_scripts/hosted",
     "path": [
      "site_id"
     ],
@@ -4378,7 +4378,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts/inline",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/registered_scripts/inline",
     "path": [
      "site_id"
     ],
@@ -4412,7 +4412,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/publish",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/publish",
     "path": [
      "collection_id"
     ],
@@ -4454,7 +4454,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/refund",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders/{order_id}/refund",
     "path": [
      "site_id",
      "order_id"
@@ -4485,7 +4485,7 @@
    },
    "request": {
     "method": "DELETE",
-    "url": "https://api.webflow.com/webhooks/{webhook_id}",
+    "url": "https://api.webflow.com/v2/webhooks/{webhook_id}",
     "path": [
      "webhook_id"
     ],
@@ -4532,7 +4532,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}/file",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/{font_id}/file",
     "path": [
      "site_id",
      "font_id"
@@ -4573,7 +4573,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/robots_txt",
     "path": [
      "site_id"
     ],
@@ -4614,7 +4614,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/comments/{comment_thread_id}",
     "path": [
      "site_id",
      "comment_thread_id"
@@ -4663,7 +4663,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/sites/{site_id}/well_known",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/well_known",
     "path": [
      "site_id"
     ],
@@ -4707,7 +4707,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/publish",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/publish",
     "path": [
      "site_id"
     ],
@@ -4744,7 +4744,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/unfulfill",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders/{order_id}/unfulfill",
     "path": [
      "site_id",
      "order_id"
@@ -4791,7 +4791,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/dom",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/components/{component_id}/dom",
     "path": [
      "site_id",
      "component_id"
@@ -4843,7 +4843,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/properties",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/components/{component_id}/properties",
     "path": [
      "site_id",
      "component_id"
@@ -4905,7 +4905,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/custom_fonts/{font_id}",
     "path": [
      "site_id",
      "font_id"
@@ -4956,7 +4956,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}/fields/{field_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/fields/{field_id}",
     "path": [
      "collection_id",
      "field_id"
@@ -5011,7 +5011,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{sku_collection_id}/items/{sku_id}/inventory",
+    "url": "https://api.webflow.com/v2/collections/{sku_collection_id}/items/{sku_id}/inventory",
     "path": [
      "sku_collection_id",
      "sku_id"
@@ -5085,7 +5085,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}",
     "path": [
      "collection_id",
      "item_id"
@@ -5166,7 +5166,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/{item_id}/live",
     "path": [
      "collection_id",
      "item_id"
@@ -5214,7 +5214,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items",
     "path": [
      "collection_id"
     ],
@@ -5254,7 +5254,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "url": "https://api.webflow.com/v2/collections/{collection_id}/items/live",
     "path": [
      "collection_id"
     ],
@@ -5307,7 +5307,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/orders/{order_id}",
     "path": [
      "site_id",
      "order_id"
@@ -5361,7 +5361,7 @@
    },
    "request": {
     "method": "PUT",
-    "url": "https://api.webflow.com/pages/{page_id}",
+    "url": "https://api.webflow.com/v2/pages/{page_id}",
     "path": [
      "page_id"
     ],
@@ -5417,7 +5417,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products/{product_id}",
     "path": [
      "site_id",
      "product_id"
@@ -5467,7 +5467,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/redirects/{redirect_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/redirects/{redirect_id}",
     "path": [
      "site_id",
      "redirect_id"
@@ -5508,7 +5508,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/robots_txt",
     "path": [
      "site_id"
     ],
@@ -5547,7 +5547,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}",
     "path": [
      "site_id"
     ],
@@ -5601,7 +5601,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}/skus/{sku_id}",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/products/{product_id}/skus/{sku_id}",
     "path": [
      "site_id",
      "product_id",
@@ -5644,7 +5644,7 @@
    },
    "request": {
     "method": "POST",
-    "url": "https://api.webflow.com/pages/{page_id}/dom",
+    "url": "https://api.webflow.com/v2/pages/{page_id}/dom",
     "path": [
      "page_id"
     ],
@@ -5681,7 +5681,7 @@
    },
    "request": {
     "method": "PATCH",
-    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "url": "https://api.webflow.com/v2/sites/{site_id}/integrations/google_tags",
     "path": [
      "site_id"
     ],
