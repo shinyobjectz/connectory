@@ -1,0 +1,5997 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "razorpay",
+ "source": "https://razorpay.com/openapi.json",
+ "operations": [
+  {
+   "slug": "razorpay.accept_dispute",
+   "name": "Accept a dispute",
+   "description": "Accept a dispute, acknowledging it as lost. This is irreversible \u2014 the dispute status changes to 'lost' and the disputed amount is deducted from your balance. Only accept if you do not wish to contest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Dispute ID (disp_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/disputes/{id}/accept",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.activate_deactivate_fund_account",
+   "name": "Activate or deactivate a fund account",
+   "description": "Activate or deactivate a fund account. Fund account details are immutable \u2014 only the `active` status can be changed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fund_account_id": {
+      "type": "string",
+      "description": "Unique identifier of the fund account (e.g. `fa_00000000000001`)."
+     },
+     "active": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "active",
+     "fund_account_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/fund_accounts/{fund_account_id}",
+    "path": [
+     "fund_account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "active"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.add_allowed_payer",
+   "name": "Add an allowed payer (tpv)",
+   "description": "Whitelist a specific payer bank account or VPA for a virtual account (Smart Collect with Third Party Validation). Only whitelisted payers can successfully pay into this virtual account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "va_id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     },
+     "type": {
+      "type": "string",
+      "description": "Type of allowed payer.",
+      "enum": [
+       "bank_account",
+       "vpa"
+      ]
+     },
+     "bank_account": {
+      "type": "object",
+      "description": "Required if type=bank_account."
+     },
+     "vpa": {
+      "type": "object",
+      "description": "Required if type=vpa."
+     }
+    },
+    "required": [
+     "type",
+     "va_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{va_id}/allowed_payers",
+    "path": [
+     "va_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "bank_account",
+     "vpa"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.add_vpa_receiver",
+   "name": "Add a vpa receiver to a virtual account",
+   "description": "Add a UPI VPA receiver to an existing virtual account (Smart Collect 2.0). Requires the VPA receiver feature to be enabled on the merchant account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     },
+     "types": {
+      "type": "array",
+      "description": "Must contain 'vpa'."
+     }
+    },
+    "required": [
+     "id",
+     "types"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{id}/receivers",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "types"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.approve_payout",
+   "name": "Approve a payout (workflow enabled)",
+   "description": "Requires Payouts Approval workflow enabled and Technology Partner status with OAuth.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout to approve."
+     },
+     "remarks": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "payout_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payouts/{payout_id}/approve",
+    "path": [
+     "payout_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "remarks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_invoice",
+   "name": "Cancel an invoice",
+   "description": "Cancel a draft or issued invoice. Cancelled invoices cannot be paid and cannot be reinstated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/invoices/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_payment_link",
+   "name": "Cancel a payment link",
+   "description": "Cancel a payment link. Only links in 'created' status can be cancelled. Paid, partially paid, and already expired links cannot be cancelled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment Link ID (plink_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payment_links/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_payout",
+   "name": "Cancel a queued payout",
+   "description": "Only payouts in 'queued' status can be cancelled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout to cancel."
+     }
+    },
+    "required": [
+     "payout_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payouts/{payout_id}/cancel",
+    "path": [
+     "payout_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_payout_link",
+   "name": "Cancel a payout link",
+   "description": "Cancel a payout link that is in `issued` or `pending` state.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_link_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout link to cancel."
+     }
+    },
+    "required": [
+     "payout_link_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payout-links/{payout_link_id}/cancel",
+    "path": [
+     "payout_link_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_subscription",
+   "name": "Cancel a subscription",
+   "description": "Cancel an active or authenticated subscription. Use cancel_at_cycle_end=1 to continue service until the end of the current cycle before cancelling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     },
+     "cancel_at_cycle_end": {
+      "type": "integer",
+      "description": "1 = cancel at end of current cycle; 0 = cancel immediately.",
+      "enum": [
+       0,
+       1
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "cancel_at_cycle_end"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.cancel_subscription_scheduled_changes",
+   "name": "Cancel scheduled changes",
+   "description": "Cancel any pending plan or quantity changes that were scheduled for the next billing cycle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}/cancel_scheduled_changes",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.capture_payment",
+   "name": "Capture a payment",
+   "description": "Capture an authorized payment to collect funds. Must be called within the capture window (default 5 days). Amount must exactly equal authorized amount unless partial capture is enabled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*). Must be in 'authorized' status."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount to capture in paise. Must equal authorized amount unless partial capture is enabled."
+     },
+     "currency": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "amount",
+     "currency",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payments/{id}/capture",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.close_qr_code",
+   "name": "Close a qr code",
+   "description": "Deactivate a QR code to stop accepting new payments. Once closed, the QR code cannot be reopened.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "QR code ID (qr_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes/{id}/close",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.close_virtual_account",
+   "name": "Close a virtual account",
+   "description": "Manually close an active virtual account so it no longer accepts payments.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     },
+     "status": {
+      "type": "string",
+      "description": "Must be 'closed' to close the account.",
+      "enum": [
+       "closed"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "status"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{id}/close",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.contest_dispute",
+   "name": "Contest a dispute",
+   "description": "Submit evidence to challenge a dispute. Use action=draft to save without submitting, or action=submit to send for bank review (triggers payment.dispute.under_review webhook). At least one evidence document is required when submitting. You can contest partial amounts by specifying amount.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Dispute ID (disp_*)."
+     },
+     "action": {
+      "type": "string",
+      "description": "draft: save evidence without submitting. submit: send for bank review. Minimum one document required for submit.",
+      "enum": [
+       "draft",
+       "submit"
+      ]
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount being contested (paise). Defaults to full dispute amount."
+     },
+     "summary": {
+      "type": "string",
+      "description": "Your explanation of why the dispute should be resolved in your favour. Max 1000 characters."
+     },
+     "shipping_proof": {
+      "type": "array",
+      "description": "Document IDs proving product shipment."
+     },
+     "billing_proof": {
+      "type": "array",
+      "description": ""
+     },
+     "cancellation_proof": {
+      "type": "array",
+      "description": ""
+     },
+     "customer_communication": {
+      "type": "array",
+      "description": ""
+     },
+     "proof_of_service": {
+      "type": "array",
+      "description": ""
+     },
+     "explanation_letter": {
+      "type": "array",
+      "description": ""
+     },
+     "refund_confirmation": {
+      "type": "array",
+      "description": ""
+     },
+     "access_activity_log": {
+      "type": "array",
+      "description": ""
+     },
+     "refund_cancellation_policy": {
+      "type": "array",
+      "description": ""
+     },
+     "term_and_conditions": {
+      "type": "array",
+      "description": ""
+     },
+     "others": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/disputes/{id}/contest",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "amount",
+     "summary",
+     "shipping_proof",
+     "billing_proof",
+     "cancellation_proof",
+     "customer_communication",
+     "proof_of_service",
+     "explanation_letter",
+     "refund_confirmation",
+     "access_activity_log",
+     "refund_cancellation_policy",
+     "term_and_conditions",
+     "others"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_bill",
+   "name": "Create a bill",
+   "description": "Create a digital bill/receipt for a customer. Supports retail, food & beverage, events, and ecommerce use cases. Used for Razorpay Billme digital receipts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "business_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ecommerce",
+       "retail",
+       "food_and_beverage",
+       "events"
+      ]
+     },
+     "business_category": {
+      "type": "string",
+      "description": ""
+     },
+     "customer": {
+      "type": "object",
+      "description": ""
+     },
+     "receipt_timestamp": {
+      "type": "integer",
+      "description": ""
+     },
+     "receipt_number": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "tax_invoice",
+       "sales_invoice",
+       "bill_of_supply",
+       "credit_note",
+       "debit_note"
+      ]
+     },
+     "receipt_delivery": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "digital",
+       "print",
+       "digital_and_print"
+      ]
+     },
+     "store_code": {
+      "type": "string",
+      "description": ""
+     },
+     "order_number": {
+      "type": "string",
+      "description": ""
+     },
+     "line_items": {
+      "type": "array",
+      "description": ""
+     },
+     "receipt_summary": {
+      "type": "object",
+      "description": ""
+     },
+     "taxes": {
+      "type": "array",
+      "description": ""
+     },
+     "payments": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "business_type",
+     "customer"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/bills",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "business_type",
+     "business_category",
+     "customer",
+     "receipt_timestamp",
+     "receipt_number",
+     "receipt_type",
+     "receipt_delivery",
+     "store_code",
+     "order_number",
+     "line_items",
+     "receipt_summary",
+     "taxes",
+     "payments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_contact",
+   "name": "Create a contact",
+   "description": "Create a payout recipient contact. Returns existing contact if all identifying fields (name, email, contact, type) match an existing record.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "contact": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "vendor",
+       "customer",
+       "employee",
+       "self"
+      ]
+     },
+     "reference_id": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/contacts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "email",
+     "contact",
+     "type",
+     "reference_id",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_customer",
+   "name": "Create a customer",
+   "description": "Create a customer profile. The combination of email and contact must be unique per customer. Customer profiles enable saved card tokens, faster checkout, and customer-scoped data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Customer name. 3-50 characters. Allowed: alphanumeric, period, apostrophe, forward slash, @, parentheses."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Phone number with country code. Min 8 digits, max 15 chars. Example: +919876543210."
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address. Max 64 characters."
+     },
+     "gstin": {
+      "type": "string",
+      "description": "GST Identification Number."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/customers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "contact",
+     "email",
+     "gstin",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_direct_transfer",
+   "name": "Create a direct transfer",
+   "description": "Create an on-demand direct transfer from the merchant account to a Linked Account. Requires the Direct Transfer feature to be enabled on the account. Supports idempotency via the X-Transfer-Idempotency header (unique to direct transfers).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Transfer-Idempotency": {
+      "type": "string",
+      "description": "Idempotency key for direct transfers. If provided, retrying with the same key within 24 hours returns the original transfer instead of creating a duplicate."
+     },
+     "account": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount in paise. Minimum 10000 (\u20b9100)."
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "INR"
+      ]
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     },
+     "linked_account_notes": {
+      "type": "array",
+      "description": ""
+     },
+     "on_hold": {
+      "type": "boolean",
+      "description": ""
+     },
+     "on_hold_until": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "account",
+     "amount",
+     "currency"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/transfers",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Transfer-Idempotency"
+    ],
+    "body": [
+     "account",
+     "amount",
+     "currency",
+     "notes",
+     "linked_account_notes",
+     "on_hold",
+     "on_hold_until"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_fund_account",
+   "name": "Create a fund account",
+   "description": "Create a bank account, VPA, card, or wallet (Amazon Pay) fund account linked to a contact. Fund accounts are immutable after creation. Returns existing record if contact_id + account details all match.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "account_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "bank_account",
+       "vpa",
+       "card",
+       "wallet"
+      ]
+     },
+     "bank_account": {
+      "type": "object",
+      "description": ""
+     },
+     "vpa": {
+      "type": "object",
+      "description": ""
+     },
+     "card": {
+      "type": "object",
+      "description": "Requires PCI DSS compliance"
+     },
+     "wallet": {
+      "type": "object",
+      "description": "Required when account_type=wallet (Amazon Pay only)"
+     }
+    },
+    "required": [
+     "account_type",
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/fund_accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "account_type",
+     "bank_account",
+     "vpa",
+     "card",
+     "wallet"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_instant_settlement",
+   "name": "Create an instant settlement",
+   "description": "Request an on-demand (instant) settlement of your available Razorpay balance to your bank account. Fees apply. Use settle_full_balance=true to settle everything available, or specify an amount.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "amount": {
+      "type": "integer",
+      "description": "Settlement amount in paise."
+     },
+     "settle_full_balance": {
+      "type": "boolean",
+      "description": "Set true to settle the full available balance. Overrides amount."
+     },
+     "description": {
+      "type": "string",
+      "description": "Custom reference note. Max 30 alphanumeric characters."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "amount"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/settlements/ondemand",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "settle_full_balance",
+     "description",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_invoice",
+   "name": "Create an invoice",
+   "description": "Create an invoice or payment page. Set type='invoice' for a formal invoice or type='link' for a simple payment page. The invoice is created in draft state; call POST /invoices/{id}/issue to send it to the customer. Cannot be used to create GST invoices (use the Dashboard for those). Maximum 50 line items per invoice.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "invoice: formal invoice; link: payment page.",
+      "enum": [
+       "invoice",
+       "link"
+      ]
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "customer_id": {
+      "type": "string",
+      "description": "Existing customer ID (cust_*). Provide this OR customer object, not both."
+     },
+     "customer": {
+      "type": "object",
+      "description": "Inline customer details. Used when no customer_id is available."
+     },
+     "line_items": {
+      "type": "array",
+      "description": "Invoice line items. Each item must have name and amount (in paise), or an item_id to reference a catalog item."
+     },
+     "currency": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt": {
+      "type": "string",
+      "description": "Your internal reference number."
+     },
+     "comment": {
+      "type": "string",
+      "description": ""
+     },
+     "terms": {
+      "type": "string",
+      "description": "Payment terms shown on the invoice."
+     },
+     "partial_payment": {
+      "type": "boolean",
+      "description": "Allow customer to pay a partial amount initially."
+     },
+     "first_payment_min_amount": {
+      "type": "integer",
+      "description": "Minimum first payment amount in paise. Required when partial_payment=true."
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": "Unix timestamp after which the invoice expires. Must be at least 15 minutes in the future."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/invoices",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "description",
+     "customer_id",
+     "customer",
+     "line_items",
+     "currency",
+     "receipt",
+     "comment",
+     "terms",
+     "partial_payment",
+     "first_payment_min_amount",
+     "expire_by",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_item",
+   "name": "Create an item",
+   "description": "Create a reusable catalog item. Items can be referenced in invoice line_items by item_id, which auto-fills price and description. Each item is merchant-scoped.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Item display name."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Item price in paise."
+     },
+     "currency": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "amount",
+     "currency",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/items",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "amount",
+     "currency"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_linked_account",
+   "name": "Create a linked account",
+   "description": "Create a sub-merchant (Linked Account) under a Route marketplace. The account type must be 'route'. Email and business_type cannot be changed after creation. Only one stakeholder is allowed per Linked Account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Contact email. Cannot be changed after creation."
+     },
+     "phone": {
+      "type": "string",
+      "description": "Phone number with country code."
+     },
+     "legal_business_name": {
+      "type": "string",
+      "description": ""
+     },
+     "business_type": {
+      "type": "string",
+      "description": "Cannot be changed after creation.",
+      "enum": [
+       "route"
+      ]
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "route"
+      ]
+     },
+     "profile": {
+      "type": "object",
+      "description": ""
+     },
+     "legal_info": {
+      "type": "object",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "email",
+     "profile",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "phone",
+     "legal_business_name",
+     "business_type",
+     "type",
+     "profile",
+     "legal_info",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_order",
+   "name": "Create an order",
+   "description": "Create an order before initiating a payment. The returned order_id must be passed to Razorpay Checkout. An order can have multiple payment attempts but only one successful capture.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "amount": {
+      "type": "integer",
+      "description": "Payment amount in paise. Example: 50000 for \u20b9500. Must be >= 100."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code. Example: INR."
+     },
+     "receipt": {
+      "type": "string",
+      "description": "Your internal receipt number. Max 40 characters."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     },
+     "partial_payment": {
+      "type": "boolean",
+      "description": "Allow partial payments."
+     }
+    },
+    "required": [
+     "amount",
+     "currency"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/orders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency",
+     "receipt",
+     "notes",
+     "partial_payment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_partner_webhook",
+   "name": "Create a webhook for a sub merchant",
+   "description": "Create a webhook to receive events for a sub-merchant account. Maximum 30 webhooks per account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "alert_email": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "boolean",
+      "description": ""
+     },
+     "events": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "events",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/webhooks",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "alert_email",
+     "active",
+     "events"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_payment_link",
+   "name": "Create a payment link",
+   "description": "Create a shareable payment link to collect payments via SMS and email. Supports standard links (all payment methods) and UPI-only links (set upi_link=true). UPI links are not available in test mode. Partial payments are not supported for UPI links. Links expire after 6 months by default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "amount": {
+      "type": "integer",
+      "description": "Amount in smallest currency unit (paise for INR). Example: 50000 for \u20b9500."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code. UPI links support INR only."
+     },
+     "upi_link": {
+      "type": "boolean",
+      "description": "Set true to create a UPI-only Payment Link. Not available in test mode."
+     },
+     "accept_partial": {
+      "type": "boolean",
+      "description": "Enable partial payments. Not supported for UPI links."
+     },
+     "first_min_partial_amount": {
+      "type": "integer",
+      "description": "Minimum first partial payment amount in paise."
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": "Unix timestamp for link expiry. Max 6 months from creation. Must be at least 15 minutes in the future."
+     },
+     "reference_id": {
+      "type": "string",
+      "description": "Your unique tracking reference. Max 40 characters. Must be unique."
+     },
+     "description": {
+      "type": "string",
+      "description": "Brief description shown on the payment page. Max 2048 characters."
+     },
+     "customer": {
+      "type": "object",
+      "description": "Customer contact details. Not auto-populated on checkout \u2014 customer must enter manually."
+     },
+     "notify": {
+      "type": "object",
+      "description": "Notification handlers. Set true for Razorpay to send, false to handle yourself."
+     },
+     "reminder_enable": {
+      "type": "boolean",
+      "description": "Send automatic payment reminders."
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "Redirect URL after payment completion."
+     },
+     "callback_method": {
+      "type": "string",
+      "description": "Required when callback_url is set.",
+      "enum": [
+       "get"
+      ]
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     },
+     "options": {
+      "type": "object",
+      "description": "Checkout and payment page customization."
+     }
+    },
+    "required": [
+     "amount"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payment_links",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency",
+     "upi_link",
+     "accept_partial",
+     "first_min_partial_amount",
+     "expire_by",
+     "reference_id",
+     "description",
+     "customer",
+     "notify",
+     "reminder_enable",
+     "callback_url",
+     "callback_method",
+     "notes",
+     "options"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_payout",
+   "name": "Create a payout",
+   "description": "Disburse funds via NEFT, RTGS, IMPS, UPI, or card. Supports standard payouts (fund_account_id), composite payouts (contact + fund account inline), card payouts (PCI DSS required), and mobile number payouts (resolved via NPCI mapper). Idempotency header X-Payout-Idempotency (UUID v4, 4\u201336 chars) is mandatory since March 15, 2025. Never generate a new idempotency key while a payout is in 'processing",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Payout-Idempotency": {
+      "type": "string",
+      "description": "UUID v4 idempotency key. Mandatory since March 15, 2025."
+     },
+     "account_number": {
+      "type": "string",
+      "description": "Razorpay X account number to debit"
+     },
+     "fund_account_id": {
+      "type": "string",
+      "description": "Required for standard payouts; omit for composite"
+     },
+     "fund_account": {
+      "type": "object",
+      "description": "Inline fund account for composite payout"
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount in paise"
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "INR"
+      ]
+     },
+     "mode": {
+      "type": "string",
+      "description": "Case-sensitive",
+      "enum": [
+       "NEFT",
+       "RTGS",
+       "IMPS",
+       "UPI",
+       "card",
+       "amazonpay"
+      ]
+     },
+     "purpose": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "refund",
+       "cashback",
+       "payout",
+       "salary",
+       "utility bill",
+       "vendor bill"
+      ]
+     },
+     "narration": {
+      "type": "string",
+      "description": ""
+     },
+     "reference_id": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": ""
+     },
+     "queue_if_low_balance": {
+      "type": "boolean",
+      "description": "true: queue payout when account balance is insufficient (default: false)"
+     }
+    },
+    "required": [
+     "X-Payout-Idempotency",
+     "account_number",
+     "amount",
+     "currency",
+     "mode",
+     "purpose"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payouts",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Payout-Idempotency"
+    ],
+    "body": [
+     "account_number",
+     "fund_account_id",
+     "fund_account",
+     "amount",
+     "currency",
+     "mode",
+     "purpose",
+     "narration",
+     "reference_id",
+     "notes",
+     "queue_if_low_balance"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_payout_link",
+   "name": "Create a payout link",
+   "description": "Send a payout link to a contact when fund account details are unavailable. expire_by must be at least 15 minutes in the future.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount in paise"
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "INR"
+      ]
+     },
+     "purpose": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt": {
+      "type": "string",
+      "description": ""
+     },
+     "send_sms": {
+      "type": "boolean",
+      "description": ""
+     },
+     "send_email": {
+      "type": "boolean",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": ""
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": "Unix timestamp; must be \u226515 minutes from now"
+     }
+    },
+    "required": [
+     "amount",
+     "contact_id",
+     "currency",
+     "purpose"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payout-links",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "amount",
+     "currency",
+     "purpose",
+     "description",
+     "receipt",
+     "send_sms",
+     "send_email",
+     "notes",
+     "expire_by"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_plan",
+   "name": "Create a plan",
+   "description": "Define a recurring billing plan with a fixed period, interval, and amount. Plans are reusable across multiple subscriptions. Once created, plan details cannot be modified.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "period": {
+      "type": "string",
+      "description": "Billing frequency unit. For daily, minimum interval is 7.",
+      "enum": [
+       "daily",
+       "weekly",
+       "monthly",
+       "quarterly",
+       "yearly"
+      ]
+     },
+     "interval": {
+      "type": "integer",
+      "description": "Number of periods between charges (e.g. interval=3, period=monthly \u2192 charge every 3 months)."
+     },
+     "item": {
+      "type": "object",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "interval",
+     "item",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/plans",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "period",
+     "interval",
+     "item",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_qr_code",
+   "name": "Create a qr code",
+   "description": "Create a UPI QR code for accepting digital payments. Only upi_qr type is supported (on-demand feature; requires merchant activation). single_use QR codes require fixed_amount=true and close_by maximum is 45 days. multiple_use QR codes have no expiry restriction.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "QR code type. Only upi_qr is supported (on-demand feature requiring merchant activation).",
+      "enum": [
+       "upi_qr"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Label for the QR code."
+     },
+     "usage": {
+      "type": "string",
+      "description": "single_use: auto-closes after first successful payment (requires fixed_amount=true). multiple_use: stays open for multiple payments.",
+      "enum": [
+       "single_use",
+       "multiple_use"
+      ]
+     },
+     "fixed_amount": {
+      "type": "boolean",
+      "description": "true: fixed amount QR (required for single_use). false: customer enters amount at scan time."
+     },
+     "payment_amount": {
+      "type": "integer",
+      "description": "Fixed payment amount in paise. Required when fixed_amount=true."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "customer_id": {
+      "type": "string",
+      "description": "Associate QR code with a customer (cust_*)."
+     },
+     "close_by": {
+      "type": "integer",
+      "description": "Unix timestamp for auto-close. Maximum 45 days from creation for single_use."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "fixed_amount",
+     "name",
+     "type",
+     "usage"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "name",
+     "usage",
+     "fixed_amount",
+     "payment_amount",
+     "description",
+     "customer_id",
+     "close_by",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_refund",
+   "name": "Create a refund",
+   "description": "Initiate a full or partial refund for a captured payment. Use speed=normal (default, 5-7 business days) or speed=optimum for instant refund (falls back to normal if unavailable). Use the X-Refund-Idempotency header with a unique key (>=10 chars) to safely retry without duplicate refunds.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID to refund (pay_*). Payment must be captured."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Refund amount in paise. Omit to refund the full payment amount."
+     },
+     "speed": {
+      "type": "string",
+      "description": "normal: 5-7 business days. optimum: instant if available, falls back to normal.",
+      "enum": [
+       "normal",
+       "optimum"
+      ]
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     },
+     "receipt": {
+      "type": "string",
+      "description": "Your internal reference identifier."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payments/{id}/refund",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "speed",
+     "notes",
+     "receipt"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_stakeholder",
+   "name": "Create a stakeholder",
+   "description": "Add a business owner or director to a Linked Account. Only one stakeholder is allowed per Route Linked Account. PAN 4th character must be 'P' (individual PAN).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "percentage_ownership": {
+      "type": "number",
+      "description": ""
+     },
+     "relationship": {
+      "type": "object",
+      "description": ""
+     },
+     "phone": {
+      "type": "object",
+      "description": ""
+     },
+     "addresses": {
+      "type": "object",
+      "description": ""
+     },
+     "kyc": {
+      "type": "object",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "account_id",
+     "email",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/stakeholders",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "email",
+     "percentage_ownership",
+     "relationship",
+     "phone",
+     "addresses",
+     "kyc",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_subscription",
+   "name": "Create a subscription",
+   "description": "Subscribe a customer to a plan. Returns a short_url that the customer MUST open to authorize the payment mandate (UPI Autopay, NACH, or card-on-file). The subscription will not charge until the mandate is authorized. Set notify_info to send the auth link via SMS/email automatically. Requires Subscriptions feature enabled on your Razorpay account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "plan_id": {
+      "type": "string",
+      "description": "Plan ID (plan_*) to subscribe the customer to."
+     },
+     "total_count": {
+      "type": "integer",
+      "description": "Total number of billing cycles. Use 0 for indefinite (no fixed end)."
+     },
+     "quantity": {
+      "type": "integer",
+      "description": "Number of plan units billed per cycle."
+     },
+     "customer_notify": {
+      "type": "integer",
+      "description": "1 to have Razorpay notify customer via SMS/email on each charge event.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "start_at": {
+      "type": "integer",
+      "description": "Unix timestamp for the first charge. Defaults to subscription creation time."
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": "Unix timestamp deadline for the customer to authorize the mandate."
+     },
+     "addons": {
+      "type": "array",
+      "description": "One-time charges added to the first billing cycle only."
+     },
+     "offer_id": {
+      "type": "string",
+      "description": "Offer/coupon ID to apply to the subscription."
+     },
+     "notify_info": {
+      "type": "object",
+      "description": "If provided, Razorpay sends the mandate auth link directly to the customer."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "plan_id",
+     "total_count"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/subscriptions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "plan_id",
+     "total_count",
+     "quantity",
+     "customer_notify",
+     "start_at",
+     "expire_by",
+     "addons",
+     "offer_id",
+     "notify_info",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_transfers_from_payment",
+   "name": "Create transfers from a payment",
+   "description": "Split a captured payment to one or more Linked Accounts. Amount is deducted from the payment and transferred to the recipient. INR only, minimum \u20b9100 per transfer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     },
+     "transfers": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "transfers"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payments/{id}/transfers",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "transfers"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.create_virtual_account",
+   "name": "Create a virtual account",
+   "description": "Create a virtual bank account (and optionally a VPA) for accepting NEFT/RTGS/IMPS/UPI payments. Set amount_expected=0 to accept any amount. Auto-closes after 90 days of inactivity. Maximum close_by timestamp: 2147483647.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receivers": {
+      "type": "object",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": "Purpose of the virtual account."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Expected amount in paise. Set to 0 to accept any amount."
+     },
+     "customer_id": {
+      "type": "string",
+      "description": "Link to an existing customer (cust_*)."
+     },
+     "close_by": {
+      "type": "integer",
+      "description": "Unix timestamp to auto-close the account. Maximum: 2147483647."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "description",
+     "receivers"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/virtual_accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "receivers",
+     "description",
+     "amount",
+     "customer_id",
+     "close_by",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_allowed_payer",
+   "name": "Delete an allowed payer (tpv)",
+   "description": "Remove a payer from the whitelist of a virtual account (Smart Collect TPV). The payer will no longer be able to make payments to this virtual account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "va_id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Allowed payer ID to remove."
+     }
+    },
+    "required": [
+     "id",
+     "va_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{va_id}/allowed_payers/{id}",
+    "path": [
+     "va_id",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_bill",
+   "name": "Delete a bill",
+   "description": "Delete a digital bill/receipt.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "bill_id": {
+      "type": "string",
+      "description": "Bill ID with prefix bill_"
+     }
+    },
+    "required": [
+     "bill_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/bills/{bill_id}",
+    "path": [
+     "bill_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_invoice",
+   "name": "Delete a draft invoice",
+   "description": "Permanently delete a draft invoice. Only invoices in draft status can be deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/invoices/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_item",
+   "name": "Delete an item",
+   "description": "Permanently delete a catalog item. Deleted items cannot be recovered.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Item ID (item_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/items/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_partner_account",
+   "name": "Delete (suspend) a sub merchant account",
+   "description": "Suspend a sub-merchant account created via Partners API. Sets account status to 'suspended' and returns suspended_at timestamp. Authentication: OAuth access_token as username with empty password.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Account ID with prefix acc_"
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_partner_webhook",
+   "name": "Delete a webhook",
+   "description": "Delete a webhook for a sub-merchant account. Returns empty array on success. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "webhook_id": {
+      "type": "string",
+      "description": "Unique identifier of the webhook (e.g. `we_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/webhooks/{webhook_id}",
+    "path": [
+     "account_id",
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.delete_subscription_offer",
+   "name": "Delete an offer from a subscription",
+   "description": "Remove an applied offer/coupon from a subscription. The offer will no longer apply from the next billing cycle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     },
+     "offer_id": {
+      "type": "string",
+      "description": "Offer ID to remove."
+     }
+    },
+    "required": [
+     "offer_id",
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.razorpay.com/v1/subscriptions/{sub_id}/{offer_id}",
+    "path": [
+     "sub_id",
+     "offer_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_account_documents",
+   "name": "Fetch kyc documents for a sub merchant account",
+   "description": "Retrieve all KYC documents uploaded for a sub-merchant account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/documents",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_customers",
+   "name": "Fetch all customers",
+   "description": "Retrieve a paginated list of all customers. Maximum 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/customers",
+    "path": [],
+    "query": [
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_disputes",
+   "name": "Fetch all disputes",
+   "description": "Retrieve a list of all payment disputes. Use expand[]=payment or expand[]=transaction.settlement for additional context.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     },
+     "expand[]": {
+      "type": "string",
+      "description": "Expand sub-entities. Supported: payment, transaction.settlement.",
+      "enum": [
+       "payment",
+       "transaction.settlement"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/disputes",
+    "path": [],
+    "query": [
+     "count",
+     "skip",
+     "expand[]"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_instant_settlements",
+   "name": "Fetch all instant settlements",
+   "description": "Retrieve a list of all on-demand instant settlements. Use expand[]=ondemand_payouts to include individual payout records inline.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     },
+     "expand[]": {
+      "type": "string",
+      "description": "Set to ondemand_payouts to include payout details.",
+      "enum": [
+       "ondemand_payouts"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/settlements/ondemand",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip",
+     "expand[]"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_orders",
+   "name": "Fetch all orders",
+   "description": "Retrieve a paginated list of orders. Maximum 100 records per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     },
+     "authorized": {
+      "type": "integer",
+      "description": "1 = orders with authorized payments only. 0 = without.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "receipt": {
+      "type": "string",
+      "description": "Filter by receipt value."
+     },
+     "expand[]": {
+      "type": "array",
+      "description": "Expand: payments, payments.card, transfers, virtual_account."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/orders",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip",
+     "authorized",
+     "receipt",
+     "expand[]"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_payment_links",
+   "name": "Fetch all payment links",
+   "description": "Retrieve all payment links. Filter by payment_id or reference_id to narrow results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payment_id": {
+      "type": "string",
+      "description": "Filter by associated payment ID."
+     },
+     "reference_id": {
+      "type": "string",
+      "description": "Filter by your custom reference number."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payment_links",
+    "path": [],
+    "query": [
+     "payment_id",
+     "reference_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_payments",
+   "name": "Fetch all payments",
+   "description": "Retrieve a paginated list of payments. Maximum 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_qr_codes",
+   "name": "Fetch all qr codes",
+   "description": "Retrieve all QR codes. Filter by customer_id or payment_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     },
+     "customer_id": {
+      "type": "string",
+      "description": "Filter by customer ID (cust_*)."
+     },
+     "payment_id": {
+      "type": "string",
+      "description": "Filter QR codes associated with a specific payment."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip",
+     "customer_id",
+     "payment_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_refunds",
+   "name": "Fetch all refunds",
+   "description": "Retrieve a paginated list of all refunds across payments. Maximum 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/refunds",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_settlements",
+   "name": "Fetch all settlements",
+   "description": "Retrieve a paginated list of settlements. Each settlement represents a batch transfer to your bank account. Maximum 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/settlements",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_all_stakeholders",
+   "name": "Fetch all stakeholders for an account",
+   "description": "Retrieve all stakeholders associated with a sub-merchant account. Partners API only \u2014 Route allows only 1 stakeholder per account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/stakeholders",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_bank_transfer",
+   "name": "Fetch bank transfer details for a payment",
+   "description": "Retrieve the BankTransfer entity associated with a payment received via a Virtual Account. Contains the UTR number, payer bank account details, and transfer mode.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/{id}/bank_transfer",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_banking_balances",
+   "name": "Fetch razorpay x banking balances",
+   "description": "Fetch balance details for RazorpayX current accounts or RazorpayX Lite accounts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_type": {
+      "type": "string",
+      "description": "Type of RazorpayX account to query. Accepted values: `current_account` or `razorpayx_lite`.",
+      "enum": [
+       "current_account",
+       "fixed_deposit",
+       "razorpayx_lite"
+      ]
+     },
+     "bank_code": {
+      "type": "string",
+      "description": "First 4 characters of IFSC"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/banking_balances",
+    "path": [],
+    "query": [
+     "account_type",
+     "bank_code"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_contact",
+   "name": "Fetch a contact",
+   "description": "Fetch details of a specific contact by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier of the contact (e.g. `cont_00000000000001`)."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/contacts/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_customer",
+   "name": "Fetch customer by id",
+   "description": "Retrieve full details of a specific customer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Customer ID (cust_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/customers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_dispute",
+   "name": "Fetch dispute by id",
+   "description": "Retrieve full details of a specific dispute including submitted evidence.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Dispute ID (disp_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/disputes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_document",
+   "name": "Fetch document info",
+   "description": "Retrieve metadata for an uploaded document (name, MIME type, size, purpose). Document IDs are exactly 14 alphanumeric characters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Document ID (doc_*). Exactly 14 alphanumeric characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/documents/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_document_content",
+   "name": "Fetch document content",
+   "description": "Retrieve the binary content of a previously uploaded document. Returns the raw file bytes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Document ID. Exactly 14 alphanumeric characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/documents/{id}/content",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_fund_account",
+   "name": "Fetch a fund account",
+   "description": "Fetch details of a specific fund account by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fund_account_id": {
+      "type": "string",
+      "description": "Unique identifier of the fund account (e.g. `fa_00000000000001`)."
+     }
+    },
+    "required": [
+     "fund_account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/fund_accounts/{fund_account_id}",
+    "path": [
+     "fund_account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_fund_account_validation",
+   "name": "Fetch a fund account validation",
+   "description": "Fetch details of a specific fund account validation by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "validation_id": {
+      "type": "string",
+      "description": "Unique identifier of the fund account validation (e.g. `fav_00000000000001`)."
+     }
+    },
+    "required": [
+     "validation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/fund_accounts/validations/{validation_id}",
+    "path": [
+     "validation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_instant_settlement",
+   "name": "Fetch instant settlement by id",
+   "description": "Retrieve details of a specific on-demand instant settlement. Use expand[]=ondemand_payouts to include payout records.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Instant settlement ID (setlod_*)."
+     },
+     "expand[]": {
+      "type": "string",
+      "description": "Set to ondemand_payouts to include payout details.",
+      "enum": [
+       "ondemand_payouts"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/settlements/ondemand/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "expand[]"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_invoice",
+   "name": "Fetch an invoice",
+   "description": "Get full details of a specific invoice including status, line items, and payment information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/invoices/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_item",
+   "name": "Fetch an item",
+   "description": "Get details of a specific catalog item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Item ID (item_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/items/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_linked_account",
+   "name": "Fetch a linked account",
+   "description": "Retrieve the details of a Linked Account by its ID. Also used in Partners API to fetch sub-merchant account details (authentication: OAuth access_token).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_order",
+   "name": "Fetch order by id",
+   "description": "Retrieve the full details and current status of a specific order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Order ID (order_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_order_payments",
+   "name": "Fetch payments for an order",
+   "description": "Retrieve all authorized and failed payment attempts made against a specific order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Order ID (order_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/orders/{id}/payments",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_partner_webhook",
+   "name": "Fetch a webhook by id",
+   "description": "Retrieve details of a specific webhook for a sub-merchant account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "webhook_id": {
+      "type": "string",
+      "description": "Unique identifier of the webhook (e.g. `we_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/webhooks/{webhook_id}",
+    "path": [
+     "account_id",
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment",
+   "name": "Fetch payment by id",
+   "description": "Retrieve full details and current status of a specific payment. Always re-fetch before acting \u2014 status can change.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment_downtime",
+   "name": "Fetch payment downtime by id",
+   "description": "Retrieve details of a specific payment downtime event.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Downtime identifier."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/downtimes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment_downtimes",
+   "name": "Fetch all payment downtimes",
+   "description": "Retrieve current and upcoming payment method downtimes for cards, netbanking, and UPI. Use to surface degraded methods in checkout UI.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/downtimes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment_link",
+   "name": "Fetch payment link by id",
+   "description": "Retrieve full details of a specific payment link.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment Link ID (plink_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payment_links/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment_refund",
+   "name": "Fetch a specific refund for a payment",
+   "description": "Retrieve a specific refund by its ID scoped to a particular payment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payment_id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     },
+     "refund_id": {
+      "type": "string",
+      "description": "Refund ID (rfnd_*)."
+     }
+    },
+    "required": [
+     "payment_id",
+     "refund_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/{payment_id}/refunds/{refund_id}",
+    "path": [
+     "payment_id",
+     "refund_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payment_refunds",
+   "name": "Fetch refunds for a payment",
+   "description": "Retrieve all refunds issued against a specific payment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payment_id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": [
+     "payment_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/{payment_id}/refunds",
+    "path": [
+     "payment_id"
+    ],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payout",
+   "name": "Fetch a payout",
+   "description": "Fetch details of a specific payout by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout (e.g. `pout_00000000000001`)."
+     }
+    },
+    "required": [
+     "payout_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payouts/{payout_id}",
+    "path": [
+     "payout_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_payout_link",
+   "name": "Fetch a payout link",
+   "description": "Fetch details of a specific payout link by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_link_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout link (e.g. `poutlk_00000000000001`)."
+     }
+    },
+    "required": [
+     "payout_link_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payout-links/{payout_link_id}",
+    "path": [
+     "payout_link_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_plan",
+   "name": "Fetch a plan",
+   "description": "Get details of a specific billing plan.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Plan ID (plan_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/plans/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_product_config",
+   "name": "Fetch product configuration",
+   "description": "Retrieve the current product configuration and activation status for a Linked Account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Product configuration ID (acc_prd_*)."
+     }
+    },
+    "required": [
+     "account_id",
+     "product_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/products/{product_id}",
+    "path": [
+     "account_id",
+     "product_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_qr_code",
+   "name": "Fetch qr code by id",
+   "description": "Retrieve details of a specific QR code including payment counts and status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "QR code ID (qr_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_qr_code_payments",
+   "name": "Fetch payments for a qr code",
+   "description": "Retrieve all payments made against a specific QR code.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "QR code ID (qr_*)."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes/{id}/payments",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_refund",
+   "name": "Fetch refund by id",
+   "description": "Retrieve full details and current status of a specific refund.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Refund ID (rfnd_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/refunds/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_settlement",
+   "name": "Fetch settlement by id",
+   "description": "Retrieve details of a specific settlement transaction.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Settlement ID (setl_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/settlements/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_settlement_recon",
+   "name": "Fetch settlement reconciliation report",
+   "description": "Retrieve a detailed transaction-level reconciliation report for a given month (or day). Each record maps a payment, refund, transfer, or adjustment to its settlement. Use for accounting reconciliation. Maximum 1000 records per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "year": {
+      "type": "integer",
+      "description": "Settlement year in YYYY format."
+     },
+     "month": {
+      "type": "integer",
+      "description": "Settlement month in MM format (01\u201312)."
+     },
+     "day": {
+      "type": "integer",
+      "description": "Settlement day in DD format (1\u201331). Omit to fetch the full month."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Records per call. Maximum 1000. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Records to skip for pagination."
+     }
+    },
+    "required": [
+     "month",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/settlements/recon/combined",
+    "path": [],
+    "query": [
+     "year",
+     "month",
+     "day",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_stakeholder_documents",
+   "name": "Fetch kyc documents for a stakeholder",
+   "description": "Retrieve all KYC documents uploaded for a specific stakeholder. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "stakeholder_id": {
+      "type": "string",
+      "description": "Unique identifier of the stakeholder (e.g. `sth_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id",
+     "stakeholder_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/stakeholders/{stakeholder_id}/documents",
+    "path": [
+     "account_id",
+     "stakeholder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_subscription",
+   "name": "Fetch a subscription",
+   "description": "Get current status and full details of a subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_subscription_scheduled_changes",
+   "name": "Fetch scheduled changes",
+   "description": "Retrieve any pending plan or quantity changes scheduled for the next billing cycle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}/retrieve_scheduled_changes",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_transaction",
+   "name": "Fetch a transaction by id",
+   "description": "Fetch details of a specific transaction from a RazorpayX account by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transaction_id": {
+      "type": "string",
+      "description": "Transaction ID (txn_*)"
+     }
+    },
+    "required": [
+     "transaction_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/transactions/{transaction_id}",
+    "path": [
+     "transaction_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_transfer",
+   "name": "Fetch a transfer",
+   "description": "Retrieve details of a specific transfer by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Transfer ID (trf_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/transfers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_transfers_for_payment",
+   "name": "Fetch transfers for a payment",
+   "description": "Retrieve all transfers created from a specific payment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payments/{id}/transfers",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_virtual_account",
+   "name": "Fetch a virtual account",
+   "description": "Retrieve details of a specific virtual account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.fetch_virtual_account_payments",
+   "name": "Fetch payments for a virtual account",
+   "description": "Retrieve all payments received by a virtual account. Returns Payment objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{id}/payments",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.issue_invoice",
+   "name": "Issue an invoice",
+   "description": "Transition a draft invoice to issued status, sending a notification to the customer with the payment link. Once issued, line items cannot be changed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/invoices/{id}/issue",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_contacts",
+   "name": "List contacts",
+   "description": "Filter and list all contacts. Supports filtering by name, email, phone number, reference ID, and active status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Filter by contact name (partial match supported)."
+     },
+     "email": {
+      "type": "string",
+      "description": "Filter by contact email address."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Filter by contact phone number."
+     },
+     "reference_id": {
+      "type": "string",
+      "description": "Filter by your unique reference ID for the contact (max 40 chars)."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp filter"
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp. Only contacts created before this timestamp are returned."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of contacts to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of contacts to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/contacts",
+    "path": [],
+    "query": [
+     "name",
+     "email",
+     "contact",
+     "reference_id",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_fund_account_validations",
+   "name": "List fund account validations",
+   "description": "List all fund account validation records, optionally filtered by date range.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp. Only validations created from this timestamp onwards are returned."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp. Only validations created before this timestamp are returned."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of validation records to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of validation records to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/fund_accounts/validations",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_fund_accounts",
+   "name": "List fund accounts",
+   "description": "List fund accounts linked to contacts. Filter by contact ID and/or account type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Filter by contact ID to list fund accounts linked to that contact."
+     },
+     "account_type": {
+      "type": "string",
+      "description": "Filter by fund account type: `bank_account`, `vpa`, `card`, or `wallet`."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of fund accounts to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of fund accounts to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/fund_accounts",
+    "path": [],
+    "query": [
+     "contact_id",
+     "account_type",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_invoices",
+   "name": "List all invoices",
+   "description": "Retrieve a list of invoices. Filter by type, status, customer, payment, or subscription. Returns up to 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Filter by invoice type.",
+      "enum": [
+       "invoice",
+       "link"
+      ]
+     },
+     "payment_id": {
+      "type": "string",
+      "description": "Filter invoices by the payment ID used to pay them."
+     },
+     "customer_id": {
+      "type": "string",
+      "description": "Filter by customer ID (cust_*)."
+     },
+     "subscription_id": {
+      "type": "string",
+      "description": "Fetch all invoices generated for a subscription (sub_*)."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/invoices",
+    "path": [],
+    "query": [
+     "type",
+     "payment_id",
+     "customer_id",
+     "subscription_id",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_items",
+   "name": "List all items",
+   "description": "Retrieve all catalog items. Supports pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/items",
+    "path": [],
+    "query": [
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_partner_webhooks",
+   "name": "List webhooks for a sub merchant",
+   "description": "Retrieve all webhooks configured for a sub-merchant account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/webhooks",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_payout_links",
+   "name": "List payout links",
+   "description": "List all payout links. Filter by contact ID, status, or date range.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Filter payout links by the contact ID of the recipient."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp. Only payout links created from this timestamp onwards are returned."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp. Only payout links created before this timestamp are returned."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of payout links to return. Default: 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of payout links to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payout-links",
+    "path": [],
+    "query": [
+     "contact_id",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_payouts",
+   "name": "List payouts",
+   "description": "List payouts for a given RazorpayX account. Filter by contact, fund account, date range, or status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_number": {
+      "type": "string",
+      "description": "The RazorpayX account number (Customer Identifier from Dashboard \u2192 My Account & Settings \u2192 Banking). Required to scope results to a specific account."
+     },
+     "contact_id": {
+      "type": "string",
+      "description": "Filter payouts by the contact ID of the recipient."
+     },
+     "fund_account_id": {
+      "type": "string",
+      "description": "Filter payouts by fund account ID."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp. Only payouts created from this timestamp onwards are returned."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp. Only payouts created before this timestamp are returned."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of payouts to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of payouts to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": [
+     "account_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/payouts",
+    "path": [],
+    "query": [
+     "account_number",
+     "contact_id",
+     "fund_account_id",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_plans",
+   "name": "List all plans",
+   "description": "Retrieve all billing plans. Supports pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/plans",
+    "path": [],
+    "query": [
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_reversals",
+   "name": "List reversals for a transfer",
+   "description": "Retrieve all reversals for a specific transfer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Transfer ID (trf_*)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/transfers/{id}/reversals",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_subscriptions",
+   "name": "List all subscriptions",
+   "description": "Retrieve all subscriptions. Filter by plan_id or status. Returns up to 100 per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "plan_id": {
+      "type": "string",
+      "description": "Filter by plan ID."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or after this time."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp (seconds). Fetch records created on or before this time."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return per call. Maximum 100. Default 10."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use with count for pagination. Default 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/subscriptions",
+    "path": [],
+    "query": [
+     "plan_id",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_transactions",
+   "name": "List transactions for a razorpay x account",
+   "description": "Returns all transaction records (credits and debits) for a given RazorpayX account. Use account_number from Dashboard \u2192 My Account & Settings \u2192 Banking \u2192 Customer Identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_number": {
+      "type": "string",
+      "description": "RazorpayX account number (Customer Identifier from Dashboard). Different for Test and Live mode."
+     },
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp filter start"
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp filter end"
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of transactions to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of transactions to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": [
+     "account_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/transactions",
+    "path": [],
+    "query": [
+     "account_number",
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_transfers",
+   "name": "List transfers",
+   "description": "Retrieve a paginated list of transfers. Filter by recipient_settlement_id to fetch transfers included in a specific settlement. Use expand[]=recipient_settlement to include settlement details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp filter (start)."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp filter (end)."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use for pagination. Default: 0."
+     },
+     "recipient_settlement_id": {
+      "type": "string",
+      "description": "Filter transfers by settlement ID in the Linked Account."
+     },
+     "expand[]": {
+      "type": "string",
+      "description": "Expand recipient_settlement to include full settlement object.",
+      "enum": [
+       "recipient_settlement"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/transfers",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip",
+     "recipient_settlement_id",
+     "expand[]"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.list_virtual_accounts",
+   "name": "List virtual accounts",
+   "description": "Retrieve a paginated list of virtual accounts with optional filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "integer",
+      "description": "Unix timestamp filter (start)."
+     },
+     "to": {
+      "type": "integer",
+      "description": "Unix timestamp filter (end)."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of records to return. Default: 10. Maximum: 100."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip. Use for pagination. Default: 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.razorpay.com/v1/virtual_accounts",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "count",
+     "skip"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.modify_transfer_settlement_hold",
+   "name": "Modify settlement hold on a transfer",
+   "description": "Put a transfer's settlement on hold or release an existing hold. Use on_hold=true to hold settlement, on_hold=false to release. on_hold_until sets a future timestamp for automatic hold release.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Transfer ID (trf_*)."
+     },
+     "on_hold": {
+      "type": "boolean",
+      "description": "true to hold settlement; false to release."
+     },
+     "on_hold_until": {
+      "type": "integer",
+      "description": "Unix timestamp for automatic hold release. null = hold indefinitely until manually released."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/transfers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "on_hold",
+     "on_hold_until"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.pause_subscription",
+   "name": "Pause a subscription",
+   "description": "Pause an active subscription. No charges will be attempted while paused. Resume with POST /subscriptions/{id}/resume.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     },
+     "pause_at": {
+      "type": "string",
+      "description": "When to pause. 'now' = immediately; 'cycle_end' = after current cycle.",
+      "enum": [
+       "now",
+       "cycle_end"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}/pause",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "pause_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.reject_payout",
+   "name": "Reject a payout (workflow enabled)",
+   "description": "Requires Payouts Approval workflow enabled and Technology Partner status with OAuth.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payout_id": {
+      "type": "string",
+      "description": "Unique identifier of the payout to reject."
+     },
+     "remarks": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "payout_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payouts/{payout_id}/reject",
+    "path": [
+     "payout_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "remarks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.request_product_config",
+   "name": "Request route product configuration",
+   "description": "Request activation of the Route product for a Linked Account. Submits the account for review and KYC. Activation progresses: requested \u2192 under_review \u2192 activated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "product_name": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "route"
+      ]
+     },
+     "tnc_accepted": {
+      "type": "boolean",
+      "description": "Set to true to accept Razorpay TnC on behalf of the sub-merchant."
+     },
+     "applicable_identified": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "product_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/products",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "product_name",
+     "tnc_accepted",
+     "applicable_identified"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.resend_payment_link_notification",
+   "name": "Send or resend payment link notification",
+   "description": "Send or resend a payment link notification to the customer via SMS or email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment Link ID (plink_*)."
+     },
+     "medium": {
+      "type": "string",
+      "description": "Notification medium.",
+      "enum": [
+       "sms",
+       "email"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "medium"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/payment_links/{id}/notify_by/{medium}",
+    "path": [
+     "id",
+     "medium"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.resume_subscription",
+   "name": "Resume a paused subscription",
+   "description": "Resume a paused subscription. Charging resumes on the next scheduled cycle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     },
+     "resume_at": {
+      "type": "string",
+      "description": "When to resume. Currently only 'now' is supported.",
+      "enum": [
+       "now"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}/resume",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "resume_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.reverse_transfer",
+   "name": "Reverse a transfer",
+   "description": "Move funds from a Linked Account back to the merchant. Partial reversals are supported. Multiple reversals per transfer are allowed as long as the total reversed amount does not exceed the transfer amount.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Transfer ID (trf_*)."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Amount to reverse in paise. Omit to reverse the full remaining amount."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/transfers/{id}/reversals",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.send_invoice_notification",
+   "name": "Send invoice notification",
+   "description": "Send or resend the invoice payment link to the customer via SMS or email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     },
+     "medium": {
+      "type": "string",
+      "description": "Notification channel.",
+      "enum": [
+       "sms",
+       "email"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "medium"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/invoices/{id}/notify_by/{medium}",
+    "path": [
+     "id",
+     "medium"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_bill",
+   "name": "Update a bill",
+   "description": "Update an existing digital bill. Can update customer details, line items, receipt summary, and other fields.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "bill_id": {
+      "type": "string",
+      "description": "Bill ID with prefix bill_"
+     },
+     "id": {
+      "type": "string",
+      "description": "Bill ID with prefix bill_"
+     },
+     "business_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ecommerce",
+       "retail",
+       "food_and_beverage",
+       "events"
+      ]
+     },
+     "business_category": {
+      "type": "string",
+      "description": ""
+     },
+     "customer": {
+      "type": "object",
+      "description": ""
+     },
+     "employee": {
+      "type": "object",
+      "description": ""
+     },
+     "loyalty": {
+      "type": "object",
+      "description": ""
+     },
+     "store_code": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt_timestamp": {
+      "type": "integer",
+      "description": "Unix timestamp of the transaction"
+     },
+     "receipt_number": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "tax_invoice",
+       "sales_invoice",
+       "bill_of_supply",
+       "credit_note",
+       "debit_note"
+      ]
+     },
+     "receipt_delivery": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "digital",
+       "print",
+       "digital_and_print"
+      ]
+     },
+     "tags": {
+      "type": "object",
+      "description": ""
+     },
+     "bar_code_number": {
+      "type": "string",
+      "description": ""
+     },
+     "qr_code_number": {
+      "type": "string",
+      "description": ""
+     },
+     "billing_pos_number": {
+      "type": "string",
+      "description": ""
+     },
+     "pos_category": {
+      "type": "string",
+      "description": ""
+     },
+     "order_number": {
+      "type": "string",
+      "description": ""
+     },
+     "order_service_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "dine_in",
+       "takeaway",
+       "delivery"
+      ]
+     },
+     "delivery_status_url": {
+      "type": "string",
+      "description": ""
+     },
+     "line_items": {
+      "type": "array",
+      "description": ""
+     },
+     "receipt_summary": {
+      "type": "object",
+      "description": ""
+     },
+     "taxes": {
+      "type": "array",
+      "description": ""
+     },
+     "payments": {
+      "type": "array",
+      "description": ""
+     },
+     "event": {
+      "type": "object",
+      "description": "Event details for events business type"
+     },
+     "irn": {
+      "type": "string",
+      "description": "Invoice Reference Number for GST e-invoicing"
+     },
+     "receipt_url": {
+      "type": "string",
+      "description": ""
+     },
+     "created_at": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "bill_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/bills/{bill_id}",
+    "path": [
+     "bill_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "business_type",
+     "business_category",
+     "customer",
+     "employee",
+     "loyalty",
+     "store_code",
+     "receipt_timestamp",
+     "receipt_number",
+     "receipt_type",
+     "receipt_delivery",
+     "tags",
+     "bar_code_number",
+     "qr_code_number",
+     "billing_pos_number",
+     "pos_category",
+     "order_number",
+     "order_service_type",
+     "delivery_status_url",
+     "line_items",
+     "receipt_summary",
+     "taxes",
+     "payments",
+     "event",
+     "irn",
+     "receipt_url",
+     "created_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_contact",
+   "name": "Update or activate deactivate a contact",
+   "description": "Update contact details or activate/deactivate a contact. Set `active: false` to deactivate.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier of the contact (e.g. `cont_00000000000001`)."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "contact": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "reference_id": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": ""
+     },
+     "active": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/contacts/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "email",
+     "contact",
+     "type",
+     "reference_id",
+     "notes",
+     "active"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_customer",
+   "name": "Update a customer",
+   "description": "Update a customer's name, email, or contact. The combination of email and contact must remain unique. Contact number must contain at least 8 digits.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Customer ID (cust_*)."
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated name. 3-50 characters."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Updated phone number. Min 8 digits including country code."
+     },
+     "email": {
+      "type": "string",
+      "description": "Updated email. Max 64 characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.razorpay.com/v1/customers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "contact",
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_invoice",
+   "name": "Update an invoice",
+   "description": "Update invoice fields. Updatable fields depend on current status: draft=all fields; issued=partial_payment, receipt, comment, terms, notes, expire_by; paid/cancelled/expired=notes only.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invoice ID (inv_*)."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "receipt": {
+      "type": "string",
+      "description": ""
+     },
+     "comment": {
+      "type": "string",
+      "description": ""
+     },
+     "terms": {
+      "type": "string",
+      "description": ""
+     },
+     "partial_payment": {
+      "type": "boolean",
+      "description": ""
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     },
+     "line_items": {
+      "type": "array",
+      "description": "Replaces existing line items. Draft status only."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/invoices/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "description",
+     "receipt",
+     "comment",
+     "terms",
+     "partial_payment",
+     "expire_by",
+     "notes",
+     "line_items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_item",
+   "name": "Update an item",
+   "description": "Update the name, description, amount, currency, or active status of an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Item ID (item_*)."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Price in paise."
+     },
+     "currency": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/items/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "amount",
+     "currency",
+     "active"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_linked_account",
+   "name": "Update a linked account",
+   "description": "Update mutable fields of a Linked Account. email and business_type cannot be changed after creation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "phone": {
+      "type": "string",
+      "description": ""
+     },
+     "legal_business_name": {
+      "type": "string",
+      "description": ""
+     },
+     "profile": {
+      "type": "object",
+      "description": ""
+     },
+     "legal_info": {
+      "type": "object",
+      "description": ""
+     },
+     "contact_name": {
+      "type": "string",
+      "description": ""
+     },
+     "contact_info": {
+      "type": "object",
+      "description": ""
+     },
+     "apps": {
+      "type": "object",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "phone",
+     "legal_business_name",
+     "profile",
+     "legal_info",
+     "contact_name",
+     "contact_info",
+     "apps",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_order",
+   "name": "Update an order",
+   "description": "Update the notes field of an existing order. Only notes can be modified after creation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Order ID (order_*)."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id",
+     "notes"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_partner_webhook",
+   "name": "Update a webhook",
+   "description": "Update webhook URL, events, secret, or active status for a sub-merchant account. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "webhook_id": {
+      "type": "string",
+      "description": "Unique identifier of the webhook (e.g. `we_00000000000001`)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Webhook ID, max 14 characters"
+     },
+     "entity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "webhook"
+      ]
+     },
+     "owner_id": {
+      "type": "string",
+      "description": ""
+     },
+     "owner_type": {
+      "type": "string",
+      "description": ""
+     },
+     "url": {
+      "type": "string",
+      "description": "HTTPS URL to receive webhook events"
+     },
+     "alert_email": {
+      "type": "string",
+      "description": ""
+     },
+     "secret_exists": {
+      "type": "boolean",
+      "description": ""
+     },
+     "active": {
+      "type": "boolean",
+      "description": ""
+     },
+     "events": {
+      "type": "object",
+      "description": "Map of event names to boolean"
+     },
+     "service": {
+      "type": "string",
+      "description": ""
+     },
+     "context": {
+      "type": "array",
+      "description": ""
+     },
+     "disabled_at": {
+      "type": "integer",
+      "description": ""
+     },
+     "created_at": {
+      "type": "integer",
+      "description": ""
+     },
+     "updated_at": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/webhooks/{webhook_id}",
+    "path": [
+     "account_id",
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "entity",
+     "owner_id",
+     "owner_type",
+     "url",
+     "alert_email",
+     "secret_exists",
+     "active",
+     "events",
+     "service",
+     "context",
+     "disabled_at",
+     "created_at",
+     "updated_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_payment",
+   "name": "Update a payment",
+   "description": "Update the notes field of a payment. Only notes can be modified.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment ID (pay_*)."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id",
+     "notes"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/payments/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_payment_link",
+   "name": "Update a payment link",
+   "description": "Update an existing payment link. Updates are only allowed when the link is in 'created' or 'partially_paid' status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Payment Link ID (plink_*)."
+     },
+     "reference_id": {
+      "type": "string",
+      "description": "Add or update unique reference number. Max 40 characters."
+     },
+     "expire_by": {
+      "type": "integer",
+      "description": "Updated expiry Unix timestamp."
+     },
+     "reminder_enable": {
+      "type": "boolean",
+      "description": ""
+     },
+     "accept_partial": {
+      "type": "boolean",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/payment_links/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "reference_id",
+     "expire_by",
+     "reminder_enable",
+     "accept_partial",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_product_config",
+   "name": "Update product configuration",
+   "description": "Update settlement details or other configuration for a Route product on a Linked Account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Product configuration ID (acc_prd_*)."
+     },
+     "settlements": {
+      "type": "object",
+      "description": ""
+     },
+     "tnc_accepted": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "product_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/products/{product_id}",
+    "path": [
+     "account_id",
+     "product_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "settlements",
+     "tnc_accepted"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_qr_code",
+   "name": "Update a qr code",
+   "description": "Update the notes field of a QR code. Only notes can be modified after creation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "QR code ID (qr_*)."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id",
+     "notes"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/payments/qr_codes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_refund",
+   "name": "Update a refund",
+   "description": "Update the notes field of a refund. Only notes can be modified.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Refund ID (rfnd_*)."
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id",
+     "notes"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/refunds/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_stakeholder",
+   "name": "Update a stakeholder",
+   "description": "Update stakeholder information for a Linked Account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Linked Account ID (acc_*)."
+     },
+     "stakeholder_id": {
+      "type": "string",
+      "description": "Stakeholder ID (sth_*)."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "percentage_ownership": {
+      "type": "number",
+      "description": ""
+     },
+     "relationship": {
+      "type": "object",
+      "description": ""
+     },
+     "phone": {
+      "type": "object",
+      "description": ""
+     },
+     "addresses": {
+      "type": "object",
+      "description": ""
+     },
+     "kyc": {
+      "type": "object",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "account_id",
+     "stakeholder_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/stakeholders/{stakeholder_id}",
+    "path": [
+     "account_id",
+     "stakeholder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "percentage_ownership",
+     "relationship",
+     "phone",
+     "addresses",
+     "kyc",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_subscription",
+   "name": "Update a subscription",
+   "description": "Update plan, quantity, or schedule future changes for a subscription. Use schedule_change_at='now' for immediate effect (creates a new billing cycle) or 'cycle_end' to defer until the current cycle ends. Cannot change plan mid-cycle without creating a new cycle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscription ID (sub_*)."
+     },
+     "plan_id": {
+      "type": "string",
+      "description": "New plan ID to switch to."
+     },
+     "quantity": {
+      "type": "integer",
+      "description": ""
+     },
+     "remaining_count": {
+      "type": "integer",
+      "description": "Override remaining billing cycles."
+     },
+     "schedule_change_at": {
+      "type": "string",
+      "description": "When changes take effect. 'now' starts a new cycle immediately; 'cycle_end' defers to end of current cycle.",
+      "enum": [
+       "now",
+       "cycle_end"
+      ]
+     },
+     "customer_notify": {
+      "type": "integer",
+      "description": "",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "notes": {
+      "type": "object",
+      "description": "Key-value pairs for storing custom metadata. Maximum 15 pairs. Each key and value must not exceed 256 characters."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/subscriptions/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "plan_id",
+     "quantity",
+     "remaining_count",
+     "schedule_change_at",
+     "customer_notify",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.update_virtual_account",
+   "name": "Update a virtual account",
+   "description": "Update the amount_expected or close_by timestamp on an active virtual account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Virtual Account ID (va_*)."
+     },
+     "amount": {
+      "type": "integer",
+      "description": "New expected amount in paise."
+     },
+     "close_by": {
+      "type": "integer",
+      "description": "New close timestamp. Maximum: 2147483647."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.razorpay.com/v1/virtual_accounts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "close_by",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.upload_account_documents",
+   "name": "Upload kyc documents for a sub merchant account",
+   "description": "Upload KYC documents for business identity and address verification. Multipart form upload. JPG/PNG max 4MB, PDF max 2MB. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "document_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "business_proof_url",
+       "gst_certificate",
+       "shop_establishment_certificate",
+       "certificate_of_incorporation",
+       "trust_deed",
+       "society_registration_certificate"
+      ]
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/documents",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "document_type",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.upload_document",
+   "name": "Upload a document",
+   "description": "Upload a file to Razorpay. Returns a document ID that can be used in dispute evidence submissions. Supports JPEG, PNG, and PDF formats.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "File to upload. Supported: JPEG, PNG, PDF."
+     },
+     "purpose": {
+      "type": "string",
+      "description": "Reason for upload. Example: dispute_evidence."
+     }
+    },
+    "required": [
+     "file",
+     "purpose"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/documents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "purpose"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.upload_stakeholder_documents",
+   "name": "Upload kyc documents for a stakeholder",
+   "description": "Upload identity and address verification documents for a stakeholder. Supports PAN, Aadhaar (front/back), passport (front/back), voter ID (front/back). Multipart form upload. JPG/PNG max 4MB, PDF max 2MB. Authentication: OAuth access_token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier of the linked merchant account (e.g. `acc_00000000000001`)."
+     },
+     "stakeholder_id": {
+      "type": "string",
+      "description": "Unique identifier of the stakeholder (e.g. `sth_00000000000001`)."
+     },
+     "document_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "personal_pan",
+       "aadhar_front",
+       "aadhar_back",
+       "passport_front",
+       "passport_back",
+       "voter_id_front",
+       "voter_id_back"
+      ]
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "stakeholder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/v2/accounts/{account_id}/stakeholders/{stakeholder_id}/documents",
+    "path": [
+     "account_id",
+     "stakeholder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "document_type",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "razorpay.validate_fund_account",
+   "name": "Validate a bank account or vpa",
+   "description": "Three validation methods: (1) penny drop for bank accounts \u2014 sends Re.1 to verify; (2) penny drop for VPA \u2014 sends Re.1 to UPI address; (3) reverse penny drop \u2014 sends UPI intent URL to customer who initiates payment. Live-mode only, RazorpayX Lite account required. Composite validation (creates Contact + Fund Account inline) supported via validation_type field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "bank_account",
+       "vpa"
+      ]
+     },
+     "fund_account": {
+      "type": "object",
+      "description": "For composite validation, include contact object instead of contact_id"
+     },
+     "amount": {
+      "type": "integer",
+      "description": "Penny drop amount in paise (typically 100)"
+     },
+     "currency": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "object",
+      "description": ""
+     },
+     "receipt": {
+      "type": "string",
+      "description": ""
+     },
+     "validation_type": {
+      "type": "string",
+      "description": "penniless = reverse penny drop (UPI intent); optimized = system chooses best method",
+      "enum": [
+       "pennydrop",
+       "penniless",
+       "optimized"
+      ]
+     }
+    },
+    "required": [
+     "account_type",
+     "fund_account"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.razorpay.com/v1/fund_accounts/validations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "account_type",
+     "fund_account",
+     "amount",
+     "currency",
+     "notes",
+     "receipt",
+     "validation_type"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

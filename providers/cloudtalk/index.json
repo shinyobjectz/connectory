@@ -1,0 +1,3600 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "cloudtalk",
+ "source": "https://developers.cloudtalk.io/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "cloudtalk.create_voice_agent_call",
+   "name": "Initiate voice agent call",
+   "description": "Creates a new VoiceAgent call with specified parameters and properties. Call properties are optional and can be used to configure the call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_number": {
+      "type": "string",
+      "description": "The phone number to call"
+     },
+     "voice_agent_id": {
+      "type": "string",
+      "description": "ID of the VoiceAgent to use for the call"
+     },
+     "call_properties": {
+      "type": "object",
+      "description": "Additional properties for configuring the VoiceAgent call"
+     }
+    },
+    "required": [
+     "call_number",
+     "voice_agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/voice-agent/calls",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "call_number",
+     "voice_agent_id",
+     "call_properties"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_activity_delete_activityId_json",
+   "name": "Delete activity",
+   "description": "Deletes the activity identified by `activityId`. Returns `404` if no activity has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activityId": {
+      "type": "integer",
+      "description": "Activity ID to delete"
+     }
+    },
+    "required": [
+     "activityId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/activity/delete/{activityId}.json",
+    "path": [
+     "activityId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_agents_delete_agentId_json",
+   "name": "Delete an agent",
+   "description": "Deletes the agent identified by `agentId`. Returns `404` if no agent has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agentId": {
+      "type": "integer",
+      "description": "Agent ID to delete"
+     }
+    },
+    "required": [
+     "agentId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/agents/delete/{agentId}.json",
+    "path": [
+     "agentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_blacklist_delete_id_json",
+   "name": "Delete number from blacklist",
+   "description": "Delete the number from blacklist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "ID to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/blacklist/delete/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_campaigns_delete_id_json",
+   "name": "Delete campaign",
+   "description": "Deletes the campaign identified by `id`. Returns `404` if no campaign has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Campaign ID to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/campaigns/delete/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_contacts_delete_contactId_json",
+   "name": "Delete contact",
+   "description": "Deletes the contact identified by `contactId`. Returns `404` if no contact has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID to delete"
+     }
+    },
+    "required": [
+     "contactId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/contacts/delete/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_contacts_removeTags_contactId_json",
+   "name": "Unassign contact tags",
+   "description": "Unassign contact tags from a contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID for deleting tags"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Array of tag names"
+     }
+    },
+    "required": [
+     "contactId",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/contacts/removeTags/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_groups_delete_agent_id_json",
+   "name": "Remove agent from group",
+   "description": "Removes one agent from one group. The agent comes from the `agent_id` path parameter and the group from `group_id` in the request body \u2014 this deletes a single membership, not the agent and not the group. Returns `404` if the group does not exist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "integer",
+      "description": "Agent ID to delete"
+     },
+     "group_id": {
+      "type": "integer",
+      "description": "Group ID"
+     }
+    },
+    "required": [
+     "agent_id",
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/groups/delete/{agent_id}.json",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "group_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_notes_delete_noteId_json",
+   "name": "Delete note",
+   "description": "Deletes the note identified by `noteId`. Returns `404` if no note has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "Note ID to delete"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/notes/delete/{noteId}.json",
+    "path": [
+     "noteId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_numbers_clear_id_json",
+   "name": "Unregister a number",
+   "description": "Clear current route settings of the number. Number will be marked as free.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Number ID to unregister"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/numbers/clear/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_recordings_delete_callId_json",
+   "name": "Delete call recording",
+   "description": "Delete call recording file for good. Call recording will be deleted from all our systems.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "integer",
+      "description": "Call ID for recording to be deleted"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/recordings/delete/{callId}.json",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.delete_tags_delete_id_json",
+   "name": "Delete a contact tag",
+   "description": "Deletes the contact tag identified by `id`. Returns `404` if no tag has that ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Tag ID to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/tags/delete/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_activity_index_json",
+   "name": "List activities",
+   "description": "List all activities assigned to contacts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "integer",
+      "description": "Filter by contact ID"
+     },
+     "type": {
+      "type": "string",
+      "description": "Filter by type - check below for possible values"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/activity/index.json",
+    "path": [],
+    "query": [
+     "contact_id",
+     "type",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_agents_index_json",
+   "name": "List agents",
+   "description": "Returns agents of the company. `availability_status` reflects the agent's current state; when the agent state source is temporarily unavailable it is returned as \"unknown\" and the listing still succeeds.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Filter by agent ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     },
+     "associated_number": {
+      "type": "string",
+      "description": "Filters agents by their assigned number. Please enter a valid number in e164 format"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/agents/index.json",
+    "path": [],
+    "query": [
+     "id",
+     "limit",
+     "page",
+     "associated_number"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_details_link",
+   "name": "Call details link",
+   "description": "Returns a link to the call's detail page in CloudTalk analytics. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/details-link",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_overall_sentiment",
+   "name": "Overall sentiment",
+   "description": "Returns the sentiment scored across a completed call as a whole \u2014 one of `very negative`, `negative`, `neutral`, `positive` or `very positive`. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/overall-sentiment",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_smart_notes",
+   "name": "Smart notes",
+   "description": "Returns the structured notes generated for a completed call \u2014 call details, action items, decisions made, open questions and any dates or deadlines mentioned. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/smart-notes",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_summary",
+   "name": "Summary",
+   "description": "Returns the AI-generated summary of a completed call. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/summary",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_talk_listen_ratio",
+   "name": "Talk listen ratio",
+   "description": "Returns how much each participant spoke during a completed call: talking time in seconds and a talk-to-listen percentage per caller, alongside the list of callers the identifiers refer to. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/talk-listen-ratio",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_topics",
+   "name": "Topics",
+   "description": "Returns the topics detected in a completed call, each with a weight and the transcript spans it was drawn from. Page through the result with `limit` and `offset`. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset the list of returned items by this amount"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/topics",
+    "path": [
+     "callId"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_ai_calls_callId_transcription",
+   "name": "Transcription",
+   "description": "Returns the transcript of a completed call as time-stamped segments, each attributed to a caller, together with the detected language. Page through the segments with `limit` and `offset`. Conversation Intelligence runs on `api.cloudtalk.io/v1` and returns its payload at the top level \u2014 these responses are **not** wrapped in the core API's `responseData` envelope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "Call ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset the list of returned items by this amount"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/ai/calls/{callId}/transcription",
+    "path": [
+     "callId"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_blacklist_index_json",
+   "name": "List blacklist",
+   "description": "List blacklisted numbers.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Filter by ID"
+     },
+     "country_code": {
+      "type": "integer",
+      "description": "Filter by country calling code"
+     },
+     "type": {
+      "type": "string",
+      "description": "Filter by type",
+      "enum": [
+       "all",
+       "incoming",
+       "outgoing"
+      ]
+     },
+     "public_number": {
+      "type": "string",
+      "description": "Filter by number"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/blacklist/index.json",
+    "path": [],
+    "query": [
+     "id",
+     "country_code",
+     "type",
+     "public_number",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_calls_callId",
+   "name": "Get call details",
+   "description": "Returns everything recorded about a single call \u2014 its timings, the steps it took through the call flow, the agents and contacts involved, tags, rating and notes. This endpoint is served by `analytics-api.cloudtalk.io`, not the main API host. Returns `400` if `callId` is malformed and `404` if no such call exists.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "number",
+      "description": "ID of a call"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/calls/{callId}",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_calls_index_json",
+   "name": "Call history",
+   "description": "Returns call history. Filter by the numbers involved (`public_internal`, `public_external`), a date range (`date_from`, `date_to`), `contact_id`, `user_id`, `agent_extension`, call `type` or `status`, `tag_id`, or a specific `call_id`; page through the result with `limit` and `page`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "public_internal": {
+      "type": "string",
+      "description": "Filter by internal number of agent"
+     },
+     "public_external": {
+      "type": "string",
+      "description": "Filter by number of caller"
+     },
+     "date_from": {
+      "type": "string",
+      "description": "Filter by date from, e.g. 2017-12-24 12:22:00"
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Filter by date to, napr\u00edklad 2017-12-24 12:22:00"
+     },
+     "contact_id": {
+      "type": "integer",
+      "description": "Filter by assigned contact ID"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "Filter by assigned agent ID"
+     },
+     "agent_extension": {
+      "type": "integer",
+      "description": "Filter by assigned agent's extension."
+     },
+     "type": {
+      "type": "string",
+      "description": "Filter by call type",
+      "enum": [
+       "incoming",
+       "outgoing",
+       "internal"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by call status - 'missed' = for only missed calls, 'answered' = for all answered calls",
+      "enum": [
+       "missed",
+       "answered"
+      ]
+     },
+     "tag_id": {
+      "type": "integer",
+      "description": "Filter by assigned call tag ID"
+     },
+     "call_id": {
+      "type": "integer",
+      "description": "Filter by call ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/calls/index.json",
+    "path": [],
+    "query": [
+     "public_internal",
+     "public_external",
+     "date_from",
+     "date_to",
+     "contact_id",
+     "user_id",
+     "agent_extension",
+     "type",
+     "status",
+     "tag_id",
+     "call_id",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_calls_recording_callId_json",
+   "name": "Recording media",
+   "description": "Api endpoint returns media data of recording for selected call. Media data are returned in WAV format.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callId": {
+      "type": "integer",
+      "description": "Call ID for the requested recording"
+     }
+    },
+    "required": [
+     "callId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/calls/recording/{callId}.json",
+    "path": [
+     "callId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_campaigns_index_json",
+   "name": "List campaigns",
+   "description": "Returns the account's campaigns. Pass `id` to fetch a single campaign, or page through them with `limit` and `page`. These are the campaigns of the original CloudTalk dialer. The newer sales dialer is a separate surface with its own host, authentication and response shape \u2014 see the Dialer endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Filter by campaign ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/campaigns/index.json",
+    "path": [],
+    "query": [
+     "id",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_contacts_attributes_json",
+   "name": "Attributes",
+   "description": "List all attributes which can be assigned to a contact.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/contacts/attributes.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_contacts_index_json",
+   "name": "List contacts",
+   "description": "Returns contacts together with their phone numbers, email addresses and custom attributes. Narrow the result with `country_id`, `tag_id`, `industry` or a free-text `keyword`, and page through it with `limit` and `page`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country_id": {
+      "type": "integer",
+      "description": "Filter by country ID"
+     },
+     "tag_id": {
+      "type": "integer",
+      "description": "Filter by tag ID"
+     },
+     "industry": {
+      "type": "string",
+      "description": "Filter by industry"
+     },
+     "keyword": {
+      "type": "string",
+      "description": "Filter by keyword"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/contacts/index.json",
+    "path": [],
+    "query": [
+     "country_id",
+     "tag_id",
+     "industry",
+     "keyword",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_contacts_show_contactId_json",
+   "name": "Inspect a contact",
+   "description": "Returns one contact in full \u2014 the contact record plus its phone numbers, email addresses, tags, custom attributes and external URLs. Use this when you already have the contact's ID; use List contacts to search for one.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID to show"
+     }
+    },
+    "required": [
+     "contactId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/contacts/show/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_countries_index_json",
+   "name": "List countries",
+   "description": "Returns every country CloudTalk recognises, with the `country_id` values used by the contact endpoints. Takes no parameters.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/countries/index.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_groups_index_json",
+   "name": "List groups",
+   "description": "Returns the account's agent groups. Page through the result with `limit` and `page`; the envelope carries `itemsCount`, `pageCount`, `pageNumber` and `limit` alongside the `data` array.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/groups/index.json",
+    "path": [],
+    "query": [
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_notes_index_json",
+   "name": "List notes",
+   "description": "List all notes assigned to contacts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "integer",
+      "description": "Filter by contact ID"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "Filter by agent ID"
+     },
+     "keyword": {
+      "type": "string",
+      "description": "Filter by keyword in note content"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/notes/index.json",
+    "path": [],
+    "query": [
+     "contact_id",
+     "user_id",
+     "keyword",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_numbers_index_json",
+   "name": "List numbers",
+   "description": "Returns the phone numbers assigned to the account. Filter by `id`, `country_code`, `area_code`, what the number is `connected_to`, or `is_free` to show only numbers with no routing configured; page with `limit` and `page`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Filter by number ID"
+     },
+     "country_code": {
+      "type": "integer",
+      "description": "Filter by country calling code"
+     },
+     "area_code": {
+      "type": "integer",
+      "description": "Filter by local area code. Area code cannot contain 0 at the beginning"
+     },
+     "connected_to": {
+      "type": "integer",
+      "description": "Filter by route type. `0 = 'group'`, `1 = 'agent'`, `2 = 'conference room'`, `3 = 'fax'`",
+      "enum": [
+       0,
+       1,
+       2,
+       3
+      ]
+     },
+     "is_free": {
+      "type": "integer",
+      "description": "Filter by availability. `0 = 'taken'`, `1 = 'free'`",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/numbers/index.json",
+    "path": [],
+    "query": [
+     "id",
+     "country_code",
+     "area_code",
+     "connected_to",
+     "is_free",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_statistics_realtime_groups_json",
+   "name": "Group statistics",
+   "description": "Returns today's live call statistics for every group: agents in the group, answered and unanswered calls, abandon rate, average call duration, and average and maximum waiting times \u2014 plus a `real_time` block giving the current queue length and waiting times. Takes no parameters.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/statistics/realtime/groups.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.get_tags_index_json",
+   "name": "List contact tags",
+   "description": "Returns the contact tags defined in the account. Pass `id` to fetch a single tag, or page through them with `limit` and `page`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Filter by tag ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max. number of items in response data."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Number of page to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/tags/index.json",
+    "path": [],
+    "query": [
+     "id",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.kill_voice_agent_outbound",
+   "name": "Stop outbound voice agent calls",
+   "description": "Emergency stop for outbound VoiceAgent dialing. Queued calls are cancelled and calls already in progress are ended within a few seconds, through the normal call-end path \u2014 billing, call records and analytics stay correct. **Inbound calls are unaffected**, as is the outbound traffic of every other company. The stop **expires on its own** after `duration_seconds`, so a forgotten stop cannot silence ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "duration_seconds": {
+      "type": "integer",
+      "description": "How long to stop outbound dialing, in seconds. `0` cancels a stop that is currently active for the same scope. Maximum 86400 (24 hours)."
+     },
+     "voice_agent_id": {
+      "type": "string",
+      "description": "Restrict the stop to a single VoiceAgent. Omit to stop all of the company's outbound calls. Must be a VoiceAgent belonging to your company."
+     },
+     "reason": {
+      "type": "string",
+      "description": "Optional free text recorded in the audit log."
+     }
+    },
+    "required": [
+     "duration_seconds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/voice-agent/outbound/kill",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "duration_seconds",
+     "voice_agent_id",
+     "reason"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_activity_edit_activityId_json",
+   "name": "Edit activity",
+   "description": "Updates the activity identified by `activityId`. `contact_id` is required on every request. The optional fields set the activity `type` (`order`, `task`, `chat`, `ticket`, `other`, `invoice`, `proforma`, `estimate` or `cancel`), its name, timestamp, description and author, and the `external_id` / `external_url` pair that links it back to the system it came from. Returns `404` if no activity has th",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activityId": {
+      "type": "integer",
+      "description": "Activity ID to edit"
+     },
+     "contact_id": {
+      "type": "integer",
+      "description": "Assigned contact ID"
+     },
+     "type": {
+      "type": "string",
+      "description": "Type of activity",
+      "enum": [
+       "order",
+       "task",
+       "chat",
+       "ticket",
+       "other",
+       "invoice",
+       "proforma",
+       "estimate",
+       "cancel"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Name/Title"
+     },
+     "activity_date": {
+      "type": "string",
+      "description": "Activity date and time. Set to current company time by default."
+     },
+     "description": {
+      "type": "string",
+      "description": "Detailed description"
+     },
+     "activity_author": {
+      "type": "string",
+      "description": "Author of activity - user name you want to show"
+     },
+     "external_id": {
+      "type": "integer",
+      "description": "Activity ID from external resource - e.g. your order ID"
+     },
+     "external_url": {
+      "type": "string",
+      "description": "External url which can be opened from activity detail"
+     }
+    },
+    "required": [
+     "activityId",
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/activity/edit/{activityId}.json",
+    "path": [
+     "activityId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "type",
+     "name",
+     "activity_date",
+     "description",
+     "activity_author",
+     "external_id",
+     "external_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_agents_edit_agentId_json",
+   "name": "Edit an agent",
+   "description": "Updates the agent identified by `agentId`. `firstname`, `lastname` and `email` must be sent on every request, even when unchanged. The agent's password cannot be changed here. Returns `404` if no agent has that ID. Note the core API updates with `POST`, not `PUT`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agentId": {
+      "type": "integer",
+      "description": "Agent ID to edit"
+     },
+     "firstname": {
+      "type": "string",
+      "description": "First name"
+     },
+     "lastname": {
+      "type": "string",
+      "description": "Last name"
+     },
+     "email": {
+      "type": "string",
+      "description": "Email"
+     },
+     "status_outbound": {
+      "type": "boolean",
+      "description": "Does agent have outbound calls allowed?"
+     },
+     "daily_price_limit": {
+      "type": "integer",
+      "description": "Daily price limit for all calls in EUR. Usually allowed values are from 1 to 200 EUR. Leave empty for using default value."
+     },
+     "call_number_id": {
+      "type": "integer",
+      "description": "Default outbound number ID"
+     }
+    },
+    "required": [
+     "agentId",
+     "email",
+     "firstname",
+     "lastname"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/agents/edit/{agentId}.json",
+    "path": [
+     "agentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "firstname",
+     "lastname",
+     "email",
+     "status_outbound",
+     "daily_price_limit",
+     "call_number_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_blacklist_edit_id_json",
+   "name": "Edit number on blacklist",
+   "description": "Edit blacklisted number.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "ID to edit"
+     },
+     "type": {
+      "type": "string",
+      "description": "Type of calls",
+      "enum": [
+       "all",
+       "incoming",
+       "outgoing"
+      ]
+     },
+     "public_number": {
+      "type": "string",
+      "description": "Blacklisted number in E.164 format"
+     }
+    },
+    "required": [
+     "id",
+     "public_number",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/blacklist/edit/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "public_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_bulk_contacts_json",
+   "name": "Contact actions",
+   "description": "Max 10 actions are available in one request. Only sent parameters/values will be updated. If you want to clear the value, just set empty string for that attribute. After sending empty string for properties of `ContactNumber`, `ContactEmail`, `ContactsTag` or `ContactAttribute` all data from these properties will be cleared. When you send values for properties of `ContactNumber`, `ContactEmail`, `C",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/bulk/contacts.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_calls_create_json",
+   "name": "Make a call",
+   "description": "Make a call using to any phone numbers. To place a new outbound call, make an HTTP POST request. At first it will initiate a call to an agent. Maximum waiting time for an agent to pick up the call is 20 seconds. After an agent picks up, we will automatically call desired phone number.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "integer",
+      "description": "Agent ID which will make the call."
+     },
+     "callee_number": {
+      "type": "string",
+      "description": "The phone number that will receive this Call. Phone numbers must be in E.164 format (e.g., +442012345678)."
+     }
+    },
+    "required": [
+     "agent_id",
+     "callee_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/calls/create.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "callee_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_campaigns_edit_id_json",
+   "name": "Edit campaign",
+   "description": "Edit a campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Campaign ID to edit"
+     },
+     "name": {
+      "type": "string",
+      "description": "Campaign name"
+     },
+     "status": {
+      "type": "string",
+      "description": "Campaign status (active/inactive)"
+     },
+     "has_schedule_date": {
+      "type": "boolean",
+      "description": "Is campaign scheduled?"
+     },
+     "schedule_start_date": {
+      "type": "string",
+      "description": "Campaign start date"
+     },
+     "schedule_start_time": {
+      "type": "string",
+      "description": "Campaign start time"
+     },
+     "answer_wait_time": {
+      "type": "integer",
+      "description": "Maximum number of seconds we will wait for the call to be answered."
+     },
+     "after_call_dialing_auto": {
+      "type": "boolean",
+      "description": "Automatically dial next contact after a call ends true/false"
+     },
+     "after_call_time": {
+      "type": "integer",
+      "description": "After call time (in seconds)"
+     },
+     "is_recording": {
+      "type": "boolean",
+      "description": "Calls recording true/false"
+     },
+     "call_number_id": {
+      "type": "integer",
+      "description": "Outbound caller id"
+     },
+     "call_script_id": {
+      "type": "integer",
+      "description": "Call script ID"
+     },
+     "survey_id": {
+      "type": "integer",
+      "description": "Survey ID"
+     },
+     "is_predictive": {
+      "type": "integer",
+      "description": "Is predictive dialer campaign 0/1"
+     },
+     "calls_percentage": {
+      "type": "integer",
+      "description": "Agents utilization"
+     },
+     "attempts": {
+      "type": "integer",
+      "description": "Attempts per contact"
+     },
+     "attempts_interval": {
+      "type": "integer",
+      "description": "Hours between attempts"
+     },
+     "Button": {
+      "type": "array",
+      "description": ""
+     },
+     "ContactsTag": {
+      "type": "array",
+      "description": ""
+     },
+     "Agent": {
+      "type": "array",
+      "description": ""
+     },
+     "Group": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "Button",
+     "id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/campaigns/edit/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "has_schedule_date",
+     "schedule_start_date",
+     "schedule_start_time",
+     "answer_wait_time",
+     "after_call_dialing_auto",
+     "after_call_time",
+     "is_recording",
+     "call_number_id",
+     "call_script_id",
+     "survey_id",
+     "is_predictive",
+     "calls_percentage",
+     "attempts",
+     "attempts_interval",
+     "Button",
+     "ContactsTag",
+     "Agent",
+     "Group"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_contacts_edit_contactId_json",
+   "name": "Edit contact",
+   "description": "Only sent parameters/values will be updated. If you want to clear the value, just set empty string for that attribute. After sending empty string for properties of `ContactNumber`, `ContactEmail`, `ContactsTag` or `ContactAttribute` all data from these properties will be cleared. When you send values for properties of `ContactNumber`, `ContactEmail`, `ContactsTag` or `ContactAttribute` only these ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID to edit"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name"
+     },
+     "title": {
+      "type": "string",
+      "description": "Title"
+     },
+     "company": {
+      "type": "string",
+      "description": "Company name"
+     },
+     "industry": {
+      "type": "string",
+      "description": "Industry"
+     },
+     "website": {
+      "type": "string",
+      "description": "Website"
+     },
+     "address": {
+      "type": "string",
+      "description": "Address"
+     },
+     "city": {
+      "type": "string",
+      "description": "City"
+     },
+     "zip": {
+      "type": "string",
+      "description": "ZIP code"
+     },
+     "state": {
+      "type": "string",
+      "description": "State"
+     },
+     "country_id": {
+      "type": "integer",
+      "description": "Country ID"
+     },
+     "favorite_agent": {
+      "type": "integer",
+      "description": "Favorite agent ID"
+     },
+     "ExternalUrl": {
+      "type": "array",
+      "description": "List of all URLs which points to a detail page of a contact in an external service, e.g. CRMs, Helpdesk or any other custom service you use. You may list up to 3 URLs."
+     },
+     "ContactNumber": {
+      "type": "array",
+      "description": "Numbers assigned to contact"
+     },
+     "ContactEmail": {
+      "type": "array",
+      "description": "Emails assigned to contact"
+     },
+     "ContactsTag": {
+      "type": "array",
+      "description": "Tags for contact - can include multiple"
+     },
+     "ContactAttribute": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "contactId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/contacts/edit/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "title",
+     "company",
+     "industry",
+     "website",
+     "address",
+     "city",
+     "zip",
+     "state",
+     "country_id",
+     "favorite_agent",
+     "ExternalUrl",
+     "ContactNumber",
+     "ContactEmail",
+     "ContactsTag",
+     "ContactAttribute"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_cue_card",
+   "name": "Create cue card",
+   "description": "Pushes a CueCard to the agent currently handling a live call, so guidance appears in their CloudTalk interface while the conversation is still in progress. `call_uuid` identifies the live call; `type`, `title` and `content` are also required, and `subtitle` and `icon_url` are optional. CueCard is served by `platform-api.cloudtalk.io`, not the main API host. A `424` means no active call matched `ca",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_uuid": {
+      "type": "string",
+      "description": "unique id of the active call"
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": "Cue card Title"
+     },
+     "subtitle": {
+      "type": "string",
+      "description": "Cue card Subtitle"
+     },
+     "icon_url": {
+      "type": "string",
+      "description": "Url path to the cue card icon"
+     },
+     "content": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_uuid",
+     "content",
+     "title",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/cuecards",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "call_uuid",
+     "type",
+     "title",
+     "subtitle",
+     "icon_url",
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_notes_edit_noteId_json",
+   "name": "Edit note",
+   "description": "Updates the note identified by `noteId`. `contact_id` and `note` are required on every request; `user_id` optionally records which agent the note belongs to. Returns `404` if no note has that ID. Note the core API updates with `POST`, not `PUT`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "Note ID to edit"
+     },
+     "contact_id": {
+      "type": "integer",
+      "description": "Assigned contact ID"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "Assigned agent ID"
+     },
+     "note": {
+      "type": "string",
+      "description": "Note content"
+     }
+    },
+    "required": [
+     "contact_id",
+     "note",
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/notes/edit/{noteId}.json",
+    "path": [
+     "noteId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "user_id",
+     "note"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_numbers_edit_id_json",
+   "name": "Edit a number",
+   "description": "Updates the number identified by `id`. All three fields are optional: `internal_name` sets the number's internal label, and `connected_to` with `source_id` set what it routes to. To strip a number's routing entirely, use Unregister a number instead. Returns `404` if no number has that ID. Note the core API updates with `POST`, not `PUT`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Number ID to edit"
+     },
+     "internal_name": {
+      "type": "string",
+      "description": "Internal name"
+     },
+     "connected_to": {
+      "type": "integer",
+      "description": "Routing type. Where is the number connected. `0 = 'group'`, `1 = 'agent'`, `2 = 'conference room'`, `3 = 'fax'`"
+     },
+     "source_id": {
+      "type": "integer",
+      "description": "Source ID of where is the number located, e.g. Agent ID, Group ID..."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/numbers/edit/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "internal_name",
+     "connected_to",
+     "source_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_sms_send_json",
+   "name": "Send sms",
+   "description": "The success response for sms/send.json may include false success attribute, where attribute data is populated with the provider error message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "recipient": {
+      "type": "string",
+      "description": "Recipient number in E.164 format. To send Whatsapp message include prefix \"whatsapp:+421...\" to both sender and recipient numbers."
+     },
+     "message": {
+      "type": "string",
+      "description": "Message body/content."
+     },
+     "sender": {
+      "type": "string",
+      "description": "Sender number in E.164 format. To send Whatsapp message include prefix \"whatsapp:+421...\" to both sender and recipient numbers."
+     },
+     "country_code": {
+      "type": "string",
+      "description": "Country code of recipient number."
+     },
+     "images_by_url": {
+      "type": "array",
+      "description": "Image to be send as MMS. Will be downloaded from URL. MAX 5MB. Can contain up to 5 urls."
+     },
+     "images": {
+      "type": "array",
+      "description": "Image sent as blob to be send as MMS. MAX 5MB. Can contain up to 5 images."
+     },
+     "file_by_url": {
+      "type": "string",
+      "description": "File to be send to Whatsapp. Will be downloaded from URL. MAX 16MB. To send Whatsapp message recipient and sender number must contain prefix \"whatsapp:\" example \"whatsapp:+421...\". Field message must be empty."
+     },
+     "file": {
+      "type": "string",
+      "description": "File sent as blob to be send to Whatsapp. MAX 16MB. To send Whatsapp message recipient and sender number must contain prefix \"whatsapp:\" example \"whatsapp:+421...\". Field message must be empty."
+     }
+    },
+    "required": [
+     "message",
+     "recipient",
+     "sender"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/sms/send.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "recipient",
+     "message",
+     "sender",
+     "country_code",
+     "images_by_url",
+     "images",
+     "file_by_url",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.post_tags_edit_id_json",
+   "name": "Edit a contact tag",
+   "description": "Renames the contact tag identified by `id`. `name` is required. Returns `404` if no tag has that ID. Note the core API updates with `POST`, not `PUT`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Tag ID to edit"
+     },
+     "name": {
+      "type": "string",
+      "description": "Tag name"
+     }
+    },
+    "required": [
+     "id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/tags/edit/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_archive_script",
+   "name": "Archive a call script",
+   "description": "Archives the script \u2014 a soft delete, never a hard one. The script drops out of the default list but stays readable by id (and via `include_archived=true`), and campaigns already pointing at it keep working. Restore it with `PATCH {\"is_archived\": false}`. Archiving an already-archived script succeeds.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scriptId": {
+      "type": "string",
+      "description": "Script ID (BIGINT serialized as string in responses; send the numeric value)."
+     }
+    },
+    "required": [
+     "scriptId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/dialer/scripts/{scriptId}",
+    "path": [
+     "scriptId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_create_campaign",
+   "name": "Create a dialer campaign",
+   "description": "Creates a campaign in the `initializing` state: the contact membership defined by its target tags is built asynchronously, after which the campaign can be moved to `active`. Only `name` and `mode` are required \u2014 every policy bundle falls back to the service default when omitted. Target tags, queue groups and agents are attached separately with the associations call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Human-readable campaign name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Dialing mode. `sequential` dials one number at a time per agent; `parallel` dials several.",
+      "enum": [
+       "sequential",
+       "parallel"
+      ]
+     },
+     "calling_policy": {
+      "type": "object",
+      "description": "Per-call behaviour bundle. Every knob is optional \u2014 an omitted knob keeps the service default. Only the knobs documented here are stored \u2014 any other key in the bundle is silently dropped."
+     },
+     "queue_policy": {
+      "type": "object",
+      "description": "Allocation-batch and dynamic queue-sizing bundle. Every knob is optional."
+     },
+     "retry_policy": {
+      "type": "object",
+      "description": "Re-dial rules bundle. Every knob is optional."
+     },
+     "schedule_policy": {
+      "type": "object",
+      "description": "Campaign start-window bundle. Every knob is optional."
+     },
+     "ttl_policy": {
+      "type": "object",
+      "description": "Contact-eligibility expiry bundle \u2014 drives how long an allocated contact stays held. Every knob is optional."
+     },
+     "waterfall_order": {
+      "type": "array",
+      "description": "Ordered, duplicate-free subset of the waterfall categories. Contacts are served tier by tier in this order."
+     },
+     "agent_permissions": {
+      "type": "object",
+      "description": "Booleans gating what an agent may do to their queue. Deny by default \u2014 an omitted key is false."
+     },
+     "call_script_id": {
+      "type": "integer",
+      "description": "Call script to link to the campaign; omit it or send `null` to create the campaign without a linked call script. Sent as an integer in requests; responses return the id as a string."
+     },
+     "survey_id": {
+      "type": "integer",
+      "description": "Survey to link to the campaign; omit it or send `null` to create the campaign without a linked survey. Sent as an integer in requests; responses return the id as a string."
+     }
+    },
+    "required": [
+     "mode",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "mode",
+     "calling_policy",
+     "queue_policy",
+     "retry_policy",
+     "schedule_policy",
+     "ttl_policy",
+     "waterfall_order",
+     "agent_permissions",
+     "call_script_id",
+     "survey_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_create_campaign_export",
+   "name": "Request a campaign data export",
+   "description": "Queues an asynchronous export of the campaign's call history or survey responses as CSV or XLSX and returns immediately with a job handle \u2014 nothing is generated during the request. Poll the job with the export-status call. When the job completes, fetch the file through the export-download call, which mints a pre-signed link; the same link is also emailed to the requester. Optional `filters` narrow",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "type": {
+      "type": "string",
+      "description": "What to export. `call_history` exports the campaign's dial log; `survey_responses` exports answers collected by the campaign's survey.",
+      "enum": [
+       "call_history",
+       "survey_responses"
+      ]
+     },
+     "format": {
+      "type": "string",
+      "description": "Serialisation format of the generated file.",
+      "enum": [
+       "csv",
+       "xlsx"
+      ]
+     },
+     "filters": {
+      "type": "object",
+      "description": "Optional narrowing filters. Omitting the whole object exports everything for the campaign. Supplying only one of `dateFrom` / `dateTo` is valid \u2014 a missing end resolves to the time the job runs, a missing start to the campaign's creation."
+     }
+    },
+    "required": [
+     "campaignId",
+     "format",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/exports",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "format",
+     "filters"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_create_script",
+   "name": "Create a call script",
+   "description": "Creates a call script agents read while dialing. The body supports `{{merge}}` fields resolved by the agent's phone at call time. Attach the script to a campaign via the campaign's `call_script_id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Display name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "body": {
+      "type": "string",
+      "description": "Script content; supports `{{merge}}` fields."
+     }
+    },
+    "required": [
+     "body",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/dialer/scripts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_create_survey",
+   "name": "Create a survey",
+   "description": "Creates a survey agents fill after a call. Omit `questions` to create an empty survey and add questions later with the replace-questions call. Question and option ids are server-generated \u2014 never send them. Attach the survey to a campaign via the campaign's `survey_id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Display name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "questions": {
+      "type": "array",
+      "description": "Initial question set. Omit to create an empty survey."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://my.cloudtalk.io/api/dialer/surveys",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "questions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_delete_campaign",
+   "name": "Delete a dialer campaign",
+   "description": "Soft-deletes the campaign: its status becomes `deleted` (terminal) and its deletion is timestamped. It stops being dialable and drops out of the default campaign list \u2014 `GET /dialer/campaigns` returns it only with `include_deleted=true` or `status=deleted`. Allowed from any status and idempotent \u2014 repeating the call on an already-deleted campaign is a no-op. Returns 409 only while the campaign sti",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_download_export_job",
+   "name": "Get a download link for a completed export",
+   "description": "Mints a fresh pre-signed S3 link for a completed export job and returns it in a JSON body together with the instant it expires. This is deliberately not a redirect and not a file stream: the body lets a machine consumer read the expiry, and HTTP clients that strip credentials on redirects cannot misbehave. Every call mints a new link, so the call is idempotent and repeatable \u2014 when a link expires,",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "Export job ID returned by the export enqueue call."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/exports/{jobId}/download",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_campaign",
+   "name": "Get a dialer campaign",
+   "description": "Returns a single campaign with its full configuration. A campaign belonging to another company reads as 404.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_campaign_associations",
+   "name": "Get a campaign's associations",
+   "description": "Returns the campaign's associations grouped by kind. Target tags carry their serving `priority`, their `label` and their read-only `origin` provenance; queue groups and agents are returned as plain id arrays.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/associations",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_campaign_contact",
+   "name": "Get one campaign contact",
+   "description": "Returns one campaign membership row, enriched with the contact's current tag names from Contacts. The enrichment is best-effort and fails open: `tags: null` means the tag lookup was unavailable or the contact could not be resolved \u2014 it does NOT mean the contact has no tags. A contact that genuinely carries none answers `[]`. A membership belonging to another company or campaign reads as 404.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "campaignContactId": {
+      "type": "string",
+      "description": "Campaign-contact (membership) ID \u2014 `campaign_contact_id` from the contacts list, not the contact's own id."
+     }
+    },
+    "required": [
+     "campaignContactId",
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/contacts/{campaignContactId}",
+    "path": [
+     "campaignId",
+     "campaignContactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_campaign_disposition_buttons",
+   "name": "Get a campaign's disposition buttons",
+   "description": "Returns the campaign's disposition buttons as a plain array ordered by `display_order`, with each button's name, colour and outcome resolved from its referenced call tag.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/disposition-buttons",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_campaign_statistics",
+   "name": "Get a campaign's statistics",
+   "description": "Returns the campaign's aggregated performance on one of two bases, told apart by `range` in the response: - **All-time** (no `dateFrom`/`dateTo`): lifetime counters served from a projection refreshed in the background \u2014 `updated_at` tells you how fresh they are, and `range` is null. `call_durations` is included only when `includeDurations=true` (it is the one read whose cost grows with the campaig",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "dateFrom": {
+      "type": "string",
+      "description": "Inclusive lower bound of the statistics window, as an RFC 3339 date-time. Requires `dateTo`. Must not be older than the 13-month event retention horizon."
+     },
+     "dateTo": {
+      "type": "string",
+      "description": "Exclusive upper bound of the statistics window, as an RFC 3339 date-time. Requires `dateFrom`. A date-only value \u2014 which the `date-time` format does not admit, so only a client that does not validate against this schema sends one \u2014 is served inclusive of that day."
+     },
+     "includeDurations": {
+      "type": "boolean",
+      "description": "Set to `true` to include the `call_durations` block on an all-time read. Ignored on a ranged read, which always carries durations. Only the literal strings `true` and `false` are accepted \u2014 anything else is a 400."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/statistics",
+    "path": [
+     "campaignId"
+    ],
+    "query": [
+     "dateFrom",
+     "dateTo",
+     "includeDurations"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_export_job",
+   "name": "Get an export job's status",
+   "description": "Polls an export job by its id. `status` walks `queued` \u2192 `running` \u2192 `completed` | `failed`, and `progress` gives a coarse hint of how far the runner has got. A job belonging to another company reads as 404. A `completed` job does not expose the file here \u2014 fetch it through the export-download call (a pre-signed link is also emailed to the requester). A `jobId` that is not a UUID is rejected with ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "Export job ID returned by the export enqueue call."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/exports/{jobId}",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_script",
+   "name": "Get a call script",
+   "description": "Returns one script by id, archived or not. A script belonging to another company reads as 404.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scriptId": {
+      "type": "string",
+      "description": "Script ID (BIGINT serialized as string in responses; send the numeric value)."
+     }
+    },
+    "required": [
+     "scriptId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/scripts/{scriptId}",
+    "path": [
+     "scriptId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_get_survey",
+   "name": "Get a survey",
+   "description": "Returns one survey by id with its full ordered question set, archived or not. A survey belonging to another company reads as 404.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "surveyId": {
+      "type": "string",
+      "description": "Survey ID (BIGINT serialized as string in responses; send the numeric value)."
+     }
+    },
+    "required": [
+     "surveyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/surveys/{surveyId}",
+    "path": [
+     "surveyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_list_campaign_contacts",
+   "name": "List a campaign's contacts",
+   "description": "Returns the campaign's members ordered by dialing eligibility (`next_eligible_at`, then id), cursor-paginated. `meta.total` counts the filtered set, so it moves with `queueTag` and `search`. `queue_tag` on each row is a derived queue position, not the raw membership state: an open agent hold reads `assigned`, a scheduled callback reads `scheduled`, terminal states read as themselves, and a pending",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Opaque cursor taken from `meta.nextCursor` of a previous page. Pass it back unchanged. Omitting `cursor`, or sending it empty, starts from the first page \u2014 neither is an error. A non-empty cursor this endpoint cannot decode is rejected with `400` and `code: \"PAGINATION.INVALID_CURSOR\"` rather than silently restarting the list. Handle it as an error, not as a terminating `null` cursor: a loop that "
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of contacts per page."
+     },
+     "queueTag": {
+      "type": "array",
+      "description": "Narrow to one or more queue positions. Repeat the parameter (`?queueTag=fresh&queueTag=retry`) or comma-separate (`?queueTag=fresh,retry`). An unknown value is a 400."
+     },
+     "search": {
+      "type": "string",
+      "description": "Case-insensitive substring match over the contact's display name and phone numbers. At most 200 characters."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/contacts",
+    "path": [
+     "campaignId"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "queueTag",
+     "search"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_list_campaigns",
+   "name": "List dialer campaigns",
+   "description": "Returns the company's campaigns newest first, cursor-paginated. Pass `meta.nextCursor` from a page back as `cursor` to fetch the following page; a null `nextCursor` means there are no more pages. Deleted campaigns are hidden unless `include_deleted=true`; pass `status=deleted` to list only them. When `status` is set, `include_deleted` has no effect.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Opaque cursor taken from `meta.nextCursor` of a previous page. Pass it back unchanged. Omitting `cursor`, or sending it empty, starts from the first page \u2014 neither is an error. A non-empty cursor this endpoint cannot decode is rejected with `400` and `code: \"PAGINATION.INVALID_CURSOR\"` rather than silently restarting the list. Handle it as an error, not as a terminating `null` cursor: a loop that "
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of campaigns per page."
+     },
+     "status": {
+      "type": "string",
+      "description": "Return only campaigns in this lifecycle status.",
+      "enum": [
+       "initializing",
+       "active",
+       "inactive",
+       "archived",
+       "deleted"
+      ]
+     },
+     "include_deleted": {
+      "type": "boolean",
+      "description": "Set to `true` to include campaigns whose status is `deleted`, which are hidden by default. Ignored when `status` is set. Only the literal strings `true` and `false` are accepted \u2014 anything else is a 400."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Return only campaigns using this dialing mode.",
+      "enum": [
+       "sequential",
+       "parallel"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "status",
+     "include_deleted",
+     "mode"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_list_disposition_tags",
+   "name": "List disposition tags",
+   "description": "Lists the call tags the company can wire onto a campaign's disposition buttons. Use the returned `id` as `tag_id` when replacing a campaign's buttons. The catalogue is returned whole, so `meta.nextCursor` is always null. Tags are created and edited in the CloudTalk dashboard, not through this API.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/disposition-tags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_list_scripts",
+   "name": "List call scripts",
+   "description": "Returns the company's call scripts newest first, cursor-paginated. Archived scripts are hidden unless `include_archived=true`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Opaque cursor taken from `meta.nextCursor` of a previous page. Pass it back unchanged. Omitting `cursor`, or sending it empty, starts from the first page \u2014 neither is an error. A non-empty cursor this endpoint cannot decode is rejected with `400` and `code: \"PAGINATION.INVALID_CURSOR\"` rather than silently restarting the list. Handle it as an error, not as a terminating `null` cursor: a loop that "
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items per page."
+     },
+     "include_archived": {
+      "type": "boolean",
+      "description": "Set to `true` to include archived items. Only the literal strings `true` and `false` are accepted \u2014 anything else is a 400."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/scripts",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "include_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_list_surveys",
+   "name": "List surveys",
+   "description": "Returns the company's surveys newest first, cursor-paginated. List items are summaries carrying a `question_count` instead of the questions themselves \u2014 fetch one survey by id for the full definition. Archived surveys are hidden unless `include_archived=true`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Opaque cursor taken from `meta.nextCursor` of a previous page. Pass it back unchanged. Omitting `cursor`, or sending it empty, starts from the first page \u2014 neither is an error. A non-empty cursor this endpoint cannot decode is rejected with `400` and `code: \"PAGINATION.INVALID_CURSOR\"` rather than silently restarting the list. Handle it as an error, not as a terminating `null` cursor: a loop that "
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items per page."
+     },
+     "include_archived": {
+      "type": "boolean",
+      "description": "Set to `true` to include archived items. Only the literal strings `true` and `false` are accepted \u2014 anything else is a 400."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/surveys",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "include_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_patch_campaign",
+   "name": "Update a dialer campaign",
+   "description": "Partially updates the campaign's configuration and/or moves it through its lifecycle. Every key is optional and an omitted key is left unchanged; a supplied policy bundle replaces that bundle wholesale. Legal `status` transitions: `initializing` \u2192 `active` | `archived`; `active` \u2194 `inactive`; `active` \u2192 `archived`; `inactive` \u2192 `archived`; `archived` \u2192 `inactive`. An illegal transition \u2014 including",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "name": {
+      "type": "string",
+      "description": "Human-readable campaign name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Dialing mode.",
+      "enum": [
+       "sequential",
+       "parallel"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Target lifecycle status. Legal transitions: `initializing` \u2192 `active` | `archived`; `active` \u2194 `inactive`; `active` \u2192 `archived`; `inactive` \u2192 `archived`; `archived` \u2192 `inactive`. A patch that leaves the status unchanged is a no-op. `deleted` passes schema validation but is always rejected with 422 \u2014 only the delete call sets it.",
+      "enum": [
+       "initializing",
+       "active",
+       "inactive",
+       "archived",
+       "deleted"
+      ]
+     },
+     "calling_policy": {
+      "type": "object",
+      "description": "Per-call behaviour bundle. Every knob is optional \u2014 an omitted knob keeps the service default. Only the knobs documented here are stored \u2014 any other key in the bundle is silently dropped."
+     },
+     "queue_policy": {
+      "type": "object",
+      "description": "Allocation-batch and dynamic queue-sizing bundle. Every knob is optional."
+     },
+     "retry_policy": {
+      "type": "object",
+      "description": "Re-dial rules bundle. Every knob is optional."
+     },
+     "schedule_policy": {
+      "type": "object",
+      "description": "Campaign start-window bundle. Every knob is optional."
+     },
+     "ttl_policy": {
+      "type": "object",
+      "description": "Contact-eligibility expiry bundle \u2014 drives how long an allocated contact stays held. Every knob is optional."
+     },
+     "waterfall_order": {
+      "type": "array",
+      "description": "Ordered, duplicate-free subset of the waterfall categories. Contacts are served tier by tier in this order."
+     },
+     "agent_permissions": {
+      "type": "object",
+      "description": "Booleans gating what an agent may do to their queue. Deny by default \u2014 an omitted key is false."
+     },
+     "call_script_id": {
+      "type": "integer",
+      "description": "Call script to link to the campaign; `null` clears the link, an omitted key leaves it unchanged. Sent as an integer in requests; responses return the id as a string."
+     },
+     "survey_id": {
+      "type": "integer",
+      "description": "Survey to link to the campaign; `null` clears the link, an omitted key leaves it unchanged. Sent as an integer in requests; responses return the id as a string."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "mode",
+     "status",
+     "calling_policy",
+     "queue_policy",
+     "retry_policy",
+     "schedule_policy",
+     "ttl_policy",
+     "waterfall_order",
+     "agent_permissions",
+     "call_script_id",
+     "survey_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_patch_script",
+   "name": "Update a call script",
+   "description": "Partial update \u2014 omitted fields stay untouched; `updated_at` is always bumped. `is_archived: false` restores an archived script, making this the inverse of the DELETE call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scriptId": {
+      "type": "string",
+      "description": "Script ID (BIGINT serialized as string in responses; send the numeric value)."
+     },
+     "name": {
+      "type": "string",
+      "description": "New display name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "body": {
+      "type": "string",
+      "description": "New script content."
+     },
+     "is_archived": {
+      "type": "boolean",
+      "description": "`true` archives the script, `false` restores it."
+     }
+    },
+    "required": [
+     "scriptId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://my.cloudtalk.io/api/dialer/scripts/{scriptId}",
+    "path": [
+     "scriptId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body",
+     "is_archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_patch_survey",
+   "name": "Rename or archive a survey",
+   "description": "Updates the survey's `name` and/or `is_archived` flag \u2014 nothing else is patchable here; questions change only through the replace-questions call. Archiving (`is_archived: true`) is the survey's soft delete: there is deliberately no DELETE route, because archiving preserves the answers already collected \u2014 a `DELETE` on this path is an unmatched route and answers 404 `Route not found`. Restore with ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "surveyId": {
+      "type": "string",
+      "description": "Survey ID (BIGINT serialized as string in responses; send the numeric value)."
+     },
+     "name": {
+      "type": "string",
+      "description": "New display name. Leading and trailing whitespace is trimmed before validation, so a blank or whitespace-only name is rejected with 400 (`name should not be empty` in `subErrors`)."
+     },
+     "is_archived": {
+      "type": "boolean",
+      "description": "`true` archives the survey (its soft delete), `false` restores it."
+     }
+    },
+    "required": [
+     "surveyId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://my.cloudtalk.io/api/dialer/surveys/{surveyId}",
+    "path": [
+     "surveyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "is_archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_peek_contacts",
+   "name": "Peek at the next contacts to be dialed",
+   "description": "Returns, in order, the contacts the allocator would serve next \u2014 a read-only, NON-BINDING snapshot. Nothing is held, locked or recorded, so any of these contacts may be taken by an agent a moment later; treat the answer as a display hint, never a reservation. There is no partner-facing way to claim a contact. A campaign that exists but is not active, or whose queue is empty, answers 200 with an em",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "count": {
+      "type": "integer",
+      "description": "How many contacts to peek at. Defaults to the campaign's `queue_policy.lock_size`."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/contacts/next",
+    "path": [
+     "campaignId"
+    ],
+    "query": [
+     "count"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_replace_campaign_associations",
+   "name": "Replace a campaign's associations",
+   "description": "Replaces every association of the campaign in one call: the contact tags that define its membership (`target_tag`), the queue groups it draws agents from (`queue_group`), and the individually assigned agents (`agent`). Each array is optional and defaults to empty, so an omitted kind clears that kind. Entries can be given as objects or as bare ids \u2014 `[10, 11]` is shorthand for `[{ \"ref_id\": 10 }, {",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "target_tag": {
+      "type": "array",
+      "description": "Contact tags that define the campaign's membership. Naming a CRM-connection-owned tag re-ranks it in place; adding or removing such a tag is owned by the CRM connection, not this call."
+     },
+     "queue_group": {
+      "type": "array",
+      "description": "Queue groups the campaign draws its agents from."
+     },
+     "agent": {
+      "type": "array",
+      "description": "Agents (users) assigned to the campaign."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/associations",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "target_tag",
+     "queue_group",
+     "agent"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_replace_campaign_disposition_buttons",
+   "name": "Replace a campaign's disposition buttons",
+   "description": "Replaces the campaign's whole disposition-button set \u2014 the buttons an agent picks from to close a call. Each button references a call tag by `tag_id` (list them with the disposition-tags call) and declares the `outcome_kind` that tells the dialer what to do next (retry, reschedule, stop calling, \u2026). An empty `buttons` array clears the set. The button's display name and colour are always taken from",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Dialer campaign ID."
+     },
+     "buttons": {
+      "type": "array",
+      "description": "The complete button set for the campaign. An empty array clears every button."
+     }
+    },
+    "required": [
+     "buttons",
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/dialer/campaigns/{campaignId}/disposition-buttons",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "buttons"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.public_replace_survey_questions",
+   "name": "Replace a survey's questions",
+   "description": "Atomically replaces the survey's entire question set \u2014 this is a replace, not a merge. The body is the desired end state: existing questions (and their options) are deleted and the provided set is inserted in one transaction, ordered by `display_order`. `{\"questions\": []}` is valid and clears the survey. Question and option ids are server-generated \u2014 never send them; every replace mints new ids. A",
+   "input": {
+    "type": "object",
+    "properties": {
+     "surveyId": {
+      "type": "string",
+      "description": "Survey ID (BIGINT serialized as string in responses; send the numeric value)."
+     },
+     "questions": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "questions",
+     "surveyId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/dialer/surveys/{surveyId}/questions",
+    "path": [
+     "surveyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "questions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_activity_add_contactId_json",
+   "name": "Add activity",
+   "description": "Assign an activity to existing contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID to which activity will be assigned"
+     },
+     "type": {
+      "type": "string",
+      "description": "Type of activity",
+      "enum": [
+       "order",
+       "task",
+       "chat",
+       "ticket",
+       "other",
+       "invoice",
+       "proforma",
+       "estimate",
+       "cancel"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Name/Title"
+     },
+     "activity_date": {
+      "type": "string",
+      "description": "Activity date and time. Set to current company time by default."
+     },
+     "description": {
+      "type": "string",
+      "description": "Detailed description"
+     },
+     "activity_author": {
+      "type": "string",
+      "description": "Author of activity - user name you want to show"
+     },
+     "external_id": {
+      "type": "integer",
+      "description": "Activity ID from external resource - e.g. your order ID"
+     },
+     "external_url": {
+      "type": "string",
+      "description": "External url which can be opened from activity detail"
+     }
+    },
+    "required": [
+     "contactId",
+     "name",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/activity/add/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "name",
+     "activity_date",
+     "description",
+     "activity_author",
+     "external_id",
+     "external_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_agents_add_json",
+   "name": "Add an agent",
+   "description": "Creates an agent. `firstname`, `lastname`, `email` and `pass` are required. The optional fields allow outbound calling (`status_outbound`), cap daily call spend in EUR (`daily_price_limit`, 1\u2013200), assign a four-digit `extension` that must be unique across the company (1000\u20139999), and set a default outbound number (`call_number_id`). Returns `201` with the new agent's ID; `403` means the account h",
+   "input": {
+    "type": "object",
+    "properties": {
+     "firstname": {
+      "type": "string",
+      "description": "First name"
+     },
+     "lastname": {
+      "type": "string",
+      "description": "Last name"
+     },
+     "email": {
+      "type": "string",
+      "description": "Email"
+     },
+     "pass": {
+      "type": "string",
+      "description": "Password"
+     },
+     "status_outbound": {
+      "type": "boolean",
+      "description": "Does agent have outbound calls allowed?"
+     },
+     "daily_price_limit": {
+      "type": "integer",
+      "description": "Daily price limit for all calls in EUR. Usually allowed values are from 1 to 200 EUR. Leave empty for using default value."
+     },
+     "extension": {
+      "type": "integer",
+      "description": "Extension of an agent. Extension must be four digits long and be unique across whole company."
+     },
+     "call_number_id": {
+      "type": "integer",
+      "description": "Default outbound number ID"
+     }
+    },
+    "required": [
+     "email",
+     "firstname",
+     "lastname",
+     "pass"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/agents/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "firstname",
+     "lastname",
+     "email",
+     "pass",
+     "status_outbound",
+     "daily_price_limit",
+     "extension",
+     "call_number_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_blacklist_add_json",
+   "name": "Add number to blacklist",
+   "description": "Add number to blacklist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Type of calls",
+      "enum": [
+       "all",
+       "incoming",
+       "outgoing"
+      ]
+     },
+     "public_number": {
+      "type": "string",
+      "description": "Blacklisted number in E.164 format"
+     }
+    },
+    "required": [
+     "public_number",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/blacklist/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "public_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_campaigns_add_json",
+   "name": "Add campaign",
+   "description": "Creates a campaign. `name` and the `Button` array are required; everything else is optional and configures scheduling (`has_schedule_date`, `schedule_start_date`, `schedule_start_time`), dialing behaviour (`answer_wait_time`, `after_call_dialing_auto`, `after_call_time`, `attempts`, `attempts_interval`), predictive mode (`is_predictive`, `calls_percentage`), call recording, and which contacts, age",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Campaign name"
+     },
+     "status": {
+      "type": "string",
+      "description": "Campaign status (active/inactive)"
+     },
+     "has_schedule_date": {
+      "type": "boolean",
+      "description": "Is campaign scheduled?"
+     },
+     "schedule_start_date": {
+      "type": "string",
+      "description": "Campaign start date"
+     },
+     "schedule_start_time": {
+      "type": "string",
+      "description": "Campaign start time"
+     },
+     "answer_wait_time": {
+      "type": "integer",
+      "description": "Maximum number of seconds we will wait for the call to be answered."
+     },
+     "after_call_dialing_auto": {
+      "type": "boolean",
+      "description": "Automatically dial next contact after a call ends true/false"
+     },
+     "after_call_time": {
+      "type": "integer",
+      "description": "After call time (in seconds)"
+     },
+     "is_recording": {
+      "type": "boolean",
+      "description": "Calls recording true/false"
+     },
+     "call_number_id": {
+      "type": "integer",
+      "description": "Outbound caller id"
+     },
+     "call_script_id": {
+      "type": "integer",
+      "description": "Call script ID"
+     },
+     "survey_id": {
+      "type": "integer",
+      "description": "Survey ID"
+     },
+     "is_predictive": {
+      "type": "integer",
+      "description": "Is predictive dialer campaign 0/1"
+     },
+     "calls_percentage": {
+      "type": "integer",
+      "description": "Agents utilization"
+     },
+     "attempts": {
+      "type": "integer",
+      "description": "Attempts per contact"
+     },
+     "attempts_interval": {
+      "type": "integer",
+      "description": "Hours between attempts"
+     },
+     "Button": {
+      "type": "array",
+      "description": ""
+     },
+     "ContactsTag": {
+      "type": "array",
+      "description": ""
+     },
+     "Agent": {
+      "type": "array",
+      "description": ""
+     },
+     "Group": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "Button",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/campaigns/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "has_schedule_date",
+     "schedule_start_date",
+     "schedule_start_time",
+     "answer_wait_time",
+     "after_call_dialing_auto",
+     "after_call_time",
+     "is_recording",
+     "call_number_id",
+     "call_script_id",
+     "survey_id",
+     "is_predictive",
+     "calls_percentage",
+     "attempts",
+     "attempts_interval",
+     "Button",
+     "ContactsTag",
+     "Agent",
+     "Group"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_contacts_addTags_contactId_json",
+   "name": "Assign contact tags",
+   "description": "Assign contact tags to a contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID for adding tags"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Array of tag names"
+     }
+    },
+    "required": [
+     "contactId",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/contacts/addTags/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_contacts_add_json",
+   "name": "Add contact",
+   "description": "Creates a contact. Only `name` is required. The remaining scalar fields describe the company and postal address, and the `ContactNumber`, `ContactEmail`, `ContactsTag`, `ContactAttribute` and `ExternalUrl` arrays attach phone numbers, email addresses, tags, custom attribute values and links to external systems in the same request. Returns `201` with the new contact's ID. Note the core API creates ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name"
+     },
+     "title": {
+      "type": "string",
+      "description": "Title"
+     },
+     "company": {
+      "type": "string",
+      "description": "Company name"
+     },
+     "industry": {
+      "type": "string",
+      "description": "Industry"
+     },
+     "website": {
+      "type": "string",
+      "description": "Website"
+     },
+     "address": {
+      "type": "string",
+      "description": "Address"
+     },
+     "city": {
+      "type": "string",
+      "description": "City"
+     },
+     "zip": {
+      "type": "string",
+      "description": "ZIP code"
+     },
+     "state": {
+      "type": "string",
+      "description": "State"
+     },
+     "country_id": {
+      "type": "integer",
+      "description": "Country ID"
+     },
+     "favorite_agent": {
+      "type": "integer",
+      "description": "Favorite agent ID"
+     },
+     "ExternalUrl": {
+      "type": "array",
+      "description": "List of all URLs which points to a detail page of a contact in an external service, e.g. CRMs, Helpdesk or any other custom service you use. You may list up to 3 URLs."
+     },
+     "ContactNumber": {
+      "type": "array",
+      "description": "Numbers assigned to contact"
+     },
+     "ContactEmail": {
+      "type": "array",
+      "description": "Emails assigned to contact"
+     },
+     "ContactsTag": {
+      "type": "array",
+      "description": "Tags for contact - can include multiple"
+     },
+     "ContactAttribute": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/contacts/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "title",
+     "company",
+     "industry",
+     "website",
+     "address",
+     "city",
+     "zip",
+     "state",
+     "country_id",
+     "favorite_agent",
+     "ExternalUrl",
+     "ContactNumber",
+     "ContactEmail",
+     "ContactsTag",
+     "ContactAttribute"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_groups_add_json",
+   "name": "Add agent to group",
+   "description": "Adds an agent to a group. Both `group_id` and `agent_id` are required and together identify the membership to create. Note the core API creates with `PUT`, not `POST`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "integer",
+      "description": "Group ID"
+     },
+     "agent_id": {
+      "type": "integer",
+      "description": "Agent ID"
+     }
+    },
+    "required": [
+     "agent_id",
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/groups/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "group_id",
+     "agent_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_notes_add_contactId_json",
+   "name": "Add note",
+   "description": "Assign a note to existing contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contactId": {
+      "type": "integer",
+      "description": "Contact ID to which note will be assigned"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "Assigned agent ID"
+     },
+     "note": {
+      "type": "string",
+      "description": "Note content"
+     }
+    },
+    "required": [
+     "contactId",
+     "note"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/notes/add/{contactId}.json",
+    "path": [
+     "contactId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "note"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudtalk.put_tags_add_json",
+   "name": "Add a contact tag",
+   "description": "Creates a contact tag with the given `name`. Returns `201` with the new tag's ID. Note the core API creates with `PUT`, not `POST`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Tag name"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://my.cloudtalk.io/api/tags/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

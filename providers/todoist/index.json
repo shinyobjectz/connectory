@@ -1,0 +1,4251 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "todoist",
+ "source": "https://developer.todoist.com/openapi.json",
+ "operations": [
+  {
+   "slug": "todoist.accept_invitation_api_v1_workspaces_invitations_invite_code_accept_put",
+   "name": "Accept invitation",
+   "description": "Accept a workspace invitation. Usable by authenticated users only.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "invite_code": {
+      "type": "string",
+      "description": "An opaque string representing an invite code. This invitation code is sent to a user via email and is exclusive for the user."
+     }
+    },
+    "required": [
+     "invite_code"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.todoist.com/api/v1/workspaces/invitations/{invite_code}/accept",
+    "path": [
+     "invite_code"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.active_projects_api_v1_workspaces_workspace_id_projects_active_get",
+   "name": "Active projects",
+   "description": "Returns all active workspace projects, including those visible but not joined by the user. _For guests, returns all joined workspace projects only._",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace whose active projects should be listed."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of active workspace projects to return in a page."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}/projects/active",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.add_comment_reaction_api_v1_comments_comment_id_reactions_post",
+   "name": "Add comment reaction",
+   "description": "Adds the authenticated user's reaction to a task or project comment and returns the updated comment. Adding a reaction the user has already added leaves the reactions unchanged. Returns an error if the comment's stored reactions would exceed 65,535 bytes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "String ID of the comment"
+     },
+     "reaction": {
+      "type": "string",
+      "description": "Reaction emoji."
+     }
+    },
+    "required": [
+     "comment_id",
+     "reaction"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/comments/{comment_id}/reactions",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "reaction"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.all_invitations_api_v1_workspaces_invitations_all_get",
+   "name": "All invitations",
+   "description": "Return a list containing details of all pending invitation to a workspace. This list is not paginated. All workspace members can access this list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/invitations/all",
+    "path": [],
+    "query": [
+     "workspace_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.archive_project_api_v1_projects_project_id_archive_post",
+   "name": "Archive project",
+   "description": "Marks a project as archived. For personal projects, this will archive it just for the initiating user (leaving it visible to any other collaborators). For workspace projects, this will archive it for all workspace users, removing it from view.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}/archive",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.archive_section_api_v1_sections_section_id_archive_post",
+   "name": "Archive section",
+   "description": "Marks a section as archived.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section"
+     }
+    },
+    "required": [
+     "section_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/sections/{section_id}/archive",
+    "path": [
+     "section_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.archived_projects_api_v1_workspaces_workspace_id_projects_archived_get",
+   "name": "Archived projects",
+   "description": "Return archived projects in a workspace. Workspace guests cannot list archived projects and receive a `FORBIDDEN` error. Results are paginated by `cursor` and `limit`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace whose archived projects should be listed."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of archived workspace projects to return in a page."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}/projects/archived",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.cancel_plan_with_redirect_to_stripe_api_v1_payments_cancel_plan_with_redirect_to_stripe_post",
+   "name": "Cancel plan with redirect to stripe",
+   "description": "Start a hosted cancellation flow and return the redirect URL.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reason_flag": {
+      "type": "string",
+      "description": "Short identifier of the cancellation reason category."
+     },
+     "reason_description": {
+      "type": "string",
+      "description": "Human-readable label of the cancellation reason."
+     },
+     "reason_text": {
+      "type": "string",
+      "description": "Free-form feedback from the user about the cancellation."
+     },
+     "return_url": {
+      "type": "string",
+      "description": "URL the user is redirected to after completing the flow."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/payments/cancel_plan_with_redirect_to_stripe",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "reason_flag",
+     "reason_description",
+     "reason_text",
+     "return_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.close_task_api_v1_tasks_task_id_close_post",
+   "name": "Close task",
+   "description": "Closes a task. The command performs in the same way as our official clients: Regular tasks are marked complete and moved to history, along with their subtasks. Tasks with [recurring due dates](https://todoist.com/help/articles/introduction-to-recurring-dates-YUYVJJAV) will be scheduled to their next occurrence.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}/close",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_comment_api_v1_comments_post",
+   "name": "Create comment",
+   "description": "Creates a new comment on a project or task and returns it. Exactly one of `task_id` or `project_id` arguments is required. Providing neither or both will return an error.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "content": {
+      "type": "string",
+      "description": "Content of the comment"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     },
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "attachment": {
+      "type": "string",
+      "description": "A [File attachment](#tag/Sync/Comments/File-Attachments) object"
+     },
+     "uids_to_notify": {
+      "type": "string",
+      "description": "Optional list of user IDs to notify about this comment."
+     }
+    },
+    "required": [
+     "content"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/comments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "content",
+     "project_id",
+     "task_id",
+     "attachment",
+     "uids_to_notify"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_folder_api_v1_folders_post",
+   "name": "Create folder",
+   "description": "Create a new folder in the given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the new folder."
+     },
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace to create the folder in."
+     },
+     "default_order": {
+      "type": "string",
+      "description": "Default position of the folder in the workspace."
+     },
+     "child_order": {
+      "type": "string",
+      "description": "User-specific position of the folder."
+     }
+    },
+    "required": [
+     "name",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/folders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "workspace_id",
+     "default_order",
+     "child_order"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_label_api_v1_labels_post",
+   "name": "Create label",
+   "description": "Create a personal label. Premium limits apply to personal label creation. Free users who exceed the plan limit receive a premium-only error.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the new label."
+     },
+     "order": {
+      "type": "string",
+      "description": "Position of the new label in the label list"
+     },
+     "color": {
+      "type": "string",
+      "description": ""
+     },
+     "is_favorite": {
+      "type": "boolean",
+      "description": "Whether the label is marked as a favorite."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/labels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "order",
+     "color",
+     "is_favorite"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_location_reminder_api_v1_location_reminders_post",
+   "name": "Create location reminder",
+   "description": "Create a new location reminder for a task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the location"
+     },
+     "loc_lat": {
+      "type": "string",
+      "description": "Latitude of the location"
+     },
+     "loc_long": {
+      "type": "string",
+      "description": "Longitude of the location"
+     },
+     "loc_trigger": {
+      "type": "string",
+      "description": "Trigger type: 'on_enter' or 'on_leave'",
+      "enum": [
+       "on_enter",
+       "on_leave"
+      ]
+     },
+     "radius": {
+      "type": "integer",
+      "description": "Radius in meters (default 100, max 255)"
+     }
+    },
+    "required": [
+     "loc_lat",
+     "loc_long",
+     "loc_trigger",
+     "name",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/location_reminders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "task_id",
+     "name",
+     "loc_lat",
+     "loc_long",
+     "loc_trigger",
+     "radius"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_project_api_v1_projects_post",
+   "name": "Create project",
+   "description": "Creates a new project and returns it",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the project."
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the project."
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "Parent project ID. If provided, creates this project as a sub-project"
+     },
+     "color": {
+      "type": "string",
+      "description": ""
+     },
+     "is_favorite": {
+      "type": "boolean",
+      "description": "Whether the project is a favorite for the user."
+     },
+     "view_style": {
+      "type": "string",
+      "description": "View style of the project."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Workspace ID. If provided, creates a workspace project instead of a personal project."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/projects",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "parent_id",
+     "color",
+     "is_favorite",
+     "view_style",
+     "workspace_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_project_from_file_api_v1_templates_create_project_from_file_post",
+   "name": "Create project from file",
+   "description": "A template can be imported in an existing project, or in a newly created one. Upload a file suitable to be passed as a template to be imported into a project.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/templates/create_project_from_file",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "workspace_id",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_reminder_api_v1_reminders_post",
+   "name": "Create reminder",
+   "description": "Create a new reminder for a task. For **relative** reminders, provide `minute_offset` (minutes before the task's due time). For **absolute** reminders, provide a `due` dictionary with a specific date/time. Supported `due` keys are `date` or `string`, with optional `lang`, `timezone`, and `is_recurring`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "reminder_type": {
+      "type": "string",
+      "description": "Type of the reminder: 'relative' or 'absolute'",
+      "enum": [
+       "relative",
+       "absolute"
+      ]
+     },
+     "minute_offset": {
+      "type": "string",
+      "description": "Minutes before due time to trigger (for relative reminders)"
+     },
+     "due": {
+      "type": "string",
+      "description": "Due date dictionary for absolute reminders."
+     },
+     "service": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "email",
+       "push"
+      ]
+     },
+     "is_urgent": {
+      "type": "boolean",
+      "description": "Whether the reminder is an urgent reminder. Urgent reminders trigger an alarm notification on the user's designated urgent reminder device."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/reminders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "task_id",
+     "reminder_type",
+     "minute_offset",
+     "due",
+     "service",
+     "is_urgent"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_section_api_v1_sections_post",
+   "name": "Create section",
+   "description": "Create a new section",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the new section."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the project to add the section to"
+     },
+     "order": {
+      "type": "string",
+      "description": "Position of the new section in the project"
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the new section."
+     }
+    },
+    "required": [
+     "name",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/sections",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "project_id",
+     "order",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_task_api_v1_tasks_post",
+   "name": "Create task",
+   "description": "Create a new task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "content": {
+      "type": "string",
+      "description": "Task content."
+     },
+     "description": {
+      "type": "string",
+      "description": "Task description."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the project to add the task to. If omitted or null, the task will be added to the user's Inbox."
+     },
+     "section_id": {
+      "type": "string",
+      "description": "ID of the section to add the task to"
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "ID of the parent task"
+     },
+     "order": {
+      "type": "string",
+      "description": "Position of the task in the project or section"
+     },
+     "labels": {
+      "type": "string",
+      "description": "List of label names."
+     },
+     "priority": {
+      "type": "string",
+      "description": "Task priority (1-4, where 1 is highest)"
+     },
+     "assignee_id": {
+      "type": "string",
+      "description": "ID of the user to assign the task to. To find User IDs, use [Get user](#operation/user_info_api_v1_user_get) for your own ID or [Get all collaborators](#operation/get_project_collaborators_api_v1_projects__project_id__collaborators_get) for project members."
+     },
+     "due_string": {
+      "type": "string",
+      "description": "Human-readable representation of the due date. See the [Due dates](#tag/Due-dates) section for more details."
+     },
+     "due_date": {
+      "type": "string",
+      "description": "Due date in RFC 3339 format or similar. See the [Due dates](#tag/Due-dates) section for more details."
+     },
+     "due_datetime": {
+      "type": "string",
+      "description": "Due date and time. See the [Due dates](#tag/Due-dates) section for more details."
+     },
+     "due_lang": {
+      "type": "string",
+      "description": "Due date language code. See the [Due dates](#tag/Due-dates) section for more details."
+     },
+     "duration": {
+      "type": "string",
+      "description": "Task duration, in either minutes or days. Only used if `duration_unit` is also provided."
+     },
+     "duration_unit": {
+      "type": "string",
+      "description": "Unit of time for duration."
+     },
+     "deadline_date": {
+      "type": "string",
+      "description": "Deadline date in YYYY-MM-DD format"
+     }
+    },
+    "required": [
+     "content"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "content",
+     "description",
+     "project_id",
+     "section_id",
+     "parent_id",
+     "order",
+     "labels",
+     "priority",
+     "assignee_id",
+     "due_string",
+     "due_date",
+     "due_datetime",
+     "due_lang",
+     "duration",
+     "duration_unit",
+     "deadline_date"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.create_workspace_api_v1_workspaces_post",
+   "name": "Create workspace",
+   "description": "Creates a new workspace and returns it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the workspace."
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the workspace."
+     },
+     "is_link_sharing_enabled": {
+      "type": "boolean",
+      "description": "Whether link sharing is enabled for the workspace."
+     },
+     "is_guest_allowed": {
+      "type": "boolean",
+      "description": "Whether guests are allowed in the workspace."
+     },
+     "domain_name": {
+      "type": "string",
+      "description": "Workspace email domain."
+     },
+     "domain_discovery": {
+      "type": "boolean",
+      "description": "Whether users with matching email domains can discover this workspace."
+     },
+     "restrict_email_domains": {
+      "type": "boolean",
+      "description": "Whether workspace invites are restricted to workspace domain."
+     },
+     "properties": {
+      "type": "string",
+      "description": "Workspace properties."
+     },
+     "is_trial_pending": {
+      "type": "boolean",
+      "description": "Whether the workspace is waiting for trial confirmation."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "is_link_sharing_enabled",
+     "is_guest_allowed",
+     "domain_name",
+     "domain_discovery",
+     "restrict_email_domains",
+     "properties",
+     "is_trial_pending"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_comment_api_v1_comments_comment_id_delete",
+   "name": "Delete comment",
+   "description": "Delete a comment by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "String ID of the comment"
+     }
+    },
+    "required": [
+     "comment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/comments/{comment_id}",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_folder_api_v1_folders_folder_id_delete",
+   "name": "Delete folder",
+   "description": "Delete a folder. Projects in the folder will be moved out of it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "integer",
+      "description": "ID of the folder to delete."
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/folders/{folder_id}",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_invitation_api_v1_workspaces_invitations_delete_post",
+   "name": "Delete invitation",
+   "description": "Deletes a workspace invitation. Only admins can delete invitations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace containing the invitation."
+     },
+     "user_email": {
+      "type": "string",
+      "description": "Email address of the invited user."
+     }
+    },
+    "required": [
+     "user_email",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/invitations/delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "workspace_id",
+     "user_email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_label_api_v1_labels_label_id_delete",
+   "name": "Delete label",
+   "description": "Deletes a personal label. All instances of the label will be removed from tasks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "label_id": {
+      "type": "integer",
+      "description": "String ID of the label"
+     }
+    },
+    "required": [
+     "label_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/labels/{label_id}",
+    "path": [
+     "label_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_location_reminder_api_v1_location_reminders_reminder_id_delete",
+   "name": "Delete location reminder",
+   "description": "Delete a location reminder by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the location reminder"
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/location_reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_project_api_v1_projects_project_id_delete",
+   "name": "Delete project",
+   "description": "Deletes a project and all of its sections and tasks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_reminder_api_v1_reminders_reminder_id_delete",
+   "name": "Delete reminder",
+   "description": "Delete a reminder by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the reminder"
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_section_api_v1_sections_section_id_delete",
+   "name": "Delete section",
+   "description": "Delete the section and all of its tasks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section"
+     }
+    },
+    "required": [
+     "section_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/sections/{section_id}",
+    "path": [
+     "section_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_task_api_v1_tasks_task_id_delete",
+   "name": "Delete task",
+   "description": "Delete a task and all of its subtasks. Returns `NOT_FOUND` when the task does not exist and `FORBIDDEN` when the authenticated user cannot modify the task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_upload_api_v1_uploads_delete",
+   "name": "Delete upload",
+   "description": "Delete an uploaded file. The file must belong to the authenticated user. Returns `FILE_NOT_FOUND` when the upload cannot be found.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_url": {
+      "type": "string",
+      "description": "URL of the uploaded file to delete."
+     }
+    },
+    "required": [
+     "file_url"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/uploads",
+    "path": [],
+    "query": [
+     "file_url"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.delete_workspace_api_v1_workspaces_workspace_id_delete",
+   "name": "Delete workspace",
+   "description": "Deletes a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.download_backup_api_v1_backups_download_get",
+   "name": "Download backup",
+   "description": "Download a backup archive. This endpoint requires the `data:read_write` scope. The `backups:read` scope only grants access to `GET /api/v1/backups`. Validates that the requested backup belongs to the authenticated user and redirects to a signed CloudFront URL that expires after one minute.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Backup file name returned in a backup download URL."
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/backups/download",
+    "path": [],
+    "query": [
+     "file"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.email_disable_api_v1_emails_delete",
+   "name": "Email disable",
+   "description": "Disable the current email to a Todoist object",
+   "input": {
+    "type": "object",
+    "properties": {
+     "obj_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "project",
+       "project_comments",
+       "task",
+       "item"
+      ]
+     },
+     "obj_id": {
+      "type": "string",
+      "description": "String ID of the Todoist object."
+     }
+    },
+    "required": [
+     "obj_id",
+     "obj_type"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/emails",
+    "path": [],
+    "query": [
+     "obj_type",
+     "obj_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.email_get_or_create_api_v1_emails_put",
+   "name": "Email get or create",
+   "description": "Get or create an email to a Todoist object, currently only projects and tasks are supported.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "obj_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "project",
+       "project_comments",
+       "task",
+       "item"
+      ]
+     },
+     "obj_id": {
+      "type": "string",
+      "description": "String ID of the Todoist object."
+     }
+    },
+    "required": [
+     "obj_id",
+     "obj_type"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.todoist.com/api/v1/emails",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "obj_type",
+     "obj_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.export_as_file_api_v1_templates_file_get",
+   "name": "Export as file",
+   "description": "Get a template for a project as a CSV file",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to export as a template."
+     },
+     "use_relative_dates": {
+      "type": "boolean",
+      "description": "Whether to export due dates as relative dates."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/templates/file",
+    "path": [],
+    "query": [
+     "project_id",
+     "use_relative_dates"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.export_as_url_api_v1_templates_url_get",
+   "name": "Export as url",
+   "description": "Get a template for a project as a shareable URL. The URL can then be passed to `https://todoist.com/api/v1/import/project_from_url?t_url=` to make a shareable template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to export as a template URL."
+     },
+     "use_relative_dates": {
+      "type": "boolean",
+      "description": "Whether to export due dates as relative dates."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/templates/url",
+    "path": [],
+    "query": [
+     "project_id",
+     "use_relative_dates"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_activity_logs_api_v1_activities_get",
+   "name": "Get activity logs",
+   "description": "Get activity logs. Returns a paginated list of activity events for the user. Events can be filtered by object type (project, item, note, section), event type, and other criteria. Uses cursor-based pagination for efficient navigation through results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object_type": {
+      "type": "string",
+      "description": "The type of object to filter activities by. Must be one of \"project\", \"item\" (task), \"note\" (comment), or \"section\". When specified with `object_id`, returns activities for that specific object."
+     },
+     "object_id": {
+      "type": "string",
+      "description": "The ID of the specific object to get activities for. Must be used together with `object_type`. For example, to get activities for a specific task, set `object_type=item` and `object_id=`."
+     },
+     "parent_project_id": {
+      "type": "string",
+      "description": "Filter activities to only those belonging to the specified project. Returns activities for the project itself and all its tasks and comments."
+     },
+     "parent_item_id": {
+      "type": "string",
+      "description": "Filter activities to only those belonging to the specified task. Returns activities for the task itself and all its comments."
+     },
+     "include_parent_object": {
+      "type": "boolean",
+      "description": "When `true` and `object_id` is specified, also include activities for the parent object. For example, when filtering by a specific task, also include activities for its parent project."
+     },
+     "include_child_objects": {
+      "type": "boolean",
+      "description": "When `true` and `object_id` is specified, also include activities for all child objects. For example, when filtering by a project, also include activities for all its tasks and comments."
+     },
+     "initiator_id": {
+      "type": "string",
+      "description": "Filter activities to only those initiated by the specified user ID(s). Accepts either a single user ID or a list of user IDs. Useful for shared projects to see who made which changes."
+     },
+     "initiator_id_null": {
+      "type": "string",
+      "description": "Filter by whether the activity has an initiator. When `true`, returns only activities with no initiator (your own activities). When `false`, returns only activities initiated by collaborators."
+     },
+     "event_type": {
+      "type": "string",
+      "description": "Filter by a simple event type (e.g., \"added\", \"deleted\", \"completed\"). Returns events of this type across ALL object types that support it. Valid types: \"added\", \"deleted\", \"updated\", \"archived\", \"unarchived\", \"completed\", \"uncompleted\", \"shared\", \"left\", \"moved\". Prefix the value with `!` to negate the filter and return all events EXCEPT this type (e.g., \"!deleted\"). For more precise filtering by"
+     },
+     "ensure_last_state": {
+      "type": "boolean",
+      "description": "**Deprecated** - This parameter has no implementation and will be removed in a future version."
+     },
+     "object_event_types": {
+      "type": "string",
+      "description": "Advanced filtering for specific object type and event type combinations. Format: `[\"object_type:event_type\"]`. Examples: `[\"item:deleted\"]` for deleted tasks, `[\"item:\"]` for all task events, `[\":deleted\"]` for all delete events across all types, `[\"item:deleted\", \"note:added\"]` for multiple filters. Valid event types: \"added\", \"deleted\", \"updated\", \"completed\", \"uncompleted\", \"archived\", \"unarchi"
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Filter activities by workspace. Accepts a single workspace ID, a list of workspace IDs, or `null` to filter for personal projects (projects not belonging to any workspace). Use `[null, 123]` to include both personal projects and workspace 123. When not set, returns activities from all workspaces and personal projects."
+     },
+     "annotate_notes": {
+      "type": "boolean",
+      "description": "When `true`, includes additional information about comments in the `extra_data` field, such as the content of the comment."
+     },
+     "annotate_parents": {
+      "type": "boolean",
+      "description": "When `true`, includes additional information about parent objects in the `extra_data` field, such as the name of the parent project or task."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor for fetching the next page of results. Use the value returned in the `next_cursor` field from a previous response."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     },
+     "date_from": {
+      "type": "string",
+      "description": "Filter activities to only those that occurred on or after this date. Must be in ISO 8601 format (e.g. '2026-01-01T00:00:00Z'). When specified, overrides the default pagination behavior and allows custom date ranges."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Filter activities to only those that occurred before this date (exclusive upper bound). Must be in ISO 8601 format (e.g. '2026-02-01T00:00:00Z'). When specified, overrides the default pagination behavior and allows custom date ranges."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/activities",
+    "path": [],
+    "query": [
+     "object_type",
+     "object_id",
+     "parent_project_id",
+     "parent_item_id",
+     "include_parent_object",
+     "include_child_objects",
+     "initiator_id",
+     "initiator_id_null",
+     "event_type",
+     "ensure_last_state",
+     "object_event_types",
+     "workspace_id",
+     "annotate_notes",
+     "annotate_parents",
+     "cursor",
+     "limit",
+     "date_from",
+     "date_to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_archived_api_v1_projects_archived_get",
+   "name": "Get archived",
+   "description": "Get the user's archived projects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects/archived",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_backups_api_v1_backups_get",
+   "name": "Get backups",
+   "description": "Todoist creates a backup archive of users' data on a daily basis. Backup archives can also be accessed from the web app (Todoist Settings -> Backups). This endpoint accepts the `backups:read` scope, the `data:read_write` scope, or a personal API token. The `backups:read` scope bypasses MFA and only grants access to `GET /api/v1/backups`. When using `data:read_write` or a personal API token for an ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mfa_token": {
+      "type": "string",
+      "description": "MFA token required when using a `data:read_write` token for an account with MFA enabled."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/backups",
+    "path": [],
+    "query": [
+     "mfa_token"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_comment_api_v1_comments_comment_id_get",
+   "name": "Get comment",
+   "description": "Returns a single comment by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "String ID of the comment"
+     }
+    },
+    "required": [
+     "comment_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/comments/{comment_id}",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_comments_api_v1_comments_get",
+   "name": "Get comments",
+   "description": "Get all comments for a given task or project. Exactly one of `task_id` or `project_id` arguments is required. Providing neither or both will return an error. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     },
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/comments",
+    "path": [],
+    "query": [
+     "project_id",
+     "task_id",
+     "cursor",
+     "limit",
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_folder_api_v1_folders_folder_id_get",
+   "name": "Get folder",
+   "description": "Return the folder for the given folder ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "integer",
+      "description": "ID of the folder to return."
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/folders/{folder_id}",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_folders_api_v1_folders_get",
+   "name": "Get folders",
+   "description": "Get all folders for a workspace. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace to list folders for."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/folders",
+    "path": [],
+    "query": [
+     "workspace_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_label_api_v1_labels_label_id_get",
+   "name": "Get label",
+   "description": "Return a personal label by ID. Returns `NOT_FOUND` when the label does not exist or the ID is invalid.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "label_id": {
+      "type": "integer",
+      "description": "String ID of the label"
+     }
+    },
+    "required": [
+     "label_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/labels/{label_id}",
+    "path": [
+     "label_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_labels_api_v1_labels_get",
+   "name": "Get labels",
+   "description": "Get all user labels. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/labels",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_location_reminder_api_v1_location_reminders_reminder_id_get",
+   "name": "Get location reminder",
+   "description": "Return a single location reminder by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the location reminder"
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/location_reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_location_reminders_api_v1_location_reminders_get",
+   "name": "Get location reminders",
+   "description": "Get all active location reminders. Optionally filter by `task_id` to return only location reminders for a specific task. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/location_reminders",
+    "path": [],
+    "query": [
+     "task_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_productivity_stats_api_v1_tasks_completed_stats_get",
+   "name": "Get productivity stats",
+   "description": "Get comprehensive productivity statistics for the authenticated user. This endpoint is used to display information about the [Karma system](https://www.todoist.com/help/articles/introduction-to-karma-OgWkWy). Returns detailed completion statistics including: - Daily completion counts with per-project breakdowns for the last 7 days - Weekly completion counts with per-project breakdowns for the last",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks/completed/stats",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_project_api_v1_projects_project_id_get",
+   "name": "Get project",
+   "description": "Returns a project object related to the given ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_project_collaborators_api_v1_projects_project_id_collaborators_get",
+   "name": "Get project collaborators",
+   "description": "Get all collaborators for a given project. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}/collaborators",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_projects_api_v1_projects_get",
+   "name": "Get projects",
+   "description": "Get all active user projects, optionally filtered by folder or workspace. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "string",
+      "description": "Filter projects to only those in this folder. If provided, workspace_id is ignored."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Filter projects to only those in this workspace. Ignored if folder_id is also provided."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects",
+    "path": [],
+    "query": [
+     "folder_id",
+     "workspace_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_reminder_api_v1_reminders_reminder_id_get",
+   "name": "Get reminder",
+   "description": "Return a single reminder by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the reminder"
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_reminders_api_v1_reminders_get",
+   "name": "Get reminders",
+   "description": "Get all active reminders. Optionally filter by `task_id` to return only reminders for a specific task. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/reminders",
+    "path": [],
+    "query": [
+     "task_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_section_api_v1_sections_section_id_get",
+   "name": "Get section",
+   "description": "Return the section for the given section ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section"
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "section_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/sections/{section_id}",
+    "path": [
+     "section_id"
+    ],
+    "query": [
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_sections_api_v1_sections_get",
+   "name": "Get sections",
+   "description": "Get all active sections for the user, optionally filtered by project or workspace. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to get sections from. If omitted or null, get sections from all projects. If provided, workspace_id is ignored."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Numeric ID of the workspace to get sections from, limited to the user's joined projects. If omitted or null, get sections from all projects. Ignored if project_id is also provided."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/sections",
+    "path": [],
+    "query": [
+     "project_id",
+     "workspace_id",
+     "cursor",
+     "limit",
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_subscription_info_api_v1_payments_get_subscription_info_post",
+   "name": "Get subscription info",
+   "description": "Return the current user's subscription state.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/payments/get_subscription_info",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_task_api_v1_tasks_task_id_get",
+   "name": "Get task",
+   "description": "Returns a single active (non-completed) task by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_tasks_api_v1_tasks_get",
+   "name": "Get tasks",
+   "description": "Get all active tasks for the user. All provided parameters are used to narrow down the list of tasks. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to get tasks from"
+     },
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section to get tasks from"
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "String ID of the parent task to get sub-tasks from"
+     },
+     "label": {
+      "type": "string",
+      "description": "Filter tasks by label name."
+     },
+     "ids": {
+      "type": "string",
+      "description": "A list of the task IDs to retrieve, this should be a comma separated list"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks",
+    "path": [],
+    "query": [
+     "project_id",
+     "section_id",
+     "parent_id",
+     "label",
+     "ids",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_tasks_by_filter_api_v1_tasks_filter_get",
+   "name": "Get tasks by filter",
+   "description": "Get all tasks matching the filter. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Filter by any [supported filter](https://todoist.com/help/articles/introduction-to-filters-V98wIH). Multiple filters (using the comma `,` operator) are not supported."
+     },
+     "lang": {
+      "type": "string",
+      "description": "IETF language tag defining what language filter is written in, if differs from default English"
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks/filter",
+    "path": [],
+    "query": [
+     "query",
+     "lang",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_workspace_api_v1_workspaces_workspace_id_get",
+   "name": "Get workspace",
+   "description": "Returns a workspace by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_workspaces_api_v1_workspaces_get",
+   "name": "Get workspaces",
+   "description": "Returns all workspaces where the user is a member.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.get_workspaces_users_api_v1_workspaces_users_get",
+   "name": "Get workspaces users",
+   "description": "Returns all workspace_users for a given workspace if workspace_id is provided. Otherwise, returns all workspace_users for all workspaces that the requesting user is part of. _Not accessible by guests._",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "string",
+      "description": "ID of the workspace to list users for."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of workspace users to return."
+     },
+     "sort": {
+      "type": "string",
+      "description": "Order workspace users by ID, or by name with the requesting user first. Name sorting requires workspace_id.",
+      "enum": [
+       "id",
+       "name"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/users",
+    "path": [],
+    "query": [
+     "workspace_id",
+     "cursor",
+     "limit",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.id_mappings_api_v1_id_mappings_obj_name_obj_ids_get",
+   "name": "Id mappings",
+   "description": "Translates IDs from v1 to v2 or vice versa. IDs are not unique across object types, hence the need to specify the object type. When V1 ids are provided, the function will return the corresponding V2 ids, if they exist, and vice versa. When no objects are found, an empty list is returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "obj_name": {
+      "type": "string",
+      "description": "Object type for the IDs to translate.",
+      "enum": [
+       "sections",
+       "tasks",
+       "comments",
+       "reminders",
+       "location_reminders",
+       "projects"
+      ]
+     },
+     "obj_ids": {
+      "type": "string",
+      "description": "A comma-separated list of IDs"
+     }
+    },
+    "required": [
+     "obj_ids",
+     "obj_name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/id_mappings/{obj_name}/{obj_ids}",
+    "path": [
+     "obj_name",
+     "obj_ids"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.import_into_project_from_file_api_v1_templates_import_into_project_from_file_post",
+   "name": "Import into project from file",
+   "description": "A template can be imported in an existing project, or in a newly created one. Upload a file suitable to be passed as a template to be imported into a project.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/templates/import_into_project_from_file",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "project_id",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.import_into_project_from_template_id_api_v1_templates_import_into_project_from_template_id_post",
+   "name": "Import into project from template id",
+   "description": "Import a saved template into an existing project. The target project must exist and must not be frozen. The response includes the imported objects so clients can update local state immediately.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to import the template into."
+     },
+     "template_id": {
+      "type": "string",
+      "description": "ID of the saved template to import."
+     },
+     "locale": {
+      "type": "string",
+      "description": "Locale to use for localized template content."
+     }
+    },
+    "required": [
+     "project_id",
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/templates/import_into_project_from_template_id",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "project_id",
+     "template_id",
+     "locale"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.invitations_api_v1_workspaces_invitations_get",
+   "name": "Invitations",
+   "description": "Return a list of user emails who have a pending invitation to a workspace. The list is not paginated. All workspace members can access this list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/invitations",
+    "path": [],
+    "query": [
+     "workspace_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.invite_workspace_users_api_v1_workspaces_workspace_id_users_invite_post",
+   "name": "Invite workspace users",
+   "description": "Invites users to a workspace by email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     },
+     "email_list": {
+      "type": "string",
+      "description": "List of user emails to invite to the workspace."
+     },
+     "role": {
+      "type": "string",
+      "description": "Role assigned to invited users."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}/users/invite",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "email_list",
+     "role"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.join_api_v1_projects_project_id_join_post",
+   "name": "Join",
+   "description": "_Only used for workspaces_ This endpoint is used to join a workspace project by a workspace_user and is only usable by the workspace user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the workspace project to join."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}/join",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.join_api_v1_workspaces_join_post",
+   "name": "Join",
+   "description": "Join a workspace via link or via workspace ID, if the user can auto-join the workspace by domain. ## Joining by Domain This is possible if: - The user is verified - The user has a user e-mail belonging to a domain that is set as a domain name for a workspace - That workspace has the auto-join by domain feature enabled",
+   "input": {
+    "type": "object",
+    "properties": {
+     "invite_code": {
+      "type": "string",
+      "description": "Workspace invite code to join with. Provide either `invite_code` or `workspace_id`, not both."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Workspace ID to join by verified email domain. Provide either `invite_code` or `workspace_id`, not both."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/join",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "invite_code",
+     "workspace_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.migrate_personal_token_api_v1_access_tokens_migrate_personal_token_post",
+   "name": "Migrate personal token",
+   "description": "Tokens obtained via the old email/password authentication method can be migrated to the new OAuth access token. Migrating your users' personal tokens will allow users to see your app in their Todoist Settings page and give them the ability to manage their app authorization. A successful response has `200 OK` status and `application/json` Content-Type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "The unique Client ID of the Todoist application that you registered."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "The unique Client Secret of the Todoist application that you registered."
+     },
+     "personal_token": {
+      "type": "string",
+      "description": "Token obtained from the email/password authentication."
+     },
+     "scope": {
+      "type": "string",
+      "description": "Scopes of the OAuth token. Please refer to the [Authorization](#tag/Authorization) guide for the detailed list of available scopes."
+     }
+    },
+    "required": [
+     "client_id",
+     "client_secret",
+     "personal_token",
+     "scope"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/access_tokens/migrate_personal_token",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "client_id",
+     "client_secret",
+     "personal_token",
+     "scope"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.move_task_api_v1_tasks_task_id_move_post",
+   "name": "Move task",
+   "description": "Moves task to another project, section or parent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "ID of the task to move"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the project to move the task to"
+     },
+     "section_id": {
+      "type": "string",
+      "description": "ID of the section to move the task to"
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "ID of the parent task to move the task under"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}/move",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "project_id",
+     "section_id",
+     "parent_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.permissions_api_v1_projects_permissions_get",
+   "name": "Permissions",
+   "description": "Returns a list of all the available roles and the associated actions they can perform in a project.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects/permissions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.plan_details_api_v1_workspaces_plan_details_get",
+   "name": "Plan details",
+   "description": "Lists details of the workspace's current plan and usage",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/workspaces/plan_details",
+    "path": [],
+    "query": [
+     "workspace_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.quick_add_api_v1_tasks_quick_post",
+   "name": "Quick add",
+   "description": "Add a new task using Quick Add with natural language processing. Quick Add allows creating tasks with rich metadata using natural language text. This endpoint uses the same parsing engine as Todoist's official clients, supporting dates, projects, labels, priorities, assignees, and more in a single text string. ## Basic Syntax Overview - **Due dates**: Natural language like `today`, `tomorrow at 5p",
+   "input": {
+    "type": "object",
+    "properties": {
+     "text": {
+      "type": "string",
+      "description": "The text of the task to parse using Quick Add syntax. See the endpoint description for supported syntax elements."
+     },
+     "note": {
+      "type": "string",
+      "description": "A note to attach to the task. The note content is added as a comment on the created task. If the user's plan does not support comments, this parameter is ignored."
+     },
+     "reminder": {
+      "type": "string",
+      "description": "A reminder date in natural language format, similar to due date parsing. If the user's plan does not support reminders, this parameter is ignored. If the reminder text cannot be parsed, it is silently ignored."
+     },
+     "auto_reminder": {
+      "type": "boolean",
+      "description": "When enabled, the default reminder will be added to the new item if it has a due date with time set. See also the [auto_reminder user option](#tag/Sync/User) for more info about the default reminder."
+     },
+     "meta": {
+      "type": "boolean",
+      "description": "When enabled, the response includes a `meta` object containing the detailed parsing results. This shows exactly how the Quick Add text was interpreted, including which project, labels, due date, priority, etc. were detected. Useful for debugging parsing behavior or building integrations that need to understand how text was parsed."
+     }
+    },
+    "required": [
+     "text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks/quick",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "text",
+     "note",
+     "reminder",
+     "auto_reminder",
+     "meta"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.reactivate_plan_api_v1_payments_reactivate_plan_post",
+   "name": "Reactivate plan",
+   "description": "Reactivate a previously canceled subscription. Returns the fresh `SubscriptionInfo` after reactivation so callers can avoid a follow-up fetch. Raises `NO_CANCELABLE_SUBSCRIPTION` if there is no active subscription to reactivate.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/payments/reactivate_plan",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.reject_invitation_api_v1_workspaces_invitations_invite_code_reject_put",
+   "name": "Reject invitation",
+   "description": "Reject a workspace invitation. Usable by authenticated users only.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "invite_code": {
+      "type": "string",
+      "description": "An opaque string representing an invite code. This invitation code is sent to a user via email and is exclusive for the user."
+     }
+    },
+    "required": [
+     "invite_code"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.todoist.com/api/v1/workspaces/invitations/{invite_code}/reject",
+    "path": [
+     "invite_code"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.remove_comment_reaction_api_v1_comments_comment_id_reactions_remove_post",
+   "name": "Remove comment reaction",
+   "description": "Removes the authenticated user's reaction from a task or project comment. Removing a reaction the user has not added succeeds without changing the reactions. Other users' reactions are not affected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "String ID of the comment"
+     },
+     "reaction": {
+      "type": "string",
+      "description": "Reaction emoji."
+     }
+    },
+    "required": [
+     "comment_id",
+     "reaction"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/comments/{comment_id}/reactions/remove",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "reaction"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.remove_workspace_user_api_v1_workspaces_workspace_id_users_user_id_delete",
+   "name": "Remove workspace user",
+   "description": "Removes a user from a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "ID of the workspace user"
+     }
+    },
+    "required": [
+     "user_id",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}/users/{user_id}",
+    "path": [
+     "workspace_id",
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.reopen_task_api_v1_tasks_task_id_reopen_post",
+   "name": "Reopen task",
+   "description": "Reopens a task. Any ancestor tasks or sections will also be marked as uncomplete and restored from history. The reinstated tasks and sections will appear at the end of the list within their parent, after any previously active tasks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}/reopen",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.revoke_access_token_api_api_v1_access_tokens_delete",
+   "name": "Revoke access token api",
+   "description": "Revoke the access tokens obtained via OAuth",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "The unique Client ID of the Todoist application that you registered."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "The unique Client Secret of the Todoist application that you registered."
+     }
+    },
+    "required": [
+     "client_id",
+     "client_secret"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.todoist.com/api/v1/access_tokens",
+    "path": [],
+    "query": [
+     "client_id",
+     "client_secret"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.revoke_token_rfc7009_compliant_api_v1_revoke_post",
+   "name": "Revoke token rfc7009 compliant",
+   "description": "Revoke an access token according to RFC 7009 OAuth Token Revocation. This endpoint accepts form-encoded data and follows the OAuth 2.0 Token Revocation specification. The client must authenticate using HTTP Basic authentication with their client credentials. Authentication is performed via the Authorization header with the format: Authorization: Basic base64(client_id:client_secret)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "token_type_hint": {
+      "type": "string",
+      "description": "A hint about the type of the token being revoked (optional). Expected value: 'access_token'"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/revoke",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "token_type_hint"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.search_labels_api_v1_labels_search_get",
+   "name": "Search labels",
+   "description": "Search user labels by name. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query to match label names. Matching is case-insensitive. Queries are matched literally unless `*` (wildcard) is included. Use `\\*` for literal asterisk and `\\\\` for literal backslash."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/labels/search",
+    "path": [],
+    "query": [
+     "query",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.search_projects_api_v1_projects_search_get",
+   "name": "Search projects",
+   "description": "Search active user projects by name. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query to match project names. Matching is case-insensitive. Queries are matched literally unless `*` (wildcard) is included. Use `\\*` for literal asterisk and `\\\\` for literal backslash."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/projects/search",
+    "path": [],
+    "query": [
+     "query",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.search_sections_api_v1_sections_search_get",
+   "name": "Search sections",
+   "description": "Search active sections by name, optionally filtered by project or workspace. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query to match section names. Matching is case-insensitive. Queries are matched literally unless `*` (wildcard) is included. Use `\\*` for literal asterisk and `\\\\` for literal backslash."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project to search sections from. If omitted or null, search sections from all projects. If provided, workspace_id is ignored."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Numeric ID of the workspace to search sections from, limited to the user's joined projects. If omitted or null, search sections from all projects. Ignored if project_id is also provided."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/sections/search",
+    "path": [],
+    "query": [
+     "query",
+     "project_id",
+     "workspace_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.shared_labels_api_v1_labels_shared_get",
+   "name": "Shared labels",
+   "description": "Returns a set of unique strings containing [shared labels](https://www.todoist.com/help/articles/introduction-to-labels-dSo2eE#h_01HE1NNWMV8MCXNVF10GT13ZEX) from active tasks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "omit_personal": {
+      "type": "boolean",
+      "description": "Whether to exclude the user's personal labels from the shared label names."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/labels/shared",
+    "path": [],
+    "query": [
+     "omit_personal",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.shared_labels_remove_api_v1_labels_shared_remove_post",
+   "name": "Shared labels remove",
+   "description": "Remove the given shared label from all active tasks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Shared label name to remove from matching tasks."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/labels/shared/remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.shared_labels_rename_api_v1_labels_shared_rename_post",
+   "name": "Shared labels rename",
+   "description": "Rename the given shared label from all active tasks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Current shared label name to rename."
+     },
+     "new_name": {
+      "type": "string",
+      "description": "New shared label name to apply to matching tasks."
+     }
+    },
+    "required": [
+     "name",
+     "new_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/labels/shared/rename",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "new_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.tasks_completed_by_completion_date_api_v1_tasks_completed_by_completion_date_get",
+   "name": "Tasks completed by completion date",
+   "description": "Retrieves a list of completed tasks strictly limited by the specified completion date range (up to 3 months). It can retrieve completed items: - From all the projects the user has joined in a workspace - From all the projects of the user - That match many [supported filters](https://todoist.com/help/articles/introduction-to-filters-V98wIH) By default, the response is limited to a page containing a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "since": {
+      "type": "string",
+      "description": "Start of the completion date range, inclusive."
+     },
+     "until": {
+      "type": "string",
+      "description": "End of the completion date range, exclusive."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Workspace ID to limit completed tasks to."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID to limit completed tasks to."
+     },
+     "section_id": {
+      "type": "string",
+      "description": "Section ID to limit completed tasks to."
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "Parent task ID to limit completed subtasks to."
+     },
+     "filter_query": {
+      "type": "string",
+      "description": "Todoist filter query to limit completed tasks."
+     },
+     "filter_lang": {
+      "type": "string",
+      "description": "Language code used to parse `filter_query`."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of completed tasks to return."
+     },
+     "public_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "since",
+     "until"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks/completed/by_completion_date",
+    "path": [],
+    "query": [
+     "since",
+     "until",
+     "workspace_id",
+     "project_id",
+     "section_id",
+     "parent_id",
+     "filter_query",
+     "filter_lang",
+     "cursor",
+     "limit",
+     "public_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.tasks_completed_by_due_date_api_v1_tasks_completed_by_due_date_get",
+   "name": "Tasks completed by due date",
+   "description": "Retrieves a list of completed items strictly limited by the specified due date range (up to 6 weeks). It can retrieve completed items: - From within a project, section, or parent item - From all the projects the user has joined in a workspace - From all the projects of the user - That match many [supported filters](https://todoist.com/help/articles/introduction-to-filters-V98wIH) By default, the r",
+   "input": {
+    "type": "object",
+    "properties": {
+     "since": {
+      "type": "string",
+      "description": "Start of the due date range, inclusive."
+     },
+     "until": {
+      "type": "string",
+      "description": "End of the due date range, exclusive."
+     },
+     "workspace_id": {
+      "type": "string",
+      "description": "Workspace ID to limit completed tasks to."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID to limit completed tasks to."
+     },
+     "section_id": {
+      "type": "string",
+      "description": "Section ID to limit completed tasks to."
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "Parent task ID to limit completed subtasks to."
+     },
+     "filter_query": {
+      "type": "string",
+      "description": "Todoist filter query to limit completed tasks."
+     },
+     "filter_lang": {
+      "type": "string",
+      "description": "Language code used to parse `filter_query`."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of completed tasks to return."
+     }
+    },
+    "required": [
+     "since",
+     "until"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/tasks/completed/by_due_date",
+    "path": [],
+    "query": [
+     "since",
+     "until",
+     "workspace_id",
+     "project_id",
+     "section_id",
+     "parent_id",
+     "filter_query",
+     "filter_lang",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.unarchive_project_api_v1_projects_project_id_unarchive_post",
+   "name": "Unarchive project",
+   "description": "Marks a previously archived project as active again. For personal projects, this will make the project visible again for the initiating user. For workspace projects, this will make the project visible again for all applicable workspace users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}/unarchive",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.unarchive_section_api_v1_sections_section_id_unarchive_post",
+   "name": "Unarchive section",
+   "description": "Marks a section as active again.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section"
+     }
+    },
+    "required": [
+     "section_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/sections/{section_id}/unarchive",
+    "path": [
+     "section_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_comment_api_v1_comments_comment_id_post",
+   "name": "Update comment",
+   "description": "Update a comment by ID and returns its content",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "String ID of the comment"
+     },
+     "content": {
+      "type": "string",
+      "description": "New content for the comment. If null or an empty string, no update is performed."
+     }
+    },
+    "required": [
+     "comment_id",
+     "content"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/comments/{comment_id}",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_folder_api_v1_folders_folder_id_post",
+   "name": "Update folder",
+   "description": "Update an existing folder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "integer",
+      "description": "ID of the folder to update."
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated folder name. Passing null or omitting this field will leave it unchanged."
+     },
+     "default_order": {
+      "type": "string",
+      "description": "Updated default position of the folder. Passing null or omitting this field will leave it unchanged."
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/folders/{folder_id}",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "default_order"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_label_api_v1_labels_label_id_post",
+   "name": "Update label",
+   "description": "Update a personal label. At least one mutable field must be provided. Passing `null` for an optional field keeps the existing value unchanged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "label_id": {
+      "type": "integer",
+      "description": "String ID of the label"
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated label name. Passing null or omitting this field will leave it unchanged."
+     },
+     "order": {
+      "type": "string",
+      "description": "Position of the label in the label list. Passing null or omitting this field will leave it unchanged."
+     },
+     "color": {
+      "type": "string",
+      "description": "Label color. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_favorite": {
+      "type": "string",
+      "description": "Whether the label is marked as a favorite. Passing null or omitting this field will leave it unchanged."
+     }
+    },
+    "required": [
+     "label_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/labels/{label_id}",
+    "path": [
+     "label_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "order",
+     "color",
+     "is_favorite"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_location_reminder_api_v1_location_reminders_reminder_id_post",
+   "name": "Update location reminder",
+   "description": "Update an existing location reminder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the location reminder"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the location. If not provided (or null), the value remains unchanged."
+     },
+     "loc_lat": {
+      "type": "string",
+      "description": "Latitude of the location. If not provided (or null), the value remains unchanged."
+     },
+     "loc_long": {
+      "type": "string",
+      "description": "Longitude of the location. If not provided (or null), the value remains unchanged."
+     },
+     "loc_trigger": {
+      "type": "string",
+      "description": "Trigger type: 'on_enter' or 'on_leave'. If not provided (or null), the value remains unchanged."
+     },
+     "radius": {
+      "type": "string",
+      "description": "Radius in meters. If not provided (or null), the value remains unchanged."
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/location_reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "loc_lat",
+     "loc_long",
+     "loc_trigger",
+     "radius"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_logo_api_v1_workspaces_logo_post",
+   "name": "Update logo",
+   "description": "Upload an image to be used as the workspace logo. Similar to a user\u2019s avatar. If `delete` is set to true, it removes the logo completely and does not return any `logo_*` attribute.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "delete": {
+      "type": "boolean",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/logo",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "workspace_id",
+     "delete",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_notification_setting_api_v1_notification_setting_put",
+   "name": "Update notification setting",
+   "description": "Update a notification delivery preference. The API accepts the legacy `dont_notify` flag and stores the inverse as the user's delivery preference for the requested notification type and channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "notification_type": {
+      "type": "string",
+      "description": "The type of notification being sent",
+      "enum": [
+       "note_added",
+       "item_assigned",
+       "item_completed",
+       "item_uncompleted",
+       "karma_level",
+       "share_invitation_sent",
+       "share_invitation_accepted",
+       "share_invitation_rejected",
+       "share_invitation_blocked_by_project_limit",
+       "user_left_project",
+       "user_removed_from_project",
+       "teams_workspace_upgraded"
+      ]
+     },
+     "service": {
+      "type": "string",
+      "description": "Which communication mechanism is being used to send this notification",
+      "enum": [
+       "email",
+       "push"
+      ]
+     },
+     "dont_notify": {
+      "type": "string",
+      "description": "Whether notifications should be disabled for the selected type and channel."
+     }
+    },
+    "required": [
+     "notification_type",
+     "service"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.todoist.com/api/v1/notification_setting",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "notification_type",
+     "service",
+     "dont_notify"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_project_api_v1_projects_project_id_post",
+   "name": "Update project",
+   "description": "Updates a project and returns it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "String ID of the project"
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated project name. Passing null or omitting this field will leave it unchanged."
+     },
+     "description": {
+      "type": "string",
+      "description": "Updated project description. Passing null or omitting this field will leave it unchanged."
+     },
+     "color": {
+      "type": "string",
+      "description": "Updated project color. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_favorite": {
+      "type": "string",
+      "description": "Whether the project is marked as a favorite. Passing null or omitting this field will leave it unchanged."
+     },
+     "view_style": {
+      "type": "string",
+      "description": "Updated project view style. Passing null or omitting this field will leave it unchanged."
+     },
+     "child_order": {
+      "type": "string",
+      "description": "Updated position of the project in the hierarchy. Only supported for personal projects. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_collapsed": {
+      "type": "string",
+      "description": "Whether the project is collapsed. Passing null or omitting this field will leave it unchanged."
+     },
+     "folder_id": {
+      "type": "string",
+      "description": "Folder to move the project into. Only supported for workspace projects. Pass null to clear the value. Omit this field to keep it unchanged."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/projects/{project_id}",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "color",
+     "is_favorite",
+     "view_style",
+     "child_order",
+     "is_collapsed",
+     "folder_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_reminder_api_v1_reminders_reminder_id_post",
+   "name": "Update reminder",
+   "description": "Update an existing reminder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder_id": {
+      "type": "string",
+      "description": "String ID of the reminder"
+     },
+     "minute_offset": {
+      "type": "string",
+      "description": "Minutes before due time to trigger (for relative reminders)."
+     },
+     "due": {
+      "type": "string",
+      "description": "Due date dictionary for absolute reminders."
+     },
+     "service": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "email",
+       "push"
+      ]
+     },
+     "is_urgent": {
+      "type": "boolean",
+      "description": "Whether the reminder is an urgent reminder. Urgent reminders trigger an alarm notification on the user's designated urgent reminder device. Omit this field to keep it unchanged."
+     }
+    },
+    "required": [
+     "reminder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/reminders/{reminder_id}",
+    "path": [
+     "reminder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "minute_offset",
+     "due",
+     "service",
+     "is_urgent"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_section_api_v1_sections_section_id_post",
+   "name": "Update section",
+   "description": "Update a section.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "section_id": {
+      "type": "string",
+      "description": "String ID of the section"
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated section name. Passing null or omitting this field will leave it unchanged."
+     },
+     "section_order": {
+      "type": "string",
+      "description": "Updated position of the section in the project. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_collapsed": {
+      "type": "string",
+      "description": "Updated collapsed state of the section. Passing null or omitting this field will leave it unchanged."
+     },
+     "description": {
+      "type": "string",
+      "description": "Updated section description. Pass null to clear the value. Omit this field to keep it unchanged."
+     }
+    },
+    "required": [
+     "section_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/sections/{section_id}",
+    "path": [
+     "section_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "section_order",
+     "is_collapsed",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_task_api_v1_tasks_task_id_post",
+   "name": "Update task",
+   "description": "Updates an existing task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "String ID of the task"
+     },
+     "content": {
+      "type": "string",
+      "description": "Updated task content. Omit this field to keep it unchanged."
+     },
+     "description": {
+      "type": "string",
+      "description": "Updated task description. Omit this field to keep it unchanged."
+     },
+     "labels": {
+      "type": "array",
+      "description": "Updated list of label names. Omit this field to keep it unchanged."
+     },
+     "priority": {
+      "type": "integer",
+      "description": "Updated task priority (1-4, where 1 is highest). Omit this field to keep it unchanged."
+     },
+     "due_string": {
+      "type": "string",
+      "description": "Updated human-readable representation of the due date. See the [Due dates](#tag/Due-dates) section for more details. Omit this field to keep it unchanged."
+     },
+     "due_date": {
+      "type": "string",
+      "description": "Updated due date in RFC 3339 format or similar. See the [Due dates](#tag/Due-dates) section for more details. Omit this field to keep it unchanged."
+     },
+     "due_datetime": {
+      "type": "string",
+      "description": "Updated due date and time. See the [Due dates](#tag/Due-dates) section for more details. Omit this field to keep it unchanged."
+     },
+     "due_lang": {
+      "type": "string",
+      "description": "Updated due date language code. See the [Due dates](#tag/Due-dates) section for more details. Omit this field to keep it unchanged."
+     },
+     "assignee_id": {
+      "type": "string",
+      "description": "ID of the user to assign the task to. To find User IDs, use [Get user](#operation/user_info_api_v1_user_get) for your own ID or [Get all collaborators](#operation/get_project_collaborators_api_v1_projects__project_id__collaborators_get) for project members. Pass null to clear the value. Omit this field to keep it unchanged."
+     },
+     "duration": {
+      "type": "string",
+      "description": "Updated task duration, in either minutes or days. Only used if `duration_unit` is also provided. Pass null to clear the value. Omit this field to keep it unchanged."
+     },
+     "duration_unit": {
+      "type": "string",
+      "description": "Unit of time for duration. Must be provided to update the task duration. Pass null to clear the value. Omit this field to keep it unchanged."
+     },
+     "deadline_date": {
+      "type": "string",
+      "description": "Updated deadline date in YYYY-MM-DD format. Pass null to clear the value. Omit this field to keep it unchanged."
+     },
+     "child_order": {
+      "type": "integer",
+      "description": "Updated position of the task in its current scope. Omit this field to keep it unchanged."
+     },
+     "is_collapsed": {
+      "type": "boolean",
+      "description": "Updated collapsed state of the task for the current user. Omit this field to keep it unchanged."
+     },
+     "day_order": {
+      "type": "integer",
+      "description": "Updated position of the task in Today and Upcoming views. Omit this field to keep it unchanged."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "content",
+     "description",
+     "labels",
+     "priority",
+     "due_string",
+     "due_date",
+     "due_datetime",
+     "due_lang",
+     "assignee_id",
+     "duration",
+     "duration_unit",
+     "deadline_date",
+     "child_order",
+     "is_collapsed",
+     "day_order"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_workspace_api_v1_workspaces_workspace_id_post",
+   "name": "Update workspace",
+   "description": "Updates an existing workspace and returns it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated workspace name. Passing null or omitting this field will leave it unchanged."
+     },
+     "description": {
+      "type": "string",
+      "description": "Updated workspace description. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_link_sharing_enabled": {
+      "type": "string",
+      "description": "Updated link sharing status. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_guest_allowed": {
+      "type": "string",
+      "description": "Updated guest access status. Passing null or omitting this field will leave it unchanged."
+     },
+     "domain_name": {
+      "type": "string",
+      "description": "Updated workspace email domain. Passing null or omitting this field will leave it unchanged."
+     },
+     "domain_discovery": {
+      "type": "string",
+      "description": "Updated domain discovery setting. Passing null or omitting this field will leave it unchanged."
+     },
+     "restrict_email_domains": {
+      "type": "string",
+      "description": "Updated email domain restriction setting. Passing null or omitting this field will leave it unchanged."
+     },
+     "properties": {
+      "type": "string",
+      "description": "Updated workspace properties. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_trial_pending": {
+      "type": "string",
+      "description": "Updated trial pending state. Passing null or omitting this field will leave it unchanged."
+     },
+     "invite_code": {
+      "type": "string",
+      "description": "Regenerate workspace invite code when set. Passing null or omitting this field will leave it unchanged."
+     },
+     "is_collapsed": {
+      "type": "string",
+      "description": "Updated collapse state for current user. Passing null or omitting this field will leave it unchanged."
+     }
+    },
+    "required": [
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "is_link_sharing_enabled",
+     "is_guest_allowed",
+     "domain_name",
+     "domain_discovery",
+     "restrict_email_domains",
+     "properties",
+     "is_trial_pending",
+     "invite_code",
+     "is_collapsed"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.update_workspace_user_api_v1_workspaces_workspace_id_users_user_id_post",
+   "name": "Update workspace user",
+   "description": "Updates a workspace user's role.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "integer",
+      "description": "ID of the workspace"
+     },
+     "user_id": {
+      "type": "integer",
+      "description": "ID of the workspace user"
+     },
+     "role": {
+      "type": "string",
+      "description": "Role of the user inside the workspace",
+      "enum": [
+       "ADMIN",
+       "MEMBER",
+       "GUEST"
+      ]
+     }
+    },
+    "required": [
+     "role",
+     "user_id",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/workspaces/{workspace_id}/users/{user_id}",
+    "path": [
+     "workspace_id",
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "role"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.upload_file_api_v1_uploads_post",
+   "name": "Upload file",
+   "description": "Upload a file to Todoist. This endpoint accepts file uploads via two methods: 1. **Multipart form-data** (recommended): - Send the file as a form field with the actual file content - Optionally include `project_id` as another form field - The filename will be extracted from the Content-Disposition header 2. **Raw binary stream**: - Send the file content directly in the request body - Set `Content-",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_name": {
+      "type": "string",
+      "description": ""
+     },
+     "project_id": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/uploads",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file_name",
+     "project_id",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.usage_billing_history_api_v1_usage_billing_history_get",
+   "name": "Usage billing history",
+   "description": "List the caller's usage-billing ledger entries, newest first. Use `types` to filter the entries to list. A user who has never topped up gets an empty page. This is a paginated endpoint. See the [Pagination guide](#tag/Pagination) for details on using cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "Product whose ledger to read."
+     },
+     "types": {
+      "type": "string",
+      "description": "Comma-separated `type` values to return: `usage_settled`, `top_up`, `adjustment`, `void`, `expiry`, or `chargeback`. When omitted, all types are returned. Rejects when an unrecognized name is supplied."
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of objects to return in a page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/usage_billing/history",
+    "path": [],
+    "query": [
+     "product",
+     "types",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.usage_billing_state_api_v1_usage_billing_state_get",
+   "name": "Usage billing state",
+   "description": "Read the caller's usage-billing credit state for a product. A user who has never topped up reads as an empty wallet: `available_units` and `available_amount` are 0, and `usage_allowed` is false. There is no separate \"no account\" answer, because both states send the user to the same top-up screen.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "Product whose credit state to read."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/usage_billing/state",
+    "path": [],
+    "query": [
+     "product"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.usage_billing_top_up_api_v1_usage_billing_top_up_post",
+   "name": "Usage billing top up",
+   "description": "In V1, create a hosted Stripe Checkout session to top up the authenticated user's personal Automations wallet. The user must have a personal Stripe customer and an active personal Todoist Pro subscription. A Business or workspace subscription alone does not qualify. A Business member who also has personal Todoist Pro tops up their personal wallet. If the personal Stripe customer or personal Todois",
+   "input": {
+    "type": "object",
+    "properties": {
+     "amount": {
+      "type": "integer",
+      "description": "Amount to buy, in the currency's minor unit (1000 = $10.00)."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO currency code."
+     },
+     "return_url": {
+      "type": "string",
+      "description": "URL Checkout returns the user to."
+     }
+    },
+    "required": [
+     "amount",
+     "currency",
+     "return_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.todoist.com/api/v1/usage_billing/top_up",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency",
+     "return_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.usage_billing_usage_summary_api_v1_usage_billing_usage_summary_get",
+   "name": "Usage billing usage summary",
+   "description": "Total the caller's settled usage over a window. `/history` is a ledger with one row per movement, so a total spanning more than one page cannot come from it. This answers the one question the UI asks of the whole ledger at once: how many runs, and what they cost. Only settled usage counts. `void`, `expiry` and `chargeback` draw the balance down as well, but they reverse a grant rather than report ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "Product whose usage to total."
+     },
+     "category": {
+      "type": "string",
+      "description": "Count one kind of work only, for example `automation_run`. More than one kind settles against the same balance, so a per-run average over all of them mixes runs with chat messages. Omit to total every category."
+     },
+     "since": {
+      "type": "string",
+      "description": "Start of the window, inclusive. Omit to start at the account's first event. A value with no offset is read as UTC, which is what `created_at` in `/history` reports."
+     },
+     "until": {
+      "type": "string",
+      "description": "End of the window, exclusive. Omit to run to now. A value with no offset is read as UTC."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/usage_billing/usage_summary",
+    "path": [],
+    "query": [
+     "product",
+     "category",
+     "since",
+     "until"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "todoist.user_info_api_v1_user_get",
+   "name": "User info",
+   "description": "Get information about the currently authenticated user. This is the OIDC userinfo endpoint. OAuth tokens of any product audience are accepted as long as they carry the `user:read` scope (implied by `data:read`).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.todoist.com/api/v1/user",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

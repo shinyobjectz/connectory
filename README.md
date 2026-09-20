@@ -33,17 +33,27 @@ can be public: there is nothing in it to leak.
 OpenAI and Sunshine Conversations for Zendesk — right organisation, wrong product. A wrong
 parameter list is worse than an empty one: an empty catalog says "I cannot do that", while a
 wrong one builds a call that fails at the vendor or, worse, succeeds and does something else.
-So a description is accepted from the vendor's own repository, from an exact domain match, or
-from a person who checked it. Nowhere else.
+So a description is accepted from the vendor's own repository, from their own documentation
+site, from an exact domain match, or from a person who checked it. Nowhere else.
 
-**A platform nobody describes is still listed.** It has a name, a logo, a base URL and a
-credential — everything except operations. Saying so is honest; inventing endpoints is not.
+**A platform nobody describes is still listed**, with a name, a logo, a base URL and a
+credential — everything except operations. Where the vendor publishes documentation a program
+can read, that is kept beside it as `docs.md`: context for a reader, never a source of
+endpoints. An endpoint inferred from prose is a guess wearing the costume of a fact.
+
 That is why the number of platforms and the number with operations are different numbers, and
 both are printed.
 
 **Nothing here is invented.** Every operation comes from a machine-readable description the
 vendor publishes. No hand-written endpoints, because a hand-written endpoint is a guess that
 looks like a fact.
+
+The one thing written rather than sourced is a sentence for an operation whose description the
+vendor left empty — thousands arrive with a method, a path and nothing else, which leaves them
+unfindable, because a ranker matching words has no words to match. `GET /V1.0/ActionTypes`
+becomes "Lists action types." It describes the shape of the call and never its meaning, it is
+derived from the path the vendor published, and it is marked `described: derived` so it is
+never mistaken for their words.
 
 ## What is in a provider
 
@@ -52,6 +62,8 @@ looks like a fact.
       index.json     names, descriptions and argument types — what you need to FIND a call
       logo.svg
       mcp.json       the MCP server the vendor publishes, if there is one
+      docs.md        their documentation, when there is no description to be had
+      alias.json     "the same API as this other one, with a different credential"
 
 The split between `github.lua` and `index.json` is deliberate. For GitHub the calling table is
 317 KB and the prose and schemas around it are 1.3 MB. A program that already knows which
@@ -70,6 +82,8 @@ runs it and opens a pull request when something moved.
 
     python3 tools/directory.py   who exists, and how a request to them is signed
     python3 tools/specs.py       whose description belongs to whom, and who published it
+    python3 tools/discover.py    the same, looked for on each vendor's documentation site
+    python3 tools/context.py     documentation for the platforms nobody describes
     python3 tools/build.py       the packs, from those descriptions
     python3 tools/logos.py       a mark for every platform
     python3 tools/mcp.py         which of them run an MCP server

@@ -1,0 +1,945 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "attention",
+ "source": "https://api.attention.tech/swagger.json",
+ "operations": [
+  {
+   "slug": "attention.aircall_link_account_callback",
+   "name": "Aircall link account callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "state": {
+      "type": "string",
+      "description": ""
+     },
+     "error": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//install/aircall/callback",
+    "path": [],
+    "query": [
+     "code",
+     "state",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.aircall_webhook",
+   "name": "Aircall webhook",
+   "description": "Creates a webhook.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//aircall/webhook",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.ameyo_webhook_object_type",
+   "name": "Ameyo webhook object type",
+   "description": "Creates webhook.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectTypeCode": {
+      "type": "string",
+      "description": ""
+     },
+     "organizationID": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "objectTypeCode",
+     "organizationID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//ameyo/webhook/{objectTypeCode}",
+    "path": [
+     "objectTypeCode"
+    ],
+    "query": [
+     "organizationID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.deauth_zoom_integration",
+   "name": "Deauth zoom integration",
+   "description": "Removes the status of the Zoom integration of the current user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event": {
+      "type": "string",
+      "description": ""
+     },
+     "payload": {
+      "type": "object",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//zoom/deauth",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "event",
+     "payload",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.deepgram_callback",
+   "name": "Deepgram callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//deepgram/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.delete_zoom_integration",
+   "name": "Delete zoom integration",
+   "description": "Removes the status of the Zoom integration of the current user",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.attention.tech//zoom/status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.elevenlabs_callback",
+   "name": "Elevenlabs callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//elevenlabs/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.generate_zoom_link_account",
+   "name": "Generate zoom link account",
+   "description": "Returns a link to link a zoom account with the attention account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//zoom/account-links",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.get_login_events",
+   "name": "Get login events",
+   "description": "Returns login events for the organization. Only accessible by admin users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_date": {
+      "type": "string",
+      "description": "Filter by start date (ISO 8601 format)"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "Filter by end date (ISO 8601 format)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//login-events",
+    "path": [],
+    "query": [
+     "start_date",
+     "end_date"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.gladia_callback",
+   "name": "Gladia callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//gladia/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.google_link_account_callback",
+   "name": "Google link account callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "state": {
+      "type": "string",
+      "description": ""
+     },
+     "error": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//google/callback",
+    "path": [],
+    "query": [
+     "code",
+     "state",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.home",
+   "name": "Home",
+   "description": "Home",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.hubspot_webhook_object_type",
+   "name": "Hubspot webhook object type",
+   "description": "Creates a crmrecord.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//hubspot/webhook/crmrecord",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.login",
+   "name": "Login",
+   "description": "Login with user and password and get an access token to talk on behalf of the user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "password": {
+      "type": "string",
+      "description": ""
+     },
+     "credentials": {
+      "type": "object",
+      "description": "credentials to validate"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//login",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "password",
+     "credentials"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.logout",
+   "name": "Logout",
+   "description": "Logout and clear authentication cookie",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//logout",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.me",
+   "name": "Me",
+   "description": "Returns info about the current user",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.microsoft_link_account_callback",
+   "name": "Microsoft link account callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "state": {
+      "type": "string",
+      "description": ""
+     },
+     "error": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//microsoft/callback",
+    "path": [],
+    "query": [
+     "code",
+     "state",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.petromin_recordings_callback",
+   "name": "Petromin recordings callback",
+   "description": "Creates a petromin.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "callDirection": {
+      "type": "string",
+      "description": ""
+     },
+     "callStartTime": {
+      "type": "string",
+      "description": ""
+     },
+     "callType": {
+      "type": "string",
+      "description": ""
+     },
+     "customerCRTId": {
+      "type": "string",
+      "description": ""
+     },
+     "dispositionClass": {
+      "type": "string",
+      "description": ""
+     },
+     "dstPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "recordingFileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "srcPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "callStartTime",
+     "callType",
+     "customerCRTId",
+     "dispositionClass",
+     "dstPhone",
+     "recordingFileUrl",
+     "srcPhone",
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//webhook/recordings/petromin",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "callDirection",
+     "callStartTime",
+     "callType",
+     "customerCRTId",
+     "dispositionClass",
+     "dstPhone",
+     "recordingFileUrl",
+     "srcPhone",
+     "userId",
+     "body"
+    ],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.playback_notifications",
+   "name": "Playback notifications",
+   "description": "Creates a notification.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//playback/notifications",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.rc_desktop_realtime",
+   "name": "Rc desktop realtime",
+   "description": "Creates a desktop realtime.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "w": {
+      "type": "string",
+      "description": "window_id routing key (matches recording.window_id)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//recall/desktop-realtime",
+    "path": [],
+    "query": [
+     "w"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.rc_status_webhook",
+   "name": "Rc status webhook",
+   "description": "Creates a rc status webhook.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//bot/rc-status-webhook",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.rc_webhook",
+   "name": "Rc webhook",
+   "description": "Creates a rc webhook.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//bot/rc-webhook",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.recall_zoom_access_token",
+   "name": "Recall zoom access token",
+   "description": "Lists zoom access token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "auth_token": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "auth_token",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//recall/zoom_access_token",
+    "path": [],
+    "query": [
+     "user_id",
+     "auth_token"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.retrieve_zoom_integration_status",
+   "name": "Retrieve zoom integration status",
+   "description": "Returns the status of the Zoom integration of the current user",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//zoom/status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.revai_callback",
+   "name": "Revai callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//revai/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.ring_over_callback",
+   "name": "Ring over callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//ringover/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.salesforce_link_account_callback",
+   "name": "Salesforce link account callback",
+   "description": "Creates a callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": "authorization code provided by salesforce, to fetch access token"
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": "defines if the salesforce domain belongs to a sandbox, if not present, it is considered a production domain"
+     },
+     "organizationUUID": {
+      "type": "string",
+      "description": "if the action is performed by an user of a privileged org, this is the target organization to add the account"
+     },
+     "state": {
+      "type": "string",
+      "description": "signed OAuth state echoed back from the Salesforce redirect; when present, the backend derives the environment from its claims instead of the isSandbox flag"
+     },
+     "body": {
+      "type": "object",
+      "description": "authorization information provided by salesforce after user approval"
+     }
+    },
+    "required": [
+     "code"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//salesforce/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "code",
+     "isSandbox",
+     "organizationUUID",
+     "state",
+     "body"
+    ],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.salesforce_webhook_event",
+   "name": "Salesforce webhook event",
+   "description": "Creates an event.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//salesforce/webhook/event",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.salesforce_webhook_object_type",
+   "name": "Salesforce webhook object type",
+   "description": "Creates webhook.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectTypeCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "objectTypeCode"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//salesforce/webhook/{objectTypeCode}",
+    "path": [
+     "objectTypeCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.signup_auth_provider",
+   "name": "Signup auth provider",
+   "description": "Attempts to sign up a user based on auth provider access token info, and session init",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//signup-auth-provider",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attention.slack_link_account_callback",
+   "name": "Slack link account callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "state": {
+      "type": "string",
+      "description": ""
+     },
+     "error": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//slack/callback",
+    "path": [],
+    "query": [
+     "code",
+     "state",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.ubity_callback",
+   "name": "Ubity callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//ubity/callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.zoom_link_account_callback",
+   "name": "Zoom link account callback",
+   "description": "Lists callback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "state": {
+      "type": "string",
+      "description": ""
+     },
+     "error": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.attention.tech//zoom/callback",
+    "path": [],
+    "query": [
+     "code",
+     "state",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "attention.zoom_webhook",
+   "name": "Zoom webhook",
+   "description": "Creates a webhook.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.attention.tech//zoom/webhook",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  }
+ ]
+}

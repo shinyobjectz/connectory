@@ -1,0 +1,4997 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "embat",
+ "source": "https://api.embat.io/openapi.json",
+ "operations": [
+  {
+   "slug": "embat.add_attribute_values_attributes_company_id_custom_id_values_bulk_post",
+   "name": "Add values to an attribute",
+   "description": "Adds values to an existing attribute, identified by `customId`, without affecting its other values. If a value with the same `customId` already exists on the attribute, it is replaced. If the attribute does not exist, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Values to add to the attribute."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/attributes/{companyId}/{customId}/values/bulk",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.add_attribute_values_operations_company_id_attributes_bulk_post",
+   "name": "Add internal attributes to operations in bulk",
+   "description": "Attaches internal attribute values to operations, identified by `customId`. These attributes are for internal use only and are not shared back with the ERP through the regular operation fields. Entries whose `customId` does not match any existing operation are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the operations that were updated. If none match, the call ret",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Attribute values to add, grouped by operation."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/operations/{companyId}/attributes/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.auth_token_authentication_token_post",
+   "name": "Generate access token",
+   "description": "Authenticates with `email`/`password` and returns a JWT `idToken` to use as a Bearer token in the `Authorization` header for every other request. The token expires 60 minutes after issuance; call this endpoint again with the same credentials to obtain a new one \u2014 there is no separate refresh endpoint. If `email` or `password` is missing or malformed, the validation error response never echoes back",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address of the Embat service user used to authenticate."
+     },
+     "password": {
+      "type": "string",
+      "description": "Password of the Embat service user. Keep it secret."
+     }
+    },
+    "required": [
+     "email",
+     "password"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/authentication/token",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "password"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_accounting_entries_bulk_accountingentries_company_id_bulk_post",
+   "name": "Create accounting entries in bulk",
+   "description": "Creates several accounting entries in a single call, following the same rules as the single entry creation endpoint. Entries sharing the same `customId` within the request are deduplicated and only the first occurrence is processed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting entries to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/accountingentries/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_accounting_entry_accountingentries_company_id_post",
+   "name": "Create accounting entry",
+   "description": "Creates a single accounting entry (one line of a general ledger journal). If `customId` is omitted, Embat auto-generates one; if the `customId` already exists, the entry is updated instead of duplicated (upsert). An entry always carries both an outflow side (`assetAmount`, stored with its sign inverted so negative means money out) and an inflow side (`liabilityAmount`, stored as sent); if you only",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Ledger account code the entry is posted to."
+     },
+     "counterpartAccountingCode": {
+      "type": "string",
+      "description": "Ledger account code of the counterpart side of the entry, when applicable."
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Display name of the ledger account (`accountingCode`)."
+     },
+     "assetAmount": {
+      "type": "number",
+      "description": "Outflow side of the entry, in `currency` (money leaving the account). An entry always has both sides: if you only send `liabilityAmount`, `assetAmount` defaults to 0. The sign is inverted on storage (0 always stays 0): a positive value you send is stored and returned as negative, following the convention that negative amounts are outflows."
+     },
+     "accountingAssetAmount": {
+      "type": "string",
+      "description": "Outflow side expressed in the company accounting currency (`accountingCurrency`). Subject to the same sign convention as `assetAmount`."
+     },
+     "balance": {
+      "type": "string",
+      "description": "Running balance of the ledger account (`accountingCode`) after this entry, typically calculated by Embat rather than provided by you."
+     },
+     "liabilityAmount": {
+      "type": "number",
+      "description": "Inflow side of the entry, in `currency` (money entering the account), stored with the sign you send. An entry always has both sides: if you only send `assetAmount`, `liabilityAmount` defaults to 0."
+     },
+     "accountingLiabilityAmount": {
+      "type": "string",
+      "description": "Inflow side expressed in the company accounting currency (`accountingCurrency`)."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO currency code of `assetAmount`/`liabilityAmount`."
+     },
+     "accountingCurrency": {
+      "type": "string",
+      "description": "ISO currency code of `accountingAssetAmount`/`accountingLiabilityAmount`."
+     },
+     "contactCustomId": {
+      "type": "string",
+      "description": "Custom ID of the contact (client/supplier), used when `accountingCode` is a contacts ledger account."
+     },
+     "exchangeRate": {
+      "type": "string",
+      "description": "Exchange rate applied between `currency` and `accountingCurrency`."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the entry. Sending an empty object (`{}`) has no effect and does not clear previously stored metadata."
+     },
+     "description": {
+      "type": "string",
+      "description": "Free-text description of the entry. If omitted, Embat generates one: `\"Asiento \"` followed by `accountingEntryCode` if set, otherwise by `customId`."
+     },
+     "documentId": {
+      "type": "string",
+      "description": "Identifier of the source document (e.g. invoice) this entry relates to."
+     },
+     "transactionsIds": {
+      "type": "string",
+      "description": "Embat IDs of the bank transactions related to this entry."
+     },
+     "paymentId": {
+      "type": "string",
+      "description": "Embat ID of the payment related to this entry."
+     },
+     "date": {
+      "type": "string",
+      "description": "Accounting date of the entry. Send a plain date at midnight (e.g. `2024-01-15T00:00:00Z`) \u2014 sending a different time of day can shift the stored calendar date and is not fully normalized to midnight."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the entry. Duplicate values and attributes flagged as internal-only are omitted when the entry is returned."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the entry, to use as your ERP accounting entry ID. If omitted, Embat auto-generates one."
+     },
+     "accountingEntryCode": {
+      "type": "string",
+      "description": "Your own ID grouping the entries that form a single journal/document (e.g. all lines of one invoice posting). Several entries can share the same `accountingEntryCode`."
+     },
+     "accountingEntryCodeId": {
+      "type": "string",
+      "description": "Alternate grouping code for the entry. Bulk deletion by entry code (`DELETE /accountingentries/accountingentrycode/{companyId}`) matches entries by either `accountingEntryCode` or `accountingEntryCodeId`."
+     }
+    },
+    "required": [
+     "accountingCode",
+     "assetAmount",
+     "companyId",
+     "date",
+     "liabilityAmount"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/accountingentries/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "accountingCode",
+     "counterpartAccountingCode",
+     "accountingName",
+     "assetAmount",
+     "accountingAssetAmount",
+     "balance",
+     "liabilityAmount",
+     "accountingLiabilityAmount",
+     "currency",
+     "accountingCurrency",
+     "contactCustomId",
+     "exchangeRate",
+     "additionalInfo",
+     "description",
+     "documentId",
+     "transactionsIds",
+     "paymentId",
+     "date",
+     "attributes",
+     "customId",
+     "accountingEntryCode",
+     "accountingEntryCodeId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_accountings_account_accountingaccounts_company_id_post",
+   "name": "Create accounting account",
+   "description": "Creates an accounting account identified by `accountingCode`. If an account with the same `accountingCode` already exists, this call updates it instead of failing; if the submitted data is identical to the existing account, the call is a no-op. `accountingName` defaults to `accountingCode` when omitted. `type` is inferred from `accountingCode` when not sent, and an `accountingCode` starting with `",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "string",
+      "description": "Whether the accounting account is active."
+     },
+     "type": {
+      "type": "string",
+      "description": "Accounting account classification: `banks` or `accountings`. The value `analytics` is deprecated: it is still accepted for backwards compatibility but automatically stored as `accountings`. If omitted, it is inferred from `accountingCode`.Once an account exists, any `type` sent through the create endpoints is silently ignored \u2014 the value(inferred, overridden or explicit) only applies when the acco"
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Display name of the accounting account. Defaults to `accountingCode` when omitted."
+     },
+     "collective": {
+      "type": "string",
+      "description": "Whether this is a collective (grouping) accounting account rather than an individual one."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the account. Sending an empty object leaves any previously stored metadata unchanged instead of clearing it."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the account. Entries with an empty or missing `customId` or `value` are silently discarded."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Unique code identifying the accounting account in the company's chart of accounts."
+     }
+    },
+    "required": [
+     "accountingCode",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "active",
+     "type",
+     "accountingName",
+     "collective",
+     "additionalInfo",
+     "attributes",
+     "accountingCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_accountings_accounts_bulk_accountingaccounts_company_id_bulk_post",
+   "name": "Create accounting accounts in bulk",
+   "description": "Creates several accounting accounts in a single call, following the same rules as the single account creation endpoint. Entries sharing the same `accountingCode` within the request are deduplicated and only the first occurrence is processed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting accounts to create. Entries sharing the same `accountingCode` within the request are deduplicated and only the first occurrence is processed."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_attribute_attributes_company_id_post",
+   "name": "Create attribute",
+   "description": "Creates an attribute. If `customId` is omitted, Embat auto-generates one. If an attribute with the given `customId` already exists, its fields are overwritten instead of raising a duplicate error \u2014 this endpoint behaves as an upsert. Sending `values` replaces the attribute's full value list, and **omitting `values` on an existing attribute removes all of its current values** \u2014 always resend the va",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the attribute. If omitted, Embat auto-generates one."
+     },
+     "source": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "erp",
+       "api",
+       "embat"
+      ]
+     },
+     "active": {
+      "type": "boolean",
+      "description": "Whether the attribute is active."
+     },
+     "name": {
+      "type": "string",
+      "description": "Display name of the attribute."
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "list",
+       "string",
+       "number"
+      ]
+     },
+     "required": {
+      "type": "boolean",
+      "description": "Whether a value for this attribute should be mandatory wherever it is used. Informational only: this API does not enforce it."
+     },
+     "values": {
+      "type": "string",
+      "description": "Values available for this attribute (relevant when `type` is `list`). If an attribute with this `customId` already exists, sending `values` **replaces** its current list \u2014 any previously stored value not included here is removed. Omitting `values` when creating a new attribute with an existing `customId` also removes all of its current values. An attribute holds at most 5000 values; if the combine"
+     },
+     "parentCustomId": {
+      "type": "string",
+      "description": "Custom ID of the parent attribute, to nest this attribute under another one (e.g. a \"City\" attribute nested under \"Country\"). Must reference an existing attribute."
+     }
+    },
+    "required": [
+     "companyId",
+     "name",
+     "source",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/attributes/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "customId",
+     "source",
+     "active",
+     "name",
+     "type",
+     "required",
+     "values",
+     "parentCustomId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_attributes_bulk_attributes_company_id_bulk_post",
+   "name": "Create attributes in bulk",
+   "description": "Creates several attributes in a single call, following the same rules as the single attribute creation endpoint (upsert by `customId`; omitting `values` on an existing attribute removes all of its current values).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Attributes to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/attributes/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_contact_contacts_company_id_post",
+   "name": "Create contact",
+   "description": "Creates a contact (client/supplier). If `customId` is omitted, Embat auto-generates one. Calling this endpoint again with a `customId` that already exists **updates** the existing contact instead of creating a duplicate or raising a conflict error; if the submitted data is identical to the stored contact, the call is a no-op.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "tradeName": {
+      "type": "string",
+      "description": "Commercial/trade name of the contact. Defaults to `legalName` when omitted or blank."
+     },
+     "legalName": {
+      "type": "string",
+      "description": "Legal (registered) name of the contact."
+     },
+     "taxId": {
+      "type": "string",
+      "description": "Tax identification number (CIF/NIF/VAT) of the contact. Spaces are removed before storage."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Contact person details (name, phone, email) for this contact."
+     },
+     "address": {
+      "type": "string",
+      "description": "Postal address of the contact."
+     },
+     "contactType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "freelance",
+       "company"
+      ]
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "supplier",
+       "client-supplier",
+       "client"
+      ]
+     },
+     "accounts": {
+      "type": "string",
+      "description": "Bank accounts of the contact. When omitted (or empty) and `paymentsAccounts` is provided, Embat derives one entry per payment account automatically: the derived `iban` holds the payment identifier resolved for the account's currency (an IBAN for IBAN-based currencies, otherwise the local account number), `swift` takes the account's `bic`, and `default` its `default` flag."
+     },
+     "paymentsAccounts": {
+      "type": "string",
+      "description": "Bank accounts of the contact, one per currency/payment rail, with the identifiers required to pay it (IBAN, account number, routing number...). Each entry is validated independently and **silently discarded** when it has no usable account identifier for its `currency` (neither `iban` nor `accountNumber` set); format validity of the identifiers themselves is not enforced. Entries that resolve to th"
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the contact."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Accounting account code this contact is linked to."
+     },
+     "paymentMethod": {
+      "type": "string",
+      "description": "Preferred payment method for this contact."
+     },
+     "paymentTerms": {
+      "type": "string",
+      "description": "Payment terms granted to the contact, in days."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the contact."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the contact. If omitted, Embat auto-generates one."
+     }
+    },
+    "required": [
+     "companyId",
+     "legalName",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/contacts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tradeName",
+     "legalName",
+     "taxId",
+     "contact",
+     "address",
+     "contactType",
+     "type",
+     "accounts",
+     "paymentsAccounts",
+     "additionalInfo",
+     "accountingCode",
+     "paymentMethod",
+     "paymentTerms",
+     "attributes",
+     "customId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_contacts_bulk_contacts_company_id_bulk_post",
+   "name": "Create contacts in bulk",
+   "description": "Creates several contacts in a single call, following the same rules as the single contact creation endpoint: a `customId` that already exists updates the existing contact rather than creating a duplicate. Contacts sharing the same `customId` within the request are deduplicated and only the first occurrence is processed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Contacts to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/contacts/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_file_emission_files_company_id_bank_id_post",
+   "name": "Create file emission",
+   "description": "Submits a file to a bank (`bankId`) on behalf of a company, e.g. a payment order file. Returns the Embat ID of the created file emission; retrieve its status later with `GET /files/emissions`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "bankId": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": "Binary content of the file to submit to the bank. Set the part's `Content-Type` to match the format (e.g. `application/xml` for SEPA XML formats); if omitted, it is inferred from the file name extension."
+     },
+     "format": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "sepa34",
+       "sepa19",
+       "confir",
+       "dev019",
+       "n19_financiada",
+       "omfpag",
+       "rec019",
+       "sctdiv",
+       "sepint"
+      ]
+     }
+    },
+    "required": [
+     "bankId",
+     "companyId",
+     "file",
+     "format"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/files/{companyId}/{bankId}",
+    "path": [
+     "companyId",
+     "bankId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "format"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_log_logs_company_id_post",
+   "name": "Create log",
+   "description": "Reports a single execution event, warning or error observed by your integration while interacting with the Embat API, so Embat's support team can diagnose integration issues. Log delivery is best-effort: the endpoint returns `204` as soon as the request is accepted, and any failure while recording the log afterwards is not reported back to the caller.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "erp": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "netsuite",
+       "sageX3",
+       "odoo",
+       "businessCentral",
+       "navision",
+       "libra",
+       "distritoK",
+       "fo",
+       "zoho",
+       "holded",
+       "dynamicsAx",
+       "a3"
+      ]
+     },
+     "erpVersion": {
+      "type": "string",
+      "description": "Version of the ERP system that originated the log."
+     },
+     "connectorVersion": {
+      "type": "string",
+      "description": "Version of the integration that reported the log."
+     },
+     "level": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "INFO",
+       "ERROR",
+       "WARNING"
+      ]
+     },
+     "code": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "INFO",
+       "WARNING",
+       "ERROR",
+       "AUTHORIZATION_INFO",
+       "AUTHORIZATION_WARNING",
+       "AUTHORIZATION_ERROR",
+       "ACCOUNTINGS_ACCOUNTS_INFO",
+       "ACCOUNTINGS_ACCOUNTS_WARNING",
+       "ACCOUNTINGS_ACCOUNTS_ERROR",
+       "ACCOUNTINGS_ENTRIES_INFO",
+       "ACCOUNTINGS_ENTRIES_WARNING",
+       "ACCOUNTINGS_ENTRIES_ERROR"
+      ]
+     },
+     "message": {
+      "type": "string",
+      "description": "Free-text description of the event, warning or error being reported."
+     }
+    },
+    "required": [
+     "code",
+     "companyId",
+     "connectorVersion",
+     "erp",
+     "erpVersion",
+     "level",
+     "message"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/logs/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "erp",
+     "erpVersion",
+     "connectorVersion",
+     "level",
+     "code",
+     "message"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_logs_bulk_logs_company_id_bulk_post",
+   "name": "Create logs in bulk",
+   "description": "Reports several log entries in a single call, following the same rules as the single log creation endpoint. Each entry is processed independently, so a failure recording one log does not affect the others. Log delivery is best-effort: the endpoint returns `204` as soon as the request is accepted, regardless of the outcome of recording any individual entry.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Logs to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/logs/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_manual_transactions_bulk_transactions_company_id_product_id_bulk_post",
+   "name": "Create manual transactions in bulk",
+   "description": "Creates transactions for a company's product in a single call, grouped by day. Returns an empty response with status `201` on success. > **Manual products only.** This endpoint only works with products classified as \"Manual\". Using it with a `productId` that exists but is not classified as Manual returns a `400 Bad Request` error. If `productId` does not exist, or its associated bank record does n",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "productId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Transactions to create for a Manual product. For each day covered by this list, any transactions previously recorded for that same day on the product are permanently replaced \u2014 this cannot be undone."
+     }
+    },
+    "required": [
+     "companyId",
+     "data",
+     "productId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/transactions/{companyId}/{productId}/bulk",
+    "path": [
+     "companyId",
+     "productId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_operation_operations_company_id_post",
+   "name": "Create operation",
+   "description": "Creates an operation (invoice/bill) with an optional `customId`; if omitted, Embat auto-generates one. Sending an operation whose `customId` already exists updates it, except when the existing operation already has a payment recorded against it in Embat: in that case the request has **no effect** on most fields \u2014 only `dueDate`, `paymentDate` and `pendingAmount` are applied, and only when the oper",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "Status of the operation. On creation, only `paid`, `cancel` and `payment_in_progress` are respected as sent (`paid`/`cancel` also reset `pendingAmount` and `pendingAccountingAmount` to 0). Any other value \u2014 including `paymentOrder` and `shipped` (legacy values, avoid using them in new integrations) \u2014 is **silently discarded** and recomputed from `dueDate`: `pending` if `dueDate` is today or later,"
+     },
+     "paymentDate": {
+      "type": "string",
+      "description": "Date the operation is expected to be (or was) paid. Only the calendar date is meaningful; the time component is not preserved as sent. When an update transitions an operation to `paid`, Embat sets this field to the current date and ignores the submitted value."
+     },
+     "chargeAccount": {
+      "type": "string",
+      "description": "IBAN of your own bank account the operation is charged to."
+     },
+     "contactAccount": {
+      "type": "string",
+      "description": "IBAN of the counterparty's (contact's) bank account."
+     },
+     "issuanceDate": {
+      "type": "string",
+      "description": "Issuance date of the operation's source document. Only the calendar date is meaningful; the time component is not preserved as sent. If `dueDate` is omitted, it defaults to this date, and `paymentDate` in turn defaults to `dueDate`."
+     },
+     "dueDate": {
+      "type": "string",
+      "description": "Due date of the operation. Only the calendar date is meaningful; the time component is not preserved as sent. On creation, unless `status` is explicitly set to `paid`, `cancel` or `payment_in_progress`, the operation's status is computed from this date: `pending` if it is today or later, `overdue` otherwise."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Accounting account code the operation is posted to."
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Accounting account name the operation is posted to."
+     },
+     "operationsCustomIds": {
+      "type": "string",
+      "description": "Custom IDs of other operations grouped under this one, to represent an invoice group or remittance (typically combined with `documentType` set to `invoiceGroup`). Takes effect on `POST` (create or upsert): each referenced operation is marked `paid`, its `pendingAmount`/`pendingAccountingAmount` set to 0 and its payment date set to this operation's `paymentDate`. Resending the remittance without so"
+     },
+     "concept": {
+      "type": "string",
+      "description": "Free-text description of the operation."
+     },
+     "amount": {
+      "type": "number",
+      "description": "Total amount of the operation, in `currency`."
+     },
+     "accountingAmount": {
+      "type": "string",
+      "description": "Amount of the operation expressed in the company accounting currency. If omitted, it defaults to `amount` (and `accountingCurrency` is reset to `currency`). Note: whenever the resulting `accountingCurrency` equals `currency`, this value is **forced to `amount`**, even if you explicitly sent a different value."
+     },
+     "pendingAmount": {
+      "type": "string",
+      "description": "Amount still pending settlement, in `currency`. Defaults to `amount` when omitted."
+     },
+     "pendingAccountingAmount": {
+      "type": "string",
+      "description": "Amount still pending settlement, expressed in the accounting currency. If omitted, it is derived proportionally from `pendingAmount` and `accountingAmount`; it is 0 when `amount` or `accountingAmount` is 0."
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AED",
+       "AFN",
+       "ALL",
+       "AMD",
+       "ANG",
+       "AOA",
+       "ARS",
+       "AUD",
+       "AWG",
+       "AZN",
+       "BAM",
+       "BBD"
+      ]
+     },
+     "accountingCurrency": {
+      "type": "string",
+      "description": "ISO currency code of `accountingAmount`. Defaults to `currency` when omitted. Note: when `accountingAmount` is omitted, this field is also **reset to `currency`**, even if you explicitly sent a different value."
+     },
+     "exchangeRate": {
+      "type": "string",
+      "description": "Exchange rate applied between `currency` and `accountingCurrency`. If omitted, it is derived from `amount`/`accountingAmount` (1.0 when `accountingAmount` is 0). Note: whenever `amount` equals `accountingAmount`, the value is **forced to 1.0**, even if you explicitly sent a different one; out-of-range or non-finite values are also silently reset to 1.0."
+     },
+     "paymentMethod": {
+      "type": "string",
+      "description": "Payment method associated with the operation (e.g. `bank-transaction`, `promissory-note`)."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Contact (client/supplier) the operation is due from or to."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the operation."
+     },
+     "invoiceGroupDocumentId": {
+      "type": "string",
+      "description": "Identifier of the invoice group this operation belongs to, if any."
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Marks the operation as synchronized on your side."
+     },
+     "documentId": {
+      "type": "string",
+      "description": "Identifier of the source document (e.g. invoice number)."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the operation."
+     },
+     "externalReference": {
+      "type": "string",
+      "description": "Free-form reference to this operation in an external system."
+     },
+     "comments": {
+      "type": "string",
+      "description": "Free-text comments on the operation."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the operation. If omitted, Embat auto-generates one."
+     },
+     "documentType": {
+      "type": "string",
+      "description": "Type of the source document. Defaults to `invoice` when omitted."
+     },
+     "generatedFrom": {
+      "type": "string",
+      "description": "Origin of the operation: `erp` when it comes from your ERP (the default when omitted), or `external` when it comes from another external system."
+     }
+    },
+    "required": [
+     "amount",
+     "companyId",
+     "concept",
+     "currency",
+     "dueDate",
+     "issuanceDate"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/operations/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status",
+     "paymentDate",
+     "chargeAccount",
+     "contactAccount",
+     "issuanceDate",
+     "dueDate",
+     "accountingCode",
+     "accountingName",
+     "operationsCustomIds",
+     "concept",
+     "amount",
+     "accountingAmount",
+     "pendingAmount",
+     "pendingAccountingAmount",
+     "currency",
+     "accountingCurrency",
+     "exchangeRate",
+     "paymentMethod",
+     "contact",
+     "additionalInfo",
+     "invoiceGroupDocumentId",
+     "sync",
+     "documentId",
+     "attributes",
+     "externalReference",
+     "comments",
+     "customId",
+     "documentType",
+     "generatedFrom"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_operations_bulk_operations_company_id_bulk_post",
+   "name": "Create operations in bulk",
+   "description": "Creates several operations in a single call, following the same rules as the single operation creation endpoint. Operations sharing the same `customId` within the request are deduplicated and only the first occurrence is processed; operations with `amount` equal to `0` are silently discarded. If none of the submitted operations are eligible, the call still returns `200` with an empty `data` list. ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Operations to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/operations/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_payment_payments_company_id_post",
+   "name": "Create payment",
+   "description": "Creates a payment against one or more operations, recording that those operations (invoices/bills) have been settled in your ERP; each settled amount reduces the operation's pending amount in Embat. If `customId` is omitted, Embat auto-generates one. Each entry in `operations` is validated independently and discarded when: the referenced operation does not exist, the operation is already paid or c",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "method": {
+      "type": "string",
+      "description": "Payment method. Defaults to `bank-transaction` when not sent."
+     },
+     "transactionId": {
+      "type": "string",
+      "description": "Embat ID of the bank transaction linked to this payment."
+     },
+     "operations": {
+      "type": "array",
+      "description": "Operations this payment is applied to. Must contain at least one item. Each entry is validated independently and silently discarded if the operation does not exist, is already paid or canceled, already received a payment with this same `customId`, or already has payments created from Embat \u2014 see the endpoint description."
+     },
+     "productId": {
+      "type": "string",
+      "description": "Embat product ID. You can get them from \"Products\" endpoints."
+     },
+     "contactCustomId": {
+      "type": "string",
+      "description": "Custom ID of the contact (client/supplier) involved in the payment."
+     },
+     "date": {
+      "type": "string",
+      "description": "Date the payment was made or received."
+     },
+     "concept": {
+      "type": "string",
+      "description": "Free-text description of the payment."
+     },
+     "amount": {
+      "type": "number",
+      "description": "Payment amount in the payment `currency`. Positive for collections, negative for outgoing payments."
+     },
+     "accountingAmount": {
+      "type": "string",
+      "description": "Payment amount expressed in the company accounting currency. If omitted, it defaults to `amount`, `accountingCurrency` defaults to `currency` and `exchangeRate` is set to 1.0."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO currency code of `amount`. Defaults to `EUR` when omitted."
+     },
+     "accountingCurrency": {
+      "type": "string",
+      "description": "ISO currency code of `accountingAmount`. Defaults to `currency` when omitted."
+     },
+     "exchangeRate": {
+      "type": "string",
+      "description": "Exchange rate applied between `currency` and `accountingCurrency`. Defaults to 1.0 when omitted."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the payment."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the payment."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the payment. If omitted, Embat auto-generates one."
+     }
+    },
+    "required": [
+     "amount",
+     "companyId",
+     "date",
+     "operations"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/payments/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "method",
+     "transactionId",
+     "operations",
+     "productId",
+     "contactCustomId",
+     "date",
+     "concept",
+     "amount",
+     "accountingAmount",
+     "currency",
+     "accountingCurrency",
+     "exchangeRate",
+     "additionalInfo",
+     "attributes",
+     "customId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_payments_bulk_payments_company_id_bulk_post",
+   "name": "Create payments in bulk",
+   "description": "Creates several payments in a single call, following the same rules as the single payment creation endpoint. Payments sharing the same `customId` within the request are deduplicated and only the first occurrence is processed. Payments with no eligible operation that were not notified before are listed in `errors` with code `NO_ELIGIBLE_OPERATIONS` and are not created.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Payments to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/payments/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_reconciling_item_reconcilingitems_company_id_post",
+   "name": "Create reconciling item",
+   "description": "Creates a reconciling item under the given `reconcilingSourceCustomId`. Calling this again with the same `customId` updates the existing item instead of creating a duplicate \u2014 except once the item has been matched to a transaction, in which case the call still returns `200` and the item is not modified by this request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "amount": {
+      "type": "number",
+      "description": "Amount of the reconciling item, in `currency`."
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AED",
+       "AFN",
+       "ALL",
+       "AMD",
+       "ANG",
+       "AOA",
+       "ARS",
+       "AUD",
+       "AWG",
+       "AZN",
+       "BAM",
+       "BBD"
+      ]
+     },
+     "date": {
+      "type": "string",
+      "description": "Date of the reconciling item."
+     },
+     "description": {
+      "type": "string",
+      "description": "Free-text description of the reconciling item."
+     },
+     "metadata": {
+      "type": "string",
+      "description": "Free-form key/value data associated with the reconciling item. When its reconciling source defines a `matchingMetadataKey`, the value stored under that key is used to automatically associate this item with a product transaction \u2014 only string, number or boolean values are usable for matching, other value types are ignored. An empty string is also accepted and treated as an empty object. Replaces th"
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the reconciling item. An empty string is also accepted and treated as an empty object. Replaces the previously stored value entirely (not merged). Omitted or `null` leaves the current metadata unchanged."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the reconciling item. You can use it as your internal reconciling item identifier."
+     },
+     "reconcilingSourceCustomId": {
+      "type": "string",
+      "description": "Custom ID of the reconciling source this item belongs to. You can get them from \"Reconciling Sources\" endpoints. Not validated against existing reconciling sources: if it does not match one, the item is still created, but it is not automatically matched against transactions."
+     }
+    },
+    "required": [
+     "amount",
+     "companyId",
+     "currency",
+     "customId",
+     "date",
+     "description",
+     "reconcilingSourceCustomId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency",
+     "date",
+     "description",
+     "metadata",
+     "additionalInfo",
+     "customId",
+     "reconcilingSourceCustomId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_reconciling_items_bulk_reconcilingitems_company_id_bulk_post",
+   "name": "Create reconciling items in bulk",
+   "description": "Creates several reconciling items in a single call, following the same rules as the single item creation endpoint. Items sharing the same `customId` within the request are deduplicated and only the first occurrence is processed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Reconciling items to create."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.create_reconciling_source_reconcilingsources_company_id_post",
+   "name": "Create reconciling source",
+   "description": "Creates a reconciling source identified by `customId`. Calling this endpoint again with a `customId` that already exists **updates** the existing reconciling source instead of creating a duplicate or raising a conflict error; only the fields sent are applied, and any field previously stored is kept unless a new value is sent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the reconciling source."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the reconciling source. Replaces the previously stored value entirely (not merged). Omitted or `null` values leave the current metadata unchanged."
+     },
+     "matchingMetadataKey": {
+      "type": "string",
+      "description": "Key within a reconciling item's `metadata` used to associate it with a product transaction. Omitted or `null` values leave the current key unchanged."
+     },
+     "customId": {
+      "type": "string",
+      "description": "Your own unique ID for the reconciling source. You can use it as your internal reconciling source ID."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.embat.io/reconcilingsources/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "additionalInfo",
+     "matchingMetadataKey",
+     "customId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_accounting_entries_bulk_accountingentries_company_id_delete",
+   "name": "Delete accounting entries in bulk",
+   "description": "Deletes several accounting entries in a single call, identified by `customId`. The entries that do not match are reported in `errors` with code `NOT_FOUND`; if none match, the call returns `404`. Deleted entries may still briefly appear in `GET` results right after deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting entries to delete, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/accountingentries/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_accounting_entries_bulk_by_entry_code_accountingentries_accountingentrycode_company_id_delete",
+   "name": "Delete accounting entries in bulk by entry code",
+   "description": "Deletes every accounting entry whose `accountingEntryCode` or `accountingEntryCodeId` matches one of the given codes. The call returns `200` immediately; matching entries may still briefly appear in `GET` results right after deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Entry codes to delete by."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/accountingentries/accountingentrycode/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_accounting_entry_accountingentries_company_id_custom_id_delete",
+   "name": "Delete accounting entry",
+   "description": "Deletes an accounting entry by `customId`. If `customId` does not match any existing entry, the call returns `404`. A deleted entry may still briefly appear in `GET` results right after deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/accountingentries/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_accountings_account_accountingaccounts_company_id_accounting_code_delete",
+   "name": "Delete accounting account",
+   "description": "Deletes an accounting account by `accountingCode`. The account is deactivated (`active` set to `false`) rather than permanently removed, and continues to appear in `GET`/list responses. Deleting an `accountingCode` that does not match any existing account returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountingCode": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountingCode",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}/{accountingCode}",
+    "path": [
+     "accountingCode",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_accountings_accounts_bulk_accountingaccounts_company_id_delete",
+   "name": "Delete accounting accounts in bulk",
+   "description": "Deletes several accounting accounts in a single call, identified by `accountingCode`. Accounts are deactivated (`active` set to `false`) rather than permanently removed, and continue to appear in `GET`/list responses. Entries whose `accountingCode` does not match an existing account are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the accounts that were deactivated",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting accounts to delete, identified by `accountingCode`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_attribute_attributes_company_id_custom_id_delete",
+   "name": "Delete attribute",
+   "description": "Deletes an attribute by `customId`, together with all of its values, and clears the `parentId`/`parentCustomId` of any attribute nested under it. Deleting a `customId` that does not match any attribute returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/attributes/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_attributes_bulk_attributes_company_id_delete",
+   "name": "Delete attributes in bulk",
+   "description": "Deletes several attributes in a single call, following the same rules as the single attribute deletion endpoint. `customId` values that do not match any attribute are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the attributes that were deleted. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Attributes or values to remove, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/attributes/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_contact_contacts_company_id_custom_id_delete",
+   "name": "Delete contact",
+   "description": "Deletes a contact by `customId`. If `customId` does not match any contact, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/contacts/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_contacts_bulk_contacts_company_id_delete",
+   "name": "Delete contacts in bulk",
+   "description": "Deletes several contacts in a single call, identified by `customId`. Entries whose `customId` does not match any contact are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the contacts that were deleted. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Contacts to delete, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/contacts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_contacts_bulk_operations_company_id_attributes_bulk_delete",
+   "name": "Remove internal attributes from operations in bulk",
+   "description": "Removes internal attribute values from operations, identified by `customId`. Entries whose `customId` does not match an operation are reported in `errors` with code `NOT_FOUND`; matching operations are processed normally. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Internal attributes to remove, grouped by operation."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/operations/{companyId}/attributes/bulk",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_operation_operations_company_id_custom_id_delete",
+   "name": "Delete operation",
+   "description": "Cancels an operation by `customId`: its `status` is set to `cancel` and its pending amounts to 0. Only operations whose current status is not `paid`, `cancel` or `payment_in_progress` can be deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/operations/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_operations_bulk_operations_company_id_delete",
+   "name": "Delete operations in bulk",
+   "description": "Cancels several operations in a single call, identified by `customId`, following the same rules as the single delete endpoint. Only the operations that exist and are in a deletable state are cancelled and listed in `data`; the rest are reported in `errors` with code `NOT_FOUND` (unknown `customId`) or `NOT_DELETABLE` (status `paid`, `cancel` or `payment_in_progress`). If none exist, the call retur",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Operations to delete, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/operations/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_payment_payments_company_id_custom_id_delete",
+   "name": "Delete payment",
+   "description": "Deletes a payment by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/payments/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_payments_bulk_payments_company_id_delete",
+   "name": "Delete payments in bulk",
+   "description": "Deletes several payments in a single call, identified by `customId`. Entries that do not match are reported in `errors` with code `NOT_FOUND`; if none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Payments to delete, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/payments/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_reconciling_item_reconcilingitems_company_id_custom_id_delete",
+   "name": "Delete reconciling item",
+   "description": "Deletes a reconciling item by `customId`. If no item matches the given `customId`, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_reconciling_items_bulk_reconcilingitems_company_id_delete",
+   "name": "Delete reconciling items in bulk",
+   "description": "Deletes several reconciling items in a single call, identified by `customId`. The items that do not match are reported in `errors` with code `NOT_FOUND`; `data` lists only deleted items, and if none match the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Reconciling items to delete, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.delete_reconciling_source_reconcilingsources_company_id_custom_id_delete",
+   "name": "Delete reconciling source",
+   "description": "Deletes a reconciling source by `customId`. If `customId` does not match any reconciling source, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/reconcilingsources/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.download_payment_order_receipt_paymentorders_id_receipt_get",
+   "name": "Download payment order receipt",
+   "description": "Downloads the PDF receipt of a payment order by its Embat `id`. This endpoint is not scoped by `companyId`: authorization is checked per payment order, and callers without access to it receive a `403`. Errors are reported with the same status code and message returned while retrieving the receipt, which may include statuses other than the ones listed here.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/paymentorders/{id}/receipt",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.download_receptions_file_files_receptions_file_id_get",
+   "name": "Download file reception",
+   "description": "Downloads the raw content of a file reception by `fileId`. The response content type matches the original file (e.g. XML, TXT, PDF). The `Content-Disposition` header names the file after `fileId`, not its original file name; use `fileName` from `GET /files/receptions` if you need the original name. Errors are reported with the same status code and message that occurred while retrieving the file, w",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fileId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "fileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/files/receptions/{fileId}",
+    "path": [
+     "fileId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.get_category_categories_company_id_id_get",
+   "name": "Retrieve category",
+   "description": "Returns a single category by its Embat `id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/categories/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_accounting_entries_accountingentries_company_id_get",
+   "name": "List accounting entries",
+   "description": "Returns the accounting entries of a company, ordered by accounting date (most recent first). Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startDate`/`endDate` filter by accounting date, and `startUpdatedAt`/`endUpdatedAt` filter by last modification time, useful for incremental synchronization. `startDate`/`startUpdatedAt` a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "reconciled": {
+      "type": "boolean",
+      "description": "Filter by reconciliation status. `false` also matches entries that are not yet reconciled or have no status set."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Filter by ledger account code (`accountingCode`)."
+     },
+     "accountingEntryCode": {
+      "type": "string",
+      "description": "Filter by `accountingEntryCode` (does not match `accountingEntryCodeId`)."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return entries dated on or after this date (inclusive). The range cannot exceed 90 days: if `endDate` is also given, the span between the two cannot exceed 90 days; if `endDate` is omitted, `startDate` cannot be more than 90 days in the past."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return entries dated before this date (exclusive). Combined with `startDate`, the range cannot exceed 90 days. If used without `startDate`, results start 90 days before this date."
+     },
+     "startUpdatedAt": {
+      "type": "string",
+      "description": "Only return entries last modified on or after this timestamp (inclusive). The range cannot exceed 90 days: if `endUpdatedAt` is also given, the span between the two cannot exceed 90 days; if `endUpdatedAt` is omitted, `startUpdatedAt` cannot be more than 90 days in the past."
+     },
+     "endUpdatedAt": {
+      "type": "string",
+      "description": "Only return entries last modified before this timestamp (exclusive). Combined with `startUpdatedAt`, the range cannot exceed 90 days. If used without `startUpdatedAt`, results start 90 days before this timestamp."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/accountingentries/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "reconciled",
+     "accountingCode",
+     "accountingEntryCode",
+     "startDate",
+     "endDate",
+     "startUpdatedAt",
+     "endUpdatedAt",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_accountings_accounts_accountingaccounts_company_id_get",
+   "name": "List accounting accounts",
+   "description": "Returns the accounting accounts (chart of accounts) of a company, including deactivated ones. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_attributes_attributes_company_id_get",
+   "name": "List attributes",
+   "description": "Returns all attributes configured for a company, including their `values` when the attribute is of type `list`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/attributes/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_balances_balances_company_id_get",
+   "name": "List balances",
+   "description": "Returns the end-of-day balances of a company's bank products (accounts), one entry per product per day. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startDate`/`endDate` filter by balance date; `startDate` is inclusive and `endDate` is exclusive, and when only one bound is given the range is capped at 90 days. If neither is ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "productId": {
+      "type": "string",
+      "description": "Filter balances of a single bank product (account) by its Embat product ID."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return balances dated on or after this date (inclusive). The range cannot exceed 90 days: if `endDate` is also given, the span between the two cannot exceed 90 days; if `endDate` is omitted, `startDate` cannot be more than 90 days in the past."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return balances dated before this date (exclusive). Combined with `startDate`, the range cannot exceed 90 days. If used without `startDate`, results start 90 days before this date."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 5000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/balances/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "productId",
+     "startDate",
+     "endDate",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_banks_banks_company_id_get",
+   "name": "List banks",
+   "description": "Returns the company's bank relationships. A bank relationship with no products at all is silently excluded from the results. For each relationship, `bankProducts` only lists its active products \u2014 products marked inactive, or that Embat can no longer match to an account, are silently excluded from that array.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/banks/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_budgets_budgets_company_id_get",
+   "name": "List budgets",
+   "description": "Returns the budgets of a company, one row per budget period, ordered by target date (most recent first). Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page; `nextPageToken` is `null` once the last page has been reached. `startDate` is inclusive and `endDate` is exclusive; either bound can be used on its own to leave the other end of",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return budget periods with a target date on or after this date (inclusive)."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return budget periods with a target date before this date (exclusive)."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by budget period status.",
+      "enum": [
+       "pending",
+       "filled",
+       "overdue",
+       "carried",
+       "discarded"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of budget rows to return per page. Defaults to 50, maximum 200."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/budgets/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "startDate",
+     "endDate",
+     "status",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_categories_categories_company_id_get",
+   "name": "List categories",
+   "description": "Returns every category configured for the company, both top-level and child categories. The list is not paginated. Categories are created and managed in the Embat application; this API only reads them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/categories/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_companies_companies_get",
+   "name": "List user companies",
+   "description": "Returns the companies your credentials have access to. Use the returned `id` as the `companyId` path parameter required by every other endpoint in this API.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/companies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_company_users_companies_company_id_users_get",
+   "name": "List company users",
+   "description": "Returns the users with access to the company identified by `companyId`. The returned `id` matches the `userId` recorded on entities created manually in Embat (e.g. payments).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/companies/{companyId}/users",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_contacts_contacts_company_id_get",
+   "name": "List contacts",
+   "description": "Returns the contacts (clients/suppliers) of a company. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/contacts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_debt_schedule_configs_debtscheduleconfigs_company_id_get",
+   "name": "List debt schedule configs",
+   "description": "Returns the debt schedule configurations of a company. Results are ordered by last modification time, most recent first, and paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startUpdatedAt` (inclusive) and `endUpdatedAt` (exclusive) filter by last modification time, which is useful for incremental synchronization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "startUpdatedAt": {
+      "type": "string",
+      "description": "Only return configurations last modified on or after this timestamp (inclusive)."
+     },
+     "endUpdatedAt": {
+      "type": "string",
+      "description": "Only return configurations last modified before this timestamp (exclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 10, maximum 50."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/debtscheduleconfigs/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "startUpdatedAt",
+     "endUpdatedAt",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_files_emissions_files_emissions_get",
+   "name": "List file emissions",
+   "description": "Returns the banking files submitted to banks (e.g. payment order files) across every company accessible to the authenticated user. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. Errors from the file service are reported with their original status code and message, so responses may include statuses other than the ones listed her",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of file emissions to return. Defaults to 500, up to 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, returned by a previous call to this endpoint."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/files/emissions",
+    "path": [],
+    "query": [
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_files_receptions_files_receptions_get",
+   "name": "List file receptions",
+   "description": "Returns the banking files received across every company accessible to the authenticated user (e.g. account statements or confirmation files sent by a bank). Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. Download the content of a specific file with `GET /files/receptions/{fileId}`. Errors from the file service are reported with",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of file receptions to return. Defaults to 500, up to 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, returned by a previous call to this endpoint."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/files/receptions",
+    "path": [],
+    "query": [
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_forecasts_forecasts_company_id_get",
+   "name": "List forecasts",
+   "description": "Returns the treasury forecasts of a company. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startDate` is inclusive and `endDate` is exclusive; either bound can be used on its own to leave the other end of the range unbounded. Only forecasts linked to a scenario that is currently visible are returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "scenarioId": {
+      "type": "string",
+      "description": "Filter forecasts belonging to a given scenario, by its Embat scenario ID."
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Filter by synchronization status. `false` also matches forecasts where the value is not set."
+     },
+     "operations": {
+      "type": "boolean",
+      "description": "Reserved for future use; currently has no effect on the results."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return forecasts dated on or after this date (inclusive)."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return forecasts dated before this date (exclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/forecasts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "scenarioId",
+     "sync",
+     "operations",
+     "startDate",
+     "endDate",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_foreign_exchange_rates_foreignexchangerates_get",
+   "name": "List foreign exchange rates",
+   "description": "Returns the daily foreign exchange rates recorded in Embat, most recent first, recalculated to be expressed against `baseCurrency`. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startDate`/`endDate` filter by rate date: `startDate` is inclusive and `endDate` is exclusive. If only one of the two is given, the range is open-end",
+   "input": {
+    "type": "object",
+    "properties": {
+     "baseCurrency": {
+      "type": "string",
+      "description": "Currency all returned `rates` are expressed against.",
+      "enum": [
+       "AED",
+       "AFN",
+       "ALL",
+       "AMD",
+       "ANG",
+       "AOA",
+       "ARS",
+       "AUD",
+       "AWG",
+       "AZN",
+       "BAM",
+       "BBD"
+      ]
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return exchange rates dated on or after this date (inclusive)."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return exchange rates dated before this date (exclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "baseCurrency"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/foreignexchangerates",
+    "path": [],
+    "query": [
+     "baseCurrency",
+     "startDate",
+     "endDate",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_operations_operations_company_id_get",
+   "name": "List operations",
+   "description": "Returns the operations of a company. By default only the operations created through this API are returned (`generatedFrom` `erp` or `external`); use the `generatedFrom` filter to also list operations created by hand in Embat (`manual`) or generated by the debt module (`internal`) \u2014 these are read-only and cannot be created or modified through the API. Results are paginated: use `limit` to control ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter operations by their current status.",
+      "enum": [
+       "paymentOrder",
+       "cancel",
+       "paid",
+       "payment_in_progress",
+       "overdue",
+       "pending",
+       "shipped"
+      ]
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Filter by your own synchronization flag. `false` also matches operations where the value is not set."
+     },
+     "generatedFrom": {
+      "type": "array",
+      "description": "Filter by the origin of the operations; repeat the parameter to combine values. Defaults to `erp` and `external` (operations created through this API). `manual` returns operations created by hand in Embat (`documentType` `manual` or `recurringChild`) and `internal` the ones generated by the debt module (`documentType` `amortizationQuote`, `amortizationInterest`, `amortizationTax` or `amortizationQ"
+     },
+     "startIssuanceDate": {
+      "type": "string",
+      "description": "Only return operations issued on or after this date (inclusive). The range cannot exceed 90 days: if `endIssuanceDate` is also given, the span between the two cannot exceed 90 days; if `endIssuanceDate` is omitted, `startIssuanceDate` cannot be more than 90 days in the past."
+     },
+     "endIssuanceDate": {
+      "type": "string",
+      "description": "Only return operations issued before this date (exclusive). Combined with `startIssuanceDate`, the range cannot exceed 90 days. If used without `startIssuanceDate`, results start 90 days before this date."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/operations/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "status",
+     "sync",
+     "generatedFrom",
+     "startIssuanceDate",
+     "endIssuanceDate",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_operations_reconcilingitems_company_id_get",
+   "name": "List reconciling items",
+   "description": "Returns the reconciling items of a company, ordered by `date` (most recent first). Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "reconcilingSourceCustomId": {
+      "type": "string",
+      "description": "Filter items belonging to a given reconciling source (`reconcilingSourceCustomId`)."
+     },
+     "reconciled": {
+      "type": "boolean",
+      "description": "Filter by reconciliation status. `false` also matches items where the value is not set."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return items dated on or after this date (inclusive)."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return items dated before this date (exclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "reconcilingSourceCustomId",
+     "reconciled",
+     "startDate",
+     "endDate",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_payment_orders_paymentorders_company_id_get",
+   "name": "List payment orders",
+   "description": "Returns the payment orders of a company, ordered by execution date (most recent first). Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page; `nextPageToken` is `null` once the last page has been reached. `startPaymentDate`/`endPaymentDate` filter by execution date. If only one of the two is given, the other defaults: `endPaymentDate`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "startPaymentDate": {
+      "type": "string",
+      "description": "Only return payment orders executed on or after this date. If given without `endPaymentDate`, `endPaymentDate` defaults to now."
+     },
+     "endPaymentDate": {
+      "type": "string",
+      "description": "Only return payment orders executed up to this date. If given without `startPaymentDate`, `startPaymentDate` defaults to 6 months before `endPaymentDate`."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by payment order execution status.",
+      "enum": [
+       "COMPLETED",
+       "REJECTED",
+       "IN_PROGRESS",
+       "ON_HOLD"
+      ]
+     },
+     "beneficiaryLegalNameContains": {
+      "type": "string",
+      "description": "Filter payment orders whose beneficiary legal name contains this text."
+     },
+     "documentIdContains": {
+      "type": "string",
+      "description": "Filter payment orders whose `documentId` contains this text."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of payment orders to return per page. Defaults to 200, which is also the maximum allowed value."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, returned by a previous call to this endpoint. An invalid token returns a `404` error."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/paymentorders/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "startPaymentDate",
+     "endPaymentDate",
+     "status",
+     "beneficiaryLegalNameContains",
+     "documentIdContains",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_payments_payments_company_id_get",
+   "name": "List payments",
+   "description": "Returns the payments generated in Embat for a company. Payments you created through `POST /payments/{companyId}` are not included here \u2014 retrieve them by `customId` with `GET /payments/{companyId}/{customId}` instead. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startDate`/`endDate` filter by payment date, and `startUpdatedA",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "productId": {
+      "type": "string",
+      "description": "Filter payments linked to a given product (`productId`)."
+     },
+     "transactionId": {
+      "type": "string",
+      "description": "Filter payments linked to a given transaction (`transactionId`)."
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Filter by synchronization status with the accounting system. `false` also matches payments where the value is not set."
+     },
+     "registered": {
+      "type": "boolean",
+      "description": "Filter by registration status in the accounting system. `false` also matches payments where the value is not set."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Only return payments dated on or after this date (inclusive). The range cannot exceed 90 days: if `endDate` is also given, the span between the two cannot exceed 90 days; if `endDate` is omitted, `startDate` cannot be more than 90 days in the past."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Only return payments dated before this date (exclusive). Combined with `startDate`, the range cannot exceed 90 days. If used without `startDate`, results start 90 days before this date."
+     },
+     "startUpdatedAt": {
+      "type": "string",
+      "description": "Only return payments last modified on or after this timestamp (inclusive). The range cannot exceed 90 days: if `endUpdatedAt` is also given, the span between the two cannot exceed 90 days; if `endUpdatedAt` is omitted, `startUpdatedAt` cannot be more than 90 days in the past."
+     },
+     "endUpdatedAt": {
+      "type": "string",
+      "description": "Only return payments last modified before this timestamp (exclusive). Combined with `startUpdatedAt`, the range cannot exceed 90 days. If used without `startUpdatedAt`, results start 90 days before this timestamp."
+     },
+     "internalAttributes": {
+      "type": "boolean",
+      "description": "Include attributes flagged as internal in the response."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/payments/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "productId",
+     "transactionId",
+     "sync",
+     "registered",
+     "startDate",
+     "endDate",
+     "startUpdatedAt",
+     "endUpdatedAt",
+     "internalAttributes",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_products_products_company_id_get",
+   "name": "List products",
+   "description": "Returns the active products (bank accounts, credit lines, cards or wallets) of a company, whether aggregated from a bank connection or added manually. Results are not paginated. Products not marked as visible in Embat are excluded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "manual": {
+      "type": "boolean",
+      "description": "Filter by how the product was added: `true` for manually added products, `false` for products aggregated from a bank connection."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/products/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "manual"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_reconciling_sources_reconcilingsources_company_id_get",
+   "name": "List reconciling sources",
+   "description": "Returns all reconciling sources configured for the company. This endpoint is not paginated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/reconcilingsources/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_scenarios_scenarios_company_id_get",
+   "name": "List scenarios",
+   "description": "Returns the published forecasting scenarios of a company. Scenarios that have not been published are not included. Results are not paginated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/scenarios/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.list_transactions_transactions_company_id_get",
+   "name": "List transactions",
+   "description": "Returns the bank transactions of a company. Results are paginated: use `limit` to control page size and pass the returned `nextPageToken` to fetch the next page. `startValueDate`/`endValueDate` filter by value date, `startOperationDate`/`endOperationDate` filter by the date the transaction was booked, and `startUpdatedAt`/`endUpdatedAt` filter by last modification time, which is useful for increme",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "productId": {
+      "type": "string",
+      "description": "Filter transactions belonging to a given product (`productId`)."
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Filter by synchronization status with your ERP. `false` also matches transactions where the value is not set."
+     },
+     "startValueDate": {
+      "type": "string",
+      "description": "Only return transactions whose value date is on or after this date (inclusive). Cannot be later than `endValueDate`, and cannot be in the future when used without `endValueDate`."
+     },
+     "endValueDate": {
+      "type": "string",
+      "description": "Only return transactions whose value date is before this date (exclusive)."
+     },
+     "startOperationDate": {
+      "type": "string",
+      "description": "Only return transactions booked on or after this date (inclusive). Cannot be later than `endOperationDate`, and cannot be in the future when used without `endOperationDate`."
+     },
+     "endOperationDate": {
+      "type": "string",
+      "description": "Only return transactions booked before this date (exclusive)."
+     },
+     "startUpdatedAt": {
+      "type": "string",
+      "description": "Only return transactions last modified on or after this timestamp (inclusive). Cannot be later than `endUpdatedAt`, and cannot be in the future when used without `endUpdatedAt`."
+     },
+     "endUpdatedAt": {
+      "type": "string",
+      "description": "Only return transactions last modified before this timestamp (exclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of objects to return in the response. Default 500, maximum 2000."
+     },
+     "nextPageToken": {
+      "type": "string",
+      "description": "Token to fetch the next page of results, taken from the `nextPageToken` returned by the previous request with the same filters. Omit it to fetch the first page. An invalid or malformed token is rejected with `404`."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/transactions/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "productId",
+     "sync",
+     "startValueDate",
+     "endValueDate",
+     "startOperationDate",
+     "endOperationDate",
+     "startUpdatedAt",
+     "endUpdatedAt",
+     "limit",
+     "nextPageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.read_operation_operations_company_id_custom_id_get",
+   "name": "Retrieve operation",
+   "description": "Returns a single operation by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/operations/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.read_reconciling_item_reconcilingitems_company_id_custom_id_get",
+   "name": "Retrieve reconciling item",
+   "description": "Returns a single reconciling item by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.remove_attribute_values_attributes_company_id_custom_id_values_delete",
+   "name": "Remove values from an attribute",
+   "description": "Removes one or more values from an attribute, identified by `customId`. Values not found on the attribute are silently ignored \u2014 the call still returns `200`. The `id` returned for each entry is the value's `customId` echoed back, not a generated Embat ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Attributes or values to remove, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.embat.io/attributes/{companyId}/{customId}/values",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_accounting_entry_accountingentries_company_id_custom_id_get",
+   "name": "Retrieve accounting entry",
+   "description": "Returns a single accounting entry by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/accountingentries/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_accountings_account_accountingaccounts_company_id_accounting_code_get",
+   "name": "Retrieve accounting account",
+   "description": "Returns a single accounting account by `accountingCode`, including deactivated accounts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountingCode": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountingCode",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}/{accountingCode}",
+    "path": [
+     "accountingCode",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_attribute_attributes_company_id_custom_id_get",
+   "name": "Retrieve attribute",
+   "description": "Returns a single attribute by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/attributes/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_balance_balances_company_id_id_get",
+   "name": "Retrieve balance",
+   "description": "Returns a single balance by its Embat `id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/balances/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_bank_banks_company_id_id_get",
+   "name": "Retrieve bank",
+   "description": "Returns a single bank relationship by its Embat `id`. Unlike the list endpoint, this always returns the relationship even when it currently has no active products, in which case `bankProducts` is an empty list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/banks/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_company_companies_company_id_get",
+   "name": "Retrieve company",
+   "description": "Returns the detail of a company: legal name, administrative contact, tags and configuration (e.g. accounting currency).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/companies/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_contact_contacts_company_id_custom_id_get",
+   "name": "Retrieve contact",
+   "description": "Returns a single contact by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/contacts/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_debt_schedule_config_debtscheduleconfigs_company_id_id_get",
+   "name": "Retrieve debt schedule config",
+   "description": "Returns a single debt schedule configuration by its Embat `id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/debtscheduleconfigs/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_forecast_forecasts_company_id_id_get",
+   "name": "Retrieve forecast",
+   "description": "Returns a single forecast by its Embat `id`. `accountingAmount` and `exchangeRate` are not computed for this endpoint and are returned as stored, typically `null` \u2014 use `GET /forecasts/{companyId}` to get them populated. If the forecast's scenario is no longer visible, this endpoint returns a response with every field set to `null` instead of the forecast data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/forecasts/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_foreign_exchange_rate_foreignexchangerates_id_get",
+   "name": "Retrieve foreign exchange rate",
+   "description": "Returns a single foreign exchange rate record by `id`, always expressed against EUR \u2014 the `baseCurrency` conversion available on the list endpoint does not apply here.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/foreignexchangerates/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_payment_payments_company_id_custom_id_get",
+   "name": "Retrieve payment",
+   "description": "Returns a single payment by `customId`. Payments missing required accounting, operation or contact information are not returned even if they exist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/payments/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_product_products_company_id_id_get",
+   "name": "Retrieve product",
+   "description": "Returns a single product by its Embat `id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/products/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_reconciling_source_reconcilingsources_company_id_custom_id_get",
+   "name": "Retrieve reconciling source",
+   "description": "Returns a single reconciling source by `customId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/reconcilingsources/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_scenario_scenarios_company_id_id_get",
+   "name": "Retrieve scenario",
+   "description": "Returns a single forecasting scenario by its Embat ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/scenarios/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.retrieve_transaction_transactions_company_id_id_get",
+   "name": "Retrieve transaction",
+   "description": "Returns a single transaction by its Embat `id`. If the transaction's product no longer exists, this endpoint returns `404` even though the transaction record exists.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.embat.io/transactions/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_accounting_entries_bulk_accountingentries_company_id_patch",
+   "name": "Update accounting entries in bulk",
+   "description": "Updates one or more fields of several accounting entries, identified by `customId`, following the same rules as the single-entry update endpoint \u2014 including the `description` reset-when-omitted behavior. Entries whose `customId` does not match any existing entry are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the entries that were updated. If none match, the call ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting entries to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/accountingentries/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_accounting_entry_accountingentries_company_id_custom_id_patch",
+   "name": "Update accounting entry",
+   "description": "Updates one or more fields of an accounting entry identified by `customId`. Only the fields you send are changed \u2014 except `description`: if it is omitted, Embat resets it to an auto-generated value derived from the entry's identifier, overwriting any previously set custom description; resend the current value to keep it unchanged. Updating a `customId` that does not match any existing entry return",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Ledger account code the entry is posted to."
+     },
+     "counterpartAccountingCode": {
+      "type": "string",
+      "description": "Ledger account code of the counterpart side of the entry, when applicable."
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Display name of the ledger account (`accountingCode`)."
+     },
+     "assetAmount": {
+      "type": "string",
+      "description": "Outflow side of the entry, in `currency` (money leaving the account, e.g. a supplier payment). An entry always has both sides: if you set only `assetAmount` or only `liabilityAmount`, the other one defaults to 0. The sign is inverted on storage (0 always stays 0): a positive value you send is stored and returned as negative, following the convention that negative amounts are outflows."
+     },
+     "accountingAssetAmount": {
+      "type": "string",
+      "description": "Outflow side expressed in the company accounting currency (`accountingCurrency`). Subject to the same sign convention as `assetAmount`."
+     },
+     "balance": {
+      "type": "string",
+      "description": "Running balance of the ledger account (`accountingCode`) after this entry, typically calculated by Embat rather than provided by you."
+     },
+     "liabilityAmount": {
+      "type": "string",
+      "description": "Inflow side of the entry, in `currency` (money entering the account, e.g. a customer collection), stored with the sign you send. An entry always has both sides: if you set only `assetAmount` or only `liabilityAmount`, the other one defaults to 0."
+     },
+     "accountingLiabilityAmount": {
+      "type": "string",
+      "description": "Inflow side expressed in the company accounting currency (`accountingCurrency`)."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO currency code of `assetAmount`/`liabilityAmount`."
+     },
+     "accountingCurrency": {
+      "type": "string",
+      "description": "ISO currency code of `accountingAssetAmount`/`accountingLiabilityAmount`."
+     },
+     "contactCustomId": {
+      "type": "string",
+      "description": "Custom ID of the contact (client/supplier), used when `accountingCode` is a contacts ledger account."
+     },
+     "exchangeRate": {
+      "type": "string",
+      "description": "Exchange rate applied between `currency` and `accountingCurrency`."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the entry. Sending an empty object (`{}`) has no effect and does not clear previously stored metadata."
+     },
+     "description": {
+      "type": "string",
+      "description": "Free-text description of the entry. If omitted \u2014 on both creation and update \u2014 Embat sets (or resets) it to an auto-generated value: `\"Asiento \"` followed by `accountingEntryCode` if set, otherwise by `customId`. On `PATCH`, this means leaving `description` out overwrites any previously set custom description; resend the current value to keep it unchanged."
+     },
+     "documentId": {
+      "type": "string",
+      "description": "Identifier of the source document (e.g. invoice) this entry relates to."
+     },
+     "transactionsIds": {
+      "type": "string",
+      "description": "Embat IDs of the bank transactions related to this entry."
+     },
+     "paymentId": {
+      "type": "string",
+      "description": "Embat ID of the payment related to this entry."
+     },
+     "date": {
+      "type": "string",
+      "description": "Accounting date of the entry. Send a plain date at midnight (e.g. `2024-01-15T00:00:00Z`) \u2014 sending a different time of day can shift the stored calendar date and is not fully normalized to midnight."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the entry. Duplicate values and attributes flagged as internal-only are omitted when the entry is returned."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/accountingentries/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "accountingCode",
+     "counterpartAccountingCode",
+     "accountingName",
+     "assetAmount",
+     "accountingAssetAmount",
+     "balance",
+     "liabilityAmount",
+     "accountingLiabilityAmount",
+     "currency",
+     "accountingCurrency",
+     "contactCustomId",
+     "exchangeRate",
+     "additionalInfo",
+     "description",
+     "documentId",
+     "transactionsIds",
+     "paymentId",
+     "date",
+     "attributes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_accountings_account_accountingaccounts_company_id_accounting_code_patch",
+   "name": "Update accounting account",
+   "description": "Updates the active status, type, name, collective flag, additional info or attributes of an accounting account identified by `accountingCode`. Updating an `accountingCode` that does not match any existing account returns `404`. Sending an empty `additionalInfo` object leaves any previously stored metadata unchanged. Entries in `attributes` with an empty or missing `customId` or `value` are silentl",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountingCode": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "string",
+      "description": "Whether the accounting account is active."
+     },
+     "type": {
+      "type": "string",
+      "description": "Accounting account classification: `banks` or `accountings`. The value `analytics` is deprecated: it is still accepted for backwards compatibility but automatically stored as `accountings`. If omitted, it is inferred from `accountingCode`.Once an account exists, any `type` sent through the create endpoints is silently ignored \u2014 the value(inferred, overridden or explicit) only applies when the acco"
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Display name of the accounting account."
+     },
+     "collective": {
+      "type": "string",
+      "description": "Whether this is a collective (grouping) accounting account rather than an individual one."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the account. Sending an empty object leaves any previously stored metadata unchanged instead of clearing it."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the account. Entries with an empty or missing `customId` or `value` are silently discarded."
+     }
+    },
+    "required": [
+     "accountingCode",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}/{accountingCode}",
+    "path": [
+     "accountingCode",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "active",
+     "type",
+     "accountingName",
+     "collective",
+     "additionalInfo",
+     "attributes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_accountings_accounts_bulk_accountingaccounts_company_id_patch",
+   "name": "Update accounting accounts in bulk",
+   "description": "Updates several accounting accounts in a single call, identified by `accountingCode`, following the same rules as the single update endpoint. Entries whose `accountingCode` does not match any existing account are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the accounts that were updated. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Accounting accounts to update, identified by `accountingCode`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/accountingaccounts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_attribute_attributes_company_id_custom_id_patch",
+   "name": "Update attribute",
+   "description": "Updates an attribute identified by `customId`. Only the fields sent in the request are changed; fields left out keep their current value. If `values` is sent, it **replaces** the attribute's full value list \u2014 any previously stored value not included is removed (omit `values` entirely to leave the current values untouched). Updating a `customId` that does not match any attribute returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Display name of the attribute."
+     },
+     "active": {
+      "type": "boolean",
+      "description": "Whether the attribute is active. Omit to leave the current value unchanged."
+     },
+     "values": {
+      "type": "string",
+      "description": "Full list of values the attribute should have after this update. Sending `values` **replaces** the current list: any previously stored value whose `customId` is not included here is removed. Omit `values` entirely to leave the current values untouched. An attribute holds at most 5000 values; if the combined total would exceed the limit, the excess new values are silently discarded and existing one"
+     },
+     "parentCustomId": {
+      "type": "string",
+      "description": "Custom ID of the parent attribute, to nest this attribute under another one (e.g. a \"City\" attribute nested under \"Country\"). Must reference an existing attribute."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/attributes/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "active",
+     "values",
+     "parentCustomId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_attributes_bulk_attributes_company_id_patch",
+   "name": "Update attributes in bulk",
+   "description": "Updates several attributes in a single call, following the same rules as the single attribute update endpoint. Entries whose `customId` does not match any attribute are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the attributes that were updated. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Attributes to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/attributes/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_contact_contacts_company_id_custom_id_patch",
+   "name": "Update contact",
+   "description": "Updates a contact identified by `customId`. Updating a `customId` that does not match any contact returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "tradeName": {
+      "type": "string",
+      "description": "Commercial/trade name of the contact. Defaults to `legalName` when omitted or blank."
+     },
+     "legalName": {
+      "type": "string",
+      "description": "Legal (registered) name of the contact."
+     },
+     "taxId": {
+      "type": "string",
+      "description": "Tax identification number (CIF/NIF/VAT) of the contact. Spaces are removed before storage."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Contact person details (name, phone, email) for this contact."
+     },
+     "address": {
+      "type": "string",
+      "description": "Postal address of the contact."
+     },
+     "contactType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "freelance",
+       "company"
+      ]
+     },
+     "type": {
+      "type": "string",
+      "description": "Commercial relationship with the contact: `client`, `supplier` or `client-supplier`."
+     },
+     "accounts": {
+      "type": "string",
+      "description": "Bank accounts of the contact. When omitted (or empty) and `paymentsAccounts` is provided, Embat derives one entry per payment account automatically: the derived `iban` holds the payment identifier resolved for the account's currency (an IBAN for IBAN-based currencies, otherwise the local account number), `swift` takes the account's `bic`, and `default` its `default` flag."
+     },
+     "paymentsAccounts": {
+      "type": "string",
+      "description": "Bank accounts of the contact, one per currency/payment rail, with the identifiers required to pay it (IBAN, account number, routing number...). Each entry is validated independently and **silently discarded** when it has no usable account identifier for its `currency` (neither `iban` nor `accountNumber` set); format validity of the identifiers themselves is not enforced. Entries that resolve to th"
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the contact."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Accounting account code this contact is linked to."
+     },
+     "paymentMethod": {
+      "type": "string",
+      "description": "Preferred payment method for this contact."
+     },
+     "paymentTerms": {
+      "type": "string",
+      "description": "Payment terms granted to the contact, in days."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the contact."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/contacts/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tradeName",
+     "legalName",
+     "taxId",
+     "contact",
+     "address",
+     "contactType",
+     "type",
+     "accounts",
+     "paymentsAccounts",
+     "additionalInfo",
+     "accountingCode",
+     "paymentMethod",
+     "paymentTerms",
+     "attributes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_contacts_bulk_contacts_company_id_patch",
+   "name": "Update contacts in bulk",
+   "description": "Updates several contacts in a single call, identified by `customId`. Entries whose `customId` does not match any contact are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the contacts that were updated, and if none match the call returns `404`. Contacts sharing the same `customId` within the request are deduplicated and only the first occurrence is processed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Contacts to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/contacts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_forecast_forecasts_company_id_id_patch",
+   "name": "Update forecast",
+   "description": "Updates the synchronization status or additional info of a forecast identified by `id`. Fields omitted from the request, or sent as `null`, are left unchanged. Updating an `id` that does not match any forecast returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "additionalInfo": {
+      "type": "object",
+      "description": "Free-form key/value metadata to attach to the forecast."
+     },
+     "sync": {
+      "type": "string",
+      "description": "Marks the forecast as synchronized with your systems. Fields omitted from the request, or sent as `null`, are left unchanged."
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/forecasts/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "additionalInfo",
+     "sync"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_forecasts_bulk_forecasts_company_id_patch",
+   "name": "Update forecasts in bulk",
+   "description": "Updates the synchronization status or additional info of several forecasts in a single call, identified by `id`. Follows the same rules as the single-forecast update endpoint: fields omitted from the request, or sent as `null`, are left unchanged, and entries whose `id` does not match any forecast are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the forecasts that ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Forecasts to update, identified by `id`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/forecasts/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_operation_operations_company_id_custom_id_patch",
+   "name": "Update operation",
+   "description": "Updates an operation identified by `customId`. If the operation already has a payment recorded against it in Embat, only `dueDate`, `paymentDate` and `pendingAmount` are applied, and only when the operation's current status is `pending` or `overdue`; `pendingAmount` is applied only when its absolute value is lower than the stored one, and a value with a different sign than the stored `amount` retu",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "Status of the operation: `pending`, `overdue`, `payment_in_progress`, `paid`, `cancel`, or the legacy values `paymentOrder` and `shipped` (avoid using them in new integrations). Setting `paid` also resets `pendingAmount` and `pendingAccountingAmount` to 0."
+     },
+     "paymentDate": {
+      "type": "string",
+      "description": "Date the operation is expected to be (or was) paid. Only the calendar date is meaningful; the time component is not preserved as sent. When an update transitions an operation to `paid`, Embat sets this field to the current date and ignores the submitted value."
+     },
+     "chargeAccount": {
+      "type": "string",
+      "description": "IBAN of your own bank account the operation is charged to."
+     },
+     "contactAccount": {
+      "type": "string",
+      "description": "IBAN of the counterparty's (contact's) bank account."
+     },
+     "issuanceDate": {
+      "type": "string",
+      "description": "Issuance date of the operation's source document. Only the calendar date is meaningful; the time component is not preserved as sent."
+     },
+     "dueDate": {
+      "type": "string",
+      "description": "Due date of the operation. Only the calendar date is meaningful; the time component is not preserved as sent."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Accounting account code the operation is posted to."
+     },
+     "accountingName": {
+      "type": "string",
+      "description": "Accounting account name the operation is posted to."
+     },
+     "operationsCustomIds": {
+      "type": "string",
+      "description": "Custom IDs of other operations grouped under this one, to represent an invoice group or remittance (typically combined with `documentType` set to `invoiceGroup`). Takes effect on `POST` (create or upsert): each referenced operation is marked `paid`, its `pendingAmount`/`pendingAccountingAmount` set to 0 and its payment date set to this operation's `paymentDate`. Resending the remittance without so"
+     },
+     "concept": {
+      "type": "string",
+      "description": "Free-text description of the operation."
+     },
+     "amount": {
+      "type": "string",
+      "description": "Total amount of the operation, in `currency`."
+     },
+     "accountingAmount": {
+      "type": "string",
+      "description": "Amount of the operation expressed in the company accounting currency."
+     },
+     "pendingAmount": {
+      "type": "string",
+      "description": "Amount still pending settlement, in `currency`."
+     },
+     "pendingAccountingAmount": {
+      "type": "string",
+      "description": "Amount still pending settlement, expressed in the accounting currency."
+     },
+     "currency": {
+      "type": "string",
+      "description": "ISO currency code of `amount`."
+     },
+     "accountingCurrency": {
+      "type": "string",
+      "description": "ISO currency code of `accountingAmount`."
+     },
+     "exchangeRate": {
+      "type": "string",
+      "description": "Exchange rate applied between `currency` and `accountingCurrency`."
+     },
+     "paymentMethod": {
+      "type": "string",
+      "description": "Payment method associated with the operation (e.g. `bank-transaction`, `promissory-note`)."
+     },
+     "contact": {
+      "type": "string",
+      "description": "Contact (client/supplier) the operation is due from or to."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the operation."
+     },
+     "invoiceGroupDocumentId": {
+      "type": "string",
+      "description": "Identifier of the invoice group this operation belongs to, if any."
+     },
+     "sync": {
+      "type": "boolean",
+      "description": "Marks the operation as synchronized on your side."
+     },
+     "documentId": {
+      "type": "string",
+      "description": "Identifier of the source document (e.g. invoice number)."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the operation."
+     },
+     "externalReference": {
+      "type": "string",
+      "description": "Free-form reference to this operation in an external system."
+     },
+     "comments": {
+      "type": "string",
+      "description": "Free-text comments on the operation."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/operations/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status",
+     "paymentDate",
+     "chargeAccount",
+     "contactAccount",
+     "issuanceDate",
+     "dueDate",
+     "accountingCode",
+     "accountingName",
+     "operationsCustomIds",
+     "concept",
+     "amount",
+     "accountingAmount",
+     "pendingAmount",
+     "pendingAccountingAmount",
+     "currency",
+     "accountingCurrency",
+     "exchangeRate",
+     "paymentMethod",
+     "contact",
+     "additionalInfo",
+     "invoiceGroupDocumentId",
+     "sync",
+     "documentId",
+     "attributes",
+     "externalReference",
+     "comments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_operations_bulk_operations_company_id_patch",
+   "name": "Update operations in bulk",
+   "description": "Updates several operations in a single call, identified by `customId`. Entries whose `customId` does not match any existing operation are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the operations that were updated, and if none match the call returns `404`. Existing operations whose state blocks the requested update are reported with code `NOT_MODIFIABLE`, and a `",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Operations to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/operations/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_payment_payments_company_id_custom_id_patch",
+   "name": "Update payment",
+   "description": "Updates the synchronization status, error message, registration status or additional info of a payment identified by `customId`. If none of the provided fields change the existing payment, the update is a no-op. Updating a `customId` that does not match any payment returns `404`. Setting `error` without `sync` marks the payment as synchronized with the error recorded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "sync": {
+      "type": "string",
+      "description": "Marks the payment as synchronized with the accounting system."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the payment."
+     },
+     "error": {
+      "type": "string",
+      "description": "Error message to record against the payment. Sending an empty string clears a previously set error."
+     },
+     "registered": {
+      "type": "string",
+      "description": "Marks the payment as registered in the accounting system."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/payments/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "sync",
+     "additionalInfo",
+     "error",
+     "registered"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_payments_bulk_payments_company_id_patch",
+   "name": "Update payments in bulk",
+   "description": "Updates the synchronization status, error message, registration status or additional info of several payments, identified by `customId`. Entries whose `customId` does not match any payment are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the payments that were updated. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Payments to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/payments/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_product_products_company_id_id_patch",
+   "name": "Update product",
+   "description": "Updates the accounting code and/or additional info of a product identified by `id`. Updating an `id` that does not match any product returns `404`. `accountingCode` must exist as an accounting account of the company; otherwise the call is rejected with `422`. Send `\"\"` to unlink.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "additionalInfo": {
+      "type": "object",
+      "description": "Free-form key/value metadata to attach to the product. Replaces the existing value entirely."
+     },
+     "accountingCode": {
+      "type": "string",
+      "description": "Accounting account code to link the product to. Must exist in the company's accounting accounts (`422` otherwise). Send `\"\"` to unlink."
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/products/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "additionalInfo",
+     "accountingCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_products_bulk_products_company_id_patch",
+   "name": "Update products in bulk",
+   "description": "Updates the accounting code and/or additional info of several products, identified by `id`. Entries whose `id` does not match any product are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the products that were updated, and if none match the call returns `404`. Every `accountingCode` must exist as an accounting account of the company; otherwise the whole batch is re",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Products to update, identified by `id`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/products/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_reconciling_item_reconcilingitems_company_id_custom_id_patch",
+   "name": "Update reconciling item",
+   "description": "Updates the amount, currency, date, description, metadata or additional info of a reconciling item identified by `customId`. Only the fields sent are changed; omitted or `null` fields keep their current value. If `customId` does not match any existing item, or the item has already been matched to a transaction, the call returns `404` and nothing is changed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "amount": {
+      "type": "string",
+      "description": "Amount of the reconciling item, in `currency`. Omitted or `null` leaves the current amount unchanged."
+     },
+     "currency": {
+      "type": "string",
+      "description": "Currency of the reconciling item, in ISO 4217 format. Omitted or `null` leaves the current currency unchanged."
+     },
+     "date": {
+      "type": "string",
+      "description": "Date of the reconciling item. Omitted or `null` leaves the current date unchanged."
+     },
+     "description": {
+      "type": "string",
+      "description": "Free-text description of the reconciling item. Omitted or `null` leaves the current description unchanged."
+     },
+     "metadata": {
+      "type": "string",
+      "description": "Free-form key/value data associated with the reconciling item. When its reconciling source defines a `matchingMetadataKey`, the value stored under that key is used to automatically associate this item with a product transaction \u2014 only string, number or boolean values are usable for matching, other value types are ignored. An empty string is also accepted and treated as an empty object. Replaces th"
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the reconciling item. An empty string is also accepted and treated as an empty object. Replaces the previously stored value entirely (not merged). Omitted or `null` leaves the current metadata unchanged."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "currency",
+     "date",
+     "description",
+     "metadata",
+     "additionalInfo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_reconciling_items_bulk_reconcilingitems_company_id_patch",
+   "name": "Update reconciling items in bulk",
+   "description": "Updates several reconciling items in a single call, identified by `customId`, following the same rules as the single item update endpoint. Entries whose `customId` does not match any existing item are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the items that were processed, and if none match the call returns `404`. Items already matched to a transaction are left ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Reconciling items to update, identified by `customId`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/reconcilingitems/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_reconciling_source_reconcilingsources_company_id_custom_id_patch",
+   "name": "Update reconciling source",
+   "description": "Updates a reconciling source identified by `customId`. Only the fields sent are changed. Updating a `customId` that does not match any reconciling source returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customId": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the reconciling source. Omitted or `null` values leave the current name unchanged."
+     },
+     "additionalInfo": {
+      "type": "string",
+      "description": "Free-form key/value metadata to attach to the reconciling source. Replaces the previously stored value entirely (not merged). Omitted or `null` values leave the current metadata unchanged."
+     },
+     "matchingMetadataKey": {
+      "type": "string",
+      "description": "Key within a reconciling item's `metadata` used to associate it with a product transaction. Omitted or `null` values leave the current key unchanged."
+     }
+    },
+    "required": [
+     "companyId",
+     "customId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/reconcilingsources/{companyId}/{customId}",
+    "path": [
+     "customId",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "additionalInfo",
+     "matchingMetadataKey"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_transaction_transactions_company_id_id_patch",
+   "name": "Update transaction",
+   "description": "Updates the synchronization status, additional info or custom attribute values of a transaction identified by `id`. Only the fields you send are changed. Updating an `id` that does not match any transaction returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "additionalInfo": {
+      "type": "object",
+      "description": "Free-form key/value metadata to attach to the transaction."
+     },
+     "attributes": {
+      "type": "string",
+      "description": "Custom attribute values to attach to the transaction."
+     },
+     "sync": {
+      "type": "string",
+      "description": "Marks the transaction as synchronized with your ERP."
+     }
+    },
+    "required": [
+     "companyId",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/transactions/{companyId}/{id}",
+    "path": [
+     "id",
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "additionalInfo",
+     "attributes",
+     "sync"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "embat.update_transactions_bulk_transactions_company_id_patch",
+   "name": "Update transactions in bulk",
+   "description": "Updates the synchronization status, additional info or custom attribute values of several transactions in a single call, identified by `id`. Only the fields you send are changed. Entries whose `id` does not match any transaction are reported in `errors` with code `NOT_FOUND` and not applied; `data` only lists the transactions that were updated. If none match, the call returns `404`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "array",
+      "description": "Transactions to update, identified by `id`."
+     }
+    },
+    "required": [
+     "companyId",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.embat.io/transactions/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

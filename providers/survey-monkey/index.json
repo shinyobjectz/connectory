@@ -1,0 +1,83 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "survey-monkey",
+ "source": "https://surveymonkey.com/openapi.json",
+ "operations": [
+  {
+   "slug": "survey-monkey.get_pricing",
+   "name": "Survey monkey pricing",
+   "description": "Pricing page listing all SurveyMonkey plan tiers (Basic, Advantage, Standard, Premier, Team, and Enterprise) with feature comparison and limits. No authentication required.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.surveymonkey.com/pricing/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "survey-monkey.get_pricing_md",
+   "name": "Pricing details",
+   "description": "Returns a markdown document with all SurveyMonkey plan tiers, features, and limits.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.surveymonkey.com/pricing.md",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "survey-monkey.get_sign_up",
+   "name": "Create a survey monkey account",
+   "description": "Registration page for creating a new SurveyMonkey account. Supports free Basic plan and paid plan signups. No authentication required.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.surveymonkey.com/sign-up/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "survey-monkey.get_signup_md",
+   "name": "Signup guide",
+   "description": "Returns a markdown document describing the SurveyMonkey account registration action, including URL, method, and user intent signals.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.surveymonkey.com/signup.md",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1416 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "tally",
+ "source": "https://developers.tally.so/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "tally.delete_forms_formId",
+   "name": "Delete a form",
+   "description": "Deletes a form by its ID and moves it to the trash.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form to delete"
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/forms/{formId}",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_forms_formId_submissions_submissionId",
+   "name": "Delete a form submission",
+   "description": "Deletes a specific submission from a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "submissionId": {
+      "type": "string",
+      "description": "The ID of the submission to delete"
+     }
+    },
+    "required": [
+     "formId",
+     "submissionId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/forms/{formId}/submissions/{submissionId}",
+    "path": [
+     "formId",
+     "submissionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_organizations_organizationId_invites_inviteId",
+   "name": "Cancel an organization invite",
+   "description": "Cancels a pending invitation to join workspaces within your organization. Only the user who created the invite can cancel it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "organizationId": {
+      "type": "string",
+      "description": "The ID of the organization"
+     },
+     "inviteId": {
+      "type": "string",
+      "description": "The ID of the invite to cancel"
+     }
+    },
+    "required": [
+     "inviteId",
+     "organizationId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/organizations/{organizationId}/invites/{inviteId}",
+    "path": [
+     "organizationId",
+     "inviteId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_organizations_organizationId_users_userId",
+   "name": "Remove user from organization",
+   "description": "Removes a user from your organization. Only the organization creator can remove other members, or users can remove themselves.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "organizationId": {
+      "type": "string",
+      "description": "The ID of the organization"
+     },
+     "userId": {
+      "type": "string",
+      "description": "The ID of the user to remove from the organization"
+     }
+    },
+    "required": [
+     "organizationId",
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/organizations/{organizationId}/users/{userId}",
+    "path": [
+     "organizationId",
+     "userId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_webhooks_webhookId",
+   "name": "Delete a webhook",
+   "description": "Deletes a webhook. If this is the last webhook for a form, the webhooks integration will also be marked as deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "string",
+      "description": "The ID of the webhook to delete"
+     }
+    },
+    "required": [
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/webhooks/{webhookId}",
+    "path": [
+     "webhookId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_workspaces_workspaceId",
+   "name": "Delete a workspace",
+   "description": "Deletes a workspace and all its associated forms. The workspace and forms are moved to trash and can be restored later. Forms in DRAFT or PUBLISHED state will be marked as DELETED.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace to delete"
+     }
+    },
+    "required": [
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.delete_workspaces_workspaceId_folders_id",
+   "name": "Delete a folder",
+   "description": "Deletes a folder and its entire subtree by its ID, moving any contained forms to trash. Requires a Pro subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace the folder belongs to"
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the folder to delete"
+     }
+    },
+    "required": [
+     "id",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.tally.so/workspaces/{workspaceId}/folders/{id}",
+    "path": [
+     "workspaceId",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms",
+   "name": "Retrieve a list of forms",
+   "description": "Returns a paginated array of form objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "number",
+      "description": "Page number for pagination (default: 1)"
+     },
+     "limit": {
+      "type": "number",
+      "description": "Number of forms per page (default: 50, max: 500)"
+     },
+     "workspaceIds": {
+      "type": "array",
+      "description": "Filter forms by specific workspace IDs (encoded strings)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms",
+    "path": [],
+    "query": [
+     "page",
+     "limit",
+     "workspaceIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId",
+   "name": "Retrieve a form",
+   "description": "Returns a single form by its ID with all its blocks and settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form to retrieve"
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_analytics_dimensions",
+   "name": "Retrieve form dimensions",
+   "description": "Returns visitor breakdowns by source, browser, OS, device, and location.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "period": {
+      "type": "string",
+      "description": "Time period for the analytics data",
+      "enum": [
+       "today",
+       "yesterday",
+       "24h",
+       "7d",
+       "30d",
+       "3m",
+       "6m",
+       "12m",
+       "all"
+      ]
+     }
+    },
+    "required": [
+     "formId",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/analytics/dimensions",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_analytics_drop_off",
+   "name": "Retrieve form drop off",
+   "description": "Returns per-question drop-off statistics for a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "period": {
+      "type": "string",
+      "description": "Time period for the analytics data",
+      "enum": [
+       "today",
+       "yesterday",
+       "24h",
+       "7d",
+       "30d",
+       "3m",
+       "6m",
+       "12m",
+       "all"
+      ]
+     }
+    },
+    "required": [
+     "formId",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/analytics/drop-off",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_analytics_metrics",
+   "name": "Retrieve form metrics",
+   "description": "Returns aggregate metrics for a form (visits, submissions, completion rate, and more).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "period": {
+      "type": "string",
+      "description": "Time period for the analytics data",
+      "enum": [
+       "today",
+       "yesterday",
+       "24h",
+       "7d",
+       "30d",
+       "3m",
+       "6m",
+       "12m",
+       "all"
+      ]
+     }
+    },
+    "required": [
+     "formId",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/analytics/metrics",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_analytics_submissions",
+   "name": "Retrieve form submission analytics",
+   "description": "Returns completed and partial submission counts for a form over time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "period": {
+      "type": "string",
+      "description": "Time period for the analytics data",
+      "enum": [
+       "today",
+       "yesterday",
+       "24h",
+       "7d",
+       "30d",
+       "3m",
+       "6m",
+       "12m",
+       "all"
+      ]
+     }
+    },
+    "required": [
+     "formId",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/analytics/submissions",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_analytics_visits",
+   "name": "Retrieve form visits",
+   "description": "Returns visit counts for a form over time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "period": {
+      "type": "string",
+      "description": "Time period for the analytics data",
+      "enum": [
+       "today",
+       "yesterday",
+       "24h",
+       "7d",
+       "30d",
+       "3m",
+       "6m",
+       "12m",
+       "all"
+      ]
+     }
+    },
+    "required": [
+     "formId",
+     "period"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/analytics/visits",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_blocks",
+   "name": "List form blocks",
+   "description": "Returns a list of all blocks in a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/blocks",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_questions",
+   "name": "List form questions",
+   "description": "Returns a list of all questions in a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/questions",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_submissions",
+   "name": "List form submissions",
+   "description": "Returns a paginated list of form submissions with their responses.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "page": {
+      "type": "number",
+      "description": "Page number for pagination (default: 1)"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter submissions by status",
+      "enum": [
+       "all",
+       "completed",
+       "partial"
+      ]
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Filter submissions submitted on or after this date (ISO 8601 format)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Filter submissions submitted on or before this date (ISO 8601 format)"
+     },
+     "afterId": {
+      "type": "string",
+      "description": "Get submissions that came after a specific submission ID"
+     },
+     "limit": {
+      "type": "number",
+      "description": "Number of submissions to return per page (default: 50, max: 500)"
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/submissions",
+    "path": [
+     "formId"
+    ],
+    "query": [
+     "page",
+     "filter",
+     "startDate",
+     "endDate",
+     "afterId",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_forms_formId_submissions_submissionId",
+   "name": "Retrieve a form submission",
+   "description": "Returns a specific form submission with all its responses and the form questions.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "submissionId": {
+      "type": "string",
+      "description": "The ID of the submission to retrieve"
+     }
+    },
+    "required": [
+     "formId",
+     "submissionId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/forms/{formId}/submissions/{submissionId}",
+    "path": [
+     "formId",
+     "submissionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_organizations_organizationId_invites",
+   "name": "List organization invites",
+   "description": "Returns a list of all invites in your organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/organizations/{organizationId}/invites",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_organizations_organizationId_users",
+   "name": "List organization users",
+   "description": "Returns a list of all users in your organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/organizations/{organizationId}/users",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_users_me",
+   "name": "Retrieve current user information",
+   "description": "Returns information about the current authenticated user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone identifier (e.g., Europe/Brussels). When provided, updates the user's stored timezone."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/users/me",
+    "path": [],
+    "query": [
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_webhooks",
+   "name": "List webhooks",
+   "description": "Returns a paginated list of all webhooks across your accessible forms and workspaces.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "number",
+      "description": "Page number for pagination (default: 1)"
+     },
+     "limit": {
+      "type": "number",
+      "description": "Number of webhooks per page (default: 25, max: 100)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/webhooks",
+    "path": [],
+    "query": [
+     "page",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_webhooks_webhookId_events",
+   "name": "List webhook events",
+   "description": "Returns a paginated list of webhook delivery events for a specific webhook, including delivery status, response codes, and retry information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "string",
+      "description": "The ID of the webhook"
+     },
+     "page": {
+      "type": "number",
+      "description": "Page number for pagination (default: 1)"
+     }
+    },
+    "required": [
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/webhooks/{webhookId}/events",
+    "path": [
+     "webhookId"
+    ],
+    "query": [
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_workspaces",
+   "name": "Retrieve a list of workspaces",
+   "description": "Returns a paginated array of workspace objects with associated users and pending invites.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "number",
+      "description": "Page number for pagination (default: 1)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/workspaces",
+    "path": [],
+    "query": [
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_workspaces_workspaceId",
+   "name": "Retrieve a workspace",
+   "description": "Returns a single workspace by its ID with associated members.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace to retrieve"
+     }
+    },
+    "required": [
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.get_workspaces_workspaceId_folders",
+   "name": "List folders",
+   "description": "Returns the folders in a workspace. Requires a Pro subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace to list folders for"
+     }
+    },
+    "required": [
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tally.so/workspaces/{workspaceId}/folders",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_forms_formId",
+   "name": "Update a form",
+   "description": "Updates a form's settings, blocks, or status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "New name for the form"
+     },
+     "status": {
+      "type": "string",
+      "description": "Deleting a form is done through DELETE /forms/{formId}, which moves it to the trash so it can be restored.",
+      "enum": [
+       "BLANK",
+       "DRAFT",
+       "PUBLISHED"
+      ]
+     },
+     "blocks": {
+      "type": "array",
+      "description": "Updated blocks for the form"
+     },
+     "settings": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/forms/{formId}",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "blocks",
+     "settings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_forms_formId_blocks",
+   "name": "Update form blocks",
+   "description": "Updates blocks in a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "blocks": {
+      "type": "array",
+      "description": ""
+     },
+     "settings": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "blocks",
+     "formId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/forms/{formId}/blocks",
+    "path": [
+     "formId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "blocks",
+     "settings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_forms_formId_questions_questionId",
+   "name": "Update a form question",
+   "description": "Updates a specific question in a form.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form"
+     },
+     "questionId": {
+      "type": "string",
+      "description": "The ID of the question"
+     },
+     "title": {
+      "type": "string",
+      "description": "The new title for the question"
+     }
+    },
+    "required": [
+     "formId",
+     "questionId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/forms/{formId}/questions/{questionId}",
+    "path": [
+     "formId",
+     "questionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_webhooks_webhookId",
+   "name": "Update a webhook",
+   "description": "Updates an existing webhook configuration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "string",
+      "description": "The ID of the webhook to update"
+     },
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form the webhook is for"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL to send webhook events to"
+     },
+     "signingSecret": {
+      "type": "string",
+      "description": "Optional secret used to sign webhook payloads"
+     },
+     "httpHeaders": {
+      "type": "array",
+      "description": "Optional custom HTTP headers to include in webhook requests"
+     },
+     "eventTypes": {
+      "type": "array",
+      "description": "Types of events to receive"
+     },
+     "isEnabled": {
+      "type": "boolean",
+      "description": "Whether the webhook is enabled"
+     }
+    },
+    "required": [
+     "eventTypes",
+     "formId",
+     "isEnabled",
+     "url",
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/webhooks/{webhookId}",
+    "path": [
+     "webhookId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "formId",
+     "url",
+     "signingSecret",
+     "httpHeaders",
+     "eventTypes",
+     "isEnabled"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_workspaces_workspaceId",
+   "name": "Update a workspace",
+   "description": "Updates a workspace's information by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "The new name for the workspace"
+     }
+    },
+    "required": [
+     "name",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.patch_workspaces_workspaceId_folders_id",
+   "name": "Update a folder",
+   "description": "Renames a folder by its ID. Requires a Pro subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace the folder belongs to"
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the folder to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "The new name for the folder"
+     }
+    },
+    "required": [
+     "id",
+     "name",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.tally.so/workspaces/{workspaceId}/folders/{id}",
+    "path": [
+     "workspaceId",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_forms",
+   "name": "Create a new form",
+   "description": "Creates a new form, optionally based on a template or within a specific workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "ID of the workspace to create the form in. If not provided, uses the user's default workspace"
+     },
+     "templateId": {
+      "type": "string",
+      "description": "ID of the template to base the form on"
+     },
+     "folderId": {
+      "type": "string",
+      "description": "ID of the folder to place the form in. Must belong to the target workspace."
+     },
+     "status": {
+      "type": "string",
+      "description": "Deleting a form is done through DELETE /forms/{formId}, which moves it to the trash so it can be restored.",
+      "enum": [
+       "BLANK",
+       "DRAFT",
+       "PUBLISHED"
+      ]
+     },
+     "blocks": {
+      "type": "array",
+      "description": ""
+     },
+     "settings": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "blocks",
+     "status"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/forms",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "workspaceId",
+     "templateId",
+     "folderId",
+     "status",
+     "blocks",
+     "settings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_organizations_organizationId_invites",
+   "name": "Create organization invites",
+   "description": "Invites users to join specific workspaces within your organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "organizationId": {
+      "type": "string",
+      "description": "The ID of the organization"
+     },
+     "workspaceIds": {
+      "type": "array",
+      "description": "Array of workspace IDs to invite users to"
+     },
+     "emails": {
+      "type": "string",
+      "description": "Comma or semicolon separated list of email addresses to invite"
+     }
+    },
+    "required": [
+     "emails",
+     "organizationId",
+     "workspaceIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/organizations/{organizationId}/invites",
+    "path": [
+     "organizationId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "workspaceIds",
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_webhooks",
+   "name": "Create a webhook",
+   "description": "Creates a new webhook for a form to receive form events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "formId": {
+      "type": "string",
+      "description": "The ID of the form to create the webhook for"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL to send webhook events to"
+     },
+     "signingSecret": {
+      "type": "string",
+      "description": "Optional secret used to sign webhook payloads"
+     },
+     "httpHeaders": {
+      "type": "array",
+      "description": "Optional custom HTTP headers to include in webhook requests"
+     },
+     "eventTypes": {
+      "type": "array",
+      "description": "Types of events to receive"
+     },
+     "externalSubscriber": {
+      "type": "string",
+      "description": "Optional identifier for the external subscriber"
+     }
+    },
+    "required": [
+     "eventTypes",
+     "formId",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "formId",
+     "url",
+     "signingSecret",
+     "httpHeaders",
+     "eventTypes",
+     "externalSubscriber"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_webhooks_webhookId_events_eventId",
+   "name": "Retry webhook event",
+   "description": "Retries sending a failed webhook event. This will attempt to deliver the webhook payload again to the configured endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "string",
+      "description": "The ID of the webhook"
+     },
+     "eventId": {
+      "type": "string",
+      "description": "The ID of the webhook event to retry"
+     }
+    },
+    "required": [
+     "eventId",
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/webhooks/{webhookId}/events/{eventId}",
+    "path": [
+     "webhookId",
+     "eventId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_workspaces",
+   "name": "Create a new workspace",
+   "description": "Creates a new workspace and assigns the authenticated user as a member. Requires a Pro subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the workspace"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/workspaces",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "tally.post_workspaces_workspaceId_folders",
+   "name": "Create a new folder",
+   "description": "Creates a folder in a workspace. Pass parentId to nest it inside another folder. Requires a Pro subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": "The ID of the workspace to create the folder in"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the folder"
+     },
+     "parentId": {
+      "type": "string",
+      "description": "The ID of the parent folder to nest this folder under"
+     }
+    },
+    "required": [
+     "name",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.tally.so/workspaces/{workspaceId}/folders",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "parentId"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

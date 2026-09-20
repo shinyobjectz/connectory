@@ -1,0 +1,291 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "render-mcp",
+ "source": "https://render.com/openapi.json",
+ "operations": [
+  {
+   "slug": "render-mcp.get_agent_skills_discovery_index",
+   "name": "Fetch the render agent skills discovery index",
+   "description": "Fetch the Render Agent Skills discovery index",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/agent-skills/index.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_agents_directory",
+   "name": "Fetch the render agent directory",
+   "description": "Fetch the Render agent directory",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/agents.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_api_catalog",
+   "name": "Fetch the render api catalog",
+   "description": "Fetch the Render API catalog",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/api-catalog",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_api_status",
+   "name": "Fetch api health status",
+   "description": "Returns a machine-readable health response for the public discovery API.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/api/status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_articles_markdown_index",
+   "name": "Fetch recent render article links as markdown",
+   "description": "Fetch recent Render article links as markdown",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/articles.md",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_blog_markdown_index",
+   "name": "Fetch recent render blog links as markdown",
+   "description": "Fetch recent Render blog links as markdown",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/blog.md",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_docs_page_markdown",
+   "name": "Fetch a docs page as markdown",
+   "description": "Fetch a docs page as markdown",
+   "input": {
+    "type": "object",
+    "properties": {
+     "slug": {
+      "type": "string",
+      "description": "Docs page slug."
+     }
+    },
+    "required": [
+     "slug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/docs/{slug}.md",
+    "path": [
+     "slug"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_llms_full",
+   "name": "Fetch the full render docs corpus for llms",
+   "description": "Fetch the full Render docs corpus for LLMs",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/llms-full.txt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_llms_index",
+   "name": "Fetch the render llms txt index",
+   "description": "Fetch the Render llms.txt index",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/llms.txt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_mcp_discovery",
+   "name": "Fetch render mcp discovery metadata",
+   "description": "Returns discovery metadata for the hosted Render MCP server, including structured authentication details and where to find its server card.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/mcp.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_mcp_server_card",
+   "name": "Fetch the render mcp server card",
+   "description": "Returns the MCP Server Card for the hosted Render MCP server, including authentication requirements.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/mcp/server-card.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_open_api_spec",
+   "name": "Fetch this open api document",
+   "description": "Fetch this OpenAPI document",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/openapi.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.get_web_mcp_manifest",
+   "name": "Fetch render web mcp manifest",
+   "description": "Fetch Render WebMCP manifest",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/.well-known/webmcp.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "render-mcp.search_render_docs",
+   "name": "Search render docs",
+   "description": "Returns machine-readable Render docs search results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Keywords to search for in the Render docs."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.render.com/api/agent/docs-search",
+    "path": [],
+    "query": [
+     "query"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

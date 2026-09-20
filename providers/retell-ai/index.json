@@ -1,0 +1,5343 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "retell-ai",
+ "source": "https://docs.retellai.com/openapi.yaml",
+ "operations": [
+  {
+   "slug": "retell-ai.add_community_voice",
+   "name": "Add community voice",
+   "description": "Add a community voice to the voice library",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_provider": {
+      "type": "string",
+      "description": "Voice provider to add the voice from.",
+      "enum": [
+       "elevenlabs",
+       "cartesia",
+       "minimax",
+       "fish_audio",
+       "inworld"
+      ]
+     },
+     "provider_voice_id": {
+      "type": "string",
+      "description": "Voice id assigned by the provider."
+     },
+     "voice_name": {
+      "type": "string",
+      "description": "A custom name for the voice."
+     },
+     "public_user_id": {
+      "type": "string",
+      "description": "Required for ElevenLabs only. User id of the voice owner."
+     }
+    },
+    "required": [
+     "provider_voice_id",
+     "voice_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/add-community-voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "voice_provider",
+     "provider_voice_id",
+     "voice_name",
+     "public_user_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.add_knowledge_base_sources",
+   "name": "Add knowledge base sources",
+   "description": "Add sources to a knowledge base",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_base_id": {
+      "type": "string",
+      "description": "The knowledge base id to delete source from."
+     },
+     "knowledge_base_texts": {
+      "type": "array",
+      "description": "Texts to add to the knowledge base."
+     },
+     "knowledge_base_files": {
+      "type": "array",
+      "description": "Files to add to the knowledge base. Limit to 25 files, where each file is limited to 50MB."
+     },
+     "knowledge_base_urls": {
+      "type": "array",
+      "description": "URLs to be scraped and added to the knowledge base. Must be valid urls."
+     }
+    },
+    "required": [
+     "knowledge_base_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/add-knowledge-base-sources/{knowledge_base_id}",
+    "path": [
+     "knowledge_base_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "knowledge_base_texts",
+     "knowledge_base_files",
+     "knowledge_base_urls"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.agent_playground_completion",
+   "name": "Agent playground completion",
+   "description": "Stateless playground completion. Send the full conversation history (same shape as chat completion messages) and receive only the newly generated messages. Nothing is persisted server-side \u2014 the caller manages conversation state.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent."
+     },
+     "version": {
+      "type": "string",
+      "description": "Agent version to use. Defaults to latest."
+     },
+     "messages": {
+      "type": "array",
+      "description": "Full conversation history, same shape as chat completion messages. message_id and created_timestamp are optional \u2014 server generates them if omitted."
+     },
+     "dynamic_variables": {
+      "type": "object",
+      "description": "Key-value pairs for dynamic variable substitution."
+     },
+     "tool_mocks": {
+      "type": "array",
+      "description": "Optional mock responses for tools. When provided, the agent uses these instead of executing real tool calls."
+     },
+     "current_state": {
+      "type": "string",
+      "description": "Current state name for retell-llm agents. Used to resume from a specific state."
+     },
+     "current_node_id": {
+      "type": "string",
+      "description": "Current node id for conversation-flow agents. Used to resume from a specific node. Must be provided together with component_id when testing components."
+     },
+     "component_id": {
+      "type": "string",
+      "description": "Conversation flow component id. Required when current_node_id refers to a node within a component."
+     }
+    },
+    "required": [
+     "agent_id",
+     "messages"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/agent-playground-completion/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [
+     "messages",
+     "dynamic_variables",
+     "tool_mocks",
+     "current_state",
+     "current_node_id",
+     "component_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.backfill_contact_analysis_data",
+   "name": "Backfill contact analysis data",
+   "description": "Creates a backfill contact analysis data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "backfill_call_filter": {
+      "type": "object",
+      "description": ""
+     },
+     "backfill_attributes": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "backfill_attributes"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/backfill-contact-analysis-data",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "backfill_call_filter",
+     "backfill_attributes"
+    ],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "retell-ai.clone_voice",
+   "name": "Clone voice",
+   "description": "Clone a voice from audio files",
+   "input": {
+    "type": "object",
+    "properties": {
+     "files": {
+      "type": "array",
+      "description": "Audio files to use for voice cloning. Up to 25 files allowed. For Cartesia and MiniMax, only 1 file is supported. For Inworld, up to 3 files are supported."
+     },
+     "voice_name": {
+      "type": "string",
+      "description": "Name for the cloned voice"
+     },
+     "voice_provider": {
+      "type": "string",
+      "description": "Voice provider to use for cloning.",
+      "enum": [
+       "elevenlabs",
+       "cartesia",
+       "minimax",
+       "fish_audio",
+       "platform",
+       "inworld"
+      ]
+     }
+    },
+    "required": [
+     "files",
+     "voice_name",
+     "voice_provider"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/clone-voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "files",
+     "voice_name",
+     "voice_provider"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_agent",
+   "name": "Create agent",
+   "description": "Create a new agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "response_engine": {
+      "type": "string",
+      "description": ""
+     },
+     "agent_name": {
+      "type": "string",
+      "description": "The name of the agent. Only used for your own reference."
+     },
+     "version_description": {
+      "type": "string",
+      "description": "Optional description of the agent version. Used for your own reference and documentation."
+     },
+     "version_title": {
+      "type": "string",
+      "description": "Optional title of the agent version. Used for your own reference."
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "Unique voice id used for the agent. Find list of available voices and their preview in Dashboard."
+     },
+     "voice_model": {
+      "type": "string",
+      "description": "Select the voice model used for the selected voice. Each provider has a set of available voice models. Set to null to remove voice model selection, and default ones will apply. Check out dashboard for more details of each voice model.",
+      "enum": [
+       "eleven_flash_v2",
+       "eleven_flash_v2_5",
+       "eleven_multilingual_v2",
+       "eleven_v3",
+       "sonic-3",
+       "sonic-3-latest",
+       "sonic-3.5",
+       "sonic-3.6",
+       "tts-1",
+       "gpt-4o-mini-tts",
+       "speech-02-turbo",
+       "speech-2.8-turbo"
+      ]
+     },
+     "fallback_voice_ids": {
+      "type": "array",
+      "description": "When TTS provider for the selected voice is experiencing outages, we would use fallback voices listed here for the agent. Voice id and the fallback voice ids must be from different TTS providers. The system would go through the list in order, if the first one in the list is also having outage, it would use the next one. Set to null to remove voice fallback for the agent."
+     },
+     "voice_temperature": {
+      "type": "number",
+      "description": "Controls how stable the voice is. Value ranging from [0,2]. Lower value means more stable, and higher value means more variant speech generation. Check the dashboard to see what provider supports this feature. If unset, default value 1 will apply."
+     },
+     "voice_speed": {
+      "type": "number",
+      "description": "Controls speed of voice. Value ranging from [0.5,2]. Lower value means slower speech, while higher value means faster speech rate. If unset, default value 1 will apply."
+     },
+     "enable_dynamic_voice_speed": {
+      "type": "boolean",
+      "description": "If set to true, will enable dynamic voice speed adjustment based on the user's speech rate and conversation context. If unset, default value false will apply."
+     },
+     "enable_dynamic_responsiveness": {
+      "type": "boolean",
+      "description": "If set to true, the agent will dynamically adjust how quickly it responds based on the user's speech rate and past turn-taking behavior in the call. If unset, default value false will apply."
+     },
+     "volume": {
+      "type": "number",
+      "description": "If set, will control the volume of the agent. Value ranging from [0,2]. Lower value means quieter agent speech, while higher value means louder agent speech. If unset, default value 1 will apply."
+     },
+     "voice_emotion": {
+      "type": "string",
+      "description": "Controls the emotional tone of the agent's voice. Currently supported for Cartesia and Minimax TTS providers. If unset, no emotion will be used.",
+      "enum": [
+       "calm",
+       "sympathetic",
+       "happy",
+       "sad",
+       "angry",
+       "fearful",
+       "surprised",
+       null
+      ]
+     },
+     "enable_expressive_mode": {
+      "type": "boolean",
+      "description": "Master toggle for expressive mode. When true, the agent may add expressive voice tags to the audio it generates. Only applicable for platform voices. If unset, defaults to false."
+     },
+     "expressive_emotion_tags": {
+      "type": "array",
+      "description": "The expressive voice tags Retell pre-teaches the model to use when enable_expressive_mode is true. Custom tags defined in the system prompt are still allowed. If empty, the agent follows general expressive guidance without a fixed tag set."
+     },
+     "expressive_mode_prompt": {
+      "type": "string",
+      "description": "Custom expressive voice guidance to use instead of the default Retell expressive prompt when enable_expressive_mode is true. If omitted or blank, the default expressive prompt will be used."
+     },
+     "responsiveness": {
+      "type": "number",
+      "description": "Controls how responsive is the agent. Value ranging from [0,1]. Lower value means less responsive agent (wait more, respond slower), while higher value means faster exchanges (respond when it can). If unset, default value 1 will apply."
+     },
+     "interruption_sensitivity": {
+      "type": "number",
+      "description": "Controls how sensitive the agent is to user interruptions. Value ranging from [0,1]. Lower value means it will take longer / more words for user to interrupt agent, while higher value means it's easier for user to interrupt agent. If unset, default value 1 will apply. When this is set to 0, agent would never be interrupted."
+     },
+     "enable_backchannel": {
+      "type": "boolean",
+      "description": "Controls whether the agent would backchannel (agent interjects the speaker with phrases like \"yeah\", \"uh-huh\" to signify interest and engagement). Backchannel when enabled tends to show up more in longer user utterances. If not set, agent will not backchannel."
+     },
+     "backchannel_frequency": {
+      "type": "number",
+      "description": "Only applicable when enable_backchannel is true. Controls how often the agent would backchannel when a backchannel is possible. Value ranging from [0,1]. Lower value means less frequent backchannel, while higher value means more frequent backchannel. If unset, default value 0.8 will apply."
+     },
+     "backchannel_words": {
+      "type": "array",
+      "description": "Only applicable when enable_backchannel is true. A list of words that the agent would use as backchannel. If not set, default backchannel words will apply. Check out [backchannel default words](/agent/interaction-configuration#backchannel) for more details. Note that certain voices do not work too well with certain words, so it's recommended to experiment before adding any words."
+     },
+     "reminder_trigger_ms": {
+      "type": "number",
+      "description": "If set (in milliseconds), will trigger a reminder to the agent to speak if the user has been silent for the specified duration after some agent speech. Must be a positive number. If unset, default value of 10000 ms (10 s) will apply."
+     },
+     "reminder_max_count": {
+      "type": "integer",
+      "description": "If set, controls how many times agent would remind user when user is unresponsive. Must be a non negative integer. If unset, default value of 1 will apply (remind once). Set to 0 to disable agent from reminding."
+     },
+     "ambient_sound": {
+      "type": "string",
+      "description": "If set, will add ambient environment sound to the call to make experience more realistic. Currently supports the following options: - `coffee-shop`: Coffee shop ambience with people chatting in background. [Listen to Ambience](https://retell-utils-public.s3.us-west-2.amazonaws.com/coffee-shop.wav) - `convention-hall`: Convention hall ambience, with some echo and people chatting in background. [Lis",
+      "enum": [
+       "coffee-shop",
+       "convention-hall",
+       "summer-outdoor",
+       "mountain-outdoor",
+       "static-noise",
+       "call-center",
+       null
+      ]
+     },
+     "ambient_sound_volume": {
+      "type": "number",
+      "description": "If set, will control the volume of the ambient sound. Value ranging from [0,2]. Lower value means quieter ambient sound, while higher value means louder ambient sound. If unset, default value 1 will apply."
+     },
+     "language": {
+      "type": "string",
+      "description": "Specifies what language(s) the agent will operate in. Accepts either a single locale (e.g. `en-US`) or an array of locales for multilingual agents (e.g. `[\"en-US\",\"es-ES\"]`). The scalar value `multi` is deprecated but still accepted as a scalar, and is stored and returned as the ten locales it used to mean. It must not appear inside the array form. Send an explicit locale array instead. If unset, "
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": "The webhook for agent to listen to call events. See what events it would get at [webhook doc](/features/webhook). If set, will binds webhook events for this agent to the specified url, and will ignore the account level webhook for this agent. Set to `null` to remove webhook url from this agent."
+     },
+     "webhook_events": {
+      "type": "array",
+      "description": "Which webhook events this agent should receive. If not set, defaults to call_started, call_ended, call_analyzed."
+     },
+     "webhook_timeout_ms": {
+      "type": "integer",
+      "description": "The timeout for the webhook in milliseconds. If not set, default value of 10000 will apply."
+     },
+     "boosted_keywords": {
+      "type": "array",
+      "description": "Provide a customized list of keywords to bias the transcriber model, so that these words are more likely to get transcribed. Commonly used for names, brands, street, etc. Entries may reference dynamic variables with `{{variable}}` syntax."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Granular setting to manage how Retell stores sensitive data (transcripts, recordings, logs, etc.). This replaces the deprecated `opt_out_sensitive_data_storage` field. - `everything`: Store all data including transcripts, recordings, and logs. - `everything_except_pii`: Store data without PII when PII is detected. - `basic_attributes_only`: Store only basic attributes; no transcripts/recordings/lo",
+      "enum": [
+       "everything",
+       "everything_except_pii",
+       "basic_attributes_only"
+      ]
+     },
+     "data_storage_retention_days": {
+      "type": "integer",
+      "description": "Number of days to retain call/chat data before automatic deletion. Must be between 1 and 730 days. If not set, data is retained forever (no automatic deletion)."
+     },
+     "opt_in_signed_url": {
+      "type": "boolean",
+      "description": "Whether this agent opts in for signed URLs for public logs and recordings. When enabled, the generated URLs will include security signatures that restrict access and automatically expire after 24 hours."
+     },
+     "signed_url_expiration_ms": {
+      "type": "integer",
+      "description": "The expiration time for the signed url in milliseconds. Only applicable when opt_in_signed_url is true. If not set, default value of 86400000 (24 hours) will apply."
+     },
+     "pronunciation_dictionary": {
+      "type": "array",
+      "description": "A list of words / phrases and their pronunciation to be used to guide the audio synthesize for consistent pronunciation. Check the dashboard to see what provider supports this feature. Set to null to remove pronunciation dictionary from this agent."
+     },
+     "end_call_after_silence_ms": {
+      "type": "integer",
+      "description": "If users stay silent for a period after agent speech, end the call. The minimum value allowed is 10,000 ms (10 s). By default, this is set to 600000 (10 min)."
+     },
+     "max_call_duration_ms": {
+      "type": "integer",
+      "description": "Maximum allowed length for the call, will force end the call if reached. The minimum value allowed is 60,000 ms (1 min), and maximum value allowed is 7,200,000 (2 hours). By default, this is set to 3,600,000 (1 hour)."
+     },
+     "voicemail_option": {
+      "type": "object",
+      "description": "If this option is set, the call will try to detect voicemail in the first 3 minutes of the call. Actions defined (hangup, or leave a message) will be applied when the voicemail is detected. Set this to null to disable voicemail detection."
+     },
+     "ivr_option": {
+      "type": "object",
+      "description": "If this option is set, the call will try to detect IVR in the first 3 minutes of the call. Actions defined will be applied when the IVR is detected. Set this to null to disable IVR detection."
+     },
+     "call_screening_option": {
+      "type": "object",
+      "description": "If this option is set, the agent prompt will include call screen handling instructions for identity and call purpose questions. Set this to null to disable call screen prompt instructions."
+     },
+     "post_call_analysis_data": {
+      "type": "array",
+      "description": "Post call analysis data to extract from the call. This data will augment the pre-defined variables extracted in the call analysis. This will be available after the call ends."
+     },
+     "post_call_analysis_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "begin_message_delay_ms": {
+      "type": "integer",
+      "description": "If set, will delay the first message by the specified amount of milliseconds, so that it gives user more time to prepare to take the call. Valid range is [0, 5000]. If not set or set to 0, agent will speak immediately. Only applicable when agent speaks first."
+     },
+     "ring_duration_ms": {
+      "type": "integer",
+      "description": "If set, the phone ringing will last for the specified amount of milliseconds. This applies for both outbound call ringtime, and call transfer ringtime. Default to 30000 (30 s). Valid range is [5000, 300000]."
+     },
+     "stt_mode": {
+      "type": "string",
+      "description": "If set, determines whether speech to text should focus on latency or accuracy. Default to fast mode. When set to custom, custom_stt_config must be provided.",
+      "enum": [
+       "fast",
+       "accurate",
+       "custom"
+      ]
+     },
+     "custom_stt_config": {
+      "type": "object",
+      "description": "Custom STT configuration. Only used when stt_mode is set to custom."
+     },
+     "vocab_specialization": {
+      "type": "string",
+      "description": "If set, determines the vocabulary set to use for transcription. This setting only applies for English agents, for non English agent, this setting is a no-op. Default to general.",
+      "enum": [
+       "general",
+       "medical"
+      ]
+     },
+     "allow_user_dtmf": {
+      "type": "boolean",
+      "description": "If set to true, DTMF input will be accepted and processed. If false, any DTMF input will be ignored. Default to true."
+     },
+     "allow_dtmf_interruption": {
+      "type": "boolean",
+      "description": "If set to true, DTMF input will interrupt the agent even when interruption_sensitivity is 0. Can be overridden per conversation or subagent node. Default to false."
+     },
+     "user_dtmf_options": {
+      "type": "object",
+      "description": ""
+     },
+     "denoising_mode": {
+      "type": "string",
+      "description": "If set, determines what denoising mode to use. Use \"no-denoise\" to bypass all audio denoising. Default to noise-cancellation.",
+      "enum": [
+       "no-denoise",
+       "noise-cancellation",
+       "noise-and-background-speech-cancellation"
+      ]
+     },
+     "pii_config": {
+      "type": "object",
+      "description": ""
+     },
+     "guardrail_config": {
+      "type": "object",
+      "description": ""
+     },
+     "handbook_config": {
+      "type": "object",
+      "description": "Behavior presets for voice agents. All presets are available."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone for the agent (e.g. America/New_York). Defaults to America/Los_Angeles if not set."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-agent",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "response_engine",
+     "agent_name",
+     "version_description",
+     "version_title",
+     "voice_id",
+     "voice_model",
+     "fallback_voice_ids",
+     "voice_temperature",
+     "voice_speed",
+     "enable_dynamic_voice_speed",
+     "enable_dynamic_responsiveness",
+     "volume",
+     "voice_emotion",
+     "enable_expressive_mode",
+     "expressive_emotion_tags",
+     "expressive_mode_prompt",
+     "responsiveness",
+     "interruption_sensitivity",
+     "enable_backchannel",
+     "backchannel_frequency",
+     "backchannel_words",
+     "reminder_trigger_ms",
+     "reminder_max_count",
+     "ambient_sound",
+     "ambient_sound_volume",
+     "language",
+     "webhook_url",
+     "webhook_events",
+     "webhook_timeout_ms",
+     "boosted_keywords",
+     "data_storage_setting",
+     "data_storage_retention_days",
+     "opt_in_signed_url",
+     "signed_url_expiration_ms",
+     "pronunciation_dictionary",
+     "end_call_after_silence_ms",
+     "max_call_duration_ms",
+     "voicemail_option",
+     "ivr_option",
+     "call_screening_option",
+     "post_call_analysis_data",
+     "post_call_analysis_model",
+     "begin_message_delay_ms",
+     "ring_duration_ms",
+     "stt_mode",
+     "custom_stt_config",
+     "vocab_specialization",
+     "allow_user_dtmf",
+     "allow_dtmf_interruption",
+     "user_dtmf_options",
+     "denoising_mode",
+     "pii_config",
+     "guardrail_config",
+     "handbook_config",
+     "timezone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_agent_version",
+   "name": "Create agent version",
+   "description": "Create a new draft agent version from a base version.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent."
+     },
+     "base_version": {
+      "type": "integer",
+      "description": "Existing version used as the base when creating a new draft."
+     }
+    },
+    "required": [
+     "agent_id",
+     "base_version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-agent-version/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "base_version"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_app",
+   "name": "Create app",
+   "description": "Create an App: the connection to one external system (a CRM, calendar, support desk, and so on), holding its credentials and settings. Providers with caller-managed credentials accept auth_config. Providers using the OAuth callback must omit auth_config and be authorized through connect-app. Credentials are stored encrypted and never returned. Up to 20 apps per provider.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "App integration category.",
+      "enum": [
+       "crm",
+       "calendar",
+       "knowledge_base",
+       "support",
+       "communication"
+      ]
+     },
+     "provider": {
+      "type": "string",
+      "description": "Provider name. Must be valid for the App's type; the supported providers per type are listed by list-app-templates."
+     },
+     "name": {
+      "type": "string",
+      "description": "Display name."
+     },
+     "tenant_url": {
+      "type": "string",
+      "description": "Per-tenant API base URL."
+     },
+     "tenant_id": {
+      "type": "string",
+      "description": "Sub-account id, for providers that scope requests by a sub-account id on a shared host."
+     },
+     "auth_config": {
+      "type": "string",
+      "description": "Caller-managed credentials. Providers using the OAuth callback reject auth_config and must be authorized through connect-app."
+     },
+     "crm_config": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "provider",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-app",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "provider",
+     "name",
+     "tenant_url",
+     "tenant_id",
+     "auth_config",
+     "crm_config"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_asset",
+   "name": "Create asset",
+   "description": "Upload an image or audio asset. Audio is normalized to headerless mono PCM16 at 24 kHz and can be referenced by `custom_on_hold_music_asset_id` on warm and agentic-warm transfer options. Accepted audio formats are MP3, WAV, WebM, OGG, M4A, AAC, and FLAC. The maximum upload size is 10 MB and audio duration is limited to 210 seconds.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Image or audio file to upload. Images support PNG, JPEG, GIF, WebP, and SVG. Audio supports MP3, WAV, WebM, OGG, M4A, AAC, and FLAC. Maximum size is 10 MB; audio is limited to 210 seconds."
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-asset",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_batch_call",
+   "name": "Create batch call",
+   "description": "Create a batch call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the batch call. Only used for your own reference."
+     },
+     "trigger_timestamp": {
+      "type": "number",
+      "description": "The scheduled time for sending the batch call, represented as a Unix timestamp in milliseconds. If omitted, the call will be sent immediately."
+     },
+     "from_number": {
+      "type": "string",
+      "description": "The number you own in E.164 format. Must be a number purchased from Retell or imported to Retell."
+     },
+     "reserved_concurrency": {
+      "type": "integer",
+      "description": "Number of concurrency reserved for all other calls that are not triggered by batch calls, such as inbound calls."
+     },
+     "tasks": {
+      "type": "array",
+      "description": "A list of individual call tasks to be executed as part of the batch call. Each task represents a single outbound call and includes details such as the recipient's phone number and optional dynamic variables to personalize the call content."
+     },
+     "call_time_window": {
+      "type": "object",
+      "description": "Allowed calling windows in a specific timezone. Each window is a half-open interval [startMin, endMin) in minutes since 00:00 local time. Cross-midnight windows are NOT allowed (must satisfy startMin < endMin). `endMin = 1440` (24:00) is valid."
+     }
+    },
+    "required": [
+     "from_number",
+     "tasks"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-batch-call",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "trigger_timestamp",
+     "from_number",
+     "reserved_concurrency",
+     "tasks",
+     "call_time_window"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_batch_test",
+   "name": "Create batch test",
+   "description": "Create a batch test to run multiple test cases",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_definition_ids": {
+      "type": "array",
+      "description": "Array of test case definition IDs to run"
+     },
+     "response_engine": {
+      "type": "string",
+      "description": "Response engine for test cases. Custom LLM is not supported."
+     }
+    },
+    "required": [
+     "response_engine",
+     "test_case_definition_ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-batch-test",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "test_case_definition_ids",
+     "response_engine"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_chat",
+   "name": "Create chat",
+   "description": "Create a chat session",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "The chat agent to use for the chat."
+     },
+     "agent_version": {
+      "type": "string",
+      "description": "Agent version reference. Supports a numeric version (for example 3) or a tag/environment name (for example \"prod\"). The string \"latest\" resolves to the most recently created version (the largest version number), and \"latest_published\" resolves to the most recently published version. When a tag is provided, resolution uses that exact tag assignment (including its dynamic variables). If the tag exis"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the chat. Not used for processing. You can later get this field from the chat object."
+     },
+     "retell_llm_dynamic_variables": {
+      "type": "object",
+      "description": "Add optional dynamic variables in key value pairs of string that injects into your Response Engine prompt and tool description. Only applicable for Response Engine."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-chat",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "agent_version",
+     "metadata",
+     "retell_llm_dynamic_variables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_chat_agent",
+   "name": "Create chat agent",
+   "description": "Create a new chat agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "response_engine": {
+      "type": "string",
+      "description": ""
+     },
+     "agent_name": {
+      "type": "string",
+      "description": "The name of the chat agent. Only used for your own reference."
+     },
+     "version_title": {
+      "type": "string",
+      "description": "Optional title of the chat agent version. Used for your own reference."
+     },
+     "auto_close_message": {
+      "type": "string",
+      "description": "Message to display when the chat is automatically closed."
+     },
+     "end_chat_after_silence_ms": {
+      "type": "integer",
+      "description": "If users stay silent for a period after agent speech, end the chat. The minimum value allowed is 120,000 ms (2 minutes). The maximum value allowed is 259,200,000 ms (72 hours). By default, this is set to 3,600,000 (1 hour)."
+     },
+     "language": {
+      "type": "string",
+      "description": "Specifies what language(s) the agent will operate in. Accepts either a single locale (e.g. `en-US`) or an array of locales for multilingual agents (e.g. `[\"en-US\",\"es-ES\"]`). The scalar value `multi` is deprecated but still accepted as a scalar, and is stored and returned as the ten locales it used to mean. It must not appear inside the array form. Send an explicit locale array instead. If unset, "
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": "The webhook for agent to listen to chat events. See what events it would get at [webhook doc](/features/webhook). If set, will binds webhook events for this agent to the specified url, and will ignore the account level webhook for this agent. Set to `null` to remove webhook url from this agent."
+     },
+     "webhook_events": {
+      "type": "array",
+      "description": "Which webhook events this agent should receive. If not set, defaults to chat_started, chat_ended, chat_analyzed."
+     },
+     "webhook_timeout_ms": {
+      "type": "integer",
+      "description": "The timeout for the webhook in milliseconds. If not set, default value of 10000 will apply."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Controls what data is stored for this agent. \"everything\" stores all data including transcripts and recordings. \"everything_except_pii\" stores data but excludes PII when possible based on PII configuration. \"basic_attributes_only\" stores only basic metadata. If not set, defaults to \"everything\".",
+      "enum": [
+       "everything",
+       "everything_except_pii",
+       "basic_attributes_only"
+      ]
+     },
+     "data_storage_retention_days": {
+      "type": "integer",
+      "description": "Number of days to retain call/chat data before automatic deletion. Must be between 1 and 730 days. If not set, data is retained forever (no automatic deletion)."
+     },
+     "opt_in_signed_url": {
+      "type": "boolean",
+      "description": "Whether this agent opts in to signed url for public log. If not set, default value of false will apply."
+     },
+     "signed_url_expiration_ms": {
+      "type": "integer",
+      "description": "The expiration time for the signed url in milliseconds. Only applicable when opt_in_signed_url is true. If not set, default value of 86400000 (24 hours) will apply."
+     },
+     "post_chat_analysis_data": {
+      "type": "array",
+      "description": "Post chat analysis data to extract from the chat. This data will augment the pre-defined variables extracted in the chat analysis. This will be available after the chat ends."
+     },
+     "post_chat_analysis_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "pii_config": {
+      "type": "object",
+      "description": ""
+     },
+     "guardrail_config": {
+      "type": "object",
+      "description": ""
+     },
+     "handbook_config": {
+      "type": "object",
+      "description": "Behavior presets for chat agents. Voice-only presets are excluded."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone for the agent (e.g. America/New_York). Defaults to America/Los_Angeles if not set."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-chat-agent",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "response_engine",
+     "agent_name",
+     "version_title",
+     "auto_close_message",
+     "end_chat_after_silence_ms",
+     "language",
+     "webhook_url",
+     "webhook_events",
+     "webhook_timeout_ms",
+     "data_storage_setting",
+     "data_storage_retention_days",
+     "opt_in_signed_url",
+     "signed_url_expiration_ms",
+     "post_chat_analysis_data",
+     "post_chat_analysis_model",
+     "pii_config",
+     "guardrail_config",
+     "handbook_config",
+     "timezone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_chat_completion",
+   "name": "Create chat completion",
+   "description": "Create a chat completion message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "Unique id of the chat to create completion."
+     },
+     "content": {
+      "type": "string",
+      "description": "user message to generate agent chat completion."
+     }
+    },
+    "required": [
+     "chat_id",
+     "content"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-chat-completion",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "chat_id",
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_contact",
+   "name": "Create contact",
+   "description": "Create a new contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "Phone number of the contact."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "First name of the contact."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the contact."
+     },
+     "do_not_call": {
+      "type": "boolean",
+      "description": ""
+     },
+     "contact_tags": {
+      "type": "array",
+      "description": "Full set of tags for the contact."
+     },
+     "custom_fields": {
+      "type": "object",
+      "description": "Values must match the types defined in CRM config custom fields. Set a value to null to clear it."
+     }
+    },
+    "required": [
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-contact",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "phone_number",
+     "first_name",
+     "last_name",
+     "do_not_call",
+     "contact_tags",
+     "custom_fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_contact_import",
+   "name": "Create contact import",
+   "description": "Start an incremental contact import from an uploaded CSV: creates new contacts and updates existing ones matched by phone number. Mapped columns overwrite the matched contact's fields; unmapped columns are ignored. Runs asynchronously \u2014 poll get-contact-import for progress.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "upload_id": {
+      "type": "string",
+      "description": "Id returned by upload-contact-import-file."
+     },
+     "column_mapping": {
+      "type": "array",
+      "description": "CSV headers mapped to contact fields. field_name is the contact field and external_field_name is the CSV header. Exactly one mapping must target phone_number. Unmapped columns are ignored."
+     },
+     "default_country": {
+      "type": "string",
+      "description": "Country for parsing phone numbers without a country code. Defaults to US."
+     },
+     "contact_tags": {
+      "type": "array",
+      "description": "Tags added to every contact in this import. Existing tags are preserved. Omit to leave tags unchanged."
+     }
+    },
+    "required": [
+     "column_mapping",
+     "upload_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-contact-import",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "upload_id",
+     "column_mapping",
+     "default_country",
+     "contact_tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_conversation_flow",
+   "name": "Create conversation flow",
+   "description": "Create a new Conversation Flow that can be attached to an agent. This is used to generate response output for the agent.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-conversation-flow",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_conversation_flow_component",
+   "name": "Create conversation flow component",
+   "description": "Create a new shared conversation flow component",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the component"
+     },
+     "flex_mode": {
+      "type": "boolean",
+      "description": "If enabled, the whole component will be converted as a Single Prompt agent."
+     },
+     "tools": {
+      "type": "array",
+      "description": "Tools available within the component"
+     },
+     "mcps": {
+      "type": "array",
+      "description": "A list of MCP server configurations to use for this component"
+     },
+     "nodes": {
+      "type": "array",
+      "description": "Nodes that make up the component"
+     },
+     "start_node_id": {
+      "type": "string",
+      "description": "ID of the starting node"
+     },
+     "begin_tag_display_position": {
+      "type": "object",
+      "description": "Display position for the begin tag in the frontend"
+     },
+     "notes": {
+      "type": "array",
+      "description": "Visual annotations displayed on the flow canvas."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-conversation-flow-component",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "flex_mode",
+     "tools",
+     "mcps",
+     "nodes",
+     "start_node_id",
+     "begin_tag_display_position",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_knowledge_base",
+   "name": "Create knowledge base",
+   "description": "Create a new knowledge base",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_base_name": {
+      "type": "string",
+      "description": "Name of the knowledge base. Must be less than 40 characters."
+     },
+     "knowledge_base_texts": {
+      "type": "array",
+      "description": "Texts to add to the knowledge base."
+     },
+     "knowledge_base_files": {
+      "type": "array",
+      "description": "Files to add to the knowledge base. Limit to 25 files, where each file is limited to 50MB."
+     },
+     "knowledge_base_urls": {
+      "type": "array",
+      "description": "URLs to be scraped and added to the knowledge base. Must be valid urls."
+     },
+     "enable_auto_refresh": {
+      "type": "boolean",
+      "description": "Whether to refresh eligible URL and connected-file sources automatically on a daily cadence."
+     },
+     "max_chunk_size": {
+      "type": "integer",
+      "description": "Maximum number of characters per chunk when splitting knowledge base. Default is 2000. content. Immutable after creation."
+     },
+     "min_chunk_size": {
+      "type": "integer",
+      "description": "Minimum number of characters per chunk. Chunks smaller than this will be merged with adjacent chunks. Must be less than max_chunk_size. Immutable after creation. Default is 400."
+     }
+    },
+    "required": [
+     "knowledge_base_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-knowledge-base",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "knowledge_base_name",
+     "knowledge_base_texts",
+     "knowledge_base_files",
+     "knowledge_base_urls",
+     "enable_auto_refresh",
+     "max_chunk_size",
+     "min_chunk_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_phone_call",
+   "name": "Create phone call",
+   "description": "Create a new outbound phone call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from_number": {
+      "type": "string",
+      "description": "The number you own in E.164 format. Must be a number purchased from Retell or imported to Retell."
+     },
+     "to_number": {
+      "type": "string",
+      "description": "The number you want to call, in E.164 format. If using a number purchased from Retell, only US numbers are supported as destination."
+     },
+     "override_agent_id": {
+      "type": "string",
+      "description": "For this particular call, override the agent used with this agent id. This does not bind the agent to this number, this is for one time override."
+     },
+     "override_agent_version": {
+      "type": "string",
+      "description": "Agent version reference. Supports a numeric version (for example 3) or a tag/environment name (for example \"prod\"). The string \"latest\" resolves to the most recently created version (the largest version number), and \"latest_published\" resolves to the most recently published version. When a tag is provided, resolution uses that exact tag assignment (including its dynamic variables). If the tag exis"
+     },
+     "agent_override": {
+      "type": "object",
+      "description": "Override configuration for agent, retell LLM, or conversation flow settings for a specific call."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the call. Not used for processing. You can later get this field from the call object."
+     },
+     "retell_llm_dynamic_variables": {
+      "type": "object",
+      "description": "Add optional dynamic variables in key value pairs of string that injects into your Response Engine prompt and tool description. Only applicable for Response Engine."
+     },
+     "custom_sip_headers": {
+      "type": "object",
+      "description": "Add optional custom SIP headers to the call."
+     },
+     "ignore_e164_validation": {
+      "type": "boolean",
+      "description": "If true, the e.164 validation will be ignored for the from_number. This can be useful when you want to dial to internal pseudo numbers. This only applies when you are using custom telephony and does not apply when you are using Retell Telephony. If omitted, the default value is false."
+     }
+    },
+    "required": [
+     "from_number",
+     "to_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/create-phone-call",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "from_number",
+     "to_number",
+     "override_agent_id",
+     "override_agent_version",
+     "agent_override",
+     "metadata",
+     "retell_llm_dynamic_variables",
+     "custom_sip_headers",
+     "ignore_e164_validation"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_phone_number",
+   "name": "Create phone number",
+   "description": "Buy a new phone number & Bind agents",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_agents": {
+      "type": "array",
+      "description": "Inbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each inbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "outbound_agents": {
+      "type": "array",
+      "description": "Outbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each outbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "area_code": {
+      "type": "integer",
+      "description": "Area code of the number to obtain. Format is a 3 digit integer. Currently only supports US area code."
+     },
+     "nickname": {
+      "type": "string",
+      "description": "Nickname of the number. This is for your reference only."
+     },
+     "inbound_webhook_url": {
+      "type": "string",
+      "description": "If set, Retell will send a webhook for inbound calls, where you can override the agent ID, set dynamic variables, reject the call, and configure other fields specific to that call. Includes call_inbound.call_id for deduplication across HTTP retries. Early setup failures may not create a call history record."
+     },
+     "allowed_inbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes from which inbound calls are allowed. If not set or empty, calls from all countries are allowed."
+     },
+     "allowed_outbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes to which outbound calls are allowed. If not set or empty, calls to all countries are allowed."
+     },
+     "number_provider": {
+      "type": "string",
+      "description": "The provider to purchase the phone number from. Default to twilio.",
+      "enum": [
+       "twilio",
+       "telnyx"
+      ]
+     },
+     "country_code": {
+      "type": "string",
+      "description": "The ISO 3166-1 alpha-2 country code of the number you are trying to purchase. If left empty, will default to \"US\".",
+      "enum": [
+       "US",
+       "CA"
+      ]
+     },
+     "toll_free": {
+      "type": "boolean",
+      "description": "Whether to purchase a toll-free number. Toll-free numbers incur higher costs."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "The number you are trying to purchase in E.164 format of the number (+country code then number with no space and no special characters)."
+     },
+     "transport": {
+      "type": "string",
+      "description": "Outbound transport protocol to use for the phone number. Valid values are \"TLS\", \"TCP\" and \"UDP\". Default is \"TCP\"."
+     },
+     "fallback_number": {
+      "type": "string",
+      "description": "When inbound call concurrency is reached and a slot does not free up after extended ringing, the call will fall back to this number. Can be either a Retell phone number or an external number. Cannot be the same as this phone number, and cannot be a number that already has its own fallback configured (prevents nested forwarding)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-phone-number",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "inbound_agents",
+     "outbound_agents",
+     "area_code",
+     "nickname",
+     "inbound_webhook_url",
+     "allowed_inbound_country_list",
+     "allowed_outbound_country_list",
+     "number_provider",
+     "country_code",
+     "toll_free",
+     "phone_number",
+     "transport",
+     "fallback_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_retell_llm",
+   "name": "Create retell llm",
+   "description": "Create a new Retell LLM Response Engine that can be attached to an agent. This is used to generate response output for the agent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "s2s_model": {
+      "type": "string",
+      "description": "Select the underlying speech to speech model. Can only set this or model, not both.",
+      "enum": [
+       "gpt-realtime-2.1",
+       "gpt-realtime-2.1-mini",
+       "gpt-realtime-2",
+       "gpt-realtime-1.5",
+       "gpt-realtime",
+       "gpt-realtime-mini",
+       null
+      ]
+     },
+     "model_temperature": {
+      "type": "number",
+      "description": "If set, will control the randomness of the response. Value ranging from [0,1]. Lower value means more deterministic, while higher value means more random. If unset, default value 0 will apply. Note that for tool calling, a lower value is recommended."
+     },
+     "model_high_priority": {
+      "type": "boolean",
+      "description": "If set to true, will use high priority pool with more dedicated resource to ensure lower and more consistent latency, default to false. This feature usually comes with a higher cost."
+     },
+     "tool_call_strict_mode": {
+      "type": "boolean",
+      "description": "Whether to use strict mode for tool calls. Only applicable when using certain supported models."
+     },
+     "knowledge_base_ids": {
+      "type": "array",
+      "description": "A list of knowledge base ids to use for this resource."
+     },
+     "kb_config": {
+      "type": "object",
+      "description": ""
+     },
+     "start_speaker": {
+      "type": "string",
+      "description": "The speaker who starts the conversation. Required. Must be either 'user' or 'agent'.",
+      "enum": [
+       "user",
+       "agent"
+      ]
+     },
+     "begin_after_user_silence_ms": {
+      "type": "integer",
+      "description": "If set, the AI will begin the conversation after waiting for the user for the duration (in milliseconds) specified by this attribute. This only applies if the agent is configured to wait for the user to speak first. If not set, the agent will wait indefinitely for the user to speak."
+     },
+     "begin_message": {
+      "type": "string",
+      "description": "First utterance said by the agent in the call. If not set, LLM will dynamically generate a message. If set to \"\", agent will wait for user to speak first."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-retell-llm",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "model",
+     "s2s_model",
+     "model_temperature",
+     "model_high_priority",
+     "tool_call_strict_mode",
+     "knowledge_base_ids",
+     "kb_config",
+     "start_speaker",
+     "begin_after_user_silence_ms",
+     "begin_message"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_sms_chat",
+   "name": "Create sms chat",
+   "description": "Start an outbound SMS chat conversation with a phone number using the specified agent. The agent must be configured for chat mode. The initial SMS message will be automatically generated and sent based on the agent's configuration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from_number": {
+      "type": "string",
+      "description": "The phone number to send SMS from in E.164 format. Must be a number purchased from Retell or imported to Retell with SMS capability."
+     },
+     "to_number": {
+      "type": "string",
+      "description": "The phone number to send SMS to in E.164 format"
+     },
+     "override_agent_id": {
+      "type": "string",
+      "description": "For this particular chat, override the agent used with this agent id. This does not bind the agent to this number, this is for one time override."
+     },
+     "override_agent_version": {
+      "type": "string",
+      "description": "Agent version reference. Supports a numeric version (for example 3) or a tag/environment name (for example \"prod\"). The string \"latest\" resolves to the most recently created version (the largest version number), and \"latest_published\" resolves to the most recently published version. When a tag is provided, resolution uses that exact tag assignment (including its dynamic variables). If the tag exis"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the chat. Not used for processing. You can later get this field from the chat object."
+     },
+     "retell_llm_dynamic_variables": {
+      "type": "object",
+      "description": "Add optional dynamic variables in key value pairs of string that injects into your Response Engine prompt and tool description. Only applicable for Response Engine."
+     }
+    },
+    "required": [
+     "from_number",
+     "to_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-sms-chat",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "from_number",
+     "to_number",
+     "override_agent_id",
+     "override_agent_version",
+     "metadata",
+     "retell_llm_dynamic_variables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_test_case_definition",
+   "name": "Create test case definition",
+   "description": "Create a new test case definition",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the test case definition"
+     },
+     "response_engine": {
+      "type": "string",
+      "description": "Response engine for test cases. Custom LLM is not supported."
+     },
+     "user_prompt": {
+      "type": "string",
+      "description": "User prompt to simulate in the test case"
+     },
+     "metrics": {
+      "type": "array",
+      "description": "Array of metric names to evaluate"
+     },
+     "dynamic_variables": {
+      "type": "object",
+      "description": "Dynamic variables to inject into the response engine"
+     },
+     "tool_mocks": {
+      "type": "array",
+      "description": "Mock tool calls for testing"
+     },
+     "llm_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/create-test-case-definition",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "response_engine",
+     "user_prompt",
+     "metrics",
+     "dynamic_variables",
+     "tool_mocks",
+     "llm_model"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.create_web_call",
+   "name": "Create web call",
+   "description": "Create a new web call and return browser connection details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of agent used for the call. Your agent would contain the LLM Websocket url used for this call."
+     },
+     "agent_version": {
+      "type": "string",
+      "description": "Agent version reference. Supports a numeric version (for example 3) or a tag/environment name (for example \"prod\"). The string \"latest\" resolves to the most recently created version (the largest version number), and \"latest_published\" resolves to the most recently published version. When a tag is provided, resolution uses that exact tag assignment (including its dynamic variables). If the tag exis"
+     },
+     "agent_override": {
+      "type": "object",
+      "description": "Override configuration for agent, retell LLM, or conversation flow settings for a specific call."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the call. Not used for processing. You can later get this field from the call object."
+     },
+     "retell_llm_dynamic_variables": {
+      "type": "object",
+      "description": "Add optional dynamic variables in key value pairs of string that injects into your Response Engine prompt and tool description. Only applicable for Response Engine."
+     },
+     "current_node_id": {
+      "type": "string",
+      "description": "Start the call at this conversation flow node (stage). Must be a valid node id in the agent's conversation flow. Only applicable when the agent uses conversation flow as the response engine. Ignored for retell-llm agents."
+     },
+     "current_state": {
+      "type": "string",
+      "description": "Start the conversation in this state (stage). Must be a valid state name in the agent's Retell LLM. Only applicable when the agent uses Retell LLM with states. Ignored for conversation-flow agents."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v3/create-web-call",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "agent_version",
+     "agent_override",
+     "metadata",
+     "retell_llm_dynamic_variables",
+     "current_node_id",
+     "current_state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_agent",
+   "name": "Delete agent",
+   "description": "Delete an existing agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent to be deleted. Deletes all versions of the agent."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_agent_version",
+   "name": "Delete agent version",
+   "description": "Delete a specific agent version.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent."
+     },
+     "version": {
+      "type": "integer",
+      "description": "Version to delete."
+     }
+    },
+    "required": [
+     "agent_id",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-agent-version/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_app",
+   "name": "Delete app",
+   "description": "Delete an App. Fails when agents or knowledge bases still reference it, unless force_delete is set. If a CRM config is linked to this App, the link is cleared.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "force_delete": {
+      "type": "boolean",
+      "description": "Delete even when the App is still referenced."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-app/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [
+     "force_delete"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_call",
+   "name": "Delete call",
+   "description": "Delete a specific call and its associated data",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id to delete."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/v2/delete-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_chat",
+   "name": "Delete chat",
+   "description": "Delete an existing chat",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "Unique id of the chat to be deleted."
+     }
+    },
+    "required": [
+     "chat_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-chat/{chat_id}",
+    "path": [
+     "chat_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_chat_agent",
+   "name": "Delete chat agent",
+   "description": "Delete an existing chat agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the chat agent to be deleted. Deletes all versions of the chat agent."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-chat-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_contact",
+   "name": "Delete contact",
+   "description": "Delete a contact. A contact linked to a record in a connected CRM cannot be deleted while two-way sync is active \u2014 unlink the CRM app first, otherwise the next sync would recreate it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-contact/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_conversation_flow",
+   "name": "Delete conversation flow",
+   "description": "Delete a conversation flow and all its versions",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_id": {
+      "type": "string",
+      "description": "Unique id of the conversation flow to be deleted."
+     },
+     "force_delete": {
+      "type": "boolean",
+      "description": "By default the deletion is rejected with a 400 if any agent still uses this conversation flow as its response engine. Set to true to delete it anyway, which leaves those agents pointing at a conversation flow that no longer exists."
+     }
+    },
+    "required": [
+     "conversation_flow_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-conversation-flow/{conversation_flow_id}",
+    "path": [
+     "conversation_flow_id"
+    ],
+    "query": [
+     "force_delete"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_conversation_flow_component",
+   "name": "Delete conversation flow component",
+   "description": "Delete a shared conversation flow component. When deleting a shared component, creates local copies for all linked conversation flows.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_component_id": {
+      "type": "string",
+      "description": "ID of the component to delete"
+     }
+    },
+    "required": [
+     "conversation_flow_component_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-conversation-flow-component/{conversation_flow_component_id}",
+    "path": [
+     "conversation_flow_component_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_knowledge_base",
+   "name": "Delete knowledge base",
+   "description": "Delete an existing knowledge base",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_base_id": {
+      "type": "string",
+      "description": "The knowledge base id to delete."
+     }
+    },
+    "required": [
+     "knowledge_base_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-knowledge-base/{knowledge_base_id}",
+    "path": [
+     "knowledge_base_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_knowledge_base_source",
+   "name": "Delete knowledge base source",
+   "description": "Delete an existing source from knowledge base",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_base_id": {
+      "type": "string",
+      "description": "The knowledge base id to delete source from."
+     },
+     "source_id": {
+      "type": "string",
+      "description": "The source id to delete."
+     }
+    },
+    "required": [
+     "knowledge_base_id",
+     "source_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-knowledge-base-source/{knowledge_base_id}/source/{source_id}",
+    "path": [
+     "knowledge_base_id",
+     "source_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_phone_number",
+   "name": "Delete phone number",
+   "description": "Delete an existing phone number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "E.164 format of the number (+country code, then number with no space, no special characters), used as the unique identifier for phone number APIs."
+     }
+    },
+    "required": [
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-phone-number/{phone_number}",
+    "path": [
+     "phone_number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_retell_llm",
+   "name": "Delete retell llm",
+   "description": "Delete an existing Retell LLM Response Engine",
+   "input": {
+    "type": "object",
+    "properties": {
+     "llm_id": {
+      "type": "string",
+      "description": "Unique id of the Retell LLM Response Engine to be deleted. Deletes all versions of the Retell LLM Response Engine."
+     },
+     "force_delete": {
+      "type": "boolean",
+      "description": "By default the deletion is rejected with a 400 if any agent still uses this Retell LLM as its response engine. Set to true to delete it anyway, which leaves those agents pointing at a Retell LLM that no longer exists."
+     }
+    },
+    "required": [
+     "llm_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-retell-llm/{llm_id}",
+    "path": [
+     "llm_id"
+    ],
+    "query": [
+     "force_delete"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.delete_test_case_definition",
+   "name": "Delete test case definition",
+   "description": "Delete a test case definition",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_definition_id": {
+      "type": "string",
+      "description": "ID of the test case definition to delete"
+     }
+    },
+    "required": [
+     "test_case_definition_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.retellai.com/delete-test-case-definition/{test_case_definition_id}",
+    "path": [
+     "test_case_definition_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.end_chat",
+   "name": "End chat",
+   "description": "End an ongoing chat",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "Unique id of the chat to be ended"
+     }
+    },
+    "required": [
+     "chat_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/end-chat/{chat_id}",
+    "path": [
+     "chat_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_agent",
+   "name": "Get agent",
+   "description": "Retrieve details of a specific agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent to be retrieved."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the API to use for this request. If not provided, will default to latest version."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_api_key_info",
+   "name": "Get api key info",
+   "description": "Get info about the API key used to authenticate, and the org that owns it.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-api-key-info",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_app",
+   "name": "Get app",
+   "description": "Get an App by id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-app/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_backfill_contact_job_status",
+   "name": "Get backfill contact job status",
+   "description": "Get the status of the contact analysis data backfill job.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-backfill-contact-job-status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_batch_test",
+   "name": "Get batch test",
+   "description": "Get a batch test job by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_batch_job_id": {
+      "type": "string",
+      "description": "ID of the batch test job to retrieve"
+     }
+    },
+    "required": [
+     "test_case_batch_job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-batch-test/{test_case_batch_job_id}",
+    "path": [
+     "test_case_batch_job_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_call",
+   "name": "Get call",
+   "description": "Retrieve details of a specific call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id to retrieve call history for."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/get-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_chat",
+   "name": "Get chat",
+   "description": "Retrieve details of a specific chat",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "Unique id of the chat to be retrieved"
+     }
+    },
+    "required": [
+     "chat_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-chat/{chat_id}",
+    "path": [
+     "chat_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_chat_agent",
+   "name": "Get chat agent",
+   "description": "Retrieve details of a specific chat agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the chat agent to be retrieved."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the API to use for this request. If not provided, will default to latest version."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-chat-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_concurrency",
+   "name": "Get concurrency",
+   "description": "Get the current concurrency and concurrency limit of the org",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-concurrency",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_contact",
+   "name": "Get contact",
+   "description": "Retrieve a contact by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-contact/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_contact_by_phone",
+   "name": "Get contact by phone",
+   "description": "Retrieve a contact by phone number. At most one contact exists per phone number in an organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "Phone number of the contact, E.164 preferred. Other formats are normalized before the lookup; a number that cannot be parsed is rejected with 400."
+     }
+    },
+    "required": [
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-contact-by-phone/{phone_number}",
+    "path": [
+     "phone_number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_contact_import",
+   "name": "Get contact import",
+   "description": "Status and counts for the org's current or latest contact import.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-contact-import",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_conversation_flow",
+   "name": "Get conversation flow",
+   "description": "Retrieve details of a specific Conversation Flow",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_id": {
+      "type": "string",
+      "description": "Unique id of the conversation flow to be retrieved."
+     },
+     "version": {
+      "type": "integer",
+      "description": "Optional version of the conversation flow to retrieve. Defaults to the latest version."
+     }
+    },
+    "required": [
+     "conversation_flow_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-conversation-flow/{conversation_flow_id}",
+    "path": [
+     "conversation_flow_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_conversation_flow_component",
+   "name": "Get conversation flow component",
+   "description": "Get a shared conversation flow component",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_component_id": {
+      "type": "string",
+      "description": "ID of the component to retrieve"
+     }
+    },
+    "required": [
+     "conversation_flow_component_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-conversation-flow-component/{conversation_flow_component_id}",
+    "path": [
+     "conversation_flow_component_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_crm_config",
+   "name": "Get crm config",
+   "description": "Get the organization's CRM configuration: which CRM app is linked, the custom contact fields defined for it, and how post-call analysis data is written back to contacts. Returns an empty configuration when nothing has been set up yet.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-crm-config",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_crm_schema",
+   "name": "Get crm schema",
+   "description": "Get the contact schema of the connected CRM: the fields available on its contact object, which are the values that sync mappings can reference.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "ID of the CRM app to read the schema from. Defaults to the app linked in the organization's CRM configuration. Naming a different app additionally requires the App.Read scope."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-crm-schema",
+    "path": [],
+    "query": [
+     "app_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_knowledge_base",
+   "name": "Get knowledge base",
+   "description": "Retrieve details of a specific knowledge base",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_base_id": {
+      "type": "string",
+      "description": "The knowledge base id to retrieve."
+     }
+    },
+    "required": [
+     "knowledge_base_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-knowledge-base/{knowledge_base_id}",
+    "path": [
+     "knowledge_base_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_mcptools",
+   "name": "Get mcptools",
+   "description": "Get MCP tools for a specific agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent to get MCP tools for."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the agent to use for this request. Default to latest version."
+     },
+     "mcp_id": {
+      "type": "string",
+      "description": "The ID of the MCP server to get tools from."
+     },
+     "component_id": {
+      "type": "string",
+      "description": "The ID of the component if the MCP server is configured under a component."
+     }
+    },
+    "required": [
+     "agent_id",
+     "mcp_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-mcp-tools/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version",
+     "mcp_id",
+     "component_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_phone_number",
+   "name": "Get phone number",
+   "description": "Retrieve details of a specific phone number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "E.164 format of the number (+country code, then number with no space, no special characters), used as the unique identifier for phone number APIs."
+     }
+    },
+    "required": [
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-phone-number/{phone_number}",
+    "path": [
+     "phone_number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_retell_llm",
+   "name": "Get retell llm",
+   "description": "Retrieve details of a specific Retell LLM Response Engine",
+   "input": {
+    "type": "object",
+    "properties": {
+     "llm_id": {
+      "type": "string",
+      "description": "Unique id of the Retell LLM Response Engine to be retrieved."
+     },
+     "version": {
+      "type": "integer",
+      "description": "Optional version of the API to use for this request. Default to latest version."
+     }
+    },
+    "required": [
+     "llm_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-retell-llm/{llm_id}",
+    "path": [
+     "llm_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_sync_job_status",
+   "name": "Get sync job status",
+   "description": "Get the status of the organization's contact sync, whether it was started manually or by the schedule. Returns status `idle` when no sync is running.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-sync-job-status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_test_case_definition",
+   "name": "Get test case definition",
+   "description": "Get a test case definition by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_definition_id": {
+      "type": "string",
+      "description": "ID of the test case definition to retrieve"
+     }
+    },
+    "required": [
+     "test_case_definition_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-test-case-definition/{test_case_definition_id}",
+    "path": [
+     "test_case_definition_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_test_run",
+   "name": "Get test run",
+   "description": "Get a test case job (test run) by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_job_id": {
+      "type": "string",
+      "description": "ID of the test case job to retrieve"
+     }
+    },
+    "required": [
+     "test_case_job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-test-run/{test_case_job_id}",
+    "path": [
+     "test_case_job_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.get_voice",
+   "name": "Get voice",
+   "description": "Retrieve details of a specific voice",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Unique id for the voice."
+     }
+    },
+    "required": [
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/get-voice/{voice_id}",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.import_phone_number",
+   "name": "Import phone number",
+   "description": "Import a phone number from custom telephony & Bind agents",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "The number you are trying to import in E.164 format of the number (+country code, then number with no space, no special characters), used as the unique identifier for phone number APIs."
+     },
+     "ignore_e164_validation": {
+      "type": "boolean",
+      "description": "If true, E.164 validation for phone_number is skipped. This is useful for internal pseudo numbers when using custom telephony. If omitted, default is true. Must be a boolean literal; string values like \"true\" or \"false\" are invalid."
+     },
+     "termination_uri": {
+      "type": "string",
+      "description": "The termination uri to uniquely identify your elastic SIP trunk. This is used for outbound calls. For Twilio elastic SIP trunks it always end with \".pstn.twilio.com\"."
+     },
+     "sip_trunk_auth_username": {
+      "type": "string",
+      "description": "The username used for authentication for the SIP trunk."
+     },
+     "sip_trunk_auth_password": {
+      "type": "string",
+      "description": "The password used for authentication for the SIP trunk."
+     },
+     "inbound_agents": {
+      "type": "array",
+      "description": "Inbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each inbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "outbound_agents": {
+      "type": "array",
+      "description": "Outbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each outbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "nickname": {
+      "type": "string",
+      "description": "Nickname of the number. This is for your reference only."
+     },
+     "inbound_webhook_url": {
+      "type": "string",
+      "description": "If set, Retell will send a webhook for inbound calls, where you can override the agent ID, set dynamic variables, reject the call, and configure other fields specific to that call. Includes call_inbound.call_id for deduplication across HTTP retries. Early setup failures may not create a call history record."
+     },
+     "allowed_inbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes from which inbound calls are allowed. If not set or empty, calls from all countries are allowed."
+     },
+     "allowed_outbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes to which outbound calls are allowed. If not set or empty, calls to all countries are allowed."
+     },
+     "transport": {
+      "type": "string",
+      "description": "Outbound transport protocol to update for the phone number. Valid values are \"TLS\", \"TCP\" and \"UDP\". Default is \"TCP\"."
+     }
+    },
+    "required": [
+     "phone_number",
+     "termination_uri"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/import-phone-number",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "phone_number",
+     "ignore_e164_validation",
+     "termination_uri",
+     "sip_trunk_auth_username",
+     "sip_trunk_auth_password",
+     "inbound_agents",
+     "outbound_agents",
+     "nickname",
+     "inbound_webhook_url",
+     "allowed_inbound_country_list",
+     "allowed_outbound_country_list",
+     "transport"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_agent_versions",
+   "name": "List agent versions",
+   "description": "List stored versions of a voice or chat agent with pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique ID of the agent whose versions are being listed."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-agent-versions/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_agents",
+   "name": "List agents",
+   "description": "List unique agents with pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     },
+     "filter_criteria": {
+      "type": "object",
+      "description": "Filters for listing agents. All provided filters are connected with AND."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/list-agents",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [
+     "filter_criteria"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_app_usages",
+   "name": "List app usages",
+   "description": "List the agents and knowledge bases referencing an App, most recently configured first by default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-app-usages/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_apps",
+   "name": "List apps",
+   "description": "List Apps in the organization (paginated).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-apps",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_batch_tests",
+   "name": "List batch tests",
+   "description": "List batch test jobs with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Type of response engine",
+      "enum": [
+       "retell-llm",
+       "conversation-flow"
+      ]
+     },
+     "llm_id": {
+      "type": "string",
+      "description": "LLM ID (required when type is retell-llm)"
+     },
+     "conversation_flow_id": {
+      "type": "string",
+      "description": "Conversation flow ID (required when type is conversation-flow)"
+     },
+     "version": {
+      "type": "integer",
+      "description": "Version of the response engine (defaults to latest)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-batch-tests",
+    "path": [],
+    "query": [
+     "type",
+     "llm_id",
+     "conversation_flow_id",
+     "version",
+     "limit",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_calls",
+   "name": "List calls",
+   "description": "List calls with unified cursor pagination response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter_criteria": {
+      "type": "object",
+      "description": "Filter criteria for calls. All conditions are implicitly connected with AND."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort calls by `start_timestamp` in ascending or descending order.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of calls to return."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip for pagination."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Opaque pagination cursor from a previous response."
+     },
+     "include_total": {
+      "type": "boolean",
+      "description": "Whether to include `total` (count of all calls matching `filter_criteria`, ignoring `limit`/`skip`/`pagination_key`) in the response. Defaults to false. Each enabled request triggers an additional aggregate query, so opt in only when the total is needed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v3/list-calls",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter_criteria",
+     "sort_order",
+     "limit",
+     "skip",
+     "pagination_key",
+     "include_total"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_chats",
+   "name": "List chats",
+   "description": "List chats with unified cursor pagination response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter_criteria": {
+      "type": "object",
+      "description": "Filter criteria for chats. All conditions are implicitly connected with AND."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort chats by `start_timestamp` in ascending or descending order.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of chats to return."
+     },
+     "skip": {
+      "type": "integer",
+      "description": "Number of records to skip for pagination."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Opaque pagination cursor from a previous response."
+     },
+     "include_total": {
+      "type": "boolean",
+      "description": "Whether to include `total` (count of all chats matching `filter_criteria`, ignoring `limit`/`skip`/`pagination_key`) in the response. Defaults to false. Each enabled request triggers an additional aggregate query, so opt in only when the total is needed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v3/list-chats",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter_criteria",
+     "sort_order",
+     "limit",
+     "skip",
+     "pagination_key",
+     "include_total"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_contact_conversations",
+   "name": "List contact conversations",
+   "description": "List a contact's conversations (inbound calls, outbound calls, and chats) merged into a single timeline, most recent first. Results are matched by the contact's phone number. Use the returned `pagination_key` to fetch the next page.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-contact-conversations/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [
+     "limit",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_contacts",
+   "name": "List contacts",
+   "description": "List contacts, newest conversation first by default, with the total count of matches alongside the page. Page through results with `pagination_key`; `skip` is available for offset-style paging but is slower on large contact sets and can repeat or miss rows as contacts are updated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "number",
+      "description": "Maximum number of contacts to return."
+     },
+     "skip": {
+      "type": "number",
+      "description": "Number of records to skip for offset-based pagination."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort contacts by `last_conversation_timestamp` in ascending or descending order. Contacts that have never been contacted sort as if their timestamp were 0.",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Base64url-encoded pagination key from a previous response."
+     },
+     "filter_criteria": {
+      "type": "object",
+      "description": "Filter criteria for contacts. All conditions are implicitly connected with AND. first_name and last_name are not filterable here; use search_query to match on those."
+     },
+     "search_query": {
+      "type": "string",
+      "description": "Case-insensitive substring match against phone number, first name, last name, external ID, and custom field values. This is the only way to match on a contact's name."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/list-contacts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "limit",
+     "skip",
+     "sort_order",
+     "pagination_key",
+     "filter_criteria",
+     "search_query"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_conversation_flow_components",
+   "name": "List conversation flow components",
+   "description": "List shared conversation flow components with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-conversation-flow-components",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_conversation_flows",
+   "name": "List conversation flows",
+   "description": "List conversation flows with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-conversation-flows",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_export_requests",
+   "name": "List export requests",
+   "description": "List export requests with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-export-requests",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_knowledge_bases",
+   "name": "List knowledge bases",
+   "description": "List all knowledge bases",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-knowledge-bases",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_phone_numbers",
+   "name": "List phone numbers",
+   "description": "List phone numbers with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-phone-numbers",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_retell_llm",
+   "name": "List retell llm",
+   "description": "List Retell LLM Response Engines with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort order for results.",
+      "enum": [
+       "ascending",
+       "descending"
+      ]
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-retell-llms",
+    "path": [],
+    "query": [
+     "limit",
+     "sort_order",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_test_case_definitions",
+   "name": "List test case definitions",
+   "description": "List test case definitions with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Type of response engine",
+      "enum": [
+       "retell-llm",
+       "conversation-flow"
+      ]
+     },
+     "llm_id": {
+      "type": "string",
+      "description": "LLM ID (required when type is retell-llm)"
+     },
+     "conversation_flow_id": {
+      "type": "string",
+      "description": "Conversation flow ID (required when type is conversation-flow)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-test-case-definitions",
+    "path": [],
+    "query": [
+     "type",
+     "llm_id",
+     "conversation_flow_id",
+     "limit",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_test_runs",
+   "name": "List test runs",
+   "description": "List test case jobs (test runs) for a batch test job with pagination",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_batch_job_id": {
+      "type": "string",
+      "description": "ID of the batch test job"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return."
+     },
+     "pagination_key": {
+      "type": "string",
+      "description": "Pagination key for fetching the next page."
+     }
+    },
+    "required": [
+     "test_case_batch_job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/v2/list-test-runs/{test_case_batch_job_id}",
+    "path": [
+     "test_case_batch_job_id"
+    ],
+    "query": [
+     "limit",
+     "pagination_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.list_voices",
+   "name": "List voices",
+   "description": "List all voices available to the user",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.retellai.com/list-voices",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.listen_live_call",
+   "name": "Listen live call",
+   "description": "Mint a subscribe-only access token for an in-progress call so a client can listen to live audio. The returned token grants join + subscribe on the call's existing audio room; it cannot publish. The call must be in ONGOING status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id to listen to."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/listen-live-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.publish_agent_version",
+   "name": "Publish agent version",
+   "description": "Publish an existing draft version in place.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent."
+     },
+     "version": {
+      "type": "integer",
+      "description": ""
+     },
+     "version_description": {
+      "type": "string",
+      "description": ""
+     },
+     "version_title": {
+      "type": "string",
+      "description": "Optional title of the agent version. Used for your own reference."
+     }
+    },
+    "required": [
+     "agent_id",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/publish-agent-version/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "version",
+     "version_description",
+     "version_title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.register_phone_call",
+   "name": "Register phone call",
+   "description": "Register a new phone call for custom telephony",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "The agent to use for the call."
+     },
+     "agent_version": {
+      "type": "string",
+      "description": "Agent version reference. Supports a numeric version (for example 3) or a tag/environment name (for example \"prod\"). The string \"latest\" resolves to the most recently created version (the largest version number), and \"latest_published\" resolves to the most recently published version. When a tag is provided, resolution uses that exact tag assignment (including its dynamic variables). If the tag exis"
+     },
+     "agent_override": {
+      "type": "object",
+      "description": "Override configuration for agent, retell LLM, or conversation flow settings for a specific call."
+     },
+     "from_number": {
+      "type": "string",
+      "description": "The number you own in E.164 format. Stored for tracking purpose."
+     },
+     "to_number": {
+      "type": "string",
+      "description": "The number you want to call, in E.164 format. Stored for tracking purpose."
+     },
+     "direction": {
+      "type": "string",
+      "description": "Direction of the phone call. Stored for tracking purpose.",
+      "enum": [
+       "inbound",
+       "outbound"
+      ]
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the call. Not used for processing. You can later get this field from the call object."
+     },
+     "retell_llm_dynamic_variables": {
+      "type": "object",
+      "description": "Add optional dynamic variables in key value pairs of string that injects into your Response Engine prompt and tool description. Only applicable for Response Engine."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/register-phone-call",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "agent_version",
+     "agent_override",
+     "from_number",
+     "to_number",
+     "direction",
+     "metadata",
+     "retell_llm_dynamic_variables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.repair_agent",
+   "name": "Repair agent",
+   "description": "Remove references to resources that no longer exist in your workspace from an agent draft version and its response engine \u2014 tools whose app connection has been deleted, unknown knowledge bases, and deleted shared components \u2014 and remap voices that are no longer accessible to a default voice. If the agent's response engine version has been published, the engine is left untouched and only agent-leve",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent to be repaired."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the agent to repair. Default to latest version. Published versions are immutable and cannot be repaired."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/repair-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.rerun_call_analysis",
+   "name": "Rerun call analysis",
+   "description": "Rerun post-call analysis for a specific call. This operation incurs charges.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id to rerun analysis for."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.retellai.com/rerun-call-analysis/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.rerun_chat_analysis",
+   "name": "Rerun chat analysis",
+   "description": "Rerun post-chat analysis for a specific chat. This operation incurs charges.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "Unique id of the chat to rerun analysis for."
+     }
+    },
+    "required": [
+     "chat_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.retellai.com/rerun-chat-analysis/{chat_id}",
+    "path": [
+     "chat_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.run_sync_job",
+   "name": "Run sync job",
+   "description": "Start a contact sync with the linked CRM app immediately, instead of waiting for the scheduled sync. One sync runs per organization at a time: starting another while one is in flight is rejected. Poll get-sync-job-status for progress.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/run-sync-job",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.search_community_voice",
+   "name": "Search community voice",
+   "description": "Search for community voices from voice providers",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_provider": {
+      "type": "string",
+      "description": "Voice provider to search.",
+      "enum": [
+       "elevenlabs",
+       "cartesia",
+       "minimax",
+       "fish_audio",
+       "inworld"
+      ]
+     },
+     "search_query": {
+      "type": "string",
+      "description": "Search query to find voices by name, description, or ID."
+     }
+    },
+    "required": [
+     "search_query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/search-community-voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "voice_provider",
+     "search_query"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.stop_call",
+   "name": "Stop call",
+   "description": "Stop an ongoing call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id of the ongoing call to be stopped."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/stop-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.take_over_live_call",
+   "name": "Take over live call",
+   "description": "Take over an in-progress call from the AI agent. The agent stops responding and the specified live-listen participant is allowed to speak directly to the caller. The call must be in ONGOING status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id to take over."
+     },
+     "participant_id": {
+      "type": "string",
+      "description": "The id of the live-listen participant to upgrade, obtained when joining via /v2/listen-live-call."
+     }
+    },
+    "required": [
+     "call_id",
+     "participant_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/v2/take-over-live-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "participant_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.test_app_auth",
+   "name": "Test app auth",
+   "description": "Probe the App's stored credentials by making a minimal authenticated call to the provider. Returns success=true on a successful round-trip, and records the outcome on the App's connection_status either way.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/test-app-auth/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_agent",
+   "name": "Update agent",
+   "description": "Update an existing agent's latest draft version",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the agent to be updated."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the API to use for this request. Default to latest version."
+     },
+     "response_engine": {
+      "type": "string",
+      "description": ""
+     },
+     "agent_name": {
+      "type": "string",
+      "description": "The name of the agent. Only used for your own reference."
+     },
+     "version_description": {
+      "type": "string",
+      "description": "Optional description of the agent version. Used for your own reference and documentation."
+     },
+     "version_title": {
+      "type": "string",
+      "description": "Optional title of the agent version. Used for your own reference."
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "Unique voice id used for the agent. Find list of available voices and their preview in Dashboard."
+     },
+     "voice_model": {
+      "type": "string",
+      "description": "Select the voice model used for the selected voice. Each provider has a set of available voice models. Set to null to remove voice model selection, and default ones will apply. Check out dashboard for more details of each voice model.",
+      "enum": [
+       "eleven_flash_v2",
+       "eleven_flash_v2_5",
+       "eleven_multilingual_v2",
+       "eleven_v3",
+       "sonic-3",
+       "sonic-3-latest",
+       "sonic-3.5",
+       "sonic-3.6",
+       "tts-1",
+       "gpt-4o-mini-tts",
+       "speech-02-turbo",
+       "speech-2.8-turbo"
+      ]
+     },
+     "fallback_voice_ids": {
+      "type": "array",
+      "description": "When TTS provider for the selected voice is experiencing outages, we would use fallback voices listed here for the agent. Voice id and the fallback voice ids must be from different TTS providers. The system would go through the list in order, if the first one in the list is also having outage, it would use the next one. Set to null to remove voice fallback for the agent."
+     },
+     "voice_temperature": {
+      "type": "number",
+      "description": "Controls how stable the voice is. Value ranging from [0,2]. Lower value means more stable, and higher value means more variant speech generation. Check the dashboard to see what provider supports this feature. If unset, default value 1 will apply."
+     },
+     "voice_speed": {
+      "type": "number",
+      "description": "Controls speed of voice. Value ranging from [0.5,2]. Lower value means slower speech, while higher value means faster speech rate. If unset, default value 1 will apply."
+     },
+     "enable_dynamic_voice_speed": {
+      "type": "boolean",
+      "description": "If set to true, will enable dynamic voice speed adjustment based on the user's speech rate and conversation context. If unset, default value false will apply."
+     },
+     "enable_dynamic_responsiveness": {
+      "type": "boolean",
+      "description": "If set to true, the agent will dynamically adjust how quickly it responds based on the user's speech rate and past turn-taking behavior in the call. If unset, default value false will apply."
+     },
+     "volume": {
+      "type": "number",
+      "description": "If set, will control the volume of the agent. Value ranging from [0,2]. Lower value means quieter agent speech, while higher value means louder agent speech. If unset, default value 1 will apply."
+     },
+     "voice_emotion": {
+      "type": "string",
+      "description": "Controls the emotional tone of the agent's voice. Currently supported for Cartesia and Minimax TTS providers. If unset, no emotion will be used.",
+      "enum": [
+       "calm",
+       "sympathetic",
+       "happy",
+       "sad",
+       "angry",
+       "fearful",
+       "surprised",
+       null
+      ]
+     },
+     "enable_expressive_mode": {
+      "type": "boolean",
+      "description": "Master toggle for expressive mode. When true, the agent may add expressive voice tags to the audio it generates. Only applicable for platform voices. If unset, defaults to false."
+     },
+     "expressive_emotion_tags": {
+      "type": "array",
+      "description": "The expressive voice tags Retell pre-teaches the model to use when enable_expressive_mode is true. Custom tags defined in the system prompt are still allowed. If empty, the agent follows general expressive guidance without a fixed tag set."
+     },
+     "expressive_mode_prompt": {
+      "type": "string",
+      "description": "Custom expressive voice guidance to use instead of the default Retell expressive prompt when enable_expressive_mode is true. If omitted or blank, the default expressive prompt will be used."
+     },
+     "responsiveness": {
+      "type": "number",
+      "description": "Controls how responsive is the agent. Value ranging from [0,1]. Lower value means less responsive agent (wait more, respond slower), while higher value means faster exchanges (respond when it can). If unset, default value 1 will apply."
+     },
+     "interruption_sensitivity": {
+      "type": "number",
+      "description": "Controls how sensitive the agent is to user interruptions. Value ranging from [0,1]. Lower value means it will take longer / more words for user to interrupt agent, while higher value means it's easier for user to interrupt agent. If unset, default value 1 will apply. When this is set to 0, agent would never be interrupted."
+     },
+     "enable_backchannel": {
+      "type": "boolean",
+      "description": "Controls whether the agent would backchannel (agent interjects the speaker with phrases like \"yeah\", \"uh-huh\" to signify interest and engagement). Backchannel when enabled tends to show up more in longer user utterances. If not set, agent will not backchannel."
+     },
+     "backchannel_frequency": {
+      "type": "number",
+      "description": "Only applicable when enable_backchannel is true. Controls how often the agent would backchannel when a backchannel is possible. Value ranging from [0,1]. Lower value means less frequent backchannel, while higher value means more frequent backchannel. If unset, default value 0.8 will apply."
+     },
+     "backchannel_words": {
+      "type": "array",
+      "description": "Only applicable when enable_backchannel is true. A list of words that the agent would use as backchannel. If not set, default backchannel words will apply. Check out [backchannel default words](/agent/interaction-configuration#backchannel) for more details. Note that certain voices do not work too well with certain words, so it's recommended to experiment before adding any words."
+     },
+     "reminder_trigger_ms": {
+      "type": "number",
+      "description": "If set (in milliseconds), will trigger a reminder to the agent to speak if the user has been silent for the specified duration after some agent speech. Must be a positive number. If unset, default value of 10000 ms (10 s) will apply."
+     },
+     "reminder_max_count": {
+      "type": "integer",
+      "description": "If set, controls how many times agent would remind user when user is unresponsive. Must be a non negative integer. If unset, default value of 1 will apply (remind once). Set to 0 to disable agent from reminding."
+     },
+     "ambient_sound": {
+      "type": "string",
+      "description": "If set, will add ambient environment sound to the call to make experience more realistic. Currently supports the following options: - `coffee-shop`: Coffee shop ambience with people chatting in background. [Listen to Ambience](https://retell-utils-public.s3.us-west-2.amazonaws.com/coffee-shop.wav) - `convention-hall`: Convention hall ambience, with some echo and people chatting in background. [Lis",
+      "enum": [
+       "coffee-shop",
+       "convention-hall",
+       "summer-outdoor",
+       "mountain-outdoor",
+       "static-noise",
+       "call-center",
+       null
+      ]
+     },
+     "ambient_sound_volume": {
+      "type": "number",
+      "description": "If set, will control the volume of the ambient sound. Value ranging from [0,2]. Lower value means quieter ambient sound, while higher value means louder ambient sound. If unset, default value 1 will apply."
+     },
+     "language": {
+      "type": "string",
+      "description": "Specifies what language(s) the agent will operate in. Accepts either a single locale (e.g. `en-US`) or an array of locales for multilingual agents (e.g. `[\"en-US\",\"es-ES\"]`). The scalar value `multi` is deprecated but still accepted as a scalar, and is stored and returned as the ten locales it used to mean. It must not appear inside the array form. Send an explicit locale array instead. If unset, "
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": "The webhook for agent to listen to call events. See what events it would get at [webhook doc](/features/webhook). If set, will binds webhook events for this agent to the specified url, and will ignore the account level webhook for this agent. Set to `null` to remove webhook url from this agent."
+     },
+     "webhook_events": {
+      "type": "array",
+      "description": "Which webhook events this agent should receive. If not set, defaults to call_started, call_ended, call_analyzed."
+     },
+     "webhook_timeout_ms": {
+      "type": "integer",
+      "description": "The timeout for the webhook in milliseconds. If not set, default value of 10000 will apply."
+     },
+     "boosted_keywords": {
+      "type": "array",
+      "description": "Provide a customized list of keywords to bias the transcriber model, so that these words are more likely to get transcribed. Commonly used for names, brands, street, etc. Entries may reference dynamic variables with `{{variable}}` syntax."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Granular setting to manage how Retell stores sensitive data (transcripts, recordings, logs, etc.). This replaces the deprecated `opt_out_sensitive_data_storage` field. - `everything`: Store all data including transcripts, recordings, and logs. - `everything_except_pii`: Store data without PII when PII is detected. - `basic_attributes_only`: Store only basic attributes; no transcripts/recordings/lo",
+      "enum": [
+       "everything",
+       "everything_except_pii",
+       "basic_attributes_only"
+      ]
+     },
+     "data_storage_retention_days": {
+      "type": "integer",
+      "description": "Number of days to retain call/chat data before automatic deletion. Must be between 1 and 730 days. If not set, data is retained forever (no automatic deletion)."
+     },
+     "opt_in_signed_url": {
+      "type": "boolean",
+      "description": "Whether this agent opts in for signed URLs for public logs and recordings. When enabled, the generated URLs will include security signatures that restrict access and automatically expire after 24 hours."
+     },
+     "signed_url_expiration_ms": {
+      "type": "integer",
+      "description": "The expiration time for the signed url in milliseconds. Only applicable when opt_in_signed_url is true. If not set, default value of 86400000 (24 hours) will apply."
+     },
+     "pronunciation_dictionary": {
+      "type": "array",
+      "description": "A list of words / phrases and their pronunciation to be used to guide the audio synthesize for consistent pronunciation. Check the dashboard to see what provider supports this feature. Set to null to remove pronunciation dictionary from this agent."
+     },
+     "end_call_after_silence_ms": {
+      "type": "integer",
+      "description": "If users stay silent for a period after agent speech, end the call. The minimum value allowed is 10,000 ms (10 s). By default, this is set to 600000 (10 min)."
+     },
+     "max_call_duration_ms": {
+      "type": "integer",
+      "description": "Maximum allowed length for the call, will force end the call if reached. The minimum value allowed is 60,000 ms (1 min), and maximum value allowed is 7,200,000 (2 hours). By default, this is set to 3,600,000 (1 hour)."
+     },
+     "voicemail_option": {
+      "type": "object",
+      "description": "If this option is set, the call will try to detect voicemail in the first 3 minutes of the call. Actions defined (hangup, or leave a message) will be applied when the voicemail is detected. Set this to null to disable voicemail detection."
+     },
+     "ivr_option": {
+      "type": "object",
+      "description": "If this option is set, the call will try to detect IVR in the first 3 minutes of the call. Actions defined will be applied when the IVR is detected. Set this to null to disable IVR detection."
+     },
+     "call_screening_option": {
+      "type": "object",
+      "description": "If this option is set, the agent prompt will include call screen handling instructions for identity and call purpose questions. Set this to null to disable call screen prompt instructions."
+     },
+     "post_call_analysis_data": {
+      "type": "array",
+      "description": "Post call analysis data to extract from the call. This data will augment the pre-defined variables extracted in the call analysis. This will be available after the call ends."
+     },
+     "post_call_analysis_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "begin_message_delay_ms": {
+      "type": "integer",
+      "description": "If set, will delay the first message by the specified amount of milliseconds, so that it gives user more time to prepare to take the call. Valid range is [0, 5000]. If not set or set to 0, agent will speak immediately. Only applicable when agent speaks first."
+     },
+     "ring_duration_ms": {
+      "type": "integer",
+      "description": "If set, the phone ringing will last for the specified amount of milliseconds. This applies for both outbound call ringtime, and call transfer ringtime. Default to 30000 (30 s). Valid range is [5000, 300000]."
+     },
+     "stt_mode": {
+      "type": "string",
+      "description": "If set, determines whether speech to text should focus on latency or accuracy. Default to fast mode. When set to custom, custom_stt_config must be provided.",
+      "enum": [
+       "fast",
+       "accurate",
+       "custom"
+      ]
+     },
+     "custom_stt_config": {
+      "type": "object",
+      "description": "Custom STT configuration. Only used when stt_mode is set to custom."
+     },
+     "vocab_specialization": {
+      "type": "string",
+      "description": "If set, determines the vocabulary set to use for transcription. This setting only applies for English agents, for non English agent, this setting is a no-op. Default to general.",
+      "enum": [
+       "general",
+       "medical"
+      ]
+     },
+     "allow_user_dtmf": {
+      "type": "boolean",
+      "description": "If set to true, DTMF input will be accepted and processed. If false, any DTMF input will be ignored. Default to true."
+     },
+     "allow_dtmf_interruption": {
+      "type": "boolean",
+      "description": "If set to true, DTMF input will interrupt the agent even when interruption_sensitivity is 0. Can be overridden per conversation or subagent node. Default to false."
+     },
+     "user_dtmf_options": {
+      "type": "object",
+      "description": ""
+     },
+     "denoising_mode": {
+      "type": "string",
+      "description": "If set, determines what denoising mode to use. Use \"no-denoise\" to bypass all audio denoising. Default to noise-cancellation.",
+      "enum": [
+       "no-denoise",
+       "noise-cancellation",
+       "noise-and-background-speech-cancellation"
+      ]
+     },
+     "pii_config": {
+      "type": "object",
+      "description": ""
+     },
+     "guardrail_config": {
+      "type": "object",
+      "description": ""
+     },
+     "handbook_config": {
+      "type": "object",
+      "description": "Behavior presets for voice agents. All presets are available."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone for the agent (e.g. America/New_York). Defaults to America/Los_Angeles if not set."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [
+     "response_engine",
+     "agent_name",
+     "version_description",
+     "version_title",
+     "voice_id",
+     "voice_model",
+     "fallback_voice_ids",
+     "voice_temperature",
+     "voice_speed",
+     "enable_dynamic_voice_speed",
+     "enable_dynamic_responsiveness",
+     "volume",
+     "voice_emotion",
+     "enable_expressive_mode",
+     "expressive_emotion_tags",
+     "expressive_mode_prompt",
+     "responsiveness",
+     "interruption_sensitivity",
+     "enable_backchannel",
+     "backchannel_frequency",
+     "backchannel_words",
+     "reminder_trigger_ms",
+     "reminder_max_count",
+     "ambient_sound",
+     "ambient_sound_volume",
+     "language",
+     "webhook_url",
+     "webhook_events",
+     "webhook_timeout_ms",
+     "boosted_keywords",
+     "data_storage_setting",
+     "data_storage_retention_days",
+     "opt_in_signed_url",
+     "signed_url_expiration_ms",
+     "pronunciation_dictionary",
+     "end_call_after_silence_ms",
+     "max_call_duration_ms",
+     "voicemail_option",
+     "ivr_option",
+     "call_screening_option",
+     "post_call_analysis_data",
+     "post_call_analysis_model",
+     "begin_message_delay_ms",
+     "ring_duration_ms",
+     "stt_mode",
+     "custom_stt_config",
+     "vocab_specialization",
+     "allow_user_dtmf",
+     "allow_dtmf_interruption",
+     "user_dtmf_options",
+     "denoising_mode",
+     "pii_config",
+     "guardrail_config",
+     "handbook_config",
+     "timezone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_app",
+   "name": "Update app",
+   "description": "Partially update an App. Omitted fields remain unchanged. Updating auth_config or tenant metadata invalidates the cached provider token immediately. Providers using the OAuth callback reject auth_config and must be reauthorized through connect-app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "tenant_url": {
+      "type": "string",
+      "description": "Per-tenant API base URL."
+     },
+     "tenant_id": {
+      "type": "string",
+      "description": "Sub-account id, for providers that scope requests by a sub-account id on a shared host."
+     },
+     "auth_config": {
+      "type": "string",
+      "description": "Caller-managed credentials. Providers using the OAuth callback reject auth_config and must be authorized through connect-app."
+     },
+     "crm_config": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-app/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "tenant_url",
+     "tenant_id",
+     "auth_config",
+     "crm_config"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_call_metadata",
+   "name": "Update call metadata",
+   "description": "Update metadata and sensitive data storage settings for an existing call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id of the call to be updated."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the call. Not used for processing. You can later get this field from the call object. Size limited to 50kB max."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Data storage setting for this call. Overrides the agent's default setting. \"everything\" stores all data, \"everything_except_pii\" excludes PII when possible, \"basic_attributes_only\" stores only metadata. Cannot be downgraded from more restrictive to less restrictive settings.",
+      "enum": [
+       "everything",
+       "everything_except_pii",
+       "basic_attributes_only"
+      ]
+     },
+     "custom_attributes": {
+      "type": "object",
+      "description": "Custom attributes for the call, as key-value pairs. Each attribute must first be defined for your organization in the Retell dashboard (Call History \u2192 Actions \u2192 Custom attributes) before it can be set here. The object key must match the id of an existing organization-level custom attribute; keys that do not match a defined attribute are ignored and will not be saved. Values must be a string, numbe"
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/v2/update-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "data_storage_setting",
+     "custom_attributes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_chat_agent",
+   "name": "Update chat agent",
+   "description": "Update an existing chat agent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Unique id of the chat agent to be updated."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional version of the API to use for this request. Default to latest version."
+     },
+     "response_engine": {
+      "type": "string",
+      "description": ""
+     },
+     "agent_name": {
+      "type": "string",
+      "description": "The name of the chat agent. Only used for your own reference."
+     },
+     "version_title": {
+      "type": "string",
+      "description": "Optional title of the chat agent version. Used for your own reference."
+     },
+     "auto_close_message": {
+      "type": "string",
+      "description": "Message to display when the chat is automatically closed."
+     },
+     "end_chat_after_silence_ms": {
+      "type": "integer",
+      "description": "If users stay silent for a period after agent speech, end the chat. The minimum value allowed is 120,000 ms (2 minutes). The maximum value allowed is 259,200,000 ms (72 hours). By default, this is set to 3,600,000 (1 hour)."
+     },
+     "language": {
+      "type": "string",
+      "description": "Specifies what language(s) the agent will operate in. Accepts either a single locale (e.g. `en-US`) or an array of locales for multilingual agents (e.g. `[\"en-US\",\"es-ES\"]`). The scalar value `multi` is deprecated but still accepted as a scalar, and is stored and returned as the ten locales it used to mean. It must not appear inside the array form. Send an explicit locale array instead. If unset, "
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": "The webhook for agent to listen to chat events. See what events it would get at [webhook doc](/features/webhook). If set, will binds webhook events for this agent to the specified url, and will ignore the account level webhook for this agent. Set to `null` to remove webhook url from this agent."
+     },
+     "webhook_events": {
+      "type": "array",
+      "description": "Which webhook events this agent should receive. If not set, defaults to chat_started, chat_ended, chat_analyzed."
+     },
+     "webhook_timeout_ms": {
+      "type": "integer",
+      "description": "The timeout for the webhook in milliseconds. If not set, default value of 10000 will apply."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Controls what data is stored for this agent. \"everything\" stores all data including transcripts and recordings. \"everything_except_pii\" stores data but excludes PII when possible based on PII configuration. \"basic_attributes_only\" stores only basic metadata. If not set, defaults to \"everything\".",
+      "enum": [
+       "everything",
+       "everything_except_pii",
+       "basic_attributes_only"
+      ]
+     },
+     "data_storage_retention_days": {
+      "type": "integer",
+      "description": "Number of days to retain call/chat data before automatic deletion. Must be between 1 and 730 days. If not set, data is retained forever (no automatic deletion)."
+     },
+     "opt_in_signed_url": {
+      "type": "boolean",
+      "description": "Whether this agent opts in to signed url for public log. If not set, default value of false will apply."
+     },
+     "signed_url_expiration_ms": {
+      "type": "integer",
+      "description": "The expiration time for the signed url in milliseconds. Only applicable when opt_in_signed_url is true. If not set, default value of 86400000 (24 hours) will apply."
+     },
+     "post_chat_analysis_data": {
+      "type": "array",
+      "description": "Post chat analysis data to extract from the chat. This data will augment the pre-defined variables extracted in the chat analysis. This will be available after the chat ends."
+     },
+     "post_chat_analysis_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "pii_config": {
+      "type": "object",
+      "description": ""
+     },
+     "guardrail_config": {
+      "type": "object",
+      "description": ""
+     },
+     "handbook_config": {
+      "type": "object",
+      "description": "Behavior presets for chat agents. Voice-only presets are excluded."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone for the agent (e.g. America/New_York). Defaults to America/Los_Angeles if not set."
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-chat-agent/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [
+     "response_engine",
+     "agent_name",
+     "version_title",
+     "auto_close_message",
+     "end_chat_after_silence_ms",
+     "language",
+     "webhook_url",
+     "webhook_events",
+     "webhook_timeout_ms",
+     "data_storage_setting",
+     "data_storage_retention_days",
+     "opt_in_signed_url",
+     "signed_url_expiration_ms",
+     "post_chat_analysis_data",
+     "post_chat_analysis_model",
+     "pii_config",
+     "guardrail_config",
+     "handbook_config",
+     "timezone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_chat_metadata",
+   "name": "Update chat metadata",
+   "description": "Update metadata and sensitive data storage settings for an existing chat.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chat_id": {
+      "type": "string",
+      "description": "The chat id of the chat to be updated."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "An arbitrary object for storage purpose only. You can put anything here like your internal customer id associated with the chat. Not used for processing. You can later get this field from the chat object. Size limited to 50kB max."
+     },
+     "data_storage_setting": {
+      "type": "string",
+      "description": "Data storage setting for this chat. Overrides the agent's default setting. \"everything\" stores all data, \"basic_attributes_only\" stores only metadata. Cannot be downgraded from more restrictive to less restrictive settings.",
+      "enum": [
+       "everything",
+       "basic_attributes_only"
+      ]
+     },
+     "override_dynamic_variables": {
+      "type": "object",
+      "description": "Override dynamic variables represented as key-value pairs of strings. Setting this will override or add the dynamic variables set in the agent during the call. Only need to set the delta where you want to override, no need to set the entire dynamic variables object. Setting this to null will remove any existing override."
+     },
+     "custom_attributes": {
+      "type": "object",
+      "description": "Custom attributes for the chat, as key-value pairs. Each attribute must first be defined for your organization in the Retell dashboard (Chat History \u2192 Actions \u2192 Custom attributes) before it can be set here. The object key must match the id of an existing organization-level custom attribute; keys that do not match a defined attribute are ignored and will not be saved. Values must be a string, numbe"
+     }
+    },
+    "required": [
+     "chat_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-chat/{chat_id}",
+    "path": [
+     "chat_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "data_storage_setting",
+     "override_dynamic_variables",
+     "custom_attributes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_contact",
+   "name": "Update contact",
+   "description": "Update an existing contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "first_name": {
+      "type": "string",
+      "description": "First name of the contact."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the contact."
+     },
+     "do_not_call": {
+      "type": "boolean",
+      "description": ""
+     },
+     "contact_tags": {
+      "type": "array",
+      "description": "Full replacement set of tags for the contact."
+     },
+     "custom_fields": {
+      "type": "object",
+      "description": "Values must match the types defined in CRM config custom fields. Set a value to null to clear it."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-contact/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "first_name",
+     "last_name",
+     "do_not_call",
+     "contact_tags",
+     "custom_fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_conversation_flow",
+   "name": "Update conversation flow",
+   "description": "Update an existing conversation flow",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_id": {
+      "type": "string",
+      "description": "Unique id of the conversation flow to be updated."
+     },
+     "version": {
+      "type": "integer",
+      "description": "Optional version of the conversation flow to update. Default to latest version."
+     },
+     "model_choice": {
+      "type": "string",
+      "description": ""
+     },
+     "model_temperature": {
+      "type": "number",
+      "description": "Controls the randomness of the model's responses. Lower values make responses more deterministic."
+     },
+     "tool_call_strict_mode": {
+      "type": "boolean",
+      "description": "Whether to use strict mode for tool calls. Only applicable when using certain supported models."
+     },
+     "knowledge_base_ids": {
+      "type": "array",
+      "description": "Knowledge base IDs for RAG (Retrieval-Augmented Generation)."
+     },
+     "kb_config": {
+      "type": "object",
+      "description": ""
+     },
+     "start_speaker": {
+      "type": "string",
+      "description": "Who starts the conversation - user or agent.",
+      "enum": [
+       "user",
+       "agent"
+      ]
+     },
+     "begin_after_user_silence_ms": {
+      "type": "integer",
+      "description": "If set, the AI will begin the conversation after waiting for the user for the duration (in milliseconds) specified by this attribute. This only applies if the agent is configured to wait for the user to speak first. If not set, the agent will wait indefinitely for the user to speak."
+     }
+    },
+    "required": [
+     "conversation_flow_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-conversation-flow/{conversation_flow_id}",
+    "path": [
+     "conversation_flow_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [
+     "model_choice",
+     "model_temperature",
+     "tool_call_strict_mode",
+     "knowledge_base_ids",
+     "kb_config",
+     "start_speaker",
+     "begin_after_user_silence_ms"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_conversation_flow_component",
+   "name": "Update conversation flow component",
+   "description": "Update an existing shared conversation flow component",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_flow_component_id": {
+      "type": "string",
+      "description": "ID of the component to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the component"
+     },
+     "flex_mode": {
+      "type": "boolean",
+      "description": "If enabled, the whole component will be converted as a Single Prompt agent."
+     },
+     "tools": {
+      "type": "array",
+      "description": "Tools available within the component"
+     },
+     "mcps": {
+      "type": "array",
+      "description": "A list of MCP server configurations to use for this component"
+     },
+     "nodes": {
+      "type": "array",
+      "description": "Nodes that make up the component"
+     },
+     "start_node_id": {
+      "type": "string",
+      "description": "ID of the starting node"
+     },
+     "begin_tag_display_position": {
+      "type": "object",
+      "description": "Display position for the begin tag in the frontend"
+     },
+     "notes": {
+      "type": "array",
+      "description": "Visual annotations displayed on the flow canvas."
+     }
+    },
+    "required": [
+     "conversation_flow_component_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-conversation-flow-component/{conversation_flow_component_id}",
+    "path": [
+     "conversation_flow_component_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "flex_mode",
+     "tools",
+     "mcps",
+     "nodes",
+     "start_node_id",
+     "begin_tag_display_position",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_crm_config",
+   "name": "Update crm config",
+   "description": "Update the organization's CRM configuration. Omitted fields stay as they are; a field that is sent replaces its stored value in full.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "ID of the CRM app to link. Pass null to unlink, which stops syncing. Changing it resets the sync cursor, so the next sync re-reads every contact from the new CRM."
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "Replaces the stored list. Names must be snake_case and cannot collide with a built-in contact field or start with `contact`/`external`. Removing a field that an analysis data mapping still targets is rejected \u2014 send crm_analysis_data_mappings in the same request to retarget or drop those mappings."
+     },
+     "crm_analysis_data_mappings": {
+      "type": "array",
+      "description": "Replaces the stored list."
+     },
+     "contact_tags": {
+      "type": "array",
+      "description": "Replaces the organization's available contact tags. Tags are trimmed and deduplicated. Omit to leave unchanged, or send null or an empty array to clear the list. Does not change tags already assigned to contacts."
+     },
+     "contact_columns_order": {
+      "type": "array",
+      "description": "Preferred display order of contact fields, for clients that render contacts as a table. Not used by the API itself."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/update-crm-config",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "app_id",
+     "custom_fields",
+     "crm_analysis_data_mappings",
+     "contact_tags",
+     "contact_columns_order"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_live_call",
+   "name": "Update live call",
+   "description": "Update an ongoing call at runtime. Supports overriding dynamic variables, metadata, and the data storage setting on the running call, and controlling the live agent (inject context, trigger a response). These overrides take effect immediately on the live call; metadata and data storage setting changes are also persisted to the call record. To update a call that is no longer ongoing, use /v2/update",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": "The call id of the ongoing call to be updated."
+     },
+     "fields_to_override": {
+      "type": "object",
+      "description": "Call fields to override on the running call. Each field is applied to the live call immediately; omitted fields are left unchanged."
+     },
+     "call_control": {
+      "type": "object",
+      "description": "Live agent control. At least one of `additional_context` or `trigger_response` should be supplied; an empty object is a no-op."
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/v2/update-live-call/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fields_to_override",
+     "call_control"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_phone_number",
+   "name": "Update phone number",
+   "description": "Update agent bound to a purchased phone number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone_number": {
+      "type": "string",
+      "description": "E.164 format of the number (+country code, then number with no space, no special characters), used as the unique identifier for phone number APIs."
+     },
+     "inbound_agents": {
+      "type": "array",
+      "description": "Inbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each inbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "outbound_agents": {
+      "type": "array",
+      "description": "Outbound agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each outbound call, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "inbound_sms_agents": {
+      "type": "array",
+      "description": "Inbound SMS agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each inbound SMS, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "outbound_sms_agents": {
+      "type": "array",
+      "description": "Outbound SMS agents to bind to the number with weights. If set and non-empty, one agent will be picked randomly for each outbound SMS, with probability proportional to the weight. Total weights must add up to 1."
+     },
+     "nickname": {
+      "type": "string",
+      "description": "Nickname of the number. This is for your reference only."
+     },
+     "inbound_webhook_url": {
+      "type": "string",
+      "description": "If set, Retell will send a webhook for inbound calls, where you can override the agent ID, set dynamic variables, reject the call, and configure other fields specific to that call. Includes call_inbound.call_id for deduplication across HTTP retries. Early setup failures may not create a call history record."
+     },
+     "inbound_sms_webhook_url": {
+      "type": "string",
+      "description": "If set, Retell will send a webhook for inbound SMS, where you can override the agent ID, set dynamic variables, reject the SMS, and configure other fields specific to that chat. Includes chat_inbound.chat_id for deduplication across HTTP retries. Early setup failures may not create a chat history record."
+     },
+     "allowed_inbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes from which inbound calls are allowed. If not set or empty, calls from all countries are allowed."
+     },
+     "allowed_outbound_country_list": {
+      "type": "array",
+      "description": "List of ISO 3166-1 alpha-2 country codes to which outbound calls are allowed. If not set or empty, calls to all countries are allowed."
+     },
+     "termination_uri": {
+      "type": "string",
+      "description": "The termination uri to update for the phone number. This is used for outbound calls."
+     },
+     "auth_username": {
+      "type": "string",
+      "description": "The username used for authentication for the SIP trunk to update for the phone number."
+     },
+     "auth_password": {
+      "type": "string",
+      "description": "The password used for authentication for the SIP trunk to update for the phone number."
+     },
+     "transport": {
+      "type": "string",
+      "description": "Outbound transport protocol to update for the phone number. Valid values are \"TLS\", \"TCP\" and \"UDP\". Default is \"TCP\"."
+     },
+     "fallback_number": {
+      "type": "string",
+      "description": "When inbound call concurrency is reached and a slot does not free up after extended ringing, the call will fall back to this number. Can be either a Retell phone number or an external number. Set to null to remove. Cannot be the same as this phone number, and cannot be a number that already has its own fallback configured (prevents nested forwarding)."
+     }
+    },
+    "required": [
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-phone-number/{phone_number}",
+    "path": [
+     "phone_number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "inbound_agents",
+     "outbound_agents",
+     "inbound_sms_agents",
+     "outbound_sms_agents",
+     "nickname",
+     "inbound_webhook_url",
+     "inbound_sms_webhook_url",
+     "allowed_inbound_country_list",
+     "allowed_outbound_country_list",
+     "termination_uri",
+     "auth_username",
+     "auth_password",
+     "transport",
+     "fallback_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_retell_llm",
+   "name": "Update retell llm",
+   "description": "Update an existing Retell LLM Response Engine",
+   "input": {
+    "type": "object",
+    "properties": {
+     "llm_id": {
+      "type": "string",
+      "description": "Unique id of the Retell LLM Response Engine to be updated."
+     },
+     "version": {
+      "type": "integer",
+      "description": "Optional version of the API to use for this request. Default to latest version."
+     },
+     "model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     },
+     "s2s_model": {
+      "type": "string",
+      "description": "Select the underlying speech to speech model. Can only set this or model, not both.",
+      "enum": [
+       "gpt-realtime-2.1",
+       "gpt-realtime-2.1-mini",
+       "gpt-realtime-2",
+       "gpt-realtime-1.5",
+       "gpt-realtime",
+       "gpt-realtime-mini",
+       null
+      ]
+     },
+     "model_temperature": {
+      "type": "number",
+      "description": "If set, will control the randomness of the response. Value ranging from [0,1]. Lower value means more deterministic, while higher value means more random. If unset, default value 0 will apply. Note that for tool calling, a lower value is recommended."
+     },
+     "model_high_priority": {
+      "type": "boolean",
+      "description": "If set to true, will use high priority pool with more dedicated resource to ensure lower and more consistent latency, default to false. This feature usually comes with a higher cost."
+     },
+     "tool_call_strict_mode": {
+      "type": "boolean",
+      "description": "Whether to use strict mode for tool calls. Only applicable when using certain supported models."
+     },
+     "knowledge_base_ids": {
+      "type": "array",
+      "description": "A list of knowledge base ids to use for this resource."
+     },
+     "kb_config": {
+      "type": "object",
+      "description": ""
+     },
+     "start_speaker": {
+      "type": "string",
+      "description": "The speaker who starts the conversation. Required. Must be either 'user' or 'agent'.",
+      "enum": [
+       "user",
+       "agent"
+      ]
+     },
+     "begin_after_user_silence_ms": {
+      "type": "integer",
+      "description": "If set, the AI will begin the conversation after waiting for the user for the duration (in milliseconds) specified by this attribute. This only applies if the agent is configured to wait for the user to speak first. If not set, the agent will wait indefinitely for the user to speak."
+     },
+     "begin_message": {
+      "type": "string",
+      "description": "First utterance said by the agent in the call. If not set, LLM will dynamically generate a message. If set to \"\", agent will wait for user to speak first."
+     }
+    },
+    "required": [
+     "llm_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.retellai.com/update-retell-llm/{llm_id}",
+    "path": [
+     "llm_id"
+    ],
+    "query": [
+     "version"
+    ],
+    "header": [],
+    "body": [
+     "model",
+     "s2s_model",
+     "model_temperature",
+     "model_high_priority",
+     "tool_call_strict_mode",
+     "knowledge_base_ids",
+     "kb_config",
+     "start_speaker",
+     "begin_after_user_silence_ms",
+     "begin_message"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.update_test_case_definition",
+   "name": "Update test case definition",
+   "description": "Update a test case definition",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test_case_definition_id": {
+      "type": "string",
+      "description": "ID of the test case definition to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the test case definition"
+     },
+     "response_engine": {
+      "type": "string",
+      "description": "Response engine for test cases. Custom LLM is not supported."
+     },
+     "user_prompt": {
+      "type": "string",
+      "description": "User prompt to simulate in the test case"
+     },
+     "metrics": {
+      "type": "array",
+      "description": "Array of metric names to evaluate"
+     },
+     "dynamic_variables": {
+      "type": "object",
+      "description": "Dynamic variables to inject into the response engine"
+     },
+     "tool_mocks": {
+      "type": "array",
+      "description": "Mock tool calls for testing"
+     },
+     "llm_model": {
+      "type": "string",
+      "description": "Available LLM models for agents.",
+      "enum": [
+       "gpt-4.1",
+       "gpt-4.1-mini",
+       "gpt-4.1-nano",
+       "gpt-5",
+       "gpt-5-mini",
+       "gpt-5-nano",
+       "gpt-5.1",
+       "gpt-5.2",
+       "gpt-5.4",
+       "gpt-5.4-mini",
+       "gpt-5.4-nano",
+       "gpt-5.5"
+      ]
+     }
+    },
+    "required": [
+     "test_case_definition_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.retellai.com/update-test-case-definition/{test_case_definition_id}",
+    "path": [
+     "test_case_definition_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "response_engine",
+     "user_prompt",
+     "metrics",
+     "dynamic_variables",
+     "tool_mocks",
+     "llm_model"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "retell-ai.upload_contact_import_file",
+   "name": "Upload contact import file",
+   "description": "Upload a CSV file for a contact import. The file is stored privately and referenced by the returned upload_id in create-contact-import.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.retellai.com/upload-contact-import-file",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

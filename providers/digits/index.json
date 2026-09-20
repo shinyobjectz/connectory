@@ -1,0 +1,83 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "digits",
+ "source": "https://digits.com/openapi.json",
+ "operations": [
+  {
+   "slug": "digits.get_llms_txt",
+   "name": "Llm friendly site overview",
+   "description": "Returns a curated, Markdown-formatted overview of Digits for AI systems. Includes descriptions and links to key product pages, blog posts, and resources.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://connect.digits.com/llms.txt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "digits.get_mcp_config",
+   "name": "Mcp metadata (legacy)",
+   "description": "Returns MCP (Model Context Protocol) site metadata for AI client discovery. This is the legacy informal format. For the spec-compliant MCP Server Card, see /.well-known/mcp/server.json.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://connect.digits.com/.well-known/mcp.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "digits.get_mcp_server_card",
+   "name": "Mcp server card (sep 1649)",
+   "description": "Returns the MCP Server Card following the official registry schema (SEP-1649). Used by AI agent readiness scanners, the MCP registry, and compatible AI clients for server discovery. Also served at /.well-known/mcp/server-card.json.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://connect.digits.com/.well-known/mcp/server.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "digits.get_sitemap",
+   "name": "Xml sitemap",
+   "description": "Returns the full XML sitemap of all public pages on digits.com.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://connect.digits.com/sitemap.xml",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

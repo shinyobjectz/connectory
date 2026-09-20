@@ -1,0 +1,1076 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "agentline",
+ "source": "https://docs.agentline.cloud/openapi.json",
+ "operations": [
+  {
+   "slug": "agentline.buy_phone_number",
+   "name": "Provision",
+   "description": "Buy a US phone number for your AI agent. Searches for and purchases a real US phone number from the telephony provider, then attaches it to the specified AI agent. Once attached, the agent can make outbound calls and receive inbound calls on this number. Each AI agent can only have ONE active phone number. Costs $2.00 per number. Request body: - agent_id: str (required) \u2014 the AI agent to assign th",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "ID of the AI agent to assign this phone number to (e.g. 'agt_abc123')"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country code for the phone number (currently only 'US' is supported)"
+     },
+     "number_type": {
+      "type": "string",
+      "description": "Type of phone number: 'local' or 'tollfree'"
+     },
+     "area_code": {
+      "type": "string",
+      "description": "Preferred 3-digit US area code (e.g. '212' for NYC, '415' for SF, '310' for LA)"
+     },
+     "pattern": {
+      "type": "string",
+      "description": "Legacy digit pattern match (prefer area_code instead)"
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/numbers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "country",
+     "number_type",
+     "area_code",
+     "pattern"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.create_agent",
+   "name": "Create agent",
+   "description": "Create a new AI voice agent for telephony. Sets up a new AI phone agent with a custom system prompt, voice, and greeting. Once created, buy a phone number and attach it to this agent so it can make and receive calls autonomously. Fields: - name: Display name for the agent - system_prompt: Instructions that define the agent's personality and behavior on calls - initial_greeting: What the AI agent s",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Display name for the AI voice agent"
+     },
+     "system_prompt": {
+      "type": "string",
+      "description": "Default instructions for the agent's personality and behavior on ALL calls (inbound and outbound). Can be overridden per-call via POST /v1/calls."
+     },
+     "initial_greeting": {
+      "type": "string",
+      "description": "Default opening line spoken on ALL calls (inbound and outbound), e.g. 'Hello, how can I help you today?'. Can be overridden per-call via POST /v1/calls."
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "TTS voice preset name (e.g. 'female-1', 'male-1') or Cartesia voice UUID; defaults to system voice if not set"
+     },
+     "transfer_number": {
+      "type": "string",
+      "description": "Phone number in E.164 format to transfer calls to (e.g. a human operator fallback)"
+     },
+     "voicemail_message": {
+      "type": "string",
+      "description": "Message the AI agent leaves if the call goes to voicemail"
+     },
+     "owner_phone": {
+      "type": "string",
+      "description": "Owner's phone number in E.164 format (e.g. '+12125551234'). Calls from this number enter task mode \u2014 the agent treats speech as executable instructions."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/agents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "system_prompt",
+     "initial_greeting",
+     "voice_id",
+     "transfer_number",
+     "voicemail_message",
+     "owner_phone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.delete_agent",
+   "name": "Delete agent",
+   "description": "Delete an AI voice agent. Permanently removes the agent, its calls, messages, and conversations, and detaches any phone numbers assigned to it. Detached numbers remain active on your account and can be reassigned to another agent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentline.cloud/v1/agents/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.delete_webhook",
+   "name": "Delete webhook",
+   "description": "Remove an agent's webhook. No events for that agent will be delivered via HTTP afterwards; they remain available via GET /v1/events (the mailbox).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Agent whose webhook to delete"
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentline.cloud/v1/webhooks",
+    "path": [],
+    "query": [
+     "agent_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_account_balance",
+   "name": "Get balance",
+   "description": "Get your AI telephony account balance and rate card. Returns the current balance, currency, billing rates for calls, phone numbers, and inbound SMS, plus what the balance can cover. Use this to check affordability before paid telephony operations.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/billing/balance",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_account_voice",
+   "name": "Get account voice",
+   "description": "Get the current account-level default voice for AI phone agents. Returns which voice is used for all AI agents under this account unless overridden at the agent level or per-call. Controls how your AI agents sound during phone conversations.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/account/voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_agent",
+   "name": "Get agent",
+   "description": "Get details of a specific AI voice agent. Returns the agent's full configuration including system prompt, voice settings, greeting, and transfer number.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/agents/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_call_charges",
+   "name": "Get call expenditure",
+   "description": "List individual call charges from AI agent phone calls. Each entry includes the voice call duration, cost, direction (inbound/outbound), phone numbers involved, and timestamp. Shows exactly how much each AI agent call cost.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of call charges to return (1-200)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of records to skip for pagination"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/billing/expenditure/calls",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_call_details",
+   "name": "Get call",
+   "description": "Get full details of a specific voice call. Returns the call's metadata including direction, phone numbers, status, duration, AI agent configuration used, and the full conversation transcript between the AI agent and the caller.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/calls/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_call_transcript",
+   "name": "Get transcript",
+   "description": "Get the full conversation transcript for a call. Returns the complete speech-to-text transcript of the phone call, with each turn labeled by role (\"human\" for the caller, \"assistant\" for the AI agent). Useful for reviewing what was said on the call, extracting information, or auditing AI agent behavior.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/calls/{call_id}/transcript",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_expenditure_breakdown",
+   "name": "Get expenditure",
+   "description": "Get a detailed expenditure breakdown for AI telephony usage. Shows total spend split by category (voice calls, phone number provisioning, top-ups, refunds) with counts and averages. Useful for tracking how much your AI agents are spending on phone calls and phone numbers.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "period": {
+      "type": "string",
+      "description": "Time period: 'current_month', 'last_month', 'all_time', or 'YYYY-MM'"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/billing/expenditure",
+    "path": [],
+    "query": [
+     "period"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_number_charges",
+   "name": "Get number expenditure",
+   "description": "List phone number provisioning charges. Shows the cost of each phone number bought for your AI agents, including the number, country, and current status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of number charges to return (1-200)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of records to skip for pagination"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/billing/expenditure/numbers",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_phone_number",
+   "name": "Get number",
+   "description": "Get details of a specific phone number. Returns the phone number, its assigned AI agent, provider ID, country, and current status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "number_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/numbers/{number_id}",
+    "path": [
+     "number_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_spending_summary",
+   "name": "Get spending summary",
+   "description": "Month-over-month spending summary. Returns total debits grouped by month for trend analysis.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "months": {
+      "type": "integer",
+      "description": "Number of months to show"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/billing/summary",
+    "path": [],
+    "query": [
+     "months"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.get_webhook",
+   "name": "Get webhooks",
+   "description": "List the account's per-agent webhook configuration(s). Secrets are **masked**. Pass `agent_id` to inspect a single agent's webhook. The full secret is only ever shown once, on the POST that creates/replaces it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Inspect one agent's webhook (omit to list all)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/webhooks",
+    "path": [],
+    "query": [
+     "agent_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.hangup_call",
+   "name": "Hangup call",
+   "description": "Hang up an active phone call. Programmatically terminates an in-progress voice call. Use this when the AI agent needs to end the conversation, or to force-stop a call that is no longer needed. The call's final transcript and billing are processed automatically after hangup.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/calls/{call_id}/hangup",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_agents",
+   "name": "List agents",
+   "description": "List all AI voice agents configured on your account. Returns every AI phone agent you've created, including their system prompts, voice settings, and associated phone numbers. Useful for checking which agents are ready to make or receive calls.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/agents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_available_voices",
+   "name": "Get available voices",
+   "description": "List all available voice presets for AI phone agents. Returns named TTS (text-to-speech) voice presets that can be used when configuring AI agents or making phone calls. Each voice defines how your AI agent sounds on the phone. You can use a preset name (e.g. \"female-1\", \"male-1\") or pass any valid Cartesia voice UUID directly as a voice_id.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/voices",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_calls",
+   "name": "List calls",
+   "description": "List voice calls made by your AI agents. Returns call history with optional filters by agent or status. Each entry includes direction (inbound/outbound), duration, phone numbers, and current status. Filters: - agent_id: only calls for a specific AI agent - status: \"initiated\", \"in-progress\", \"completed\", or \"failed\"",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Filter calls by AI agent ID"
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by call status: 'initiated', 'in-progress', 'completed', or 'failed'"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of calls to return (1-200)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of calls to skip for pagination"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/calls",
+    "path": [],
+    "query": [
+     "agent_id",
+     "status",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_conversations",
+   "name": "List conversations",
+   "description": "List all SMS conversations for your AI agents. Returns conversation threads, optionally filtered by AI agent. Each conversation represents an ongoing SMS exchange between an AI agent's phone number and an external contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/messages/conversations",
+    "path": [],
+    "query": [
+     "agent_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_messages",
+   "name": "List messages",
+   "description": "List SMS messages sent and received by your AI agents. Returns message history with optional filters by AI agent or conversation. Each entry includes direction (inbound/outbound), phone numbers, message body, and delivery status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Filter messages by AI agent ID"
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "Filter messages by conversation thread ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of messages to return (1-200)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of messages to skip for pagination"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/messages",
+    "path": [],
+    "query": [
+     "agent_id",
+     "conversation_id",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.list_phone_numbers",
+   "name": "List numbers",
+   "description": "List all phone numbers provisioned on your account. Returns every phone number you've bought for your AI agents, including which agent each number is assigned to, the number's status (active/released), and country.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/numbers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.make_outbound_call",
+   "name": "Create call",
+   "description": "Make an outbound phone call from your AI agent. Initiates a real phone call from the AI agent's phone number to the specified destination. The agent uses its configured system prompt, voice, and greeting to conduct the conversation autonomously. The AI agent handles the entire call \u2014 speech-to-text, LLM reasoning, and text-to-speech \u2014 in real time. The call transcript is saved automatically and ca",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "ID of the AI agent making the call (e.g. 'agt_abc123')"
+     },
+     "to_number": {
+      "type": "string",
+      "description": "Destination phone number in E.164 format (e.g. '+12125551234')"
+     },
+     "system_prompt": {
+      "type": "string",
+      "description": "Per-call system prompt override. Replaces the agent's default prompt for this call ONLY. If omitted, the agent's default system_prompt is used."
+     },
+     "initial_greeting": {
+      "type": "string",
+      "description": "Per-call greeting override. Replaces the agent's default greeting for this call ONLY. If omitted, the agent's default initial_greeting is used."
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "Override the TTS voice for this call: preset name (e.g. 'female-1') or Cartesia UUID"
+     },
+     "from_number_id": {
+      "type": "string",
+      "description": "Specific phone number ID to call from; defaults to the agent's assigned number"
+     }
+    },
+    "required": [
+     "agent_id",
+     "to_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/calls",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "to_number",
+     "system_prompt",
+     "initial_greeting",
+     "voice_id",
+     "from_number_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.peek_events",
+   "name": "Peek events",
+   "description": "Peek at pending telephony events without consuming them. Returns a preview of queued events (call completions, transcripts) without removing them from the mailbox. Useful for checking if there are events to process before committing to retrieve them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Filter events by AI agent ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of events to preview (1-200)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/events/peek",
+    "path": [],
+    "query": [
+     "agent_id",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.poll_events",
+   "name": "List events",
+   "description": "Poll for telephony events from your AI agents. Returns pending events such as call completions, transcripts, and failures. Events are consumed on retrieval (one-time read) \u2014 once polled, they are automatically deleted from the mailbox. Your AI agent should call this endpoint periodically to receive notifications about completed calls and their transcripts. Filters: - agent_id: only events for a sp",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Filter events by AI agent ID"
+     },
+     "event_type": {
+      "type": "string",
+      "description": "Filter by event type (e.g. 'call.completed', 'call.failed')"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of events to return (1-200)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentline.cloud/v1/events",
+    "path": [],
+    "query": [
+     "agent_id",
+     "event_type",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.push_call_context",
+   "name": "Push call context",
+   "description": "Push context into a LIVE relay-mode call (mid-call context injection). This is the required way for backend agents (Hermes, OpenClaw, etc.) to answer a live caller after a ``call.utterance`` event. Do your work, then POST a concise caller-ready response here. It is spoken verbatim and stored as the assistant turn for later conversation context. AUTHENTICATION (one of): 1. **Push token** (preferred",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     },
+     "turn_id": {
+      "type": "string",
+      "description": "Turn ID from call.utterance."
+     },
+     "X-Push-Token": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/calls/{call_id}/context",
+    "path": [
+     "call_id"
+    ],
+    "query": [
+     "turn_id"
+    ],
+    "header": [
+     "X-Push-Token"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.reassign_number",
+   "name": "Reassign number",
+   "description": "Reassign a phone number to a different AI agent. Moves an existing phone number from one AI agent to another. The target agent must not already have an active number assigned. The phone number remains active \u2014 only the agent ownership changes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number_id": {
+      "type": "string",
+      "description": ""
+     },
+     "agent_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agent_id",
+     "number_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.agentline.cloud/v1/numbers/{number_id}/reassign",
+    "path": [
+     "number_id"
+    ],
+    "query": [
+     "agent_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.reset_account_voice",
+   "name": "Reset account voice",
+   "description": "Reset account voice to the system default. Removes the account-level voice override so all AI agents fall back to the system default voice during phone calls (unless they have their own voice_id configured).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentline.cloud/v1/account/voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.send_sms",
+   "name": "Send message",
+   "description": "Send an outbound SMS message from an AI agent's phone number.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "ID of the AI agent sending the SMS (e.g. 'agt_abc123')"
+     },
+     "to_number": {
+      "type": "string",
+      "description": "Destination phone number in E.164 format (e.g. '+12125551234')"
+     },
+     "body": {
+      "type": "string",
+      "description": "SMS message text content"
+     },
+     "media_url": {
+      "type": "string",
+      "description": "URL of media to attach (MMS)"
+     },
+     "from_number_id": {
+      "type": "string",
+      "description": "Specific phone number ID to send from; defaults to the agent's assigned number"
+     }
+    },
+    "required": [
+     "agent_id",
+     "body",
+     "to_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/messages",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "agent_id",
+     "to_number",
+     "body",
+     "media_url",
+     "from_number_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.set_account_voice",
+   "name": "Update account voice",
+   "description": "Set the account-level default voice for AI phone agents. This becomes the default voice for ALL AI agents under this account, controlling how they sound on phone calls. Individual agents or specific calls can still override this setting. Voice resolution priority: 1. Per-call voice_id (POST /v1/calls) 2. Agent voice_id (PATCH /v1/agents/{id}) 3. Account default (this endpoint) \u2190 you are here 4. Sy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "TTS voice preset name (e.g. 'female-1', 'male-1') or Cartesia voice UUID"
+     }
+    },
+    "required": [
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.agentline.cloud/v1/account/voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "voice_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.set_webhook",
+   "name": "Set webhook",
+   "description": "Create or replace an agent's webhook. The configured URL receives ALL of that agent's event types \u2014 call lifecycle (`call.received`, `call.completed`, `call.failed`), SMS (`sms.received`), and future events \u2014 as signed JSON POSTs. Each agent may have at most one webhook; POSTing again replaces it. - `agent_id`: the agent whose events this webhook receives (required). - `secret`: HMAC signing secre",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "HTTPS URL that will receive this agent's events as signed JSON POSTs. Setting this replaces any existing webhook for the agent."
+     },
+     "agent_id": {
+      "type": "string",
+      "description": "ID of the agent whose events this webhook receives. Each agent may have at most one webhook."
+     },
+     "signature_header": {
+      "type": "string",
+      "description": "Header name for the HMAC-SHA256 signature of the raw body. Defaults to 'X-Webhook-Signature' (natively verified by Hermes, OpenClaw, and other agent platforms). Set to 'X-Hub-Signature-256' for GitHub-style verification, or any custom header name your platform expects. Omit to keep the existing value when updating."
+     }
+    },
+    "required": [
+     "agent_id",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "agent_id",
+     "signature_header"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.test_webhook",
+   "name": "Test webhook",
+   "description": "Fire a signed `webhook.test` event to the agent's webhook. Uses the exact same event bus (publish_event) that real telephony events use, so a successful delivery confirms the entire pipeline is wired correctly. Returns 404 if no webhook is configured for the agent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Agent whose webhook to test"
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentline.cloud/v1/webhooks/test",
+    "path": [],
+    "query": [
+     "agent_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentline.update_agent",
+   "name": "Update agent",
+   "description": "Update an AI voice agent's configuration. Modify any combination of the agent's settings: system prompt, voice, greeting, transfer number, or voicemail message. Changes take effect on the next call the agent handles. Only include the fields you want to change \u2014 unset fields are preserved.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "New display name for the AI voice agent"
+     },
+     "system_prompt": {
+      "type": "string",
+      "description": "Updated default instructions for ALL future calls (does not affect calls already in progress)"
+     },
+     "initial_greeting": {
+      "type": "string",
+      "description": "Updated default greeting for ALL future calls (inbound and outbound)"
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "New TTS voice preset name or Cartesia voice UUID"
+     },
+     "transfer_number": {
+      "type": "string",
+      "description": "Updated transfer phone number in E.164 format"
+     },
+     "voicemail_message": {
+      "type": "string",
+      "description": "Updated voicemail message"
+     },
+     "owner_phone": {
+      "type": "string",
+      "description": "Updated owner phone number in E.164 format for task mode"
+     }
+    },
+    "required": [
+     "agent_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.agentline.cloud/v1/agents/{agent_id}",
+    "path": [
+     "agent_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "system_prompt",
+     "initial_greeting",
+     "voice_id",
+     "transfer_number",
+     "voicemail_message",
+     "owner_phone"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

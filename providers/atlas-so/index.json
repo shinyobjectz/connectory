@@ -1,0 +1,3092 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "atlas-so",
+ "source": "https://api.atlas.so/openapi.json",
+ "operations": [
+  {
+   "slug": "atlas-so.add_conversation_tags_v1_conversations_id_tags_post",
+   "name": "Add tags to conversation",
+   "description": "Adds one or more tags to a conversation without removing existing tags. Accepts a list of tag UUIDs or string labels. String labels that don't match an existing tag will cause a new tag to be created.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{id}/tags",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_api_v1_canned_responses_post",
+   "name": "Create canned response",
+   "description": "Creates canned response",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "content": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "content",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/canned_responses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_api_v1_custom_fields_post",
+   "name": "Create custom field",
+   "description": "Creates custom field",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "displayName": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "category": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldMetadata": {
+      "type": "string",
+      "description": ""
+     },
+     "dynamicFieldMetadata": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "required": {
+      "type": "string",
+      "description": ""
+     },
+     "editableBy": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "string",
+      "description": ""
+     },
+     "rules": {
+      "type": "string",
+      "description": ""
+     },
+     "dependsOn": {
+      "type": "string",
+      "description": ""
+     },
+     "defaultValue": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/custom-fields",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "companyId",
+     "displayName",
+     "description",
+     "category",
+     "fieldMetadata",
+     "dynamicFieldMetadata",
+     "type",
+     "required",
+     "editableBy",
+     "active",
+     "rules",
+     "dependsOn",
+     "defaultValue"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_api_v1_customers_post",
+   "name": "Create customer",
+   "description": "Creates customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "externalUserId": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "defaultSenders": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/customers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "firstName",
+     "lastName",
+     "email",
+     "phoneNumber",
+     "externalUserId",
+     "customFields",
+     "defaultSenders"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_api_v1_sla_rules_post",
+   "name": "Create sla rule",
+   "description": "Creates sla rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "segment": {
+      "type": "string",
+      "description": ""
+     },
+     "priorities": {
+      "type": "string",
+      "description": ""
+     },
+     "firstResponseTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "nextResponseTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "workingHours": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "always",
+       "custom"
+      ]
+     },
+     "rank": {
+      "type": "number",
+      "description": ""
+     },
+     "notifications": {
+      "type": "array",
+      "description": ""
+     },
+     "channels": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "teams": {
+      "type": "string",
+      "description": ""
+     },
+     "subChannels": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "firstResponseTime",
+     "name",
+     "nextResponseTime",
+     "notifications",
+     "rank",
+     "segment",
+     "workingHours"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/sla-rules",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "segment",
+     "priorities",
+     "firstResponseTime",
+     "nextResponseTime",
+     "workingHours",
+     "rank",
+     "notifications",
+     "channels",
+     "tags",
+     "teams",
+     "subChannels"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_api_v1_users_post",
+   "name": "Create user",
+   "description": "Creates user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "createdAt": {
+      "type": "string",
+      "description": ""
+     },
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "accessTypes": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "firstName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/users",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "createdAt",
+     "firstName",
+     "lastName",
+     "email",
+     "profileUrl",
+     "accessTypes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_article_v1_helpcenter_articles_post",
+   "name": "Create a help center article",
+   "description": "Creates a HelpCenter article in draft status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "categoryId": {
+      "type": "string",
+      "description": ""
+     },
+     "content": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "slug": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "categoryId",
+     "content",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/helpcenter/articles",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "categoryId",
+     "content",
+     "description",
+     "tags",
+     "slug"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_conversation_v1_conversations_post",
+   "name": "Create conversation",
+   "description": "Creates conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customerId": {
+      "type": "string",
+      "description": ""
+     },
+     "startedAt": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "messages": {
+      "type": "array",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "priority": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedAgentId": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedTeamId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customerId",
+     "messages"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "customerId",
+     "startedAt",
+     "subject",
+     "messages",
+     "status",
+     "priority",
+     "tags",
+     "customFields",
+     "assignedAgentId",
+     "assignedTeamId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_event_v1_events_post",
+   "name": "Create a new custom event",
+   "description": "Create a new custom event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "source": {
+      "type": "string",
+      "description": ""
+     },
+     "icon": {
+      "type": "string",
+      "description": ""
+     },
+     "objectType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "CONVERSATION",
+       "ACCOUNT",
+       "CUSTOMER",
+       "USER",
+       "CANNED_RESPONSE",
+       "CHATBOT",
+       "COMPANY",
+       "CUSTOM_EVENTS",
+       "HELPCENTER",
+       "LINEAR",
+       "JIRA",
+       "SLACK"
+      ]
+     },
+     "objectId": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "payload": {
+      "type": "string",
+      "description": ""
+     },
+     "createdAt": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "name",
+     "objectId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/events",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "source",
+     "icon",
+     "objectType",
+     "objectId",
+     "name",
+     "description",
+     "payload",
+     "createdAt"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_sidebar_v1_conversations_conversation_id_sidebars_create_post",
+   "name": "Create a sidebar",
+   "description": "create a sidebar",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "agentEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "string",
+      "description": ""
+     },
+     "attachments": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agentEmail",
+     "body",
+     "conversation_id",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{conversation_id}/sidebars/create",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "agentEmail",
+     "to",
+     "cc",
+     "subject",
+     "body",
+     "attachments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_tag_groups_v1_tag_groups_post",
+   "name": "Create a tag group",
+   "description": "Creates a tag group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "color": {
+      "type": "string",
+      "description": ""
+     },
+     "archived": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "label"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/tag-groups",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "label",
+     "color",
+     "archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_tags_v1_tags_post",
+   "name": "Create a tag",
+   "description": "Creates a tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupId": {
+      "type": "string",
+      "description": ""
+     },
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "archived": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "label"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/tags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "groupId",
+     "label",
+     "archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.create_webhook_subscriptions_v1_webhooks_post",
+   "name": "Create a webhook subscriptions",
+   "description": "Create a webhook subscriptions",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "account.created",
+       "account.updated",
+       "conversation.created",
+       "conversation.agent",
+       "conversation.tags",
+       "conversation.custom_fields",
+       "conversation.status",
+       "conversation.priority",
+       "conversation.message",
+       "conversation.message.delivery_status",
+       "conversation.message.deprecated",
+       "customer.identify"
+      ]
+     },
+     "endpoint": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "endpoint",
+     "event"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "event",
+     "endpoint"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.delete_article_v1_helpcenter_articles_id_delete",
+   "name": "Delete a help center article",
+   "description": "Soft-deletes a HelpCenter article",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.atlas.so/v1/helpcenter/articles/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.ext_check_customer_sending_window_v1_whatsapp_messaging_is_template_required_get",
+   "name": "Check if a template is required to send a message",
+   "description": "WhatsApp allows to programmatically send free-form messages during 24-hour window after last inbound message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customer_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customer_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/whatsapp/messaging/is-template-required",
+    "path": [],
+    "query": [
+     "customer_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_accounts_id_get",
+   "name": "Retrieve one account",
+   "description": "Retrieves one account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/accounts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_canned_responses_id_get",
+   "name": "Retrieve one canned response",
+   "description": "Retrieves one canned response",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/canned_responses/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_custom_fields_id_get",
+   "name": "Retrieve one custom field",
+   "description": "Retrieves one custom field",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/custom-fields/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_customers_id_get",
+   "name": "Retrieves one customer",
+   "description": "Retrieves one customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/customers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_sla_rules_id_get",
+   "name": "Retrieve one sla rule",
+   "description": "Retrieves one sla rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/sla-rules/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_api_v1_users_id_get",
+   "name": "Retrieve one user",
+   "description": "Retrieves one user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_article_v1_helpcenter_articles_id_get",
+   "name": "Get a help center article by id or slug",
+   "description": "Get a HelpCenter article by id or slug",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/helpcenter/articles/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_conversation_v1_conversations_id_get",
+   "name": "Retrieve conversation",
+   "description": "Retrieves one conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/conversations/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_user_status_api_v1_users_id_status_get",
+   "name": "Retrieve user status",
+   "description": "Retrieves user status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/users/{id}/status",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_via_id_v1_customers_lookup_post",
+   "name": "Retrieves one customer",
+   "description": "Retrieves one customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/customers/lookup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "email",
+     "phoneNumber",
+     "userId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_video_url_v1_sessions_session_id_video_get",
+   "name": "Get session recording video",
+   "description": "Get session recording video",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/sessions/{session_id}/video",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.get_video_url_with_callback_v1_sessions_session_id_video_post",
+   "name": "Request session recording video with callback",
+   "description": "Request session recording video with callback",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     },
+     "callback": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "callback",
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/sessions/{session_id}/video",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "callback"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_api_v1_accounts_get",
+   "name": "List all accounts",
+   "description": "Lists all accounts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/accounts",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_api_v1_custom_fields_get",
+   "name": "List all custom fields",
+   "description": "Lists all custom fields",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/custom-fields",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_api_v1_customers_get",
+   "name": "List all customers",
+   "description": "Lists all customers",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/customers",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_api_v1_sla_rules_get",
+   "name": "List all configured sla rules",
+   "description": "Lists all configured sla rules",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/sla-rules",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_api_v1_users_get",
+   "name": "List all users",
+   "description": "Lists all users",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/users",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_articles_v1_helpcenter_articles_get",
+   "name": "List all the the help center articles",
+   "description": "List all the the HelpCenter articles. Drafts are included by default; pass `status=draft` or `status=published` to narrow down.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "categoryId": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/helpcenter/articles",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "categoryId",
+     "tags",
+     "status",
+     "keyword"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_canned_responses_v1_canned_responses_get",
+   "name": "List all canned responses",
+   "description": "Lists all canned responses",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/canned_responses",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_categories_v1_helpcenter_categories_get",
+   "name": "List all the the help center categories",
+   "description": "List all the the HelpCenter categories, hierarchically",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/helpcenter/categories",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_category_articles_v1_helpcenter_categories_id_articles_get",
+   "name": "List all the the help center articles withing a category",
+   "description": "List all the the HelpCenter articles withing a category",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/helpcenter/categories/{id}/articles",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_conversation_activities_v1_conversations_id_activities_get",
+   "name": "List conversation activities",
+   "description": "Lists conversation activities.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/conversations/{id}/activities",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_conversation_messages_v1_conversations_id_messages_get",
+   "name": "List conversation messages",
+   "description": "Lists conversation messages",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/conversations/{id}/messages",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_conversations_v1_conversations_get",
+   "name": "List all conversations",
+   "description": "Lists all conversations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "assignedAgentId": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "customerId": {
+      "type": "string",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endDate": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedToZeus": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/conversations",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "assignedAgentId",
+     "status",
+     "customerId",
+     "startDate",
+     "endDate",
+     "subject",
+     "assignedToZeus"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_csat_surveys_v1_csat_surveys_get",
+   "name": "List csat surveys",
+   "description": "Lists CSAT surveys sent to customers. Filters `start_date` and `end_date` apply to when the survey was requested, not when the response was received. Use `has_response` to filter by whether the customer has responded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endDate": {
+      "type": "string",
+      "description": ""
+     },
+     "customerId": {
+      "type": "string",
+      "description": ""
+     },
+     "conversationId": {
+      "type": "string",
+      "description": ""
+     },
+     "hasResponse": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/csat-surveys",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "startDate",
+     "endDate",
+     "customerId",
+     "conversationId",
+     "hasResponse"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_events_v1_events_get",
+   "name": "List all the the events",
+   "description": "Lists all the custom events",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "version": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/events",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_messages_from_customer_tickets_v1_messages_get",
+   "name": "List messages from a customer's conversations",
+   "description": "Lists messages from a customer's conversations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "customerId": {
+      "type": "string",
+      "description": ""
+     },
+     "side": {
+      "type": "string",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endDate": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customerId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/messages",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "customerId",
+     "side",
+     "startDate",
+     "endDate"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_sessions_v1_sessions_get",
+   "name": "List session recordings",
+   "description": "Lists session recordings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "externalId": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "pageUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "startedBefore": {
+      "type": "string",
+      "description": ""
+     },
+     "startedAfter": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/sessions",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "externalId",
+     "email",
+     "pageUrl",
+     "startedBefore",
+     "startedAfter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_sidebars_by_conversation_id_v1_conversations_conversation_id_sidebars_get",
+   "name": "List all the sidebar for a conversation",
+   "description": "Lists all the sidebar for a conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/conversations/{conversation_id}/sidebars",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_tag_groups_v1_tag_groups_get",
+   "name": "List all the tag groups",
+   "description": "Lists all the tag groups",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/tag-groups",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_tags_v1_tags_get",
+   "name": "List all the tags",
+   "description": "Lists all the tags",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/tags",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_wa_templates_v1_whatsapp_templates_get",
+   "name": "List whats app templates",
+   "description": "Lists WhatsApp templates",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/whatsapp/templates",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_webhook_logs_v1_webhooks_logs_get",
+   "name": "List all the the webhook execution logs",
+   "description": "Lists all the webhook execution logs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/webhooks/logs",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.list_webhooks_v1_webhooks_get",
+   "name": "List all the the webhook and their subscriptions",
+   "description": "Lists all the webhook and their subscriptions",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.atlas.so/v1/webhooks",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.patch_conversation_v1_conversations_id_post",
+   "name": "Update conversation",
+   "description": "Updates the specific Conversation by setting the values of the parameters passed. Any parameters not provided will be left unchanged",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "updatedBy": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedAgentId": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "priority": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "snoozedUntil": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedTeamId": {
+      "type": "string",
+      "description": ""
+     },
+     "assignedToZeus": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "updatedBy",
+     "assignedAgentId",
+     "subject",
+     "status",
+     "priority",
+     "tags",
+     "customFields",
+     "snoozedUntil",
+     "assignedTeamId",
+     "assignedToZeus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.patch_tag_groups_v1_tag_groups_id_post",
+   "name": "Update a tag group",
+   "description": "Updates a tag group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "color": {
+      "type": "string",
+      "description": ""
+     },
+     "archived": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "label"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/tag-groups/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "label",
+     "color",
+     "archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.patch_tags_v1_tags_id_post",
+   "name": "Update a tag",
+   "description": "Updates a tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "groupId": {
+      "type": "string",
+      "description": ""
+     },
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "archived": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "label"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/tags/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "groupId",
+     "label",
+     "archived"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.remove_conversation_tag_v1_conversations_id_tags_tag_id_delete",
+   "name": "Remove tag from conversation",
+   "description": "Removes a single tag from a conversation by tag ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "tag_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "tag_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.atlas.so/v1/conversations/{id}/tags/{tag_id}",
+    "path": [
+     "id",
+     "tag_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.save_customer_message_v1_conversations_id_customer_messages_post",
+   "name": "Save customer message",
+   "description": "Appends a message from a customer to a ticket",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "customerId": {
+      "type": "string",
+      "description": ""
+     },
+     "channel": {
+      "type": "string",
+      "description": ""
+     },
+     "cc": {
+      "type": "string",
+      "description": ""
+     },
+     "attachments": {
+      "type": "string",
+      "description": ""
+     },
+     "subChannelIdentifier": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customerId",
+     "id",
+     "text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{id}/customer-messages",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "text",
+     "customerId",
+     "channel",
+     "cc",
+     "attachments",
+     "subChannelIdentifier"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.send_csat_question_v1_csat_surveys_conversation_id_post",
+   "name": "Send csat question",
+   "description": "Send CSAT question to conversation. Schedules a CSAT survey for the specified conversation using company CSAT settings. Only CLOSED conversation without pending CSAT surveys will be scheduled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/csat-surveys/{conversation_id}",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.send_message_v1_conversations_id_messages_post",
+   "name": "Send agent message",
+   "description": "Sends a message from an agent to a customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "agentId": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "integer",
+      "description": "",
+      "enum": [
+       1,
+       2,
+       3,
+       4
+      ]
+     },
+     "channel": {
+      "type": "string",
+      "description": ""
+     },
+     "cc": {
+      "type": "string",
+      "description": ""
+     },
+     "attachments": {
+      "type": "string",
+      "description": ""
+     },
+     "whatsappTemplateId": {
+      "type": "string",
+      "description": ""
+     },
+     "subChannelIdentifier": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agentId",
+     "id",
+     "text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{id}/messages",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "text",
+     "agentId",
+     "type",
+     "channel",
+     "cc",
+     "attachments",
+     "whatsappTemplateId",
+     "subChannelIdentifier"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.submit_csat_response_v1_csat_surveys_conversation_id_responses_post",
+   "name": "Submit csat response",
+   "description": "Submit a CSAT response for a conversation. Validates: - Conversation exists and belongs to your company - CSAT survey was sent for the conversation - No existing CSAT response for the conversation Rating values: - YES_NO rating style: 0 (No) or 1 (Yes) - EMOTICONS rating style: 0-4 (becomes 1-5 in response)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "ratingStyle": {
+      "type": "integer",
+      "description": "",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "ratingValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "comment": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id",
+     "ratingStyle",
+     "ratingValue"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/csat-surveys/{conversation_id}/responses",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "ratingStyle",
+     "ratingValue",
+     "comment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_api_v1_canned_responses_id_post",
+   "name": "Update canned response",
+   "description": "Updates canned response",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "content": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "content",
+     "id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/canned_responses/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_api_v1_custom_fields_id_post",
+   "name": "Update custom field",
+   "description": "Updates custom field",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "companyId": {
+      "type": "string",
+      "description": ""
+     },
+     "displayName": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "category": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldMetadata": {
+      "type": "string",
+      "description": ""
+     },
+     "dynamicFieldMetadata": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "required": {
+      "type": "string",
+      "description": ""
+     },
+     "editableBy": {
+      "type": "string",
+      "description": ""
+     },
+     "active": {
+      "type": "string",
+      "description": ""
+     },
+     "rules": {
+      "type": "string",
+      "description": ""
+     },
+     "dependsOn": {
+      "type": "string",
+      "description": ""
+     },
+     "defaultValue": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/custom-fields/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "companyId",
+     "displayName",
+     "description",
+     "category",
+     "fieldMetadata",
+     "dynamicFieldMetadata",
+     "type",
+     "required",
+     "editableBy",
+     "active",
+     "rules",
+     "dependsOn",
+     "defaultValue"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_api_v1_customers_id_post",
+   "name": "Update customer",
+   "description": "Updates customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "externalUserId": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "defaultSenders": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/customers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "firstName",
+     "lastName",
+     "email",
+     "phoneNumber",
+     "externalUserId",
+     "customFields",
+     "defaultSenders"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_api_v1_sla_rules_id_post",
+   "name": "Update sla rule",
+   "description": "Updates sla rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "segment": {
+      "type": "string",
+      "description": ""
+     },
+     "priorities": {
+      "type": "string",
+      "description": ""
+     },
+     "firstResponseTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "nextResponseTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "workingHours": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "always",
+       "custom"
+      ]
+     },
+     "rank": {
+      "type": "number",
+      "description": ""
+     },
+     "notifications": {
+      "type": "array",
+      "description": ""
+     },
+     "channels": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "teams": {
+      "type": "string",
+      "description": ""
+     },
+     "subChannels": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "firstResponseTime",
+     "id",
+     "name",
+     "nextResponseTime",
+     "notifications",
+     "rank",
+     "segment",
+     "workingHours"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/sla-rules/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "segment",
+     "priorities",
+     "firstResponseTime",
+     "nextResponseTime",
+     "workingHours",
+     "rank",
+     "notifications",
+     "channels",
+     "tags",
+     "teams",
+     "subChannels"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_api_v1_users_id_post",
+   "name": "Update user",
+   "description": "Updates user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "createdAt": {
+      "type": "string",
+      "description": ""
+     },
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "accessTypes": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "firstName",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "createdAt",
+     "firstName",
+     "lastName",
+     "email",
+     "profileUrl",
+     "accessTypes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_article_v1_helpcenter_articles_id_patch",
+   "name": "Update a help center article",
+   "description": "Partially updates a HelpCenter article",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "categoryId": {
+      "type": "string",
+      "description": ""
+     },
+     "content": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "string",
+      "description": ""
+     },
+     "slug": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.atlas.so/v1/helpcenter/articles/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "categoryId",
+     "content",
+     "description",
+     "tags",
+     "slug"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_sidebar_v1_conversations_conversation_id_sidebars_sidebar_id_update_post",
+   "name": "Send a new message in a sidebar",
+   "description": "Send a new message in a sidebar",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "sidebar_id": {
+      "type": "string",
+      "description": ""
+     },
+     "agentEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "string",
+      "description": ""
+     },
+     "attachments": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "agentEmail",
+     "body",
+     "conversation_id",
+     "sidebar_id",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/conversations/{conversation_id}/sidebars/{sidebar_id}/update",
+    "path": [
+     "conversation_id",
+     "sidebar_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "agentEmail",
+     "subject",
+     "to",
+     "cc",
+     "body",
+     "attachments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.update_webhook_subscriptions_v1_webhooks_id_post",
+   "name": "Update a webhook subscriptions",
+   "description": "Update a webhook subscriptions",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoint": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ACTIVE",
+       "INACTIVE"
+      ]
+     }
+    },
+    "required": [
+     "endpoint",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "endpoint",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.upsert_api_v1_accounts_upsert_post",
+   "name": "Upsert account",
+   "description": "Upsert account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "website": {
+      "type": "string",
+      "description": ""
+     },
+     "externalId": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "primaryContactId": {
+      "type": "string",
+      "description": ""
+     },
+     "accountManagerId": {
+      "type": "string",
+      "description": ""
+     },
+     "secondaryAccountManagerId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/accounts/upsert",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "email",
+     "website",
+     "externalId",
+     "customFields",
+     "primaryContactId",
+     "accountManagerId",
+     "secondaryAccountManagerId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "atlas-so.upsert_customer_api_v1_customers_upsert_post",
+   "name": "Upsert customer",
+   "description": "Upsert customer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "string",
+      "description": ""
+     },
+     "account": {
+      "type": "string",
+      "description": ""
+     },
+     "alternatePhoneNumbers": {
+      "type": "string",
+      "description": ""
+     },
+     "alternateEmails": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.atlas.so/v1/customers/upsert",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "userId",
+     "firstName",
+     "lastName",
+     "email",
+     "phoneNumber",
+     "customFields",
+     "account",
+     "alternatePhoneNumbers",
+     "alternateEmails"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

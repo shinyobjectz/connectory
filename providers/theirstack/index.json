@@ -1,0 +1,3470 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "theirstack",
+ "source": "https://api.theirstack.com/openapi.json",
+ "operations": [
+  {
+   "slug": "theirstack.buying_intents_v1",
+   "name": "Buying intents",
+   "description": "This endpoint lists the buying intent topics detected for a company. For each topic, it returns the confidence level (`low`, `medium`, `high`), the number of jobs that mention the topic, and the first and last dates it was mentioned. You must specify `company_domain`, `company_name`, `company_linkedin_url`. It consumes **3 API credits** per company lookup, regardless of the number of buying intent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Only return companies that match this TheirStack Company ID exactly. This ID is temporary and internal and will change in the future and become stable. Until then, it is only meant to be used internally by our UI (app.theirstack.com). For deduplication logic, use company_domain or company_linkedin_url instead."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Only return companies that match this name exactly, case-sensitively."
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Only return companies that match this domain exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com)."
+     },
+     "company_linkedin_url": {
+      "type": "string",
+      "description": "Return companies whose LinkedIn URL matches this URL exactly."
+     },
+     "company_name_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-sensitively. Deprecated, use the `company_name` filter instead."
+     },
+     "order_by": {
+      "type": "array",
+      "description": "List of column objects. You can pass several columns to order by, in order of priority. Only `field` is required, `desc` is True by default."
+     },
+     "include_total_results": {
+      "type": "string",
+      "description": "When enabled, calculates and returns `total_results` and `total_companies` fields in the response. WARNING: This significantly slows down responses as it requires reading the entire dataset. Recommended usage: enable only for the initial request to get totals, then disable for subsequent pagination requests."
+     },
+     "offset": {
+      "type": "string",
+      "description": "Number of results to skip. Required for [offset-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "page": {
+      "type": "string",
+      "description": "Page number. Required when using [page-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "limit": {
+      "type": "string",
+      "description": "Number of results per page"
+     },
+     "keyword_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any of these keywords (technologies or buying intent topics) in their jobs. Case sensitive. Pass slugs. Check out all keywords at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "keyword_category_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any keyword from any of these categories in their jobs. Case sensitive. Pass slugs. Check out all keyword categories at [GET /v0/catalog/keywords/categories](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_categories_v0)"
+     },
+     "keyword_parent_category_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any keyword from any of these parent categories in their jobs. Case sensitive. Pass slugs. Check out all keyword categories at [GET /v0/catalog/keywords/categories](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_categories_v0)"
+     },
+     "technology_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_slug_or` instead. Will return companies that have mentioned any of these technologies in their jobs. Case sensitive. Pass slugs."
+     },
+     "technology_category_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_category_slug_or` instead. Will return companies that have mentioned any keyword from any of these categories in their jobs. Case sensitive. Pass slugs."
+     },
+     "technology_parent_category_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_parent_category_slug_or` instead. Will return companies that have mentioned any keyword from any of these parent categories in their jobs. Case sensitive. Pass slugs."
+     },
+     "max_rank": {
+      "type": "string",
+      "description": "The rank measures how common is a technology within its category. The technology most used among similar ones by a company will have a rank of 1, the second: 2, etc. This is useful to filter results by technology and get only results for the primary technology."
+     },
+     "min_jobs": {
+      "type": "string",
+      "description": "Minimum number of jobs found by each company using a technology"
+     },
+     "max_jobs": {
+      "type": "string",
+      "description": "Maximum number of jobs found by each company using a technology"
+     },
+     "min_relative_occurrence": {
+      "type": "string",
+      "description": "Minimum value of relative_occurrence_within_category for each technology. Higher values increase the probability that this technology is actually used by the company, because it means a higher percentage of mentions to technologies among this category are of this technology."
+     },
+     "first_date_found_gte": {
+      "type": "string",
+      "description": "Only return technologies where the first time they were found was after or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "first_date_found_lte": {
+      "type": "string",
+      "description": "Only return technologies where the first time they were found was before or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "last_date_found_gte": {
+      "type": "string",
+      "description": "Only return technologies where the last time they were found was after or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "last_date_found_lte": {
+      "type": "string",
+      "description": "Only return technologies where the last time they were found was before or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "confidence_or": {
+      "type": "array",
+      "description": "Returns technologies with any of these confidence values that the companies use them. Available values: \"high\", \"medium\", \"low\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v1/companies/buying_intents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_id",
+     "company_name",
+     "company_domain",
+     "company_linkedin_url",
+     "company_name_or",
+     "order_by",
+     "include_total_results",
+     "offset",
+     "page",
+     "limit",
+     "keyword_slug_or",
+     "keyword_category_slug_or",
+     "keyword_parent_category_slug_or",
+     "technology_slug_or",
+     "technology_category_slug_or",
+     "technology_parent_category_slug_or",
+     "max_rank",
+     "min_jobs",
+     "max_jobs",
+     "min_relative_occurrence",
+     "first_date_found_gte",
+     "first_date_found_lte",
+     "last_date_found_gte",
+     "last_date_found_lte",
+     "confidence_or"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.delete_company_lists_by_id_v0",
+   "name": "Delete company list",
+   "description": "Delete Company List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.generate_app_url_v0",
+   "name": "Generate app url",
+   "description": "Build a deep link into the TheirStack app for a given resource and return it as `{\"url\": ...}`. Pick the resource with the `type` field: `company_list` (view a list), `job_search` / `company_search` (open a search from filters \u2014 same filter shape as `search_jobs_v1` / `search_companies_v1`), `saved_search` (open a saved search), or `webhook` (view a webhook). Search links (`job_search` / `company_",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/app-urls",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_api_keys_usage_v0",
+   "name": "List the team's api keys with their recent usage",
+   "description": "Every active key of the current team, with the calls it made over the usage window and whether the member who created it still belongs to the workspace. Key (token) strings are never returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "window_days": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/api-keys/usage",
+    "path": [],
+    "query": [
+     "window_days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_billing_credit_balance_v0",
+   "name": "Get credit balance",
+   "description": "Retrieve your team's current credit balance including remaining credits available for API calls, searches, and data exports across all endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/billing/credit-balance",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_catalog_companies_per_company_country_code_v0",
+   "name": "Get companies per company country code",
+   "description": "Retrieve all ISO country codes with the number of companies headquartered in each country. Use this endpoint for geographic distribution analysis. Calls to this endpoint are free and do not consume any API credits.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Name of a country. Will return the country matching their name in English"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/catalog/companies_per_company_country_code",
+    "path": [],
+    "query": [
+     "country",
+     "page",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_catalog_industries_v0",
+   "name": "Get industries",
+   "description": "This endpoint lets you list all the industries and their codes, see how many jobs and companies we have per industry and search for an industry. Calls to this endpoint don't cost you credits. Our industries catalogue comes from [LinkedIn Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "industry": {
+      "type": "string",
+      "description": "Name of an industry, case-insensitive. Will return industries that contain the given string either in their name, hierarchy or description"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/catalog/industries",
+    "path": [],
+    "query": [
+     "industry",
+     "page",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_catalog_jobs_companies_per_job_country_code_v0",
+   "name": "Get jobs and companies per job country code",
+   "description": "This endpoint will return all the country codes and the number of jobs whose location's country code is the given one, and the number of companies with jobs in that country. Calls to this endpoint don't cost you credits.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Name of a country. Will return the country matching their name in English"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/catalog/jobs_companies_per_job_country_code",
+    "path": [],
+    "query": [
+     "country",
+     "page",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_catalog_keywords_v0",
+   "name": "Get technologies and buying intents",
+   "description": "List all keywords tracked by TheirStack, including both technologies and buying intent topics. Search for any keyword and filter by one or more categories. Calls to this endpoint don't cost you credits. - To get technologies only: filter with `keyword_type=technology` - To get only buying intent topics: filter with `keyword_type_not=technology` **Building an autocomplete?** This endpoint is design",
+   "input": {
+    "type": "object",
+    "properties": {
+     "keyword_type": {
+      "type": "string",
+      "description": "Keyword type to filter by"
+     },
+     "keyword_type_not": {
+      "type": "string",
+      "description": "Exclude keywords of these types"
+     },
+     "name_pattern": {
+      "type": "string",
+      "description": "Case-insensitive text to search for in the keyword name"
+     },
+     "slug": {
+      "type": "string",
+      "description": "Keyword slug of a single keyword"
+     },
+     "slugs": {
+      "type": "string",
+      "description": "Keyword slugs of one or many keywords"
+     },
+     "category_pattern": {
+      "type": "string",
+      "description": "Case-insensitive text to search for in the keyword category. For example, `data` to find 'data tools'."
+     },
+     "category_slug": {
+      "type": "string",
+      "description": "Keyword category slug"
+     },
+     "parent_category_slug": {
+      "type": "string",
+      "description": "Keyword parent category slug"
+     },
+     "parent_category_pattern": {
+      "type": "string",
+      "description": "Case-insensitive text to search for in the keyword parent category name"
+     },
+     "q": {
+      "type": "string",
+      "description": "General search query. Searches across keyword name, keyword type, category, and parent category (case-insensitive). Results where the keyword name starts with the query are ranked first."
+     },
+     "starts_with": {
+      "type": "string",
+      "description": "Filter keywords whose name starts with this string (e.g. 'A' for glossary). Special value '__other__' selects keywords whose name does not start with letters A-Z."
+     },
+     "include_metadata": {
+      "type": "boolean",
+      "description": "Deprecated, metadata is always included now"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/catalog/keywords",
+    "path": [],
+    "query": [
+     "keyword_type",
+     "keyword_type_not",
+     "name_pattern",
+     "slug",
+     "slugs",
+     "category_pattern",
+     "category_slug",
+     "parent_category_slug",
+     "parent_category_pattern",
+     "q",
+     "starts_with",
+     "include_metadata",
+     "page",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_catalog_locations_v0",
+   "name": "Get geographic locations",
+   "description": "Search for geographic locations by name or ID to retrieve standardized location data including city, region, and country. Use location IDs with job_location_or and job_location_not filters for precise geographic targeting in job searches.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ids of the locations"
+     },
+     "name": {
+      "type": "string",
+      "description": "Search value for the location, this will be used to filter the locations by name"
+     },
+     "country_code": {
+      "type": "string",
+      "description": "The country code of the location, all the returned locations will be filtered by this country code"
+     },
+     "feature_code": {
+      "type": "string",
+      "description": "GeoNames feature code(s) to filter by location type (e.g. PPL=populated place, ADM1=first-order admin division). See https://www.geonames.org/export/codes.html"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The offset of the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The limit of the results"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/catalog/locations",
+    "path": [],
+    "query": [
+     "id",
+     "name",
+     "country_code",
+     "feature_code",
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_company_lists_by_id_v0",
+   "name": "Get list",
+   "description": "Get List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_company_lists_companies_v0",
+   "name": "Get companies from list",
+   "description": "Get Companies From List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "order_by": {
+      "type": "string",
+      "description": "Order by field",
+      "enum": [
+       "revealed_at",
+       "name"
+      ]
+     },
+     "order_direction": {
+      "type": "string",
+      "description": "Order direction",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "company_name_partial": {
+      "type": "string",
+      "description": "Pass a partial company name to filter the list of companies"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number. Required when using [page-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip. Required for [offset-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}/companies",
+    "path": [
+     "list_id"
+    ],
+    "query": [
+     "order_by",
+     "order_direction",
+     "company_name_partial",
+     "limit",
+     "page",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_company_lists_v0",
+   "name": "List all lists",
+   "description": "Retrieve all company lists for the current team including list name, company count, and creation date. Use company lists to organize and segment companies for targeted outreach and analysis.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/company_lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_credit_consumption_facets_v0",
+   "name": "Get observed credit usage filters",
+   "description": "List the endpoints and origins observed on this team's charges in the date range, independent of filter selections. unassigned marks missing attribution. webhook is reported only when the ledger links a webhook event.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/teams/credits_consumption/facets",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_datasets_v1",
+   "name": "List datasets",
+   "description": "Retrieve all datasets available for your team including jobs, companies, and technographics. Datasets are updated daily in Parquet format. Use this endpoint to get the latest download URLs for bulk data access.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v1/datasets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_email_preferences_v0",
+   "name": "Get email preferences",
+   "description": "Get Email Preferences",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/email-preferences",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_member_api_keys_usage_v0",
+   "name": "List one member's api keys before removing them",
+   "description": "The active keys this member created for the current team, with the calls each made over the usage window. An empty list means removing them breaks no integration. Open to any member of the workspace, like the key list itself: it returns metadata the whole team can already see, and a member leaving on their own needs to read it too.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "window_days": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/api-keys/usage/member/{user_id}",
+    "path": [
+     "user_id"
+    ],
+    "query": [
+     "window_days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_request_analytics_v0",
+   "name": "Get request analytics",
+   "description": "Daily request activity with one optional breakdown. Counts and actual ledger credits refer to requests that ran in the selected window, bucketed by request date. Split charges count a request once; credits include later charges for those requests. Use credit consumption for billing totals by charge date. Filters match the individual request log.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_by": {
+      "type": "string",
+      "description": ""
+     },
+     "start_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "origins": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoints": {
+      "type": "string",
+      "description": ""
+     },
+     "status_codes": {
+      "type": "string",
+      "description": ""
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": ""
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoint": {
+      "type": "string",
+      "description": ""
+     },
+     "origin": {
+      "type": "string",
+      "description": ""
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": ""
+     },
+     "types": {
+      "type": "string",
+      "description": ""
+     },
+     "min_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at least this."
+     },
+     "max_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at most this."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone, such as Europe/Madrid."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/requests/analytics",
+    "path": [],
+    "query": [
+     "group_by",
+     "start_datetime",
+     "end_datetime",
+     "origins",
+     "endpoints",
+     "status_codes",
+     "api_key_id",
+     "search_pattern_key",
+     "endpoint",
+     "origin",
+     "is_origin_app",
+     "types",
+     "min_credits_consumed",
+     "max_credits_consumed",
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_request_facet_metrics_v0",
+   "name": "Get request facet metrics",
+   "description": "Requests and credits consumed per observed filter value, plus the search patterns of the selected window. Companion to /v0/requests/facets, which returns the values themselves: this one derives search-pattern keys and joins the credit ledger, so it is the slower of the two.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "origins": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoints": {
+      "type": "string",
+      "description": ""
+     },
+     "status_codes": {
+      "type": "string",
+      "description": ""
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": ""
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoint": {
+      "type": "string",
+      "description": ""
+     },
+     "origin": {
+      "type": "string",
+      "description": ""
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": ""
+     },
+     "types": {
+      "type": "string",
+      "description": ""
+     },
+     "min_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at least this."
+     },
+     "max_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at most this."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/requests/facets/metrics",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "origins",
+     "endpoints",
+     "status_codes",
+     "api_key_id",
+     "search_pattern_key",
+     "endpoint",
+     "origin",
+     "is_origin_app",
+     "types",
+     "min_credits_consumed",
+     "max_credits_consumed"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_request_facets_v0",
+   "name": "Get request facets",
+   "description": "Observed filter values from this team's requests in the selected window, intersected with filters on the other dimensions (a facet ignores its own selection so more values can be added). Values only: how often each one is used, and the search patterns, come from /v0/requests/facets/metrics. API keys are identifiers only; no credentials are returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": ""
+     },
+     "origins": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoints": {
+      "type": "string",
+      "description": ""
+     },
+     "status_codes": {
+      "type": "string",
+      "description": ""
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": ""
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoint": {
+      "type": "string",
+      "description": ""
+     },
+     "origin": {
+      "type": "string",
+      "description": ""
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": ""
+     },
+     "types": {
+      "type": "string",
+      "description": ""
+     },
+     "min_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at least this."
+     },
+     "max_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at most this."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/requests/facets",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "origins",
+     "endpoints",
+     "status_codes",
+     "api_key_id",
+     "search_pattern_key",
+     "endpoint",
+     "origin",
+     "is_origin_app",
+     "types",
+     "min_credits_consumed",
+     "max_credits_consumed"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_requests_count_v0",
+   "name": "Get request count",
+   "description": "Retrieve the daily count of API requests made by your team within a specified date range. Filter by types, exact endpoint path, origin, API key or search_pattern_key. credit_start_datetime/credit_end_datetime selects requests by charge date and suppresses request-date defaults; returned buckets still use the actual request date. credit_types selects positive API or Company credit charges. min_cred",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": "Start datetime in ISO format (e.g., 2023-01-01T00:00:00)"
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": "End datetime in ISO format (e.g., 2023-01-01T23:59:59)"
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": "Filter by origin app or api"
+     },
+     "origin": {
+      "type": "string",
+      "description": "Filter by request origin (api, app, web, mcp)"
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": "Filter by API key id"
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": ""
+     },
+     "endpoint": {
+      "type": "string",
+      "description": "Exact request URL path, e.g. /v1/jobs/search; host and query string are ignored."
+     },
+     "credit_start_datetime": {
+      "type": "string",
+      "description": "Start of the charge-date window (inclusive), independent of when requests ran."
+     },
+     "credit_end_datetime": {
+      "type": "string",
+      "description": "End of the charge-date window (inclusive)."
+     },
+     "credit_types": {
+      "type": "string",
+      "description": "Only requests with positive charges of these types in the charge window: api or ui (Company credits). Returned credit totals use the same window and selected types."
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter by search type."
+     },
+     "endpoints": {
+      "type": "string",
+      "description": "Match any exact request URL path; unassigned selects charges without a recorded endpoint. Intersects the singular endpoint filter."
+     },
+     "status_codes": {
+      "type": "string",
+      "description": "Match any HTTP response status code."
+     },
+     "origins": {
+      "type": "string",
+      "description": "Match any recorded origin; webhook requires a linked webhook event and unassigned selects missing attribution. Intersects the singular origin filter."
+     },
+     "min_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at least this."
+     },
+     "max_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at most this."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone, such as Europe/Madrid."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/requests/count",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "is_origin_app",
+     "origin",
+     "api_key_id",
+     "search_pattern_key",
+     "endpoint",
+     "credit_start_datetime",
+     "credit_end_datetime",
+     "credit_types",
+     "types",
+     "endpoints",
+     "status_codes",
+     "origins",
+     "min_credits_consumed",
+     "max_credits_consumed",
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_requests_v0",
+   "name": "List requests",
+   "description": "List your team's individual API and app requests in a time range. Each request reports how many credits it consumed (api_credits, ui_credits), its response time (duration, in seconds), HTTP status code, endpoint type and the number of records returned. Use it to inspect per-request consumption and latency. Set group_by=search_pattern to return named summaries in groups, with an empty data list. Se",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": "Start datetime in ISO format (e.g., 2023-01-01T00:00:00). Defaults to 5 days ago."
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": "End datetime in ISO format (e.g., 2023-01-01T23:59:59). Defaults to now."
+     },
+     "request_id_or": {
+      "type": "string",
+      "description": "Return only these request ids. When set, the date range is ignored, so a single request can be addressed without knowing when it ran."
+     },
+     "page": {
+      "type": "integer",
+      "description": "The page number of the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Return at most this many results"
+     },
+     "group_by": {
+      "type": "string",
+      "description": ""
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": "Only requests from this search pattern key."
+     },
+     "credit_start_datetime": {
+      "type": "string",
+      "description": "Start of the charge-date window (inclusive), independent of when requests ran."
+     },
+     "credit_end_datetime": {
+      "type": "string",
+      "description": "End of the charge-date window (inclusive)."
+     },
+     "credit_types": {
+      "type": "string",
+      "description": "Only requests with positive charges of these types in the charge window: api or ui (Company credits). Returned credit totals use the same window and selected types."
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": "Filter by origin app or api"
+     },
+     "origin": {
+      "type": "string",
+      "description": "Filter by request origin (api, app, web, mcp)"
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": "Filter by API key id"
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter by search type."
+     },
+     "endpoints": {
+      "type": "string",
+      "description": "Match any exact request URL path; unassigned selects charges without a recorded endpoint. Intersects the singular endpoint filter."
+     },
+     "status_codes": {
+      "type": "string",
+      "description": "Match any HTTP response status code."
+     },
+     "origins": {
+      "type": "string",
+      "description": "Match any recorded origin; webhook requires a linked webhook event and unassigned selects missing attribution. Intersects the singular origin filter."
+     },
+     "endpoint": {
+      "type": "string",
+      "description": "Exact request URL path, e.g. /v1/jobs/search; host and query string are ignored."
+     },
+     "min_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at least this."
+     },
+     "max_credits_consumed": {
+      "type": "string",
+      "description": "Only requests whose total (api + ui) credits consumed are at most this."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone, such as Europe/Madrid."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/requests/",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "request_id_or",
+     "page",
+     "limit",
+     "group_by",
+     "search_pattern_key",
+     "credit_start_datetime",
+     "credit_end_datetime",
+     "credit_types",
+     "is_origin_app",
+     "origin",
+     "api_key_id",
+     "types",
+     "endpoints",
+     "status_codes",
+     "origins",
+     "endpoint",
+     "min_credits_consumed",
+     "max_credits_consumed",
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_saved_searches_by_id_v0",
+   "name": "Get saved search",
+   "description": "Get Saved Search",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_id": {
+      "type": "integer",
+      "description": "The ID of the saved search"
+     }
+    },
+    "required": [
+     "search_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/saved_searches/{search_id}",
+    "path": [
+     "search_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_saved_searches_v0",
+   "name": "List all saved searches",
+   "description": "Retrieve all active saved searches for the current user including search filters, type, and creation date. Archived saved searches are excluded. Filter by user IDs or search type and sort by name, created, or updated date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_ids": {
+      "type": "array",
+      "description": "Get saved searches from users with these IDs. The IDs must be from people in the current users' team."
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter by type of search"
+     },
+     "order_by": {
+      "type": "string",
+      "description": "Order by field",
+      "enum": [
+       "name",
+       "created_at",
+       "updated_at"
+      ]
+     },
+     "order_direction": {
+      "type": "string",
+      "description": "Order direction",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/saved_searches",
+    "path": [],
+    "query": [
+     "user_ids",
+     "types",
+     "order_by",
+     "order_direction"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_teams_credits_consumption_v0",
+   "name": "Get credits consumption",
+   "description": "Retrieve daily API and UI credit consumption for your team, by charge date. Set group_by=search_pattern to group each day's credits by search patterns with the same stable filters. Charges without a search pattern appear as Other usage. Filter by types, exact endpoint path, origin, API key or search_pattern_key. Each group includes observed endpoints and origins. Choose exactly one group_by dimens",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": "Start datetime in ISO format (e.g., 2023-01-01T00:00:00)"
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": "End datetime in ISO format (e.g., 2023-01-01T23:59:59)"
+     },
+     "group_by": {
+      "type": "string",
+      "description": ""
+     },
+     "search_pattern_key": {
+      "type": "string",
+      "description": "Only charges associated with this canonical search pattern."
+     },
+     "is_origin_app": {
+      "type": "string",
+      "description": ""
+     },
+     "origin": {
+      "type": "string",
+      "description": ""
+     },
+     "api_key_id": {
+      "type": "string",
+      "description": ""
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter by search type."
+     },
+     "endpoints": {
+      "type": "string",
+      "description": "Match any exact request URL path; unassigned selects charges without a recorded endpoint. Intersects the singular endpoint filter."
+     },
+     "status_codes": {
+      "type": "string",
+      "description": "Match any HTTP response status code."
+     },
+     "origins": {
+      "type": "string",
+      "description": "Match any recorded origin; webhook requires a linked webhook event and unassigned selects missing attribution. Intersects the singular origin filter."
+     },
+     "endpoint": {
+      "type": "string",
+      "description": "Exact request URL path, e.g. /v1/jobs/search; host and query string are ignored."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone, such as Europe/Madrid."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/teams/credits_consumption",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "group_by",
+     "search_pattern_key",
+     "is_origin_app",
+     "origin",
+     "api_key_id",
+     "types",
+     "endpoints",
+     "status_codes",
+     "origins",
+     "endpoint",
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_by_id_v0",
+   "name": "Get webhook by id",
+   "description": "Retrieve the full details of a specific webhook by its ID including configuration, status, target URL, event type, linked saved search, and creation timestamp. Use this to inspect or debug a webhook setup.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_event_types_v0",
+   "name": "List webhook event types",
+   "description": "Returns supported webhook event types with their metadata. Pass `search_type=jobs` or `search_type=companies` to get only the events relevant to that search type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_type": {
+      "type": "string",
+      "description": "Filter event types by search type: 'jobs' or 'companies'"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/event-types",
+    "path": [],
+    "query": [
+     "search_type"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_events_count_aggregated_v0",
+   "name": "Get aggregated webhook event count",
+   "description": "Retrieve webhook event counts aggregated by day within a date range, with options to group by delivery status or webhook ID. Use this endpoint to build time-series charts for monitoring webhook performance and reliability.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_datetime": {
+      "type": "string",
+      "description": "Start datetime in ISO format (e.g., 2023-01-01T00:00:00)"
+     },
+     "end_datetime": {
+      "type": "string",
+      "description": "End datetime in ISO format (e.g., 2023-01-01T23:59:59)"
+     },
+     "timezone": {
+      "type": "string",
+      "description": "IANA timezone string (e.g., 'Europe/Madrid', 'America/New_York')"
+     },
+     "webhook_id": {
+      "type": "string",
+      "description": "Webhook ID"
+     },
+     "group_by": {
+      "type": "string",
+      "description": "Dimensions to group by. Pass multiple values: ?group_by=status&group_by=event_type"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/events/count",
+    "path": [],
+    "query": [
+     "start_datetime",
+     "end_datetime",
+     "timezone",
+     "webhook_id",
+     "group_by"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_events_count_v0",
+   "name": "Get webhook event count",
+   "description": "Get the count of events triggered for a specific webhook, optionally filtered by delivery status. Use this endpoint to quickly check webhook activity volume without fetching the full event list, useful for monitoring dashboards, paginating a status-filtered event list, and usage tracking.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     },
+     "status": {
+      "type": "string",
+      "description": "Status of the webhook events to filter by"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}/events/count",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [
+     "status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_events_v0",
+   "name": "List webhook events",
+   "description": "Retrieve a paginated list of all events triggered for a specific webhook including delivery status, payload, and timestamps. Filter by event status to find failed deliveries that may need to be retried.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     },
+     "status": {
+      "type": "string",
+      "description": "Status of the webhook events to filter by"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}/events",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [
+     "status",
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_v0",
+   "name": "List all webhooks",
+   "description": "Retrieve all webhooks configured for your team including their status, target URL, event type, and linked saved search. Archived webhooks are excluded unless you pass include_archived=true. Use this to monitor your webhook integrations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_archived": {
+      "type": "boolean",
+      "description": "Include archived webhooks in the response. They no longer deliver events, but their event history is retained and their name is needed to label past events."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks",
+    "path": [],
+    "query": [
+     "include_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.get_webhooks_volume_estimate_v0",
+   "name": "Estimate a saved search's daily volume",
+   "description": "Returns how many records a saved search matched per day over the last 7 days, and what they would cost. Use it to size max_events_per_day: a cap below avg_records_per_day means the webhook will drop matches every day, and dropped matches are never sent later. A webhook whose events are companies (a company search, or trigger_once_per_company) has no daily estimate and returns nulls with an unavail",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_id": {
+      "type": "integer",
+      "description": "ID of the saved search to estimate"
+     },
+     "trigger_once_per_company": {
+      "type": "boolean",
+      "description": "Whether the webhook fires once per company. A webhook that does has no daily estimate, because its events are companies rather than jobs and it only fires for companies it has not sent yet."
+     }
+    },
+    "required": [
+     "search_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/webhooks/volume-estimate",
+    "path": [],
+    "query": [
+     "search_id",
+     "trigger_once_per_company"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.list_keyword_categories_v1",
+   "name": "Get keyword categories",
+   "description": "Returns a list of main keyword categories (technologies and buying intents) with the number of keywords and companies in each. Optionally filters to return a specific category if category_slug is provided.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category_slug": {
+      "type": "string",
+      "description": "Optional category slug to filter and return only a specific category"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v1/catalog/keywords/categories",
+    "path": [],
+    "query": [
+     "category_slug"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.list_keyword_subcategories_v1",
+   "name": "Get keyword subcategories",
+   "description": "Returns a list of keyword subcategories with their keywords. Behavior: returns all subcategories if no parameters are provided; returns all subcategories for a specific parent category if only category_slug is provided; returns a specific subcategory if both category_slug and subcategory_slug are provided.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subcategory_slug": {
+      "type": "string",
+      "description": "Subcategory slug to filter by a specific subcategory. Must be used together with category_slug."
+     },
+     "category_slug": {
+      "type": "string",
+      "description": "Parent category slug to filter subcategories. If provided with subcategory_slug, returns only that specific subcategory. If provided alone, returns all subcategories for that parent category."
+     },
+     "num_technologies_per_category": {
+      "type": "integer",
+      "description": "Number of keywords per category to include in the response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v1/catalog/keywords/subcategories",
+    "path": [],
+    "query": [
+     "subcategory_slug",
+     "category_slug",
+     "num_technologies_per_category"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_company_lists_by_id_v0",
+   "name": "Rename company list",
+   "description": "Rename Company List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "new_name": {
+      "type": "string",
+      "description": "New name of the company list"
+     }
+    },
+    "required": [
+     "list_id",
+     "new_name"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "new_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_saved_searches_archive_v0",
+   "name": "Archive saved search",
+   "description": "Archive a saved search by its ID to remove it from the active list. Archived searches are hidden from the default listing but can still be referenced. Associated webhooks will stop triggering for archived searches.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_id": {
+      "type": "integer",
+      "description": "The ID of the saved search"
+     }
+    },
+    "required": [
+     "search_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/saved_searches/{search_id}/archive",
+    "path": [
+     "search_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_saved_searches_by_id_v0",
+   "name": "Update saved search",
+   "description": "Update Saved Search",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_id": {
+      "type": "integer",
+      "description": "The ID of the saved search"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the saved search"
+     },
+     "body": {
+      "type": "string",
+      "description": "Filters. CompanySearchFilters if type is 'companies', JobSearchFilters if type is 'jobs'"
+     },
+     "type": {
+      "type": "string",
+      "description": "Type of the saved search."
+     },
+     "is_alert_active": {
+      "type": "string",
+      "description": "Is the alert active"
+     },
+     "frequency": {
+      "type": "string",
+      "description": "Frequency of emails alerts sent."
+     },
+     "emails_subscribed": {
+      "type": "string",
+      "description": "Emails subscribed to the saved search alerts."
+     }
+    },
+    "required": [
+     "search_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/saved_searches/{search_id}",
+    "path": [
+     "search_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body",
+     "type",
+     "is_alert_active",
+     "frequency",
+     "emails_subscribed"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_webhooks_archive_v0",
+   "name": "Archive webhook",
+   "description": "Archive a webhook by its ID to permanently stop event delivery and remove it from the active webhook list. Archived webhooks and their event history are retained for reference but will no longer trigger notifications.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}/archive",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_webhooks_by_id_v0",
+   "name": "Update webhook",
+   "description": "Update Webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": "URL of the webhook"
+     },
+     "search_id": {
+      "type": "integer",
+      "description": "ID of the search that the webhook is listening to."
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the webhook"
+     },
+     "listening_start_time": {
+      "type": "string",
+      "description": "Date when the webhook started listening for events. If listening_start_time is None, the webhook will listen to all events matching the search query regardless of when they occurred."
+     },
+     "trigger_once_per_company": {
+      "type": "boolean",
+      "description": "Only for webhook type ='job.new'. If true, Company A with 5 jobs \u2192 1 event triggered. If false, Company A with 5 jobs \u2192 5 events triggered"
+     },
+     "active_event_types": {
+      "type": "string",
+      "description": "Event types this webhook subscribes to. If None, defaults to the search type's primary event (job_new for jobs, company_new for companies)."
+     },
+     "max_events_per_day": {
+      "type": "string",
+      "description": "Maximum number of events this webhook may send per day (UTC). The cap is applied when events are created, so events above it are never sent and never charged. Matches above the cap are dropped, not queued: the next day delivers that day's records only, never a backlog. Null means no daily cap. The lowest cap is 1: to stop a webhook from sending anything, deactivate it instead."
+     }
+    },
+    "required": [
+     "search_id",
+     "url",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "search_id",
+     "description",
+     "listening_start_time",
+     "trigger_once_per_company",
+     "active_event_types",
+     "max_events_per_day"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.patch_webhooks_status_v0",
+   "name": "Enable disable a webhook",
+   "description": "By disabling a webhook, it will stop listening to events. When you enable it again, by default it delivers every record matched while it was disabled. Pass skip_events_while_inactive=true when enabling to start the feed from that moment instead, so nothing matched while disabled is sent or charged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "integer",
+      "description": "ID of the webhook"
+     },
+     "is_active": {
+      "type": "boolean",
+      "description": ""
+     },
+     "skip_events_while_inactive": {
+      "type": "boolean",
+      "description": "What happens to records matched while the webhook was disabled. Only read when enabling a disabled webhook (is_active=true). False (default): they are delivered and charged on the first scan after enabling. True: the feed starts from the moment the webhook is enabled, so records matched while it was disabled are never sent nor charged. Ignored when disabling."
+     }
+    },
+    "required": [
+     "is_active",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.theirstack.com/v0/webhooks/{webhook_id}/status",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "is_active",
+     "skip_events_while_inactive"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_company_lists_add_companies_multiple_v0",
+   "name": "Add companies to multiple lists",
+   "description": "Add Companies To Multiple Lists",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_ids": {
+      "type": "array",
+      "description": "List ids to add companies to"
+     },
+     "company_ids": {
+      "type": "array",
+      "description": "Company IDs (encrypted slugs) to add to the list"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/company_lists/add_companies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_ids",
+     "company_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_company_lists_add_companies_v0",
+   "name": "Add companies to list",
+   "description": "Add Companies To List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "company_ids": {
+      "type": "array",
+      "description": "Company IDs (encrypted slugs) to add to the list"
+     },
+     "company_names": {
+      "type": "array",
+      "description": "Company names to add to the list. Please don't use this filter anymore, use the `company_ids` filter instead."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}/add_companies",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_ids",
+     "company_names"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_company_lists_duplicate_v0",
+   "name": "Duplicate list",
+   "description": "Duplicate List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}/duplicate",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_company_lists_remove_companies_v0",
+   "name": "Remove companies from list",
+   "description": "Remove Companies From List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "company_ids": {
+      "type": "array",
+      "description": "Company names to remove from the list"
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/company_lists/{list_id}/remove_companies",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_company_lists_v0",
+   "name": "Create company list",
+   "description": "Create Company List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the company list"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/company_lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_datasets_credentials_v1",
+   "name": "Generate dataset credentials",
+   "description": "Generate temporary S3 credentials to directly access and download dataset files from cloud storage. Credentials are valid for 7 days by default and provide read-only access to your team's available datasets.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v1/datasets/credentials",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_saved_searches_v0",
+   "name": "Create saved search",
+   "description": "Create Saved Search",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the saved search"
+     },
+     "body": {
+      "type": "string",
+      "description": "Filters. CompanySearchFilters if type is 'companies', JobSearchFilters if type is 'jobs'"
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "companies",
+       "jobs"
+      ]
+     },
+     "is_alert_active": {
+      "type": "boolean",
+      "description": "Is the alert active"
+     }
+    },
+    "required": [
+     "body",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/saved_searches",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body",
+     "type",
+     "is_alert_active"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_webhooks_events_retry_v0",
+   "name": "Retry webhook events",
+   "description": "Retry delivery of failed webhook events by providing their event IDs. Use this endpoint to recover from transient failures such as network timeouts or temporary server errors on your receiving endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_event_ids": {
+      "type": "array",
+      "description": "IDs of the webhook events to retry."
+     }
+    },
+    "required": [
+     "webhook_event_ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/webhooks/events/retry",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "webhook_event_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_webhooks_test_v0",
+   "name": "Test webhook url",
+   "description": "Send a test event to verify connectivity and payload handling. Either provide a webhook_id to test an existing webhook (with optional url/secret overrides), or provide url and event_type directly to test before creating a webhook.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "ID of an existing webhook to test. When provided, url and event_type are loaded from the stored webhook. Body fields (url, secret) can override stored values."
+     },
+     "url": {
+      "type": "string",
+      "description": "URL to send the test event to. Required when webhook_id is not provided."
+     },
+     "event_type": {
+      "type": "string",
+      "description": "Type of event to simulate. Required when webhook_id is not provided."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/webhooks/test",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "webhook_id",
+     "url",
+     "event_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.post_webhooks_v0",
+   "name": "Create new webhook",
+   "description": "Create a new webhook that listens for events from a saved search and sends real-time HTTP POST notifications to your specified URL. Configure event types, filters, and delivery settings for automated data pipelines.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "URL of the webhook"
+     },
+     "search_id": {
+      "type": "integer",
+      "description": "ID of the search that the webhook is listening to."
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the webhook"
+     },
+     "listening_start_time": {
+      "type": "string",
+      "description": "Date when the webhook started listening for events. If listening_start_time is None, the webhook will listen to all events matching the search query regardless of when they occurred."
+     },
+     "trigger_once_per_company": {
+      "type": "boolean",
+      "description": "Only for webhook type ='job.new'. If true, Company A with 5 jobs \u2192 1 event triggered. If false, Company A with 5 jobs \u2192 5 events triggered"
+     },
+     "active_event_types": {
+      "type": "string",
+      "description": "Event types this webhook subscribes to. If None, defaults to the search type's primary event (job_new for jobs, company_new for companies)."
+     },
+     "max_events_per_day": {
+      "type": "string",
+      "description": "Maximum number of events this webhook may send per day (UTC). The cap is applied when events are created, so events above it are never sent and never charged. Matches above the cap are dropped, not queued: the next day delivers that day's records only, never a backlog. Null means no daily cap. The lowest cap is 1: to stop a webhook from sending anything, deactivate it instead."
+     }
+    },
+    "required": [
+     "search_id",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "search_id",
+     "description",
+     "listening_start_time",
+     "trigger_once_per_company",
+     "active_event_types",
+     "max_events_per_day"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.put_email_preferences_v0",
+   "name": "Update email preferences",
+   "description": "Update Email Preferences",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.theirstack.com/v0/email-preferences",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.search_companies_v1",
+   "name": "Company search",
+   "description": "Search and filter companies and accounts by firmographics (industry, country, employee count, revenue), funding, technology and tech stack (technographics), and hiring signals (which roles and technologies they are actively hiring for). Built for ABM, account and lead prospecting, lookalike-account discovery, competitive displacement, and buying-intent targeting. Returns the matching companies alo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "expand_technology_slugs": {
+      "type": "array",
+      "description": "Specify technology slugs to include detailed technology usage information for each company. The response will include a 'technologies_found' field containing metrics like confidence score, ranking, and job count for each specified technology. Note: If a technology is not listed for a company, it means that company does not use that technology. This feature is useful for enriching company data with"
+     },
+     "order_by": {
+      "type": "array",
+      "description": "List of column objects. You can pass several columns to order by, in order of priority. Only `field` is required, `desc` is True by default"
+     },
+     "company_name_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-sensitively. This filter acts as an OR filter, so if you pass more than one company name, it will return companies that match any of the names."
+     },
+     "company_name_case_insensitive_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-insensitively."
+     },
+     "company_id_or": {
+      "type": "array",
+      "description": "Only return companies that match these IDs exactly. This filter acts as an OR filter, so if you pass more than one company ID, it will return companies that match any of the IDs."
+     },
+     "company_id_not": {
+      "type": "array",
+      "description": "Exclude companies that match these IDs. This filter acts as a NOT filter, so if you pass more than one company ID, it will exclude companies that match any of the IDs."
+     },
+     "company_domain_or": {
+      "type": "array",
+      "description": "Only return companies that match these domains exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com). This filter acts as an OR filter, so if you pass more than one company domain, it will return companies that match any of the domains."
+     },
+     "company_domain_not": {
+      "type": "array",
+      "description": "Only return companies that don't match these domains exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com)."
+     },
+     "company_name_not": {
+      "type": "array",
+      "description": "Only return companies that don't match these names exactly, case-sensitively."
+     },
+     "company_name_partial_match_or": {
+      "type": "array",
+      "description": "Company names. Will return companies whose name contain any of the the substrings passed here, case-insensitively. For example, if you pass \"google\", it will return \"Google\", \"Google LLC\", \"Google Inc\", etc."
+     },
+     "company_name_partial_match_not": {
+      "type": "array",
+      "description": "Company names. Will return companies whose name doesn't contain any of the the substrings passed here, case-insensitively. For example, if you pass 'google', it will exclude 'Google', 'Google LLC', 'Google Inc', etc."
+     },
+     "company_linkedin_url_or": {
+      "type": "array",
+      "description": "Return companies whose LinkedIn page matches any of the values passed here. Both forms of LinkedIn company URL work \u2014 the vanity slug (`https://www.linkedin.com/company/google/`) and the numeric company ID (`https://www.linkedin.com/company/1038`) \u2014 as do a bare slug (`google`) and a bare numeric ID (`1038`). A numeric value is matched against the company's LinkedIn ID and its slug, so you do not "
+     },
+     "blur_company_data": {
+      "type": "boolean",
+      "description": "Enable preview mode to return blurred data without consuming credits in the TheirStack app. Deprecated: preview mode is being retired and will stop working over the API. It still works on paid workspaces created before August 11, 2026 and is not available on any other workspace; new access is only granted to sales intelligence products that preview data to their end users before unlocking it, by o"
+     },
+     "property_exists_or": {
+      "type": "array",
+      "description": "Return companies that have any of these fields not null. For example, if you pass ['domain', 'linkedin_url'], it will return companies that have a domain OR a linkedin_url set."
+     },
+     "property_exists_and": {
+      "type": "array",
+      "description": "Return companies that have all of these fields not null. For example, if you pass ['domain', 'linkedin_url'], it will return companies that have both domain AND linkedin_url set."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip. Required for [offset-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number. Required when using [page-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination"
+     },
+     "company_description_pattern_or": {
+      "type": "array",
+      "description": "Case-insensitive patterns to match in the company description. Will return companies that match any of the patterns."
+     },
+     "company_description_pattern_not": {
+      "type": "array",
+      "description": "Case-insensitive patterns to match in the company description. Will return companies that match any of the patterns."
+     },
+     "company_description_pattern_accent_insensitive": {
+      "type": "string",
+      "description": "Set to True to make company description searches accent insensitive. For example, \"\u00e1\" will match \"a\" as well."
+     },
+     "min_revenue_usd": {
+      "type": "string",
+      "description": "Minimum company revenue, in USD"
+     },
+     "max_revenue_usd": {
+      "type": "string",
+      "description": "Maximum company revenue, in USD"
+     },
+     "min_employee_count": {
+      "type": "string",
+      "description": "Minimum number of employees in a company"
+     },
+     "max_employee_count": {
+      "type": "string",
+      "description": "Maximum number of employees in a company"
+     },
+     "min_employee_count_or_null": {
+      "type": "string",
+      "description": "Minimum number of employees in a company. If we don't have company size information, we will return it as well."
+     },
+     "max_employee_count_or_null": {
+      "type": "string",
+      "description": "Maximum number of employees in a company. If we don't have company size information, we will return it as well."
+     },
+     "min_funding_usd": {
+      "type": "string",
+      "description": "Minimum company funding, in USD"
+     },
+     "max_funding_usd": {
+      "type": "string",
+      "description": "Maximum company funding, in USD"
+     },
+     "funding_stage_or": {
+      "type": "array",
+      "description": "Funding stages of companies returned. Possible values: ['angel', 'convertible_note', 'debt_financing', 'equity_crowdfunding', 'other', 'private_equity', 'seed', 'series_a', 'series_b', 'series_c', 'series_d', 'series_e', 'series_f', 'series_g', 'series_h', 'venture_round_not_specified', 'series_i', 'series_j', 'undisclosed', 'series_unknown', 'pre_seed', 'post_ipo_secondary', 'post_ipo_equity', 'p"
+     },
+     "industry_or": {
+      "type": "array",
+      "description": "Names of industries, case-insensitive. Results will only include companies that belong to any of the industries specified in this parameter. Available values: [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0) WARNING: Deprecated parameter. Use the industry_id_or field instead."
+     },
+     "industry_not": {
+      "type": "array",
+      "description": "Names of industries, case-insensitive. Results will exclude companies that belong to any of the industries specified in this parameter. Available values: [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0) WARNING: Deprecated parameter. Use the industry_id_not field instead."
+     },
+     "industry_id_or": {
+      "type": "array",
+      "description": "Industry codes. You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "industry_id_not": {
+      "type": "array",
+      "description": "Industry ids to exclude.You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "industry_id_not_or_null": {
+      "type": "array",
+      "description": "Industry ids to exclude. Companies whose industry we don't know are returned as well. You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "company_tags_or": {
+      "type": "array",
+      "description": "Return companies that match any of these keywords"
+     },
+     "company_type": {
+      "type": "string",
+      "description": "Filter by company type."
+     },
+     "company_investors_or": {
+      "type": "array",
+      "description": "Investors of the company"
+     },
+     "company_investors_partial_match_or": {
+      "type": "array",
+      "description": "Investors of the company. Will return companies for which any of their investors contains any of the substrings passed here. For example, if you pass 'andree', all funds that match it (like 'Andreessen Horowitz', 'Andreessen Horowitz LLC', etc)."
+     },
+     "company_technology_slug_or": {
+      "type": "array",
+      "description": "Will return jobs from companies that that have mentioned any of these technologies in their jobs (not necessarily in the jobs returned). Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_technology_slug_and": {
+      "type": "array",
+      "description": "Will return jobs from companies that that have mentioned all of these technologies in their jobs (not necessarily in the jobs returned). Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_technology_slug_not": {
+      "type": "array",
+      "description": "Will return jobs from companies that that haven't mentioned any of these technologies in their jobs. Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_keyword_slug_or": {
+      "type": "array",
+      "description": "Return results from companies that have mentioned any of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "company_keyword_slug_and": {
+      "type": "array",
+      "description": "Return results from companies that have mentioned all of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "company_keyword_slug_not": {
+      "type": "array",
+      "description": "Return results from companies that haven't mentioned any of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "only_yc_companies": {
+      "type": "string",
+      "description": "Only return YC companies"
+     },
+     "company_location_pattern_or": {
+      "type": "array",
+      "description": "Return companies whose city matches any of the patterns passed here. Case insensitive. For example, if you pass 'san francisco', it will return companies whose city is 'San Francisco', 'San Francisco Bay Area', etc."
+     },
+     "company_country_code_or": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is any of the ones passed here, case sensitive. Pass ISO2 country codes."
+     },
+     "company_country_code_not": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is not any of the ones passed here, case sensitive. Pass ISO2 country codes."
+     },
+     "company_country_code_not_or_null": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is not any of the ones passed here, case sensitive. Companies whose country we don't know are returned as well. Pass ISO2 country codes."
+     },
+     "company_list_id_or": {
+      "type": "array",
+      "description": "Return companies that belong to any of the company lists passed here"
+     },
+     "company_list_id_not": {
+      "type": "array",
+      "description": "Return companies that don't belong to any of the company lists passed here"
+     },
+     "company_linkedin_url_exists": {
+      "type": "string",
+      "description": "(Use `property_exists_or / property_exists_and` instead) Only return companies with a LinkedIn URL"
+     },
+     "revealed_company_data": {
+      "type": "string",
+      "description": "This field is deprecated and has no effect."
+     },
+     "company_revealed_at_gte": {
+      "type": "string",
+      "description": "Filter companies (or jobs by their company) by when the company was revealed in the caller's account. Returns only companies revealed at or after this ISO-8601 timestamp. Scoped to the caller's team \u2014 has no effect for companies the team has never revealed."
+     },
+     "company_revealed_at_lte": {
+      "type": "string",
+      "description": "Filter companies (or jobs by their company) by when the company was revealed in the caller's account. Returns only companies revealed at or before this ISO-8601 timestamp. Scoped to the caller's team \u2014 has no effect for companies the team has never revealed."
+     },
+     "last_funding_round_date_lte": {
+      "type": "string",
+      "description": "Only return companies whose last funding round date is before or on this date. Format: 'YYYY-MM-DD'"
+     },
+     "last_funding_round_date_gte": {
+      "type": "string",
+      "description": "Only return companies whose last funding round date is after or on this date. Format: 'YYYY-MM-DD'"
+     },
+     "include_total_results": {
+      "type": "boolean",
+      "description": "When enabled, calculates and returns `total_results` and `total_companies` fields in the response. WARNING: This significantly slows down responses as it requires reading the entire dataset. Recommended usage: enable only for the initial request to get totals, then disable for subsequent pagination requests."
+     },
+     "job_filters": {
+      "type": "string",
+      "description": ""
+     },
+     "min_num_jobs_found": {
+      "type": "string",
+      "description": "Minimum number of jobs matching `job_filters` a company must have to be returned (thresholds the `num_jobs_found` count). Requires `job_filters` with a date filter, so the count is always computed over the date-bounded set of matching jobs."
+     },
+     "tech_filters": {
+      "type": "string",
+      "description": "Filter by technologies and buying intent topics detected for the company"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v1/companies/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "expand_technology_slugs",
+     "order_by",
+     "company_name_or",
+     "company_name_case_insensitive_or",
+     "company_id_or",
+     "company_id_not",
+     "company_domain_or",
+     "company_domain_not",
+     "company_name_not",
+     "company_name_partial_match_or",
+     "company_name_partial_match_not",
+     "company_linkedin_url_or",
+     "blur_company_data",
+     "property_exists_or",
+     "property_exists_and",
+     "offset",
+     "page",
+     "limit",
+     "cursor",
+     "company_description_pattern_or",
+     "company_description_pattern_not",
+     "company_description_pattern_accent_insensitive",
+     "min_revenue_usd",
+     "max_revenue_usd",
+     "min_employee_count",
+     "max_employee_count",
+     "min_employee_count_or_null",
+     "max_employee_count_or_null",
+     "min_funding_usd",
+     "max_funding_usd",
+     "funding_stage_or",
+     "industry_or",
+     "industry_not",
+     "industry_id_or",
+     "industry_id_not",
+     "industry_id_not_or_null",
+     "company_tags_or",
+     "company_type",
+     "company_investors_or",
+     "company_investors_partial_match_or",
+     "company_technology_slug_or",
+     "company_technology_slug_and",
+     "company_technology_slug_not",
+     "company_keyword_slug_or",
+     "company_keyword_slug_and",
+     "company_keyword_slug_not",
+     "only_yc_companies",
+     "company_location_pattern_or",
+     "company_country_code_or",
+     "company_country_code_not",
+     "company_country_code_not_or_null",
+     "company_list_id_or",
+     "company_list_id_not",
+     "company_linkedin_url_exists",
+     "revealed_company_data",
+     "company_revealed_at_gte",
+     "company_revealed_at_lte",
+     "last_funding_round_date_lte",
+     "last_funding_round_date_gte",
+     "include_total_results",
+     "job_filters",
+     "min_num_jobs_found",
+     "tech_filters"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.search_jobs_v1",
+   "name": "Job search",
+   "description": "Search and filter job postings (job ads, vacancies, hiring data) from thousands of company career sites and job boards. Filter by job title, keywords in the job description, company (name, domain or LinkedIn URL), location and country, technology and tech stack, salary, seniority, remote/hybrid, employment type, and posting date. Used for sales prospecting and lead generation, recruiting, and hiri",
+   "input": {
+    "type": "object",
+    "properties": {
+     "order_by": {
+      "type": "array",
+      "description": "List of column objects. You can pass several columns to order by, in order of priority. Only `field` is required, `desc` is True by default."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip. Required for [offset-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number. Required when using [page-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination"
+     },
+     "job_title_or": {
+      "type": "array",
+      "description": "Keyword-based patterns to match job titles. Case-insensitive. Returns jobs whose title contains all the words in any of the patterns, in any order. For example, `marketing vp` matches titles such as `VP of Marketing` or `Marketing VP, EMEA`. Passing `[\"software engineer\", \"data scientist\"]` returns jobs matching either pattern."
+     },
+     "job_title_not": {
+      "type": "array",
+      "description": "Keyword-based patterns to exclude job titles. Case-insensitive. Excludes jobs whose title contains all the words in any of the patterns, in any order. For example, `marketing vp` excludes titles such as `VP of Marketing` or `Marketing VP, EMEA`."
+     },
+     "job_title_pattern_and": {
+      "type": "array",
+      "description": "Regex patterns to match job titles. Case-insensitive. Only jobs with title that match all of these patterns will be returned."
+     },
+     "job_title_pattern_or": {
+      "type": "array",
+      "description": "Regex patterns to match job titles. Case-insensitive. Jobs whose job title matches of the filters will be returned."
+     },
+     "job_title_pattern_not": {
+      "type": "array",
+      "description": "Regex patterns to match job titles. Case-insensitive. Jobs whose job title doesn't match any of the patterns will be returned."
+     },
+     "job_country_code_or": {
+      "type": "array",
+      "description": "2-letter ISO country code of the location of the job. Can pass more than 1"
+     },
+     "job_country_code_not": {
+      "type": "array",
+      "description": "2-letter ISO country code of the location of the job. Can pass more than 1. Will exclude jobs from these countries"
+     },
+     "posted_at_max_age_days": {
+      "type": "string",
+      "description": "Date posted max age in days. If 0, only return jobs posted today. If 1, from today and yesterday, etc."
+     },
+     "posted_at_gte": {
+      "type": "string",
+      "description": "ISO 8601 date string (yyyy-mm-dd). Only jobs published in this date or after will be returned."
+     },
+     "posted_at_lte": {
+      "type": "string",
+      "description": "ISO 8601 date string (yyyy-mm-dd). Only jobs published in this date or before will be returned."
+     },
+     "discovered_at_max_age_days": {
+      "type": "string",
+      "description": "If 0, only return jobs added to our database in the current day. If 1, from today and yesterday, etc."
+     },
+     "discovered_at_min_age_days": {
+      "type": "string",
+      "description": "If 1, only return jobs discovered by TheirStack until yesterday. If 2, until 2 days ago, etc."
+     },
+     "discovered_at_gte": {
+      "type": "string",
+      "description": "Only jobs discovered by TheirStack on this date or datetime or after will be returned. In UTC timezone."
+     },
+     "discovered_at_lte": {
+      "type": "string",
+      "description": "Only jobs discovered by TheirStack on this date or datetime or before will be returned. In UTC timezone."
+     },
+     "job_description_pattern_or": {
+      "type": "array",
+      "description": "Regex patterns to look for in job descriptions. Case-sensitive. Results will include jobs whose description matches any of these patterns. Use (?i) at the start of a pattern to make it case-insensitive. Can pass more than one."
+     },
+     "job_description_pattern_not": {
+      "type": "array",
+      "description": "Regex patterns to look for in job descriptions. Case-sensitive. Results will include jobs whose description don't match any of these patterns. Use (?i) at the start of a pattern to make it case-insensitive. Can pass more than one."
+     },
+     "job_description_pattern_and": {
+      "type": "array",
+      "description": "Regex patterns that must ALL match the job description (AND logic). Use (?i) at the start of a pattern to make it case-insensitive. Results will only include jobs whose description matches every pattern in this list."
+     },
+     "job_description_pattern_is_case_insensitive": {
+      "type": "string",
+      "description": "Deprecated. Has no effect."
+     },
+     "job_description_contains_or": {
+      "type": "array",
+      "description": "Search for whole words in job descriptions using word boundaries (\\b). Case-insensitive by default, except for the patterns that are uppercase - in that case we'll respect it. Only finds complete words (e.g., searching 'quality' won't match 'inequality'). Results will include jobs whose description contains any of these words."
+     },
+     "job_description_contains_not": {
+      "type": "array",
+      "description": "Exclude jobs whose description contains any of these whole words using word boundaries (\\b). Case-insensitive by default, except for the patterns that are uppercase - in that case we'll respect it. Only finds complete words (e.g., searching 'quality' won't match 'inequality'). Results will exclude jobs whose description contains any of these words."
+     },
+     "job_description_pattern_case_sensitive_or": {
+      "type": "array",
+      "description": "Deprecated. Use job_description_pattern_or instead, which now behaves identically."
+     },
+     "remote": {
+      "type": "string",
+      "description": "Deprecated. Use workplace_types_or instead. True: only show remote jobs. False: only show non-remote jobs. None: show all jobs."
+     },
+     "workplace_types_or": {
+      "type": "string",
+      "description": "Filter jobs by workplace type. Returns jobs that match any of the specified workplace types. `on_site` matches jobs that are neither hybrid nor remote. If no values are provided or an empty list is sent, jobs are not filtered by workplace type."
+     },
+     "only_jobs_with_reports_to": {
+      "type": "string",
+      "description": "Only return jobs where we identified the role the hired person would report to. Deprecated field, use reports_to_exists instead."
+     },
+     "reports_to_exists": {
+      "type": "string",
+      "description": "Only return jobs where we identified the role the hired person would report to. If True, only return jobs where we identified the role the hired person would report to. If False, only return jobs where we didn't identify the role the hired person would report to. If None, return all jobs."
+     },
+     "final_url_exists": {
+      "type": "string",
+      "description": "(Use `property_exists_or / property_exists_and` instead) Only return jobs with a final URL. Typically jobs that were originally posted on an ATS. If True, only return jobs with a final URL. If False, only return jobs without a final URL. If None, return all jobs."
+     },
+     "only_jobs_with_hiring_managers": {
+      "type": "string",
+      "description": "Only return jobs with a hiring manager. If True, only return jobs with a hiring manager. If False, only return jobs without a hiring manager. If None, return all jobs."
+     },
+     "hiring_managers_exists": {
+      "type": "string",
+      "description": "(Use `property_exists_or / property_exists_and` instead) If True, only return jobs with a hiring manager. If False, only return jobs without a hiring manager. If None, return all jobs."
+     },
+     "job_id_or": {
+      "type": "array",
+      "description": "Get jobs with these IDs only."
+     },
+     "job_id_not": {
+      "type": "array",
+      "description": "Exclude jobs with these IDs."
+     },
+     "job_export_key_or": {
+      "type": "array",
+      "description": "Internal export lookup keys for fetching a materialized job batch."
+     },
+     "job_ids": {
+      "type": "array",
+      "description": "Get jobs with these IDs only. Deprecated parameter, use job_id_or instead."
+     },
+     "job_seniority_or": {
+      "type": "array",
+      "description": "Will return jobs where the seniority is any of the ones passed here"
+     },
+     "min_salary_usd": {
+      "type": "string",
+      "description": "Minimum annual salary in USD. For example, 100000 means $100,000."
+     },
+     "max_salary_usd": {
+      "type": "string",
+      "description": "Maximum annual salary in USD. For example, 150000 means $150,000."
+     },
+     "job_technology_slug_or": {
+      "type": "array",
+      "description": "Will return jobs where any of these technologies appear. Case sensitive. Pass slugs. Check out all the technologies we track with the technologies endpoint. If you pass more than one technology, we will return jobs that mentnion all of the technologies."
+     },
+     "job_technology_slug_not": {
+      "type": "array",
+      "description": "Will return jobs where none of these technologies appear. Case sensitive. Pass slugs. Check out all the technologies we track with the technologies endpoint."
+     },
+     "job_technology_slug_and": {
+      "type": "array",
+      "description": "Will return jobs where all of these technologies appear. Case sensitive. Pass slugs. Check out all the technologies we track with the technologies endpoint."
+     },
+     "job_keyword_slug_or": {
+      "type": "array",
+      "description": "Will return jobs where any of these keyword slugs appear. Case sensitive. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "job_keyword_slug_and": {
+      "type": "array",
+      "description": "Will return jobs where all of these keyword slugs appear. Case sensitive. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "job_keyword_slug_not": {
+      "type": "array",
+      "description": "Will return jobs where none of these keyword slugs appear. Case sensitive. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "job_location_pattern_or": {
+      "type": "array",
+      "description": "Regex patterns to match job locations. Case-insensitive. Searches both the location field and the enhanced locations array (using normalized city and state name fields within each location element). Jobs matching ANY of the provided patterns will be returned. WARNING: Deprecated parameter. Use the `job_location_or` filter instead \u2014 it uses structured location IDs from the [locations catalog](https"
+     },
+     "job_location_pattern_not": {
+      "type": "array",
+      "description": "Regex patterns to exclude job locations. Case-insensitive. Searches both the location field and the enhanced locations array (using normalized city and state name fields within each location element). Jobs matching ANY of the provided patterns will be EXCLUDED from results. WARNING: Deprecated parameter. Use the `job_location_not` filter instead \u2014 it uses structured location IDs from the [location"
+     },
+     "job_location_or": {
+      "type": "array",
+      "description": "Filter jobs by location. Returns jobs whose locations match ANY of the specified location criteria. Each location criteria is specified using a JobLocationFilter object. (You can find location IDs using the [locations catalog endpoint](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_locations_v0))"
+     },
+     "job_location_not": {
+      "type": "array",
+      "description": "Filter jobs by location. Returns jobs whose locations DO NOT match ANY of the specified location criteria. Each location criteria is specified using a JobLocationFilter object. (You can find location IDs using the [locations catalog endpoint](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_locations_v0))"
+     },
+     "url_domain_or": {
+      "type": "array",
+      "description": "Include jobs only if their URL domain (from `url` or `source_url`) is in the provided case-insensitive list. For example, ['greenhouse.io', 'workable.com'] will match URLs containing 'greenhouse.io' or 'workable.com'. Refer to our list of sources at https://theirstack.com/en/docs/data/job/sources."
+     },
+     "url_domain_not": {
+      "type": "array",
+      "description": "Exclude jobs if their URL domain (from `url` or `source_url`) is in the provided case-insensitive list. For example, ['greenhouse.io', 'workable.com'] will exclude URLs containing 'greenhouse.io' or 'workable.com'. Refer to our list of sources at https://theirstack.com/en/docs/data/job/sources."
+     },
+     "scraper_name_pattern_or": {
+      "type": "array",
+      "description": "Regex patterns to match job sources. Case-insensitive."
+     },
+     "easy_apply": {
+      "type": "string",
+      "description": "If True, only return jobs that can be applied directly through the job board. If False, only return jobs that require redirecting to the company's website."
+     },
+     "employment_statuses_or": {
+      "type": "string",
+      "description": "Filter jobs by employment status. Returns jobs that match any of the specified employment types. If no values are provided or an empty list is sent, all jobs regardless of employment status will be returned."
+     },
+     "is_closed": {
+      "type": "string",
+      "description": "If True, only return closed jobs (jobs where TheirStack detected the posting was closed). If False, only return open jobs. If None, return all jobs regardless of closure status."
+     },
+     "closed_at_gte": {
+      "type": "string",
+      "description": "ISO 8601 date string (yyyy-mm-dd). Only return jobs closed on this date or after."
+     },
+     "closed_at_lte": {
+      "type": "string",
+      "description": "ISO 8601 date string (yyyy-mm-dd). Only return jobs closed on this date or before."
+     },
+     "property_exists_or": {
+      "type": "array",
+      "description": "Return jobs that have any of these fields not null. For example, if you pass ['final_url'], it will return jobs that have a final_url set. This field also support chaining of fields. For example, if you pass ['company_object.domain', 'company_object.linkedin_url'], it will return jobs that have a company domain or a company linkedin_url set."
+     },
+     "property_exists_and": {
+      "type": "array",
+      "description": ""
+     },
+     "company_name_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-sensitively. This filter acts as an OR filter, so if you pass more than one company name, it will return companies that match any of the names."
+     },
+     "company_name_case_insensitive_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-insensitively."
+     },
+     "company_id_or": {
+      "type": "array",
+      "description": "Only return companies that match these IDs exactly. This filter acts as an OR filter, so if you pass more than one company ID, it will return companies that match any of the IDs."
+     },
+     "company_id_not": {
+      "type": "array",
+      "description": "Exclude companies that match these IDs. This filter acts as a NOT filter, so if you pass more than one company ID, it will exclude companies that match any of the IDs."
+     },
+     "company_domain_or": {
+      "type": "array",
+      "description": "Only return companies that match these domains exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com). This filter acts as an OR filter, so if you pass more than one company domain, it will return companies that match any of the domains."
+     },
+     "company_domain_not": {
+      "type": "array",
+      "description": "Only return companies that don't match these domains exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com)."
+     },
+     "company_name_not": {
+      "type": "array",
+      "description": "Only return companies that don't match these names exactly, case-sensitively."
+     },
+     "company_name_partial_match_or": {
+      "type": "array",
+      "description": "Company names. Will return companies whose name contain any of the the substrings passed here, case-insensitively. For example, if you pass \"google\", it will return \"Google\", \"Google LLC\", \"Google Inc\", etc."
+     },
+     "company_name_partial_match_not": {
+      "type": "array",
+      "description": "Company names. Will return companies whose name doesn't contain any of the the substrings passed here, case-insensitively. For example, if you pass 'google', it will exclude 'Google', 'Google LLC', 'Google Inc', etc."
+     },
+     "company_linkedin_url_or": {
+      "type": "array",
+      "description": "Return companies whose LinkedIn page matches any of the values passed here. Both forms of LinkedIn company URL work \u2014 the vanity slug (`https://www.linkedin.com/company/google/`) and the numeric company ID (`https://www.linkedin.com/company/1038`) \u2014 as do a bare slug (`google`) and a bare numeric ID (`1038`). A numeric value is matched against the company's LinkedIn ID and its slug, so you do not "
+     },
+     "blur_company_data": {
+      "type": "boolean",
+      "description": "Enable preview mode to return blurred data without consuming credits in the TheirStack app. Deprecated: preview mode is being retired and will stop working over the API. It still works on paid workspaces created before August 11, 2026 and is not available on any other workspace; new access is only granted to sales intelligence products that preview data to their end users before unlocking it, by o"
+     },
+     "company_description_pattern_or": {
+      "type": "array",
+      "description": "Case-insensitive patterns to match in the company description. Will return companies that match any of the patterns."
+     },
+     "company_description_pattern_not": {
+      "type": "array",
+      "description": "Case-insensitive patterns to match in the company description. Will return companies that match any of the patterns."
+     },
+     "company_description_pattern_accent_insensitive": {
+      "type": "string",
+      "description": "Set to True to make company description searches accent insensitive. For example, \"\u00e1\" will match \"a\" as well."
+     },
+     "min_revenue_usd": {
+      "type": "string",
+      "description": "Minimum company revenue, in USD"
+     },
+     "max_revenue_usd": {
+      "type": "string",
+      "description": "Maximum company revenue, in USD"
+     },
+     "min_employee_count": {
+      "type": "string",
+      "description": "Minimum number of employees in a company"
+     },
+     "max_employee_count": {
+      "type": "string",
+      "description": "Maximum number of employees in a company"
+     },
+     "min_employee_count_or_null": {
+      "type": "string",
+      "description": "Minimum number of employees in a company. If we don't have company size information, we will return it as well."
+     },
+     "max_employee_count_or_null": {
+      "type": "string",
+      "description": "Maximum number of employees in a company. If we don't have company size information, we will return it as well."
+     },
+     "min_funding_usd": {
+      "type": "string",
+      "description": "Minimum company funding, in USD"
+     },
+     "max_funding_usd": {
+      "type": "string",
+      "description": "Maximum company funding, in USD"
+     },
+     "funding_stage_or": {
+      "type": "array",
+      "description": "Funding stages of companies returned. Possible values: ['angel', 'convertible_note', 'debt_financing', 'equity_crowdfunding', 'other', 'private_equity', 'seed', 'series_a', 'series_b', 'series_c', 'series_d', 'series_e', 'series_f', 'series_g', 'series_h', 'venture_round_not_specified', 'series_i', 'series_j', 'undisclosed', 'series_unknown', 'pre_seed', 'post_ipo_secondary', 'post_ipo_equity', 'p"
+     },
+     "industry_or": {
+      "type": "array",
+      "description": "Names of industries, case-insensitive. Results will only include companies that belong to any of the industries specified in this parameter. Available values: [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0) WARNING: Deprecated parameter. Use the industry_id_or field instead."
+     },
+     "industry_not": {
+      "type": "array",
+      "description": "Names of industries, case-insensitive. Results will exclude companies that belong to any of the industries specified in this parameter. Available values: [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0) WARNING: Deprecated parameter. Use the industry_id_not field instead."
+     },
+     "industry_id_or": {
+      "type": "array",
+      "description": "Industry codes. You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "industry_id_not": {
+      "type": "array",
+      "description": "Industry ids to exclude.You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "industry_id_not_or_null": {
+      "type": "array",
+      "description": "Industry ids to exclude. Companies whose industry we don't know are returned as well. You can use any of [LinkedIn's Industry Codes V2](https://learn.microsoft.com/en-us/linkedin/shared/references/reference-tables/industry-codes-v2) or [GET /v0/catalog/industries](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_industries_v0)"
+     },
+     "company_tags_or": {
+      "type": "array",
+      "description": "Return companies that match any of these keywords"
+     },
+     "company_type": {
+      "type": "string",
+      "description": "Filter by company type."
+     },
+     "company_investors_or": {
+      "type": "array",
+      "description": "Investors of the company"
+     },
+     "company_investors_partial_match_or": {
+      "type": "array",
+      "description": "Investors of the company. Will return companies for which any of their investors contains any of the substrings passed here. For example, if you pass 'andree', all funds that match it (like 'Andreessen Horowitz', 'Andreessen Horowitz LLC', etc)."
+     },
+     "company_technology_slug_or": {
+      "type": "array",
+      "description": "Will return jobs from companies that that have mentioned any of these technologies in their jobs (not necessarily in the jobs returned). Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_technology_slug_and": {
+      "type": "array",
+      "description": "Will return jobs from companies that that have mentioned all of these technologies in their jobs (not necessarily in the jobs returned). Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_technology_slug_not": {
+      "type": "array",
+      "description": "Will return jobs from companies that that haven't mentioned any of these technologies in their jobs. Case sensitive. Pass slugs. Check out all the technologies we track at [GET /v0/catalog/technologies](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_technologies_v0)"
+     },
+     "company_keyword_slug_or": {
+      "type": "array",
+      "description": "Return results from companies that have mentioned any of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "company_keyword_slug_and": {
+      "type": "array",
+      "description": "Return results from companies that have mentioned all of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "company_keyword_slug_not": {
+      "type": "array",
+      "description": "Return results from companies that haven't mentioned any of these keywords in their jobs. Case sensitive. Pass slugs. Check out all the keywords we track at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "only_yc_companies": {
+      "type": "string",
+      "description": "Only return YC companies"
+     },
+     "company_location_pattern_or": {
+      "type": "array",
+      "description": "Return companies whose city matches any of the patterns passed here. Case insensitive. For example, if you pass 'san francisco', it will return companies whose city is 'San Francisco', 'San Francisco Bay Area', etc."
+     },
+     "company_country_code_or": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is any of the ones passed here, case sensitive. Pass ISO2 country codes."
+     },
+     "company_country_code_not": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is not any of the ones passed here, case sensitive. Pass ISO2 country codes."
+     },
+     "company_country_code_not_or_null": {
+      "type": "array",
+      "description": "Return companies whose HQ country code is not any of the ones passed here, case sensitive. Companies whose country we don't know are returned as well. Pass ISO2 country codes."
+     },
+     "company_list_id_or": {
+      "type": "array",
+      "description": "Return companies that belong to any of the company lists passed here"
+     },
+     "company_list_id_not": {
+      "type": "array",
+      "description": "Return companies that don't belong to any of the company lists passed here"
+     },
+     "company_linkedin_url_exists": {
+      "type": "string",
+      "description": "(Use `property_exists_or / property_exists_and` instead) Only return companies with a LinkedIn URL"
+     },
+     "revealed_company_data": {
+      "type": "string",
+      "description": "This field is deprecated and has no effect."
+     },
+     "company_revealed_at_gte": {
+      "type": "string",
+      "description": "Filter companies (or jobs by their company) by when the company was revealed in the caller's account. Returns only companies revealed at or after this ISO-8601 timestamp. Scoped to the caller's team \u2014 has no effect for companies the team has never revealed."
+     },
+     "company_revealed_at_lte": {
+      "type": "string",
+      "description": "Filter companies (or jobs by their company) by when the company was revealed in the caller's account. Returns only companies revealed at or before this ISO-8601 timestamp. Scoped to the caller's team \u2014 has no effect for companies the team has never revealed."
+     },
+     "last_funding_round_date_lte": {
+      "type": "string",
+      "description": "Only return companies whose last funding round date is before or on this date. Format: 'YYYY-MM-DD'"
+     },
+     "last_funding_round_date_gte": {
+      "type": "string",
+      "description": "Only return companies whose last funding round date is after or on this date. Format: 'YYYY-MM-DD'"
+     },
+     "include_total_results": {
+      "type": "boolean",
+      "description": "When enabled, calculates and returns `total_results` and `total_companies` fields in the response. WARNING: This significantly slows down responses as it requires reading the entire dataset. Recommended usage: enable only for the initial request to get totals, then disable for subsequent pagination requests."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v1/jobs/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "order_by",
+     "offset",
+     "page",
+     "limit",
+     "cursor",
+     "job_title_or",
+     "job_title_not",
+     "job_title_pattern_and",
+     "job_title_pattern_or",
+     "job_title_pattern_not",
+     "job_country_code_or",
+     "job_country_code_not",
+     "posted_at_max_age_days",
+     "posted_at_gte",
+     "posted_at_lte",
+     "discovered_at_max_age_days",
+     "discovered_at_min_age_days",
+     "discovered_at_gte",
+     "discovered_at_lte",
+     "job_description_pattern_or",
+     "job_description_pattern_not",
+     "job_description_pattern_and",
+     "job_description_pattern_is_case_insensitive",
+     "job_description_contains_or",
+     "job_description_contains_not",
+     "job_description_pattern_case_sensitive_or",
+     "remote",
+     "workplace_types_or",
+     "only_jobs_with_reports_to",
+     "reports_to_exists",
+     "final_url_exists",
+     "only_jobs_with_hiring_managers",
+     "hiring_managers_exists",
+     "job_id_or",
+     "job_id_not",
+     "job_export_key_or",
+     "job_ids",
+     "job_seniority_or",
+     "min_salary_usd",
+     "max_salary_usd",
+     "job_technology_slug_or",
+     "job_technology_slug_not",
+     "job_technology_slug_and",
+     "job_keyword_slug_or",
+     "job_keyword_slug_and",
+     "job_keyword_slug_not",
+     "job_location_pattern_or",
+     "job_location_pattern_not",
+     "job_location_or",
+     "job_location_not",
+     "url_domain_or",
+     "url_domain_not",
+     "scraper_name_pattern_or",
+     "easy_apply",
+     "employment_statuses_or",
+     "is_closed",
+     "closed_at_gte",
+     "closed_at_lte",
+     "property_exists_or",
+     "property_exists_and",
+     "company_name_or",
+     "company_name_case_insensitive_or",
+     "company_id_or",
+     "company_id_not",
+     "company_domain_or",
+     "company_domain_not",
+     "company_name_not",
+     "company_name_partial_match_or",
+     "company_name_partial_match_not",
+     "company_linkedin_url_or",
+     "blur_company_data",
+     "company_description_pattern_or",
+     "company_description_pattern_not",
+     "company_description_pattern_accent_insensitive",
+     "min_revenue_usd",
+     "max_revenue_usd",
+     "min_employee_count",
+     "max_employee_count",
+     "min_employee_count_or_null",
+     "max_employee_count_or_null",
+     "min_funding_usd",
+     "max_funding_usd",
+     "funding_stage_or",
+     "industry_or",
+     "industry_not",
+     "industry_id_or",
+     "industry_id_not",
+     "industry_id_not_or_null",
+     "company_tags_or",
+     "company_type",
+     "company_investors_or",
+     "company_investors_partial_match_or",
+     "company_technology_slug_or",
+     "company_technology_slug_and",
+     "company_technology_slug_not",
+     "company_keyword_slug_or",
+     "company_keyword_slug_and",
+     "company_keyword_slug_not",
+     "only_yc_companies",
+     "company_location_pattern_or",
+     "company_country_code_or",
+     "company_country_code_not",
+     "company_country_code_not_or_null",
+     "company_list_id_or",
+     "company_list_id_not",
+     "company_linkedin_url_exists",
+     "revealed_company_data",
+     "company_revealed_at_gte",
+     "company_revealed_at_lte",
+     "last_funding_round_date_lte",
+     "last_funding_round_date_gte",
+     "include_total_results"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.technographics_v1",
+   "name": "Technographics",
+   "description": "This endpoint lists the technologies used by a company. For each technology, it returns the confidence level (`low`, `medium`, `high`), the number of jobs that mention the technology, and the first and last dates it was mentioned. You must specify `company_domain`, `company_name`, `company_linkedin_url`. It consumes **3 API credits** per company lookup, regardless of the number of technologies ret",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Only return companies that match this TheirStack Company ID exactly. This ID is temporary and internal and will change in the future and become stable. Until then, it is only meant to be used internally by our UI (app.theirstack.com). For deduplication logic, use company_domain or company_linkedin_url instead."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Only return companies that match this name exactly, case-sensitively."
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Only return companies that match this domain exactly. It accepts full urls (https://www.google.com/) and emails (john.polo@gmail.com)."
+     },
+     "company_linkedin_url": {
+      "type": "string",
+      "description": "Return companies whose LinkedIn URL matches this URL exactly."
+     },
+     "company_name_or": {
+      "type": "array",
+      "description": "Only return companies that match these names exactly, case-sensitively. Deprecated, use the `company_name` filter instead."
+     },
+     "order_by": {
+      "type": "array",
+      "description": "List of column objects. You can pass several columns to order by, in order of priority. Only `field` is required, `desc` is True by default."
+     },
+     "include_total_results": {
+      "type": "string",
+      "description": "When enabled, calculates and returns `total_results` and `total_companies` fields in the response. WARNING: This significantly slows down responses as it requires reading the entire dataset. Recommended usage: enable only for the initial request to get totals, then disable for subsequent pagination requests."
+     },
+     "offset": {
+      "type": "string",
+      "description": "Number of results to skip. Required for [offset-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "page": {
+      "type": "string",
+      "description": "Page number. Required when using [page-based pagination](https://theirstack.com/en/docs/api-reference/pagination)."
+     },
+     "limit": {
+      "type": "string",
+      "description": "Number of results per page"
+     },
+     "keyword_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any of these keywords (technologies or buying intent topics) in their jobs. Case sensitive. Pass slugs. Check out all keywords at [GET /v0/catalog/keywords](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_v0)"
+     },
+     "keyword_category_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any keyword from any of these categories in their jobs. Case sensitive. Pass slugs. Check out all keyword categories at [GET /v0/catalog/keywords/categories](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_categories_v0)"
+     },
+     "keyword_parent_category_slug_or": {
+      "type": "array",
+      "description": "Return companies that have mentioned any keyword from any of these parent categories in their jobs. Case sensitive. Pass slugs. Check out all keyword categories at [GET /v0/catalog/keywords/categories](https://theirstack.com/en/docs/api-reference/catalog/get_catalog_keywords_categories_v0)"
+     },
+     "technology_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_slug_or` instead. Will return companies that have mentioned any of these technologies in their jobs. Case sensitive. Pass slugs."
+     },
+     "technology_category_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_category_slug_or` instead. Will return companies that have mentioned any keyword from any of these categories in their jobs. Case sensitive. Pass slugs."
+     },
+     "technology_parent_category_slug_or": {
+      "type": "array",
+      "description": "Deprecated: use `keyword_parent_category_slug_or` instead. Will return companies that have mentioned any keyword from any of these parent categories in their jobs. Case sensitive. Pass slugs."
+     },
+     "max_rank": {
+      "type": "string",
+      "description": "The rank measures how common is a technology within its category. The technology most used among similar ones by a company will have a rank of 1, the second: 2, etc. This is useful to filter results by technology and get only results for the primary technology."
+     },
+     "min_jobs": {
+      "type": "string",
+      "description": "Minimum number of jobs found by each company using a technology"
+     },
+     "max_jobs": {
+      "type": "string",
+      "description": "Maximum number of jobs found by each company using a technology"
+     },
+     "min_relative_occurrence": {
+      "type": "string",
+      "description": "Minimum value of relative_occurrence_within_category for each technology. Higher values increase the probability that this technology is actually used by the company, because it means a higher percentage of mentions to technologies among this category are of this technology."
+     },
+     "first_date_found_gte": {
+      "type": "string",
+      "description": "Only return technologies where the first time they were found was after or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "first_date_found_lte": {
+      "type": "string",
+      "description": "Only return technologies where the first time they were found was before or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "last_date_found_gte": {
+      "type": "string",
+      "description": "Only return technologies where the last time they were found was after or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "last_date_found_lte": {
+      "type": "string",
+      "description": "Only return technologies where the last time they were found was before or on this date. Format: \"YYYY-MM-DD\""
+     },
+     "confidence_or": {
+      "type": "array",
+      "description": "Returns technologies with any of these confidence values that the companies use them. Available values: \"high\", \"medium\", \"low\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v1/companies/technologies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_id",
+     "company_name",
+     "company_domain",
+     "company_linkedin_url",
+     "company_name_or",
+     "order_by",
+     "include_total_results",
+     "offset",
+     "page",
+     "limit",
+     "keyword_slug_or",
+     "keyword_category_slug_or",
+     "keyword_parent_category_slug_or",
+     "technology_slug_or",
+     "technology_category_slug_or",
+     "technology_parent_category_slug_or",
+     "max_rank",
+     "min_jobs",
+     "max_jobs",
+     "min_relative_occurrence",
+     "first_date_found_gte",
+     "first_date_found_lte",
+     "last_date_found_gte",
+     "last_date_found_lte",
+     "confidence_or"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.unsubscribe_email_one_click_v0",
+   "name": "One click unsubscribe (rfc 8058)",
+   "description": "One-Click Unsubscribe (Rfc 8058)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "preference_key": {
+      "type": "string",
+      "description": ""
+     },
+     "list_unsubscribe": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "preference_key"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/email-preferences/unsubscribe/{preference_key}",
+    "path": [
+     "preference_key"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_unsubscribe"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.unsubscribe_email_v0",
+   "name": "Unsubscribe from email",
+   "description": "Unsubscribe From Email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "preference_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "preference_key"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/email-preferences/unsubscribe/{preference_key}",
+    "path": [
+     "preference_key"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.unsubscribe_saved_search_alert_one_click_v0",
+   "name": "One click unsubscribe from a saved search alert (rfc 8058)",
+   "description": "One-Click Unsubscribe From A Saved Search Alert (Rfc 8058)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_unsubscribe": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.theirstack.com/v0/saved_searches/alerts/unsubscribe",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_unsubscribe"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "theirstack.unsubscribe_saved_search_alert_v0",
+   "name": "Unsubscribe from a saved search alert",
+   "description": "Unsubscribe From A Saved Search Alert",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.theirstack.com/v0/saved_searches/alerts/unsubscribe",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

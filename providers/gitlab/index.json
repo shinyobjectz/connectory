@@ -1080,7 +1080,7 @@
   {
    "slug": "gitlab.delete_v3_projects_id_repository_merged_branches",
    "name": "Delete v3 projects id repository merged branches",
-   "description": "",
+   "description": "Deletes a merged branche.",
    "input": {
     "type": "object",
     "properties": {
@@ -1103,7 +1103,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.delete_v3_projects_id_repository_tags_tag_name",
@@ -1224,7 +1225,7 @@
   {
    "slug": "gitlab.delete_v3_projects_id_share_group_id",
    "name": "Delete v3 projects id share group id",
-   "description": "",
+   "description": "Deletes this share.",
    "input": {
     "type": "object",
     "properties": {
@@ -1253,7 +1254,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.delete_v3_projects_id_snippets_noteable_id_notes_note_id",
@@ -1776,7 +1778,7 @@
   {
    "slug": "gitlab.get_v3_deploy_keys",
    "name": "Get v3 deploy keys",
-   "description": "",
+   "description": "Lists deploy keys.",
    "input": {
     "type": "object",
     "properties": {},
@@ -1790,7 +1792,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.get_v3_dockerfiles",
@@ -2425,7 +2428,7 @@
   {
    "slug": "gitlab.get_v3_internal_broadcast_message",
    "name": "Get v3 internal broadcast message",
-   "description": "",
+   "description": "Lists broadcast message.",
    "input": {
     "type": "object",
     "properties": {},
@@ -2439,12 +2442,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.get_v3_internal_check",
    "name": "Get v3 internal check",
-   "description": "",
+   "description": "Lists check.",
    "input": {
     "type": "object",
     "properties": {},
@@ -2458,12 +2462,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.get_v3_internal_discover",
    "name": "Get v3 internal discover",
-   "description": "",
+   "description": "Lists discover.",
    "input": {
     "type": "object",
     "properties": {},
@@ -2477,12 +2482,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.get_v3_internal_merge_request_urls",
    "name": "Get v3 internal merge request urls",
-   "description": "",
+   "description": "Lists merge request urls.",
    "input": {
     "type": "object",
     "properties": {},
@@ -2496,7 +2502,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.get_v3_issues",
@@ -7934,7 +7941,7 @@
   {
    "slug": "gitlab.post_v3_internal_allowed",
    "name": "Post v3 internal allowed",
-   "description": "",
+   "description": "Creates an allowed.",
    "input": {
     "type": "object",
     "properties": {},
@@ -7948,12 +7955,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.post_v3_internal_lfs_authenticate",
    "name": "Post v3 internal lfs authenticate",
-   "description": "",
+   "description": "Creates a lfs authenticate.",
    "input": {
     "type": "object",
     "properties": {},
@@ -7967,12 +7975,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.post_v3_internal_two_factor_recovery_codes",
    "name": "Post v3 internal two factor recovery codes",
-   "description": "",
+   "description": "Creates a two factor recovery code.",
    "input": {
     "type": "object",
     "properties": {},
@@ -7986,7 +7995,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "gitlab.post_v3_projects",

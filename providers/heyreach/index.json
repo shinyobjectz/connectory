@@ -1,0 +1,3749 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "heyreach",
+ "source": "https://docs.heyreach.io/openapi.json",
+ "operations": [
+  {
+   "slug": "heyreach.analytics_get_overall_stats",
+   "name": "Get overall stats",
+   "description": "## Gets the overall stats for the specified filters. - **Method:** `POST` - **Content-Type:** `application/json` --- ## **Request Body** - **accountIds**: Array of Ids of the LinkedIn senders. If empty - all the senders will be included. - **campaignIds:** Array of the Ids of the campaigns to be included. If empty - all the campaigns will be included. - **startDate:** - **endDate:** { \"accountIds\"",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     },
+     "accountIds": {
+      "type": "array",
+      "description": ""
+     },
+     "campaignIds": {
+      "type": "array",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endDate": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountIds",
+     "campaignIds",
+     "endDate",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/stats/GetOverallStats",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountIds",
+     "campaignIds",
+     "startDate",
+     "endDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.analytics_get_overall_stats_by_campaign",
+   "name": "Get overall stats by campaign",
+   "description": "## Gets the overall stats broken down per campaign for the specified filters. Same filters as **GetOverallStats**, but the response is grouped by campaign: both `byDayStats` and `overallStats` return a list of per-campaign stat objects (each carrying `campaignId`, `campaignName` and `isCampaignDeleted`) instead of a single aggregated object. - **Method:** `POST` - **Content-Type:** `application/js",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     },
+     "accountIds": {
+      "type": "array",
+      "description": ""
+     },
+     "campaignIds": {
+      "type": "array",
+      "description": ""
+     },
+     "startDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endDate": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountIds",
+     "campaignIds",
+     "endDate",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/stats/GetOverallStatsByCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountIds",
+     "campaignIds",
+     "startDate",
+     "endDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.authentication_check_api_key",
+   "name": "Check api key",
+   "description": "Check If your API key is working.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/auth/CheckApiKey",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_add_companies",
+   "name": "Add companies",
+   "description": "Add up to **100** companies to your workspace's blacklist in one call. Leads working at a blacklisted company are excluded from your campaigns. Each entry takes one or both of the following, and **at least one is required**: - **url** *(optional)*: a LinkedIn company URL, `linkedin.com/company/...`, with or without `https://` and `www.`. The URL is reduced to the company slug, so every spelling of",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "companies": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "companies"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/AddCompanies",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "companies"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_add_leads",
+   "name": "Add leads",
+   "description": "Add up to **100** leads to your workspace's blacklist in one call. A blacklisted lead is excluded from your campaigns. Each entry takes one or more identifiers, and **at least one is required**: - **linkedInProfileId** *(optional)*: the member id of a lead HeyReach already holds - the value returned as `linkedin_id` by endpoints such as '/api/public/lead/GetLead'. The preferred identifier when you",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leads": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "leads"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/AddLeads",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leads"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_get_companies",
+   "name": "Get companies",
+   "description": "Get a paginated collection of the blacklisted companies in your workspace, newest first. The blacklist is workspace-scoped - each workspace keeps its own, and an API key only ever sees its own workspace's entries. - **offset** *(optional)*: the number of entries to skip. Defaults to `0`. - **limit** *(optional)*: the page size, between `1` and `100`. Defaults to `10`. - **search** *(optional)*: a ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "search": {
+      "type": "string",
+      "description": ""
+     },
+     "matchingStatus": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "limit",
+     "matchingStatus",
+     "offset",
+     "search"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/GetCompanies",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "limit",
+     "search",
+     "matchingStatus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_get_leads",
+   "name": "Get leads",
+   "description": "Get a paginated collection of the blacklisted leads in your workspace, newest first. The blacklist is workspace-scoped - each workspace keeps its own, and an API key only ever sees its own workspace's entries. - **offset** _(optional)_: the number of entries to skip. Defaults to `0`. - **limit** _(optional)_: the page size, between `1` and `100`. Defaults to `10`. - **search** _(optional)_: a case",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "search": {
+      "type": "string",
+      "description": ""
+     },
+     "matchingStatus": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "limit",
+     "matchingStatus",
+     "offset",
+     "search"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/GetLeads",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "limit",
+     "search",
+     "matchingStatus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_remove_companies",
+   "name": "Remove companies",
+   "description": "Remove up to **100** companies from your workspace's blacklist. - **ids** *(required)*: the entry ids to remove - the `entries[].id` values returned by 'AddCompanies', or the `id` of an item from 'GetCompanies'. At least one id is required, and at most 100 per call. Removal is a soft delete: the entry stops excluding leads immediately and disappears from 'GetCompanies'. Blacklisting the same compa",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "ids": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/RemoveCompanies",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.blacklist_remove_leads",
+   "name": "Remove leads",
+   "description": "Remove up to **100** leads from your workspace's blacklist. - **ids** *(required)*: the entry ids to remove - the `entries[].id` values returned by 'AddLeads', or the `id` of an item from 'GetLeads'. At least one id is required, and at most 100 per call. Removal is a soft delete: the entry stops excluding leads immediately and disappears from 'GetLeads'. Blacklisting the same person again restores",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "ids": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/blacklist/RemoveLeads",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_add_leads_to_campaign",
+   "name": "Add leads to campaign",
+   "description": "Add leads to a campaign. Add up to 100 leads per request. If a LinkedIn account Idis specified in the AccountLeadPairs, that lead will be mapped to the accountin the campaign. **The** **`name`** **field in the** **`customUserFields`** **array of the leads you are importing, must contain only alpha-numeric characters or underscores** **`_`**. **An error will be return in the case the** **`name`** *",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "accountLeadPairs": {
+      "type": "array",
+      "description": ""
+     },
+     "resumeFinishedCampaign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "resumePausedCampaign": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountLeadPairs",
+     "campaignId",
+     "resumeFinishedCampaign",
+     "resumePausedCampaign"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/AddLeadsToCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "accountLeadPairs",
+     "resumeFinishedCampaign",
+     "resumePausedCampaign"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_add_leads_to_campaign_v2",
+   "name": "Add leads to campaign v2",
+   "description": "Add leads to a campaign. Add up to 100 leads per request. If a LinkedIn account Idis specified in the AccountLeadPairs, that lead will be mapped to the accountin the campaign. Same as the **AddLeadsToCampaign** request, however this request returns counts for how many of the leads were added, how many were update and how many failed to be added. **The** **`name`** **field in the** **`customUserFie",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "accountLeadPairs": {
+      "type": "array",
+      "description": ""
+     },
+     "resumeFinishedCampaign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "resumePausedCampaign": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountLeadPairs",
+     "campaignId",
+     "resumeFinishedCampaign",
+     "resumePausedCampaign"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/AddLeadsToCampaignV2",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "accountLeadPairs",
+     "resumeFinishedCampaign",
+     "resumePausedCampaign"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_add_linked_in_accounts_to_campaign",
+   "name": "Add linked in accounts to campaign",
+   "description": "Add LinkedIn accounts as senders to an existing campaign. Previously added senders remain unchanged. Up to 100 LinkedIn accounts can be processed per request. Individual account failures do not fail the whole request; each account returns its own result. When `success` is false, `errorStatus` is one of: `AccountNotFound`, `AccountAlreadyAssignedToThisCampaign`, `AccountDisconnected`, `AccountConne",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "linkedInAccountIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "linkedInAccountIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/AddLinkedInAccountsToCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "linkedInAccountIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_create",
+   "name": "Create",
+   "description": "## Creates a campaign in DRAFT status. After the campaign is fully configured, call **StartCampaign** (`POST /api/public/campaign/StartCampaign?campaignId=`) to activate it. **Important:** a campaign cannot be activated without a sequence. The example body below includes a sample `schedule` and `sequence`; if you omit `sequence` from your own call, you must add one via **UpdateSequence** before **",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/Create",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_create_campaign_from_template",
+   "name": "Create campaign from template",
+   "description": "## Creates a new campaign by cloning the sequence and schedule of an existing campaign (the template). The new campaign is created in DRAFT status. The sequence (workflow) and schedule are copied from the template campaign identified by `campaignIdForTemplate`; you supply the new name, lead list, sender accounts and exclude options. After creation, call **StartCampaign** (`POST /api/public/campaig",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignIdForTemplate": {
+      "type": "integer",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedInUserListId": {
+      "type": "integer",
+      "description": ""
+     },
+     "excludeContactedFromOtherCampaigns": {
+      "type": "boolean",
+      "description": ""
+     },
+     "excludeHasOtherAccConversations": {
+      "type": "boolean",
+      "description": ""
+     },
+     "excludeContactedFromSenderInOtherCampaign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkedInAcccountIdsForCampaign": {
+      "type": "array",
+      "description": ""
+     },
+     "excludeListId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignIdForTemplate",
+     "excludeContactedFromOtherCampaigns",
+     "excludeContactedFromSenderInOtherCampaign",
+     "excludeHasOtherAccConversations",
+     "linkedInAcccountIdsForCampaign",
+     "linkedInUserListId",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/CreateCampaignFromTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignIdForTemplate",
+     "name",
+     "linkedInUserListId",
+     "excludeContactedFromOtherCampaigns",
+     "excludeHasOtherAccConversations",
+     "excludeContactedFromSenderInOtherCampaign",
+     "linkedInAcccountIdsForCampaign",
+     "excludeListId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_get_all",
+   "name": "Get all",
+   "description": "Get a paginated collection of all campaigns. Get up to 100 campaigns per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "statuses": {
+      "type": "array",
+      "description": ""
+     },
+     "accountIds": {
+      "type": "array",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountIds",
+     "keyword",
+     "limit",
+     "offset",
+     "statuses"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/GetAll",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "keyword",
+     "statuses",
+     "accountIds",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_get_by_id",
+   "name": "Get by id",
+   "description": "Get a Campaign by id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "(Required)"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/campaign/GetById?campaignId=<long>",
+    "path": [],
+    "query": [
+     "campaignId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_get_campaign_sequence",
+   "name": "Get campaign sequence",
+   "description": "## Retrieves the current sequence (workflow) of a campaign as a PublicSequenceNodeDto. The returned object is directly compatible with the `sequence` field in **Create** and **UpdateSequence** - you can use it as-is without modification. Returns an empty 200 response if the campaign has no sequence. ### Query Parameters - **campaignId** _(long, required)_: The campaign whose sequence to retrieve. ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "(Required) The campaign whose sequence to retrieve"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/campaign/GetCampaignSequence?campaignId=<long>",
+    "path": [],
+    "query": [
+     "campaignId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_get_campaigns_for_lead",
+   "name": "Get campaigns for lead",
+   "description": "## Gets Campaigns for a Lead Retrieves the list of campaigns where the specified lead is. **Remark:** The response will contain campaigns that match the provided lead information, such as email, LinkedIn ID, or profile URL. ### Body Parameters - **email** _(string, optional)_: The email address of the lead. - **linkedinId** _(string, optional)_: The LinkedIn ID of the lead. - **profileUrl** _(stri",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedinId": {
+      "type": "string",
+      "description": ""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "email",
+     "limit",
+     "linkedinId",
+     "offset",
+     "profileUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/GetCampaignsForLead",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "email",
+     "linkedinId",
+     "profileUrl",
+     "offset",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_get_leads_from_campaign",
+   "name": "Get leads from campaign",
+   "description": "## Gets the leads that are in a campaign. This request corresponds to the \"Lead Analytics\" screen in the UI. **Remark:** It shows only the \"Pending\" leads that are about to start executing actions in the campaign. There might be more \"Pending\" leads from the specified lead list, that the system will insert later for execution. ### Body Parameters - **campaignId** _(integer)_: The ID of the campaig",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/GetLeadsFromCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_pause",
+   "name": "Pause",
+   "description": "Pauses the specified campaign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/Pause?campaignId=<long>",
+    "path": [],
+    "query": [
+     "campaignId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_remove_linked_in_accounts_from_campaign",
+   "name": "Remove linked in accounts from campaign",
+   "description": "Remove LinkedIn accounts from a campaign. Up to 100 LinkedIn accounts can be processed per request. Individual account failures do not fail the whole request; each account returns its own `status`, one of: `Success`, `NotPartOfThisCampaign`, `NotFound`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "linkedInAccountIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "linkedInAccountIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/RemoveLinkedInAccountsFromCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "linkedInAccountIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_resume",
+   "name": "Resume",
+   "description": "Resumes the specified campaign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "(Required) The id of the campaign to be resumed"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/Resume?campaignId=<long>",
+    "path": [],
+    "query": [
+     "campaignId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_start_campaign",
+   "name": "Start campaign",
+   "description": "## Activates a campaign that was created via **Create**. Call this after **Create** (and after any **UpdateSequence** / **UpdateSchedule** / **UpdateAccounts** configuration) to start running the campaign. The campaign must have a valid sequence and at least one connected LinkedIn sender account. ### Query Parameters - **campaignId** _(long, required)_: The ID of the campaign to activate. ### Erro",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "(Required) The id of the campaign to activate."
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/StartCampaign?campaignId=<long>",
+    "path": [],
+    "query": [
+     "campaignId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_stop_lead_in_campaign",
+   "name": "Stop lead in campaign",
+   "description": "# _Stops a lead in a campaign_ Call this method if you want to stop the progression of a lead in a campaign. ### Body Parameters - **campaignId** _(integer)_: The ID of the campaign. - **leadMemberId:** The lead member Id. You can get the member Id from the field 'linkedin_id' in the method 'GetLeadsFromCampaign' or from 'GetLeadsFromList' - **leadUrl:** the linked in URL for the lead",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "leadMemberId": {
+      "type": "string",
+      "description": ""
+     },
+     "leadUrl": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "leadMemberId",
+     "leadUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/StopLeadInCampaign",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "leadMemberId",
+     "leadUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_update_accounts",
+   "name": "Update accounts",
+   "description": "## Replaces the entire list of LinkedIn sender accounts assigned to a campaign. This is a **full replacement**, not a merge. Any account not in the new list will be removed. On a PAUSED campaign, leads assigned to a removed account will be stopped and cannot be resumed. Allowed statuses: DRAFT, SCHEDULED, PAUSED. Returns 400 for any other status (e.g. IN_PROGRESS, FINISHED). For SCHEDULED campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "linkedInAccountIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "linkedInAccountIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/UpdateAccounts",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "linkedInAccountIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_update_lead_custom_fields",
+   "name": "Update lead custom fields",
+   "description": "Update (upsert) custom fields on a lead in a campaign. Keys are field names, values are field values. - If a field exists: its value is updated. - If a field does not exist: it is created. - If the value is null or an empty string: the field is deleted. Up to 100 custom fields per request. Field names max 128 chars, values max 2048 chars. `leadMemberIdOrUrl` accepts a LinkedIn member id or a (URL-",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leadMemberIdOrUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "customFields",
+     "leadMemberIdOrUrl"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.heyreach.io/api//api/public/campaign/UpdateLeadCustomFields/campaigns/{campaignId}/leads/custom-fields",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leadMemberIdOrUrl",
+     "customFields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_update_schedule",
+   "name": "Update schedule",
+   "description": "## Replaces the schedule of a campaign. Defines when the campaign runs each day, which days it is active, the timezone, and optional start/end dates. Allowed statuses: DRAFT, SCHEDULED, PAUSED. Returns 400 for any other status (e.g. IN_PROGRESS, FINISHED). For SCHEDULED campaigns the campaign reverts to DRAFT. Once a campaign has been started at least once, `startDate` cannot be changed. ### Body ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "schedule": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "schedule"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/UpdateSchedule",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "schedule"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_update_sequence",
+   "name": "Update sequence",
+   "description": "## Creates or fully replaces the sequence (workflow) of a campaign. The START node is implicit; the root of the request must be your first action node. Every path through the tree must terminate with an **END** node. Allowed statuses: DRAFT, SCHEDULED, PAUSED. Returns 400 for any other status (e.g. IN_PROGRESS, FINISHED). For PAUSED campaigns a safe update is performed - existing lead states are p",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/UpdateSequence",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.campaigns_update_settings",
+   "name": "Update settings",
+   "description": "## Updates the general settings of a campaign: name, lead list, and exclusion options. Allowed statuses: DRAFT, SCHEDULED, PAUSED. Returns 400 for any other status (e.g. IN_PROGRESS, FINISHED). If the campaign was SCHEDULED, it reverts to DRAFT. **Important:** this is a full replacement of the settings below - every exclusion field you omit from the body will be reset to its default (`false` for b",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "campaignId": {
+      "type": "integer",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedInUserListId": {
+      "type": "integer",
+      "description": ""
+     },
+     "excludeContactedFromOtherCampaigns": {
+      "type": "boolean",
+      "description": ""
+     },
+     "excludeHasOtherAccConversations": {
+      "type": "boolean",
+      "description": ""
+     },
+     "excludeContactedFromSenderInOtherCampaign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "excludeListId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignId",
+     "excludeContactedFromOtherCampaigns",
+     "excludeContactedFromSenderInOtherCampaign",
+     "excludeHasOtherAccConversations",
+     "linkedInUserListId",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/campaign/UpdateSettings",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "campaignId",
+     "name",
+     "linkedInUserListId",
+     "excludeContactedFromOtherCampaigns",
+     "excludeHasOtherAccConversations",
+     "excludeContactedFromSenderInOtherCampaign",
+     "excludeListId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.enrichment_check_enrich_email_job",
+   "name": "Check enrich email job",
+   "description": "## Polls the status of an email-enrichment job created via `enrich-email`. ### Path Parameters - **jobId** _(long, required)_: Id returned by `enrich-email` when the job was created. ### Response fields - **jobId** _(long)_ - **status** _(string)_: Where the job is in its lifecycle - one of `PENDING`, `IN_PROGRESS`, `COMPLETED`, `FAILED`. - **data** _(object, optional)_: Present only once `status`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "(Required)"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/enrichment/enrich-email/check-job/{jobId}",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.enrichment_enrich_email",
+   "name": "Enrich email",
+   "description": "## Creates an email-enrichment job for a single lead. Enrichment runs asynchronously - poll `enrich-email/check-job/{jobId}` with the returned `jobId` until the job reaches a terminal status. Provide exactly one of `profileUrl` or `leadMemberId`. ### Body Parameters - **profileUrl** _(string, optional)_: The LinkedIn profile URL of the lead to enrich. If no lead with this URL exists yet, one is cr",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "leadMemberId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "profileUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/enrichment/enrich-email",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "profileUrl",
+     "leadMemberId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.inbox_get_chatroom",
+   "name": "Get chatroom",
+   "description": "Get a LinkedIn conversation with its messages by Id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "(Required)"
+     },
+     "conversationId": {
+      "type": "string",
+      "description": "(Required)"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": [
+     "accountId",
+     "conversationId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/inbox/GetChatroom/{accountId}/{conversationId}",
+    "path": [
+     "accountId",
+     "conversationId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.inbox_get_conversations_v2",
+   "name": "Get conversations v2",
+   "description": "Get a paginated collection of LinkedIn conversations. Get up to 100 lists per request. ### Body Parameters - **filters** - **linkedInAccountIds** (int\\[\\])**:** The ids of the LinkedIn senders - **campaignIds** (int\\[\\]) - **searchString** (string, optional) - **leadLinkedInId** (string, optional) - The LinkedIn ID of the lead. You can find this ID as \"linkedin_id\" in the response of many of our e",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "filters": {
+      "type": "object",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "filters",
+     "limit",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/inbox/GetConversationsV2",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "filters",
+     "offset",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.inbox_get_conversations_v3",
+   "name": "Get conversations v3",
+   "description": "## Get a cursor-paginated collection of LinkedIn conversations. Up to 100 items per request. Successor to **GetConversationsV2**. Two differences matter: - **Paging is cursor-based, not offset-based.** There is no `offset` - pass the `nextCursor` from the previous response as `cursor` to fetch the next page. This removes the deep-paging limit that **GetConversationsV2** runs into on large inboxes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "from": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "string",
+      "description": ""
+     },
+     "filters": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "filters",
+     "from",
+     "limit",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/inbox/GetConversationsV3",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "limit",
+     "cursor",
+     "from",
+     "to",
+     "filters"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.inbox_send_message",
+   "name": "Send message",
+   "description": "Send a message to a LinkedIn conversation. Parameters: - **linkedInAccountId** - The id of your LinkedIn sender",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "conversationId": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedInAccountId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversationId",
+     "linkedInAccountId",
+     "message",
+     "subject"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/inbox/SendMessage",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "message",
+     "subject",
+     "conversationId",
+     "linkedInAccountId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.inbox_set_seen_status",
+   "name": "Set seen status",
+   "description": "Mark a given conversation as seen or unseen based on the seen parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Public API Key"
+     },
+     "conversationId": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedInAccountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "seen": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversationId",
+     "linkedInAccountId",
+     "seen"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/inbox/SetSeenStatus",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "conversationId",
+     "linkedInAccountId",
+     "seen"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lead_tags_create_tags",
+   "name": "Create tags",
+   "description": "Create one or multiple tags for your workspace. You can assign these tags to leads. Available colors: Blue, Green, Purple, Pink, Red, Cyan, Yellow, Orange.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Public API Key"
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/lead_tags/CreateTags",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.leads_add_tags",
+   "name": "Add tags",
+   "description": "## Add Tags to Lead Adds tags to the lead. Existing tags will not be changed. - **leadProfileUrl (optional)**: the linkedIn profile url of the lead, for example '[https://www.linkedin.com/in/john-doe/'](https://www.linkedin.com/in/john-doe/') - l**eadLinkedInId (string, optional)**: The LinkedIn ID of the lead. You can find this ID as \"linkedin_id\" in the response of many of our endpoints, for exa",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leadProfileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "leadLinkedInId": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "createTagIfNotExisting": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "createTagIfNotExisting",
+     "leadLinkedInId",
+     "leadProfileUrl",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/lead/AddTags",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leadProfileUrl",
+     "leadLinkedInId",
+     "tags",
+     "createTagIfNotExisting"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.leads_get_lead",
+   "name": "Get lead",
+   "description": "## Gets Lead Details This endpoint retrieves the details of a specific lead based on their LinkedIn profile URL. **Remark:** The response will provide detailed information about the lead that matches the specified profile URL. ### Body Parameters - **profileUrl** _(string)_: The LinkedIn profile URL of the lead. This parameter is required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "profileUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/lead/GetLead",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "profileUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.leads_get_tags",
+   "name": "Get tags",
+   "description": "## Get Tags for a Lead Gets the tags for a lead. The tags are alphabetically sorted. - **profileUrl**: the linkedIn profile url of the lead, for example '[https://www.linkedin.com/in/john-doe/'](https://www.linkedin.com/in/john-doe/')",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "profileUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/lead/GetTags",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "profileUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.leads_replace_tags",
+   "name": "Replace tags",
+   "description": "## Replaces Tags to Lead Removes the existing tags and replaces with the new tags. - **leadProfileUrl (optional)**: the linkedIn profile url of the lead, for example '[https://www.linkedin.com/in/john-doe/'](https://www.linkedin.com/in/john-doe/') - l**eadLinkedInId (string, optional)**: The LinkedIn ID of the lead. You can find this ID as \"linkedin_id\" in the response of many of our endpoints, fo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leadProfileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "leadLinkedInId": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "createTagIfNotExisting": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "createTagIfNotExisting",
+     "leadLinkedInId",
+     "leadProfileUrl",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/lead/ReplaceTags",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leadProfileUrl",
+     "leadLinkedInId",
+     "tags",
+     "createTagIfNotExisting"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_connect",
+   "name": "Connect",
+   "description": "Connect a LinkedIn account using username and password. Returns immediately; poll GetAccountStatus to track progress. Provide either proxyCountryCode or customProxy, not both. Requires the Account Login API feature.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": ""
+     },
+     "username": {
+      "type": "string",
+      "description": ""
+     },
+     "password": {
+      "type": "string",
+      "description": ""
+     },
+     "twoFactorAuthKey": {
+      "type": "string",
+      "description": ""
+     },
+     "proxyCountryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "customProxy": {
+      "type": "object",
+      "description": ""
+     },
+     "inboxScrapeMode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customProxy",
+     "inboxScrapeMode",
+     "password",
+     "proxyCountryCode",
+     "twoFactorAuthKey",
+     "username"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/Connect",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "username",
+     "password",
+     "twoFactorAuthKey",
+     "proxyCountryCode",
+     "customProxy",
+     "inboxScrapeMode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_connect_with_cookies",
+   "name": "Connect with cookies",
+   "description": "Connect a LinkedIn account using session cookies. Member id is auto-extracted by authenticating with the cookies. Optionally supply userAgent matching the browser that generated the cookies. Requires the Account Login API feature.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "cookies": {
+      "type": "array",
+      "description": ""
+     },
+     "proxyCountryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "customProxy": {
+      "type": "object",
+      "description": ""
+     },
+     "inboxScrapeMode": {
+      "type": "string",
+      "description": ""
+     },
+     "userAgent": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "cookies",
+     "customProxy",
+     "inboxScrapeMode",
+     "proxyCountryCode",
+     "userAgent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/ConnectWithCookies",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "cookies",
+     "proxyCountryCode",
+     "customProxy",
+     "inboxScrapeMode",
+     "userAgent"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_delete_linked_in_account",
+   "name": "Delete linked in account",
+   "description": "Delete a LinkedIn account by its ID. This soft-deletes the LinkedIn account. - `forceDelete=false` (default): deletion fails with 400 if the account belongs to an active campaign. - `forceDelete=true`: the account is removed from active campaigns and then deleted. Requires the Master (Organization) API Key.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedInAccountId": {
+      "type": "string",
+      "description": ""
+     },
+     "forceDelete": {
+      "type": "boolean",
+      "description": "false: deletion fails if the account belongs to an active campaign. true: the account is removed from active campaigns and then deleted."
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Master (Organization) API Key"
+     }
+    },
+    "required": [
+     "linkedInAccountId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/linkedin-accounts/{linkedInAccountId}?forceDelete=false",
+    "path": [
+     "linkedInAccountId"
+    ],
+    "query": [
+     "forceDelete"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_account_proxy",
+   "name": "Get account proxy",
+   "description": "Get the proxy assigned to a LinkedIn account. Returns only the country code for platform-managed proxies, or full connection details for custom proxies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "LinkedIn account id"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/li_account/GetAccountProxy/{accountId}",
+    "path": [
+     "accountId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_account_status",
+   "name": "Get account status",
+   "description": "Get the current connection status of a LinkedIn account. Cached for 10 seconds. Poll after Connect, ConnectWithCookies, Reconnect, or Resync.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/li_account/GetAccountStatus/{accountId}",
+    "path": [
+     "accountId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_all",
+   "name": "Get all",
+   "description": "Get a paginated collection of all LinkedIn accounts. Get up to 100 accounts per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "keyword",
+     "limit",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/GetAll",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "keyword",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_by_id",
+   "name": "Get by id",
+   "description": "Get a LinkedIn account by id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "(Required) Id of the account to be returned"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/li_account/GetById?accountId=<integer>",
+    "path": [],
+    "query": [
+     "accountId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_linked_in_accounts",
+   "name": "Get linked in accounts",
+   "description": "Retrieve LinkedIn accounts across your organization. Supports pagination, optional `keyword` search and filtering by `workspaceIds` (empty/omitted returns all workspaces). Requires the Master (Organization) API Key.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Master (Organization) API Key"
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "workspaceIds": {
+      "type": "array",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "keyword",
+     "limit",
+     "offset",
+     "workspaceIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/linkedin-accounts",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "keyword",
+     "workspaceIds",
+     "offset",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_get_proxy_countries",
+   "name": "Get proxy countries",
+   "description": "Get all supported proxy country codes usable when connecting an account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/li_account/GetProxyCountries",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_move_to_workspace",
+   "name": "Move to workspace",
+   "description": "Move a LinkedIn account from its current workspace to another workspace. Requires the Master (Organization) API Key.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Master (Organization) API Key"
+     },
+     "linkedInAccountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "workspaceId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "linkedInAccountId",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/linkedin-accounts/MoveToWorkspace",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "linkedInAccountId",
+     "workspaceId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_reconnect",
+   "name": "Reconnect",
+   "description": "Reconnect an existing LinkedIn account using its stored credentials. Returns immediately; poll GetAccountStatus.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/Reconnect",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_relogin_recruiter",
+   "name": "Relogin recruiter",
+   "description": "Re-authenticate the Recruiter session. Account must be connected and have an active LinkedIn Recruiter subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/ReloginRecruiter",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_relogin_sales_navigator",
+   "name": "Relogin sales navigator",
+   "description": "Re-authenticate the Sales Navigator session. Account must be connected and have an active Sales Navigator subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/ReloginSalesNavigator",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_remove_account",
+   "name": "Remove account",
+   "description": "Remove a LinkedIn account. With force=true the account is first removed from all active campaigns before deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "LinkedIn account id"
+     },
+     "force": {
+      "type": "boolean",
+      "description": "If true, remove the account from all active campaigns before deleting."
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.heyreach.io/api//api/public/li_account/RemoveAccount/{accountId}?force=false",
+    "path": [
+     "accountId"
+    ],
+    "query": [
+     "force"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_resync",
+   "name": "Resync",
+   "description": "Resync the profile of a LinkedIn account. Returns immediately; poll GetAccountStatus.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/Resync",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_submit_pin",
+   "name": "Submit pin",
+   "description": "Submit a PIN for an account awaiting PIN verification. 409 if the account is not awaiting a PIN.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "pin": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId",
+     "pin"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/SubmitPin",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId",
+     "pin"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_update_inbox_configuration",
+   "name": "Update inbox configuration",
+   "description": "Update the inbox scrape configuration. Controls how far back inbox messages are synced when the account connects. inboxScrapeMode: 0 = AllTime, 1 = HeyReachOnly.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "inboxScrapeMode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId",
+     "inboxScrapeMode"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/UpdateInboxConfiguration",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId",
+     "inboxScrapeMode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.linked_in_accounts_update_proxy",
+   "name": "Update proxy",
+   "description": "Update the proxy assigned to a LinkedIn account. Provide either proxyCountryCode (platform-managed) or customProxy (your own). Providing both or neither returns 400.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "accountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "proxyCountryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "customProxy": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "accountId",
+     "customProxy",
+     "proxyCountryCode"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/li_account/UpdateProxy",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "accountId",
+     "proxyCountryCode",
+     "customProxy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_add_leads_to_list",
+   "name": "Add leads to list",
+   "description": "Add leads to a lead list. Add up to 100 leads per request. **The** **`name`** **field in the** **`customUserFields`** **array of the leads you are importing, must contain only alpha-numeric characters or underscores** **`_`**. **An error will be return in the case the** **`name`** **field does not follow this format.** **Be aware that adding leads to a list is not the same as addig them to a campa",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leads": {
+      "type": "array",
+      "description": ""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "leads",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/AddLeadsToList",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leads",
+     "listId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_add_leads_to_list_v2",
+   "name": "Add leads to list v2",
+   "description": "Add leads to a lead list. Add up to 100 leads per request. Same as the **AddLeadsToList** request, however this request returns counts for how many of the leads were added, how many were update and how many failed to be added. **The** **`name`** **field in the** **`customUserFields`** **array of the leads you are importing, must contain only alpha-numeric characters or underscores** **`_`**. **An ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leads": {
+      "type": "array",
+      "description": ""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "leads",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/AddLeadsToListV2",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leads",
+     "listId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_create_empty_list",
+   "name": "Create empty list",
+   "description": "Create an empty lead or company list. You pass the list name and the list type (**USER_LIST** or **COMPANY_LIST**). If the type value is left empty, a Lead list will be created by default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "name",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/CreateEmptyList",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "name",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_delete_leads_from_list",
+   "name": "Delete leads from list",
+   "description": "## Deletes the specified leads from a lead list. ### Params: - **listId** _(integer)_: The ID of the list. - **leadMemberIds** : Array of the LinkedIn IDs of the leads to be deleted. In our API responses, this _MemberId_ can also be named as '_linkedin_id_'.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     },
+     "leadMemberIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "leadMemberIds",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.heyreach.io/api//api/public/list/DeleteLeadsFromList",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "listId",
+     "leadMemberIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_delete_leads_from_list_by_profile_url",
+   "name": "Delete leads from list by profile url",
+   "description": "## Deletes the specified leads from a lead list by LinkedIn profile url. ### Params: - **listId** _(integer)_: The ID of the list. - **profileUrls**: Array of LinkedIn urls of the leads to be deleted. NOTE: this endpoint will return OK(200) even if the leads are not found in the list. If leads are not found in the list, they will be returned in the response, in the field 'notFoundInList' which wil",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     },
+     "profileUrls": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "listId",
+     "profileUrls"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.heyreach.io/api//api/public/list/DeleteLeadsFromListByProfileUrl",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "listId",
+     "profileUrls"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_get_all",
+   "name": "Get all",
+   "description": "Get a paginated collection of all company and lead lists. Get up to 100 lists per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "listType": {
+      "type": "string",
+      "description": ""
+     },
+     "campaignIds": {
+      "type": "array",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "campaignIds",
+     "keyword",
+     "limit",
+     "listType",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/GetAll",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "keyword",
+     "listType",
+     "campaignIds",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_get_by_id",
+   "name": "Get by id",
+   "description": "Get a lead or company list by Id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": "(Required) The Id of the list to be retrieved"
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/list/GetById?listId=<integer>",
+    "path": [],
+    "query": [
+     "listId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_get_companies_from_list",
+   "name": "Get companies from list",
+   "description": "Get a paginated collection of companies from a company list. Get up to 1000 companies per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "keyword",
+     "limit",
+     "listId",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/GetCompaniesFromList",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "listId",
+     "offset",
+     "keyword",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_get_leads_from_list",
+   "name": "Get leads from list",
+   "description": "Get a paginated collection of leads from a lead list. Get up to 1000 leads per request. - **listId:** The id of the lead list. - **keyword (optional)**: A search term to filter leads by name or other relevant fields. - **leadProfileUrl (optional)**: the linkedIn profile url of the lead, for example '[https://www.linkedin.com/in/john-doe/'](https://www.linkedin.com/in/john-doe/') - l**eadLinkedInId",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "listId": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "keyword": {
+      "type": "string",
+      "description": ""
+     },
+     "leadProfileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "leadLinkedInId": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "createdFrom": {
+      "type": "string",
+      "description": ""
+     },
+     "createdTo": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "createdFrom",
+     "createdTo",
+     "keyword",
+     "leadLinkedInId",
+     "leadProfileUrl",
+     "limit",
+     "listId",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/GetLeadsFromList",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "listId",
+     "offset",
+     "keyword",
+     "leadProfileUrl",
+     "leadLinkedInId",
+     "limit",
+     "createdFrom",
+     "createdTo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_get_lists_for_lead",
+   "name": "Get lists for lead",
+   "description": "## Gets Lists for a Lead This endpoint retrieves the lists associated with a specific lead. **Remark:** The response will include lead lists that match the provided lead details such as email, LinkedIn ID, or profile URL. ### Body Parameters - **email** _(string, optional)_: The email address of the lead. - **linkedinId** _(string, optional)_: The LinkedIn ID of the lead. - **profileUrl** _(string",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedinId": {
+      "type": "string",
+      "description": ""
+     },
+     "profileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "email",
+     "limit",
+     "linkedinId",
+     "offset",
+     "profileUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/list/GetListsForLead",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "email",
+     "linkedinId",
+     "profileUrl",
+     "offset",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.lists_update_lead_custom_fields",
+   "name": "Update lead custom fields",
+   "description": "Update (upsert) custom fields on a lead in a list. Keys are field names, values are field values. - If a field exists: its value is updated. - If a field does not exist: it is created. - If the value is null or an empty string: the field is deleted. Up to 100 custom fields per request. Field names max 128 chars, values max 2048 chars. `leadMemberIdOrUrl` accepts a LinkedIn member id or a (URL-enco",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "leadMemberIdOrUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "customFields": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "customFields",
+     "leadMemberIdOrUrl",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.heyreach.io/api//api/public/list/UpdateLeadCustomFields/lists/{listId}/leads/custom-fields",
+    "path": [
+     "listId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "leadMemberIdOrUrl",
+     "customFields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.my_network_get_my_network_for_sender",
+   "name": "Get my network for sender",
+   "description": "# GetMyNetworkForSender **Endpoint** `POST /`api/public/MyNetwork/GetMyNetworkForSender **Description** Gets paginated list of the network for the specified sender --- ## Request Body Example ``` json { \"pageNumber\": 0, \"pageSize\": 100, \"senderId\": 1234 } ``` StartFragment ## Request Parameters - **`senderId`** (number): The id of the sender account for which to retrieve the network",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": ""
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "senderId": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "pageNumber",
+     "pageSize",
+     "senderId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/MyNetwork/GetMyNetworkForSender",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "pageNumber",
+     "pageSize",
+     "senderId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.my_network_is_connection",
+   "name": "Is connection",
+   "description": "# IsConnection **Endpoint** `POST /`api/public/MyNetwork/IsConnection **Description** Gets a value indicating if the lead is a connection to the sender --- ## Request Body Example ``` json { \"senderAccountId\": 0, \"leadProfileUrl\": \"string\", \"leadLinkedInId\": \"string\" } ``` StartFragment ## Request Parameters - **`senderId`** (number): The id of the sender account for which to check. - **leadProfil",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "senderAccountId": {
+      "type": "integer",
+      "description": ""
+     },
+     "leadProfileUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "leadLinkedInId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "leadLinkedInId",
+     "leadProfileUrl",
+     "senderAccountId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/MyNetwork/IsConnection",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "senderAccountId",
+     "leadProfileUrl",
+     "leadLinkedInId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.webhooks_create_webhook",
+   "name": "Create webhook",
+   "description": "# Create Webhook **Endpoint** `POST {{baseUrl}}/api/public/webhooks/CreateWebhook` **Description** This API creates a new webhook that listens to specified events, optionally filtered by campaign IDs. --- ## Request Body Example ``` json { \"webhookName\": \"string\", \"webhookUrl\": \"string\", \"eventType\": \"CONNECTION_REQUEST_SENT\" | \"CONNECTION_REQUEST_ACCEPTED\" | \"MESSAGE_SENT\" | \"MESSAGE_REPLY_RECEIV",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/webhooks/CreateWebhook",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.webhooks_delete_webhook",
+   "name": "Delete webhook",
+   "description": "# Delete Webhook **Endpoint** `Delete {{baseUrl}}/api/public/webhooks/DeleteWebhook?webhookId=1234` **Description** This API deletes an existing webhook. --- ## Query Parameters - **`webhookId`** (`string`): The unique identifier of the webhook to delete. This must be provided as a query parameter. ---",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.heyreach.io/api//api/public/webhooks/DeleteWebhook?webhookId=1234",
+    "path": [],
+    "query": [
+     "webhookId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.webhooks_get_all_webhooks",
+   "name": "Get all webhooks",
+   "description": "# Get All Webhooks **Description** Get all webhooks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "includeCustomHeaders": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "includeCustomHeaders",
+     "limit",
+     "offset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/webhooks/GetAllWebhooks",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "limit",
+     "includeCustomHeaders"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.webhooks_get_webhook_by_id",
+   "name": "Get webhook by id",
+   "description": "# Get Webhook By Id **Description** Get a webhook by Id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": ""
+     },
+     "includeCustomHeaders": {
+      "type": "boolean",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/webhooks/GetWebhookById?webhookId=123&includeCustomHeaders=false",
+    "path": [],
+    "query": [
+     "webhookId",
+     "includeCustomHeaders"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.webhooks_update_webhook",
+   "name": "Update webhook",
+   "description": "# Update Webhook **Endpoint** `PATCH {{baseUrl}}/api/public/webhooks/UpdateWebhook?webhookId=1234` **Description** This API updates an existing webhook by modifying its configuration, such as name, URL, event type, associated campaigns, and status. --- ## Query Parameters - **`webhookId`** (`string`): The unique identifier of the webhook to update. This must be provided as a query parameter. --- #",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "API key header using this scheme. Example: \"X-API-KEY: {API_KEY}\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.heyreach.io/api//api/public/webhooks/UpdateWebhook?webhookId=1234",
+    "path": [],
+    "query": [
+     "webhookId"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_api_keys_create_workspace_api_keys",
+   "name": "Create workspace api keys",
+   "description": "Generate new API/Integration (Make, Zapier, N8N etc...) keys in a given workspace. Available API key types: **PUBLIC, N8N, MAKE, ZAPIER, MCP**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "apiKeyType": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "apiKeyType",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/api-keys/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "apiKeyType"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_api_keys_get_workspace_api_keys",
+   "name": "Get workspace api keys",
+   "description": "Get Public API, Make, Zapier, N8N and other relevant integration keys for a given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     }
+    },
+    "required": [
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/api-keys/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_get_all_users",
+   "name": "Get all users",
+   "description": "Get all existing and invited users in your organization. Filter by role and invitation status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "role": {
+      "type": "string",
+      "description": ""
+     },
+     "invitationStatus": {
+      "type": "array",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "invitationStatus",
+     "limit",
+     "offset",
+     "role"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "role",
+     "invitationStatus",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_get_user_by_id",
+   "name": "Get user by id",
+   "description": "Get information about a given user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     }
+    },
+    "required": [
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users/{userId}",
+    "path": [
+     "userId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_get_workspace_users",
+   "name": "Get workspace users",
+   "description": "Get all users in a given workspace along with their role and permissions.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "role": {
+      "type": "string",
+      "description": ""
+     },
+     "invitationStatus": {
+      "type": "array",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "invitationStatus",
+     "limit",
+     "offset",
+     "role",
+     "workspaceId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "offset",
+     "role",
+     "invitationStatus",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_invite_admins",
+   "name": "Invite admins",
+   "description": "Invite one or multiple users as admins in your organization. The invitation emails will not be sent, only an invitation URL is generated. You can send this URL to the relevant user in order to register them to HeyReach.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "inviterEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "inviterEmail"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users/invite/admins",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "inviterEmail",
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_invite_managers",
+   "name": "Invite managers",
+   "description": "Invite one or multiple users as managers in your organization. Manager users are special kind of users that exist outside your organization and are invited to specific workspaces. These users will not be part of you organization and only have access to the specified workspaces. These users are automatically added to your workspace and don't need to register.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "inviterEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     },
+     "workspaceIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "inviterEmail",
+     "workspaceIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users/invite/managers",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "inviterEmail",
+     "emails",
+     "workspaceIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspace_users_invite_members",
+   "name": "Invite members",
+   "description": "Invite one or multiple users in your organization. Specify the relevant permissions for each invited user. The invitation emails will not be sent, only an invitation URL is generated. You can send this URL to the relevant user in order to register them to HeyReach.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "inviterEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "workspaceIds": {
+      "type": "array",
+      "description": ""
+     },
+     "permissions": {
+      "type": "object",
+      "description": ""
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "inviterEmail",
+     "permissions",
+     "workspaceIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/users/invite/members",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "inviterEmail",
+     "workspaceIds",
+     "permissions",
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspaces_create_workspace",
+   "name": "Create workspace",
+   "description": "Create new workspace in your organization",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "workspaceName": {
+      "type": "string",
+      "description": ""
+     },
+     "seatsLimit": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "workspaceName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/workspaces",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "workspaceName",
+     "seatsLimit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspaces_get_all_workspaces",
+   "name": "Get all workspaces",
+   "description": "List all workspaces in your organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/workspaces?Offset=9109&Limit=66",
+    "path": [],
+    "query": [
+     "Offset",
+     "Limit"
+    ],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heyreach.workspaces_update_workspace",
+   "name": "Update workspace",
+   "description": "Update a given workspace in your organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspaceId": {
+      "type": "string",
+      "description": ""
+     },
+     "X-API-KEY": {
+      "type": "string",
+      "description": "Workspace API Key"
+     },
+     "workspaceName": {
+      "type": "string",
+      "description": ""
+     },
+     "seatsLimit": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "seatsLimit",
+     "workspaceId",
+     "workspaceName"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.heyreach.io/api//api/public/management/organizations/workspaces/{workspaceId}",
+    "path": [
+     "workspaceId"
+    ],
+    "query": [],
+    "header": [
+     "X-API-KEY"
+    ],
+    "body": [
+     "workspaceName",
+     "seatsLimit"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

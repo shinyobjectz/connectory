@@ -4308,7 +4308,7 @@
   {
    "slug": "stripe.get_customers_customer_discount",
    "name": "Get customers customer discount",
-   "description": "",
+   "description": "Lists discount.",
    "input": {
     "type": "object",
     "properties": {
@@ -4337,7 +4337,8 @@
     "header": [],
     "body": [],
     "body_format": "form"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "stripe.get_customers_customer_payment_methods",
@@ -4643,7 +4644,7 @@
   {
    "slug": "stripe.get_customers_customer_subscriptions_subscription_exposed_id_discount",
    "name": "Get customers customer subscriptions subscription exposed id discount",
-   "description": "",
+   "description": "Lists discount.",
    "input": {
     "type": "object",
     "properties": {
@@ -4678,7 +4679,8 @@
     "header": [],
     "body": [],
     "body_format": "form"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "stripe.get_customers_customer_tax_ids",
@@ -14614,7 +14616,7 @@
   {
    "slug": "stripe.post_application_fees_id_refund",
    "name": "Post application fees id refund",
-   "description": "",
+   "description": "Creates a refund.",
    "input": {
     "type": "object",
     "properties": {
@@ -14653,7 +14655,8 @@
      "expand"
     ],
     "body_format": "form"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "stripe.post_application_fees_id_refunds",
@@ -16005,7 +16008,7 @@
   {
    "slug": "stripe.post_charges_charge_dispute",
    "name": "Post charges charge dispute",
-   "description": "",
+   "description": "Creates a dispute.",
    "input": {
     "type": "object",
     "properties": {
@@ -16049,12 +16052,13 @@
      "submit"
     ],
     "body_format": "form"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "stripe.post_charges_charge_dispute_close",
    "name": "Post charges charge dispute close",
-   "description": "",
+   "description": "Creates a close.",
    "input": {
     "type": "object",
     "properties": {
@@ -16083,7 +16087,8 @@
      "expand"
     ],
     "body_format": "form"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "stripe.post_charges_charge_refund",

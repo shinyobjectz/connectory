@@ -1,0 +1,3212 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "discolike",
+ "source": "https://api.discolike.com/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "discolike.append_endpoint_append_post",
+   "name": "Append datasets to domains",
+   "description": "Append firmographic, contact, vendor, or other datasets to a list of domains from a CSV/Excel file, a saved query (query_id), or both.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_column": {
+      "type": "string",
+      "description": "Column name containing domains (auto-detected if not provided)."
+     },
+     "csv": {
+      "type": "boolean",
+      "description": "Return results as CSV instead of JSON."
+     },
+     "dataset": {
+      "type": "array",
+      "description": "Datasets to append."
+     },
+     "query_id": {
+      "type": "string",
+      "description": "Append domains from these saved queries, unioned with any file-derived domains."
+     },
+     "file": {
+      "type": "string",
+      "description": "CSV or Excel file containing domains."
+     }
+    },
+    "required": [
+     "dataset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/append",
+    "path": [],
+    "query": [
+     "domain_column",
+     "csv",
+     "dataset",
+     "query_id"
+    ],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.authorize_crm_provider_authorize_get",
+   "name": "Authorize",
+   "description": "Authorize",
+   "input": {
+    "type": "object",
+    "properties": {
+     "provider": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/crm/{provider}/authorize",
+    "path": [
+     "provider"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.batch_enumerate_email_find_batch_post",
+   "name": "Submit a batch of enumeration jobs",
+   "description": "Submit many enumeration requests at once. Returns a batch id; poll batch results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "source_query_id": {
+      "type": "string",
+      "description": "Saved query id whose stored contacts receive these verdicts"
+     },
+     "refs": {
+      "type": "string",
+      "description": "Contact row ids, one per request, aligned by index (requires source_query_id)"
+     },
+     "round": {
+      "type": "string",
+      "description": "verify = first pass, escalate = re-check of unproven",
+      "enum": [
+       "verify",
+       "escalate"
+      ]
+     },
+     "requests": {
+      "type": "array",
+      "description": "Find-email requests to process"
+     }
+    },
+    "required": [
+     "requests"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/email/find/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "source_query_id",
+     "refs",
+     "round",
+     "requests"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.bizdata_bizdata_get",
+   "name": "Get business firmographic data",
+   "description": "Returns firmographic data for a domain including company name, status, score, address, phones, social URLs, description, keywords, and industry classification.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/bizdata",
+    "path": [],
+    "query": [
+     "domain"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.bulk_contact_match_api_contacts_bulk_match_post",
+   "name": "Bulk match contacts by name or email",
+   "description": "Match a list of person names and/or emails to contacts in the database. Queries with an email are looked up by exact match first, falling back to name matching. Returns a task ID for async processing. Check status via /contactmatch/status/{task_id}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "queries": {
+      "type": "array",
+      "description": "List of contact match queries to process."
+     },
+     "enrich": {
+      "type": "boolean",
+      "description": "When true, hydrate full contact data from the vector database (costs credits)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum matches per query (1-20)."
+     }
+    },
+    "required": [
+     "queries"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/contacts/bulk-match",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "queries",
+     "enrich",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.bulk_match_bulkmatch_post",
+   "name": "Bulk match companies by name",
+   "description": "Match a list of company names from a CSV/Excel file to business domain profiles. Returns a task ID for async processing. Check status via /bulkmatch/status/{task_id}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name_column": {
+      "type": "string",
+      "description": "Column name containing company names."
+     },
+     "phone_column": {
+      "type": "string",
+      "description": "Column name containing phone numbers."
+     },
+     "city_column": {
+      "type": "string",
+      "description": "Column name containing cities."
+     },
+     "state_column": {
+      "type": "string",
+      "description": "Column name containing states, as ISO 3166-2 codes or names."
+     },
+     "country_column": {
+      "type": "string",
+      "description": "Column name containing country codes."
+     },
+     "zip_code_column": {
+      "type": "string",
+      "description": "Column name containing zip codes."
+     },
+     "strict": {
+      "type": "boolean",
+      "description": "Enable strict matching."
+     },
+     "local_mode": {
+      "type": "boolean",
+      "description": "Preserve location filters."
+     },
+     "min_match_confidence": {
+      "type": "integer",
+      "description": "Minimum match_confidence (inclusive, 50-100) a match must have to be returned. Defaults to 50, the standard quality floor."
+     },
+     "file": {
+      "type": "string",
+      "description": "CSV or Excel file with company names."
+     }
+    },
+    "required": [
+     "file",
+     "name_column"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/bulkmatch",
+    "path": [],
+    "query": [
+     "name_column",
+     "phone_column",
+     "city_column",
+     "state_column",
+     "country_column",
+     "zip_code_column",
+     "strict",
+     "local_mode",
+     "min_match_confidence"
+    ],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.cancel_ongoing_task_task_cancel_task_id_delete",
+   "name": "Cancel ongoing task",
+   "description": "Cancel a running asynchronous task. Args: task: The type of task (segment, bulkmatch, discogen) task_id: The UUID of the task to cancel request: FastAPI request object auth_info: Authentication information Returns: JSON response: Cancellation status and message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task": {
+      "type": "string",
+      "description": "Task family: discogen, bulkmatch, contactmatch, or segment."
+     },
+     "task_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "task",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/{task}/cancel/{task_id}",
+    "path": [
+     "task",
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.clear_default_search_provider_search_providers_integration_id_default_delete",
+   "name": "Clear default search provider",
+   "description": "Remove the default flag from a search provider. Only clears the default if the specified integration is currently the default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/search-providers/{integration_id}/default",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.contact_match_api_contacts_match_get",
+   "name": "Match contact by name",
+   "description": "Match a person's name to contacts in our database, optionally filtered by company or domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Person name to search for."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name to narrow the search."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Domain to filter results."
+     },
+     "person_country": {
+      "type": "string",
+      "description": "Person's country code (ISO-3166-1 alpha-2)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum results to return (1-20)."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/contacts/match",
+    "path": [],
+    "query": [
+     "name",
+     "company_name",
+     "domain",
+     "person_country",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.contacts_api_contacts_get",
+   "name": "Search contacts",
+   "description": "Search for business contacts using similarity matching, domain filtering, or persona filters. Supports ICP text matching and persona-based similarity search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter_industry": {
+      "type": "string",
+      "description": "Filter by industry category. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUMER_SERVICES"
+     },
+     "negate_filter_industry": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified industries. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_P"
+     },
+     "filter_country": {
+      "type": "string",
+      "description": "Filter by company country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_filter_country": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified countries. Accepts same codes and region aliases as filter_country."
+     },
+     "filter_state": {
+      "type": "string",
+      "description": "Filter by company state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "negate_filter_state": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified states. Same format as filter_state."
+     },
+     "employee_range": {
+      "type": "string",
+      "description": "Filter by employee count range. Format: 'min,max' (e.g., '51,200'). Maps to buckets: 1-10, 11-50, 51-200, 201-500, 501-1000, 1001-5000, 5001-10000, 10001+."
+     },
+     "revenue_range": {
+      "type": "string",
+      "description": ""
+     },
+     "seniority": {
+      "type": "string",
+      "description": "Filter by seniority bucket: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "negate_seniority": {
+      "type": "string",
+      "description": "Exclude contacts with these seniority levels: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "department": {
+      "type": "string",
+      "description": "Filter by department. Valid values: Operations, Executive, Technology, Sales - Marketing, Finance, Legal, Human Resources, Medical - Science, Customer Service, Research & Development, Administration, Public Relations, Investor Relations, Pro Services, Other."
+     },
+     "negate_department": {
+      "type": "string",
+      "description": "Exclude contacts in specified departments. Same valid values as `department`."
+     },
+     "skills": {
+      "type": "string",
+      "description": "Filter by skills. Multiple skills can be provided."
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by contact name (partial match supported)."
+     },
+     "title": {
+      "type": "string",
+      "description": "Filter by job title. Each item is a separate match term. Supports quoted phrases and + prefix for required terms. C-suite acronyms are auto-expanded to their spelled-out forms and vice versa (e.g. 'CEO' also matches 'Chief Executive Officer'); wrap a term in quotes to match it literally without expansion."
+     },
+     "negate_title": {
+      "type": "string",
+      "description": "Exclude contacts with specified job titles. C-suite acronyms are expanded the same way as in 'title'."
+     },
+     "summary": {
+      "type": "string",
+      "description": "Filter by profile summary text (semantic search)."
+     },
+     "negate_summary": {
+      "type": "string",
+      "description": "Exclude contacts matching this summary description."
+     },
+     "person_country": {
+      "type": "string",
+      "description": "Filter by contact's country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_person_country": {
+      "type": "string",
+      "description": "Exclude contacts in specified countries. Accepts same codes and region aliases as person_country."
+     },
+     "person_state": {
+      "type": "string",
+      "description": "Filter by contact's state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "has_email": {
+      "type": "boolean",
+      "description": "Only include contacts with email addresses."
+     },
+     "email_validated": {
+      "type": "boolean",
+      "description": "Only include contacts with validated email addresses."
+     },
+     "has_phone": {
+      "type": "boolean",
+      "description": "Only include contacts with phone numbers."
+     },
+     "has_mobile": {
+      "type": "boolean",
+      "description": "Only include contacts with mobile phone numbers."
+     },
+     "has_linkedin": {
+      "type": "boolean",
+      "description": "Only include contacts with LinkedIn profiles."
+     },
+     "min_connections": {
+      "type": "string",
+      "description": "Minimum LinkedIn connections required."
+     },
+     "jobstart_date": {
+      "type": "string",
+      "description": "Filter by job start date: minimum date (YYYY-MM-DD) or range (YYYY-MM-DD,YYYY-MM-DD). Matches contacts who started their current role in this window; contacts without a known start date are excluded."
+     },
+     "persona_id": {
+      "type": "string",
+      "description": "Filter by specific persona IDs."
+     },
+     "icp_text": {
+      "type": "string",
+      "description": "Natural language description of ideal contact profile for semantic matching."
+     },
+     "negate_icp_text": {
+      "type": "string",
+      "description": "Exclude contacts matching this profile description."
+     },
+     "icp_prompt": {
+      "type": "string",
+      "description": "Natural language ICP description. Automatically extracts structured contact filters (seniority, department, industry, country, employee/revenue range, etc.), cleans the semantic description, and applies them before running the contact search. User-provided filters take precedence over wizard-extracted ones."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Filter contacts at specific company domains."
+     },
+     "inclusion_query_id": {
+      "type": "string",
+      "description": "Include only contacts from companies in these saved queries."
+     },
+     "exclusion_query_id": {
+      "type": "string",
+      "description": "Exclude contacts from companies in these saved queries."
+     },
+     "max_records": {
+      "type": "integer",
+      "description": "Maximum number of contacts to return (20-10000)."
+     },
+     "max_companies": {
+      "type": "string",
+      "description": "Maximum number of enriched companies to return. Cannot be combined with `max_records`; when set, the internal total contact cap is derived from `max_companies * results_by_company`, capped at 10000."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip for pagination."
+     },
+     "results_by_company": {
+      "type": "integer",
+      "description": "Maximum contacts per company domain. Default 5 \u2014 i.e. without this parameter the endpoint returns up to 5 contacts from any one company so results spread across more distinct companies. Set `results_by_company=0` to remove the cap (return every matching contact per company, up to `max_records` total \u2014 or the global ceiling of 10000 when paired with `max_companies`). When the value is non-zero, `of"
+     },
+     "include_search_contacts": {
+      "type": "boolean",
+      "description": "Include contacts from the search index (broader coverage)."
+     },
+     "consensus": {
+      "type": "integer",
+      "description": "Number of query vectors to combine for consensus search."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/contacts",
+    "path": [],
+    "query": [
+     "filter_industry",
+     "negate_filter_industry",
+     "filter_country",
+     "negate_filter_country",
+     "filter_state",
+     "negate_filter_state",
+     "employee_range",
+     "revenue_range",
+     "seniority",
+     "negate_seniority",
+     "department",
+     "negate_department",
+     "skills",
+     "name",
+     "title",
+     "negate_title",
+     "summary",
+     "negate_summary",
+     "person_country",
+     "negate_person_country",
+     "person_state",
+     "has_email",
+     "email_validated",
+     "has_phone",
+     "has_mobile",
+     "has_linkedin",
+     "min_connections",
+     "jobstart_date",
+     "persona_id",
+     "icp_text",
+     "negate_icp_text",
+     "icp_prompt",
+     "domain",
+     "inclusion_query_id",
+     "exclusion_query_id",
+     "max_records",
+     "max_companies",
+     "offset",
+     "results_by_company",
+     "include_search_contacts",
+     "consensus"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.contacts_count_api_contacts_count_get",
+   "name": "Count matching contacts",
+   "description": "Estimate the number of contacts matching the specified filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter_industry": {
+      "type": "string",
+      "description": "Filter by industry category. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUMER_SERVICES"
+     },
+     "negate_filter_industry": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified industries. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_P"
+     },
+     "filter_country": {
+      "type": "string",
+      "description": "Filter by company country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_filter_country": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified countries. Accepts same codes and region aliases as filter_country."
+     },
+     "filter_state": {
+      "type": "string",
+      "description": "Filter by company state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "negate_filter_state": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified states. Same format as filter_state."
+     },
+     "employee_range": {
+      "type": "string",
+      "description": "Filter by employee count range. Format: 'min,max' (e.g., '51,200'). Maps to buckets: 1-10, 11-50, 51-200, 201-500, 501-1000, 1001-5000, 5001-10000, 10001+."
+     },
+     "revenue_range": {
+      "type": "string",
+      "description": ""
+     },
+     "seniority": {
+      "type": "string",
+      "description": "Filter by seniority bucket: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "negate_seniority": {
+      "type": "string",
+      "description": "Exclude contacts with these seniority levels: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "department": {
+      "type": "string",
+      "description": "Filter by department. Valid values: Operations, Executive, Technology, Sales - Marketing, Finance, Legal, Human Resources, Medical - Science, Customer Service, Research & Development, Administration, Public Relations, Investor Relations, Pro Services, Other."
+     },
+     "negate_department": {
+      "type": "string",
+      "description": "Exclude contacts in specified departments. Same valid values as `department`."
+     },
+     "skills": {
+      "type": "string",
+      "description": "Filter by skills. Multiple skills can be provided."
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by contact name (partial match supported)."
+     },
+     "title": {
+      "type": "string",
+      "description": "Filter by job title. Each item is a separate match term. Supports quoted phrases and + prefix for required terms. C-suite acronyms are auto-expanded to their spelled-out forms and vice versa (e.g. 'CEO' also matches 'Chief Executive Officer'); wrap a term in quotes to match it literally without expansion."
+     },
+     "negate_title": {
+      "type": "string",
+      "description": "Exclude contacts with specified job titles. C-suite acronyms are expanded the same way as in 'title'."
+     },
+     "summary": {
+      "type": "string",
+      "description": "Filter by profile summary text (semantic search)."
+     },
+     "negate_summary": {
+      "type": "string",
+      "description": "Exclude contacts matching this summary description."
+     },
+     "person_country": {
+      "type": "string",
+      "description": "Filter by contact's country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_person_country": {
+      "type": "string",
+      "description": "Exclude contacts in specified countries. Accepts same codes and region aliases as person_country."
+     },
+     "person_state": {
+      "type": "string",
+      "description": "Filter by contact's state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "has_email": {
+      "type": "boolean",
+      "description": "Only include contacts with email addresses."
+     },
+     "email_validated": {
+      "type": "boolean",
+      "description": "Only include contacts with validated email addresses."
+     },
+     "has_phone": {
+      "type": "boolean",
+      "description": "Only include contacts with phone numbers."
+     },
+     "has_mobile": {
+      "type": "boolean",
+      "description": "Only include contacts with mobile phone numbers."
+     },
+     "has_linkedin": {
+      "type": "boolean",
+      "description": "Only include contacts with LinkedIn profiles."
+     },
+     "min_connections": {
+      "type": "string",
+      "description": "Minimum LinkedIn connections required."
+     },
+     "jobstart_date": {
+      "type": "string",
+      "description": "Filter by job start date: minimum date (YYYY-MM-DD) or range (YYYY-MM-DD,YYYY-MM-DD). Matches contacts who started their current role in this window; contacts without a known start date are excluded."
+     },
+     "persona_id": {
+      "type": "string",
+      "description": "Filter by specific persona IDs."
+     },
+     "icp_text": {
+      "type": "string",
+      "description": "Natural language description of ideal contact profile for semantic matching."
+     },
+     "negate_icp_text": {
+      "type": "string",
+      "description": "Exclude contacts matching this profile description."
+     },
+     "icp_prompt": {
+      "type": "string",
+      "description": "Natural language ICP description. Automatically extracts structured contact filters (seniority, department, industry, country, employee/revenue range, etc.), cleans the semantic description, and applies them before running the contact search. User-provided filters take precedence over wizard-extracted ones."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Filter contacts at specific company domains."
+     },
+     "inclusion_query_id": {
+      "type": "string",
+      "description": "Include only contacts from companies in these saved queries."
+     },
+     "exclusion_query_id": {
+      "type": "string",
+      "description": "Exclude contacts from companies in these saved queries."
+     },
+     "max_records": {
+      "type": "integer",
+      "description": "Maximum number of contacts to return (20-10000)."
+     },
+     "max_companies": {
+      "type": "string",
+      "description": "Maximum number of enriched companies to return. Cannot be combined with `max_records`; when set, the internal total contact cap is derived from `max_companies * results_by_company`, capped at 10000."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip for pagination."
+     },
+     "results_by_company": {
+      "type": "integer",
+      "description": "Maximum contacts per company domain. Default 5 \u2014 i.e. without this parameter the endpoint returns up to 5 contacts from any one company so results spread across more distinct companies. Set `results_by_company=0` to remove the cap (return every matching contact per company, up to `max_records` total \u2014 or the global ceiling of 10000 when paired with `max_companies`). When the value is non-zero, `of"
+     },
+     "include_search_contacts": {
+      "type": "boolean",
+      "description": "Include contacts from the search index (broader coverage)."
+     },
+     "consensus": {
+      "type": "integer",
+      "description": "Number of query vectors to combine for consensus search."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/contacts/count",
+    "path": [],
+    "query": [
+     "filter_industry",
+     "negate_filter_industry",
+     "filter_country",
+     "negate_filter_country",
+     "filter_state",
+     "negate_filter_state",
+     "employee_range",
+     "revenue_range",
+     "seniority",
+     "negate_seniority",
+     "department",
+     "negate_department",
+     "skills",
+     "name",
+     "title",
+     "negate_title",
+     "summary",
+     "negate_summary",
+     "person_country",
+     "negate_person_country",
+     "person_state",
+     "has_email",
+     "email_validated",
+     "has_phone",
+     "has_mobile",
+     "has_linkedin",
+     "min_connections",
+     "jobstart_date",
+     "persona_id",
+     "icp_text",
+     "negate_icp_text",
+     "icp_prompt",
+     "domain",
+     "inclusion_query_id",
+     "exclusion_query_id",
+     "max_records",
+     "max_companies",
+     "offset",
+     "results_by_company",
+     "include_search_contacts",
+     "consensus"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.contacts_discover_contacts_discover_post",
+   "name": "Discover contacts grouped by domain",
+   "description": "Search for business contacts and return them grouped by company domain, with firmographic data included per company. Bills net-new contacts and net-new firmo domains.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter_industry": {
+      "type": "string",
+      "description": "Filter by industry category. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUMER_SERVICES"
+     },
+     "negate_filter_industry": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified industries. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_P"
+     },
+     "filter_country": {
+      "type": "string",
+      "description": "Filter by company country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_filter_country": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified countries. Accepts same codes and region aliases as filter_country."
+     },
+     "filter_state": {
+      "type": "string",
+      "description": "Filter by company state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "negate_filter_state": {
+      "type": "string",
+      "description": "Exclude contacts at companies in specified states. Same format as filter_state."
+     },
+     "employee_range": {
+      "type": "string",
+      "description": "Filter by employee count range. Format: 'min,max' (e.g., '51,200'). Maps to buckets: 1-10, 11-50, 51-200, 201-500, 501-1000, 1001-5000, 5001-10000, 10001+."
+     },
+     "revenue_range": {
+      "type": "string",
+      "description": ""
+     },
+     "seniority": {
+      "type": "string",
+      "description": "Filter by seniority bucket: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "negate_seniority": {
+      "type": "string",
+      "description": "Exclude contacts with these seniority levels: executive, vp, director, manager, senior_ic, mid_level, entry_level"
+     },
+     "department": {
+      "type": "string",
+      "description": "Filter by department. Valid values: Operations, Executive, Technology, Sales - Marketing, Finance, Legal, Human Resources, Medical - Science, Customer Service, Research & Development, Administration, Public Relations, Investor Relations, Pro Services, Other."
+     },
+     "negate_department": {
+      "type": "string",
+      "description": "Exclude contacts in specified departments. Same valid values as `department`."
+     },
+     "skills": {
+      "type": "string",
+      "description": "Filter by skills. Multiple skills can be provided."
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by contact name (partial match supported)."
+     },
+     "title": {
+      "type": "string",
+      "description": "Filter by job title. Each item is a separate match term. Supports quoted phrases and + prefix for required terms. C-suite acronyms are auto-expanded to their spelled-out forms and vice versa (e.g. 'CEO' also matches 'Chief Executive Officer'); wrap a term in quotes to match it literally without expansion."
+     },
+     "negate_title": {
+      "type": "string",
+      "description": "Exclude contacts with specified job titles. C-suite acronyms are expanded the same way as in 'title'."
+     },
+     "summary": {
+      "type": "string",
+      "description": "Filter by profile summary text (semantic search)."
+     },
+     "negate_summary": {
+      "type": "string",
+      "description": "Exclude contacts matching this summary description."
+     },
+     "person_country": {
+      "type": "string",
+      "description": "Filter by contact's country using ISO-3166-1 alpha-2 codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_person_country": {
+      "type": "string",
+      "description": "Exclude contacts in specified countries. Accepts same codes and region aliases as person_country."
+     },
+     "person_state": {
+      "type": "string",
+      "description": "Filter by contact's state/region. Accepts ISO 3166-2 codes or names, resolved against the selected countries; a value that resolves under none is ignored."
+     },
+     "has_email": {
+      "type": "boolean",
+      "description": "Only include contacts with email addresses."
+     },
+     "email_validated": {
+      "type": "boolean",
+      "description": "Only include contacts with validated email addresses."
+     },
+     "has_phone": {
+      "type": "boolean",
+      "description": "Only include contacts with phone numbers."
+     },
+     "has_mobile": {
+      "type": "boolean",
+      "description": "Only include contacts with mobile phone numbers."
+     },
+     "has_linkedin": {
+      "type": "boolean",
+      "description": "Only include contacts with LinkedIn profiles."
+     },
+     "min_connections": {
+      "type": "string",
+      "description": "Minimum LinkedIn connections required."
+     },
+     "jobstart_date": {
+      "type": "string",
+      "description": "Filter by job start date: minimum date (YYYY-MM-DD) or range (YYYY-MM-DD,YYYY-MM-DD). Matches contacts who started their current role in this window; contacts without a known start date are excluded."
+     },
+     "persona_id": {
+      "type": "string",
+      "description": "Filter by specific persona IDs."
+     },
+     "icp_text": {
+      "type": "string",
+      "description": "Natural language description of ideal contact profile for semantic matching."
+     },
+     "negate_icp_text": {
+      "type": "string",
+      "description": "Exclude contacts matching this profile description."
+     },
+     "icp_prompt": {
+      "type": "string",
+      "description": "Natural language ICP description. Automatically extracts structured contact filters (seniority, department, industry, country, employee/revenue range, etc.), cleans the semantic description, and applies them before running the contact search. User-provided filters take precedence over wizard-extracted ones."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Filter contacts at specific company domains."
+     },
+     "inclusion_query_id": {
+      "type": "string",
+      "description": "Include only contacts from companies in these saved queries."
+     },
+     "exclusion_query_id": {
+      "type": "string",
+      "description": "Exclude contacts from companies in these saved queries."
+     },
+     "max_records": {
+      "type": "integer",
+      "description": "Maximum number of contacts to return (20-10000)."
+     },
+     "max_companies": {
+      "type": "string",
+      "description": "Maximum number of enriched companies to return. Cannot be combined with `max_records`; when set, the internal total contact cap is derived from `max_companies * results_by_company`, capped at 10000."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of results to skip for pagination."
+     },
+     "results_by_company": {
+      "type": "integer",
+      "description": "Maximum contacts per company domain. Default 5 \u2014 i.e. without this parameter the endpoint returns up to 5 contacts from any one company so results spread across more distinct companies. Set `results_by_company=0` to remove the cap (return every matching contact per company, up to `max_records` total \u2014 or the global ceiling of 10000 when paired with `max_companies`). When the value is non-zero, `of"
+     },
+     "include_search_contacts": {
+      "type": "boolean",
+      "description": "Include contacts from the search index (broader coverage)."
+     },
+     "consensus": {
+      "type": "integer",
+      "description": "Number of query vectors to combine for consensus search."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/contacts/discover",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter_industry",
+     "negate_filter_industry",
+     "filter_country",
+     "negate_filter_country",
+     "filter_state",
+     "negate_filter_state",
+     "employee_range",
+     "revenue_range",
+     "seniority",
+     "negate_seniority",
+     "department",
+     "negate_department",
+     "skills",
+     "name",
+     "title",
+     "negate_title",
+     "summary",
+     "negate_summary",
+     "person_country",
+     "negate_person_country",
+     "person_state",
+     "has_email",
+     "email_validated",
+     "has_phone",
+     "has_mobile",
+     "has_linkedin",
+     "min_connections",
+     "jobstart_date",
+     "persona_id",
+     "icp_text",
+     "negate_icp_text",
+     "icp_prompt",
+     "domain",
+     "inclusion_query_id",
+     "exclusion_query_id",
+     "max_records",
+     "max_companies",
+     "offset",
+     "results_by_company",
+     "include_search_contacts",
+     "consensus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.contacts_discover_generate_contacts_discover_generate_post",
+   "name": "Contacts discover generate",
+   "description": "Dispatch a BYOK DiscoGen task that discovers contacts at each given company domain. Builds a `test_discogen_prompt.py`-style multi-row query (\"Find X. Return A | B | C per line.\") from the ICP text. DiscoGen auto-detects the response format and runs the query per-domain with web search enabled. Poll GET /discogen/status/{task_id} for results. BYOK: uses the caller's own LLM and search provider key",
+   "input": {
+    "type": "object",
+    "properties": {
+     "icp_text": {
+      "type": "string",
+      "description": "ICP / persona description of the contacts to find."
+     },
+     "domains": {
+      "type": "array",
+      "description": "Company domains to search at (1-10000)."
+     },
+     "context_mode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "website",
+       "profile",
+       "domain"
+      ]
+     },
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     },
+     "search_provider_id": {
+      "type": "string",
+      "description": ""
+     },
+     "search_context_size": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "low",
+       "medium",
+       "high"
+      ]
+     },
+     "max_contacts_per_domain": {
+      "type": "integer",
+      "description": ""
+     },
+     "max_company_records": {
+      "type": "string",
+      "description": ""
+     },
+     "full_domains": {
+      "type": "string",
+      "description": ""
+     },
+     "partial_domains": {
+      "type": "string",
+      "description": ""
+     },
+     "initial_contact_counts": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domains",
+     "icp_text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/contacts/discover/generate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "icp_text",
+     "domains",
+     "context_mode",
+     "integration_id",
+     "search_provider_id",
+     "search_context_size",
+     "max_contacts_per_domain",
+     "max_company_records",
+     "full_domains",
+     "partial_domains",
+     "initial_contact_counts"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.count_api_count_get",
+   "name": "Count matching businesses",
+   "description": "Estimate the number of matching business profiles based on search criteria.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phrase_match": {
+      "type": "string",
+      "description": "Exact text fragments to search for in site content. Up to 20 fragments, each at least 3 characters."
+     },
+     "negate_phrase_match": {
+      "type": "string",
+      "description": "Exact text fragments to exclude from results. Up to 20 fragments, each at least 3 characters."
+     },
+     "subdomain": {
+      "type": "string",
+      "description": "Limit results to specified subdomains. Up to 20, each at least 3 characters."
+     },
+     "negate_subdomain": {
+      "type": "string",
+      "description": "Exclude specified subdomains from results. Up to 20, each at least 3 characters."
+     },
+     "tech_stack": {
+      "type": "string",
+      "description": "Filter to companies using specified vendor domains (up to 20)."
+     },
+     "negate_tech_stack": {
+      "type": "string",
+      "description": "Exclude companies using specified vendor domains (up to 20)."
+     },
+     "category": {
+      "type": "string",
+      "description": "Filter by industry category. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUMER_SERVICES"
+     },
+     "negate_category": {
+      "type": "string",
+      "description": "Exclude specified industry categories. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUME"
+     },
+     "min_digital_footprint": {
+      "type": "string",
+      "description": "Minimum digital footprint score (0-800). Default 50."
+     },
+     "max_digital_footprint": {
+      "type": "string",
+      "description": "Maximum digital footprint score (0-800). Default 800."
+     },
+     "state": {
+      "type": "string",
+      "description": "Filter by ISO 3166-2 state codes or names (up to 100). Requires exactly one country value, which may be a region alias; the state is then resolved against every country the alias covers. A value that resolves under none is rejected."
+     },
+     "negate_state": {
+      "type": "string",
+      "description": "Exclude specified states from results (up to 100). Same format and country rules as state."
+     },
+     "country": {
+      "type": "string",
+      "description": "Filter by ISO-3166-1 alpha-2 country codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_country": {
+      "type": "string",
+      "description": "Exclude specified countries from results. Accepts same codes and region aliases as country."
+     },
+     "start_date": {
+      "type": "string",
+      "description": "Minimum company start date (YYYY-MM-DD) or range (YYYY-MM-DD,YYYY-MM-DD)."
+     },
+     "redirect": {
+      "type": "boolean",
+      "description": "Include domains that redirect to another domain."
+     },
+     "social": {
+      "type": "string",
+      "description": "Filter by social platform presence. Valid values: facebook, instagram, linkedin, pinterest, threads, tiktok, twitter, x, yelp, youtube, googleplay, applestore, amazon, vk, bluesky, xing. Note: 'twitter' is an alias for 'x'."
+     },
+     "negate_social": {
+      "type": "string",
+      "description": "Exclude companies with specified social profiles. Filter by social platform presence. Valid values: facebook, instagram, linkedin, pinterest, threads, tiktok, twitter, x, yelp, youtube, googleplay, applestore, amazon, vk, bluesky, xing. Note: 'twitter' is an alias for 'x'."
+     },
+     "language": {
+      "type": "string",
+      "description": "Filter by site language. Valid values: ar (Arabic), az (Azerbaijani), bg (Bulgarian), bn (Bengali), bs (Bosnian), ca (Catalan), cs (Czech), da (Danish), de (German), el (Greek), en (English), eo (Esperanto), es (Spanish), et (Estonian), eu (Basque), fa (Persian), fi (Finnish), fr (French), ga (Irish), gl (Galician), he (Hebrew), hi (Hindi), hr (Croatian), hu (Hungarian), id (Indonesian), it (Itali"
+     },
+     "negate_language": {
+      "type": "string",
+      "description": "Exclude specified languages from results. Filter by site language. Valid values: ar (Arabic), az (Azerbaijani), bg (Bulgarian), bn (Bengali), bs (Bosnian), ca (Catalan), cs (Czech), da (Danish), de (German), el (Greek), en (English), eo (Esperanto), es (Spanish), et (Estonian), eu (Basque), fa (Persian), fi (Finnish), fr (French), ga (Irish), gl (Galician), he (Hebrew), hi (Hindi), hr (Croatian), "
+     },
+     "employee_range": {
+      "type": "string",
+      "description": "Filter by employee count range. Format: 'min,max' (e.g., '1,5000'). Maps to buckets: 1-10, 11-50, 51-200, 201-500, 501-1000, 1001-5000, 5001-10000, 10001+."
+     },
+     "revenue_range": {
+      "type": "string",
+      "description": "Filter by company revenue. Format: 'min,max' in raw numbers (e.g., '1000000,10000000' for 1M-10M). Maps to buckets: 1B. Unknown-revenue domains (N/A) are included when the range covers the <1M bucket."
+     },
+     "business_model": {
+      "type": "string",
+      "description": "Filter by business model label. Multi-select with OR semantics. Valid values: B2B, B2C, B2G, G2B, G2C, D2C, C2C, C2B."
+     },
+     "negate_business_model": {
+      "type": "string",
+      "description": "Exclude domains with these business model labels. Filter by business model label. Multi-select with OR semantics. Valid values: B2B, B2C, B2G, G2B, G2C, D2C, C2C, C2B."
+     },
+     "exclude_leadgen": {
+      "type": "boolean",
+      "description": "Exclude suspected lead generation sites. Filters out profiles with score <= 25 that also lack phone, email, and social media presence. Defaults to false for counts so they are not narrower than the filters given."
+     },
+     "exact_match": {
+      "type": "string",
+      "description": ""
+     },
+     "negate_exact_match": {
+      "type": "string",
+      "description": ""
+     },
+     "vendor": {
+      "type": "string",
+      "description": ""
+     },
+     "negate_vendor": {
+      "type": "string",
+      "description": ""
+     },
+     "min_score": {
+      "type": "string",
+      "description": ""
+     },
+     "max_score": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/count",
+    "path": [],
+    "query": [
+     "phrase_match",
+     "negate_phrase_match",
+     "subdomain",
+     "negate_subdomain",
+     "tech_stack",
+     "negate_tech_stack",
+     "category",
+     "negate_category",
+     "min_digital_footprint",
+     "max_digital_footprint",
+     "state",
+     "negate_state",
+     "country",
+     "negate_country",
+     "start_date",
+     "redirect",
+     "social",
+     "negate_social",
+     "language",
+     "negate_language",
+     "employee_range",
+     "revenue_range",
+     "business_model",
+     "negate_business_model",
+     "exclude_leadgen",
+     "exact_match",
+     "negate_exact_match",
+     "vendor",
+     "negate_vendor",
+     "min_score",
+     "max_score"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.create_exclusion_list_queries_exclusion_list_post",
+   "name": "Create exclusion list",
+   "description": "Create a new exclusion list from a list of domains.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query_name": {
+      "type": "string",
+      "description": "Name for the exclusion list"
+     },
+     "domains": {
+      "type": "string",
+      "description": "List of domains for the exclusion list"
+     },
+     "persona_ids": {
+      "type": "string",
+      "description": "List of persona IDs for the exclusion list"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Tags to apply to the exclusion list (max 20 tags, each 2-50 chars, alphanumeric/hyphen/underscore)"
+     }
+    },
+    "required": [
+     "query_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/queries/exclusion-list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query_name",
+     "domains",
+     "persona_ids",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.create_llm_integration_llm_providers_config_post",
+   "name": "Create llm integration",
+   "description": "Create a new LLM provider integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_name": {
+      "type": "string",
+      "description": "User-friendly name for this integration"
+     },
+     "provider": {
+      "type": "string",
+      "description": "LLM provider name (openai, anthropic, custom)"
+     },
+     "model_name": {
+      "type": "string",
+      "description": "Default model name for this integration"
+     },
+     "base_url": {
+      "type": "string",
+      "description": "Custom endpoint URL (required for 'custom' provider, null for cloud)"
+     }
+    },
+    "required": [
+     "integration_name",
+     "model_name",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/llm-providers/config",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "integration_name",
+     "provider",
+     "model_name",
+     "base_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.create_public_signup_public_signup_post",
+   "name": "Create a disco like account for a human (agent initiated)",
+   "description": "Creates a DiscoLike user and organization for the given work email without any browser interaction. No credential is returned: the account owner receives a confirmation email and logs in at https://app.discolike.com, where they can issue API keys. Free-mail and disposable domains are rejected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The human's work email; becomes the login"
+     },
+     "first_name": {
+      "type": "string",
+      "description": "1-40 characters after trimming and NFC normalization; must contain a letter; no angle brackets or control characters"
+     },
+     "last_name": {
+      "type": "string",
+      "description": "1-40 characters after trimming and NFC normalization; must contain a letter; no angle brackets or control characters"
+     },
+     "agent": {
+      "type": "string",
+      "description": "Name of the agent or framework making the call, e.g. claude-code. Defaults to the User-Agent header."
+     }
+    },
+    "required": [
+     "email",
+     "first_name",
+     "last_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/public/signup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "first_name",
+     "last_name",
+     "agent"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.create_search_provider_search_providers_post",
+   "name": "Create search provider",
+   "description": "Create a new search provider integration, validating connectivity first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_name": {
+      "type": "string",
+      "description": "User-friendly name"
+     },
+     "provider": {
+      "type": "string",
+      "description": "LiteLLM provider key (tavily, serper, etc.)"
+     },
+     "search_model": {
+      "type": "string",
+      "description": "LiteLLM model key for cost lookup (tavily/search, etc.)"
+     },
+     "base_url": {
+      "type": "string",
+      "description": "Custom endpoint URL for LiteLLM Proxy"
+     }
+    },
+    "required": [
+     "integration_name",
+     "provider",
+     "search_model"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/search-providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "integration_name",
+     "provider",
+     "search_model",
+     "base_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.delete_connection_crm_provider_connection_delete",
+   "name": "Delete connection",
+   "description": "Delete Connection",
+   "input": {
+    "type": "object",
+    "properties": {
+     "provider": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/crm/{provider}/connection",
+    "path": [
+     "provider"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.delete_llm_integration_llm_providers_config_integration_id_delete",
+   "name": "Delete llm integration",
+   "description": "Delete a specific LLM provider integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/llm-providers/config/{integration_id}",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.delete_query_queries_query_id_delete",
+   "name": "Delete query",
+   "description": "Delete a query by ID. Scoped to the caller's client domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "query_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/queries/{query_id}",
+    "path": [
+     "query_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.delete_search_provider_search_providers_integration_id_delete",
+   "name": "Delete search provider",
+   "description": "Delete a specific search provider integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.discolike.com/search-providers/{integration_id}",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.discogen_process_discogen_process_post",
+   "name": "Discogen process",
+   "description": "Run an LLM prompt against each domain with company context. Returns an async task for status polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Prompt to run against each record"
+     },
+     "integration_id": {
+      "type": "string",
+      "description": "LLM provider integration UUID (omit for org default)"
+     },
+     "web_search": {
+      "type": "boolean",
+      "description": ""
+     },
+     "include_x_search": {
+      "type": "boolean",
+      "description": ""
+     },
+     "search_provider_id": {
+      "type": "string",
+      "description": "Search provider integration UUID (omit for org default)"
+     },
+     "search_context_size": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "low",
+       "medium",
+       "high"
+      ]
+     },
+     "domains": {
+      "type": "array",
+      "description": "Domains to process"
+     },
+     "context_mode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "website",
+       "profile",
+       "domain"
+      ]
+     },
+     "previous_discogen_data": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domains",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/discogen/process",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "integration_id",
+     "web_search",
+     "include_x_search",
+     "search_provider_id",
+     "search_context_size",
+     "domains",
+     "context_mode",
+     "previous_discogen_data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.discogen_process_personas_discogen_process_personas_post",
+   "name": "Discogen process personas",
+   "description": "Run an LLM prompt against each contact record. Returns an async task for status polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Prompt to run against each record"
+     },
+     "integration_id": {
+      "type": "string",
+      "description": "LLM provider integration UUID (omit for org default)"
+     },
+     "web_search": {
+      "type": "boolean",
+      "description": ""
+     },
+     "include_x_search": {
+      "type": "boolean",
+      "description": ""
+     },
+     "search_provider_id": {
+      "type": "string",
+      "description": "Search provider integration UUID (omit for org default)"
+     },
+     "search_context_size": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "low",
+       "medium",
+       "high"
+      ]
+     },
+     "persona_ids": {
+      "type": "array",
+      "description": "Contact record IDs to process"
+     },
+     "context_mode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "name_only",
+       "profile",
+       "profile_summary",
+       "company",
+       "full"
+      ]
+     },
+     "previous_discogen_data": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "persona_ids",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/discogen/process-personas",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "integration_id",
+     "web_search",
+     "include_x_search",
+     "search_provider_id",
+     "search_context_size",
+     "persona_ids",
+     "context_mode",
+     "previous_discogen_data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.discover_api_discover_get",
+   "name": "Discover similar businesses",
+   "description": "Search firmographic data using domain matching, ICP text matching, or phrase matching. Returns business profiles ranked by relevance with optional AI enhancement.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phrase_match": {
+      "type": "string",
+      "description": "Exact text fragments to search for in site content. Up to 20 fragments, each at least 3 characters."
+     },
+     "negate_phrase_match": {
+      "type": "string",
+      "description": "Exact text fragments to exclude from results. Up to 20 fragments, each at least 3 characters."
+     },
+     "subdomain": {
+      "type": "string",
+      "description": "Limit results to specified subdomains. Up to 20, each at least 3 characters."
+     },
+     "negate_subdomain": {
+      "type": "string",
+      "description": "Exclude specified subdomains from results. Up to 20, each at least 3 characters."
+     },
+     "tech_stack": {
+      "type": "string",
+      "description": "Filter to companies using specified vendor domains (up to 20)."
+     },
+     "negate_tech_stack": {
+      "type": "string",
+      "description": "Exclude companies using specified vendor domains (up to 20)."
+     },
+     "category": {
+      "type": "string",
+      "description": "Filter by industry category. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUMER_SERVICES"
+     },
+     "negate_category": {
+      "type": "string",
+      "description": "Exclude specified industry categories. Valid values: ACCOUNTING, ADVERTISING_AND_MARKETING, AGRICULTURE_AND_NATURAL_RESOURCES, ALCOHOL_AND_TOBACCO, AUTOMOTIVE, BIG_DATA_AND_ANALYTICS, BIOTECHNOLOGY, BLOCKCHAIN_AND_CRYPTOCURRENCY, BUSINESS_PRODUCTS_AND_SERVICES, CLOUD_COMPUTING, COMPUTER_HARDWARE_AND_SEMICONDUCTORS, CONGLOMERATES_SHELL_AND_HOLDING_COMPANIES, CONSTRUCTION, CONSUMER_PRODUCTS, CONSUME"
+     },
+     "min_digital_footprint": {
+      "type": "string",
+      "description": "Minimum digital footprint score (0-800). Default 50."
+     },
+     "max_digital_footprint": {
+      "type": "string",
+      "description": "Maximum digital footprint score (0-800). Default 800."
+     },
+     "state": {
+      "type": "string",
+      "description": "Filter by ISO 3166-2 state codes or names (up to 100). Requires exactly one country value, which may be a region alias; the state is then resolved against every country the alias covers. A value that resolves under none is rejected."
+     },
+     "negate_state": {
+      "type": "string",
+      "description": "Exclude specified states from results (up to 100). Same format and country rules as state."
+     },
+     "country": {
+      "type": "string",
+      "description": "Filter by ISO-3166-1 alpha-2 country codes (e.g., US, GB, DE). Also accepts region aliases: EU, LATAM, MENA, APAC, NORDICS, DACH, BENELUX, GCC, ASEAN, CEE, ANZ."
+     },
+     "negate_country": {
+      "type": "string",
+      "description": "Exclude specified countries from results. Accepts same codes and region aliases as country."
+     },
+     "start_date": {
+      "type": "string",
+      "description": "Minimum company start date (YYYY-MM-DD) or range (YYYY-MM-DD,YYYY-MM-DD)."
+     },
+     "redirect": {
+      "type": "boolean",
+      "description": "Include domains that redirect to another domain."
+     },
+     "social": {
+      "type": "string",
+      "description": "Filter by social platform presence. Valid values: facebook, instagram, linkedin, pinterest, threads, tiktok, twitter, x, yelp, youtube, googleplay, applestore, amazon, vk, bluesky, xing. Note: 'twitter' is an alias for 'x'."
+     },
+     "negate_social": {
+      "type": "string",
+      "description": "Exclude companies with specified social profiles. Filter by social platform presence. Valid values: facebook, instagram, linkedin, pinterest, threads, tiktok, twitter, x, yelp, youtube, googleplay, applestore, amazon, vk, bluesky, xing. Note: 'twitter' is an alias for 'x'."
+     },
+     "language": {
+      "type": "string",
+      "description": "Filter by site language. Valid values: ar (Arabic), az (Azerbaijani), bg (Bulgarian), bn (Bengali), bs (Bosnian), ca (Catalan), cs (Czech), da (Danish), de (German), el (Greek), en (English), eo (Esperanto), es (Spanish), et (Estonian), eu (Basque), fa (Persian), fi (Finnish), fr (French), ga (Irish), gl (Galician), he (Hebrew), hi (Hindi), hr (Croatian), hu (Hungarian), id (Indonesian), it (Itali"
+     },
+     "negate_language": {
+      "type": "string",
+      "description": "Exclude specified languages from results. Filter by site language. Valid values: ar (Arabic), az (Azerbaijani), bg (Bulgarian), bn (Bengali), bs (Bosnian), ca (Catalan), cs (Czech), da (Danish), de (German), el (Greek), en (English), eo (Esperanto), es (Spanish), et (Estonian), eu (Basque), fa (Persian), fi (Finnish), fr (French), ga (Irish), gl (Galician), he (Hebrew), hi (Hindi), hr (Croatian), "
+     },
+     "employee_range": {
+      "type": "string",
+      "description": "Filter by employee count range. Format: 'min,max' (e.g., '1,5000'). Maps to buckets: 1-10, 11-50, 51-200, 201-500, 501-1000, 1001-5000, 5001-10000, 10001+."
+     },
+     "revenue_range": {
+      "type": "string",
+      "description": "Filter by company revenue. Format: 'min,max' in raw numbers (e.g., '1000000,10000000' for 1M-10M). Maps to buckets: 1B. Unknown-revenue domains (N/A) are included when the range covers the <1M bucket."
+     },
+     "business_model": {
+      "type": "string",
+      "description": "Filter by business model label. Multi-select with OR semantics. Valid values: B2B, B2C, B2G, G2B, G2C, D2C, C2C, C2B."
+     },
+     "negate_business_model": {
+      "type": "string",
+      "description": "Exclude domains with these business model labels. Filter by business model label. Multi-select with OR semantics. Valid values: B2B, B2C, B2G, G2B, G2C, D2C, C2C, C2B."
+     },
+     "exclude_leadgen": {
+      "type": "boolean",
+      "description": "Exclude suspected lead generation sites. Filters out profiles with score <= 25 that also lack phone, email, and social media presence."
+     },
+     "exact_match": {
+      "type": "string",
+      "description": ""
+     },
+     "negate_exact_match": {
+      "type": "string",
+      "description": ""
+     },
+     "vendor": {
+      "type": "string",
+      "description": ""
+     },
+     "negate_vendor": {
+      "type": "string",
+      "description": ""
+     },
+     "min_score": {
+      "type": "string",
+      "description": ""
+     },
+     "max_score": {
+      "type": "string",
+      "description": ""
+     },
+     "domain": {
+      "type": "string",
+      "description": "Domain(s) for lookalike matching. Up to 10 domains allowed."
+     },
+     "negate_domain": {
+      "type": "string",
+      "description": "Exclude results matching these domain contexts. Up to 10 domains."
+     },
+     "exclude_domain": {
+      "type": "string",
+      "description": "Hard-exclude these exact domains from results without affecting lookalike matching. Accepts comma-separated or repeated params. Up to 100 domains."
+     },
+     "icp_text": {
+      "type": "string",
+      "description": "Natural language description of ideal customer profile for semantic matching (3-4000 characters)."
+     },
+     "negate_icp_text": {
+      "type": "string",
+      "description": "Description of business concepts to exclude from results (3-4000 characters)."
+     },
+     "retrieval": {
+      "type": "boolean",
+      "description": "Enable page data retrieval using Extract API."
+     },
+     "enhanced": {
+      "type": "boolean",
+      "description": "Enable AI-powered result enhancement for improved relevance."
+     },
+     "include_search_domains": {
+      "type": "boolean",
+      "description": "Include input domains in results (excluded by default)."
+     },
+     "max_records": {
+      "type": "integer",
+      "description": "Maximum records to return (5-10000). Default 100."
+     },
+     "consensus": {
+      "type": "integer",
+      "description": "Number of top results for consensus search vector (1-20). Higher values reduce specificity."
+     },
+     "min_similarity": {
+      "type": "integer",
+      "description": "Minimum similarity score to include (0-99)."
+     },
+     "variance": {
+      "type": "string",
+      "description": "Result diversity control: LOW, MID_LOW, MEDIUM, MID_HIGH, HIGH, UNRESTRICTED.",
+      "enum": [
+       "LOW",
+       "MID_LOW",
+       "MEDIUM",
+       "MID_HIGH",
+       "HIGH",
+       "UNRESTRICTED"
+      ]
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Records to skip for pagination."
+     },
+     "exclusion_query_id": {
+      "type": "string",
+      "description": "Exclude domains from saved queries."
+     },
+     "inclusion_query_id": {
+      "type": "string",
+      "description": "Include domains from saved queries. Requires STARTER plan."
+     },
+     "auto_icp_text": {
+      "type": "boolean",
+      "description": "Auto-generate ICP text from provided domain(s)."
+     },
+     "auto_phrase_match": {
+      "type": "boolean",
+      "description": "Auto-generate phrase matches from ICP text."
+     },
+     "icp_prompt": {
+      "type": "string",
+      "description": "Natural language ICP description. Automatically extracts structured filters, generates ICP text, suggests domains, and applies them before running discovery. Overrides auto_icp_text and auto_phrase_match when set."
+     },
+     "nl_match": {
+      "type": "string",
+      "description": ""
+     },
+     "negate_nl_match": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/discover",
+    "path": [],
+    "query": [
+     "phrase_match",
+     "negate_phrase_match",
+     "subdomain",
+     "negate_subdomain",
+     "tech_stack",
+     "negate_tech_stack",
+     "category",
+     "negate_category",
+     "min_digital_footprint",
+     "max_digital_footprint",
+     "state",
+     "negate_state",
+     "country",
+     "negate_country",
+     "start_date",
+     "redirect",
+     "social",
+     "negate_social",
+     "language",
+     "negate_language",
+     "employee_range",
+     "revenue_range",
+     "business_model",
+     "negate_business_model",
+     "exclude_leadgen",
+     "exact_match",
+     "negate_exact_match",
+     "vendor",
+     "negate_vendor",
+     "min_score",
+     "max_score",
+     "domain",
+     "negate_domain",
+     "exclude_domain",
+     "icp_text",
+     "negate_icp_text",
+     "retrieval",
+     "enhanced",
+     "include_search_domains",
+     "max_records",
+     "consensus",
+     "min_similarity",
+     "variance",
+     "offset",
+     "exclusion_query_id",
+     "inclusion_query_id",
+     "auto_icp_text",
+     "auto_phrase_match",
+     "icp_prompt",
+     "nl_match",
+     "negate_nl_match"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.enumerate_email_email_find_post",
+   "name": "Submit an email enumeration job",
+   "description": "Generate and SMTP-verify pattern candidates for a person. Returns a job id; poll for the result.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "first_name": {
+      "type": "string",
+      "description": "First name of the person"
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the person"
+     },
+     "domain": {
+      "type": "string",
+      "description": "Target email domain"
+     },
+     "known_pattern": {
+      "type": "string",
+      "description": "Known email pattern for this domain"
+     }
+    },
+    "required": [
+     "domain",
+     "first_name",
+     "last_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/email/find",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "first_name",
+     "last_name",
+     "domain",
+     "known_pattern"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.extract_extract_get",
+   "name": "Extract web page content",
+   "description": "Extracts text content from a web page URL. Returns page text and detected language.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "URL of the web page to extract content from."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Bare domain to extract \u2014 alias for url=https://{domain}; hits the cached page when available."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/extract",
+    "path": [],
+    "query": [
+     "url",
+     "domain"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_batch_results_email_batch_batch_id_results_get",
+   "name": "Get all results for an enumeration batch",
+   "description": "Get all results for an enumeration batch",
+   "input": {
+    "type": "object",
+    "properties": {
+     "batch_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "batch_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/email/batch/{batch_id}/results",
+    "path": [
+     "batch_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_job_email_jobs_job_id_get",
+   "name": "Get enumeration job status",
+   "description": "Poll a single job -- owner-scoped exactly like every other read here. `enumerate_email` now enqueues every job as a one-job batch (see its docstring), so this poll also drives that batch's finalization/billing: it looks up the owning batch (also owner-scoped, so this adds no new IDOR surface), fetches its results, and syncs/finalizes through the same `_sync_batch_task` helper `get_batch_results` u",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/email/jobs/{job_id}",
+    "path": [
+     "job_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_llm_config_llm_providers_config_get",
+   "name": "Get llm config",
+   "description": "Get the current LLM provider configuration for the organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/llm-providers/config",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_llm_integration_llm_providers_config_integration_id_get",
+   "name": "Get llm integration",
+   "description": "Get a specific LLM provider integration by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/llm-providers/config/{integration_id}",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_task_status_task_status_task_id_get",
+   "name": "Get task status",
+   "description": "Get the status of an asynchronous task. Args: task: The type of task (segment, bulkmatch, discogen) task_id: The unique identifier for the task request: The FastAPI request object auth_info: Authentication information Returns: JSON response with task status, progress, and results if available Raises: HTTPException: If task type is not supported or task not found",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task": {
+      "type": "string",
+      "description": "Task family: discogen, bulkmatch, contactmatch, or segment."
+     },
+     "task_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "task",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/{task}/status/{task_id}",
+    "path": [
+     "task",
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.get_usage_usage_get",
+   "name": "Get api usage statistics",
+   "description": "Returns month-to-date and historical usage statistics including requests, records, and spend.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/usage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.growth_growth_get",
+   "name": "Get company growth metrics",
+   "description": "Returns quarterly growth metrics including subdomain counts and digital footprint scores for the past 5 quarters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/growth",
+    "path": [],
+    "query": [
+     "domain"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.list_connections_crm_connections_get",
+   "name": "List connections",
+   "description": "List the client's CRM connections. ``probe=true`` live-checks each one (returning a fresh active/needs_reauth) instead of the last-stored status \u2014 used by Settings so the Reconnect prompt shows before an operation fails.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "probe": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/crm/connections",
+    "path": [],
+    "query": [
+     "probe"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.list_models_discogen_models_get",
+   "name": "List models",
+   "description": "List available LLM models for DiscoGen, grouped by provider.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/discogen/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.list_saved_queries_queries_saved_get",
+   "name": "List saved queries",
+   "description": "List saved queries that have domains, with pagination and optional action/tag filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "max_records": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "action": {
+      "type": "string",
+      "description": "Filter by action type (e.g. discover, exclusion)"
+     },
+     "tags": {
+      "type": "string",
+      "description": "Filter by tags (matches any). Repeated param or comma-separated."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/queries/saved",
+    "path": [],
+    "query": [
+     "max_records",
+     "offset",
+     "action",
+     "tags"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.list_search_models_search_providers_models_get",
+   "name": "List search models",
+   "description": "List available search models grouped by provider, with cost per query.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/search-providers/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.list_search_providers_search_providers_get",
+   "name": "List search providers",
+   "description": "List all search provider integrations for the organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/search-providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.lookup_contact_contacts_lookup_get",
+   "name": "Lookup contact",
+   "description": "Look up a single contact by persona ID, LinkedIn profile URL/username, or email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "persona_id": {
+      "type": "string",
+      "description": "The persona ID to look up."
+     },
+     "linkedin": {
+      "type": "string",
+      "description": "LinkedIn URL or username to look up."
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address to look up (exact match)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/contacts/lookup",
+    "path": [],
+    "query": [
+     "persona_id",
+     "linkedin",
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.match_api_match_get",
+   "name": "Match company by name",
+   "description": "Pairs a company name with business domain profiles. Returns potential matches ranked by relevance, with the most likely match listed first. Location and contact info improve matching accuracy.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The company name to match"
+     },
+     "phone": {
+      "type": "string",
+      "description": "Phone number to augment the search (E.164 or local format)"
+     },
+     "city": {
+      "type": "string",
+      "description": "City to augment the search"
+     },
+     "state": {
+      "type": "string",
+      "description": "State code or name to augment the search"
+     },
+     "country": {
+      "type": "string",
+      "description": "ISO-3166-1 alpha-2 country code to augment the search"
+     },
+     "zip_code": {
+      "type": "string",
+      "description": "Zip code to augment the search"
+     },
+     "strict": {
+      "type": "boolean",
+      "description": "Enable strict matching (no filter relaxation)"
+     },
+     "local_mode": {
+      "type": "boolean",
+      "description": "Preserve location filters during relaxation."
+     },
+     "min_match_confidence": {
+      "type": "integer",
+      "description": "Minimum match_confidence (inclusive, 50-100) a match must have to be returned. Defaults to 50, the standard quality floor."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/match",
+    "path": [],
+    "query": [
+     "name",
+     "phone",
+     "city",
+     "state",
+     "country",
+     "zip_code",
+     "strict",
+     "local_mode",
+     "min_match_confidence"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.publiclink_api_publiclink_get",
+   "name": "Get public link data",
+   "description": "Find related domains that share the same public contact info (email, social, phone).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "source": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "email",
+       "social",
+       "phone"
+      ]
+     }
+    },
+    "required": [
+     "domain",
+     "source"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/publiclink",
+    "path": [],
+    "query": [
+     "domain",
+     "source"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.redirects_redirects_get",
+   "name": "Get domain redirect relationships",
+   "description": "Returns domains that redirect to or from the specified domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "match": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "source",
+       "linked"
+      ]
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/redirects",
+    "path": [],
+    "query": [
+     "domain",
+     "match"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.save_results_queries_save_results_post",
+   "name": "Save results",
+   "description": "Save result rows as a reusable thin-wrapper saved query (REST twin of save-mcp-query).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query_name": {
+      "type": "string",
+      "description": "Name for the query"
+     },
+     "action": {
+      "type": "string",
+      "description": "Underlying action type. One of: ['discover', 'segment', 'contacts', 'append', 'match']",
+      "enum": [
+       "discover",
+       "segment",
+       "contacts",
+       "append",
+       "match"
+      ]
+     },
+     "query_params": {
+      "type": "object",
+      "description": "Original query params for UI reconstruction"
+     },
+     "data": {
+      "type": "array",
+      "description": "Thin rows: domain + custom columns"
+     },
+     "domain_column": {
+      "type": "string",
+      "description": "Column name containing domains"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Initial tags to apply"
+     }
+    },
+    "required": [
+     "action",
+     "data",
+     "query_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/queries/save-results",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query_name",
+     "action",
+     "query_params",
+     "data",
+     "domain_column",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.score_score_get",
+   "name": "Get digital footprint score breakdown",
+   "description": "Returns the digital footprint score with parameter breakdown showing how the score was calculated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/score",
+    "path": [],
+    "query": [
+     "domain"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.segment_api_segment_get",
+   "name": "Segment domains by similarity",
+   "description": "Segments a comma-separated list of domains into topic clusters using ML-based clustering. Returns a task ID for async processing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domains": {
+      "type": "string",
+      "description": "Comma-separated list of domains to segment into topic clusters"
+     },
+     "query_id": {
+      "type": "string",
+      "description": "Include domains from these saved queries in the segmentation."
+     },
+     "max_segments": {
+      "type": "string",
+      "description": "Maximum number of segments to create (2-20)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/segment",
+    "path": [],
+    "query": [
+     "domains",
+     "query_id",
+     "max_segments"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.segment_file_segment_post",
+   "name": "Segment companies by similarity (file upload)",
+   "description": "Segments a list of companies from a file into topic clusters using ML-based clustering. Returns a task ID for async processing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_column": {
+      "type": "string",
+      "description": "Column name containing domains (auto-detected if not provided)."
+     },
+     "max_segments": {
+      "type": "string",
+      "description": "Maximum number of segments to create (2-100)."
+     },
+     "query_id": {
+      "type": "string",
+      "description": "Include domains from these saved queries in the segmentation."
+     },
+     "file": {
+      "type": "string",
+      "description": "CSV or Excel file containing domains."
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/segment",
+    "path": [],
+    "query": [
+     "domain_column",
+     "max_segments",
+     "query_id"
+    ],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.set_default_llm_integration_llm_providers_config_integration_id_set_default_post",
+   "name": "Set default llm integration",
+   "description": "Set an LLM provider integration as the organization default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/llm-providers/config/{integration_id}/set-default",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.set_default_search_provider_search_providers_integration_id_default_put",
+   "name": "Set default search provider",
+   "description": "Set a search provider integration as the organization default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "integration_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.discolike.com/search-providers/{integration_id}/default",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.subsidiaries_subsidiaries_get",
+   "name": "Get subsidiary relationships",
+   "description": "Returns parent company or subsidiary relationships for a domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "match": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "parent",
+       "child",
+       "source",
+       "linked",
+       "recursive"
+      ]
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/subsidiaries",
+    "path": [],
+    "query": [
+     "domain",
+     "match"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.suppress_crm_provider_suppress_post",
+   "name": "Suppress",
+   "description": "Queue a CRM snapshot that writes matched records as a saved exclusion list. ``kind=\"companies\"`` excludes by domain; ``kind=\"contacts\"`` resolves the CRM's contact emails to persona_ids via the personas email index.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "provider": {
+      "type": "string",
+      "description": ""
+     },
+     "kind": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "companies",
+       "contacts"
+      ]
+     }
+    },
+    "required": [
+     "kind",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/crm/{provider}/suppress",
+    "path": [
+     "provider"
+    ],
+    "query": [
+     "kind"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.test_provider_connection_llm_providers_test_connection_post",
+   "name": "Test provider connection",
+   "description": "Test connection to an LLM provider with given configuration. This endpoint allows testing a provider configuration before saving it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_name": {
+      "type": "string",
+      "description": "User-friendly name for this integration"
+     },
+     "provider": {
+      "type": "string",
+      "description": "LLM provider name (openai, anthropic, custom)"
+     },
+     "model_name": {
+      "type": "string",
+      "description": "Default model name for this integration"
+     },
+     "base_url": {
+      "type": "string",
+      "description": "Custom endpoint URL (required for 'custom' provider, null for cloud)"
+     }
+    },
+    "required": [
+     "integration_name",
+     "model_name",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/llm-providers/test-connection",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "integration_name",
+     "provider",
+     "model_name",
+     "base_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.update_llm_integration_llm_providers_config_integration_id_put",
+   "name": "Update llm integration",
+   "description": "Update an existing LLM provider integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     },
+     "integration_name": {
+      "type": "string",
+      "description": "User-friendly name for this integration"
+     },
+     "provider": {
+      "type": "string",
+      "description": "LLM provider name (openai, anthropic, custom)"
+     },
+     "model_name": {
+      "type": "string",
+      "description": "Default model name for this integration"
+     },
+     "base_url": {
+      "type": "string",
+      "description": "Custom endpoint URL (required for 'custom' provider, null for cloud)"
+     }
+    },
+    "required": [
+     "integration_id",
+     "integration_name",
+     "model_name",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.discolike.com/llm-providers/config/{integration_id}",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "integration_name",
+     "provider",
+     "model_name",
+     "base_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.update_query_queries_query_id_patch",
+   "name": "Update query",
+   "description": "Update query name and/or tags.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query_id": {
+      "type": "string",
+      "description": ""
+     },
+     "query_name": {
+      "type": "string",
+      "description": "New name for the query"
+     },
+     "tags": {
+      "type": "string",
+      "description": "Complete list of tags to set"
+     }
+    },
+    "required": [
+     "query_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.discolike.com/queries/{query_id}",
+    "path": [
+     "query_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "query_name",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.update_search_provider_search_providers_integration_id_put",
+   "name": "Update search provider",
+   "description": "Update an existing search provider integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_id": {
+      "type": "string",
+      "description": ""
+     },
+     "integration_name": {
+      "type": "string",
+      "description": "User-friendly name"
+     },
+     "provider": {
+      "type": "string",
+      "description": "LiteLLM provider key (tavily, serper, etc.)"
+     },
+     "search_model": {
+      "type": "string",
+      "description": "LiteLLM model key for cost lookup (tavily/search, etc.)"
+     },
+     "base_url": {
+      "type": "string",
+      "description": "Custom endpoint URL for LiteLLM Proxy"
+     }
+    },
+    "required": [
+     "integration_id",
+     "integration_name",
+     "provider",
+     "search_model"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.discolike.com/search-providers/{integration_id}",
+    "path": [
+     "integration_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "integration_name",
+     "provider",
+     "search_model",
+     "base_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.validate_icp_validate_icp_post",
+   "name": "Validate icp",
+   "description": "Validate domains against an ICP description. Generates a validation prompt from the ICP text, then runs it through DiscoGen with a fixed output schema: fit (yes/no), confidence (high/medium/low), reasoning. Returns an async task \u2014 poll GET /discogen/status/{task_id} for results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "icp_text": {
+      "type": "string",
+      "description": "Ideal customer profile description to validate domains against"
+     },
+     "domains": {
+      "type": "array",
+      "description": "Domains to validate"
+     },
+     "context_mode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "website",
+       "profile",
+       "domain"
+      ]
+     },
+     "integration_id": {
+      "type": "string",
+      "description": "LLM provider integration UUID (omit for org default)"
+     },
+     "web_search": {
+      "type": "boolean",
+      "description": ""
+     },
+     "search_provider_id": {
+      "type": "string",
+      "description": "Search provider integration UUID (omit for org default)"
+     }
+    },
+    "required": [
+     "domains",
+     "icp_text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.discolike.com/validate/icp",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "icp_text",
+     "domains",
+     "context_mode",
+     "integration_id",
+     "web_search",
+     "search_provider_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "discolike.vendors_vendors_get",
+   "name": "Get vendor relationships",
+   "description": "Returns vendor/client relationships for a domain from the Vendor Integration Dataset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "match": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "client",
+       "vendor"
+      ]
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.discolike.com/vendors",
+    "path": [],
+    "query": [
+     "domain",
+     "match"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

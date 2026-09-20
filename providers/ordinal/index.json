@@ -1,0 +1,2596 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "ordinal",
+ "source": "https://docs.tryordinal.com/api/openapi.json",
+ "operations": [
+  {
+   "slug": "ordinal.analytics_cpm_get",
+   "name": "Get cpm values",
+   "description": "Retrieve the current CPM (Cost Per Mille) values used for EMV (Earned Media Value) calculations across all platforms. CPM values represent the cost per 1,000 impressions for each social media platform.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/analytics/cpm",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.analytics_cpm_update",
+   "name": "Update cpm values",
+   "description": "Update the CPM (Cost Per Mille) values used for EMV (Earned Media Value) calculations. You can update one or more platform CPM values in a single request. Only provide the platforms you want to update.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedIn": {
+      "type": "number",
+      "description": "LinkedIn CPM value"
+     },
+     "x": {
+      "type": "number",
+      "description": "X (Twitter) CPM value"
+     },
+     "instagram": {
+      "type": "number",
+      "description": "Instagram CPM value"
+     },
+     "facebook": {
+      "type": "number",
+      "description": "Facebook CPM value"
+     },
+     "threads": {
+      "type": "number",
+      "description": "Threads CPM value"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://app.tryordinal.com/api/v1/analytics/cpm",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "linkedIn",
+     "x",
+     "instagram",
+     "facebook",
+     "threads"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.analytics_linkedin_followers",
+   "name": "Linked in follower growth",
+   "description": "Retrieve follower count history for a LinkedIn profile",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "LinkedIn profile ID (UUID)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date for analytics (defaults to 30 days ago)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "End date for analytics (defaults to today)"
+     }
+    },
+    "required": [
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/analytics/linkedin/{profileId}/followers",
+    "path": [
+     "profileId"
+    ],
+    "query": [
+     "startDate",
+     "endDate"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.analytics_linkedin_posts",
+   "name": "Linked in post analytics",
+   "description": "Retrieve post analytics for a LinkedIn profile within a date range. When a post was published from Ordinal, the response includes an ordinalPost object with the linked post's id, title, labels, and campaign. For personal profiles, the response also includes saveCount (times the post was saved) and sendCount (times the post was sent via DM). Posts with type `Video` also include videoViewCount, vide",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "LinkedIn profile ID (UUID)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date for analytics (defaults to 30 days ago)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "End date for analytics (defaults to today)"
+     }
+    },
+    "required": [
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/analytics/linkedin/{profileId}/posts",
+    "path": [
+     "profileId"
+    ],
+    "query": [
+     "startDate",
+     "endDate"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.analytics_x_followers",
+   "name": "X follower growth",
+   "description": "Retrieve follower count history for an X profile",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "X profile ID (UUID)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date for analytics (defaults to 30 days ago)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "End date for analytics (defaults to today)"
+     }
+    },
+    "required": [
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/analytics/x/{profileId}/followers",
+    "path": [
+     "profileId"
+    ],
+    "query": [
+     "startDate",
+     "endDate"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.analytics_x_posts",
+   "name": "X post analytics",
+   "description": "Retrieve post analytics for an X profile within a date range. When a post was published from Ordinal, the response includes an ordinalPost object with the linked post's id, title, labels, and campaign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "X profile ID (UUID)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date for analytics (defaults to 30 days ago)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "End date for analytics (defaults to today)"
+     }
+    },
+    "required": [
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/analytics/x/{profileId}/posts",
+    "path": [
+     "profileId"
+    ],
+    "query": [
+     "startDate",
+     "endDate"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.approvals_create",
+   "name": "Create approval requests",
+   "description": "Create one or more approval requests for a post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": ""
+     },
+     "approvals": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "approvals",
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/approvals",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "postId",
+     "approvals"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.approvals_delete",
+   "name": "Delete approval",
+   "description": "Delete an approval request",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Approval ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/approvals/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.approvals_list",
+   "name": "List post approvals",
+   "description": "List all approval requests for a specific post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/approvals",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.approvals_list_workspace",
+   "name": "List workspace approvals",
+   "description": "List all approval requests across the workspace in one paginated stream. Use for incremental sync by external integrations instead of polling each post individually. Supports keyset pagination and filters by status, post, approver, requester, and date range. Approvals on archived posts are included; filter client-side with `post.archivedAt`. Soft-deleted approvals are omitted from results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of approvals to return (1-100)"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from the previous response's `nextCursor`. Format is `timestampMs:approvalId`. When paginating, pass the same `sortBy` and `sortOrder` as the initial request."
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Field to sort results by. Use `updatedAt` for incremental sync so newly-updated approvals stream in order.",
+      "enum": [
+       "createdAt",
+       "updatedAt"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sort order. Use `asc` with `sortBy=updatedAt` for incremental sync.",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "updatedAtMin": {
+      "type": "string",
+      "description": "Return approvals updated at or after this time. Pair with `sortBy=updatedAt` and `sortOrder=asc` for incremental sync from a saved checkpoint."
+     },
+     "updatedAtMax": {
+      "type": "string",
+      "description": "Return approvals updated at or before this time."
+     },
+     "createdAtMin": {
+      "type": "string",
+      "description": "Return approvals created at or after this time."
+     },
+     "createdAtMax": {
+      "type": "string",
+      "description": "Return approvals created at or before this time."
+     },
+     "statuses": {
+      "type": "array",
+      "description": "Filter by approval statuses. Repeat the parameter to match any of multiple values."
+     },
+     "postIds": {
+      "type": "array",
+      "description": "Filter by post IDs. Repeat the parameter to match any of multiple values."
+     },
+     "approverIds": {
+      "type": "array",
+      "description": "Filter by approver user IDs. Repeat the parameter to match any of multiple values."
+     },
+     "requestedByIds": {
+      "type": "array",
+      "description": "Filter by IDs of users who requested the approval. Repeat the parameter to match any of multiple values."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/approvals",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "sortBy",
+     "sortOrder",
+     "updatedAtMin",
+     "updatedAtMax",
+     "createdAtMin",
+     "createdAtMax",
+     "statuses",
+     "postIds",
+     "approverIds",
+     "requestedByIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.comments_create",
+   "name": "Create a comment on a post",
+   "description": "Add a comment to a post. Supports @mentions using the format `@[Display Name](userId)`. Tagged users must be workspace members. The commenter and any tagged users are automatically subscribed to the post.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "message": {
+      "type": "string",
+      "description": "The comment text. Cannot be empty. Supports @mentions using the format @[Display Name](userId)"
+     }
+    },
+    "required": [
+     "message",
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/comments",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "message"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.comments_delete",
+   "name": "Delete a comment",
+   "description": "Delete a comment from a post. Only the author of the comment can delete it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "commentId": {
+      "type": "string",
+      "description": "Comment ID (UUID)"
+     }
+    },
+    "required": [
+     "commentId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/comments/{commentId}",
+    "path": [
+     "commentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.comments_list",
+   "name": "List post comments",
+   "description": "List all comments on a post, ordered by creation time (oldest first)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/comments",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.engagements_create",
+   "name": "Create for a post",
+   "description": "Add engagements (likes, comments, reposts) to a post. Engagements will be executed automatically when the post is published. **Tagging on LinkedIn:** To mention someone in a comment or repost, use the format `@[Display Name](urn)`. See [LinkedIn Mentions](/api/linkedin-mentions) for details on how to look up URNs. **LinkedIn reaction types:** For Like engagements on LinkedIn, you can specify a rea",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "channel": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "LinkedIn",
+       "Twitter"
+      ]
+     },
+     "engagements": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "channel",
+     "engagements",
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/engagements",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "engagements"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.engagements_delete",
+   "name": "Delete an engagement",
+   "description": "Remove a team engagement from a post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Engagement ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/engagements/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.engagements_list",
+   "name": "List for a post",
+   "description": "List all engagements (likes, comments, reposts) configured for a specific post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/engagements",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.engagements_update",
+   "name": "Update an engagement",
+   "description": "Update an existing engagement's copy, delay, profile, or reaction type. **Validation rules:** - `copy` cannot be updated for Like engagements - `copy` cannot be removed from Comment engagements (must have content) - `delaySeconds` cannot be updated for Like engagements - `reactionType` can only be updated for Like engagements on LinkedIn - When changing `profileId`, the new profile must have the r",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Engagement ID (UUID)"
+     },
+     "copy": {
+      "type": "string",
+      "description": "The text content. Cannot be updated for Like engagements. Cannot be removed from Comment engagements. Set to null to remove copy from Repost engagements."
+     },
+     "delaySeconds": {
+      "type": "integer",
+      "description": "Delay in seconds after the post publishes. Accepts any integer from 0 to 86400 (24 hours). Cannot be updated for Like engagements."
+     },
+     "profileId": {
+      "type": "string",
+      "description": "Change the profile that will perform the engagement. The new profile must have the required engagement permissions."
+     },
+     "reactionType": {
+      "type": "string",
+      "description": "LinkedIn reaction type for Like engagements. Only applicable when type is Like and channel is LinkedIn. Defaults to Like if not specified.",
+      "enum": [
+       "Like",
+       "Celebrate",
+       "Love",
+       "Insightful",
+       "Support",
+       "Funny"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.tryordinal.com/api/v1/engagements/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "copy",
+     "delaySeconds",
+     "profileId",
+     "reactionType"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_add_to_calendar",
+   "name": "Add idea to calendar",
+   "description": "Convert an idea to a calendar post by assigning it a publish date. The idea becomes a regular post that can be scheduled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Idea ID (UUID)"
+     },
+     "publishDate": {
+      "type": "string",
+      "description": "Date to add the idea to on the calendar (YYYY-MM-DD or ISO 8601)"
+     }
+    },
+    "required": [
+     "id",
+     "publishDate"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/ideas/{id}/add-to-calendar",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_archive",
+   "name": "Archive idea",
+   "description": "Archive an idea by ID. The idea is moved to Trash and will be permanently deleted after 30 days. Use the unarchive endpoint to restore it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Idea ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/ideas/{id}/archive",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_create",
+   "name": "Create idea",
+   "description": "Create a new idea in the workspace. At least one channel (linkedIn, x, or tikTok) is required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": "Idea title"
+     },
+     "labelIds": {
+      "type": "array",
+      "description": "Label IDs to attach to the idea"
+     },
+     "campaignId": {
+      "type": "string",
+      "description": "Campaign ID to link the idea to"
+     },
+     "linkedIn": {
+      "type": "object",
+      "description": "LinkedIn channel configuration"
+     },
+     "x": {
+      "type": "object",
+      "description": "X (Twitter) channel configuration"
+     },
+     "tikTok": {
+      "type": "object",
+      "description": "TikTok channel configuration for creating or updating posts. TikTok posts require exactly one video asset."
+     },
+     "youTubeShorts": {
+      "type": "object",
+      "description": "YouTube Shorts channel configuration for creating or updating posts. YouTube Shorts posts require exactly one video asset (1s\u20133min)."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Internal notes for the idea"
+     }
+    },
+    "required": [
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/ideas",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "labelIds",
+     "campaignId",
+     "linkedIn",
+     "x",
+     "tikTok",
+     "youTubeShorts",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_get",
+   "name": "Get idea",
+   "description": "Get a single idea by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Idea ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/ideas/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_list",
+   "name": "List ideas",
+   "description": "List all ideas in the workspace with pagination and filtering. Archived ideas are excluded from results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of ideas to return (1-100)"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination (idea ID from the last item of previous page)"
+     },
+     "ids": {
+      "type": "string",
+      "description": "Fetch specific ideas by IDs"
+     },
+     "channel": {
+      "type": "string",
+      "description": "Filter by channel",
+      "enum": [
+       "LinkedIn",
+       "Twitter",
+       "TikTok",
+       "YouTubeShorts"
+      ]
+     },
+     "linkedInProfileId": {
+      "type": "string",
+      "description": "Filter by LinkedIn profile ID"
+     },
+     "xProfileId": {
+      "type": "string",
+      "description": "Filter by X/Twitter profile ID"
+     },
+     "tikTokProfileId": {
+      "type": "string",
+      "description": "Filter by TikTok profile ID"
+     },
+     "youTubeProfileId": {
+      "type": "string",
+      "description": "Filter by YouTube channel profile ID"
+     },
+     "labelIds": {
+      "type": "string",
+      "description": "Filter by label IDs (ideas with any of these labels)"
+     },
+     "createdAtMin": {
+      "type": "string",
+      "description": "Filter ideas created on or after this date"
+     },
+     "createdAtMax": {
+      "type": "string",
+      "description": "Filter ideas created on or before this date"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Field to sort by",
+      "enum": [
+       "createdAt"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sort order",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/ideas",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "ids",
+     "channel",
+     "linkedInProfileId",
+     "xProfileId",
+     "tikTokProfileId",
+     "youTubeProfileId",
+     "labelIds",
+     "createdAtMin",
+     "createdAtMax",
+     "sortBy",
+     "sortOrder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_unarchive",
+   "name": "Unarchive idea",
+   "description": "Restore an archived idea from Trash. The idea will no longer be scheduled for permanent deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Idea ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/ideas/{id}/unarchive",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.ideas_update",
+   "name": "Update idea",
+   "description": "Update an existing idea by ID. All fields are optional - only include the fields you want to update. Archived ideas cannot be updated; unarchive them first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Idea ID (UUID)"
+     },
+     "title": {
+      "type": "string",
+      "description": "Idea title"
+     },
+     "labelIds": {
+      "type": "array",
+      "description": "Label IDs to attach to the idea (replaces existing labels)"
+     },
+     "campaignId": {
+      "type": "string",
+      "description": "Campaign ID to link the idea to (null to unlink)"
+     },
+     "linkedIn": {
+      "type": "object",
+      "description": "LinkedIn channel content updates"
+     },
+     "x": {
+      "type": "object",
+      "description": "X/Twitter channel content updates"
+     },
+     "tikTok": {
+      "type": "object",
+      "description": "TikTok channel configuration for creating or updating posts. TikTok posts require exactly one video asset."
+     },
+     "youTubeShorts": {
+      "type": "object",
+      "description": "YouTube Shorts channel configuration for creating or updating posts. YouTube Shorts posts require exactly one video asset (1s\u20133min)."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Internal notes for the idea"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.tryordinal.com/api/v1/ideas/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "labelIds",
+     "campaignId",
+     "linkedIn",
+     "x",
+     "tikTok",
+     "youTubeShorts",
+     "notes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.inline_comments_list",
+   "name": "List inline comments on a post",
+   "description": "Returns inline comments (text-anchored comments) from all channels on a post. Optionally filter by channel or resolution status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "channel": {
+      "type": "string",
+      "description": "Filter by channel",
+      "enum": [
+       "LinkedIn",
+       "Twitter",
+       "Instagram",
+       "Facebook",
+       "Threads",
+       "TikTok",
+       "Discord",
+       "Slack",
+       "Webflow",
+       "YouTubeShorts"
+      ]
+     },
+     "resolved": {
+      "type": "boolean",
+      "description": "Filter by resolution status"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/inline-comments",
+    "path": [
+     "postId"
+    ],
+    "query": [
+     "channel",
+     "resolved"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.instagram_search_locations",
+   "name": "Search instagram locations",
+   "description": "Search for locations to tag in Instagram posts. Requires at least one Instagram profile connected to the workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Search query for location name"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/instagram/locations",
+    "path": [],
+    "query": [
+     "query"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.invites_create",
+   "name": "Create an invite",
+   "description": "Invite a user to the workspace by email. If the user already has an Ordinal account, they will be added to the workspace immediately. Otherwise, an invite email will be sent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The email address of the user to invite"
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/invites",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.invites_delete",
+   "name": "Delete an invite",
+   "description": "Delete a pending invite. This will prevent the invited user from joining the workspace using this invite.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Invite ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/invites/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.invites_list",
+   "name": "List pending invites",
+   "description": "List all pending invites for the workspace",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/invites",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.labels_create",
+   "name": "Create a label",
+   "description": "Create a new label in the workspace",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "color": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "yellow",
+       "purple",
+       "orange",
+       "red",
+       "brown",
+       "green"
+      ]
+     }
+    },
+    "required": [
+     "color",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/labels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "color"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.labels_delete",
+   "name": "Delete a label",
+   "description": "Delete a label from the workspace",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Label ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/labels/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.labels_list",
+   "name": "List all labels",
+   "description": "List all labels in the workspace",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/labels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.linkedin_get_mention",
+   "name": "Mention format by username",
+   "description": "Look up the mention format for a LinkedIn user or organization by their username to use in posts or comments. The username is the part after `/in/` or `/company/` in a LinkedIn profile URL: - Personal profile: `linkedin.com/in/johndoe` - username is `johndoe` - Company page: `linkedin.com/company/acme-inc` - username is `acme-inc` Returns both user and organization results if a username matches bo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "username": {
+      "type": "string",
+      "description": "LinkedIn username (vanity name) to look up"
+     }
+    },
+    "required": [
+     "username"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/linkedin/{username}/mentions",
+    "path": [
+     "username"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.linkedin_get_profile",
+   "name": "Get linked in profile by urn",
+   "description": "Look up a LinkedIn user or organization by their URN (e.g. `urn:li:person:xyz` or `urn:li:organization:xyz`) to get the username, name, and profile picture.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "urn": {
+      "type": "string",
+      "description": "LinkedIn URN of the person or organization (e.g. `urn:li:person:abc123` or `urn:li:organization:99999`)"
+     }
+    },
+    "required": [
+     "urn"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/linkedin/profile/{urn}",
+    "path": [
+     "urn"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.linkedin_leads_get_leads_by_post",
+   "name": "Get posts leads",
+   "description": "Returns leads (reactions, comments, reshares) for a specific LinkedIn post. Supports filtering by engagement type and minimum follower count.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "LinkedIn profile ID (UUID)"
+     },
+     "postId": {
+      "type": "string",
+      "description": "LinkedIn post ID (UUID)"
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter by engagement types (comma-separated: LIKE,COMMENT,RESHARE)"
+     },
+     "minFollowerCount": {
+      "type": "integer",
+      "description": "Filter leads by minimum follower count"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of leads to return (1-250)"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from previous response"
+     }
+    },
+    "required": [
+     "postId",
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/linkedin/leads/{profileId}/posts/{postId}",
+    "path": [
+     "profileId",
+     "postId"
+    ],
+    "query": [
+     "types",
+     "minFollowerCount",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.linkedin_leads_list_posts",
+   "name": "List posts",
+   "description": "Returns all LinkedIn posts for a profile with scraped lead counts (reactions, comments, reshares). Supports pagination and filtering by date range. Requires leads scraping to be enabled for the profile.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profileId": {
+      "type": "string",
+      "description": "LinkedIn profile ID (UUID)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Filter posts published on or after this date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Filter posts published on or before this date"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of posts to return (1-100)"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from previous response"
+     }
+    },
+    "required": [
+     "profileId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/linkedin/leads/{profileId}/posts",
+    "path": [
+     "profileId"
+    ],
+    "query": [
+     "startDate",
+     "endDate",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_archive",
+   "name": "Archive post",
+   "description": "Archive a post by ID. The post is moved to Trash and will be permanently deleted after 30 days. Use the unarchive endpoint to restore it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/archive",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_create",
+   "name": "Create post",
+   "description": "Create a new post in the workspace. At least one channel (linkedIn, x, instagram, or tikTok) is required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "publishAt": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Tentative",
+       "ToDo",
+       "InProgress",
+       "ForReview",
+       "Blocked",
+       "Finalized",
+       "Scheduled",
+       "Posted"
+      ]
+     },
+     "labelIds": {
+      "type": "array",
+      "description": ""
+     },
+     "campaignId": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedIn": {
+      "type": "object",
+      "description": ""
+     },
+     "x": {
+      "type": "object",
+      "description": "X (Twitter) channel configuration for creating or updating posts"
+     },
+     "instagram": {
+      "type": "string",
+      "description": "Instagram channel configuration for creating or updating posts. The shape of the object depends on the `type` field."
+     },
+     "tikTok": {
+      "type": "object",
+      "description": "TikTok channel configuration for creating or updating posts. TikTok posts require exactly one video asset."
+     },
+     "youTubeShorts": {
+      "type": "object",
+      "description": "YouTube Shorts channel configuration for creating or updating posts. YouTube Shorts posts require exactly one video asset (1s\u20133min)."
+     }
+    },
+    "required": [
+     "publishAt",
+     "status",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "publishAt",
+     "status",
+     "labelIds",
+     "campaignId",
+     "notes",
+     "linkedIn",
+     "x",
+     "instagram",
+     "tikTok",
+     "youTubeShorts"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_get",
+   "name": "Get post",
+   "description": "Get a specific post by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_get_version_content",
+   "name": "Get post version content",
+   "description": "Read the plain-text copy of a single saved draft version for one channel's editor. Get version IDs from `GET /posts/{id}/versions`. Returns `404 NOT_FOUND` when the channel has no editor for this post or the version ID can't be read.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel whose editor version to read.",
+      "enum": [
+       "LinkedIn",
+       "Facebook",
+       "Instagram",
+       "TikTok",
+       "Discord",
+       "Slack",
+       "Webflow",
+       "YouTubeShorts"
+      ]
+     },
+     "versionId": {
+      "type": "string",
+      "description": "Version ID returned by the list versions endpoint."
+     }
+    },
+    "required": [
+     "channel",
+     "id",
+     "versionId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/channels/{channel}/versions/{versionId}",
+    "path": [
+     "id",
+     "channel",
+     "versionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_list",
+   "name": "List posts",
+   "description": "List all posts in the workspace with pagination and filtering. Archived posts are excluded from results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of posts to return (1-100)"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination (post ID from the last item of previous page)"
+     },
+     "ids": {
+      "type": "string",
+      "description": "Fetch specific posts by IDs. Can be a single UUID or comma-separated list."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by post status",
+      "enum": [
+       "Tentative",
+       "ToDo",
+       "InProgress",
+       "ForReview",
+       "Blocked",
+       "Finalized",
+       "Scheduled",
+       "Posted"
+      ]
+     },
+     "channel": {
+      "type": "string",
+      "description": "Filter by channel",
+      "enum": [
+       "LinkedIn",
+       "Twitter",
+       "Instagram",
+       "TikTok",
+       "YouTubeShorts"
+      ]
+     },
+     "linkedInProfileId": {
+      "type": "string",
+      "description": "Filter by LinkedIn profile ID"
+     },
+     "xProfileId": {
+      "type": "string",
+      "description": "Filter by X/Twitter profile ID"
+     },
+     "instagramProfileId": {
+      "type": "string",
+      "description": "Filter by Instagram profile ID"
+     },
+     "tikTokProfileId": {
+      "type": "string",
+      "description": "Filter by TikTok profile ID"
+     },
+     "youTubeProfileId": {
+      "type": "string",
+      "description": "Filter by YouTube channel profile ID"
+     },
+     "labelIds": {
+      "type": "string",
+      "description": "Filter by label IDs (posts with any of these labels). Can be a single UUID or comma-separated list."
+     },
+     "publishDateMin": {
+      "type": "string",
+      "description": "Filter posts scheduled on or after this date (ISO 8601 format)"
+     },
+     "publishDateMax": {
+      "type": "string",
+      "description": "Filter posts scheduled on or before this date (ISO 8601 format)"
+     },
+     "createdAtMin": {
+      "type": "string",
+      "description": "Filter posts created on or after this date (ISO 8601 format)"
+     },
+     "createdAtMax": {
+      "type": "string",
+      "description": "Filter posts created on or before this date (ISO 8601 format)"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Field to sort by",
+      "enum": [
+       "createdAt",
+       "publishAt"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sort order",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "ids",
+     "status",
+     "channel",
+     "linkedInProfileId",
+     "xProfileId",
+     "instagramProfileId",
+     "tikTokProfileId",
+     "youTubeProfileId",
+     "labelIds",
+     "publishDateMin",
+     "publishDateMax",
+     "createdAtMin",
+     "createdAtMax",
+     "sortBy",
+     "sortOrder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_list_versions",
+   "name": "List post draft versions",
+   "description": "List saved draft versions for a post's channel editors, newest first. Each channel with an editor is returned as its own entry with its own `versions` array, `nextCursor`, and optional `error`. **Pagination:** Each channel paginates independently. To fetch more versions for a channel, call again with `channel` set to that channel and `cursor` set to the `nextCursor` from the previous response. `ch",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "channel": {
+      "type": "string",
+      "description": "Optional. Only return versions for this channel. Omit to return every channel that has an editor. Required when `cursor` is set.",
+      "enum": [
+       "LinkedIn",
+       "Facebook",
+       "Instagram",
+       "TikTok",
+       "Discord",
+       "Slack",
+       "Webflow",
+       "YouTubeShorts"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max versions returned per channel, newest first. Default 15, max 100."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from a previous response's `channels[].nextCursor`. Requires `channel` \u2014 each channel paginates independently."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/versions",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "channel",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_schedule",
+   "name": "Schedule or reschedule post",
+   "description": "Schedule a post for publishing, or reschedule an already scheduled post to a new time. The post must have at least one channel with a connected profile. Archived posts cannot be scheduled; unarchive them first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "publishAt": {
+      "type": "string",
+      "description": "When to publish the post (UTC). Required for new schedules, optional for rescheduling (uses existing publishAt if not provided)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/schedule",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishAt"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_unarchive",
+   "name": "Unarchive post",
+   "description": "Restore an archived post from Trash. The post will no longer be scheduled for permanent deletion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/unarchive",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_unschedule",
+   "name": "Unschedule post",
+   "description": "Cancel a scheduled post. The post status will be changed to Finalized and any pending scheduled publishes will be cancelled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}/unschedule",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.posts_update",
+   "name": "Update post",
+   "description": "Update an existing post by ID. All fields are optional - only include the fields you want to update. Archived posts cannot be updated; unarchive them first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "publishAt": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Tentative",
+       "ToDo",
+       "InProgress",
+       "ForReview",
+       "Blocked",
+       "Finalized",
+       "Scheduled",
+       "Posted"
+      ]
+     },
+     "labelIds": {
+      "type": "array",
+      "description": ""
+     },
+     "campaignId": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedIn": {
+      "type": "object",
+      "description": ""
+     },
+     "x": {
+      "type": "object",
+      "description": "X (Twitter) channel configuration for creating or updating posts"
+     },
+     "instagram": {
+      "type": "string",
+      "description": "Instagram channel configuration for creating or updating posts. The shape of the object depends on the `type` field."
+     },
+     "tikTok": {
+      "type": "object",
+      "description": "TikTok channel configuration for creating or updating posts. TikTok posts require exactly one video asset."
+     },
+     "youTubeShorts": {
+      "type": "object",
+      "description": "YouTube Shorts channel configuration for creating or updating posts. YouTube Shorts posts require exactly one video asset (1s\u20133min)."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.tryordinal.com/api/v1/posts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "publishAt",
+     "status",
+     "labelIds",
+     "campaignId",
+     "notes",
+     "linkedIn",
+     "x",
+     "instagram",
+     "tikTok",
+     "youTubeShorts"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.profiles_list_engagement",
+   "name": "List engagement profiles",
+   "description": "List all engagement-only profiles in the workspace. Engagement profiles can only be used for team engagements.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/profiles/engagement",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.profiles_list_scheduling",
+   "name": "List scheduling profiles",
+   "description": "List all scheduling profiles in the workspace. Scheduling profiles support scheduling, team engagements, and analytics capabilities.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/profiles/scheduling",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_boosts_create",
+   "name": "Create slack boost",
+   "description": "Create a slack boost for a post. When the post publishes, Ordinal sends a notification to the selected Slack channel. Each post can have at most one slack boost. Use a `slackWebhookId` from a [connected Slack marketing boost channel](/integrations/slack).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "The ID of the post to attach the slack boost to"
+     },
+     "slackWebhookId": {
+      "type": "string",
+      "description": "The ID of the Slack webhook (channel) to send notifications to"
+     },
+     "copy": {
+      "type": "string",
+      "description": "Optional custom message included in the Slack notification"
+     }
+    },
+    "required": [
+     "postId",
+     "slackWebhookId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/slack-boosts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "postId",
+     "slackWebhookId",
+     "copy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_boosts_delete",
+   "name": "Delete slack boost",
+   "description": "Delete a slack boost. The Slack notification will no longer be sent when the post is published.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the slack boost to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/slack-boosts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_boosts_get",
+   "name": "Get slack boost",
+   "description": "Get a slack boost by ID for the current workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the slack boost"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/slack-boosts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_boosts_list_by_post",
+   "name": "List post's slack boosts",
+   "description": "List all slack boosts for a specific post in the current workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "The ID of the post to list slack boosts for"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/slack-boosts",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_boosts_update",
+   "name": "Update slack boost",
+   "description": "Update an existing slack boost. Only include fields you want to change. Set `copy` to `null` to clear the custom message.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the slack boost to update"
+     },
+     "copy": {
+      "type": "string",
+      "description": "Custom message in the Slack notification, or null to clear"
+     },
+     "slackWebhookId": {
+      "type": "string",
+      "description": "The ID of the Slack webhook (channel) to send notifications to"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.tryordinal.com/api/v1/slack-boosts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "copy",
+     "slackWebhookId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.slack_webhooks_list",
+   "name": "List slack webhooks",
+   "description": "List all Slack webhooks (connected marketing boost channels) for the current workspace. Use an `id` from this list as `slackWebhookId` when creating a slack boost.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/slack-webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.subscribers_create",
+   "name": "Add subscribers to post",
+   "description": "Add one or more subscribers to a post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": ""
+     },
+     "userIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "postId",
+     "userIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/subscribers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "postId",
+     "userIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.subscribers_delete",
+   "name": "Delete subscriber",
+   "description": "Remove a subscriber from a post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Subscriber ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/subscribers/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.subscribers_list",
+   "name": "List post subscribers",
+   "description": "List all subscribers for a specific post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "postId": {
+      "type": "string",
+      "description": "Post ID (UUID)"
+     }
+    },
+    "required": [
+     "postId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/posts/{postId}/subscribers",
+    "path": [
+     "postId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.uploads_create",
+   "name": "Upload a file from a url",
+   "description": "Uploads a file by downloading it from the provided URL. The file will be processed asynchronously. Poll the GET endpoint to check when it's ready, then use the returned assetId in post creation. **Supported file types:** - Images: JPEG, PNG, GIF, WebP - Videos: MP4, QuickTime (MOV) **File size limits:** - Images: 10 MB max - GIFs: 15 MB max - Videos: 350 MB max **Additional constraints:** - Images",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "URL of the file to upload. Must be publicly accessible."
+     }
+    },
+    "required": [
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/uploads",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.uploads_get",
+   "name": "Get upload status",
+   "description": "Returns the current status and metadata of an upload. Poll this endpoint until status is 'ready', then use the returned assetId when creating posts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Upload job ID (UUID)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/uploads/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.uploads_prepare",
+   "name": "Prepare a local file upload",
+   "description": "Creates an upload job and returns signed credentials so you can POST a local file directly to the returned `uploadUrl`. After preparing, POST the file to `uploadUrl` as multipart form data with the returned `params`, `signature`, and `file` fields, then poll `GET /uploads/{id}` until status is `ready`. See [File uploads](/api/file-uploads#local-file-upload) for a full walkthrough and curl examples",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Original filename, including extension."
+     },
+     "mimetype": {
+      "type": "string",
+      "description": "MIME type of the file (e.g., image/jpeg, video/mp4)."
+     },
+     "size": {
+      "type": "integer",
+      "description": "File size in bytes."
+     }
+    },
+    "required": [
+     "filename",
+     "mimetype",
+     "size"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/uploads/prepare",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "filename",
+     "mimetype",
+     "size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.users_list",
+   "name": "List workspace users",
+   "description": "List all users in the workspace",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/users",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.webhooks_create",
+   "name": "Create webhook",
+   "description": "Create a webhook for the current workspace. The webhook will receive events for the specified topics.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL that will receive webhook events"
+     },
+     "description": {
+      "type": "string",
+      "description": "An optional description for the webhook"
+     },
+     "topics": {
+      "type": "array",
+      "description": "The event types this webhook should listen to"
+     },
+     "headers": {
+      "type": "object",
+      "description": "Optional custom headers to include in webhook requests"
+     }
+    },
+    "required": [
+     "name",
+     "topics",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.tryordinal.com/api/v1/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "url",
+     "description",
+     "topics",
+     "headers"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.webhooks_delete",
+   "name": "Delete webhook",
+   "description": "Delete a webhook from the current workspace. The webhook will no longer receive events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the webhook to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.tryordinal.com/api/v1/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.webhooks_get",
+   "name": "Get webhook",
+   "description": "Get a webhook by ID for the current workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the webhook"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.webhooks_list",
+   "name": "List webhooks",
+   "description": "List all webhooks for the current workspace.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.webhooks_update",
+   "name": "Update webhook",
+   "description": "Update an existing webhook for the current workspace. All fields are optional\u2014only include the fields you want to update.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The unique identifier of the webhook to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL that will receive webhook events"
+     },
+     "description": {
+      "type": "string",
+      "description": "An optional description for the webhook"
+     },
+     "topics": {
+      "type": "array",
+      "description": "The event types this webhook should listen to"
+     },
+     "headers": {
+      "type": "object",
+      "description": "Optional custom headers to include in webhook requests"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.tryordinal.com/api/v1/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "url",
+     "description",
+     "topics",
+     "headers"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ordinal.workspace_get",
+   "name": "Get workspace",
+   "description": "Get details about the current workspace",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.tryordinal.com/api/v1/workspace",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

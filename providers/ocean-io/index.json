@@ -1,0 +1,1181 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "ocean-io",
+ "source": "https://api.ocean.io/openapi.json",
+ "operations": [
+  {
+   "slug": "ocean-io.add_marked_domains",
+   "name": "Add domains to the positive or negative list of a segmentation",
+   "description": "Append domains to the positive or negative list of an existing segmentation to steer future results toward good-fit companies and away from poor-fit ones.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "segmentation_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "domains": {
+      "type": "array",
+      "description": "Domains to add to the positive or negative list."
+     },
+     "type": {
+      "type": "string",
+      "description": "Whether these domains are a good fit (`positive`) or a poor fit (`negative`).",
+      "enum": [
+       "positive",
+       "negative"
+      ]
+     }
+    },
+    "required": [
+     "domains",
+     "segmentation_id",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/segmentation/{segmentation_id}/markDomains",
+    "path": [
+     "segmentation_id"
+    ],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "domains",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.attribute_segmentation_domains",
+   "name": "Attribute domains to segments",
+   "description": "Assign each input domain to the closest segment in a segmentation, with a 0-1 match score. The segmentation must have completed successfully first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "segmentation_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "domains": {
+      "type": "array",
+      "description": "Domains to attribute (max 1000)."
+     }
+    },
+    "required": [
+     "domains",
+     "segmentation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/segmentation/{segmentation_id}/attribute-domains",
+    "path": [
+     "segmentation_id"
+    ],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "domains"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.auto_complete_company",
+   "name": "Autocomplete companies",
+   "description": "Auto complete the name search",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Beginning of the name or the domain of a company"
+     },
+     "countryFilters": {
+      "type": "array",
+      "description": "List of countries to filter for the autocompletion"
+     },
+     "excludeDomains": {
+      "type": "array",
+      "description": "List of domains to exclude from the results"
+     },
+     "forLookalikeSearch": {
+      "type": "boolean",
+      "description": "When `false`, returns all matching companies without domain validation or status filters. WARNING: Do not set this parameter to `false` if the autocomplete results will be used as input for a lookalike search."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/autocomplete/companies",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "name",
+     "countryFilters",
+     "excludeDomains",
+     "forLookalikeSearch"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.auto_complete_job_titles",
+   "name": "Autocomplete job titles",
+   "description": "Auto complete the job title search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Beginning of the job title"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of job titles to return. Default is 5 if not specified, maximum is 15."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/autocomplete/job-titles",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "query",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.auto_complete_keywords",
+   "name": "Autocomplete keywords",
+   "description": "Auto complete the keyword search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Beginning of the keyword"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of keywords to return. Default is 5 if not specified, maximum is 15."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/autocomplete/keywords",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "query",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.auto_complete_locations",
+   "name": "Autocomplete locations",
+   "description": "Auto complete the location search",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Beginning of the location"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of locations to return. Default is 5 if not specified, maximum is 15."
+     },
+     "locationType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "companies",
+       "people"
+      ]
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/autocomplete/locations",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "query",
+     "limit",
+     "locationType"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.auto_complete_skills",
+   "name": "Autocomplete skills",
+   "description": "Auto complete the skill search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Beginning of the skill name"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of skills to return. Default is 5 if not specified, maximum is 15."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/autocomplete/skills",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "query",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.create_segmentation",
+   "name": "Create segmentation",
+   "description": "Create a new segmentation from a list of company domains. Runs asynchronously \u2014 poll [Get Segmentation](/docs/getSegmentation) until `status` is `SUCCESSFUL` to read the resulting segments.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "domains": {
+      "type": "array",
+      "description": "Company domains to segment. Provide a representative set of the companies you want to group, typically your customers or best-fit accounts."
+     },
+     "leadScoringFeatures": {
+      "type": "array",
+      "description": "Company attributes to consider when grouping and scoring companies (for example `industries`, `technologies`, `company_size`). Omit to use the default feature set."
+     },
+     "numberOfSegmentsMode": {
+      "type": "integer",
+      "description": "Bias toward fewer or more segments. Omit to let the service choose the number that best fits the data."
+     },
+     "positiveDomains": {
+      "type": "array",
+      "description": "Companies that are a good fit. The segmentation leans toward similar companies."
+     },
+     "negativeDomains": {
+      "type": "array",
+      "description": "Companies that are a poor fit. The segmentation leans away from similar companies."
+     }
+    },
+    "required": [
+     "domains"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/segmentation",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "domains",
+     "leadScoringFeatures",
+     "numberOfSegmentsMode",
+     "positiveDomains",
+     "negativeDomains"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.enrich_companies",
+   "name": "Enrich companies",
+   "description": "Match companies with our database and enrich it with additional information. **Webhook result:** [Documentation](/docs/webhooks/enrich_companies)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "companyDataMapping": {
+      "type": "object",
+      "description": "A dictionary where each key is unique user-defined ID for a company, and each value is the data for that company to be enriched. This ID will be included in the webhook response together with the enriched company data, allowing the user to match the response to the original request."
+     },
+     "webhookUrl": {
+      "type": "string",
+      "description": "Url of the webhook the enriched companies should be sent to, when completed."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Company objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, all fields are returned that can be seen in the example."
+     }
+    },
+    "required": [
+     "companyDataMapping",
+     "webhookUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/enrich/companies",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "companyDataMapping",
+     "webhookUrl",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.enrich_company",
+   "name": "Enrich company",
+   "description": "Match a company with our database and enrich it with additional information. **Webhook result:** [Documentation](/docs/webhooks/enrich_person_email)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "company": {
+      "type": "object",
+      "description": ""
+     },
+     "people": {
+      "type": "array",
+      "description": "The people to match company with"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Company objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, all fields are returned that can be seen in the example."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/enrich/company",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "company",
+     "people",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.enrich_people",
+   "name": "Enrich people",
+   "description": "Match people with our database and enrich it with additional information. **Webhook result:** [Documentation](/docs/webhooks/enrich_people)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "peopleDataMapping": {
+      "type": "object",
+      "description": "A dictionary where each key is a unique user-defined ID for a person, and each value is the data for that person to be enriched. This ID will be included in the webhook response together with the enriched person data, allowing the user to match the response to the original request."
+     },
+     "webhookUrl": {
+      "type": "string",
+      "description": "Url of the webhook the enriched people should be sent to, when completed."
+     }
+    },
+    "required": [
+     "peopleDataMapping",
+     "webhookUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/enrich/people",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "peopleDataMapping",
+     "webhookUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.enrich_person",
+   "name": "Enrich person",
+   "description": "Match a person with our database and enrich it with additional information. **Webhook result:** [Documentation](/docs/webhooks/enrich_person_phone)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "person": {
+      "type": "object",
+      "description": ""
+     },
+     "company": {
+      "type": "object",
+      "description": ""
+     },
+     "revealEmails": {
+      "type": "object",
+      "description": ""
+     },
+     "revealPhones": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "person"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/enrich/person",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "person",
+     "company",
+     "revealEmails",
+     "revealPhones"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.get_credit_balance",
+   "name": "Get credit balance",
+   "description": "Get credit balance",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ocean.io/v2/credits/balance",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.get_data_fields_public",
+   "name": "Get data fields",
+   "description": "Provides a list of all industries and industry categories, technologies and regions searchable by Ocean.io. Calling this endpoint does not consume any credits.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ocean.io/v2/data-fields",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.get_segmentation",
+   "name": "Get segmentation",
+   "description": "Retrieve a segmentation by its id, including its segments, traits, and CRM metrics once `status` is `SUCCESSFUL`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "segmentation_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "segmentation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ocean.io/v2/segmentation/{segmentation_id}",
+    "path": [
+     "segmentation_id"
+    ],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.lookup_companies",
+   "name": "Lookup multiple companies by domain",
+   "description": "Lookup and enrich multiple companies by domain (max 1000). This endpoint provides simple, per-result pricing. **Key features:** - Batch lookup up to 1000 company domains - Domain redirections are handled automatically Returns enriched company data for each domain. Companies not found will have `company: null` in the result.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "domains": {
+      "type": "array",
+      "description": "List of company domains to lookup (max 1000). Domain redirections are handled automatically."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Company objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, all fields are returned that can be seen in the example."
+     }
+    },
+    "required": [
+     "domains"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/lookup/companies",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "domains",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.lookup_people",
+   "name": "Lookup multiple people by linked in handle or ocean id",
+   "description": "Lookup and enrich multiple people by LinkedIn handles and/or Ocean.io IDs (max 1000 total). This endpoint provides simple, per-result pricing. **Key features:** - Batch lookup up to 1000 people (combined total of linkedinHandles + oceanIds) - Provide either linkedinHandles, oceanIds, or both lists Returns only successfully matched people in the response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedinHandles": {
+      "type": "array",
+      "description": "List of LinkedIn profile handles to lookup (e.g., ['john-doe', 'jane-smith'])"
+     },
+     "oceanIds": {
+      "type": "array",
+      "description": "List of Ocean.io person IDs to lookup (e.g., ['abc123', 'def456'])"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/lookup/people",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "linkedinHandles",
+     "oceanIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.preview_search_companies_v3",
+   "name": "Preview   lookalike companies",
+   "description": "Preview search companies using filters. **Only available for enterprise API customers.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "size": {
+      "type": "integer",
+      "description": "Number of companies to return. The maximum value is 50 and the minimum is 5"
+     },
+     "companiesFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "peopleFilters": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v3/search/companies/preview",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "size",
+     "companiesFilters",
+     "peopleFilters"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.reveal_emails",
+   "name": "Reveal emails",
+   "description": "Get emails and email statuses for people. **Webhook result:** [Documentation](/docs/webhooks/reveal_emails)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "personIds": {
+      "type": "array",
+      "description": "List of Ocean person ids to fetch the email data for. One email credit will be charged for every verified email found."
+     },
+     "webhookUrl": {
+      "type": "string",
+      "description": "Url of the webhook the email data should be sent to, when completed."
+     }
+    },
+    "required": [
+     "personIds",
+     "webhookUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/reveal/emails",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "personIds",
+     "webhookUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.reveal_phones",
+   "name": "Reveal phones",
+   "description": "Get phones and phone statuses for people. **Webhook result:** [Documentation](/docs/webhooks/reveal_phones)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "personIds": {
+      "type": "array",
+      "description": "List of Ocean person ids to fetch the phone data for. One phone credit will be charged for every verified phone found."
+     },
+     "webhookUrl": {
+      "type": "string",
+      "description": "Url of the webhook the phone data should be sent to, when completed."
+     }
+    },
+    "required": [
+     "personIds",
+     "webhookUrl"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/reveal/phones",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "personIds",
+     "webhookUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.search_companies_v3",
+   "name": "Lookalike companies search",
+   "description": "Search companies using filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "size": {
+      "type": "integer",
+      "description": "Number of companies to return. The maximum value is 10,000. To get more than 10,000 results, use `searchAfter`."
+     },
+     "searchAfter": {
+      "type": "string",
+      "description": "Use `searchAfter` returned by the previous request to get the next page"
+     },
+     "companiesFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "peopleFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Company objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, all fields are returned that can be seen in the example."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v3/search/companies",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "size",
+     "searchAfter",
+     "companiesFilters",
+     "peopleFilters",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.search_people_v3",
+   "name": "Lookalike people search",
+   "description": "Search people using filters and/or people Ids **Webhook result:** [Email results](/docs/webhooks/people_search_emails) [Phone results](/docs/webhooks/people_search_phones)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "size": {
+      "type": "integer",
+      "description": "Number of people to return. The maximum value is 10,000."
+     },
+     "peopleFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "companiesFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "peoplePerCompany": {
+      "type": "integer",
+      "description": "Number of people to return per company. If you want to return all people from a company, don't set this value."
+     },
+     "jobTitleThreshold": {
+      "type": "number",
+      "description": "Threshold for job title similarity. The value must be between 0 and 1. Default is 0.8"
+     },
+     "searchAfter": {
+      "type": "string",
+      "description": "Use `searchAfter` returned by the previous request to get the next page."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Person objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, the following default fields are returned: `id`, `domain`, `name`, `firstName`, `lastName`, `country`, `state`, `location`, `linkedinUrl`, `seniorities`, `departments`, `photo`, `jobTitle`, `jobTitleEnglish`, `currentJobDescription`, `experien"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v3/search/people",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "size",
+     "peopleFilters",
+     "companiesFilters",
+     "peoplePerCompany",
+     "jobTitleThreshold",
+     "searchAfter",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.search_people_v3_preview",
+   "name": "Preview   lookalike people",
+   "description": "Preview search people with company information. **Only available for enterprise API customers.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "size": {
+      "type": "integer",
+      "description": "Number of people to return"
+     },
+     "peopleFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "companiesFilters": {
+      "type": "object",
+      "description": ""
+     },
+     "peoplePerCompany": {
+      "type": "integer",
+      "description": "Number of people to return per company. If you want to return all people from a company, don't set this value."
+     },
+     "jobTitleThreshold": {
+      "type": "number",
+      "description": "Threshold for job title similarity. The value must be between 0 and 1. Default is 0.8"
+     },
+     "searchAfter": {
+      "type": "string",
+      "description": "Use `searchAfter` returned by the previous request to get the next page."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Fields to return in the Person objects. Only requesting the fields that are needed will use less bandwidth and result in faster responses. If not specified, the following default fields are returned: `id`, `domain`, `name`, `firstName`, `lastName`, `country`, `state`, `location`, `linkedinUrl`, `seniorities`, `departments`, `photo`, `jobTitle`, `jobTitleEnglish`, `currentJobDescription`, `experien"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v3/search/people/preview",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "size",
+     "peopleFilters",
+     "companiesFilters",
+     "peoplePerCompany",
+     "jobTitleThreshold",
+     "searchAfter",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ocean-io.warmup_companies",
+   "name": "Warmup companies",
+   "description": "Check available companies in Ocean's database and trigger process of data gathering for the missing ones. Calling this endpoint does not consume any credits",
+   "input": {
+    "type": "object",
+    "properties": {
+     "apiToken": {
+      "type": "string",
+      "description": ""
+     },
+     "x-api-token": {
+      "type": "string",
+      "description": ""
+     },
+     "domains": {
+      "type": "array",
+      "description": "Domains to be checked and added to the database if not present"
+     }
+    },
+    "required": [
+     "domains"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ocean.io/v2/warmup/companies",
+    "path": [],
+    "query": [
+     "apiToken"
+    ],
+    "header": [
+     "x-api-token"
+    ],
+    "body": [
+     "domains"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

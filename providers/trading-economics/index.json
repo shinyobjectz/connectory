@@ -1,0 +1,7436 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "trading-economics",
+ "source": "https://api.tradingeconomics.com/swagger/v1/swagger.json",
+ "operations": [
+  {
+   "slug": "trading-economics.get_calendar",
+   "name": "Trading economics get calendar",
+   "description": "Lists calendar.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar",
+    "path": [],
+    "query": [
+     "limit",
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_calendarid_ids",
+   "name": "Trading economics get calendar calendarid ids",
+   "description": "Fetches one calendarid.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "Calendar ID(s), e.g. 174109"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/calendarid/{ids}",
+    "path": [
+     "ids"
+    ],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country",
+   "name": "Trading economics get calendar country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "limit",
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_event_eventName",
+   "name": "Trading economics get calendar country country event event name",
+   "description": "Fetches one event.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "eventName": {
+      "type": "string",
+      "description": "Calendar event name"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "eventName"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/event/{eventName}",
+    "path": [
+     "country",
+     "eventName"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_event_eventName_from_to",
+   "name": "Trading economics get calendar country country event event name from to",
+   "description": "Fetches one event.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "eventName": {
+      "type": "string",
+      "description": "Calendar event name"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "eventName",
+     "from",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/event/{eventName}/{from}/{to}",
+    "path": [
+     "country",
+     "eventName",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_from_to",
+   "name": "Trading economics get calendar country country from to",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "from",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/{from}/{to}",
+    "path": [
+     "country",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_group_group",
+   "name": "Trading economics get calendar country country group group",
+   "description": "Fetches one group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "group"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/group/{group}",
+    "path": [
+     "country",
+     "group"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_group_group_from_to",
+   "name": "Trading economics get calendar country country group group from to",
+   "description": "Fetches one group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "from",
+     "group",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/group/{group}/{from}/{to}",
+    "path": [
+     "country",
+     "group",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_indicator_indicator",
+   "name": "Trading economics get calendar country country indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/indicator/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_country_indicator_indicator_from_to",
+   "name": "Trading economics get calendar country country indicator indicator from to",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "from",
+     "indicator",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{country}/indicator/{indicator}/{from}/{to}",
+    "path": [
+     "country",
+     "indicator",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_country_from_to",
+   "name": "Trading economics get calendar country from to",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "from",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/country/{from}/{to}",
+    "path": [
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_events",
+   "name": "Trading economics get calendar events",
+   "description": "Lists events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/events",
+    "path": [],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_events_country_country",
+   "name": "Trading economics get calendar events country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/events/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_events_indicator_indicator",
+   "name": "Trading economics get calendar events indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/events/indicator/{indicator}",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_group_group",
+   "name": "Trading economics get calendar group group",
+   "description": "Fetches one group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "group"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/group/{group}",
+    "path": [
+     "group"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_group_group_country_country",
+   "name": "Trading economics get calendar group group country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "group"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/group/{group}/country/{country}",
+    "path": [
+     "country",
+     "group"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_group_group_from_to",
+   "name": "Trading economics get calendar group group from to",
+   "description": "Fetches one group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "from",
+     "group",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/group/{group}/{from}/{to}",
+    "path": [
+     "group",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_indicator_indicator",
+   "name": "Trading economics get calendar indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/indicator/{indicator}",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_indicator_indicator_from_to",
+   "name": "Trading economics get calendar indicator indicator from to",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "importance": {
+      "type": "integer",
+      "description": "1 = low, 2 = medium, 3 = high"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "from",
+     "indicator",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/indicator/{indicator}/{from}/{to}",
+    "path": [
+     "indicator",
+     "from",
+     "to"
+    ],
+    "query": [
+     "importance",
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_ticker_ticker",
+   "name": "Trading economics get calendar ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_ticker_ticker_from_to",
+   "name": "Trading economics get calendar ticker ticker from to",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "to": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "from",
+     "ticker",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/ticker/{ticker}/{from}/{to}",
+    "path": [
+     "ticker",
+     "from",
+     "to"
+    ],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_upcoming_country",
+   "name": "Trading economics get calendar upcoming country",
+   "description": "Fetches one upcoming.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/upcoming/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_calendar_updates",
+   "name": "Trading economics get calendar updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "values": {
+      "type": "string",
+      "description": "e.g. True"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/calendar/updates",
+    "path": [],
+    "query": [
+     "lang",
+     "values",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_changes",
+   "name": "Trading economics get changes",
+   "description": "Lists changes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/changes",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_changes_date",
+   "name": "Trading economics get changes date",
+   "description": "Fetches one change.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/changes/{date}",
+    "path": [
+     "date"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade",
+   "name": "Trading economics get comtrade",
+   "description": "Lists comtrade.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_categories",
+   "name": "Trading economics get comtrade categories",
+   "description": "Lists categories.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/categories",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_countries",
+   "name": "Trading economics get comtrade countries",
+   "description": "Lists countries.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/countries",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_country_country1_country2",
+   "name": "Trading economics get comtrade country country1 country2",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country1": {
+      "type": "string",
+      "description": "First country, e.g. china"
+     },
+     "country2": {
+      "type": "string",
+      "description": "Second country, e.g. portugal"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country1",
+     "country2"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/country/{country1}/{country2}",
+    "path": [
+     "country1",
+     "country2"
+    ],
+    "query": [
+     "type",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_historical_symbol",
+   "name": "Trading economics get comtrade historical symbol",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/historical/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_type_country",
+   "name": "Trading economics get comtrade type country",
+   "description": "Fetches one comtrade.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/{type}/{country}",
+    "path": [
+     "type",
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_type_country_category",
+   "name": "Trading economics get comtrade type country category",
+   "description": "Fetches one comtrade.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "category",
+     "country",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/{type}/{country}/{category}",
+    "path": [
+     "type",
+     "country",
+     "category"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_updates",
+   "name": "Trading economics get comtrade updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/updates",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_comtrade_updates_country_country",
+   "name": "Trading economics get comtrade updates country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/comtrade/updates/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "from",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_country",
+   "name": "Trading economics get country",
+   "description": "Lists country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/country",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_country_all_indicator",
+   "name": "Trading economics get country all indicator",
+   "description": "Fetches one all.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/country/all/{indicator}",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_country_country",
+   "name": "Trading economics get country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "group": {
+      "type": "string",
+      "description": "group name e.g. bonds, housing"
+     },
+     "cd": {
+      "type": "string",
+      "description": "Created date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "group",
+     "cd",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_country_country_indicator",
+   "name": "Trading economics get country country indicator",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/country/{country}/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_credit_ratings",
+   "name": "Trading economics get credit ratings",
+   "description": "Lists credit ratings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/credit-ratings",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_credit_ratings_country_country",
+   "name": "Trading economics get credit ratings country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/credit-ratings/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_credit_ratings_historical",
+   "name": "Trading economics get credit ratings historical",
+   "description": "Lists historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/credit-ratings/historical",
+    "path": [],
+    "query": [
+     "country",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_credit_ratings_historical_country_country",
+   "name": "Trading economics get credit ratings historical country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/credit-ratings/historical/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_credit_ratings_updates",
+   "name": "Trading economics get credit ratings updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/credit-ratings/updates",
+    "path": [],
+    "query": [
+     "country",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_dividends",
+   "name": "Trading economics get dividends",
+   "description": "Lists dividends.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/dividends",
+    "path": [],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_dividends_symbol_symbol",
+   "name": "Trading economics get dividends symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/dividends/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings",
+   "name": "Trading economics get earnings",
+   "description": "Lists earnings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings",
+    "path": [],
+    "query": [
+     "d1",
+     "d2",
+     "type",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_country_country",
+   "name": "Trading economics get earnings country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "type",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_revenues",
+   "name": "Trading economics get earnings revenues",
+   "description": "Lists earnings revenues.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings-revenues",
+    "path": [],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_revenues_country_country",
+   "name": "Trading economics get earnings revenues country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings-revenues/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_revenues_index_index",
+   "name": "Trading economics get earnings revenues index index",
+   "description": "Fetches one index.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "index": {
+      "type": "string",
+      "description": "Stock index, e.g. ndx:ind, spx:ind, djia:ind"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "index"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings-revenues/index/{index}",
+    "path": [
+     "index"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_revenues_sector_sector",
+   "name": "Trading economics get earnings revenues sector sector",
+   "description": "Fetches one sector.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sector": {
+      "type": "string",
+      "description": "Sector name, e.g. energy, healthcare"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "sector"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings-revenues/sector/{sector}",
+    "path": [
+     "sector"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_revenues_symbol_symbol",
+   "name": "Trading economics get earnings revenues symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings-revenues/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_earnings_symbol_symbol",
+   "name": "Trading economics get earnings symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/earnings/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "type",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat",
+   "name": "Trading economics get eurostat",
+   "description": "Lists eurostat.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "category_group": {
+      "type": "string",
+      "description": "Category group name, e.g. interest rates, inflation rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat",
+    "path": [],
+    "query": [
+     "category",
+     "category_group",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat_categories",
+   "name": "Trading economics get eurostat categories",
+   "description": "Lists categories.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat/categories",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat_countries",
+   "name": "Trading economics get eurostat countries",
+   "description": "Lists countries.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat/countries",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat_country_country",
+   "name": "Trading economics get eurostat country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "category_group": {
+      "type": "string",
+      "description": "Category group name, e.g. interest rates, inflation rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "category",
+     "category_group",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat_historical_id",
+   "name": "Trading economics get eurostat historical id",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "e.g. 24805"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat/historical/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_eurostat_symbol_symbol",
+   "name": "Trading economics get eurostat symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/eurostat/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_financials_categories",
+   "name": "Trading economics get financials categories",
+   "description": "Lists categories.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/financials/categories",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_financials_category_category",
+   "name": "Trading economics get financials category category",
+   "description": "Fetches one category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "category"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/financials/category/{category}",
+    "path": [
+     "category"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_financials_companies",
+   "name": "Trading economics get financials companies",
+   "description": "Lists companies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/financials/companies",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_financials_historical_symbol",
+   "name": "Trading economics get financials historical symbol",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/financials/historical/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_financials_symbol_symbol",
+   "name": "Trading economics get financials symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/financials/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_forecast_country_country",
+   "name": "Trading economics get forecast country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/forecast/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_forecast_country_country_indicator_indicator",
+   "name": "Trading economics get forecast country country indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/forecast/country/{country}/indicator/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_forecast_indicator_indicator",
+   "name": "Trading economics get forecast indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/forecast/indicator/{indicator}",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_forecast_ticker_ticker",
+   "name": "Trading economics get forecast ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/forecast/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_forecast_updates",
+   "name": "Trading economics get forecast updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/forecast/updates",
+    "path": [],
+    "query": [
+     "country",
+     "date",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_counties_state",
+   "name": "Trading economics get fred counties state",
+   "description": "Fetches one county.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "string",
+      "description": "US state name, e.g. alabama, texas"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/counties/{state}",
+    "path": [
+     "state"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_historical_symbol",
+   "name": "Trading economics get fred historical symbol",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/historical/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_snapshot_country_country_p",
+   "name": "Trading economics get fred snapshot country country p",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "p": {
+      "type": "integer",
+      "description": ""
+     },
+     "info": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "p"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/snapshot/country/{country}/{p}",
+    "path": [
+     "country",
+     "p"
+    ],
+    "query": [
+     "info",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_snapshot_county_county_p",
+   "name": "Trading economics get fred snapshot county county p",
+   "description": "Fetches one county.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "county": {
+      "type": "string",
+      "description": "County Name, e.g. Los Angeles)"
+     },
+     "p": {
+      "type": "integer",
+      "description": ""
+     },
+     "info": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "county",
+     "p"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/snapshot/county/{county}/{p}",
+    "path": [
+     "county",
+     "p"
+    ],
+    "query": [
+     "info",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_snapshot_state_state",
+   "name": "Trading economics get fred snapshot state state",
+   "description": "Fetches one state.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "string",
+      "description": "US state name, e.g. alabama, texas"
+     },
+     "info": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/snapshot/state/{state}",
+    "path": [
+     "state"
+    ],
+    "query": [
+     "info",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_snapshot_symbol_symbol",
+   "name": "Trading economics get fred snapshot symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/snapshot/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_snapshot_url",
+   "name": "Trading economics get fred snapshot url",
+   "description": "Lists url.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "info": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/snapshot/url",
+    "path": [],
+    "query": [
+     "url",
+     "info",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_fred_states",
+   "name": "Trading economics get fred states",
+   "description": "Lists states.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/fred/states",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections",
+   "name": "Trading economics get gis collections",
+   "description": "Lists collections.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_comtrade_exports_country_items",
+   "name": "Trading economics get gis collections comtrade exports country items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "partners": {
+      "type": "string",
+      "description": ""
+     },
+     "yearFrom": {
+      "type": "integer",
+      "description": ""
+     },
+     "yearTo": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/comtrade/exports/{country}/items",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "partners",
+     "yearFrom",
+     "yearTo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_comtrade_imports_country_items",
+   "name": "Trading economics get gis collections comtrade imports country items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "partners": {
+      "type": "string",
+      "description": ""
+     },
+     "yearFrom": {
+      "type": "integer",
+      "description": ""
+     },
+     "yearTo": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/comtrade/imports/{country}/items",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "partners",
+     "yearFrom",
+     "yearTo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_counties_indicator_indicator_items",
+   "name": "Trading economics get gis collections fred counties indicator indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "states": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/counties/indicator/{indicator}/items",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "states",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_counties_indicator_items",
+   "name": "Trading economics get gis collections fred counties indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "states": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/counties/indicator/items",
+    "path": [],
+    "query": [
+     "indicator",
+     "states",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_counties_state_indicator_items",
+   "name": "Trading economics get gis collections fred counties state indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "string",
+      "description": "US state name, e.g. alabama, texas"
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/counties/{state}/indicator/items",
+    "path": [
+     "state"
+    ],
+    "query": [
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_states_indicator_indicator_items",
+   "name": "Trading economics get gis collections fred states indicator indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "states": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/states/indicator/{indicator}/items",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "states",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_states_indicator_items",
+   "name": "Trading economics get gis collections fred states indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "states": {
+      "type": "string",
+      "description": ""
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/states/indicator/items",
+    "path": [],
+    "query": [
+     "states",
+     "indicator",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_fred_states_state_indicator_items",
+   "name": "Trading economics get gis collections fred states state indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "string",
+      "description": "US state name, e.g. alabama, texas"
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/fred/states/{state}/indicator/items",
+    "path": [
+     "state"
+    ],
+    "query": [
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_indicator_indicator_items",
+   "name": "Trading economics get gis collections indicator indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "countries": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     },
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "yearFrom": {
+      "type": "integer",
+      "description": ""
+     },
+     "yearTo": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/indicator/{indicator}/items",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "countries",
+     "geometry",
+     "date",
+     "yearFrom",
+     "yearTo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_indicator_items",
+   "name": "Trading economics get gis collections indicator items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicators": {
+      "type": "string",
+      "description": ""
+     },
+     "countries": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     },
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "yearFrom": {
+      "type": "integer",
+      "description": ""
+     },
+     "yearTo": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/indicator/items",
+    "path": [],
+    "query": [
+     "indicators",
+     "countries",
+     "geometry",
+     "date",
+     "yearFrom",
+     "yearTo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_map_usa_counties_items",
+   "name": "Trading economics get gis collections map usa counties items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/map/usa/counties/items",
+    "path": [],
+    "query": [
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_map_usa_states_items",
+   "name": "Trading economics get gis collections map usa states items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/map/usa/states/items",
+    "path": [],
+    "query": [
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_map_world_items",
+   "name": "Trading economics get gis collections map world items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/map/world/items",
+    "path": [],
+    "query": [
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_market_bonds_items",
+   "name": "Trading economics get gis collections market bonds items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/market/bonds/items",
+    "path": [],
+    "query": [
+     "country",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_market_currencies_items",
+   "name": "Trading economics get gis collections market currencies items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "cross": {
+      "type": "string",
+      "description": ""
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/market/currencies/items",
+    "path": [],
+    "query": [
+     "country",
+     "cross",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_collections_market_indexes_items",
+   "name": "Trading economics get gis collections market indexes items",
+   "description": "Lists items.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "geometry": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/collections/market/indexes/items",
+    "path": [],
+    "query": [
+     "country",
+     "geometry"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_conformance",
+   "name": "Trading economics get gis conformance",
+   "description": "Lists conformance.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/conformance",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_gis_health",
+   "name": "Trading economics get gis health",
+   "description": "Lists health.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/gis/health",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_country_country",
+   "name": "Trading economics get historical country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_country_country_indicator_indicator",
+   "name": "Trading economics get historical country country indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "lu": {
+      "type": "string",
+      "description": "Last update date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/country/{country}/indicator/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "lu",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_country_country_indicator_indicator_d1_d2",
+   "name": "Trading economics get historical country country indicator indicator d1 d2",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "lu": {
+      "type": "string",
+      "description": "Last update date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "d1",
+     "d2",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/country/{country}/indicator/{indicator}/{d1}/{d2}",
+    "path": [
+     "country",
+     "indicator",
+     "d1",
+     "d2"
+    ],
+    "query": [
+     "lu",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_latest",
+   "name": "Trading economics get historical latest",
+   "description": "Lists latest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/latest",
+    "path": [],
+    "query": [
+     "country",
+     "date",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_symbol_symbol_d1",
+   "name": "Trading economics get historical symbol symbol d1",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "lu": {
+      "type": "string",
+      "description": "Last update date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "d1",
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/symbol/{symbol}/{d1}",
+    "path": [
+     "symbol",
+     "d1"
+    ],
+    "query": [
+     "d2",
+     "lu",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_ticker_ticker",
+   "name": "Trading economics get historical ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "lu": {
+      "type": "string",
+      "description": "Last update date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "lu",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_ticker_ticker_d1_d2",
+   "name": "Trading economics get historical ticker ticker d1 d2",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "lu": {
+      "type": "string",
+      "description": "Last update date, yyyy-MM-dd. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "d1",
+     "d2",
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/ticker/{ticker}/{d1}/{d2}",
+    "path": [
+     "ticker",
+     "d1",
+     "d2"
+    ],
+    "query": [
+     "lu",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_historical_updates",
+   "name": "Trading economics get historical updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/historical/updates",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_icalendar_country_country_indicator_indicator",
+   "name": "Trading economics get icalendar country country indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/icalendar/country/{country}/indicator/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_icalendar_ticker_ticker",
+   "name": "Trading economics get icalendar ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/icalendar/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators",
+   "name": "Trading economics get indicators",
+   "description": "Lists indicators.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "calendar": {
+      "type": "integer",
+      "description": "Set to 1 to list calendar indicators"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators",
+    "path": [],
+    "query": [
+     "calendar",
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators_calendar_country",
+   "name": "Trading economics get indicators calendar country",
+   "description": "Fetches one calendar.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators/calendar/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators_country",
+   "name": "Trading economics get indicators country",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators_descriptions",
+   "name": "Trading economics get indicators descriptions",
+   "description": "Lists descriptions.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators/descriptions",
+    "path": [],
+    "query": [
+     "lang",
+     "country",
+     "category",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators_descriptions_all",
+   "name": "Trading economics get indicators descriptions all",
+   "description": "Lists all.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lang": {
+      "type": "string",
+      "description": "e.g. en, es, fr, de, pt"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators/descriptions/all",
+    "path": [],
+    "query": [
+     "lang",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_indicators_new",
+   "name": "Trading economics get indicators new",
+   "description": "Lists new.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2023-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/indicators/new",
+    "path": [],
+    "query": [
+     "from",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ipo",
+   "name": "Trading economics get ipo",
+   "description": "Lists ipo.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ipo",
+    "path": [],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ipo_country_country",
+   "name": "Trading economics get ipo country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ipo/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ipo_ticker_ticker",
+   "name": "Trading economics get ipo ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ipo/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_bond",
+   "name": "Trading economics get markets bond",
+   "description": "Lists bond.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/bond",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_commodity",
+   "name": "Trading economics get markets commodity",
+   "description": "Lists commodity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/commodity",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_components_symbol",
+   "name": "Trading economics get markets components symbol",
+   "description": "Fetches one component.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/components/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_country_country",
+   "name": "Trading economics get markets country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "cat": {
+      "type": "string",
+      "description": ""
+     },
+     "info": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "cat",
+     "info",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_cross",
+   "name": "Trading economics get markets cross",
+   "description": "Lists cross.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/cross",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_crypto",
+   "name": "Trading economics get markets crypto",
+   "description": "Lists crypto.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/crypto",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_currency",
+   "name": "Trading economics get markets currency",
+   "description": "Lists currency.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/currency",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_discontinued",
+   "name": "Trading economics get markets discontinued",
+   "description": "Lists discontinued.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/discontinued",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_forecasts_category",
+   "name": "Trading economics get markets forecasts category",
+   "description": "Fetches one forecast.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "category"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/forecasts/{category}",
+    "path": [
+     "category"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_forecasts_symbol_symbol",
+   "name": "Trading economics get markets forecasts symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/forecasts/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_historical_symbol",
+   "name": "Trading economics get markets historical symbol",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/historical/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_index",
+   "name": "Trading economics get markets index",
+   "description": "Lists index.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/index",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_intraday_symbol",
+   "name": "Trading economics get markets intraday symbol",
+   "description": "Fetches one intraday.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "agr": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/intraday/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "agr",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_market",
+   "name": "Trading economics get markets market",
+   "description": "Fetches one market.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "Market type, e.g. currency, index, bond"
+     },
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "market"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/{market}",
+    "path": [
+     "market"
+    ],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_peers_symbol",
+   "name": "Trading economics get markets peers symbol",
+   "description": "Fetches one peer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/peers/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_search_term",
+   "name": "Trading economics get markets search term",
+   "description": "Fetches one search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "term": {
+      "type": "string",
+      "description": "Search term, e.g. msft, united states"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "term"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/search/{term}",
+    "path": [
+     "term"
+    ],
+    "query": [
+     "category",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_stock",
+   "name": "Trading economics get markets stock",
+   "description": "Lists stock.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/stock",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_stockdescriptions_country_country",
+   "name": "Trading economics get markets stockdescriptions country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/stockdescriptions/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_stockdescriptions_symbol_symbol",
+   "name": "Trading economics get markets stockdescriptions symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/stockdescriptions/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_stocks_country_country",
+   "name": "Trading economics get markets stocks country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/stocks/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_symbol_symbol",
+   "name": "Trading economics get markets symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "s": {
+      "type": "string",
+      "description": "Symbol/series code, e.g. usa.fr.inr.rinr, RACEDISPARITY005007"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "s",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_symbology_country_country",
+   "name": "Trading economics get markets symbology country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/symbology/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_symbology_isin_isin",
+   "name": "Trading economics get markets symbology isin isin",
+   "description": "Fetches one isin.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "isin": {
+      "type": "string",
+      "description": "ISIN code, e.g. US0378331005 (Apple)"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "isin"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/symbology/isin/{isin}",
+    "path": [
+     "isin"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_symbology_symbol_symbol",
+   "name": "Trading economics get markets symbology symbol symbol",
+   "description": "Fetches one symbol.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "symbol": {
+      "type": "string",
+      "description": "Symbol identifier, e.g. PRTESP24031, ALLMARGATTN, 51640"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "symbol"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/symbology/symbol/{symbol}",
+    "path": [
+     "symbol"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_symbology_ticker_ticker",
+   "name": "Trading economics get markets symbology ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/symbology/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_markets_v2",
+   "name": "Trading economics get markets v2",
+   "description": "Lists markets.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "s": {
+      "type": "string",
+      "description": "Symbol/series code, e.g. usa.fr.inr.rinr, RACEDISPARITY005007"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/markets/v2",
+    "path": [],
+    "query": [
+     "s",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_news",
+   "name": "Trading economics get news",
+   "description": "Lists news.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/news",
+    "path": [],
+    "query": [
+     "type",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_news_country_country",
+   "name": "Trading economics get news country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/news/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "type",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_news_country_country_indicator",
+   "name": "Trading economics get news country country indicator",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/news/country/{country}/{indicator}",
+    "path": [
+     "country",
+     "indicator"
+    ],
+    "query": [
+     "type",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_news_indicator_indicator",
+   "name": "Trading economics get news indicator indicator",
+   "description": "Fetches one indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "indicator": {
+      "type": "string",
+      "description": "Indicator name, e.g. unemployement rate, interest rate"
+     },
+     "type": {
+      "type": "string",
+      "description": "Trade type: export or import"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "indicator"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/news/indicator/{indicator}",
+    "path": [
+     "indicator"
+    ],
+    "query": [
+     "type",
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_news_ticker_ticker",
+   "name": "Trading economics get news ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/news/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_peers_country_country_category",
+   "name": "Trading economics get peers country country category",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "category",
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/peers/country/{country}/{category}",
+    "path": [
+     "country",
+     "category"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_peers_ticker",
+   "name": "Trading economics get peers ticker",
+   "description": "Fetches one peer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/peers/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ratings",
+   "name": "Trading economics get ratings",
+   "description": "Lists ratings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ratings",
+    "path": [],
+    "query": [
+     "country",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ratings_country",
+   "name": "Trading economics get ratings country",
+   "description": "Fetches one rating.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ratings/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ratings_historical_all_date",
+   "name": "Trading economics get ratings historical all date",
+   "description": "Fetches one all.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ratings/historical/all/{date}",
+    "path": [
+     "date"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ratings_historical_country",
+   "name": "Trading economics get ratings historical country",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ratings/historical/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_ratings_historical_country_d1_d2",
+   "name": "Trading economics get ratings historical country d1 d2",
+   "description": "Fetches one historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "d1",
+     "d2"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/ratings/historical/{country}/{d1}/{d2}",
+    "path": [
+     "country",
+     "d1",
+     "d2"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_search_categories",
+   "name": "Trading economics get search categories",
+   "description": "Lists categories.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/search/categories",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_search_term",
+   "name": "Trading economics get search term",
+   "description": "Fetches one search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "term": {
+      "type": "string",
+      "description": "Search term, e.g. msft, united states"
+     },
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "term"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/search/{term}",
+    "path": [
+     "term"
+    ],
+    "query": [
+     "category",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_sectors",
+   "name": "Trading economics get sectors",
+   "description": "Lists sectors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/sectors",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_splits",
+   "name": "Trading economics get splits",
+   "description": "Lists splits.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/splits",
+    "path": [],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_splits_country_country",
+   "name": "Trading economics get splits country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/splits/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_splits_ticker_ticker",
+   "name": "Trading economics get splits ticker ticker",
+   "description": "Fetches one ticker.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ticker": {
+      "type": "string",
+      "description": "Ticker code, e.g. RRKA, aapl, IJCUSA"
+     },
+     "d1": {
+      "type": "string",
+      "description": "Start date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "d2": {
+      "type": "string",
+      "description": "End date in yyyy-MM-dd format. eg. 2025-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "ticker"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/splits/ticker/{ticker}",
+    "path": [
+     "ticker"
+    ],
+    "query": [
+     "d1",
+     "d2",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_updates",
+   "name": "Trading economics get updates",
+   "description": "Lists updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/updates",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_updates_country_country",
+   "name": "Trading economics get updates country country",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/updates/country/{country}",
+    "path": [
+     "country"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_updates_country_country_date",
+   "name": "Trading economics get updates country country date",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/updates/country/{country}/{date}",
+    "path": [
+     "country",
+     "date"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_updates_date",
+   "name": "Trading economics get updates date",
+   "description": "Fetches one update.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "string",
+      "description": "Date in yyyy-MM-dd format. eg. 2024-01-01"
+     },
+     "time": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/updates/{date}",
+    "path": [
+     "date"
+    ],
+    "query": [
+     "time",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_worldbank_categories",
+   "name": "Trading economics get worldbank categories",
+   "description": "Lists categories.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/worldbank/categories",
+    "path": [],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_worldbank_category_category_page",
+   "name": "Trading economics get worldbank category category page",
+   "description": "Fetches one category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "category",
+     "page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/worldbank/category/{category}/{page}",
+    "path": [
+     "category",
+     "page"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_worldbank_country_country_page",
+   "name": "Trading economics get worldbank country country page",
+   "description": "Fetches one country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country name, e.g. European Union, Denmark, world"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": [
+     "country",
+     "page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/worldbank/country/{country}/{page}",
+    "path": [
+     "country",
+     "page"
+    ],
+    "query": [
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_worldbank_historical",
+   "name": "Trading economics get worldbank historical",
+   "description": "Lists historical.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "s": {
+      "type": "string",
+      "description": "Symbol/series code, e.g. usa.fr.inr.rinr, RACEDISPARITY005007"
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/worldbank/historical",
+    "path": [],
+    "query": [
+     "s",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "trading-economics.get_worldbank_indicator",
+   "name": "Trading economics get worldbank indicator",
+   "description": "Lists indicator.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "s": {
+      "type": "string",
+      "description": "Symbol/series code, e.g. usa.fr.inr.rinr, RACEDISPARITY005007"
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "f": {
+      "type": "string",
+      "description": "Response format: json (default), csv, or html",
+      "enum": [
+       "json",
+       "csv",
+       "html"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.tradingeconomics.com/worldbank/indicator",
+    "path": [],
+    "query": [
+     "s",
+     "url",
+     "f"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  }
+ ]
+}

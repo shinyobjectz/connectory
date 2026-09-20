@@ -1,0 +1,1139 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "rock-gym-pro",
+ "source": "https://api.rockgympro.com/openapi.yaml",
+ "operations": [
+  {
+   "slug": "rock-gym-pro.05a2e418f7144f0e209fe32872af856d",
+   "name": "Get filtered customer data",
+   "description": "Get filtered customer data",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "type": {
+      "type": "string",
+      "description": "Return customers with a specified type",
+      "enum": [
+       "GUEST",
+       "PUNCH CARD",
+       "MEMBER",
+       "CORPORATE"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Return customers with a specified status",
+      "enum": [
+       "TERMINATED",
+       "FROZEN",
+       "EXPIRED",
+       "OK"
+      ]
+     },
+     "waiverSigned": {
+      "type": "boolean",
+      "description": "Return customers with a specified waiver signing status"
+     },
+     "birthdayMonth": {
+      "type": "integer",
+      "description": "Return customers with a specified birth date month"
+     },
+     "birthdayUpcoming": {
+      "type": "integer",
+      "description": "Return customers with a birth date within a specified number of days"
+     },
+     "firstContactDateEnding": {
+      "type": "string",
+      "description": "Return customers with a first contact date before or equal to the date specified (yyyy-mm-dd)"
+     },
+     "firstContactDateStarting": {
+      "type": "string",
+      "description": "Return customers with a first contact date after or equal to the date specified (yyyy-mm-dd)"
+     },
+     "lastVisitDateEnding": {
+      "type": "string",
+      "description": "Return customers with a last visit date date before or equal to the date specified (yyyy-mm-dd)"
+     },
+     "lastVisitDateStarting": {
+      "type": "string",
+      "description": "Return customers with a last visit date after or equal to the date specified (yyyy-mm-dd)"
+     },
+     "lastEditDateEnding": {
+      "type": "string",
+      "description": "Return customers with a last edit date date before or equal to the date specified (yyyy-mm-dd)"
+     },
+     "lastEditDateStarting": {
+      "type": "string",
+      "description": "Return customers with a last edit date after or equal to the date specified (yyyy-mm-dd)"
+     },
+     "firstName": {
+      "type": "string",
+      "description": "Return customers with a specified first name (% wildcard is allowed)"
+     },
+     "middleName": {
+      "type": "string",
+      "description": "Return customers with a specified middle name (% wildcard is allowed)"
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Return customers with a specified last name (% wildcard is allowed)"
+     },
+     "city": {
+      "type": "string",
+      "description": "Return customers with a specified address city (% wildcard is allowed)"
+     },
+     "state": {
+      "type": "string",
+      "description": "Return customers with a specified address state (% wildcard is allowed)"
+     },
+     "postalCode": {
+      "type": "string",
+      "description": "Return customers with a specified address postal code (% wildcard is allowed)"
+     },
+     "country": {
+      "type": "string",
+      "description": "Return customers with a specified address country (% wildcard is allowed)"
+     },
+     "ageGreaterThan": {
+      "type": "integer",
+      "description": "Return customers with an age in years greater than or equal to a specified number"
+     },
+     "ageLessThan": {
+      "type": "integer",
+      "description": "Return customers with an age in years less than or equal to a specified number"
+     },
+     "onlineAccountLinked": {
+      "type": "boolean",
+      "description": "Return customers with a specified online account link status"
+     },
+     "emailAddressPopulated": {
+      "type": "boolean",
+      "description": "Return customers with a specified email address entered status"
+     },
+     "emailAllowMarketing": {
+      "type": "boolean",
+      "description": "Return customers with a specified email marketing status"
+     },
+     "emailTouchDateEnding": {
+      "type": "string",
+      "description": "Return customers with an email address created or updated before or equal to the date specified (yyyy-mm-dd)"
+     },
+     "emailTouchDateStarting": {
+      "type": "string",
+      "description": "Return customers with an email address created or updated after or equal to the date specified (yyyy-mm-dd)"
+     },
+     "emailAddress": {
+      "type": "string",
+      "description": "Return customers with a specified email address (% wildcard is allowed)"
+     },
+     "customText1": {
+      "type": "string",
+      "description": "Return customers with a specified custom text 1 field (% wildcard is allowed)"
+     },
+     "customText2": {
+      "type": "string",
+      "description": "Return customers with a specified custom text 2 field (% wildcard is allowed)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/customers/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "type",
+     "status",
+     "waiverSigned",
+     "birthdayMonth",
+     "birthdayUpcoming",
+     "firstContactDateEnding",
+     "firstContactDateStarting",
+     "lastVisitDateEnding",
+     "lastVisitDateStarting",
+     "lastEditDateEnding",
+     "lastEditDateStarting",
+     "firstName",
+     "middleName",
+     "lastName",
+     "city",
+     "state",
+     "postalCode",
+     "country",
+     "ageGreaterThan",
+     "ageLessThan",
+     "onlineAccountLinked",
+     "emailAddressPopulated",
+     "emailAllowMarketing",
+     "emailTouchDateEnding",
+     "emailTouchDateStarting",
+     "emailAddress",
+     "customText1",
+     "customText2",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.0c8e8234fdd1b7cda6333329c1bb96f7",
+   "name": "Get booking details by id",
+   "description": "Get booking details by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "bookingId": {
+      "type": "string",
+      "description": "Booking ID"
+     }
+    },
+    "required": [
+     "bookingId",
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/bookings/facility/{facilityCode}/{bookingId}",
+    "path": [
+     "facilityCode",
+     "bookingId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.0cd31fd97d0f629bf0bc7c38c1f879d8",
+   "name": "Get checkins for a specific facility",
+   "description": "Get checkins for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "customerGuid": {
+      "type": "string",
+      "description": "Customer GUID"
+     },
+     "customerDetails": {
+      "type": "boolean",
+      "description": "Return customer details"
+     },
+     "remoteOnly": {
+      "type": "boolean",
+      "description": "Return only remote checkins"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/checkins/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startId",
+     "customerGuid",
+     "customerDetails",
+     "remoteOnly",
+     "startDateTime",
+     "endDateTime",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.14b4e6a6230d3a40df9f375e3cb5eefd",
+   "name": "Get all available facilities",
+   "description": "Get all available facilities",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/facilities",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.1545b5cae92c6931064c8e98089fb5fb",
+   "name": "Get the count of active checkins for a specific facility  active checkins are defined as customers who have checked in but not checked out in the current day",
+   "description": "Get the count of active checkins for a specific facility. Active checkins are defined as customers who have checked in but not checked out in the current day.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/checkins/active/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.29eb61f184278d1fd12d33e9bdfb9d0a",
+   "name": "Get authentication token information",
+   "description": "Get authentication token information",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.322bcadbe5c9432df9d38c735f25ff33",
+   "name": "Get events",
+   "description": "Get events",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventWidgetGuid": {
+      "type": "string",
+      "description": "Event Widget GUID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     }
+    },
+    "required": [
+     "eventWidgetGuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/widgets/events/{eventWidgetGuid}",
+    "path": [
+     "eventWidgetGuid"
+    ],
+    "query": [
+     "startDateTime",
+     "endDateTime"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.3460a296316272b8b3c301484de44fe7",
+   "name": "List event widget guids for a specific facility",
+   "description": "List event widget GUIDs for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "includeInactiveWidgets": {
+      "type": "integer",
+      "description": "Include inactive widgets"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/widgets/events/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "includeInactiveWidgets",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.3d27e47fbf631103c480951153130977",
+   "name": "Get a single customers details by guid",
+   "description": "Get a single customers details by GUID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customerGuid": {
+      "type": "string",
+      "description": "Customer GUID"
+     }
+    },
+    "required": [
+     "customerGuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/customers/{customerGuid}",
+    "path": [
+     "customerGuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.4654f2844ef99fa834a040b35ca5cdb3",
+   "name": "Get bookings for a specific facility",
+   "description": "Get bookings for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "customerGuid": {
+      "type": "string",
+      "description": "Customer GUID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/bookings/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startId",
+     "customerGuid",
+     "startDateTime",
+     "endDateTime",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.4aaef484a0c178df63c809bd06396e2d",
+   "name": "Get the last run version from the settings table",
+   "description": "Get the last run version from the settings table",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "The facility to get"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/versions/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.6423cd99a296b47d6914c94a6515cd48",
+   "name": "Get general application ping",
+   "description": "Get general application ping",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/ping",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.6c1ba1010457e99f3a86092035599f85",
+   "name": "Get one key   value pair from the settings table",
+   "description": "Get one key / value pair from the settings table",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facility": {
+      "type": "array",
+      "description": "Comma separated list of facility codes to return data for"
+     },
+     "name": {
+      "type": "string",
+      "description": "The setting name to get"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/settings",
+    "path": [],
+    "query": [
+     "facility",
+     "name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.77fdfec22118a392c0b1b74d7ce37dd9",
+   "name": "Get invoice details by id",
+   "description": "Get invoice details by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "invoiceId": {
+      "type": "string",
+      "description": "Invoice ID"
+     }
+    },
+    "required": [
+     "facilityCode",
+     "invoiceId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/invoices/facility/{facilityCode}/{invoiceId}",
+    "path": [
+     "facilityCode",
+     "invoiceId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.8f54d1229b32cc98fc82bf1c38817915",
+   "name": "Get sales by product for a specific facility",
+   "description": "Get sales by product for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "productId": {
+      "type": "integer",
+      "description": "Product ID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/sales/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startId",
+     "productId",
+     "startDateTime",
+     "endDateTime",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.9b82dfdd34becd82fdb2026c23d55acd",
+   "name": "Get checkin details by id",
+   "description": "Get checkin details by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "checkinId": {
+      "type": "string",
+      "description": "Checkin ID"
+     }
+    },
+    "required": [
+     "checkinId",
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/checkins/facility/{facilityCode}/{checkinId}",
+    "path": [
+     "facilityCode",
+     "checkinId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.a22e34bffcc70422d9cd9da9915b6190",
+   "name": "Get the last run version from the settings table",
+   "description": "Get the last run version from the settings table",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facility": {
+      "type": "array",
+      "description": "Comma separated list of facility codes to return data for"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/versions",
+    "path": [],
+    "query": [
+     "facility"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.ad33857bb9d7bb801d2f33bddf6968c6",
+   "name": "Get events by guid for a specific facility",
+   "description": "Get events by GUID for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "eventWidgetGuid": {
+      "type": "string",
+      "description": "Event Widget GUID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     }
+    },
+    "required": [
+     "endDateTime",
+     "eventWidgetGuid",
+     "facilityCode",
+     "startDateTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/widgets/events/facility/{facilityCode}/{eventWidgetGuid}",
+    "path": [
+     "facilityCode",
+     "eventWidgetGuid"
+    ],
+    "query": [
+     "startDateTime",
+     "endDateTime"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.afa6537669afe89daa9e6a77e2fc5699",
+   "name": "Get timeclock entries for a specific facility",
+   "description": "Get timeclock entries for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "customerGuid": {
+      "type": "string",
+      "description": "Customer GUID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/timeclocks/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startId",
+     "customerGuid",
+     "startDateTime",
+     "endDateTime",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.b26c4b866845047e6e45202286a2fa42",
+   "name": "Get one or more customers by guid",
+   "description": "Get one or more customers by GUID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customerGuid": {
+      "type": "array",
+      "description": "Customer GUID(s)"
+     }
+    },
+    "required": [
+     "customerGuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/customers",
+    "path": [],
+    "query": [
+     "customerGuid"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.be70bffbe9fcd0fe1bbb4a69c9e17514",
+   "name": "Get general application ping using standard authorization",
+   "description": "Get general application ping using standard authorization",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/ping",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.d6c08b0d5f0ed910bce351f6b79cb27d",
+   "name": "Get invoices for a specific facility",
+   "description": "Get invoices for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "customerGuid": {
+      "type": "string",
+      "description": "Customer GUID"
+     },
+     "startDateTime": {
+      "type": "string",
+      "description": "Start date time"
+     },
+     "endDateTime": {
+      "type": "string",
+      "description": "End date time"
+     },
+     "includeVoidInvoices": {
+      "type": "integer",
+      "description": "Include void invoices"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/invoices/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startId",
+     "customerGuid",
+     "startDateTime",
+     "endDateTime",
+     "includeVoidInvoices",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.dcce50d062ebd2185cbae0ff38534360",
+   "name": "Get one key   value pair from the settings table",
+   "description": "Get one key / value pair from the settings table",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "The facility to get"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/settings/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.ec2432936e5623629eb408f2ffbee3f7",
+   "name": "Get daily numbers for a specific facility",
+   "description": "Get daily numbers for a specific facility",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "End date"
+     },
+     "tag": {
+      "type": "string",
+      "description": "Tag Name"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": [
+     "facilityCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/dailynumbers/facility/{facilityCode}",
+    "path": [
+     "facilityCode"
+    ],
+    "query": [
+     "startDate",
+     "endDate",
+     "tag",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.f4ec437dbda8816166950c0ec7764a96",
+   "name": "Get staff records",
+   "description": "Get staff records",
+   "input": {
+    "type": "object",
+    "properties": {
+     "startId": {
+      "type": "integer",
+      "description": "Result set start ID"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Results per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Result page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/staff",
+    "path": [],
+    "query": [
+     "startId",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "rock-gym-pro.fe21994c95f659b3f83e49915826cdf5",
+   "name": "Get timeclock entry details by id",
+   "description": "Get timeclock entry details by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "facilityCode": {
+      "type": "string",
+      "description": "Facility code"
+     },
+     "timeclockId": {
+      "type": "string",
+      "description": "Timeclock ID"
+     }
+    },
+    "required": [
+     "facilityCode",
+     "timeclockId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.rockgympro.com/v1/timeclocks/facility/{facilityCode}/{timeclockId}",
+    "path": [
+     "facilityCode",
+     "timeclockId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

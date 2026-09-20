@@ -1,0 +1,85 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "monday",
+ "source": "https://monday.com/openapi.json",
+ "operations": [
+  {
+   "slug": "monday.get_schema",
+   "name": "Get the graph ql schema",
+   "description": "Returns the full GraphQL schema. Use format=sdl for SDL text, or omit for introspection JSON. No authentication required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "format": {
+      "type": "string",
+      "description": "Response format. Use \"sdl\" for Schema Definition Language text. Omit for introspection JSON.",
+      "enum": [
+       "sdl"
+      ]
+     },
+     "version": {
+      "type": "string",
+      "description": "API schema version to retrieve."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.monday.com/v2/get_schema",
+    "path": [],
+    "query": [
+     "format",
+     "version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "monday.graphql",
+   "name": "Execute a graph ql query or mutation",
+   "description": "The single endpoint for all monday.com API operations. Send GraphQL queries and mutations as JSON in the request body.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "Client-generated key (UUID recommended) that makes mutations idempotent. On the first request the response is cached for 30 minutes; retries with the same key return the cached response without re-executing the mutation. Ignored on queries. A concurrent request with the same key returns 409 until the first completes."
+     },
+     "query": {
+      "type": "string",
+      "description": "The GraphQL query or mutation string"
+     },
+     "variables": {
+      "type": "object",
+      "description": "Variables for the GraphQL operation"
+     },
+     "operationName": {
+      "type": "string",
+      "description": "Name of the operation to execute (when query contains multiple operations)"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.monday.com/v2",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "query",
+     "variables",
+     "operationName"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+-- Tally — every call this API accepts, as data.
+--
+-- GENERATED from https://developers.tally.so/api-reference/openapi.json
+-- Published on the vendor's own documentation site (https://developers.tally.so).
+-- 38 operations · do not edit
+--
+-- The credential is never in here. `auth.env` names an environment variable; the value
+-- stays in the environment, which is what makes this file safe to publish.
+return {
+  provider = "tally",
+  name = "Tally",
+  base = "https://api.tally.so",
+  docs = "https://nango.dev/docs/api-integrations/tally",
+  auth = {
+    kind = "key",
+    header = "authorization",
+    format = "Bearer {token}",
+    env = "TALLY_API_KEY",
+    user_env = nil,
+    pass_env = nil,
+    param = nil,
+  },
+  config = {},
+  headers = {},
+  operations = {
+    ["tally.delete_forms_formId"] = { method = "DELETE", url = "https://api.tally.so/forms/{formId}", path = {"formId"} },
+    ["tally.delete_forms_formId_submissions_submissionId"] = { method = "DELETE", url = "https://api.tally.so/forms/{formId}/submissions/{submissionId}", path = {"formId", "submissionId"} },
+    ["tally.delete_organizations_organizationId_invites_inviteId"] = { method = "DELETE", url = "https://api.tally.so/organizations/{organizationId}/invites/{inviteId}", path = {"organizationId", "inviteId"} },
+    ["tally.delete_organizations_organizationId_users_userId"] = { method = "DELETE", url = "https://api.tally.so/organizations/{organizationId}/users/{userId}", path = {"organizationId", "userId"} },
+    ["tally.delete_webhooks_webhookId"] = { method = "DELETE", url = "https://api.tally.so/webhooks/{webhookId}", path = {"webhookId"} },
+    ["tally.delete_workspaces_workspaceId"] = { method = "DELETE", url = "https://api.tally.so/workspaces/{workspaceId}", path = {"workspaceId"} },
+    ["tally.delete_workspaces_workspaceId_folders_id"] = { method = "DELETE", url = "https://api.tally.so/workspaces/{workspaceId}/folders/{id}", path = {"workspaceId", "id"} },
+    ["tally.get_forms"] = { method = "GET", url = "https://api.tally.so/forms", query = {"page", "limit", "workspaceIds"} },
+    ["tally.get_forms_formId"] = { method = "GET", url = "https://api.tally.so/forms/{formId}", path = {"formId"} },
+    ["tally.get_forms_formId_analytics_dimensions"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/analytics/dimensions", path = {"formId"}, query = {"period"} },
+    ["tally.get_forms_formId_analytics_drop_off"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/analytics/drop-off", path = {"formId"}, query = {"period"} },
+    ["tally.get_forms_formId_analytics_metrics"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/analytics/metrics", path = {"formId"}, query = {"period"} },
+    ["tally.get_forms_formId_analytics_submissions"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/analytics/submissions", path = {"formId"}, query = {"period"} },
+    ["tally.get_forms_formId_analytics_visits"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/analytics/visits", path = {"formId"}, query = {"period"} },
+    ["tally.get_forms_formId_blocks"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/blocks", path = {"formId"} },
+    ["tally.get_forms_formId_questions"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/questions", path = {"formId"} },
+    ["tally.get_forms_formId_submissions"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/submissions", path = {"formId"}, query = {"page", "filter", "startDate", "endDate", "afterId", "limit"} },
+    ["tally.get_forms_formId_submissions_submissionId"] = { method = "GET", url = "https://api.tally.so/forms/{formId}/submissions/{submissionId}", path = {"formId", "submissionId"} },
+    ["tally.get_organizations_organizationId_invites"] = { method = "GET", url = "https://api.tally.so/organizations/{organizationId}/invites" },
+    ["tally.get_organizations_organizationId_users"] = { method = "GET", url = "https://api.tally.so/organizations/{organizationId}/users" },
+    ["tally.get_users_me"] = { method = "GET", url = "https://api.tally.so/users/me", query = {"timezone"} },
+    ["tally.get_webhooks"] = { method = "GET", url = "https://api.tally.so/webhooks", query = {"page", "limit"} },
+    ["tally.get_webhooks_webhookId_events"] = { method = "GET", url = "https://api.tally.so/webhooks/{webhookId}/events", path = {"webhookId"}, query = {"page"} },
+    ["tally.get_workspaces"] = { method = "GET", url = "https://api.tally.so/workspaces", query = {"page"} },
+    ["tally.get_workspaces_workspaceId"] = { method = "GET", url = "https://api.tally.so/workspaces/{workspaceId}", path = {"workspaceId"} },
+    ["tally.get_workspaces_workspaceId_folders"] = { method = "GET", url = "https://api.tally.so/workspaces/{workspaceId}/folders", path = {"workspaceId"} },
+    ["tally.patch_forms_formId"] = { method = "PATCH", url = "https://api.tally.so/forms/{formId}", path = {"formId"}, body = {"name", "status", "blocks", "settings"} },
+    ["tally.patch_forms_formId_blocks"] = { method = "PATCH", url = "https://api.tally.so/forms/{formId}/blocks", path = {"formId"}, body = {"blocks", "settings"} },
+    ["tally.patch_forms_formId_questions_questionId"] = { method = "PATCH", url = "https://api.tally.so/forms/{formId}/questions/{questionId}", path = {"formId", "questionId"}, body = {"title"} },
+    ["tally.patch_webhooks_webhookId"] = { method = "PATCH", url = "https://api.tally.so/webhooks/{webhookId}", path = {"webhookId"}, body = {"formId", "url", "signingSecret", "httpHeaders", "eventTypes", "isEnabled"} },
+    ["tally.patch_workspaces_workspaceId"] = { method = "PATCH", url = "https://api.tally.so/workspaces/{workspaceId}", path = {"workspaceId"}, body = {"name"} },
+    ["tally.patch_workspaces_workspaceId_folders_id"] = { method = "PATCH", url = "https://api.tally.so/workspaces/{workspaceId}/folders/{id}", path = {"workspaceId", "id"}, body = {"name"} },
+    ["tally.post_forms"] = { method = "POST", url = "https://api.tally.so/forms", body = {"workspaceId", "templateId", "folderId", "status", "blocks", "settings"} },
+    ["tally.post_organizations_organizationId_invites"] = { method = "POST", url = "https://api.tally.so/organizations/{organizationId}/invites", path = {"organizationId"}, body = {"workspaceIds", "emails"} },
+    ["tally.post_webhooks"] = { method = "POST", url = "https://api.tally.so/webhooks", body = {"formId", "url", "signingSecret", "httpHeaders", "eventTypes", "externalSubscriber"} },
+    ["tally.post_webhooks_webhookId_events_eventId"] = { method = "POST", url = "https://api.tally.so/webhooks/{webhookId}/events/{eventId}", path = {"webhookId", "eventId"} },
+    ["tally.post_workspaces"] = { method = "POST", url = "https://api.tally.so/workspaces", body = {"name"} },
+    ["tally.post_workspaces_workspaceId_folders"] = { method = "POST", url = "https://api.tally.so/workspaces/{workspaceId}/folders", path = {"workspaceId"}, body = {"name", "parentId"} },
+  },
+}

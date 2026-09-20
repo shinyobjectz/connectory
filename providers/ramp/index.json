@@ -1,0 +1,98 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "ramp",
+ "source": "https://ramp.com/openapi.json",
+ "operations": [
+  {
+   "slug": "ramp.high_intent_prequal",
+   "name": "High intent prequal email submission",
+   "description": "Submit a high-intent email and start the prequal flow. Please send the referrer header with the pathname of the page that made the request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "ramplify_app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email",
+     "ramplify_app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ramp.com/api/ramplify/high-intent-prequal",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "ramplify_app_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ramp.low_intent_no_prequal",
+   "name": "Low intent email submission without prequal",
+   "description": "Create a low-intent HubSpot contact without starting the prequal flow. Please send the referrer header with the pathname of the page that made the request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "ramplify_app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "discovery_method": {
+      "type": "string",
+      "description": "Required discovery method passed to HubSpot contact creation.",
+      "enum": [
+       "lead_gen_tools",
+       "gated_content",
+       "contact_sales",
+       "prequal_flow",
+       "partner_cpm",
+       "linkedin_bookademo_whoop",
+       "linkedin_bookademo_walkingpad",
+       "linkedin_bookademo_oura",
+       "linkedin_bookademo_airpods",
+       "enterprise_landing_page"
+      ]
+     },
+     "discovery_method_details": {
+      "type": "string",
+      "description": "Optional details for the discovery method."
+     }
+    },
+    "required": [
+     "discovery_method",
+     "email",
+     "ramplify_app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ramp.com/api/ramplify/low-intent-no-prequal",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "ramplify_app_id",
+     "discovery_method",
+     "discovery_method_details"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

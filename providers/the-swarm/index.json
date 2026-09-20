@@ -1,0 +1,1023 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "the-swarm",
+ "source": "https://docs.theswarm.com/openapi.json",
+ "operations": [
+  {
+   "slug": "the-swarm.add_connector",
+   "name": "Add connector(s) to the team",
+   "description": "Add one or more LinkedIn users as connectors to the team",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedin_usernames": {
+      "type": "array",
+      "description": "LinkedIn URL slugs of the users to add as connectors. Accepts both username-only slugs (e.g. `john-doe`) and full profile URLs (e.g. `https://linkedin.com/in/john-doe`)."
+     },
+     "group": {
+      "type": "string",
+      "description": "Member group to assign to the connector",
+      "enum": [
+       "others",
+       "employees",
+       "investors",
+       "customers",
+       "portfolio",
+       "advisors"
+      ]
+     }
+    },
+    "required": [
+     "linkedin_usernames"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/team/add-connector",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "linkedin_usernames",
+     "group"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.aggregate_profiles",
+   "name": "Aggregate profile field values",
+   "description": "Return distinct values for a single profile field matching a text query (e.g. autocomplete for locations or current job titles).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Text to match (minimum 3 characters)"
+     },
+     "field": {
+      "type": "string",
+      "description": "Field to aggregate",
+      "enum": [
+       "location",
+       "currentJobTitle"
+      ]
+     }
+    },
+    "required": [
+     "field",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/profiles/aggregate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "field"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.create_team",
+   "name": "Create a child team",
+   "description": "Create a new child team under the authenticated team",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_name": {
+      "type": "string",
+      "description": "Name of the new team"
+     },
+     "owner_email": {
+      "type": "string",
+      "description": "Email of the team owner. If omitted, the current team's owner is used."
+     },
+     "company_website": {
+      "type": "string",
+      "description": "Company website to use for automatic network mapping. Cannot be combined with company_linkedin_url."
+     },
+     "company_linkedin_url": {
+      "type": "string",
+      "description": "Company LinkedIn URL to use for automatic network mapping. Cannot be combined with company_website."
+     }
+    },
+    "required": [
+     "team_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/team/create-team",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_name",
+     "owner_email",
+     "company_website",
+     "company_linkedin_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.fetch_companies",
+   "name": "Fetch companies with corresponding data",
+   "description": "Fetch companies with corresponding data (e.g. tags)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "The Swarm company IDs"
+     },
+     "linkedinNames": {
+      "type": "array",
+      "description": "LinkedIn company URL slugs"
+     },
+     "linkedinIds": {
+      "type": "array",
+      "description": "LinkedIn numeric company IDs"
+     },
+     "fields": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/companies/fetch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ids",
+     "linkedinNames",
+     "linkedinIds",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.fetch_companies_v3",
+   "name": "Fetch companies with corresponding data",
+   "description": "Fetch companies with corresponding data (e.g. tags)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-authenticate-team": {
+      "type": "string",
+      "description": "Partner accounts only. When present, the request is executed in the context of the specified child team (use the `team_id` returned by [Create Team](/docs/endpoints/v3/create-team)). When omitted, the request runs as the team that owns the API key."
+     },
+     "ids": {
+      "type": "array",
+      "description": "The Swarm company IDs"
+     },
+     "linkedin_names": {
+      "type": "array",
+      "description": "LinkedIn company URL slugs"
+     },
+     "linkedin_ids": {
+      "type": "array",
+      "description": "LinkedIn numeric company IDs"
+     },
+     "fields": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/companies/fetch",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-authenticate-team"
+    ],
+    "body": [
+     "ids",
+     "linkedin_names",
+     "linkedin_ids",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.fetch_profiles",
+   "name": "Fetch profiles with corresponding data",
+   "description": "Fetch profiles with corresponding data (e.g. connections, lists, tags)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "The Swarm profile IDs"
+     },
+     "linkedinNames": {
+      "type": "array",
+      "description": "LinkedIn profile URL slugs"
+     },
+     "linkedinIds": {
+      "type": "array",
+      "description": "LinkedIn numeric profile IDs"
+     },
+     "linkedinEntityIds": {
+      "type": "array",
+      "description": "LinkedIn alphanumeric entity IDs"
+     },
+     "fields": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/profiles/fetch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ids",
+     "linkedinNames",
+     "linkedinIds",
+     "linkedinEntityIds",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.fetch_profiles_v3",
+   "name": "Fetch profiles with corresponding data",
+   "description": "Fetch profiles with corresponding data (e.g. lists, tags)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-authenticate-team": {
+      "type": "string",
+      "description": "Partner accounts only. When present, the request is executed in the context of the specified child team (use the `team_id` returned by [Create Team](/docs/endpoints/v3/create-team)). When omitted, the request runs as the team that owns the API key."
+     },
+     "ids": {
+      "type": "array",
+      "description": "The Swarm profile IDs"
+     },
+     "linkedin_names": {
+      "type": "array",
+      "description": "LinkedIn profile URL slugs"
+     },
+     "linkedin_ids": {
+      "type": "array",
+      "description": "LinkedIn numeric profile IDs"
+     },
+     "linkedin_entity_ids": {
+      "type": "array",
+      "description": "LinkedIn alphanumeric entity IDs"
+     },
+     "fields": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/profiles/fetch",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-authenticate-team"
+    ],
+    "body": [
+     "ids",
+     "linkedin_names",
+     "linkedin_ids",
+     "linkedin_entity_ids",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_company_posts",
+   "name": "Get company posts",
+   "description": "Fetch LinkedIn posts published by a company",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedinID": {
+      "type": "string",
+      "description": "LinkedIn company URL slug"
+     },
+     "linkedinName": {
+      "type": "string",
+      "description": "LinkedIn company URL slug"
+     },
+     "perPage": {
+      "type": "integer",
+      "description": "Number of posts per page"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number (1-based)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/social/company/posts",
+    "path": [],
+    "query": [
+     "linkedinID",
+     "linkedinName",
+     "perPage",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_credits_usage",
+   "name": "Get credits usage",
+   "description": "Retrieve your team's current billing period credit usage. The API identifies your team from the API key, fetches the meter usage for the active billing period, and returns the number of credits already consumed.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/credits/usage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_partner_network_status",
+   "name": "Get partner network mapping status",
+   "description": "Check the status of an async partner network mapping task",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "Task ID returned from POST /v2/network-mapper/partner/network"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/v2/network-mapper/partner/network/status",
+    "path": [],
+    "query": [
+     "task_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_partner_network_status_v3",
+   "name": "Network mapper (partner) status",
+   "description": "Poll the status of a long-running Network Mapper (Partner) v3 task. Partner permission required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "Task ID returned from POST /v3/network-mapper"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/v3/network-mapper/status",
+    "path": [],
+    "query": [
+     "task_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_post_comments",
+   "name": "Get post comments",
+   "description": "Fetch comments on a LinkedIn post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "urn": {
+      "type": "string",
+      "description": "LinkedIn post URN"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number (1-indexed). Optional."
+     },
+     "perPage": {
+      "type": "integer",
+      "description": "Number of items per page. Max 100. Optional."
+     }
+    },
+    "required": [
+     "urn"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/social/post/{urn}/comments",
+    "path": [
+     "urn"
+    ],
+    "query": [
+     "page",
+     "perPage"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_post_reactions",
+   "name": "Get post reactions",
+   "description": "Fetch reactions on a LinkedIn post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "urn": {
+      "type": "string",
+      "description": "LinkedIn post URN"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number (1-indexed). Optional."
+     },
+     "perPage": {
+      "type": "integer",
+      "description": "Number of items per page. Max 100. Optional."
+     }
+    },
+    "required": [
+     "urn"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/social/post/{urn}/reactions",
+    "path": [
+     "urn"
+    ],
+    "query": [
+     "page",
+     "perPage"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_post_reshares",
+   "name": "Get post reshares",
+   "description": "Fetch reshares of a LinkedIn post",
+   "input": {
+    "type": "object",
+    "properties": {
+     "urn": {
+      "type": "string",
+      "description": "LinkedIn post URN"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number (1-indexed). Optional."
+     },
+     "perPage": {
+      "type": "integer",
+      "description": "Number of items per page. Max 100. Optional."
+     }
+    },
+    "required": [
+     "urn"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/social/post/{urn}/reshares",
+    "path": [
+     "urn"
+    ],
+    "query": [
+     "page",
+     "perPage"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_profile_posts",
+   "name": "Get profile posts",
+   "description": "Fetch LinkedIn posts published by a person",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedinID": {
+      "type": "string",
+      "description": "LinkedIn URL slug of the person"
+     },
+     "linkedinName": {
+      "type": "string",
+      "description": "LinkedIn URL slug of the person"
+     },
+     "linkedinEntityID": {
+      "type": "string",
+      "description": "LinkedIn alphanumeric entity ID of the person"
+     },
+     "perPage": {
+      "type": "integer",
+      "description": "Number of posts to return (max 100)"
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token from the previous response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/social/profile/posts",
+    "path": [],
+    "query": [
+     "linkedinID",
+     "linkedinName",
+     "linkedinEntityID",
+     "perPage",
+     "paginationToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.get_refreshed_profile",
+   "name": "Fetch a refreshed profile",
+   "description": "Fetch up-to-date profile data for a given LinkedIn URL slug",
+   "input": {
+    "type": "object",
+    "properties": {
+     "linkedinName": {
+      "type": "string",
+      "description": "LinkedIn URL slug of the profile"
+     }
+    },
+    "required": [
+     "linkedinName"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://bee.theswarm.com/v2/profiles/fetch/refresh",
+    "path": [],
+    "query": [
+     "linkedinName"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.mcp",
+   "name": "Mcp endpoint",
+   "description": "Model Context Protocol (MCP) endpoint for AI assistant integrations",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/mcp",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.network_mapper",
+   "name": "Find connected profiles (network mapper)",
+   "description": "Find connected profiles, with it's connection details",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "mapping_company_website": {
+      "type": "string",
+      "description": "Website of the company to map network for (optional)"
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "URL to call when async mapping completes (optional)"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/profiles/network-mapper",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "mapping_company_website",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.network_mapper_task_status",
+   "name": "Get network mapper task status",
+   "description": "Check the status of a network mapper task started by POST /v2/profiles/network-mapper",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "Task ID returned from POST /v2/profiles/network-mapper"
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/profiles/network-mapper-task-status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "task_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.post_partner_network",
+   "name": "Trigger partner network mapping",
+   "description": "Initiate network mapping for a given company. Returns data immediately if already mapped, or returns a task ID to poll for results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "mapping_company_website": {
+      "type": "string",
+      "description": "Website of the company to map network for"
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "URL to call when async mapping completes"
+     }
+    },
+    "required": [
+     "mapping_company_website",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/network-mapper/partner/network",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "mapping_company_website",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.post_partner_network_v3",
+   "name": "Network mapper (partner) \u2014 v3",
+   "description": "Partner-permission endpoint for mapping connections across the partner network. Calls from API keys not tied to a team with the partner permission in Stripe return 403 Forbidden. Costs 1 credit per non-empty response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "mapping_company_website": {
+      "type": "string",
+      "description": "Website of the company to map network for"
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "URL to call when async mapping completes"
+     }
+    },
+    "required": [
+     "mapping_company_website",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/network-mapper",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "mapping_company_website",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.relationships_v3",
+   "name": "Relationships",
+   "description": "Find connected profiles with their connection details. Renamed from Network Mapper in v3.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-authenticate-team": {
+      "type": "string",
+      "description": "Partner accounts only. When present, the request is executed in the context of the specified child team (use the `team_id` returned by [Create Team](/docs/endpoints/v3/create-team)). When omitted, the request runs as the team that owns the API key."
+     },
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit the number of results"
+     },
+     "pagination_token": {
+      "type": "string",
+      "description": "Pagination token received in the previous response"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/relationships",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-authenticate-team"
+    ],
+    "body": [
+     "query",
+     "limit",
+     "pagination_token"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.search_companies",
+   "name": "Search for companies ids",
+   "description": "Search for companies ids using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/company-v2)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit the number of results. If you want to use stable_pagination this parameter must be set to 1000"
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token received in the previous response"
+     },
+     "stable_pagination": {
+      "type": "boolean",
+      "description": "When set to true, ensures that pagination results remain consistent, even if the underlying data changes during retrieval. This is useful for retrieving large result sets reliably across multiple requests"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/companies/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "limit",
+     "paginationToken",
+     "stable_pagination"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.search_companies_v3",
+   "name": "Search for companies ids",
+   "description": "Search for companies ids using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-authenticate-team": {
+      "type": "string",
+      "description": "Partner accounts only. When present, the request is executed in the context of the specified child team (use the `team_id` returned by [Create Team](/docs/endpoints/v3/create-team)). When omitted, the request runs as the team that owns the API key."
+     },
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/company-v2)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit the number of results. If you want to use stable_pagination this parameter must be set to 1000"
+     },
+     "pagination_token": {
+      "type": "string",
+      "description": "Pagination token received in the previous response"
+     },
+     "stable_pagination": {
+      "type": "boolean",
+      "description": "When set to true, ensures that pagination results remain consistent, even if the underlying data changes during retrieval. This is useful for retrieving large result sets reliably across multiple requests"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/companies/search",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-authenticate-team"
+    ],
+    "body": [
+     "query",
+     "limit",
+     "pagination_token",
+     "stable_pagination"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.search_profiles",
+   "name": "Search for profiles ids",
+   "description": "Search for profiles ids using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit the number of results. If you want to use stable_pagination this parameter must be set to 1000"
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token received in the previous response"
+     },
+     "stable_pagination": {
+      "type": "boolean",
+      "description": "When set to true, ensures that pagination results remain consistent, even if the underlying data changes during retrieval. This is useful for retrieving large result sets reliably across multiple requests"
+     },
+     "inNetworkOnly": {
+      "type": "boolean",
+      "description": "When set to true, restricts search results to profiles that are connected to your team's network. This parameter filters the query to only return profiles that have established connections with connectors of your organization."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v2/profiles/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "limit",
+     "paginationToken",
+     "stable_pagination",
+     "inNetworkOnly"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "the-swarm.search_profiles_v3",
+   "name": "Search for profiles ids",
+   "description": "Search for profiles ids using the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-authenticate-team": {
+      "type": "string",
+      "description": "Partner accounts only. When present, the request is executed in the context of the specified child team (use the `team_id` returned by [Create Team](/docs/endpoints/v3/create-team)). When omitted, the request runs as the team that owns the API key."
+     },
+     "query": {
+      "type": "object",
+      "description": "Search query in the [ElasticSearch Query DSL](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl.html) format. [Find mapping here](https://docs.theswarm.com/docs/mappings/profile-v2)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit the number of results. If you want to use stable_pagination this parameter must be set to 1000"
+     },
+     "pagination_token": {
+      "type": "string",
+      "description": "Pagination token received in the previous response"
+     },
+     "stable_pagination": {
+      "type": "boolean",
+      "description": "When set to true, ensures that pagination results remain consistent, even if the underlying data changes during retrieval. This is useful for retrieving large result sets reliably across multiple requests"
+     },
+     "in_network_only": {
+      "type": "boolean",
+      "description": "When set to true, restricts search results to profiles that are connected to your team's network. This parameter filters the query to only return profiles that have established connections with connectors of your organization."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://bee.theswarm.com/v3/profiles/search",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-authenticate-team"
+    ],
+    "body": [
+     "query",
+     "limit",
+     "pagination_token",
+     "stable_pagination",
+     "in_network_only"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

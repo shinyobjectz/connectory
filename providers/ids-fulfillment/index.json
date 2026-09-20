@@ -1,0 +1,812 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "ids-fulfillment",
+ "source": "https://api.idsfulfillment.com/swagger/v1/swagger.json",
+ "operations": [
+  {
+   "slug": "ids-fulfillment.get_request_InventoryReceipt",
+   "name": "Returns all inventory receipt confirmations that have not yet been sent",
+   "description": "Returns all Inventory Receipt Confirmations that have not yet been sent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "min_CreatedDateTime": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date."
+     },
+     "max_CreatedDateTime": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Requires min_CreatedDateTime."
+     },
+     "CustomerReferenceNumbers": {
+      "type": "array",
+      "description": "A comma separated list of reference numbers to search for"
+     },
+     "ReceiptTypes": {
+      "type": "array",
+      "description": "A comma separated list of receipt types to search for \"C\" for \"Customer Receipt\", \"R\" for \"Return\""
+     },
+     "DefaultLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "MaxLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "The number of records to retrieve. Default: 100. Max: 1000."
+     },
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/InventoryReceipt",
+    "path": [],
+    "query": [
+     "min_CreatedDateTime",
+     "max_CreatedDateTime",
+     "CustomerReferenceNumbers",
+     "ReceiptTypes",
+     "DefaultLimit",
+     "MaxLimit",
+     "Page",
+     "Limit",
+     "Offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_InventoryReceipt_customerReferenceNumber",
+   "name": "Returns all inventory receipt confirmations for the given reference number",
+   "description": "Returns all Inventory Receipt Confirmations for the given reference number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customerReferenceNumber": {
+      "type": "string",
+      "description": "Customer reference number"
+     }
+    },
+    "required": [
+     "customerReferenceNumber"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/InventoryReceipt/{customerReferenceNumber}",
+    "path": [
+     "customerReferenceNumber"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_InventoryReceipt_preview",
+   "name": "Returns all receipt confirmations that have not yet been sent",
+   "description": "Returns all Receipt Confirmations that have not yet been sent if no search queries are present. Doesn't mark them as 'sent'.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "min_CreatedDateTime": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date."
+     },
+     "max_CreatedDateTime": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Requires min_CreatedDateTime."
+     },
+     "CustomerReferenceNumbers": {
+      "type": "array",
+      "description": "A comma separated list of reference numbers to search for"
+     },
+     "ReceiptTypes": {
+      "type": "array",
+      "description": "A comma separated list of receipt types to search for \"C\" for \"Customer Receipt\", \"R\" for \"Return\""
+     },
+     "DefaultLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "MaxLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "The number of records to retrieve. Default: 100. Max: 1000."
+     },
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/InventoryReceipt/preview",
+    "path": [],
+    "query": [
+     "min_CreatedDateTime",
+     "max_CreatedDateTime",
+     "CustomerReferenceNumbers",
+     "ReceiptTypes",
+     "DefaultLimit",
+     "MaxLimit",
+     "Page",
+     "Limit",
+     "Offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_Ship",
+   "name": "Returns all shipment confirmations that have not yet been sent",
+   "description": "Returns all Shipment Confirmations that have not yet been sent if no search queries are present. Marks them as 'sent'",
+   "input": {
+    "type": "object",
+    "properties": {
+     "min_ShipDate": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Truncated to day precision. Default: Last 30 Days."
+     },
+     "max_ShipDate": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Truncated to day precision. Requires min_ShipDate."
+     },
+     "OrderStatuses": {
+      "type": "array",
+      "description": "This filter is only applied if CustomerOrderReferenceNumbers also has value(s) A comma separated list of order statuses to filter by. Defaults to ['SH'] Valid Options: SHShippedZSZero ShippedCACancelled"
+     },
+     "IncludeOrphans": {
+      "type": "boolean",
+      "description": "Flag to include shipments for orders not created by the API. Default: true"
+     },
+     "CustomerOrderReferenceNumbers": {
+      "type": "array",
+      "description": "A comma separated list of reference numbers to search for"
+     },
+     "DefaultLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "MaxLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "The number of records to retrieve. Default: 100. Max: 1000."
+     },
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/Ship",
+    "path": [],
+    "query": [
+     "min_ShipDate",
+     "max_ShipDate",
+     "OrderStatuses",
+     "IncludeOrphans",
+     "CustomerOrderReferenceNumbers",
+     "DefaultLimit",
+     "MaxLimit",
+     "Page",
+     "Limit",
+     "Offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_Ship_customerOrderReferenceNumber",
+   "name": "Returns all shipment confirmations for the given order number",
+   "description": "Returns all Shipment Confirmations for the given order number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customerOrderReferenceNumber": {
+      "type": "string",
+      "description": "Customer order reference number"
+     }
+    },
+    "required": [
+     "customerOrderReferenceNumber"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/Ship/{customerOrderReferenceNumber}",
+    "path": [
+     "customerOrderReferenceNumber"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_Ship_preview",
+   "name": "Returns all shipment confirmations that have not yet been sent",
+   "description": "Returns all Shipment Confirmations that have not yet been sent if no search queries are present. Doesn't mark them as 'sent'.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "min_ShipDate": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Truncated to day precision. Default: Last 30 Days."
+     },
+     "max_ShipDate": {
+      "type": "string",
+      "description": "IDS WMS Local (MT) Date - Truncated to day precision. Requires min_ShipDate."
+     },
+     "OrderStatuses": {
+      "type": "array",
+      "description": "This filter is only applied if CustomerOrderReferenceNumbers also has value(s) A comma separated list of order statuses to filter by. Defaults to ['SH'] Valid Options: SHShippedZSZero ShippedCACancelled"
+     },
+     "IncludeOrphans": {
+      "type": "boolean",
+      "description": "Flag to include shipments for orders not created by the API. Default: true"
+     },
+     "CustomerOrderReferenceNumbers": {
+      "type": "array",
+      "description": "A comma separated list of reference numbers to search for"
+     },
+     "DefaultLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "MaxLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "The number of records to retrieve. Default: 100. Max: 1000."
+     },
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/Ship/preview",
+    "path": [],
+    "query": [
+     "min_ShipDate",
+     "max_ShipDate",
+     "OrderStatuses",
+     "IncludeOrphans",
+     "CustomerOrderReferenceNumbers",
+     "DefaultLimit",
+     "MaxLimit",
+     "Page",
+     "Limit",
+     "Offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_StorerInventory",
+   "name": "Returns current storer inventory",
+   "description": "Returns current Storer Inventory",
+   "input": {
+    "type": "object",
+    "properties": {
+     "IncludeDisabledZones": {
+      "type": "string",
+      "description": "'Y' to include Disabled Zones 'N' to ignore Disabled Zones If left blank (or any other value than 'Y' will default to 'N')"
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "The number of records to include in the retrieved page. Default: 100. Max: 1000."
+     },
+     "PageNumber": {
+      "type": "integer",
+      "description": "The page to retrieve. Minimum: 1"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/StorerInventory",
+    "path": [],
+    "query": [
+     "IncludeDisabledZones",
+     "PageSize",
+     "PageNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_WmsOrderStatus",
+   "name": "Returns orders by status",
+   "description": "Returns orders by status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "OrderCodes": {
+      "type": "array",
+      "description": "A comma separated list of order codes to get statuses for"
+     },
+     "OrderStatuses": {
+      "type": "array",
+      "description": "A comma separated list of order statuses to filter by. Valid options: Open, Distributed, Packed, Shipped, Cancelled, Order Received, Unknown Leave empty to get all statuses"
+     },
+     "MinCreatedAt": {
+      "type": "string",
+      "description": "Start date to filter by (MT)"
+     },
+     "MaxCreatedAt": {
+      "type": "string",
+      "description": "End date to filter by (MT)"
+     },
+     "DefaultLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "MaxLimit": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "The number of records to retrieve. Default: 100. Max: 1000."
+     },
+     "Offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/WmsOrderStatus",
+    "path": [],
+    "query": [
+     "OrderCodes",
+     "OrderStatuses",
+     "MinCreatedAt",
+     "MaxCreatedAt",
+     "DefaultLimit",
+     "MaxLimit",
+     "Page",
+     "Limit",
+     "Offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_adjustments",
+   "name": "Returns current stock adjustments and marks them as sent",
+   "description": "Returns current stock adjustments and marks them as sent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "StockAdjustmentIDs": {
+      "type": "array",
+      "description": "Accepts comma separated lists."
+     },
+     "StatusCodeBlacklist": {
+      "type": "array",
+      "description": "Accepts comma separated lists."
+     },
+     "Warehouse": {
+      "type": "string",
+      "description": "SLC1, IND1, or IND2"
+     },
+     "CustomerNumber": {
+      "type": "string",
+      "description": "Your customer number."
+     }
+    },
+    "required": [
+     "CustomerNumber",
+     "Warehouse"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/adjustments",
+    "path": [],
+    "query": [
+     "StockAdjustmentIDs",
+     "StatusCodeBlacklist",
+     "Warehouse",
+     "CustomerNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_adjustments_preview",
+   "name": "Returns current stock adjustments and doesn't mark them as sent",
+   "description": "Returns current stock adjustments and doesn't mark them as sent",
+   "input": {
+    "type": "object",
+    "properties": {
+     "StockAdjustmentIDs": {
+      "type": "array",
+      "description": "Accepts comma separated lists."
+     },
+     "StatusCodeBlacklist": {
+      "type": "array",
+      "description": "Accepts comma separated lists."
+     },
+     "Warehouse": {
+      "type": "string",
+      "description": "SLC1, IND1, or IND2"
+     },
+     "CustomerNumber": {
+      "type": "string",
+      "description": "Your customer number."
+     }
+    },
+    "required": [
+     "CustomerNumber",
+     "Warehouse"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/adjustments/preview",
+    "path": [],
+    "query": [
+     "StockAdjustmentIDs",
+     "StatusCodeBlacklist",
+     "Warehouse",
+     "CustomerNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_adjustments_stockAdjustmentID",
+   "name": "Returns a single stock adjustment",
+   "description": "Returns a single stock adjustment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stockAdjustmentID": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "stockAdjustmentID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/adjustments/{stockAdjustmentID}",
+    "path": [
+     "stockAdjustmentID"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_items",
+   "name": "Returns wms items for a storer",
+   "description": "Returns all Wms Items for a storer if no search queries are present.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ItemCodes": {
+      "type": "array",
+      "description": "A comma separated list of item codes to search for."
+     },
+     "MinCreatedAt": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxCreatedAt": {
+      "type": "string",
+      "description": ""
+     },
+     "SearchTerm": {
+      "type": "string",
+      "description": ""
+     },
+     "SentToWms": {
+      "type": "boolean",
+      "description": ""
+     },
+     "Limit": {
+      "type": "integer",
+      "description": "Obsolete, use PageSize"
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "The number of records to include in the retrieved page. Default: 100. Max: 1000."
+     },
+     "PageNumber": {
+      "type": "integer",
+      "description": "The page to retrieve. Minimum: 1"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/items",
+    "path": [],
+    "query": [
+     "ItemCodes",
+     "MinCreatedAt",
+     "MaxCreatedAt",
+     "SearchTerm",
+     "SentToWms",
+     "Limit",
+     "PageSize",
+     "PageNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.get_request_items_itemCode",
+   "name": "Returns wms item for a storer",
+   "description": "Returns Wms Item for a storer if present.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "itemCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "itemCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.idsfulfillment.com/request/items/{itemCode}",
+    "path": [
+     "itemCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.post_request_InventoryReceipt",
+   "name": "Processes inventory receipts",
+   "description": "Processes an Inventory Receipt request",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Tallies": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.idsfulfillment.com/request/InventoryReceipt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "Tallies"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.post_request_Ship",
+   "name": "Processes request to ship",
+   "description": "Processes a list of orders in a Request to Ship",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Orders": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.idsfulfillment.com/request/Ship",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "Orders"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.post_request_Ship_reset",
+   "name": "Resets shipment confirmations into a state where they will be available to pull or send again",
+   "description": "Resets Shipment Confirmations into a State where they will be available to pull or Send Again.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "CustomerOrderReferenceNumbers": {
+      "type": "array",
+      "description": "Order Numbers of the Shipment Confirmations to Attempt to Reset"
+     },
+     "Start": {
+      "type": "string",
+      "description": "Start of the Window of Time to Search in. Defaults to the past 60 days."
+     },
+     "End": {
+      "type": "string",
+      "description": "End of the Window of Time to Search in"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.idsfulfillment.com/request/Ship/reset",
+    "path": [],
+    "query": [
+     "CustomerOrderReferenceNumbers",
+     "Start",
+     "End"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.post_request_adjustments",
+   "name": "Change the status of an item lot in the wms",
+   "description": "Only supports lot-based adjustment push. Specifying the quantity is not possible.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ItemCode": {
+      "type": "string",
+      "description": "The SKU"
+     },
+     "LotCode": {
+      "type": "string",
+      "description": "The lot code"
+     },
+     "Status": {
+      "type": "string",
+      "description": "IRMS Inventory Status CodesMembers:A - Available BR - Broken Bottle CR - Carrier Damage DA - Damaged DO - Donation EX - Expired H - Hold HD - Hold2 LK - Leaking MP - Missing Parts PG - Packed PK - Picked Q - QA Hold RC - Recalled SA - SoftAllocated SH - Shipped ST - Staged TH - TABcomHold U - Unavailable W - Work In Process WD - Warehouse Damage",
+      "enum": [
+       "A",
+       "BR",
+       "CR",
+       "DA",
+       "DO",
+       "EX",
+       "H",
+       "HD",
+       "LK",
+       "MP",
+       "PG",
+       "PK"
+      ]
+     }
+    },
+    "required": [
+     "ItemCode",
+     "LotCode",
+     "Status"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.idsfulfillment.com/request/adjustments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ItemCode",
+     "LotCode",
+     "Status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ids-fulfillment.post_request_items",
+   "name": "Processes wms items to send to irms",
+   "description": "Processes a list of Wms items in a Request to send to Irms",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.idsfulfillment.com/request/items",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "Items"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

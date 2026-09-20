@@ -1,0 +1,1809 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "heygen",
+ "source": "https://docs.heygen.com/openapi.yaml",
+ "operations": [
+  {
+   "slug": "heygen.add_a_webhook_endpoint",
+   "name": "Add a webhook endpoint",
+   "description": "Add a Webhook Endpoint",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "The URL where you will receive events from HeyGen."
+     },
+     "events": {
+      "type": "array",
+      "description": "The events that your URL is set to receive. `None` means all events. You can see supported events at [`/v1/webhook/webhook.list`](https://docs.heygen.com/reference/list-available-webhook-events)."
+     },
+     "entity_id": {
+      "type": "string",
+      "description": "Optional. The specific entity ID associated with the webhook. eg. video_id,project_id"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/webhook/endpoint.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "events",
+     "entity_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.add_looks_to_photo_avatar_group",
+   "name": "Add looks to photo avatar group",
+   "description": "Add other looks to existing photo avatar group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": "avatar group id to add looks into"
+     },
+     "image_keys": {
+      "type": "array",
+      "description": "A list of images you want to add to the avatar group, maximum 4 at a time"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the looks"
+     },
+     "generation_id": {
+      "type": "string",
+      "description": "Generation id what is used to generate the image_keys, it must be passed in if the image is generated, if it's an upload image, then this is optional"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/avatar_group/add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "group_id",
+     "image_keys",
+     "name",
+     "generation_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.add_motion",
+   "name": "Add motion",
+   "description": "Add motion to an existing photo avatar, returns the id of the new avatar that has motion",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "photo avatar id"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/add_motion",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.add_sound_effect",
+   "name": "Add sound effect",
+   "description": "This api adds sound effect into a photo avatar",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "photo avatar id"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/add_sound_effect",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.check_photolook_generation_status",
+   "name": "Check photo look generation status",
+   "description": "Check photo/look generation status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "generation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "generation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/photo_avatar/generation/{generation_id}",
+    "path": [
+     "generation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.check_video_avatar_generation_status",
+   "name": "Get digital twin generation status",
+   "description": "Checks the current status of the Digital Twin generation process and returns relevant details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "avatar_id": {
+      "type": "string",
+      "description": "Unique identifier of the Digital Twin avatar."
+     }
+    },
+    "required": [
+     "avatar_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/video_avatar/{avatar_id}",
+    "path": [
+     "avatar_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.close_session",
+   "name": "Close session",
+   "description": "This endpoint is used to terminate an active streaming session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The ID of the session to be stopped."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.stop",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "session_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.create_a_webm_video",
+   "name": "Create a web m video",
+   "description": "Generates a webm video with transparent background and an avatar speaking the input text. You can customize the avatar's pose, style, and voice, as well as the dimensions of the video.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "x-api-key": {
+      "type": "string",
+      "description": "You api key"
+     },
+     "avatar_pose_id": {
+      "type": "string",
+      "description": "The ID of the avatar's pose. You can specify this field from the response of avatar.list API"
+     },
+     "avatar_style": {
+      "type": "string",
+      "description": "The style of the avatar. Can be \"normal\" or other styles supported by the API. 'circle', 'closeUp', 'normal', 'voiceOnly'.",
+      "enum": [
+       "normal",
+       "closeUp"
+      ]
+     },
+     "input_text": {
+      "type": "string",
+      "description": "The text that the avatar will speak in the video."
+     },
+     "voice_id": {
+      "type": "string",
+      "description": "The ID of the voice that the avatar will use."
+     },
+     "input_audio": {
+      "type": "string",
+      "description": "input audio url. Specify either input_text/voice_id or input_audio."
+     },
+     "dimension": {
+      "type": "object",
+      "description": "The dimensions of the output video will be scaled by the height of the original avatar size."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/video.webm",
+    "path": [],
+    "query": [],
+    "header": [
+     "x-api-key"
+    ],
+    "body": [
+     "avatar_pose_id",
+     "avatar_style",
+     "input_text",
+     "voice_id",
+     "input_audio",
+     "dimension"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.create_an_avatar_video_v2",
+   "name": "Create avatar video (v2)",
+   "description": "This API now generates videos with our New AI Studio backend.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "caption": {
+      "type": "boolean",
+      "description": "Whether to add a caption to the video."
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of this video"
+     },
+     "callback_id": {
+      "type": "string",
+      "description": "A custom ID for callback purposes."
+     },
+     "dimension": {
+      "type": "object",
+      "description": ""
+     },
+     "video_inputs": {
+      "type": "array",
+      "description": ""
+     },
+     "folder_id": {
+      "type": "string",
+      "description": "Allows them to specify the video output folder destination."
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "A custom curl for callback"
+     }
+    },
+    "required": [
+     "dimension",
+     "video_inputs"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/video/generate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "caption",
+     "title",
+     "callback_id",
+     "dimension",
+     "video_inputs",
+     "folder_id",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.create_folder",
+   "name": "Create folder",
+   "description": "Create Folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the folder"
+     },
+     "project_type": {
+      "type": "string",
+      "description": "Project type: `video_translate`, `instant_avatar`, `video`, `asset`, `brand_kit`, `mixed`."
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "Parent folder ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/folders/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "project_type",
+     "parent_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.create_photo_avatar_group",
+   "name": "Create photo avatar group",
+   "description": "This api can be used to create a photo avatar group For generated photo avatar, pass the generation_id and the image_key For user uploaded avatar, first upload the photo using the upload assets api. Then use the key as image_key This api only allows using one photo to establish the identity, you can add more photos using the add looks api",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "image_key": {
+      "type": "string",
+      "description": ""
+     },
+     "generation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/avatar_group/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "image_key",
+     "generation_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.create_session_token",
+   "name": "Create session token",
+   "description": "This endpoint is used to generate a new access token for a streaming session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "RAW_BODY": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.create_token",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "RAW_BODY"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.delete_a_video",
+   "name": "Delete a video",
+   "description": "Delete a Video",
+   "input": {
+    "type": "object",
+    "properties": {
+     "video_id": {
+      "type": "string",
+      "description": "id of the video you want to delete"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api2.heygen.com/v1/video.delete",
+    "path": [],
+    "query": [
+     "video_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.delete_a_webhook_endpoint",
+   "name": "Delete a webhook endpoint",
+   "description": "delete an existing webhook endpoint",
+   "input": {
+    "type": "object",
+    "properties": {
+     "endpoint_id": {
+      "type": "string",
+      "description": "the endpoint's id you want to delete"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api2.heygen.com/v1/webhook/endpoint.delete",
+    "path": [],
+    "query": [
+     "endpoint_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.delete_video_avatar",
+   "name": "Delete digital twin",
+   "description": "Deletes a Digital Twin by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "avatar_id": {
+      "type": "string",
+      "description": "Unique identifier of the Digital Twin avatar."
+     }
+    },
+    "required": [
+     "avatar_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api2.heygen.com/v2/video_avatar/{avatar_id}",
+    "path": [
+     "avatar_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.generate_from_template_v2",
+   "name": "Generate video from template",
+   "description": "This API now supports New AI Studio!",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": ""
+     },
+     "caption": {
+      "type": "boolean",
+      "description": ""
+     },
+     "callback_id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "variables": {
+      "type": "object",
+      "description": "variables"
+     },
+     "dimension": {
+      "type": "object",
+      "description": "(Optional)The dimension of the output video, you can use this to set the output video to be a different one from template, though the aspect ratio should be the same"
+     },
+     "include_gif": {
+      "type": "boolean",
+      "description": "include a GIF preview download URL in the webhook response"
+     },
+     "enable_sharing": {
+      "type": "boolean",
+      "description": "make the sharing page of this video public upon creation"
+     },
+     "folder_id": {
+      "type": "string",
+      "description": "enable users to specify video folder destination"
+     },
+     "brand_voice_id": {
+      "type": "string",
+      "description": "Brand Voice ID"
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/template/{template_id}/generate",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "caption",
+     "callback_id",
+     "title",
+     "variables",
+     "dimension",
+     "include_gif",
+     "enable_sharing",
+     "folder_id",
+     "brand_voice_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.generate_photo_avatar_looks",
+   "name": "Generate photo avatar looks",
+   "description": "This endpoint can be used to generate additional looks for a trained photo avatar group. The photo avatar group must be trained to use this endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": ""
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt to generate different looks"
+     },
+     "orientation": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "square",
+       "horizontal",
+       "vertical"
+      ]
+     },
+     "pose": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "half_body",
+       "close_up",
+       "full_body"
+      ]
+     },
+     "style": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Realistic",
+       "Pixar",
+       "Cinematic",
+       "Vintage",
+       "Noir",
+       "Cyberpunk",
+       "Unspecified"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/look/generate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "group_id",
+     "prompt",
+     "orientation",
+     "pose",
+     "style"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.generate_photo_avatar_photos",
+   "name": "Generate photo avatar photos",
+   "description": "This endpoint will generate photos that can be used to create photo avatars, returns a generation id, which can be used in the check generation status endpoint to get status and final image/image keys",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "age": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Young Adult",
+       "Early Middle Age",
+       "Late Middle Age",
+       "Senior",
+       "Unspecified"
+      ]
+     },
+     "gender": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Woman",
+       "Man",
+       "Unspecified"
+      ]
+     },
+     "ethnicity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "White",
+       "Black",
+       "Asian American",
+       "East Asian",
+       "South East Asian",
+       "South Asian",
+       "Middle Eastern",
+       "Pacific",
+       "Hispanic",
+       "Unspecified"
+      ]
+     },
+     "orientation": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "square",
+       "horizontal",
+       "vertical"
+      ]
+     },
+     "pose": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "half_body",
+       "close_up",
+       "full_body"
+      ]
+     },
+     "style": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Realistic",
+       "Pixar",
+       "Cinematic",
+       "Vintage",
+       "Noir",
+       "Cyberpunk",
+       "Unspecified"
+      ]
+     },
+     "appearance": {
+      "type": "string",
+      "description": "Description/Prompt of the generated avatar photo, maximum 1000 characters"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/photo/generate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "age",
+     "gender",
+     "ethnicity",
+     "orientation",
+     "pose",
+     "style",
+     "appearance"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.get_current_user_information",
+   "name": "Get current user information",
+   "description": "Get Current User Information",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/user/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.get_remaining_quota_v2",
+   "name": "Get remaining quota",
+   "description": "Get Remaining Quota",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/user/remaining_quota",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.get_template_v2",
+   "name": "Retrieve template details",
+   "description": "This API now supports New AI Studio!",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/template/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.get_template_v3",
+   "name": "Retrieve template details (v3)",
+   "description": "Retrieves template details by ID, including variables available for replacement and scene mappings for the New AI Studio.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": "Unique identifier of the template."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v3/template/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.get_training_job_status",
+   "name": "Get training job status",
+   "description": "Get the training status of a avatar group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": "Avatar group id"
+     }
+    },
+    "required": [
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/photo_avatar/train/status/{group_id}",
+    "path": [
+     "group_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.interrupt_task",
+   "name": "Interrupt task",
+   "description": "This endpoint is used to interrupt the speaking of an Interactive Avatar.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.interrupt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "session_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_all_avatar_groups",
+   "name": "List all avatar groups",
+   "description": "List all avatar groups",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_public": {
+      "type": "boolean",
+      "description": "Whether to include all public avatar groups"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/avatar_group.list",
+    "path": [],
+    "query": [
+     "include_public"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_all_avatars_in_one_avatar_group",
+   "name": "List all avatars in one avatar group",
+   "description": "List all avatars in one avatar group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": "Avatar group id"
+     }
+    },
+    "required": [
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/avatar_group/{group_id}/avatars",
+    "path": [
+     "group_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_available_webhook_events",
+   "name": "List available webhook events",
+   "description": "list all supported webhook events",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/webhook/webhook.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_avatars_v2",
+   "name": "List all avatars (v2)",
+   "description": "You can get your Avatars and Talking Photos(Photo Avatars) with this endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/avatars",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_brand_voices",
+   "name": "List brand voices",
+   "description": "This endpoint is used to retrieve a list of brand voices your created",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Limit of brand voices to return"
+     },
+     "name_only": {
+      "type": "boolean",
+      "description": "Return the name of the brand voices"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/brand_voice/list",
+    "path": [],
+    "query": [
+     "limit",
+     "name_only"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_folders",
+   "name": "List folders",
+   "description": "Retrieves a list of folders with optional filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of folders to return"
+     },
+     "parent_id": {
+      "type": "string",
+      "description": "Filter by parent folder ID"
+     },
+     "name_filter": {
+      "type": "string",
+      "description": "Search folders by name"
+     },
+     "is_trash": {
+      "type": "boolean",
+      "description": "Filter trashed folders"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/folders",
+    "path": [],
+    "query": [
+     "limit",
+     "parent_id",
+     "name_filter",
+     "is_trash"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_sessions",
+   "name": "List sessions",
+   "description": "This endpoint is used to retrieve a list of currently active streaming sessions.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/streaming.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_supported_languages",
+   "name": "List supported languages",
+   "description": "List Supported Languages",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/video_translate/target_languages",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_templates_v2",
+   "name": "List templates",
+   "description": "This API now supports New AI Studio!",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_voices_v2",
+   "name": "List all voices (v2)",
+   "description": "List All Voices (V2)",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/voices",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.list_webhook_endpoints",
+   "name": "List webhook endpoints",
+   "description": "list all your registered webhook endpoints",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/webhook/endpoint.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.new_session",
+   "name": "New session",
+   "description": "This endpoint is used to initiate a new streaming session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "quality": {
+      "type": "string",
+      "description": ""
+     },
+     "avatar_id": {
+      "type": "string",
+      "description": "ID of the Interactive Avatar you would like to use with the Streaming API"
+     },
+     "voice_name": {
+      "type": "string",
+      "description": "voice to use"
+     },
+     "voice": {
+      "type": "object",
+      "description": ""
+     },
+     "knowledge_base": {
+      "type": "string",
+      "description": "Knowledge Base prompt used for chat task type."
+     },
+     "video_encoding": {
+      "type": "string",
+      "description": ""
+     },
+     "disable_idle_timeout": {
+      "type": "boolean",
+      "description": "By default session has a 2 minute idle timeout, setting to true disables it"
+     },
+     "version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.new",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "quality",
+     "avatar_id",
+     "voice_name",
+     "voice",
+     "knowledge_base",
+     "video_encoding",
+     "disable_idle_timeout",
+     "version"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.photo_avatar_details",
+   "name": "Photo avatar details",
+   "description": "Get the details of a photo avatar",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/photo_avatar/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.restore_folder",
+   "name": "Restore folder",
+   "description": "Restore Folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/folders/{folder_id}/restore",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.send_task",
+   "name": "Send task",
+   "description": "This endpoint is used to send a text to an Interactive Avatar, prompting it to speak the provided text.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "RAW_BODY": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.task",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "RAW_BODY"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.start_session",
+   "name": "Start session",
+   "description": "This endpoint is used to start the connection for an existing streaming session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/streaming.start",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "session_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.streaming_avatar_list",
+   "name": "List streaming avatars",
+   "description": "This API endpoint allows you to retrieve a list of public and custom interactive avatars.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/streaming/avatar.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.submit_video_avatar_creation_request",
+   "name": "Create digital twin",
+   "description": "Submits the URLs for the required training footage and consent statement to create a Digital Twin.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "training_footage_url": {
+      "type": "string",
+      "description": "Public direct URL to MP4/H.264 training footage, minimum 720p and at least 30 seconds."
+     },
+     "video_consent_url": {
+      "type": "string",
+      "description": "Public direct URL to the consent statement video."
+     },
+     "avatar_name": {
+      "type": "string",
+      "description": ""
+     },
+     "avatar_group_id": {
+      "type": "string",
+      "description": ""
+     },
+     "callback_id": {
+      "type": "string",
+      "description": ""
+     },
+     "callback_url": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "avatar_name",
+     "training_footage_url",
+     "video_consent_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/video_avatar",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "training_footage_url",
+     "video_consent_url",
+     "avatar_name",
+     "avatar_group_id",
+     "callback_id",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.train_photo_avatar_group",
+   "name": "Train photo avatar group",
+   "description": "Train a photo avatar group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/train",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "group_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.trash_folder",
+   "name": "Trash folder",
+   "description": "Moves a folder to the trash.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/folders/{folder_id}/trash",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.update_a_webhook_endpoint",
+   "name": "Update a webhook endpoint",
+   "description": "update an existing webhook endpoint",
+   "input": {
+    "type": "object",
+    "properties": {
+     "endpoint_id": {
+      "type": "string",
+      "description": "the endpoint's id you want to update"
+     },
+     "url": {
+      "type": "string",
+      "description": "the new post url you want to set for the endpoint"
+     },
+     "events": {
+      "type": "array",
+      "description": "the new events array you want to set for your endpoint"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api2.heygen.com/v1/webhook/endpoint.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "endpoint_id",
+     "url",
+     "events"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.update_brand_voice",
+   "name": "Update brand voice",
+   "description": "Updates an existing brand voice with specified changes. Only the fields that need to be modified should be included in the request body.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brand_voice_id": {
+      "type": "string",
+      "description": "The unique identifier of the brand voice to update"
+     },
+     "name": {
+      "type": "string",
+      "description": "New name for the brand voice"
+     },
+     "blacklist": {
+      "type": "array",
+      "description": "List of words that should not be translated (e.g., brand names, person names)"
+     },
+     "whitelist": {
+      "type": "array",
+      "description": "List of word pairs for forced translations | [[\"AI\", \"artificial intelligence\"]]"
+     },
+     "tones": {
+      "type": "array",
+      "description": "List of tone keywords to influence the voice"
+     },
+     "vocabulary": {
+      "type": "array",
+      "description": "List of word pairs for pronunciation guidance"
+     },
+     "tone": {
+      "type": "string",
+      "description": "Overall tone description"
+     }
+    },
+    "required": [
+     "brand_voice_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/brand_voice/{brand_voice_id}",
+    "path": [
+     "brand_voice_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "blacklist",
+     "whitelist",
+     "tones",
+     "vocabulary",
+     "tone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.update_folder",
+   "name": "Update folder (rename only)",
+   "description": "Updates the name of an existing folder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "folder_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "New folder name"
+     }
+    },
+    "required": [
+     "folder_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/folders/{folder_id}",
+    "path": [
+     "folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.upload_asset",
+   "name": "Upload asset",
+   "description": "Uploads a media file (image, video, or audio) to the authenticated user's HeyGen account and returns the asset ID for future use.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Content-Type": {
+      "type": "string",
+      "description": "MIME type of the file to upload.",
+      "enum": [
+       "image/png",
+       "image/jpeg",
+       "video/mp4",
+       "video/webm",
+       "audio/mpeg"
+      ]
+     }
+    },
+    "required": [
+     "Content-Type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v1/asset",
+    "path": [],
+    "query": [],
+    "header": [
+     "Content-Type"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.upscale_an_avatar",
+   "name": "Upscale an avatar",
+   "description": "Call this api to upscale an avatar, can only be called on an avatar that has motion, returns the photo avatar id that is upscaled",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "avatar id"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/photo_avatar/upscale",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.video_list",
+   "name": "Retrieve video list",
+   "description": "This endpoint retrieves a list of videos associated with the user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Enter a range from 0-100 for the number of videos you wish to retrieve in one response. If more than 100 videos exist, you can retrieve the remaining videos using the pagination token returned in the response."
+     },
+     "folder_id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/video.list",
+    "path": [],
+    "query": [
+     "limit",
+     "folder_id",
+     "title"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.video_status",
+   "name": "Retrieve video status details",
+   "description": "This endpoint allows you to retrieve the status and details of a specific video.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "video_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v1/video_status.get",
+    "path": [],
+    "query": [
+     "video_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.video_translate",
+   "name": "Translate video",
+   "description": "Translate Video",
+   "input": {
+    "type": "object",
+    "properties": {
+     "video_url": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "output_language": {
+      "type": "string",
+      "description": ""
+     },
+     "translate_audio_only": {
+      "type": "boolean",
+      "description": ""
+     },
+     "speaker_num": {
+      "type": "integer",
+      "description": ""
+     },
+     "callback_id": {
+      "type": "string",
+      "description": ""
+     },
+     "enable_dynamic_duration": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_voice_id": {
+      "type": "string",
+      "description": ""
+     },
+     "callback_url": {
+      "type": "string",
+      "description": "Optional callback_url"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api2.heygen.com/v2/video_translate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "video_url",
+     "title",
+     "output_language",
+     "translate_audio_only",
+     "speaker_num",
+     "callback_id",
+     "enable_dynamic_duration",
+     "brand_voice_id",
+     "callback_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "heygen.video_translate_status",
+   "name": "Check translation status",
+   "description": "Check Translation Status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "video_translate_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "video_translate_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api2.heygen.com/v2/video_translate/{video_translate_id}",
+    "path": [
+     "video_translate_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

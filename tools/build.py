@@ -243,10 +243,11 @@ def from_openapi(spec, provider):
                 if isinstance(name, str) and not is_auth(name):
                     required.append(name)
 
-            out.append({
+            said = clean(op.get("description") or op.get("summary") or "")
+            entry = {
                 "slug": slug,
                 "name": title(op.get("summary") or op.get("operationId") or slug),
-                "description": clean(op.get("description") or op.get("summary") or ""),
+                "description": said or gloss(method.upper(), path),
                 "input": {"type": "object", "properties": properties, "required": sorted(set(required))},
                 "request": {
                     "method": method.upper(),
@@ -257,8 +258,54 @@ def from_openapi(spec, provider):
                     "body": [n for n in ((body or {}).get("properties") or {}) if not is_auth(n)],
                     "body_format": provider.get("body") or "json",
                 },
-            })
+            }
+            # Whose words these are stays visible.
+            if not said and entry["description"]:
+                entry["described"] = "derived"
+            out.append(entry)
     return out
+
+
+# A plural resource named by the last part of a path that is not a placeholder.
+def resource_of(path):
+    parts = [p for p in path.split("/") if p and not p.startswith("{")]
+    if not parts:
+        return ""
+    word = re.sub(r"\.(json|xml)$", "", parts[-1])
+    word = re.sub(r"^v\d+(\.\d+)?$", "", word, flags=re.I)
+    if not word:
+        word = parts[-2] if len(parts) > 1 else ""
+    # ActionTypes -> action types, action_types -> action types
+    word = re.sub(r"([a-z0-9])([A-Z])", r"\1 \2", word).replace("_", " ").replace("-", " ")
+    return word.strip().lower()
+
+
+def gloss(method, path):
+    """A sentence for an operation whose description the vendor left empty.
+
+    Thousands of operations arrive with a method, a path and nothing else — Autotask alone
+    ships three thousand — which leaves them unfindable: a ranker matching words has no words
+    to match. So we say what the request plainly is.
+
+    This describes the shape of the call, never its meaning. It is derived from the path the
+    vendor published, and it is marked `derived` so it is never mistaken for their words.
+    """
+    resource = resource_of(path)
+    if not resource:
+        return ""
+    one = bool(re.search(r"\{[^}]+\}/?$", path))
+    singular = re.sub(r"ies$", "y", resource) if resource.endswith("ies") else re.sub(r"s$", "", resource)
+
+    if method == "GET":
+        return ("Fetches one %s." % singular) if one else ("Lists %s." % resource)
+    article = "an " if singular[:1] in "aeiou" else "a "
+    if method == "POST":
+        return "Creates %s." % (singular if one else article + singular)
+    if method in ("PUT", "PATCH"):
+        return "Updates %s." % (("this " + singular) if one else article + singular)
+    if method == "DELETE":
+        return "Deletes %s." % (("this " + singular) if one else article + singular)
+    return ""
 
 
 def field(schema, description):

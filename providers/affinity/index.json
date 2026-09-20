@@ -1,0 +1,4049 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "affinity",
+ "source": "https://developer.affinity.co/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "affinity.v2_auth_whoami_get",
+   "name": "Get current user",
+   "description": "Returns information about the authenticated user, their current organization, and API key permissions. Use this endpoint to verify your authentication and understand your available API access levels.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/auth/whoami",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_calls_get",
+   "name": "Get metadata on all calls",
+   "description": "Paginate through all calls in Affinity. Returns basic information about the call interaction and its participants. Will only return calls that the current authenticated user has permission to see. You can filter calls using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Ope",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/calls",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_chat_messages_get",
+   "name": "Get metadata on all chat messages",
+   "description": "Paginate through all chat messages in Affinity. Returns basic information about the chat message interaction and its participants. Will only return chat messages that the current authenticated user has permission to see. You can filter chat messages using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property N",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/chat-messages",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_fields_field_id_get",
+   "name": "Get a single field value on a company",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Retrieve a single field on a company. Returns basic information and the field value.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     }
+    },
+    "required": [
+     "companyId",
+     "fieldId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/fields/{fieldId}",
+    "path": [
+     "companyId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_fields_field_id_post",
+   "name": "Update a single field value on a company",
+   "description": "Update a single field value on a company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "value": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "companyId",
+     "fieldId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/fields/{fieldId}",
+    "path": [
+     "companyId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_fields_field_id_values_get",
+   "name": "Get values for a single field on a company",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through all values for a field on a company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "companyId",
+     "fieldId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/fields/{fieldId}/values",
+    "path": [
+     "companyId",
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_fields_get",
+   "name": "Get field values on a single company",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through field values on a single company. Enriched, global, and relationship-intelligence fields will be included by default. The `ids` and `types` parameters can be used to filter the collection. These parameters are mutually exclusive. List fields are not returned by this endpoint. To retrieve or update list field values, use the [list entr",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "ids": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "types": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/fields",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "ids",
+     "types",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_fields_patch",
+   "name": "Perform batch operations on a company's fields",
+   "description": "Perform batch operations on a company's fields. Currently the only operation at the endpoint is `update-fields`, which allows you to update multiple field values with a single request. This is equivalent to calling [the single field update](/api-reference/companies/update-a-single-field-value-on-a-company) endpoint multiple times. You can update up to 100 fields per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/fields",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_get",
+   "name": "Get a single company",
+   "description": "Returns basic information and non-list-specific field data on the requested Company. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specify the Fields for which you want data returned. These Field IDs and Types can be found using the GET `/v2/companies/fields` endpoint. When no `fieldIds` or `fieldTypes` are provided, Companies will be returned without ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_list_entries_get",
+   "name": "Get a company's list entries",
+   "description": "Paginate through the List Entries (AKA rows) for the given Company across all Lists. Each List Entry includes field data for the Company, including list-specific field data. Each List Entry also includes metadata about its creation, i.e., when it was added to the List and by whom.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/list-entries",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_lists_get",
+   "name": "Get a company's lists",
+   "description": "Paginate through all Lists where the given Company appears as an entry and that you have access to view. Returns basic List information for each List that contains this Company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/lists",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_notes_get",
+   "name": "Get notes for a company",
+   "description": "Returns relevant notes for a given company which includes directly attached notes and notes attached to persons on this company. You can filter notes using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `creator.id` | `int32`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company's ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/notes",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_company_id_relationships_get",
+   "name": "Get relationships for a company",
+   "description": "Returns the relationships for a given company, including the interaction score that measures the strength of each relationship based on communication patterns such as emails, meetings, and other interactions. Each relationship includes two persons (person1 and person2) who have a connection related to this company. ## Interaction score The `interactionScore` is a value between `0.0` and `1.0` that",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "orderBy": {
+      "type": "array",
+      "description": "Properties to sort by. Defaults to `-interactionScore`. Prefix with `-` for descending order."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/{companyId}/relationships",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "filter",
+     "orderBy",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_fields_field_id_dropdown_options_get",
+   "name": "Get dropdown options for a company field",
+   "description": "Returns the dropdown options for a specific dropdown or ranked-dropdown field on a Company. Use the returned dropdown option IDs when writing dropdown field values via the field update endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "fieldId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/fields/{fieldId}/dropdown-options",
+    "path": [
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_fields_get",
+   "name": "Get metadata on company fields",
+   "description": "Returns metadata on non-list-specific Company Fields. Use the returned Field IDs to request field data from the GET `/v2/companies` and GET `/v2/companies/{id}` endpoints. You can filter Fields using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "includes": {
+      "type": "array",
+      "description": "Additional properties to include in the response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies/fields",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter",
+     "includes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_get",
+   "name": "Get all companies",
+   "description": "Paginate through Companies in Affinity. Returns basic information and non-list-specific field data on each Company. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specify the Fields for which you want data returned. These Field IDs and Types can be found using the GET `/v2/companies/fields` endpoint. When no `fieldIds` or `fieldTypes` are provided, Comp",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "ids": {
+      "type": "array",
+      "description": "Company IDs"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/companies",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "ids",
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_companies_search_post",
+   "name": "Search companies",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Search for Companies matching the given criteria. Accepts an optional combination of filters, sorts, and a search term. Omitting the body is equivalent to `GET /v2/companies` with default pagination. Requires the \"Export All Organizations directory\" [permission](/pages/external-api-v2/permissions). ### Field IDs Field IDs used in `filters`, `sorts`, a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fieldIds": {
+      "type": "array",
+      "description": "Specific field IDs for which to return field data on each Company. Cannot be used together with `fieldTypes`; use one or the other. Use `GET /v2/companies/fields` to discover available field IDs."
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "A category of fields for which to return field data on each Company. Cannot be used together with `fieldIds`; use one or the other."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of Companies to return per page."
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "When `true`, includes the total count of matching Companies in the pagination response. Adds additional query cost; use only when needed."
+     },
+     "filters": {
+      "type": "object",
+      "description": "A logical group of filters combined with AND or OR. Groups can be nested to build complex filter trees. Each group may contain up to 50 items. Items can be individual filters or nested filter groups."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "One or more sort criteria, applied in order. Supports up to 5 sort items. Use the relevant fields endpoint for your resource type to discover sortable fields."
+     },
+     "search": {
+      "type": "object",
+      "description": "A single keyword or phrase to match against field values. Multiple terms or comma-separated values are not supported; use a single search string."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/companies/search",
+    "path": [],
+    "query": [
+     "fieldIds",
+     "fieldTypes",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [
+     "filters",
+     "sorts",
+     "search"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_company_merges_get",
+   "name": "Get all company merges",
+   "description": "Retrieve paginated company merges for the organization. Returns all company merges initiated by users in your organization, including their current status, the companies involved, and merge details. You can filter company merges using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties: | **Property Name** | **Type** | **",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter company merges using Affinity Filtering Language"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/company-merges",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_company_merges_merge_id_get",
+   "name": "Get company merge",
+   "description": "Retrieve the status and details of a specific company merge. Returns information about the company merge including its current status, the companies involved, timestamps, and any error information if the merge failed. The `mergeId` can be obtained from the response of the [Get All Company Merges](/api-reference/company-merges/get-all-company-merges) endpoint, or by filtering company merges by task",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mergeId": {
+      "type": "integer",
+      "description": "Company merge ID"
+     }
+    },
+    "required": [
+     "mergeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/company-merges/{mergeId}",
+    "path": [
+     "mergeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_company_merges_post",
+   "name": "Initiate company merge",
+   "description": "Initiate a company merge to combine a duplicate company profile into a primary company profile. This is an asynchronous process that will merge all data from the duplicate company into the primary company. Once the merge is initiated, you can track its progress using the returned task URL. Requires the \"Manage duplicates\" [permission](/pages/external-api-v2/permissions) and organization admin role",
+   "input": {
+    "type": "object",
+    "properties": {
+     "primaryCompanyId": {
+      "type": "integer",
+      "description": "The ID of the company profile that will be kept after the merge. All data from the duplicate company will be merged into this company."
+     },
+     "duplicateCompanyId": {
+      "type": "integer",
+      "description": "The ID of the company profile that will be merged and then deleted. All data from this company will be transferred to the primary company."
+     }
+    },
+    "required": [
+     "duplicateCompanyId",
+     "primaryCompanyId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/company-merges",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "primaryCompanyId",
+     "duplicateCompanyId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_duplicates_company_suggestions_get",
+   "name": "Get all company duplicate suggestions",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Retrieves company duplicate suggestions detected for your organization. Each suggestion contains a recommended `primaryProfile` and a `duplicateProfiles` array containing the single company profile Affinity has identified as a likely duplicate, along with the `matchCriteria` that produced the suggestion. The full company payload is returned for both s",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "When `true`, include the total count of the collection in the pagination response"
+     },
+     "term": {
+      "type": "string",
+      "description": "Free-text search term to filter suggestions by company name"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter company duplicate suggestions using Affinity Filtering Language"
+     },
+     "orderBy": {
+      "type": "array",
+      "description": "Properties to order the results by. Prefix with `-` for descending order. Repeat the parameter to order by multiple properties."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/duplicates/company-suggestions",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "totalCount",
+     "term",
+     "filter",
+     "orderBy"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_duplicates_person_suggestions_get",
+   "name": "Get all person duplicate suggestions",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Retrieves person duplicate suggestions detected for your organization. Each suggestion contains a recommended `primaryProfile` and a `duplicateProfiles` array containing the single person profile Affinity has identified as a likely duplicate, along with the `matchCriteria` that produced the suggestion. The full person payload is returned for both side",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "When `true`, include the total count of the collection in the pagination response"
+     },
+     "term": {
+      "type": "string",
+      "description": "Free-text search term to filter suggestions by the person's first name"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter person duplicate suggestions using Affinity Filtering Language"
+     },
+     "orderBy": {
+      "type": "array",
+      "description": "Properties to order the results by. Prefix with `-` for descending order. Repeat the parameter to order by multiple properties."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/duplicates/person-suggestions",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "totalCount",
+     "term",
+     "filter",
+     "orderBy"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_emails_get",
+   "name": "Get metadata on all emails",
+   "description": "Paginate through all emails in Affinity. Returns basic information about the email interaction and its participants. Will only return emails or subject lines that the current authenticated user has permission to see. Email bodies (the message content) are not available through the API. Only metadata such as the subject, participants, and timestamps is returned. If the authenticated user does not h",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/emails",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_feedback_post",
+   "name": "Send feedback",
+   "description": "Send feedback to Affinity about a particular product area or feature.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The type of feedback being submitted",
+      "enum": [
+       "mcp",
+       "api",
+       "other"
+      ]
+     },
+     "subject": {
+      "type": "string",
+      "description": "Subject of the feedback"
+     },
+     "body": {
+      "type": "string",
+      "description": "The details of the feedback, please be thorough and include examples of what you're trying to accomplish and how the product could be improved to support it."
+     }
+    },
+    "required": [
+     "body",
+     "subject",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/feedback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "subject",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_field_value_changes_get",
+   "name": "Get all field value changes",
+   "description": "Retrieve field value changes across all entities and fields in your Affinity workspace. For an overview of field value changes, including which fields support change tracking and how the action types behave, see [Field Value Changes](/pages/data-model/working-with-field-data#field-value-changes). This endpoint is built for delta-sync. Within a single sync, follow `pagination.nextUrl` to page throu",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "orderBy": {
+      "type": "array",
+      "description": "Properties to sort by. Defaults to `changedAt`. Prefix with `-` for descending order."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/field-value-changes",
+    "path": [],
+    "query": [
+     "filter",
+     "orderBy",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_files_search_post",
+   "name": "Search files by keyword",
+   "description": "Search files by keyword. The scope of the search is controlled by the request body: - Provide `fileIds` to limit the search to specific files. - Provide `companyId` to limit the search to files associated with a specific company. - Omit both to search across your entire account. `fileIds` and `companyId` are mutually exclusive. Returns up to `limit` files ordered by relevance. Prompts with no stro",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/files/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_inferred_connections_coworkers_get",
+   "name": "Get coworker inferred connections",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns inferred connections based on shared work history, grouped by the target person, strongest first. A connection is the belief that a `source` (a person in your Affinity data, with an `id`, whom you know) might know a `target` (a person not in your Affinity data, described only, whom you want to know), because the two had overlapping employment ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter": {
+      "type": "string",
+      "description": "Filter options. At least one filter is required; the only currently supported filter is `target.currentCompany.id`, which narrows the targets to the one company the `target` person currently works at. Filtering on more than one company returns a `400`."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of targets to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "filter"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/inferred-connections/coworkers",
+    "path": [],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_inferred_connections_investor_executive_connections_get",
+   "name": "Get investor executive inferred connections",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns investor-executive inferred connections, grouped by the target person, strongest first. A connection is the belief that a `source` (a person in your Affinity data, with an `id`, whom you know) might know a `target` (a person not in your Affinity data, described only, whom you want to know). In this connection type the source is an investor and",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter": {
+      "type": "string",
+      "description": "Filter options. At least one filter is required; the only currently supported filter is `target.currentCompany.id`, which narrows the targets to the one company the `target` person currently works at. Filtering on more than one company returns a `400`."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of targets to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "filter"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/inferred-connections/investor-executive-connections",
+    "path": [],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_get",
+   "name": "Get metadata on all lists",
+   "description": "Paginate through all Lists in your organization that you have access to view. Returns basic information about each List, including name, owner, and privacy settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "term": {
+      "type": "string",
+      "description": "Case-insensitive substring match on List name."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists",
+    "path": [],
+    "query": [
+     "term",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_field_id_dropdown_options_dropdown_option_id_delete",
+   "name": "Delete a dropdown option for a list field",
+   "description": "Delete a dropdown option for a List Field. **Warning:** This permanently removes the option and clears every field value currently set to it across all List Entries. The cleared values cannot be recovered.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "dropdownOptionId": {
+      "type": "integer",
+      "description": "Dropdown option ID"
+     }
+    },
+    "required": [
+     "dropdownOptionId",
+     "fieldId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields/{fieldId}/dropdown-options/{dropdownOptionId}",
+    "path": [
+     "listId",
+     "fieldId",
+     "dropdownOptionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_field_id_dropdown_options_dropdown_option_id_get",
+   "name": "Get a dropdown option for a list field",
+   "description": "Get a single dropdown option for a List Field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "dropdownOptionId": {
+      "type": "integer",
+      "description": "Dropdown option ID"
+     }
+    },
+    "required": [
+     "dropdownOptionId",
+     "fieldId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields/{fieldId}/dropdown-options/{dropdownOptionId}",
+    "path": [
+     "listId",
+     "fieldId",
+     "dropdownOptionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_field_id_dropdown_options_dropdown_option_id_post",
+   "name": "Update a dropdown option for a list field",
+   "description": "Update a dropdown option for a List Field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "dropdownOptionId": {
+      "type": "integer",
+      "description": "Dropdown option ID"
+     }
+    },
+    "required": [
+     "dropdownOptionId",
+     "fieldId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields/{fieldId}/dropdown-options/{dropdownOptionId}",
+    "path": [
+     "listId",
+     "fieldId",
+     "dropdownOptionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_field_id_dropdown_options_get",
+   "name": "Get dropdown options for a list field",
+   "description": "Returns the dropdown options for a specific dropdown, ranked-dropdown, or status-dropdown field on a List. Use the returned dropdown option IDs when writing dropdown field values via the field update endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "fieldId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields/{fieldId}/dropdown-options",
+    "path": [
+     "listId",
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_field_id_dropdown_options_post",
+   "name": "Create a dropdown option for a list field",
+   "description": "Create a dropdown option for a List Field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     }
+    },
+    "required": [
+     "fieldId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields/{fieldId}/dropdown-options",
+    "path": [
+     "listId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_fields_get",
+   "name": "Get metadata on a single list's fields",
+   "description": "Returns metadata on the Fields available on a single List. Use the returned Field IDs to request field data from the GET `/v2/lists/{listId}/list-entries` endpoint. You can filter Fields using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "includes": {
+      "type": "array",
+      "description": "Additional properties to include in the response"
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/fields",
+    "path": [
+     "listId"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "filter",
+     "includes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_get",
+   "name": "Get metadata on a single list",
+   "description": "Retrieve detailed information about a specific List you have access to view. Returns List configuration including name, owner, privacy settings, and creation details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}",
+    "path": [
+     "listId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_get",
+   "name": "Get all list entries on a list",
+   "description": "Paginate through the List Entries (AKA rows) on a given List. Returns basic information and field data, including list-specific field data, on each Company, Person, or Opportunity on the List. List Entries also include metadata about their creation, i.e., when they were added to the List and by whom. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specif",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries",
+    "path": [
+     "listId"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_field_value_changes_get",
+   "name": "Get field value changes on a list entry",
+   "description": "Paginate through the historical value changes on the fields of a List Entry. For an overview of field value changes, including which fields support change tracking and how the action types behave, see [Field Value Changes](/pages/data-model/working-with-field-data#field-value-changes). Each change includes who made the change, when it occurred, the action that was performed, and the value that was",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/field-value-changes",
+    "path": [
+     "listId",
+     "listEntryId"
+    ],
+    "query": [
+     "filter",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_fields_field_id_get",
+   "name": "Get a single field value",
+   "description": "Returns a single field value on a list entry.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     }
+    },
+    "required": [
+     "fieldId",
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/fields/{fieldId}",
+    "path": [
+     "listId",
+     "listEntryId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_fields_field_id_post",
+   "name": "Update a single field value on a list entry",
+   "description": "Update a single field value. Requires the \"Export data from Lists\" [permission](/pages/external-api-v2/permissions).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "value": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "fieldId",
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/fields/{fieldId}",
+    "path": [
+     "listId",
+     "listEntryId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_fields_field_id_values_get",
+   "name": "Get values for a single field on a list entry",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through all values for a field on a list entry.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "fieldId",
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/fields/{fieldId}/values",
+    "path": [
+     "listId",
+     "listEntryId",
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_fields_get",
+   "name": "Get field values on a single list entry",
+   "description": "Paginate through all field values on a single list entry. All fields will be included by default. The `ids` and `types` parameters can be used to filter the collection.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "ids": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "types": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/fields",
+    "path": [
+     "listId",
+     "listEntryId"
+    ],
+    "query": [
+     "ids",
+     "types",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_fields_patch",
+   "name": "Perform batch operations on a list entry's fields",
+   "description": "Perform batch operations on a list entry's fields. Currently the only operation at the endpoint is `update-fields`, which allows you to update multiple field values with a single request. This is equivalent to calling [the single field update](/api-reference/lists/update-a-single-field-value-on-a-list-entry) endpoint multiple times. You can update up to 100 fields per request. Requires the \"Export",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     }
+    },
+    "required": [
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}/fields",
+    "path": [
+     "listId",
+     "listEntryId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_list_entry_id_get",
+   "name": "Get a single list entry on a list",
+   "description": "Retrieve a single list entry. Returns basic information and field data, including list-specific field data. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specify the Fields for which you want data returned. These Field IDs and Types can be found using the GET `/v2/lists/{listId}/fields` endpoint. When no `fieldIds` or `fieldTypes` are provided, the Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "listEntryId": {
+      "type": "integer",
+      "description": "List Entry ID"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": [
+     "listEntryId",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/{listEntryId}",
+    "path": [
+     "listId",
+     "listEntryId"
+    ],
+    "query": [
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_list_entries_search_post",
+   "name": "Search list entries",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Search for List Entries on a List matching the given criteria. Accepts an optional combination of filters, sorts, and a search term. All fields in the request body are optional. Omitting the body entirely is equivalent to `GET /v2/lists/{listId}/list-entries` with default pagination. Requires the \"Export data from Lists\" [permission](/pages/external-a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "The ID of the List to search"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Specific field IDs for which to return field data on each List Entry. Cannot be used together with `fieldTypes` \u2014 use one or the other. Use `GET /v2/lists/{listId}/fields` to discover available field IDs."
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "A category of fields for which to return field data on each List Entry. Cannot be used together with `fieldIds` \u2014 use one or the other."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of List Entries to return per page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "When `true`, includes the total count of matching List Entries in the pagination response. Adds additional query cost; use only when needed."
+     },
+     "filters": {
+      "type": "object",
+      "description": "A logical group of filters combined with AND or OR. Groups can be nested to build complex filter trees. Each group may contain up to 50 items. Items can be individual filters or nested filter groups."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "One or more sort criteria, applied in order. Supports up to 5 sort items. Use the relevant fields endpoint for your resource type to discover sortable fields."
+     },
+     "search": {
+      "type": "object",
+      "description": "A single keyword or phrase to match against field values. Multiple terms or comma-separated values are not supported; use a single search string."
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/lists/{listId}/list-entries/search",
+    "path": [
+     "listId"
+    ],
+    "query": [
+     "fieldIds",
+     "fieldTypes",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [
+     "filters",
+     "sorts",
+     "search"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_saved_views_get",
+   "name": "Get metadata on saved views",
+   "description": "Paginate through all Saved Views you have access to view for a specific List. Returns basic information about each Saved View, including name, type, and creation date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/saved-views",
+    "path": [
+     "listId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_saved_views_view_id_get",
+   "name": "Get metadata on a single saved view",
+   "description": "Retrieve detailed information about a specific Saved View you have access to view. Returns Saved View configuration including name, type, and creation date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "viewId": {
+      "type": "integer",
+      "description": "Saved view ID"
+     }
+    },
+    "required": [
+     "listId",
+     "viewId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/saved-views/{viewId}",
+    "path": [
+     "listId",
+     "viewId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_list_id_saved_views_view_id_list_entries_get",
+   "name": "Get all list entries on a saved view",
+   "description": "Paginate through the List Entries (AKA rows) on a given Saved View. Use this endpoint when you need to filter entities or only want **some** field data to be returned: This endpoint respects the filters set on a Saved View via web app, and only returns field data corresponding to the columns that have been pulled into the Saved View via web app. Though this endpoint respects the Saved View's filte",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "integer",
+      "description": "List ID"
+     },
+     "viewId": {
+      "type": "integer",
+      "description": "Saved view ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "listId",
+     "viewId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/lists/{listId}/saved-views/{viewId}/list-entries",
+    "path": [
+     "listId",
+     "viewId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_lists_post",
+   "name": "Create a list",
+   "description": "Create a new List. The List type determines the kind of entities (Companies, Persons, or Opportunities) that can be added. The requester is recorded as the creator and the owner.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the List"
+     },
+     "type": {
+      "type": "string",
+      "description": "The entity type for the List",
+      "enum": [
+       "company",
+       "opportunity",
+       "person"
+      ]
+     },
+     "isPublic": {
+      "type": "boolean",
+      "description": "Whether the List is public. Public Lists are visible to all users in the organization. Creating a public List requires the \"Share accessible Lists globally\" permission."
+     }
+    },
+    "required": [
+     "name",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "type",
+     "isPublic"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_meetings_get",
+   "name": "Get metadata on all meetings",
+   "description": "Paginate through all Meetings in Affinity. Returns basic information about past and future meeting interactions and its attendees. You can filter meetings using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `id` | `int64` | ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/meetings",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_meetings_meeting_id_get",
+   "name": "Get a single meeting",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Retrieve detailed information about a specific Meeting you have access to view. Returns meeting details including title, timing, organizer, creator, and attendee information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meetingId": {
+      "type": "integer",
+      "description": "Meeting ID"
+     }
+    },
+    "required": [
+     "meetingId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/meetings/{meetingId}",
+    "path": [
+     "meetingId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_get",
+   "name": "Get all notes",
+   "description": "Returns all notes, with the exception of replies. You can filter notes using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `id` | `int32` | `=` | `id=1\\|id=2\\|id=3` | | `creator.id` | `int32` | `=` | `creator.id=1` | | `crea",
+   "input": {
+    "type": "object",
+    "properties": {
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "includes": {
+      "type": "array",
+      "description": "Additional properties to include in the response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes",
+    "path": [],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit",
+     "filter",
+     "includes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_attached_companies_get",
+   "name": "Get companies attached to a note",
+   "description": "Returns directly attached companies for a given Note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note to get attached Companies"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes/{noteId}/attached-companies",
+    "path": [
+     "noteId"
+    ],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_attached_opportunities_get",
+   "name": "Get opportunities attached to a note",
+   "description": "Returns directly attached opportunities for a given Note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note to get attached Opportunities"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes/{noteId}/attached-opportunities",
+    "path": [
+     "noteId"
+    ],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_attached_persons_get",
+   "name": "Get persons attached to a note",
+   "description": "Returns directly attached persons for a given Note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note to get attached Persons"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes/{noteId}/attached-persons",
+    "path": [
+     "noteId"
+    ],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_delete",
+   "name": "Delete a single note",
+   "description": "Delete a note. You can only delete notes you created. Deleting a root note also deletes its replies (both user replies and AI Notetaker replies); deleting a reply removes only that reply.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note to delete"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.affinity.co/v2/notes/{noteId}",
+    "path": [
+     "noteId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_get",
+   "name": "Get a single note",
+   "description": "Get a Note with a given id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note"
+     },
+     "includes": {
+      "type": "array",
+      "description": "Additional properties to include in the response"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes/{noteId}",
+    "path": [
+     "noteId"
+    ],
+    "query": [
+     "includes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_post",
+   "name": "Update a single note",
+   "description": "Make an update to an existing note's body content or its entity associations. You can only update notes you have write access to. You can update any type of note including AI Notetaker notes (`ai-notetaker`, `ai-notetaker-reply`), but a note's type itself cannot be changed. All body properties are optional: only the properties supplied are updated, and other properties are left unchanged. For each",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "The id of the Note to update"
+     },
+     "content": {
+      "type": "object",
+      "description": "The note's body content. Only `html` is supported on write; supply rendered HTML limited to the allowed tags listed below."
+     },
+     "persons": {
+      "type": "array",
+      "description": "Persons attached to the note. Each item references a Person by id. Only valid for root notes."
+     },
+     "companies": {
+      "type": "array",
+      "description": "Companies attached to the note. Each item references a Company by id. Only valid for root notes."
+     },
+     "opportunities": {
+      "type": "array",
+      "description": "Opportunities attached to the note. Each item references an Opportunity by id. Only valid for root notes."
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/notes/{noteId}",
+    "path": [
+     "noteId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "content",
+     "persons",
+     "companies",
+     "opportunities"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_note_id_replies_get",
+   "name": "Get replies for a note",
+   "description": "This endpoint returns reply notes for a given note id. You can filter replies using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `creator.id` | `int32` | `=` | `creator.id=1` | | `createdAt` | `datetime` | `>`, `=`, ``, `=`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "noteId": {
+      "type": "integer",
+      "description": "Note ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "noteId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/notes/{noteId}/replies",
+    "path": [
+     "noteId"
+    ],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_post",
+   "name": "Create a note",
+   "description": "Create a new note. By default it is authored by the calling user; set `creator` to attribute it to a different internal person in your organization. Notes can be attached directly to entities (`Persons`, `Companies`, `Opportunities`), anchored to an interaction (`meeting`, `call`, or `chat message`), or written as a reply to an existing note. The `type` field selects the shape of the request body.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/notes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_notes_search_post",
+   "name": "Search notes by keyword",
+   "description": "Search notes by keyword. The scope of the search is controlled by the request body: - Provide `noteIds` to limit the search to specific notes. - Provide `companyId` to limit the search to notes associated with a specific company. - Omit both to search across your entire account. `noteIds` and `companyId` are mutually exclusive. Returns up to `limit` notes ordered by relevance. Prompts with no stro",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/notes/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_opportunities_get",
+   "name": "Get all opportunities",
+   "description": "Paginate through Opportunities in Affinity. Returns basic information but **not** field data on each Opportunity. To access field data on Opportunities, use the `/lists/{list_id}/list-entries` or the `/v2/lists/{list_id}/saved-views/{view_id}/list-entries` GET endpoint. Requires the \"Export data from Lists\" [permission](/pages/external-api-v2/permissions).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "ids": {
+      "type": "array",
+      "description": "Opportunity IDs"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/opportunities",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_opportunities_opportunity_id_get",
+   "name": "Get a single opportunity",
+   "description": "Returns basic information but **not** field data on the requested Opportunity. To access field data on Opportunities, use the `/lists/{list_id}/list-entries` or the `/v2/lists/{list_id}/saved-views/{view_id}/list-entries` GET endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "opportunityId": {
+      "type": "integer",
+      "description": "Opportunity ID"
+     }
+    },
+    "required": [
+     "opportunityId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/opportunities/{opportunityId}",
+    "path": [
+     "opportunityId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_opportunities_opportunity_id_notes_get",
+   "name": "Get notes for an opportunity",
+   "description": "Returns Notes for a given Opportunity which includes directly attached notes and those attached to persons on this Opportunity. You can filter notes using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `creator.id` | `int32` ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "opportunityId": {
+      "type": "integer",
+      "description": "Opportunity ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "opportunityId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/opportunities/{opportunityId}/notes",
+    "path": [
+     "opportunityId"
+    ],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_person_merges_get",
+   "name": "Get all person merges",
+   "description": "Retrieve paginated person merges for the organization. Returns all person merges initiated by users in your organization, including their current status, the persons involved, and merge details. You can filter person merges using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties: | **Property Name** | **Type** | **Allow",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter person merges using Affinity Filtering Language"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/person-merges",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_person_merges_merge_id_get",
+   "name": "Get person merge",
+   "description": "Retrieve the status and details of a specific person merge. Returns information about the person merge including its current status, the persons involved, timestamps, and any error information if the merge failed. The `mergeId` can be obtained from the response of the [Get All Person Merges](/api-reference/person-merges/get-all-person-merges) endpoint, or by filtering person merges by task ID usin",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mergeId": {
+      "type": "integer",
+      "description": "Person merge ID"
+     }
+    },
+    "required": [
+     "mergeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/person-merges/{mergeId}",
+    "path": [
+     "mergeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_person_merges_post",
+   "name": "Initiate person merge",
+   "description": "Initiate a person merge to combine a duplicate person profile into a primary person profile. This is an asynchronous process that will merge all data from the duplicate person into the primary person. Once the merge is initiated, you can track its progress using the returned task URL. Requires the \"Manage duplicates\" [permission](/pages/external-api-v2/permissions) and organization admin role.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "primaryPersonId": {
+      "type": "integer",
+      "description": "The ID of the person profile that will be kept after the merge. All data from the duplicate person will be merged into this person."
+     },
+     "duplicatePersonId": {
+      "type": "integer",
+      "description": "The ID of the person profile that will be merged and then deleted. All data from this person will be transferred to the primary person."
+     }
+    },
+    "required": [
+     "duplicatePersonId",
+     "primaryPersonId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/person-merges",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "primaryPersonId",
+     "duplicatePersonId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_fields_field_id_dropdown_options_get",
+   "name": "Get dropdown options for a person field",
+   "description": "Returns the dropdown options for a specific dropdown or ranked-dropdown field on a Person. Use the returned dropdown option IDs when writing dropdown field values via the field update endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "fieldId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/fields/{fieldId}/dropdown-options",
+    "path": [
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_fields_get",
+   "name": "Get metadata on person fields",
+   "description": "Returns metadata on non-list-specific Person Fields. Use the returned Field IDs to request field data from the GET `/v2/persons` and GET `/v2/persons/{id}` endpoints. You can filter Fields using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |--",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "includes": {
+      "type": "array",
+      "description": "Additional properties to include in the response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/fields",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter",
+     "includes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_get",
+   "name": "Get all persons",
+   "description": "Paginate through Persons in Affinity. Returns basic information and non-list-specific field data on each Person. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specify the Fields for which you want data returned. These Field IDs and Types can be found using the GET `/v2/persons/fields` endpoint. When no `fieldIds` or `fieldTypes` are provided, Persons w",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "ids": {
+      "type": "array",
+      "description": "People IDs"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "ids",
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_delete",
+   "name": "Delete a person",
+   "description": "This endpoint is currently in BETA. Deletes a Person. Returns a 403 error if the Person is internal or inferred internal, since those Persons cannot be deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.affinity.co/v2/persons/{personId}",
+    "path": [
+     "personId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_fields_field_id_get",
+   "name": "Get a single field on a person",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Retrieve a single field on a person. Returns basic information and the field value.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     }
+    },
+    "required": [
+     "fieldId",
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/fields/{fieldId}",
+    "path": [
+     "personId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_fields_field_id_post",
+   "name": "Update a single field value on a person",
+   "description": "Update a single field value on a person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "value": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "fieldId",
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/persons/{personId}/fields/{fieldId}",
+    "path": [
+     "personId",
+     "fieldId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_fields_field_id_values_get",
+   "name": "Get values for a single field on a person",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through all values for a field on a person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "fieldId": {
+      "type": "string",
+      "description": "Field ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "fieldId",
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/fields/{fieldId}/values",
+    "path": [
+     "personId",
+     "fieldId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_fields_get",
+   "name": "Get field values on a single person",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through field values on a single person. Enriched, global, and relationship-intelligence fields will be included by default. The `ids` and `types` parameters can be used to filter the collection. These parameters are mutually exclusive. List fields are not returned by this endpoint. To retrieve or update list field values, use the [list entry",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "ids": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "types": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/fields",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "ids",
+     "types",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_fields_patch",
+   "name": "Perform batch operations on a person's fields",
+   "description": "Perform batch operations on a person's fields. Currently the only operation at the endpoint is `update-fields`, which allows you to update multiple field values with a single request. This is equivalent to calling [the single field update](/api-reference/persons/update-a-single-field-value-on-a-person) endpoint multiple times. You can update up to 100 fields per request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.affinity.co/v2/persons/{personId}/fields",
+    "path": [
+     "personId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_get",
+   "name": "Get a single person",
+   "description": "Returns basic information and non-list-specific field data on the requested Person. To retrieve field data, you must use either the `fieldIds` or the `fieldTypes` parameter to specify the Fields for which you want data returned. These Field IDs and Types can be found using the GET `/v2/persons/fields` endpoint. When no `fieldIds` or `fieldTypes` are provided, Persons will be returned without any f",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "fieldIds": {
+      "type": "array",
+      "description": "Field IDs for which to return field data"
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "Field Types for which to return field data"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "fieldIds",
+     "fieldTypes"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_list_entries_get",
+   "name": "Get a person's list entries",
+   "description": "Paginate through the List Entries (AKA rows) for the given Person across all Lists. Each List Entry includes field data for the Person, including list-specific field data. Each List Entry also includes metadata about its creation, i.e., when it was added to the List and by whom.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Persons ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/list-entries",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_lists_get",
+   "name": "Get a person's lists",
+   "description": "Paginate through all Lists where the given Person appears as an entry and that you have access to view. Returns basic List information for each List that contains this Person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Persons ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/lists",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_notes_get",
+   "name": "Get notes for a person",
+   "description": "Returns notes for a given person id which includes directly attached notes, notes on meetings this person attended, and notes where this person is mentioned. You can filter notes using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Persons ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/notes",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "filter",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_person_id_relationships_get",
+   "name": "Get relationships for a person",
+   "description": "Returns the relationships for a given person, including the interaction score that measures the strength of each relationship based on communication patterns such as emails, meetings, and other interactions. Each relationship includes two persons (person1 and person2) who have a connection. ## Interaction score The `interactionScore` is a value between `0.0` and `1.0` that reflects how frequently ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "personId": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     },
+     "orderBy": {
+      "type": "array",
+      "description": "Properties to sort by. Defaults to `-interactionScore`. Prefix with `-` for descending order."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "personId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/persons/{personId}/relationships",
+    "path": [
+     "personId"
+    ],
+    "query": [
+     "filter",
+     "orderBy",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_post",
+   "name": "Create a person",
+   "description": "This endpoint is currently in BETA. Creates a new Person. Setting `fields` values requires the \"Edit Global Field Values\" permission and returns a 403 error if the caller lacks it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "firstName": {
+      "type": "string",
+      "description": "The person's first name."
+     },
+     "lastName": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The person's last name."
+     },
+     "primaryEmailAddress": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The person's primary email address."
+     },
+     "emailAddresses": {
+      "type": "array",
+      "description": "All of the person's email addresses. If not provided, defaults to [{primaryEmailAddress}]"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Field-value updates to apply to the newly created Person."
+     }
+    },
+    "required": [
+     "firstName",
+     "lastName",
+     "primaryEmailAddress"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/persons",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "firstName",
+     "lastName",
+     "primaryEmailAddress",
+     "emailAddresses",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_persons_search_post",
+   "name": "Search persons",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Search for Persons matching the given criteria. Accepts an optional combination of filters, sorts, and a search term. Omitting the body is equivalent to `GET /v2/persons` with default pagination. Requires the \"Export All People directory\" [permission](/pages/external-api-v2/permissions). ### Field IDs Field IDs used in `filters`, `sorts`, and `search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fieldIds": {
+      "type": "array",
+      "description": "Specific field IDs for which to return field data on each Person. Cannot be used together with `fieldTypes`; use one or the other. Use `GET /v2/persons/fields` to discover available field IDs."
+     },
+     "fieldTypes": {
+      "type": "array",
+      "description": "A category of fields for which to return field data on each Person. Cannot be used together with `fieldIds`; use one or the other."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of Persons to return per page."
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "When `true`, includes the total count of matching Persons in the pagination response. Adds additional query cost; use only when needed."
+     },
+     "filters": {
+      "type": "object",
+      "description": "A logical group of filters combined with AND or OR. Groups can be nested to build complex filter trees. Each group may contain up to 50 items. Items can be individual filters or nested filter groups."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "One or more sort criteria, applied in order. Supports up to 5 sort items. Use the relevant fields endpoint for your resource type to discover sortable fields."
+     },
+     "search": {
+      "type": "object",
+      "description": "A single keyword or phrase to match against field values. Multiple terms or comma-separated values are not supported; use a single search string."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/persons/search",
+    "path": [],
+    "query": [
+     "fieldIds",
+     "fieldTypes",
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [
+     "filters",
+     "sorts",
+     "search"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_rate_limit_get",
+   "name": "Get rate limit usage",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns the current rate limit usage for the authenticated caller. `orgPerMonth` is included only for callers that have a monthly quota; it is absent for callers that don't have one.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/rate-limit",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_reminders_get",
+   "name": "Get all reminders",
+   "description": "Returns a page of Reminders visible to the caller. You can filter reminders using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **Examples** | |---|---|---|---| | `id` | `int64` | `=` | `id=1\\|id=2\\|id=3` | | `type` | `enum` | `=` | `type=one-time`, `type=rec",
+   "input": {
+    "type": "object",
+    "properties": {
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/reminders",
+    "path": [],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_reminders_post",
+   "name": "Create a reminder",
+   "description": "Creates a new Reminder. Exactly one of `company`, `person`, or `opportunity` must be provided. The `creator` of the new reminder is the user associated with the API key.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/reminders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_reminders_reminder_id_delete",
+   "name": "Delete a reminder",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Deletes a Reminder. Only the reminder's creator or owner may delete it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminderId": {
+      "type": "integer",
+      "description": "Reminder ID"
+     }
+    },
+    "required": [
+     "reminderId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.affinity.co/v2/reminders/{reminderId}",
+    "path": [
+     "reminderId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_reminders_reminder_id_get",
+   "name": "Get a single reminder",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns a single Reminder. Responds with `404` when the reminder does not exist or is not visible to the caller.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminderId": {
+      "type": "integer",
+      "description": "Reminder ID"
+     }
+    },
+    "required": [
+     "reminderId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/reminders/{reminderId}",
+    "path": [
+     "reminderId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_semantic_search_post",
+   "name": "Semantic search",
+   "description": "Perform an AI-powered semantic search. Use the `entityType` field in the request body to specify which entity type to search. Currently only supports companies. The `prompt` field accepts natural language describing the companies to find. Supported query dimensions include: - Industry or sector - Example: `climate tech companies in our pipeline` - Descriptive technology or business concepts - Exam",
+   "input": {
+    "type": "object",
+    "properties": {
+     "prompt": {
+      "type": "string",
+      "description": "The search prompt to apply."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the response."
+     },
+     "entityType": {
+      "type": "string",
+      "description": "The type of entity to search for."
+     },
+     "listIds": {
+      "type": "array",
+      "description": "The IDs of the lists to filter results by."
+     }
+    },
+    "required": [
+     "prompt"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/semantic-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "prompt",
+     "limit",
+     "entityType",
+     "listIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_tasks_company_merges_get",
+   "name": "Get all company merge tasks",
+   "description": "Retrieve paginated company merge tasks for the organization. Returns all merge tasks initiated by users in your organization, including their current status, the companies involved, and task details. You can filter tasks using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties: | **Property Name** | **Type** | **Allowed ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter tasks using Affinity Filtering Language"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/tasks/company-merges",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_tasks_company_merges_task_id_get",
+   "name": "Get company merge task",
+   "description": "Retrieve the status and details of a specific task for company merges. Returns information about the company merges for a specific task including its overall status, number of merges in-progress, completed, and failed. Detailed information about individual merges for this task can be found by querying: `/v2/company-merges?filter=taskId={taskId}` See [Company Merges](/api-reference/company-merges/g",
+   "input": {
+    "type": "object",
+    "properties": {
+     "taskId": {
+      "type": "string",
+      "description": "Company merge task ID"
+     }
+    },
+    "required": [
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/tasks/company-merges/{taskId}",
+    "path": [
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_tasks_person_merges_get",
+   "name": "Get all person merge tasks",
+   "description": "Retrieve paginated person merge tasks for the organization. Returns all merge tasks initiated by users in your organization, including their current status, the persons involved, and task details. You can filter tasks using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties: | **Property Name** | **Type** | **Allowed Ope",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter tasks using Affinity Filtering Language"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/tasks/person-merges",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_tasks_person_merges_task_id_get",
+   "name": "Get person merge task",
+   "description": "Retrieve the status and details of a specific task for person merges. Returns information about the person merges for a specific task including its overall status, number of merges in-progress, completed, and failed. Detailed information about individual merges for this task can be found by querying: `/v2/person-merges?filter=taskId={taskId}` See [Person Merges](/api-reference/person-merges/get-al",
+   "input": {
+    "type": "object",
+    "properties": {
+     "taskId": {
+      "type": "string",
+      "description": "Person merge task ID"
+     }
+    },
+    "required": [
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/tasks/person-merges/{taskId}",
+    "path": [
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_transcripts_get",
+   "name": "Get all transcripts",
+   "description": "Paginate through all transcripts and return basic metadata only. Use the single transcript endpoint to fetch the entire transcript data. Will only return transcripts that the current authenticated user has permission to see. You can filter transcripts using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/transcripts",
+    "path": [],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_transcripts_transcript_id_fragments_get",
+   "name": "Get fragments of a transcript",
+   "description": "Get fragments of a transcript given a transcript id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transcriptId": {
+      "type": "integer",
+      "description": "The id of the Transcript"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     }
+    },
+    "required": [
+     "transcriptId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/transcripts/{transcriptId}/fragments",
+    "path": [
+     "transcriptId"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "totalCount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_transcripts_transcript_id_get",
+   "name": "Get a single transcript",
+   "description": "Get a transcript with a given id with the first 100 fragments of the transcript. Use the /fragments endpoint to fetch all fragments of the transcript.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transcriptId": {
+      "type": "integer",
+      "description": "The id of the Transcript"
+     }
+    },
+    "required": [
+     "transcriptId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/transcripts/{transcriptId}",
+    "path": [
+     "transcriptId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_users_get",
+   "name": "Get all users",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Paginate through internal Users in your organization. Returns information about each User, including name, primary email address, all email addresses, photo URL, account status, and account role. The `emailAddresses` and `role` properties are only returned to callers with the \"Manage Users\" [permission](/pages/external-api-v2/permissions). Use the opt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "term": {
+      "type": "string",
+      "description": "Case-insensitive search across first name, last name, and primary email address. Returns users matching the term as a substring."
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/users",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "term",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_users_user_id_get",
+   "name": "Get a single user",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns information about a single internal User, including name, primary email address, all email addresses, photo URL, account status, and account role. The `userId` path parameter is the same identifier as the User's corresponding Person ID \u2014 every internal User has a matching Person record, and they share the same numeric ID. You can use a Person ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "integer",
+      "description": "User ID"
+     }
+    },
+    "required": [
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/users/{userId}",
+    "path": [
+     "userId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_webhooks_get",
+   "name": "Get all webhooks",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns a page of the Webhooks created by the caller. Users allowed to manage all webhooks receive every Webhook in the organization. You can filter webhooks using the `filter` query parameter. The filter parameter is a string that you can specify conditions based on the following properties. | **Property Name** | **Type** | **Allowed Operators** | **",
+   "input": {
+    "type": "object",
+    "properties": {
+     "totalCount": {
+      "type": "boolean",
+      "description": "Include total count of the collection in the pagination response"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for the next or previous page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to include in the page"
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter options"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/webhooks",
+    "path": [],
+    "query": [
+     "totalCount",
+     "cursor",
+     "limit",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_webhooks_post",
+   "name": "Create a webhook",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Creates a new Webhook. The `creator` of the new webhook is the user associated with the API key. The URL is validated with a test delivery before the webhook is created. The request is rejected with a `validation` error on the `url` property when the URL is invalid or unreachable, contains embedded credentials, or already belongs to another webhook in",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": "The URL event payloads are delivered to. Must be unique within the organization."
+     },
+     "subscriptions": {
+      "type": "array",
+      "description": "The event types the webhook receives. An empty array subscribes the webhook to all event types."
+     }
+    },
+    "required": [
+     "subscriptions",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "subscriptions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_webhooks_webhook_id_delete",
+   "name": "Delete a webhook",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Deletes a Webhook. Only the webhook's creator, or a user allowed to manage all webhooks, may delete it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": "Webhook ID"
+     }
+    },
+    "required": [
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.affinity.co/v2/webhooks/{webhookId}",
+    "path": [
+     "webhookId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_webhooks_webhook_id_get",
+   "name": "Get a single webhook",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Returns a single Webhook created by the caller. Users allowed to manage all webhooks may retrieve any Webhook in the organization. Responds with `404` when the webhook does not exist or is not accessible.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": "Webhook ID"
+     }
+    },
+    "required": [
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.affinity.co/v2/webhooks/{webhookId}",
+    "path": [
+     "webhookId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "affinity.v2_webhooks_webhook_id_post",
+   "name": "Update a webhook",
+   "description": "| \u26a0\ufe0f This endpoint is currently in BETA | |--| Updates a Webhook. Only provided fields are changed; omitted fields keep their current value. Changing `url` on an active webhook, or setting `status` to `active` on a disabled webhook, triggers a test delivery that validates the URL before the update is applied. URLs containing embedded credentials are rejected. Only the webhook's creator, or a user ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhookId": {
+      "type": "integer",
+      "description": "Webhook ID"
+     },
+     "url": {
+      "type": "string",
+      "description": "New delivery URL for the webhook. Must be unique within the organization."
+     },
+     "subscriptions": {
+      "type": "array",
+      "description": "New set of event types the webhook receives. An empty array subscribes the webhook to all event types."
+     },
+     "status": {
+      "type": "string",
+      "description": "Set to `disabled` to pause event delivery, or `active` to resume it.",
+      "enum": [
+       "active",
+       "disabled"
+      ]
+     }
+    },
+    "required": [
+     "webhookId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.affinity.co/v2/webhooks/{webhookId}",
+    "path": [
+     "webhookId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "subscriptions",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

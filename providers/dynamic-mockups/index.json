@@ -1,0 +1,496 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "dynamic-mockups",
+ "source": "https://dynamicmockups.com/openapi.json",
+ "operations": [
+  {
+   "slug": "dynamic-mockups.apply_embroidery_effect",
+   "name": "Apply an embroidery effect to artwork",
+   "description": "Returns a flat PNG of the artwork styled to look embroidered. This is an image filter, NOT digitizing \u2014 it produces no stitch plan and no machine file. The true digitizer (Stitch AI) lives in the mockup editor and is not part of this public API.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/tools/embroidery",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_batch_render",
+   "name": "Render many mockups in one call",
+   "description": "One request, many renders \u2014 the same artwork across a product range, or a whole catalogue in one go. Costs one credit per render in the batch. Prefer this to looping createRender: it is a single round trip and is rate-limited as one call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "export_options": {
+      "type": "object",
+      "description": "How the rendered image is returned."
+     },
+     "renders": {
+      "type": "array",
+      "description": "One entry per mockup to render."
+     }
+    },
+    "required": [
+     "renders"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/renders/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "export_options",
+     "renders"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_bulk_render",
+   "name": "Render every mockup in a collection",
+   "description": "Renders one artwork across a saved collection of mockups. Use when the set of mockups is a collection you maintain in the app rather than a list you assemble per call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "export_options": {
+      "type": "object",
+      "description": "How the rendered image is returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/renders/bulk",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "export_options"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_catalog",
+   "name": "Create a catalog",
+   "description": "Create a catalog of mockups.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/catalogs",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_mock_anything",
+   "name": "Generate an ai mockup from a photo",
+   "description": "MockAnything: give it a product photo and artwork and it generates a mockup without a PSD template. Asynchronous \u2014 returns a task id to poll with getMockAnythingStatus.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/mock-anything/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_print_files",
+   "name": "Render production ready print files",
+   "description": "Returns the print file rather than the mockup image \u2014 the artwork laid out at the print area's real dimensions, for sending to production.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mockup_uuid": {
+      "type": "string",
+      "description": ""
+     },
+     "export_options": {
+      "type": "object",
+      "description": "How the rendered image is returned."
+     },
+     "smart_objects": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "mockup_uuid",
+     "smart_objects"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/renders/print-files",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "mockup_uuid",
+     "export_options",
+     "smart_objects"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.create_render",
+   "name": "Render one mockup",
+   "description": "The core call. Place artwork into one mockup's smart objects and get back a hosted image URL. Costs one render credit on success. Synchronous \u2014 the response carries the finished image.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mockup_uuid": {
+      "type": "string",
+      "description": "Which mockup to render."
+     },
+     "export_label": {
+      "type": "string",
+      "description": "Your own label, echoed back on the result."
+     },
+     "export_options": {
+      "type": "object",
+      "description": "How the rendered image is returned."
+     },
+     "smart_objects": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "mockup_uuid",
+     "smart_objects"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/renders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "mockup_uuid",
+     "export_label",
+     "export_options",
+     "smart_objects"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.get_mock_anything_status",
+   "name": "Poll an ai mockup task",
+   "description": "Poll until `status` is a terminal value. The finished image arrives on this response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "taskId": {
+      "type": "string",
+      "description": "The task id returned by createMockAnything."
+     }
+    },
+    "required": [
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mock-anything/status/{taskId}",
+    "path": [
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.get_mockup",
+   "name": "Get one mockup",
+   "description": "One mockup template by UUID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mockup_uuid": {
+      "type": "string",
+      "description": "The mockup template UUID."
+     }
+    },
+    "required": [
+     "mockup_uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mockup/{mockup_uuid}",
+    "path": [
+     "mockup_uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.get_motion_mockup_status",
+   "name": "Poll a video mockup job",
+   "description": "Poll until the job finishes; the video URL arrives on this response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "requestId": {
+      "type": "string",
+      "description": "The request id returned by submitMotionMockup."
+     }
+    },
+    "required": [
+     "requestId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/motion-mockups/status/{requestId}",
+    "path": [
+     "requestId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_catalogs",
+   "name": "List catalogs",
+   "description": "Catalogs group mockups for a storefront or a client.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/catalogs",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_collections",
+   "name": "List mockup collections",
+   "description": "The saved sets of mockups in this workspace. A collection UUID is what createBulkRender renders across.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/collections",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_mock_anything_products",
+   "name": "List mock anything product types",
+   "description": "The print-on-demand product types MockAnything can generate onto.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mock-anything/products",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_mock_anything_styles",
+   "name": "List mock anything scene styles",
+   "description": "The scene styles a generated mockup can be rendered in.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mock-anything/styles",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_mockup_smart_objects",
+   "name": "List a mockup's smart objects",
+   "description": "The printable areas of one mockup. Each has a UUID you pass in `smart_objects[].uuid` when rendering.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mockup_uuid": {
+      "type": "string",
+      "description": "The mockup template UUID."
+     }
+    },
+    "required": [
+     "mockup_uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mockups/{mockup_uuid}/smartObjects",
+    "path": [
+     "mockup_uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_mockups",
+   "name": "List the mockups available to this key",
+   "description": "Every mockup template the workspace can render \u2014 its own uploaded PSDs and the templates it has access to. Start here: a render needs a `mockup_uuid` from this list.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mockups",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_mockups_extended",
+   "name": "List mockups with their smart objects",
+   "description": "The same list as listMockups, with each mockup's smart objects inlined. One call instead of one per mockup when you are building a render plan.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/mockups/extended",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.list_motion_mockup_models",
+   "name": "List video mockup models",
+   "description": "The image-to-video models available for motion mockups.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.dynamicmockups.com/api/v1/motion-mockups/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.submit_motion_mockup",
+   "name": "Turn a mockup into a video",
+   "description": "Submits an image-to-video job. Asynchronous \u2014 poll getMotionMockupStatus with the returned request id. Rate-limited to 10 submissions a minute.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/motion-mockups/submit",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynamic-mockups.upload_psd",
+   "name": "Upload your own photoshop mockup",
+   "description": "Turn a PSD into a renderable mockup. Its smart objects become the print areas you address in a render. Separately rate-limited from the render endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "The .psd file."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.dynamicmockups.com/api/v1/psd/upload",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

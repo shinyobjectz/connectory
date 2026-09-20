@@ -1,0 +1,2622 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "exa",
+ "source": "https://api.exa.ai/openapi.json",
+ "operations": [
+  {
+   "slug": "exa.answer",
+   "name": "Answer",
+   "description": "Performs a search based on the query and generates either a direct answer or a detailed summary with citations, depending on the query type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Natural-language question or instructions for the request."
+     },
+     "stream": {
+      "type": "boolean",
+      "description": "If true, the response is returned as a server-sent events (SSE) stream."
+     },
+     "text": {
+      "type": "boolean",
+      "description": "If true, returns full page text with default settings. If false, disables text return."
+     },
+     "model": {
+      "type": "string",
+      "description": "The model used to generate the answer.",
+      "enum": [
+       "exa",
+       "exa-pro",
+       "exa-research",
+       "exa-fast"
+      ]
+     },
+     "systemPrompt": {
+      "type": "string",
+      "description": "Additional instructions that guide generated output or agent behavior. Use this for source preferences, novelty constraints, duplication constraints, or other behavior guidance."
+     },
+     "userLocation": {
+      "type": "string",
+      "description": ""
+     },
+     "outputSchema": {
+      "type": "object",
+      "description": "A [JSON Schema Draft 7](https://json-schema.org/draft-07) specification for the desired answer structure. When provided, the answer is returned as a structured object matching the schema instead of a plain string."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/answer",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "stream",
+     "text",
+     "model",
+     "systemPrompt",
+     "userLocation",
+     "outputSchema"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.batch_monitors",
+   "name": "Batch action on monitors",
+   "description": "Perform a batch action on monitors matching the provided filters. Supported actions: - **delete**: Permanently remove matching monitors - **pause**: Pause matching monitors - **unpause**: Unpause matching monitors Use `dry_run: true` (the default) to preview which monitors would be affected before performing the action. Results are paginated via the `limit` parameter; loop until `has_more` is `fal",
+   "input": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": "The action to perform on matching monitors. `delete` permanently removes them, `pause` sets their status to paused, and `unpause` sets their status to active.",
+      "enum": [
+       "delete",
+       "pause",
+       "unpause"
+      ]
+     },
+     "filter": {
+      "type": "object",
+      "description": "At least one filter field must be provided to prevent accidental bulk operations."
+     },
+     "dry_run": {
+      "type": "boolean",
+      "description": "When `true`, returns the monitors that would be affected without performing the action. Defaults to `true`."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of monitors to process in a single request. Defaults to 50, maximum 500."
+     }
+    },
+    "required": [
+     "action",
+     "filter"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/monitors/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "filter",
+     "dry_run",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.cancel_agent_run",
+   "name": "Cancel a run",
+   "description": "Cancel a queued or running Agent run immediately without returning any results. You are billed for usage accrued before cancellation. If the run has already reached a terminal status, the API returns the existing run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Agent run ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/agent/runs/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.cancel_batch",
+   "name": "Cancel a batch",
+   "description": "Request cancellation of a batch. The batch stops scheduling new requests and drains in-flight work before settling to `cancelled`. Cancelling a batch that is already `cancelling` or `cancelled` is idempotent and returns the batch unchanged. A batch that has already reached a terminal status (`completed` or `expired`) cannot be cancelled and the request fails with a 409.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Batch ID."
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Required beta token for the Batch API.",
+      "enum": [
+       "batches-2026-06-06"
+      ]
+     }
+    },
+    "required": [
+     "Exa-Beta",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/batches/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.create_agent_run",
+   "name": "Create a run",
+   "description": "Create an asynchronous Agent run. By default, the API returns the run object immediately. Set `Accept: text/event-stream` to stream run lifecycle events until the run reaches a terminal status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept": {
+      "type": "string",
+      "description": "Set to `text/event-stream` to receive server-sent events.",
+      "enum": [
+       "application/json",
+       "text/event-stream"
+      ]
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Comma-separated beta feature tokens for opting into experimental features."
+     },
+     "query": {
+      "type": "string",
+      "description": "Natural-language question or instructions for the request."
+     },
+     "systemPrompt": {
+      "type": "string",
+      "description": "Additional instructions that guide generated output or agent behavior. Use this for source preferences, novelty constraints, duplication constraints, or other behavior guidance."
+     },
+     "effort": {
+      "type": "string",
+      "description": "Cost and reasoning effort preference for the run. `auto` lets Exa choose the appropriate effort. `max` is the highest-effort public beta tier for work where completeness and thoroughness matter more than latency or cost, including large list building, deep multi-source research, and criteria that are hard to verify.",
+      "enum": [
+       "minimal",
+       "low",
+       "medium",
+       "high",
+       "xhigh",
+       "auto",
+       "max"
+      ]
+     },
+     "input": {
+      "type": "object",
+      "description": "Records to process and records or entities to exclude from the answer."
+     },
+     "outputSchema": {
+      "type": "string",
+      "description": ""
+     },
+     "previousRunId": {
+      "type": "string",
+      "description": "Agent run ID. New run IDs are returned with the `agent_run_` prefix."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Caller-provided metadata stored with the run."
+     },
+     "dataSources": {
+      "type": "array",
+      "description": "Exa Connect data providers to enable for the run. Each entry enables all of that provider's tools."
+     },
+     "budget": {
+      "type": "object",
+      "description": "Optional per-run spending limit for the metered `auto` and `max` efforts. Runs that finish early may cost less than the limit."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/agent/runs",
+    "path": [],
+    "query": [],
+    "header": [
+     "Accept",
+     "Exa-Beta"
+    ],
+    "body": [
+     "query",
+     "systemPrompt",
+     "effort",
+     "input",
+     "outputSchema",
+     "previousRunId",
+     "metadata",
+     "dataSources",
+     "budget"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.create_batch",
+   "name": "Create a batch",
+   "description": "Create a batch of requests to run asynchronously. Each request is dispatched to its target route and results are made available for download when the batch completes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Required beta token for the Batch API.",
+      "enum": [
+       "batches-2026-06-06"
+      ]
+     },
+     "requests": {
+      "type": "array",
+      "description": "The requests to enqueue. Each `customId` must be unique within the batch."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Caller-provided metadata stored with the batch."
+     }
+    },
+    "required": [
+     "Exa-Beta",
+     "requests"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/batches",
+    "path": [],
+    "query": [],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [
+     "requests",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.create_monitor",
+   "name": "Create a monitor",
+   "description": "Creates a new Monitor to run recurring Exa searches on a schedule. Monitors automatically execute your search query on a recurring schedule and deliver results to your webhook endpoint with automatic deduplication: - **Date-based filtering** only fetches content since the last run - **Semantic deduplication** tracks previous outputs to surface only new developments The response includes a `webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "An optional name for the monitor"
+     },
+     "search": {
+      "type": "object",
+      "description": ""
+     },
+     "trigger": {
+      "type": "object",
+      "description": ""
+     },
+     "outputSchema": {
+      "type": "string",
+      "description": "Controls the format of the run output. Defaults to `{ \"type\": \"text\" }` if not specified. When `type` is `\"text\"`, the output is a plain text summary. When `type` is `\"object\"`, the output is structured JSON. If no `properties` are specified with `\"object\"` type, a schema is inferred automatically; otherwise the output adheres to the provided schema."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Optional key-value metadata. Echoed back in webhook deliveries so you can route updates to systems like Slack."
+     },
+     "webhook": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "search",
+     "webhook"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/monitors",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "search",
+     "trigger",
+     "outputSchema",
+     "metadata",
+     "webhook"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.delete_agent_run",
+   "name": "Delete a run",
+   "description": "Delete a stored Agent run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Agent run ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/agent/runs/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.delete_batch",
+   "name": "Delete a batch",
+   "description": "Soft-delete a batch in a terminal status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Batch ID."
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Required beta token for the Batch API.",
+      "enum": [
+       "batches-2026-06-06"
+      ]
+     }
+    },
+    "required": [
+     "Exa-Beta",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/batches/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.delete_monitor",
+   "name": "Delete a monitor",
+   "description": "Deletes a monitor. This cannot be undone.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.events_get",
+   "name": "Get an event",
+   "description": "Get a single Event by id. You can subscribe to Events by creating a Webhook.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the event"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/events/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.events_list",
+   "name": "List all events",
+   "description": "List all events that have occurred in the system. You can paginate through the results using the `cursor` parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     },
+     "types": {
+      "type": "array",
+      "description": "The types of events to filter by"
+     },
+     "createdBefore": {
+      "type": "string",
+      "description": "Filter events created before or at this timestamp (inclusive). Must be a valid ISO 8601 datetime string. All times are in UTC."
+     },
+     "createdAfter": {
+      "type": "string",
+      "description": "Filter events created after or at this timestamp (inclusive). Must be a valid ISO 8601 datetime string. All times are in UTC."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/events",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "types",
+     "createdBefore",
+     "createdAfter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.get_agent_run",
+   "name": "Get a run",
+   "description": "Retrieve a single Agent run by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Agent run ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/agent/runs/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.get_batch",
+   "name": "Get a batch",
+   "description": "Retrieve a single batch by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Batch ID."
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Required beta token for the Batch API.",
+      "enum": [
+       "batches-2026-06-06"
+      ]
+     }
+    },
+    "required": [
+     "Exa-Beta",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/batches/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.get_contents",
+   "name": "Contents",
+   "description": "Contents",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "Document IDs obtained from searches."
+     },
+     "urls": {
+      "type": "array",
+      "description": "URLs to crawl (backwards compatible with the `ids` parameter)."
+     },
+     "compliance": {
+      "type": "string",
+      "description": ""
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "highlights": {
+      "type": "string",
+      "description": ""
+     },
+     "summary": {
+      "type": "string",
+      "description": ""
+     },
+     "extras": {
+      "type": "string",
+      "description": ""
+     },
+     "context": {
+      "type": "string",
+      "description": ""
+     },
+     "livecrawl": {
+      "type": "string",
+      "description": ""
+     },
+     "livecrawlTimeout": {
+      "type": "string",
+      "description": ""
+     },
+     "maxAgeHours": {
+      "type": "string",
+      "description": ""
+     },
+     "snapshotAsOf": {
+      "type": "string",
+      "description": ""
+     },
+     "subpages": {
+      "type": "string",
+      "description": ""
+     },
+     "subpageTarget": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/contents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ids",
+     "urls",
+     "compliance",
+     "text",
+     "highlights",
+     "summary",
+     "extras",
+     "context",
+     "livecrawl",
+     "livecrawlTimeout",
+     "maxAgeHours",
+     "snapshotAsOf",
+     "subpages",
+     "subpageTarget"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.get_monitor",
+   "name": "Get a monitor",
+   "description": "Retrieves a single monitor by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.get_run",
+   "name": "Get a run",
+   "description": "Retrieves a single run by its ID, including the full output if the run is completed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     },
+     "runId": {
+      "type": "string",
+      "description": "The run ID"
+     }
+    },
+    "required": [
+     "id",
+     "runId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/monitors/{id}/runs/{runId}",
+    "path": [
+     "id",
+     "runId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.imports_create",
+   "name": "Create an import",
+   "description": "Creates a new import to upload your data into Websets. Imports can be used to: - **Enrich**: Enhance your data with additional information using our AI-powered enrichment engine - **Search**: Query your data using Websets' agentic search with natural language filters - **Exclude**: Prevent duplicate or already known results from appearing in your searches Once the import is created, you can upload",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/imports",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.imports_delete",
+   "name": "Delete import",
+   "description": "Deletes a import.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Import"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/imports/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.imports_get",
+   "name": "Get import",
+   "description": "Gets a specific import.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Import"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/imports/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.imports_list",
+   "name": "List imports",
+   "description": "Lists all imports for the Webset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/imports",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.imports_update",
+   "name": "Update import",
+   "description": "Updates a import configuration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Import"
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.exa.ai/v0/imports/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.list_agent_run_events",
+   "name": "List run events",
+   "description": "List stored events for an Agent run. Set `Accept: text/event-stream` to replay stored events as server-sent events. Use `cursor` for JSON pagination or `Last-Event-ID` for SSE replay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Agent run ID."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination. Use the `nextCursor` value from the previous event list response."
+     },
+     "Accept": {
+      "type": "string",
+      "description": "Set to `text/event-stream` to receive server-sent events.",
+      "enum": [
+       "application/json",
+       "text/event-stream"
+      ]
+     },
+     "Last-Event-ID": {
+      "type": "string",
+      "description": "For SSE replay, return only events after this event ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/agent/runs/{id}/events",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [
+     "Accept",
+     "Last-Event-ID"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.list_agent_runs",
+   "name": "List runs",
+   "description": "List Agent runs for your team, ordered from newest to oldest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Agent run ID. New run IDs are returned with the `agent_run_` prefix."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/agent/runs",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.list_batches",
+   "name": "List batches",
+   "description": "List batches for your team, ordered from newest to oldest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from a previous response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of batches to return per page. Defaults to 100 when omitted; there is no upper bound."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter the listing to completed batches. `completed` is the only supported value; any other value returns a 400. Completed listings are ordered by expiry and use a distinct cursor, so keep sending `status=completed` on every cursor-paginated request."
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Required beta token for the Batch API.",
+      "enum": [
+       "batches-2026-06-06"
+      ]
+     }
+    },
+    "required": [
+     "Exa-Beta"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/batches",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "status"
+    ],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.list_monitors",
+   "name": "List monitors",
+   "description": "Lists all monitors for the authenticated team. Supports filtering by status and cursor-based pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "Filter monitors by status",
+      "enum": [
+       "active",
+       "paused",
+       "disabled"
+      ]
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from a previous response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter monitors by name (case-insensitive substring match)"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Filter monitors by metadata key-value pairs (exact match, AND semantics). Use bracket notation: `metadata[key]=value`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/monitors",
+    "path": [],
+    "query": [
+     "status",
+     "cursor",
+     "limit",
+     "name",
+     "metadata"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.list_runs",
+   "name": "List runs",
+   "description": "Lists all runs for a monitor with cursor-based pagination. Runs are returned in reverse chronological order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Pagination cursor from a previous response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of results per page"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/monitors/{id}/runs",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_create",
+   "name": "Create a monitor",
+   "description": "Creates a new `Monitor` to continuously keep your Websets updated with fresh data. Monitors automatically run on your defined schedule to ensure your Websets stay current without manual intervention: - **Find new content**: Execute `search` operations to discover fresh items matching your criteria - **Update existing content**: Run `refresh` operations to update items contents and enrichments - **",
+   "input": {
+    "type": "object",
+    "properties": {
+     "websetId": {
+      "type": "string",
+      "description": "The id of the Webset"
+     },
+     "cadence": {
+      "type": "object",
+      "description": "How often the monitor will run"
+     },
+     "behavior": {
+      "type": "object",
+      "description": "Behavior to perform when monitor runs"
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "behavior",
+     "cadence",
+     "websetId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/monitors",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "websetId",
+     "cadence",
+     "behavior",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_delete",
+   "name": "Delete monitor",
+   "description": "Deletes a monitor.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Monitor"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_get",
+   "name": "Get monitor",
+   "description": "Gets a specific monitor.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Monitor"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_list",
+   "name": "List monitors",
+   "description": "Lists all monitors for the Webset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     },
+     "websetId": {
+      "type": "string",
+      "description": "The id of the Webset to list monitors for"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/monitors",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "websetId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_runs_get",
+   "name": "Get monitor run",
+   "description": "Gets a specific monitor run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "monitor": {
+      "type": "string",
+      "description": "The id of the Monitor to get the run for"
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "monitor"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/monitors/{monitor}/runs/{id}",
+    "path": [
+     "monitor",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_runs_list",
+   "name": "List monitor runs",
+   "description": "Lists all runs for the Monitor.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "monitor": {
+      "type": "string",
+      "description": "The id of the Monitor to list runs for"
+     }
+    },
+    "required": [
+     "monitor"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/monitors/{monitor}/runs",
+    "path": [
+     "monitor"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.monitors_update",
+   "name": "Update monitor",
+   "description": "Updates a monitor configuration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the Monitor"
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the monitor.",
+      "enum": [
+       "enabled",
+       "disabled"
+      ]
+     },
+     "cadence": {
+      "type": "object",
+      "description": ""
+     },
+     "behavior": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.exa.ai/v0/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "status",
+     "cadence",
+     "behavior"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.search",
+   "name": "Search",
+   "description": "Perform a search with an Exa prompt-engineered query and retrieve a list of relevant results. Optionally get contents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "includeDomains": {
+      "type": "string",
+      "description": ""
+     },
+     "excludeDomains": {
+      "type": "string",
+      "description": ""
+     },
+     "startCrawlDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endCrawlDate": {
+      "type": "string",
+      "description": ""
+     },
+     "startPublishedDate": {
+      "type": "string",
+      "description": ""
+     },
+     "endPublishedDate": {
+      "type": "string",
+      "description": ""
+     },
+     "numResults": {
+      "type": "string",
+      "description": ""
+     },
+     "context": {
+      "type": "string",
+      "description": ""
+     },
+     "moderation": {
+      "type": "string",
+      "description": ""
+     },
+     "contents": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "The query string for the search."
+     },
+     "additionalQueries": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "category": {
+      "type": "string",
+      "description": ""
+     },
+     "userLocation": {
+      "type": "string",
+      "description": ""
+     },
+     "compliance": {
+      "type": "string",
+      "description": ""
+     },
+     "outputSchema": {
+      "type": "string",
+      "description": ""
+     },
+     "systemPrompt": {
+      "type": "string",
+      "description": ""
+     },
+     "stream": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "includeDomains",
+     "excludeDomains",
+     "startCrawlDate",
+     "endCrawlDate",
+     "startPublishedDate",
+     "endPublishedDate",
+     "numResults",
+     "context",
+     "moderation",
+     "contents",
+     "query",
+     "additionalQueries",
+     "type",
+     "category",
+     "userLocation",
+     "compliance",
+     "outputSchema",
+     "systemPrompt",
+     "stream"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.stop_agent_run",
+   "name": "Stop a run",
+   "description": "Complete a running Agent run early, returning the results gathered so far. You are billed for usage accrued before the stop. Currently supported only for `max` effort runs and requires the `Exa-Beta: agent-max-effort-2026-07-27` header. If the run has already reached a terminal status, the API returns the existing run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Agent run ID."
+     },
+     "Exa-Beta": {
+      "type": "string",
+      "description": "Comma-separated beta feature tokens for opting into experimental features."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/agent/runs/{id}/stop",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Exa-Beta"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.teams_me_get",
+   "name": "Get team info",
+   "description": "Returns information about the authenticated team, including current concurrency usage and limits.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/teams/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.trigger_monitor",
+   "name": "Trigger a monitor",
+   "description": "Triggers a run immediately, regardless of the schedule. Works for monitors with status `active` or `paused`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/monitors/{id}/trigger",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.update_monitor",
+   "name": "Update a monitor",
+   "description": "Updates an existing monitor. All fields are optional. For `search`, you can send a partial object containing only the fields you want to change. Set `trigger` to `null` to remove the schedule.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The monitor ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Update the monitor name"
+     },
+     "status": {
+      "type": "string",
+      "description": "Update the monitor status (can only set to `active` or `paused`)",
+      "enum": [
+       "active",
+       "paused"
+      ]
+     },
+     "search": {
+      "type": "object",
+      "description": "Partial search params to merge. All fields are optional for updates."
+     },
+     "trigger": {
+      "type": "string",
+      "description": "Update the schedule. Set to null to remove the schedule."
+     },
+     "outputSchema": {
+      "type": "string",
+      "description": "Controls the format of the run output. Defaults to `{ \"type\": \"text\" }` if not specified. When `type` is `\"text\"`, the output is a plain text summary. When `type` is `\"object\"`, the output is structured JSON. If no `properties` are specified with `\"object\"` type, a schema is inferred automatically; otherwise the output adheres to the provided schema."
+     },
+     "metadata": {
+      "type": "string",
+      "description": "Update metadata. Set to null to remove. Echoed back in webhook deliveries so you can route updates to systems like Slack."
+     },
+     "webhook": {
+      "type": "object",
+      "description": "Partial webhook params to merge. All fields are optional for updates."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.exa.ai/monitors/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "search",
+     "trigger",
+     "outputSchema",
+     "metadata",
+     "webhook"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_attempts_list",
+   "name": "List webhook attempts",
+   "description": "List all attempts made by a Webhook ordered in descending order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the webhook"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     },
+     "eventType": {
+      "type": "string",
+      "description": "The type of event to filter by",
+      "enum": [
+       "webset.created",
+       "webset.deleted",
+       "webset.paused",
+       "webset.idle",
+       "webset.search.created",
+       "webset.search.canceled",
+       "webset.search.completed",
+       "webset.search.updated",
+       "import.created",
+       "import.completed",
+       "webset.item.created",
+       "webset.item.enriched"
+      ]
+     },
+     "successful": {
+      "type": "boolean",
+      "description": "Filter attempts by their success status"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/webhooks/{id}/attempts",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "eventType",
+     "successful"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_create",
+   "name": "Create a webhook",
+   "description": "Creates a Webhook that delivers the selected events to your URL as they occur. The response includes the signing `secret` used to verify deliveries; it is only returned on creation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "events": {
+      "type": "array",
+      "description": "The events to trigger the webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL to send the webhook to"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": [
+     "events",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "events",
+     "url",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_delete",
+   "name": "Delete a webhook",
+   "description": "Deletes a Webhook. Its status becomes `inactive`, which stops future webhook deliveries to its URL.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the webhook"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_get",
+   "name": "Get a webhook",
+   "description": "Returns a Webhook by id, including its status, subscribed events, target URL, and metadata. The signing `secret` is not returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the webhook"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_list",
+   "name": "List webhooks",
+   "description": "Returns the active Webhooks for your team. You can paginate through the results using the `cursor` parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/webhooks",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.webhooks_update",
+   "name": "Update a webhook",
+   "description": "Updates the target URL, subscribed events, or metadata of a Webhook. Omitted fields are left unchanged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id of the webhook"
+     },
+     "events": {
+      "type": "array",
+      "description": "The events to trigger the webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL to send the webhook to"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.exa.ai/v0/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "events",
+     "url",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_cancel",
+   "name": "Cancel a running webset",
+   "description": "Cancels all operations being performed on a Webset. Any enrichment or search will be stopped and the Webset will be marked as `idle`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_create",
+   "name": "Create a webset",
+   "description": "Creates a new Webset with optional search, import, and enrichment configurations. The Webset will automatically begin processing once created. You can specify an `externalId` to reference the Webset with your own identifiers for easier integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": "Optional name that appears anywhere the Webset is displayed. Leave empty to have Exa generate one automatically."
+     },
+     "search": {
+      "type": "object",
+      "description": "Create initial search for the Webset."
+     },
+     "import": {
+      "type": "array",
+      "description": "Import data from existing Websets and Imports into this Webset."
+     },
+     "enrichments": {
+      "type": "array",
+      "description": "Add enrichments to extract additional data from found items. Enrichments automatically search for and extract specific information (like contact details, funding data, employee counts, etc.) from each item added to your Webset."
+     },
+     "exclude": {
+      "type": "array",
+      "description": "Global exclusion sources (existing imports or websets) that apply to all operations within this Webset. Any results found within these sources will be omitted across all search and import operations."
+     },
+     "externalId": {
+      "type": "string",
+      "description": "The external identifier for the webset. You can use this to reference the Webset by your own internal identifiers."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "search",
+     "import",
+     "enrichments",
+     "exclude",
+     "externalId",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_delete",
+   "name": "Delete a webset",
+   "description": "Deletes a Webset. Once deleted, the Webset and all its Items will no longer be available.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/websets/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_enrichments_cancel",
+   "name": "Cancel a running enrichment",
+   "description": "All running enrichments will be canceled. You can not resume an Enrichment after it has been canceled.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Enrichment"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{webset}/enrichments/{id}/cancel",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_enrichments_create",
+   "name": "Create an enrichment",
+   "description": "Create an Enrichment for a Webset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "description": {
+      "type": "string",
+      "description": "Provide a description of the enrichment task you want to perform to each Webset Item."
+     },
+     "format": {
+      "type": "string",
+      "description": "Format of the enrichment response. We automatically select the best format based on the description. If you want to explicitly specify the format, you can do so here.",
+      "enum": [
+       "text",
+       "date",
+       "number",
+       "options",
+       "email",
+       "phone",
+       "url"
+      ]
+     },
+     "options": {
+      "type": "array",
+      "description": "When the format is options, the different options for the enrichment agent to choose from."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": [
+     "description",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{webset}/enrichments",
+    "path": [
+     "webset"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "description",
+     "format",
+     "options",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_enrichments_delete",
+   "name": "Delete an enrichment",
+   "description": "When deleting an Enrichment, any running enrichments will be canceled and all existing `enrichment_result` generated by this Enrichment will no longer be available.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Enrichment"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/websets/{webset}/enrichments/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_enrichments_get",
+   "name": "Get an enrichment",
+   "description": "Returns an Enrichment configured on a Webset, including its status, description, format, and options.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Enrichment"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets/{webset}/enrichments/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_enrichments_update",
+   "name": "Update an enrichment",
+   "description": "Update an Enrichment configuration for a Webset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": "Provide a description of the enrichment task you want to perform to each Webset Item."
+     },
+     "format": {
+      "type": "string",
+      "description": "Format of the enrichment response. We automatically select the best format based on the description. If you want to explicitly specify the format, you can do so here.",
+      "enum": [
+       "text",
+       "date",
+       "number",
+       "options",
+       "email",
+       "phone",
+       "url"
+      ]
+     },
+     "options": {
+      "type": "array",
+      "description": "When the format is options, the different options for the enrichment agent to choose from."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.exa.ai/v0/websets/{webset}/enrichments/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "description",
+     "format",
+     "options",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_get",
+   "name": "Get a webset",
+   "description": "Returns a Webset by `id` or `externalId`, including its status, searches, imports, enrichments, and monitors. Pass `expand=items` to include up to the first 100 items in the response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id or externalId of the Webset."
+     },
+     "expand": {
+      "type": "array",
+      "description": "Expand the response with the specified resources"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_items_delete",
+   "name": "Delete an item",
+   "description": "Deletes an Item from the Webset. This will cancel any enrichment process for it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Webset item"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.exa.ai/v0/websets/{webset}/items/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_items_get",
+   "name": "Get an item",
+   "description": "Returns a Webset Item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Webset item"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets/{webset}/items/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_items_list",
+   "name": "List all items for a webset",
+   "description": "Returns a list of Webset Items. You can paginate through the Items using the `cursor` parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return"
+     },
+     "sourceId": {
+      "type": "string",
+      "description": "The id of the source"
+     }
+    },
+    "required": [
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets/{webset}/items",
+    "path": [
+     "webset"
+    ],
+    "query": [
+     "cursor",
+     "limit",
+     "sourceId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_list",
+   "name": "List all websets",
+   "description": "Returns a list of Websets. You can paginate through the results using the `cursor` parameter. You can filter results using the `search` parameter to find Websets by ID, external ID, or title.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "The cursor to paginate through the results"
+     },
+     "limit": {
+      "type": "number",
+      "description": "The number of Websets to return"
+     },
+     "search": {
+      "type": "string",
+      "description": "Search term to filter Websets by ID, external ID, or title"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "search"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_preview",
+   "name": "Preview a webset",
+   "description": "Preview how a search query will be decomposed before creating a webset. This endpoint performs the same query analysis that happens during webset creation, allowing you to see the detected entity type, generated search criteria, and available enrichment columns in advance. Use this to help users understand how their search will be interpreted before committing to a full webset creation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "search"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/preview",
+    "path": [],
+    "query": [
+     "search"
+    ],
+    "header": [],
+    "body": [
+     "search"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_searches_cancel",
+   "name": "Cancel a running search",
+   "description": "Cancels a currently running Search. You can cancel all searches at once by using the `websets/:webset/cancel` endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Search"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{webset}/searches/{id}/cancel",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_searches_create",
+   "name": "Create a search",
+   "description": "Creates a new Search for the Webset. The default behavior is to reuse the previous Search results and evaluate them against the new criteria.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id of the Webset"
+     },
+     "count": {
+      "type": "number",
+      "description": "Number of Items the Search will attempt to find. The actual number of Items found may be less than this number depending on the query complexity."
+     },
+     "query": {
+      "type": "string",
+      "description": "Natural language search query describing what you are looking for. Be specific and descriptive about your requirements, characteristics, and any constraints that help narrow down the results. Any URLs provided will be crawled and used as additional context for the search."
+     },
+     "entity": {
+      "type": "string",
+      "description": ""
+     },
+     "criteria": {
+      "type": "array",
+      "description": "Criteria every item is evaluated against. It's not required to provide your own criteria, we automatically detect the criteria from all the information provided in the query. Only use this when you need more fine control."
+     },
+     "maxPeoplePerCompany": {
+      "type": "integer",
+      "description": "Optional soft cap for people searches. When set, the search will try to include at most this many matching people from the same current employer company."
+     },
+     "exclude": {
+      "type": "array",
+      "description": "Sources (existing imports or websets) to exclude from search results. Any results found within these sources will be omitted to prevent finding them during search."
+     },
+     "scope": {
+      "type": "array",
+      "description": "Limit the search to specific sources (existing imports). Any results found within these sources matching the search criteria will be included in the Webset."
+     },
+     "recall": {
+      "type": "boolean",
+      "description": "Whether to provide an estimate of how many total relevant results could exist for this search. Result of the analysis will be available in the `recall` field within the search request."
+     },
+     "behavior": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "override",
+       "append"
+      ]
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     }
+    },
+    "required": [
+     "count",
+     "query",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{webset}/searches",
+    "path": [
+     "webset"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "count",
+     "query",
+     "entity",
+     "criteria",
+     "maxPeoplePerCompany",
+     "exclude",
+     "scope",
+     "recall",
+     "behavior",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_searches_get",
+   "name": "Get a search",
+   "description": "Gets a Search by id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webset": {
+      "type": "string",
+      "description": "The id of the Webset"
+     },
+     "id": {
+      "type": "string",
+      "description": "The id of the Search"
+     }
+    },
+    "required": [
+     "id",
+     "webset"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.exa.ai/v0/websets/{webset}/searches/{id}",
+    "path": [
+     "webset",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "exa.websets_update",
+   "name": "Update a webset",
+   "description": "Updates the `title` or `metadata` of a Webset. Searches, imports, and enrichments are managed through their own endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The id or externalId of the Webset"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Set of key-value pairs you want to associate with this object."
+     },
+     "title": {
+      "type": "string",
+      "description": "Optional name that appears anywhere the Webset is displayed."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.exa.ai/v0/websets/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "title"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

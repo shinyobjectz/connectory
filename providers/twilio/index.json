@@ -32,7 +32,7 @@
   {
    "slug": "twilio.create_address",
    "name": "Create address",
-   "description": "",
+   "description": "Creates an addresse.",
    "input": {
     "type": "object",
     "properties": {
@@ -112,7 +112,8 @@
      "StreetSecondary"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_application",
@@ -887,7 +888,7 @@
   {
    "slug": "twilio.create_incoming_phone_number_local",
    "name": "Create incoming phone number local",
-   "description": "",
+   "description": "Creates a local.",
    "input": {
     "type": "object",
     "properties": {
@@ -1075,12 +1076,13 @@
      "VoiceUrl"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_incoming_phone_number_mobile",
    "name": "Create incoming phone number mobile",
-   "description": "",
+   "description": "Creates a mobile.",
    "input": {
     "type": "object",
     "properties": {
@@ -1268,12 +1270,13 @@
      "VoiceUrl"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_incoming_phone_number_toll_free",
    "name": "Create incoming phone number toll free",
-   "description": "",
+   "description": "Creates a toll free.",
    "input": {
     "type": "object",
     "properties": {
@@ -1461,7 +1464,8 @@
      "VoiceUrl"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_message",
@@ -1615,7 +1619,7 @@
   {
    "slug": "twilio.create_message_feedback",
    "name": "Create message feedback",
-   "description": "",
+   "description": "Creates a feedback.",
    "input": {
     "type": "object",
     "properties": {
@@ -1654,12 +1658,13 @@
      "Outcome"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_new_key",
    "name": "Create new key",
-   "description": "",
+   "description": "Creates a key.",
    "input": {
     "type": "object",
     "properties": {
@@ -1688,7 +1693,8 @@
      "FriendlyName"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_new_signing_key",
@@ -1727,7 +1733,7 @@
   {
    "slug": "twilio.create_participant",
    "name": "Create participant",
-   "description": "",
+   "description": "Creates a participant.",
    "input": {
     "type": "object",
     "properties": {
@@ -2037,7 +2043,8 @@
      "WaitUrl"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.create_payments",
@@ -5071,7 +5078,7 @@
   {
    "slug": "twilio.create_validation_request",
    "name": "Create validation request",
-   "description": "",
+   "description": "Creates an outgoing caller id.",
    "input": {
     "type": "object",
     "properties": {
@@ -5134,12 +5141,13 @@
      "StatusCallbackMethod"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_address",
    "name": "Delete address",
-   "description": "",
+   "description": "Deletes an addresse.",
    "input": {
     "type": "object",
     "properties": {
@@ -5168,7 +5176,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_application",
@@ -5463,7 +5472,7 @@
   {
    "slug": "twilio.delete_key",
    "name": "Delete key",
-   "description": "",
+   "description": "Deletes a key.",
    "input": {
     "type": "object",
     "properties": {
@@ -5492,7 +5501,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_media",
@@ -5799,7 +5809,7 @@
   {
    "slug": "twilio.delete_recording_transcription",
    "name": "Delete recording transcription",
-   "description": "",
+   "description": "Deletes a transcription.",
    "input": {
     "type": "object",
     "properties": {
@@ -5834,12 +5844,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_signing_key",
    "name": "Delete signing key",
-   "description": "",
+   "description": "Deletes a signing key.",
    "input": {
     "type": "object",
     "properties": {
@@ -5868,7 +5879,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_sip_auth_calls_credential_list_mapping",
@@ -6289,7 +6301,7 @@
   {
    "slug": "twilio.delete_usage_trigger",
    "name": "Delete usage trigger",
-   "description": "",
+   "description": "Deletes a trigger.",
    "input": {
     "type": "object",
     "properties": {
@@ -6318,7 +6330,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.delete_user_defined_message_subscription",
@@ -6391,7 +6404,7 @@
   {
    "slug": "twilio.fetch_address",
    "name": "Fetch address",
-   "description": "",
+   "description": "Lists addresses.",
    "input": {
     "type": "object",
     "properties": {
@@ -6420,7 +6433,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_application",
@@ -6493,7 +6507,7 @@
   {
    "slug": "twilio.fetch_available_phone_number_country",
    "name": "Fetch available phone number country",
-   "description": "",
+   "description": "Lists available phone numbers.",
    "input": {
     "type": "object",
     "properties": {
@@ -6522,7 +6536,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_balance",
@@ -6657,7 +6672,7 @@
   {
    "slug": "twilio.fetch_call_notification",
    "name": "Fetch call notification",
-   "description": "",
+   "description": "Lists notifications.",
    "input": {
     "type": "object",
     "properties": {
@@ -6692,7 +6707,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_call_recording",
@@ -6965,7 +6981,7 @@
   {
    "slug": "twilio.fetch_key",
    "name": "Fetch key",
-   "description": "",
+   "description": "Lists keys.",
    "input": {
     "type": "object",
     "properties": {
@@ -6994,7 +7010,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_media",
@@ -7381,7 +7398,7 @@
   {
    "slug": "twilio.fetch_recording_transcription",
    "name": "Fetch recording transcription",
-   "description": "",
+   "description": "Lists transcriptions.",
    "input": {
     "type": "object",
     "properties": {
@@ -7416,7 +7433,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_short_code",
@@ -7455,7 +7473,7 @@
   {
    "slug": "twilio.fetch_signing_key",
    "name": "Fetch signing key",
-   "description": "",
+   "description": "Lists signing keys.",
    "input": {
     "type": "object",
     "properties": {
@@ -7484,7 +7502,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.fetch_sip_auth_calls_credential_list_mapping",
@@ -7990,7 +8009,7 @@
   {
    "slug": "twilio.list_address",
    "name": "List address",
-   "description": "",
+   "description": "Lists addresses.",
    "input": {
     "type": "object",
     "properties": {
@@ -8044,7 +8063,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_application",
@@ -8142,7 +8162,7 @@
   {
    "slug": "twilio.list_available_phone_number_country",
    "name": "List available phone number country",
-   "description": "",
+   "description": "Lists available phone numbers.",
    "input": {
     "type": "object",
     "properties": {
@@ -8181,12 +8201,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_local",
    "name": "List available phone number local",
-   "description": "",
+   "description": "Lists local.",
    "input": {
     "type": "object",
     "properties": {
@@ -8321,12 +8342,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_machine_to_machine",
    "name": "List available phone number machine to machine",
-   "description": "",
+   "description": "Lists machine to machine.",
    "input": {
     "type": "object",
     "properties": {
@@ -8461,12 +8483,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_mobile",
    "name": "List available phone number mobile",
-   "description": "",
+   "description": "Lists mobile.",
    "input": {
     "type": "object",
     "properties": {
@@ -8601,12 +8624,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_national",
    "name": "List available phone number national",
-   "description": "",
+   "description": "Lists national.",
    "input": {
     "type": "object",
     "properties": {
@@ -8741,12 +8765,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_shared_cost",
    "name": "List available phone number shared cost",
-   "description": "",
+   "description": "Lists shared cost.",
    "input": {
     "type": "object",
     "properties": {
@@ -8881,12 +8906,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_toll_free",
    "name": "List available phone number toll free",
-   "description": "",
+   "description": "Lists toll free.",
    "input": {
     "type": "object",
     "properties": {
@@ -9021,12 +9047,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_available_phone_number_voip",
    "name": "List available phone number voip",
-   "description": "",
+   "description": "Lists voip.",
    "input": {
     "type": "object",
     "properties": {
@@ -9161,7 +9188,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_call",
@@ -9320,7 +9348,7 @@
   {
    "slug": "twilio.list_call_notification",
    "name": "List call notification",
-   "description": "",
+   "description": "Lists notifications.",
    "input": {
     "type": "object",
     "properties": {
@@ -9385,7 +9413,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_call_recording",
@@ -9653,7 +9682,7 @@
   {
    "slug": "twilio.list_dependent_phone_number",
    "name": "List dependent phone number",
-   "description": "",
+   "description": "Lists dependent phone numbers.",
    "input": {
     "type": "object",
     "properties": {
@@ -9698,7 +9727,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_incoming_phone_number",
@@ -9873,7 +9903,7 @@
   {
    "slug": "twilio.list_incoming_phone_number_local",
    "name": "List incoming phone number local",
-   "description": "",
+   "description": "Lists local.",
    "input": {
     "type": "object",
     "properties": {
@@ -9932,12 +9962,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_incoming_phone_number_mobile",
    "name": "List incoming phone number mobile",
-   "description": "",
+   "description": "Lists mobile.",
    "input": {
     "type": "object",
     "properties": {
@@ -9996,12 +10027,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_incoming_phone_number_toll_free",
    "name": "List incoming phone number toll free",
-   "description": "",
+   "description": "Lists toll free.",
    "input": {
     "type": "object",
     "properties": {
@@ -10060,12 +10092,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_key",
    "name": "List key",
-   "description": "",
+   "description": "Lists keys.",
    "input": {
     "type": "object",
     "properties": {
@@ -10104,7 +10137,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_media",
@@ -10700,7 +10734,7 @@
   {
    "slug": "twilio.list_recording_transcription",
    "name": "List recording transcription",
-   "description": "",
+   "description": "Lists transcriptions.",
    "input": {
     "type": "object",
     "properties": {
@@ -10745,7 +10779,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_short_code",
@@ -10804,7 +10839,7 @@
   {
    "slug": "twilio.list_signing_key",
    "name": "List signing key",
-   "description": "",
+   "description": "Lists signing keys.",
    "input": {
     "type": "object",
     "properties": {
@@ -10843,7 +10878,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_sip_auth_calls_credential_list_mapping",
@@ -11452,7 +11488,7 @@
   {
    "slug": "twilio.list_usage_record_all_time",
    "name": "List usage record all time",
-   "description": "",
+   "description": "Lists all time.",
    "input": {
     "type": "object",
     "properties": {
@@ -11525,12 +11561,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_daily",
    "name": "List usage record daily",
-   "description": "",
+   "description": "Lists daily.",
    "input": {
     "type": "object",
     "properties": {
@@ -11603,12 +11640,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_last_month",
    "name": "List usage record last month",
-   "description": "",
+   "description": "Lists last month.",
    "input": {
     "type": "object",
     "properties": {
@@ -11681,12 +11719,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_monthly",
    "name": "List usage record monthly",
-   "description": "",
+   "description": "Lists monthly.",
    "input": {
     "type": "object",
     "properties": {
@@ -11759,12 +11798,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_this_month",
    "name": "List usage record this month",
-   "description": "",
+   "description": "Lists this month.",
    "input": {
     "type": "object",
     "properties": {
@@ -11837,12 +11877,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_today",
    "name": "List usage record today",
-   "description": "",
+   "description": "Lists today.",
    "input": {
     "type": "object",
     "properties": {
@@ -11915,12 +11956,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_yearly",
    "name": "List usage record yearly",
-   "description": "",
+   "description": "Lists yearly.",
    "input": {
     "type": "object",
     "properties": {
@@ -11993,12 +12035,13 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_record_yesterday",
    "name": "List usage record yesterday",
-   "description": "",
+   "description": "Lists yesterday.",
    "input": {
     "type": "object",
     "properties": {
@@ -12071,7 +12114,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.list_usage_trigger",
@@ -12204,7 +12248,7 @@
   {
    "slug": "twilio.update_address",
    "name": "Update address",
-   "description": "",
+   "description": "Creates an addresse.",
    "input": {
     "type": "object",
     "properties": {
@@ -12279,7 +12323,8 @@
      "StreetSecondary"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.update_application",
@@ -12652,7 +12697,7 @@
   {
    "slug": "twilio.update_conference",
    "name": "Update conference",
-   "description": "",
+   "description": "Creates a conference.",
    "input": {
     "type": "object",
     "properties": {
@@ -12708,7 +12753,8 @@
      "Status"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.update_conference_recording",
@@ -13050,7 +13096,7 @@
   {
    "slug": "twilio.update_key",
    "name": "Update key",
-   "description": "",
+   "description": "Creates a key.",
    "input": {
     "type": "object",
     "properties": {
@@ -13085,7 +13131,8 @@
      "FriendlyName"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.update_member",
@@ -13564,7 +13611,7 @@
   {
    "slug": "twilio.update_signing_key",
    "name": "Update signing key",
-   "description": "",
+   "description": "Creates a signing key.",
    "input": {
     "type": "object",
     "properties": {
@@ -13599,7 +13646,8 @@
      "FriendlyName"
     ],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "twilio.update_sip_credential",

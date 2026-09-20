@@ -1,0 +1,88 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "listrak",
+ "source": "https://api.listrak.com/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "listrak.get_event_configurations",
+   "name": "Get all event configurations",
+   "description": "Get a list of all event configurations with names and unique identifiers. These can be used to determine which event configuration should be used to post your custom events.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.listrak.com/crosschannel/v1/eventConfigurations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "listrak.get_schema_by_event_uid",
+   "name": "Get a custom event configuration",
+   "description": "Get the details for a specific Custom Event Configuration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventUID": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "eventUID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.listrak.com/crosschannel/v1/eventConfigurations/{eventUID}",
+    "path": [
+     "eventUID"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "listrak.post_events",
+   "name": "Route to post new custom events",
+   "description": "A route to post new Custom Events associated with the given Custom Event Configuration. The data payload for these events should match the schema defined through your Custom Events Integration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventUID": {
+      "type": "string",
+      "description": ""
+     },
+     "events": {
+      "type": "array",
+      "description": "The list of events."
+     }
+    },
+    "required": [
+     "eventUID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.listrak.com/crosschannel/v1/eventConfigurations/{eventUID}/events",
+    "path": [
+     "eventUID"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "events"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1005 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "salescaptain",
+ "source": "https://docs.salescaptain.com/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "salescaptain.add_tag_to_contact",
+   "name": "Add a tag to a contact",
+   "description": "Assigns an existing tag to a contact. User must have 'contacts' access role. `account_id` is derived from the authenticated user's account for the company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier for the contact"
+     },
+     "tag_id": {
+      "type": "string",
+      "description": "Unique identifier for the tag to assign"
+     }
+    },
+    "required": [
+     "company_id",
+     "contact_id",
+     "tag_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.salescaptain.com/v1/add-tag-to-contact/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "tag_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.call_analytics",
+   "name": "Fetch call analytics by company",
+   "description": "Retrieves inbound and outbound call analytics grouped by account for one or more companies. `company_ids` is required (comma-separated UUIDs). `start_time` and `end_time` are optional; if either is missing, the last 6 months is used. Durations are in seconds. `call_count` / `total_duration` are inbound; `outgoing_*` are outbound.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_ids": {
+      "type": "string",
+      "description": "Comma-separated list of company UUIDs"
+     },
+     "start_time": {
+      "type": "string",
+      "description": "Start of the analytics window (must be provided with end_time)"
+     },
+     "end_time": {
+      "type": "string",
+      "description": "End of the analytics window (must be provided with start_time)"
+     }
+    },
+    "required": [
+     "company_ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.salescaptain.com/v1/call-analytics",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_ids",
+     "start_time",
+     "end_time"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.create_contact",
+   "name": "Create a new contact",
+   "description": "Creates a new contact for a specific company. At least one of contact_phone or contact_email must be provided. User must have 'contacts' access role to create contacts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "contact_name": {
+      "type": "string",
+      "description": "Full name of the contact"
+     },
+     "contact_phone": {
+      "type": "string",
+      "description": "Phone number of the contact (required if no email provided)"
+     },
+     "contact_email": {
+      "type": "string",
+      "description": "Email address of the contact (required if no phone provided)"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "Optional list of custom fields to set for the contact"
+     }
+    },
+    "required": [
+     "company_id",
+     "contact_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.salescaptain.com/v1/create-contact",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_id",
+     "contact_name",
+     "contact_phone",
+     "contact_email",
+     "custom_fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.create_tag",
+   "name": "Create a new tag",
+   "description": "Creates a new tag for a specific company. `status` is optional and defaults to `true`. User must have 'contacts' access role to create tags. `account_id` is derived from the authenticated user's account for the company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "tag_name": {
+      "type": "string",
+      "description": "Display name of the tag"
+     },
+     "status": {
+      "type": "boolean",
+      "description": "Whether the tag is active (defaults to true)"
+     }
+    },
+    "required": [
+     "company_id",
+     "tag_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.salescaptain.com/v1/create-tag",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_id",
+     "tag_name",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.delete_contact",
+   "name": "Delete a contact",
+   "description": "Permanently deletes a contact from the system. User must have 'contacts' access role to delete contacts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier for the contact to delete"
+     }
+    },
+    "required": [
+     "company_id",
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.salescaptain.com/v1/delete-contact/{company_id}/{contact_id}",
+    "path": [
+     "company_id",
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.delete_tag",
+   "name": "Delete a tag",
+   "description": "Permanently deletes a tag from the system. User must have 'contacts' access role to delete tags.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "tag_id": {
+      "type": "string",
+      "description": "Unique identifier for the tag to delete"
+     }
+    },
+    "required": [
+     "company_id",
+     "tag_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.salescaptain.com/v1/delete-tag/{company_id}/{tag_id}",
+    "path": [
+     "company_id",
+     "tag_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_account_by_id",
+   "name": "Fetch account by id",
+   "description": "Retrieves detailed information about a specific account by its unique identifier. Returns account details including access level, contact information, and last login time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Unique identifier for the account"
+     }
+    },
+    "required": [
+     "account_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-account/{account_id}",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_all_accounts",
+   "name": "Fetch all accounts for authenticated user",
+   "description": "Retrieves a list of all accounts associated with the authenticated user for a specific company. Returns account details including access level, contact information, and last login time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-all-accounts/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_companies",
+   "name": "Fetch companies for authenticated user",
+   "description": "Retrieves a list of companies associated with the authenticated user's accounts. This endpoint fetches company information from the main SalesCaptain API based on the company IDs associated with the user's accounts.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-companies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_company_by_id",
+   "name": "Fetch company by id",
+   "description": "Retrieves detailed information about a specific company by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-company/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_contact",
+   "name": "Fetch a single contact by id",
+   "description": "Retrieves detailed information about a specific contact by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier for the contact"
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-contact/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_conversation",
+   "name": "Fetch a single conversation by id",
+   "description": "Retrieves detailed information about a specific conversation by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": "Unique identifier for the conversation"
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-conversation/{conversation_id}",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_message",
+   "name": "Fetch a single message by id",
+   "description": "Retrieves detailed information about a specific message by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Unique identifier for the message"
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-message/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.fetch_messages",
+   "name": "Fetch messages for a conversation (paginated)",
+   "description": "Retrieves a paginated list of messages for a specific conversation within a company. Supports sorting by created_at, pagination options, and optional created_before / created_after filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "Unique identifier for the conversation"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "Page number for pagination (must be a positive integer)"
+     },
+     "items_per_page": {
+      "type": "integer",
+      "description": "Number of items per page (10-100, default 10)"
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "Field to sort by",
+      "enum": [
+       "created_at"
+      ]
+     },
+     "sort_dir": {
+      "type": "string",
+      "description": "Sort direction (default desc)",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "created_before": {
+      "type": "string",
+      "description": "Return only messages created before this ISO date-time"
+     },
+     "created_after": {
+      "type": "string",
+      "description": "Return only messages created after this ISO date-time"
+     }
+    },
+    "required": [
+     "company_id",
+     "conversation_id",
+     "page_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/fetch-messages/{company_id}/{conversation_id}",
+    "path": [
+     "company_id",
+     "conversation_id"
+    ],
+    "query": [
+     "page_number",
+     "items_per_page",
+     "sort_by",
+     "sort_dir",
+     "created_before",
+     "created_after"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.health_check",
+   "name": "Health check endpoint",
+   "description": "Returns basic service information and health status",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_contacts",
+   "name": "List contacts for a company (paginated)",
+   "description": "Retrieves a paginated list of contacts associated with a specific company. Supports filtering, sorting, pagination, and optional `search_key`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "Page number for pagination (must be a positive integer)"
+     },
+     "items_per_page": {
+      "type": "integer",
+      "description": "Number of items per page (10-100, default 10)"
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "Field to sort by",
+      "enum": [
+       "name",
+       "number",
+       "email",
+       "created_at"
+      ]
+     },
+     "sort_dir": {
+      "type": "string",
+      "description": "Sort direction (default desc)",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "filter": {
+      "type": "string",
+      "description": "Filter contacts by channel type",
+      "enum": [
+       "phone",
+       "email",
+       "facebook",
+       "instagram",
+       "whatsapp"
+      ]
+     },
+     "search_key": {
+      "type": "string",
+      "description": "Search contacts by name, phone, or email"
+     }
+    },
+    "required": [
+     "company_id",
+     "page_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-contacts/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [
+     "page_number",
+     "items_per_page",
+     "sort_by",
+     "sort_dir",
+     "filter",
+     "search_key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_conversation_profile",
+   "name": "Get a specific conversation profile",
+   "description": "Retrieves detailed information about a specific conversation profile by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_profile_id": {
+      "type": "string",
+      "description": "Unique identifier for the conversation profile"
+     }
+    },
+    "required": [
+     "conversation_profile_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-conversation-profile/{conversation_profile_id}",
+    "path": [
+     "conversation_profile_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_conversation_profiles",
+   "name": "List conversation profiles for a company",
+   "description": "Retrieves all conversation profiles associated with a specific company. Conversation profiles represent communication channels like phone lines, email addresses, etc.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-conversation-profiles/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_conversations",
+   "name": "List conversations for a company (paginated)",
+   "description": "Retrieves a paginated list of conversations associated with a specific company. Supports filtering, sorting, and pagination options.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "Page number for pagination (must be a positive integer)"
+     },
+     "items_per_page": {
+      "type": "integer",
+      "description": "Number of items per page (10-100, default 10)"
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "Field to sort by",
+      "enum": [
+       "last_update"
+      ]
+     },
+     "sort_dir": {
+      "type": "string",
+      "description": "Sort direction (default desc)",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "number": {
+      "type": "string",
+      "description": "Filter conversations by contact phone number"
+     },
+     "email": {
+      "type": "string",
+      "description": "Filter conversations by contact email address"
+     },
+     "conversation_profile_id": {
+      "type": "string",
+      "description": "Filter conversations by conversation profile ID"
+     },
+     "chat_status": {
+      "type": "string",
+      "description": "Filter conversations by chat status",
+      "enum": [
+       "open",
+       "closed"
+      ]
+     },
+     "awaiting_reply": {
+      "type": "boolean",
+      "description": "When `true`, returns only conversations that are awaiting a reply"
+     }
+    },
+    "required": [
+     "company_id",
+     "page_number"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-conversations/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [
+     "page_number",
+     "items_per_page",
+     "sort_by",
+     "sort_dir",
+     "number",
+     "email",
+     "conversation_profile_id",
+     "chat_status",
+     "awaiting_reply"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_custom_field",
+   "name": "Get a single custom field by id",
+   "description": "Retrieves detailed information about a specific custom field definition by its unique identifier.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_id": {
+      "type": "string",
+      "description": "Unique identifier for the custom field"
+     }
+    },
+    "required": [
+     "custom_field_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-custom-field/{custom_field_id}",
+    "path": [
+     "custom_field_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_custom_fields",
+   "name": "List all custom fields for a company",
+   "description": "Retrieves all custom field definitions associated with a specific company. Custom fields allow companies to store additional contact information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-custom-fields/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_sms_templates",
+   "name": "List all sms templates for a company",
+   "description": "Retrieves all active SMS templates associated with a specific company, grouped by template type (custom, review, refer, cx) plus an all list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/sms/list-templates/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.list_tags",
+   "name": "List tags for a company",
+   "description": "Retrieves tags associated with a specific company. Optionally filter by `search_key` or `tag_name`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "search_key": {
+      "type": "string",
+      "description": "Search tags by partial name match"
+     },
+     "tag_name": {
+      "type": "string",
+      "description": "Filter tags by exact or specific tag name"
+     }
+    },
+    "required": [
+     "company_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.salescaptain.com/v1/list-tags/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [
+     "search_key",
+     "tag_name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.remove_tag_from_contact",
+   "name": "Remove a tag from a contact",
+   "description": "Removes an assigned tag from a contact. User must have 'contacts' access role. `account_id` is derived from the authenticated user's account for the company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier for the contact"
+     },
+     "tag_id": {
+      "type": "string",
+      "description": "Unique identifier for the tag to remove"
+     }
+    },
+    "required": [
+     "company_id",
+     "contact_id",
+     "tag_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.salescaptain.com/v1/remove-tag-from-contact/{company_id}",
+    "path": [
+     "company_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact_id",
+     "tag_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.send_message",
+   "name": "Send a message in a conversation",
+   "description": "Sends an outbound message in the given conversation for the specified company. `company_id` and `conversation_id` are taken from the URL path. `message_body` is required in the JSON body. Optional `template_id` can be provided to send a template message. `account_id` is resolved from the authenticated user's account that matches `company_id` (same as other company-scoped routes). The request is fo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company"
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "Unique identifier for the conversation"
+     },
+     "message_body": {
+      "type": "string",
+      "description": "Plain text body of the message to send"
+     },
+     "template_id": {
+      "type": "string",
+      "description": "Optional SMS template ID used when sending a template message"
+     }
+    },
+    "required": [
+     "company_id",
+     "conversation_id",
+     "message_body"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.salescaptain.com/v1/send-message/{company_id}/{conversation_id}",
+    "path": [
+     "company_id",
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "message_body",
+     "template_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "salescaptain.update_contact",
+   "name": "Update an existing contact",
+   "description": "Updates an existing contact's information. At least one of name, phone, email, or custom_fields must be provided. User must have 'contacts' access role to update contacts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "Unique identifier for the contact to update"
+     },
+     "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company (required)"
+     },
+     "name": {
+      "type": "string",
+      "description": "Updated name of the contact"
+     },
+     "phone": {
+      "type": "string",
+      "description": "Updated phone number (set to empty string to remove)"
+     },
+     "email": {
+      "type": "string",
+      "description": "Updated email address (set to empty string to remove)"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "Custom fields to update"
+     }
+    },
+    "required": [
+     "company_id",
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.salescaptain.com/v1/update-contact/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_id",
+     "name",
+     "phone",
+     "email",
+     "custom_fields"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

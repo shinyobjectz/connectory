@@ -45,6 +45,14 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python3 tools/specs.py
 
+      # Companies publish descriptions on their documentation sites and then move them, and
+      # new ones appear; both are worth a daily look.
+      - name: Descriptions published on documentation sites
+        run: python3 tools/discover.py
+
+      - name: Documentation for the platforms still without one
+        run: python3 tools/context.py
+
       - name: Rebuild the packs whose API moved
         id: packs
         run: |

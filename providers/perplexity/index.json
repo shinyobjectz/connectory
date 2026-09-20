@@ -1,0 +1,1040 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "perplexity",
+ "source": "https://docs.perplexity.ai/openapi.json",
+ "operations": [
+  {
+   "slug": "perplexity.cancel_agent_response",
+   "name": "Cancel agent response",
+   "description": "Requests cancellation of response `{id}`. Acts on durable state, so it works for background runs that outlive the client connection. Cancellation is asynchronous: a `200` acknowledges the request (`status: cancelling`) and the run stops shortly after - poll `GET /v1/agent/{id}` for its terminal status. Cancelling a run that is already terminal returns `400`. Ownership is enforced server side; a cr",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Response id (`resp_`)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/agent/{id}/cancel",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.chat_completions_chat_completions_post",
+   "name": "Create chat completion",
+   "description": "Generate a chat completion response for the given conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "max_tokens": {
+      "type": "string",
+      "description": "Maximum number of completion tokens to generate"
+     },
+     "model": {
+      "type": "string",
+      "description": "Model to use, for example, sonar-pro",
+      "enum": [
+       "sonar",
+       "sonar-pro",
+       "sonar-deep-research",
+       "sonar-reasoning-pro"
+      ]
+     },
+     "stream": {
+      "type": "string",
+      "description": "If true, returns streaming SSE response"
+     },
+     "stop": {
+      "type": "string",
+      "description": "Stop sequences. Generation stops when one of these strings is produced"
+     },
+     "temperature": {
+      "type": "string",
+      "description": "Controls randomness in the response. Higher values make output more random. Range: 0-2"
+     },
+     "top_p": {
+      "type": "string",
+      "description": "Nucleus sampling parameter. Controls diversity via nucleus sampling"
+     },
+     "response_format": {
+      "type": "string",
+      "description": "Optional. Controls the output format. Omit for default text output. Set `type` to `json_schema` for structured output."
+     },
+     "messages": {
+      "type": "array",
+      "description": "Array of messages forming the conversation history"
+     },
+     "web_search_options": {
+      "type": "object",
+      "description": "Configuration options for web search behavior"
+     },
+     "search_mode": {
+      "type": "string",
+      "description": "Source of search results (web, academic, or sec)"
+     },
+     "return_images": {
+      "type": "string",
+      "description": "When true, include image results in the response"
+     },
+     "return_related_questions": {
+      "type": "string",
+      "description": "When true, generates suggested follow-up queries based on the search results"
+     },
+     "enable_search_classifier": {
+      "type": "string",
+      "description": "When true, uses a classifier to determine if web search is needed for the query"
+     },
+     "disable_search": {
+      "type": "string",
+      "description": "When true, disables all web search capabilities. The model responds based solely on its training data"
+     },
+     "search_domain_filter": {
+      "type": "string",
+      "description": "Limit search results to specific domains (e.g. github.com, wikipedia.org)"
+     },
+     "search_language_filter": {
+      "type": "string",
+      "description": "Filter results by language using ISO 639-1 codes (e.g. en, fr, de)"
+     },
+     "search_recency_filter": {
+      "type": "string",
+      "description": "Filter by publication recency (hour, day, week, month, or year)"
+     },
+     "search_after_date_filter": {
+      "type": "string",
+      "description": "Return results published after this date (MM/DD/YYYY)"
+     },
+     "search_before_date_filter": {
+      "type": "string",
+      "description": "Return results published before this date (MM/DD/YYYY)"
+     },
+     "last_updated_before_filter": {
+      "type": "string",
+      "description": "Return results last updated before this date (MM/DD/YYYY)"
+     },
+     "last_updated_after_filter": {
+      "type": "string",
+      "description": "Return results last updated after this date (MM/DD/YYYY)"
+     },
+     "image_format_filter": {
+      "type": "string",
+      "description": "Filter image results by format (e.g. png, jpg)"
+     },
+     "image_domain_filter": {
+      "type": "string",
+      "description": "Limit image results to specific domains"
+     },
+     "stream_mode": {
+      "type": "string",
+      "description": "Controls the format of streaming events. 'full' suppresses reasoning events and includes metadata inline; 'concise' emits reasoning events separately",
+      "enum": [
+       "full",
+       "concise"
+      ]
+     },
+     "reasoning_effort": {
+      "type": "string",
+      "description": "Controls how much effort the model spends on reasoning"
+     },
+     "language_preference": {
+      "type": "string",
+      "description": "ISO 639-1 language code for preferred response language"
+     }
+    },
+    "required": [
+     "messages",
+     "model"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/sonar",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "max_tokens",
+     "model",
+     "stream",
+     "stop",
+     "temperature",
+     "top_p",
+     "response_format",
+     "messages",
+     "web_search_options",
+     "search_mode",
+     "return_images",
+     "return_related_questions",
+     "enable_search_classifier",
+     "disable_search",
+     "search_domain_filter",
+     "search_language_filter",
+     "search_recency_filter",
+     "search_after_date_filter",
+     "search_before_date_filter",
+     "last_updated_before_filter",
+     "last_updated_after_filter",
+     "image_format_filter",
+     "image_domain_filter",
+     "stream_mode",
+     "reasoning_effort",
+     "language_preference"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.contextualized_embeddings_v1_contextualizedembeddings_post",
+   "name": "Create contextualized embeddings",
+   "description": "Generate contextualized embeddings for document chunks. Chunks from the same document share context awareness, improving retrieval quality for document-based applications.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "input": {
+      "type": "array",
+      "description": "Nested array structure where each inner array contains chunks from a single document. Chunks within the same document are encoded with document-level context awareness. Maximum 512 documents. Total chunks across all documents must not exceed 16,000. Total tokens per document must not exceed 32K. All chunks in a single request must not exceed 120,000 tokens combined. Empty strings are not allowed."
+     },
+     "model": {
+      "type": "string",
+      "description": "The contextualized embedding model to use",
+      "enum": [
+       "pplx-embed-context-v1-0.6b",
+       "pplx-embed-context-v1-4b"
+      ]
+     },
+     "dimensions": {
+      "type": "integer",
+      "description": "Number of dimensions for output embeddings (Matryoshka). Range: 128-1024 for pplx-embed-context-v1-0.6b, 128-2560 for pplx-embed-context-v1-4b. Defaults to full dimensions (1024 or 2560)."
+     },
+     "encoding_format": {
+      "type": "string",
+      "description": "Output encoding format for embeddings. base64_int8 returns base64-encoded signed int8 values. base64_binary returns base64-encoded packed binary (1 bit per dimension).",
+      "enum": [
+       "base64_int8",
+       "base64_binary"
+      ]
+     }
+    },
+    "required": [
+     "input",
+     "model"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/contextualizedembeddings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "input",
+     "model",
+     "dimensions",
+     "encoding_format"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.create_agent",
+   "name": "Create agent response",
+   "description": "Generate a response for the provided input with optional web search and reasoning.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "input": {
+      "type": "string",
+      "description": "Input content - either a string or array of input items"
+     },
+     "background": {
+      "type": "boolean",
+      "description": "Run the response asynchronously. With `stream: false`, the request returns immediately with `status: \"queued\"`; poll `GET /v1/responses/{id}` until the response reaches a terminal status. Background runs are durable, so you can also stream them and reconnect after a drop."
+     },
+     "instructions": {
+      "type": "string",
+      "description": "System instructions for the model"
+     },
+     "language_preference": {
+      "type": "string",
+      "description": "ISO 639-1 language code for response language"
+     },
+     "max_output_tokens": {
+      "type": "integer",
+      "description": "Maximum tokens to generate. This is a shared optional Agent API request parameter, but it is required when using anthropic/* models. If omitted for an Anthropic model, the API returns HTTP 400 with: validation failed: max_output_tokens is required when using Anthropic models."
+     },
+     "max_steps": {
+      "type": "integer",
+      "description": "Maximum number of research loop steps. If provided, overrides the preset's max_steps value. For requests that specify model or models without a preset, the default is 1. Set max_steps to at least 3 when using finance_search with a direct model so the agent has enough steps to initialize and run the tool. Must be >= 1 if specified. Maximum allowed is 100."
+     },
+     "model": {
+      "type": "string",
+      "description": "Model ID in provider/model format (e.g., \"openai/gpt-5\", \"anthropic/claude-sonnet-4-6\"). If models is also provided, models takes precedence. Required if neither models nor preset is provided."
+     },
+     "models": {
+      "type": "array",
+      "description": "Model fallback chain. Each model is in provider/model format. Models are tried in order until one succeeds. Max 5 models allowed. If set, takes precedence over single model field. The response.model will reflect the model that actually succeeded."
+     },
+     "preset": {
+      "type": "string",
+      "description": "Preset configuration name (e.g., \"fast\", \"low\", \"medium\", \"high\", \"xhigh\"). Pre-configured model with system prompt and search parameters. Required if model is not provided."
+     },
+     "profile": {
+      "type": "object",
+      "description": "Saved, versioned configuration to run with. The version is resolved when the request is admitted. Cannot be combined with preset."
+     },
+     "previous_response_id": {
+      "type": "string",
+      "description": "OpenAI-compatible previous response id for multi-turn response chains. When set, the new response continues from the completed prior response's saved state. The prior response must belong to the same account and have completed."
+     },
+     "reasoning": {
+      "type": "object",
+      "description": ""
+     },
+     "response_format": {
+      "type": "object",
+      "description": "Specifies the desired output format for the model response"
+     },
+     "store": {
+      "type": "boolean",
+      "description": "OpenAI-compatible storage toggle. When false, the response is hidden from later retrieve calls, and the echoed response reports `store: false`. It can still be used as a `previous_response_id` continuation source."
+     },
+     "stream": {
+      "type": "boolean",
+      "description": "If true, returns SSE stream instead of JSON"
+     },
+     "tools": {
+      "type": "array",
+      "description": "Tools available to the model"
+     },
+     "skills": {
+      "type": "array",
+      "description": "Built-in, request-scoped inline, and organization-owned custom skills available to the model. Skill metadata is disclosed to the model up front; full instructions are loaded on demand through the load_skill tool. Selecting any skill enables the sandbox tool for the request. Requests with skills run on the durable backend and skills are not echoed back on Response objects."
+     },
+     "temperature": {
+      "type": "number",
+      "description": "OpenAI-compatible sampling temperature forwarded to generation."
+     },
+     "top_p": {
+      "type": "number",
+      "description": "OpenAI-compatible nucleus sampling parameter forwarded to generation."
+     }
+    },
+    "required": [
+     "input"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/agent",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "input",
+     "background",
+     "instructions",
+     "language_preference",
+     "max_output_tokens",
+     "max_steps",
+     "model",
+     "models",
+     "preset",
+     "profile",
+     "previous_response_id",
+     "reasoning",
+     "response_format",
+     "store",
+     "stream",
+     "tools",
+     "skills",
+     "temperature",
+     "top_p"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.create_async_chat_completions_async_chat_completions_post",
+   "name": "Create async chat completion",
+   "description": "Submit an asynchronous chat completion request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "request": {
+      "type": "object",
+      "description": ""
+     },
+     "idempotency_key": {
+      "type": "string",
+      "description": "Unique key to prevent duplicate requests"
+     }
+    },
+    "required": [
+     "request"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/async/sonar",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "request",
+     "idempotency_key"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.create_skill",
+   "name": "Create a skill",
+   "description": "Creates a skill from a zip bundle. The bundle must contain a `SKILL.md` that provides the skill name and description; those fields are read from the bundle, not from the request.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/skills",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.delete_skill",
+   "name": "Delete a skill",
+   "description": "Deletes a skill. Pass the current revision as `expected_revision`; the delete fails with `409` if the skill has a newer revision, so a delete never races a concurrent update.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "Skill identifier returned by create or `GET /v1/skills`"
+     },
+     "expected_revision": {
+      "type": "string",
+      "description": "Opaque revision token the skill must currently be at. The write applies only if it matches, so it cannot race a concurrent update."
+     }
+    },
+    "required": [
+     "expected_revision",
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.perplexity.ai/v1/skills/{skill_id}",
+    "path": [
+     "skill_id"
+    ],
+    "query": [
+     "expected_revision"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.download_agent_file",
+   "name": "Download agent response file",
+   "description": "Download the raw bytes of a file the response delivered with the `share_file` tool. The `file_id` comes from the file list endpoint and is distinct from the response `id`. The response streams raw bytes, not JSON, with a `Content-Type` matching the file and a `Content-Disposition: attachment` header carrying the original filename.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Response id (`resp_`)"
+     },
+     "file_id": {
+      "type": "string",
+      "description": "File id from the file list endpoint"
+     }
+    },
+    "required": [
+     "file_id",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/agent/{id}/files/{file_id}/content",
+    "path": [
+     "id",
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.download_skill",
+   "name": "Get a skill download url",
+   "description": "Returns a short-lived URL to download the skill bundle as a zip. Without `revision`, returns the active revision.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "Skill identifier returned by create or `GET /v1/skills`"
+     },
+     "revision": {
+      "type": "string",
+      "description": "Opaque revision token; when omitted, the active revision is used"
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/skills/{skill_id}/download",
+    "path": [
+     "skill_id"
+    ],
+    "query": [
+     "revision"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.embeddings_v1_embeddings_post",
+   "name": "Create embeddings",
+   "description": "Generate embeddings for a list of texts. Use these embeddings for semantic search, clustering, and other machine learning applications.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "input": {
+      "type": "string",
+      "description": "Input text to embed, encoded as a string or array of strings. Maximum 512 texts per request. Each input must not exceed 32K tokens. All inputs in a single request must not exceed 120,000 tokens combined. Empty strings are not allowed."
+     },
+     "model": {
+      "type": "string",
+      "description": "The embedding model to use",
+      "enum": [
+       "pplx-embed-v1-0.6b",
+       "pplx-embed-v1-4b"
+      ]
+     },
+     "dimensions": {
+      "type": "integer",
+      "description": "Number of dimensions for output embeddings (Matryoshka). Range: 128-1024 for pplx-embed-v1-0.6b, 128-2560 for pplx-embed-v1-4b. Defaults to full dimensions (1024 or 2560)."
+     },
+     "encoding_format": {
+      "type": "string",
+      "description": "Output encoding format for embeddings. base64_int8 returns base64-encoded signed int8 values. base64_binary returns base64-encoded packed binary (1 bit per dimension).",
+      "enum": [
+       "base64_int8",
+       "base64_binary"
+      ]
+     }
+    },
+    "required": [
+     "input",
+     "model"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/v1/embeddings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "input",
+     "model",
+     "dimensions",
+     "encoding_format"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.get_async_chat_completion_response_async_chat_completions_api_request_get",
+   "name": "Get async chat completion",
+   "description": "Retrieve the response for a given asynchronous chat completion request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api_request": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "api_request"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/async/sonar/{api_request}",
+    "path": [
+     "api_request"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.get_computer_usage_analytics",
+   "name": "Usage analytics",
+   "description": "Returns your organization's Perplexity usage analytics as a bucketed time series for a single dataset. Requires an organization analytics API key, generated by an org admin from Settings \u2192 Organization \u2192 Computer in the Perplexity web app. Only complete UTC grid buckets are returned: start_time snaps down to its bucket, and the in-progress bucket is never included. Datasets differ in what they cou",
+   "input": {
+    "type": "object",
+    "properties": {
+     "dataset": {
+      "type": "string",
+      "description": "The dataset to query. query_volume and daily_active_users are daily organization-level datasets: they reject bucket_width=1h and user_email.",
+      "enum": [
+       "credit_usage",
+       "connectors",
+       "artifacts",
+       "skills",
+       "spaces",
+       "workflows",
+       "task_durations",
+       "query_volume",
+       "daily_active_users"
+      ]
+     },
+     "start_time": {
+      "type": "integer",
+      "description": "Window start in unix seconds (UTC), inclusive. Snapped down to the bucket grid, so the first bucket can include usage from before this time."
+     },
+     "end_time": {
+      "type": "integer",
+      "description": "Window end in unix seconds (UTC), exclusive. Defaults to now; future values are capped at now. The window may span at most 90 days."
+     },
+     "bucket_width": {
+      "type": "string",
+      "description": "Bucket size. Buckets align to the UTC grid. Not accepted as 1h for query_volume or daily_active_users, which are stored at day grain.",
+      "enum": [
+       "1d",
+       "1h"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Buckets per page. 1d: default 7, max 31. 1h: default 24, max 168."
+     },
+     "page": {
+      "type": "string",
+      "description": "Opaque pagination cursor from a previous response's next_page. Valid only with the same query parameters it was issued for."
+     },
+     "user_email": {
+      "type": "string",
+      "description": "Restrict results to a single member of your organization. Emails that don't match a current member return a generic 400. Not available for query_volume or daily_active_users, which are aggregated per organization; use the v2 endpoint for per-member query volume."
+     }
+    },
+    "required": [
+     "dataset",
+     "start_time"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/analytics/computer/usage",
+    "path": [],
+    "query": [
+     "dataset",
+     "start_time",
+     "end_time",
+     "bucket_width",
+     "limit",
+     "page",
+     "user_email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.get_computer_usage_analytics_v2",
+   "name": "Usage analytics per member",
+   "description": "Returns your organization's Perplexity usage broken down per member, as daily buckets. Each day lists one row per member with usage that day, keyed by email. credit_usage carries the same Model and Credit Source breakdown as v1; query_volume carries Feature, Project and Comet. Uses the same organization analytics API key as v1. Only complete UTC days are returned; the in-progress day is never incl",
+   "input": {
+    "type": "object",
+    "properties": {
+     "dataset": {
+      "type": "string",
+      "description": "The dataset to query. query_volume at this grain carries Feature, Project and Comet breakdowns, but not Model or Model Family.",
+      "enum": [
+       "credit_usage",
+       "query_volume"
+      ]
+     },
+     "group_by": {
+      "type": "string",
+      "description": "The dimension to group each day's usage by. user_email is currently the only supported value.",
+      "enum": [
+       "user_email"
+      ]
+     },
+     "start_time": {
+      "type": "integer",
+      "description": "Window start in unix seconds (UTC), inclusive. Snapped down to the day grid, so the first day can include usage from before this time."
+     },
+     "end_time": {
+      "type": "integer",
+      "description": "Window end in unix seconds (UTC), exclusive. Defaults to now; future values are capped at now. The window may span at most 90 days."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Member rows per page. Default 50, max 100. A page can span multiple days."
+     },
+     "page": {
+      "type": "string",
+      "description": "Opaque pagination cursor from a previous response's next_page. Valid only with the same query parameters it was issued for."
+     }
+    },
+    "required": [
+     "dataset",
+     "group_by",
+     "start_time"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v2/analytics/computer/usage",
+    "path": [],
+    "query": [
+     "dataset",
+     "group_by",
+     "start_time",
+     "end_time",
+     "limit",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.get_skill",
+   "name": "Get a skill",
+   "description": "Returns a skill. Without `revision`, returns the active revision.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "Skill identifier returned by create or `GET /v1/skills`"
+     },
+     "revision": {
+      "type": "string",
+      "description": "Opaque revision token; when omitted, the active revision is used"
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/skills/{skill_id}",
+    "path": [
+     "skill_id"
+    ],
+    "query": [
+     "revision"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.list_agent_files",
+   "name": "List agent response files",
+   "description": "List the files a response produced in the sandbox and delivered with the `share_file` tool. Scoped to the authenticated account, which only ever sees its own files. File content is not returned inline; download it with the file content endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Response id (`resp_`)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/agent/{id}/files",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.list_async_chat_completions_async_chat_completions_get",
+   "name": "List async chat completions",
+   "description": "Retrieve a list of all asynchronous chat completion requests for a given user.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/async/sonar",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.list_models",
+   "name": "List models",
+   "description": "List the models available for the Agent API. Returns model identifiers that can be used with the `POST /v1/agent` endpoint. The response follows the OpenAI List Models format for compatibility with third-party tools.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.list_skill_revisions",
+   "name": "List skill revisions",
+   "description": "Lists the revisions of a skill, newest first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "Skill identifier returned by create or `GET /v1/skills`"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum items to return, 1 to 200; defaults to 50"
+     },
+     "page_token": {
+      "type": "string",
+      "description": "Opaque token from a previous response's `next_page_token`"
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/skills/{skill_id}/revisions",
+    "path": [
+     "skill_id"
+    ],
+    "query": [
+     "limit",
+     "page_token"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.list_skills",
+   "name": "List skills",
+   "description": "Lists the skills in your Project, newest first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum items to return, 1 to 200; defaults to 50"
+     },
+     "page_token": {
+      "type": "string",
+      "description": "Opaque token from a previous response's `next_page_token`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/skills",
+    "path": [],
+    "query": [
+     "limit",
+     "page_token"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.retrieve_agent",
+   "name": "Retrieve agent response",
+   "description": "Retrieve a response created earlier. Returns a JSON snapshot of the response. Only responses created with `store` omitted or `true` can be retrieved; `store: false` responses return a 404.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Response id (`resp_`)"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.perplexity.ai/v1/agent/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.search_search_post",
+   "name": "Search the web",
+   "description": "Search the web and retrieve relevant web page contents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code"
+     },
+     "max_results": {
+      "type": "integer",
+      "description": "Maximum number of results. Values above 20 require search_type=people. Supports up to 20 for web search and up to 50 for people search."
+     },
+     "search_type": {
+      "type": "string",
+      "description": "Search type - \"web\" for general web search, \"people\" for people search. max_results above 20 is only supported for people search.",
+      "enum": [
+       "web",
+       "people"
+      ]
+     },
+     "search_context_size": {
+      "type": "string",
+      "description": "Controls how much content is extracted from result pages. - `low` \u2014 short passages most relevant to the query. - `medium` \u2014 a balanced amount of content per document. - `high` (default) \u2014 detailed content relevant to the query. Omit when using `max_tokens` or `max_tokens_per_page`."
+     },
+     "max_tokens": {
+      "type": "integer",
+      "description": "Maximum total webpage content tokens to return across all search results"
+     },
+     "max_tokens_per_page": {
+      "type": "integer",
+      "description": "Maximum webpage content tokens to extract from each result page"
+     },
+     "query": {
+      "type": "string",
+      "description": "Search query (required)"
+     },
+     "search_language_filter": {
+      "type": "array",
+      "description": "ISO 639-1 language codes (2-character max)"
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.perplexity.ai/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "country",
+     "max_results",
+     "search_type",
+     "search_context_size",
+     "max_tokens",
+     "max_tokens_per_page",
+     "query",
+     "search_language_filter"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "perplexity.update_skill",
+   "name": "Add a skill revision",
+   "description": "Uploads a new zip bundle as a new revision of an existing skill. Pass the revision you expect to replace as the required `expected_revision`; the request fails with `409` if the skill has already moved past it, so the update cannot race a concurrent write. Name and description are re-read from the new bundle.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "Skill identifier returned by create or `GET /v1/skills`"
+     },
+     "expected_revision": {
+      "type": "string",
+      "description": "Opaque revision token the skill must currently be at. The write applies only if it matches, so it cannot race a concurrent update."
+     }
+    },
+    "required": [
+     "expected_revision",
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.perplexity.ai/v1/skills/{skill_id}",
+    "path": [
+     "skill_id"
+    ],
+    "query": [
+     "expected_revision"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

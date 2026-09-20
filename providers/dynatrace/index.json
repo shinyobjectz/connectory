@@ -1,0 +1,3704 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "dynatrace",
+ "source": "https://api.dynatrace.com/openapi.json",
+ "operations": [
+  {
+   "slug": "dynatrace.accounts_controller_create_costcenter_cost_allocation_values",
+   "name": "Add the provided values to the costcenter field",
+   "description": "Add the provided values to the costcenter field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "values": {
+      "type": "array",
+      "description": "The requested values."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "values"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/costcenters",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "values"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_create_product_cost_allocation_values",
+   "name": "Add the provided values to the product field",
+   "description": "Add the provided values to the product field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "values": {
+      "type": "array",
+      "description": "The requested values."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "values"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/products",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "values"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_delete_costcenter_cost_allocation_value",
+   "name": "Delete a value by key on the costcenter field",
+   "description": "Delete a value by key on the costcenter field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/costcenters/{key}",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_delete_product_cost_allocation_value",
+   "name": "Delete a value by key on the product field",
+   "description": "Delete a value by key on the product field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/products/{key}",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_list_costcenter_cost_allocation_values",
+   "name": "Lists all possible values for the costcenter field",
+   "description": "Lists all possible values for the costcenter field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "page": {
+      "type": "number",
+      "description": "The number of the requested page. Can be increased as long as **hasNextPage** is true in the response."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/costcenters",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "page",
+     "page-size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_list_product_cost_allocation_values",
+   "name": "Lists all possible values for the product field",
+   "description": "Lists all possible values for the product field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "page": {
+      "type": "number",
+      "description": "The number of the requested page. Can be increased as long as **hasNextPage** is true in the response."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/products",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "page",
+     "page-size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_replace_costcenter_cost_allocation_values",
+   "name": "Replace the current values of the costcenter field",
+   "description": "Replace the current values of the costcenter field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "values": {
+      "type": "array",
+      "description": "The requested values."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "values"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/costcenters",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "values"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.accounts_controller_replace_product_cost_allocation_values",
+   "name": "Replace the current values of the product field",
+   "description": "Replace the current values of the product field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "values": {
+      "type": "array",
+      "description": "The requested values."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "values"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/accounts/{account-uuid}/settings/products",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "values"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.append_level_policy_bindings",
+   "name": "Adds policy bindings to a level",
+   "description": "Existing bindings remain unaffected. This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "groups": {
+      "type": "array",
+      "description": "A list of user groups (specified by IDs) to which the policy applies."
+     },
+     "boundaries": {
+      "type": "array",
+      "description": "List of boundary UUIDs used in the binding."
+     }
+    },
+    "required": [
+     "groups",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "groups",
+     "boundaries"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.append_particular_group_binding",
+   "name": "Append policy bindings within a level for a user group",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "parameters": {
+      "type": "object",
+      "description": "Parameters provided for bindings"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Metadata provided for bindings"
+     },
+     "boundaries": {
+      "type": "array",
+      "description": "List of boundary UUIDs used in the binding."
+     }
+    },
+    "required": [
+     "group-uuid",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "parameters",
+     "metadata",
+     "boundaries"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.audits_controller_list_audits_by_account",
+   "name": "List account level audit logs",
+   "description": "List account level audit logs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "The start of the requested timeframe Supports absolute timestamps (ISO-8601 or Unix epoch in milliseconds) and relative timestamps (e.g., now()-2d). If using a relative timestamp, it follows the format [now()][-|+], where now() represents the current time and the offset specifies a duration (e.g., d for days or h for hours)."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "The end of the requested timeframe. Supports absolute timestamps (ISO-8601 or Unix epoch in milliseconds) and relative timestamps (e.g., now()-2d). If using a relative timestamp, it follows the format [now()][-|+], where now() represents the current time and the offset specifies a duration (e.g., d for days or h for hours)."
+     },
+     "addFields": {
+      "type": "array",
+      "description": "Comma separated list of additional fields to be included in the response."
+     },
+     "filter": {
+      "type": "string",
+      "description": "Additional filter to be included in the request. Supported fields are: Field Supported Operators timestamp == = != > >= accountUuid == = != contains starts-with ends-with in user == = != contains starts-with ends-with in eventProvider == = != contains starts-with ends-with in eventType == = != contains starts-with ends-with in resource == = != contains starts-with ends-with in resourceName == = !="
+     },
+     "limit": {
+      "type": "string",
+      "description": "The maximum number of audit entries to return."
+     },
+     "scanLimitGigabyte": {
+      "type": "string",
+      "description": "Limit in gigabytes for the amount of data that will be scanned during read."
+     },
+     "resultSizeLimitMegabyte": {
+      "type": "string",
+      "description": "The maximum size of the result set, in megabytes, that will be returned."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/audit/v1/accounts/{account-uuid}",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "addFields",
+     "filter",
+     "limit",
+     "scanLimitGigabyte",
+     "resultSizeLimitMegabyte"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.create_level_policy",
+   "name": "Creates a new policy",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "name": {
+      "type": "string",
+      "description": "The display name of the policy."
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the policy."
+     },
+     "tags": {
+      "type": "array",
+      "description": "A list of tags."
+     },
+     "statementQuery": {
+      "type": "string",
+      "description": "The [statement](https://dt-url.net/ht03ucb) of the policy."
+     }
+    },
+    "required": [
+     "description",
+     "level-id",
+     "level-type",
+     "name",
+     "statementQuery"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "tags",
+     "statementQuery"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.create_wif_service_user_mapping",
+   "name": "Creates wif service user mapping",
+   "description": "Creates WIF service user mapping",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "serviceUserUuid": {
+      "type": "string",
+      "description": ""
+     },
+     "environmentId": {
+      "type": "string",
+      "description": ""
+     },
+     "scopes": {
+      "type": "array",
+      "description": ""
+     },
+     "claimMappings": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "claimMappings",
+     "environmentId",
+     "scopes",
+     "serviceUserUuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "serviceUserUuid",
+     "environmentId",
+     "scopes",
+     "claimMappings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.create_wif_trust_policy",
+   "name": "Creates wif trust policy",
+   "description": "Creates WIF trust policy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "issuerUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "jwksUri": {
+      "type": "string",
+      "description": ""
+     },
+     "audience": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "audience",
+     "issuerUrl",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "issuerUrl",
+     "jwksUri",
+     "audience",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_level_policy",
+   "name": "Deletes a policy",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "force": {
+      "type": "string",
+      "description": "Set to `true` to delete a policy that is still in use."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "force",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "force"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_level_policy_bindings",
+   "name": "Deletes all policy bindings from a level",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_level_policy_bindings_for_policy",
+   "name": "Deletes all bindings of a policy",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "forceMultiple": {
+      "type": "string",
+      "description": "Forces multiple in case delete by parameters and metadata query"
+     },
+     "query-params": {
+      "type": "object",
+      "description": "Key-value pairs for policy template parameters and metadata. Only bindings matching given parameters and metadata will be updated or deleted."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "forceMultiple",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "forceMultiple",
+     "query-params"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_level_policy_bindings_for_policy_and_group",
+   "name": "Deletes a policy binding from a user group",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "forceMultiple": {
+      "type": "string",
+      "description": "Forces multiple in case delete by parameters and metadata query"
+     },
+     "query-params": {
+      "type": "object",
+      "description": "Key-value pairs for policy template parameters and metadata. Only bindings matching given parameters and metadata will be updated or deleted."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "forceMultiple",
+     "group-uuid",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "forceMultiple",
+     "query-params"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_platform_token",
+   "name": "Deletes platform token",
+   "description": "Deletes platform token",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "platform-token-id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "platform-token-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/platform-tokens/{platform-token-id}",
+    "path": [
+     "account-uuid",
+     "platform-token-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_policy_boundary",
+   "name": "Delete policy boundary by uuid within a level",
+   "description": "Delete policy boundary by uuid within a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-boundary-uuid": {
+      "type": "string",
+      "description": "The ID of the required boundary."
+     },
+     "account-id": {
+      "type": "string",
+      "description": "The ID of the policy boundary level. Use the UUID of the account."
+     }
+    },
+    "required": [
+     "account-id",
+     "policy-boundary-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries/{policy-boundary-uuid}",
+    "path": [
+     "policy-boundary-uuid",
+     "account-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_wif_service_user_mapping",
+   "name": "Deletes wif service user mapping",
+   "description": "Deletes WIF service user mapping",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "mapping-uuid": {
+      "type": "string",
+      "description": "The UUID of the required service user mapping."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "mapping-uuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings/{mapping-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid",
+     "mapping-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.delete_wif_trust_policy",
+   "name": "Deletes wif trust policy",
+   "description": "Deletes WIF trust policy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.environment_resources_controller_get_clusters",
+   "name": "Lists all clusters in a managed account",
+   "description": "Lists all clusters in a managed account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/env/v2/accounts/{account-uuid}/clusters",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.environment_resources_controller_get_config",
+   "name": "Get ip configuration for a specific tenant",
+   "description": "Get IP configuration for a specific tenant",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": ""
+     },
+     "environment-uuid": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "environment-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/env/v1/accounts/{account-uuid}/environments/{environment-uuid}/ip-allowlist",
+    "path": [
+     "account-uuid",
+     "environment-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.environment_resources_controller_get_environment_resources",
+   "name": "Lists all environments and management zones of an account",
+   "description": "Lists all environments and management zones of an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/env/v1/accounts/{account-uuid}/environments",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.environment_resources_controller_get_environments",
+   "name": "Lists all environments in an account",
+   "description": "Lists all environments in an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/env/v2/accounts/{account-uuid}/environments",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.environment_resources_controller_set_config",
+   "name": "Set ip configuration for a specific tenant",
+   "description": "Set IP configuration for a specific tenant",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": ""
+     },
+     "environment-uuid": {
+      "type": "string",
+      "description": ""
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": "If enabled the ip config allow list gets applied."
+     },
+     "allowWebhookOverride": {
+      "type": "boolean",
+      "description": "If enabled the webhook ip allowlists will ignore the main allowlist CIDR range limitations."
+     },
+     "allowlist": {
+      "type": "array",
+      "description": "Contains a list of valid IP addresses in CIDR format which are allowed. If enabled it must not be empty."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "allowWebhookOverride",
+     "enabled",
+     "environment-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/env/v1/accounts/{account-uuid}/environments/{environment-uuid}/ip-allowlist",
+    "path": [
+     "account-uuid",
+     "environment-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "enabled",
+     "allowWebhookOverride",
+     "allowlist"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.generate_platform_token",
+   "name": "Creates platform token for user",
+   "description": "Creates platform token for user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "scope": {
+      "type": "array",
+      "description": ""
+     },
+     "resource": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "expirationDate": {
+      "type": "string",
+      "description": ""
+     },
+     "userUuid": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "expirationDate",
+     "name",
+     "resource",
+     "scope",
+     "tags",
+     "userUuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/platform-tokens",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "scope",
+     "resource",
+     "tags",
+     "expirationDate",
+     "userUuid"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_all_level_policies_bindings",
+   "name": "Lists all policy bindings of a level",
+   "description": "A policy binding shows which user groups use the policy.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_effective_permissions",
+   "name": "Gets effective permissions for a user or group",
+   "description": "Gets effective permissions for a user or group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "size": {
+      "type": "integer",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "services": {
+      "type": "string",
+      "description": "Optional services list. Policies for given services will be returned"
+     },
+     "entityId": {
+      "type": "string",
+      "description": "Required entity id."
+     },
+     "entityType": {
+      "type": "string",
+      "description": "Required entity type. The following values are available: * user * group"
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "entityId",
+     "entityType",
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/resolution/{level-type}/{level-id}/effectivepermissions",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "size",
+     "page",
+     "services",
+     "entityId",
+     "entityType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_environment_cost_v3",
+   "name": "Gets cost data of a subscription by environment",
+   "description": "Gets cost data of a subscription by environment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "The start time of the query in `2021-05-01T15:11:00Z` format. Timeframe limits (startTime, endTime) are both required, unless a \"page-key\" is provided instead."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "The end time of the query in `2021-05-01T15:11:00Z` format. Timeframe limits (startTime, endTime) are both required, unless a \"page-key\" is provided instead."
+     },
+     "environmentIds": {
+      "type": "array",
+      "description": "A list of environments for which you want to read the usage data. To specify several environments, separate them with a comma (`,`)."
+     },
+     "capabilityKeys": {
+      "type": "array",
+      "description": "A list of capabilities for which you want to read the usage data. To specify several capabilities, separate them with a comma (`,`). To obtain capability keys, use the [GET subscriptions](https://dt-url.net/qd43uld) call and look for the **capabilities** field of the response."
+     },
+     "clusterIds": {
+      "type": "array",
+      "description": "A list of Managed clusters for which you want to read the usage data. Not applicable to SaaS environments."
+     },
+     "page-key": {
+      "type": "string",
+      "description": "The cursor for the next page of results. You can find it in the **nextPageKey** field of the previous response."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "endTime",
+     "startTime",
+     "subscription-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v3/accounts/{account-uuid}/subscriptions/{subscription-uuid}/environments/cost",
+    "path": [
+     "account-uuid",
+     "subscription-uuid"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "environmentIds",
+     "capabilityKeys",
+     "clusterIds",
+     "page-key",
+     "page-size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_environment_usage_v3",
+   "name": "Gets usage data of a subsctiption by environment",
+   "description": "Gets usage data of a subsctiption by environment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "The start time of the query in `2021-05-01T15:11:00Z` format. Timeframe limits (startTime, endTime) are both required, unless a \"page-key\" is provided instead."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "The end time of the query in `2021-05-01T15:11:00Z` format. Timeframe limits (startTime, endTime) are both required, unless a \"page-key\" is provided instead."
+     },
+     "environmentIds": {
+      "type": "array",
+      "description": "A list of environments for which you want to read the usage data. To specify several environments, separate them with a comma (`,`)."
+     },
+     "capabilityKeys": {
+      "type": "array",
+      "description": "A list of capabilities for which you want to read the usage data. To specify several capabilities, separate them with a comma (`,`). To obtain capability keys, use the [GET subscriptions](https://dt-url.net/qd43uld) call and look for the **capabilities** field of the response."
+     },
+     "clusterIds": {
+      "type": "array",
+      "description": "A list of Managed clusters for which you want to read the usage data. Not applicable to SaaS environments."
+     },
+     "page-key": {
+      "type": "string",
+      "description": "The cursor for the next page of results. You can find it in the **nextPageKey** field of the previous response."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "endTime",
+     "startTime",
+     "subscription-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v3/accounts/{account-uuid}/subscriptions/{subscription-uuid}/environments/usage",
+    "path": [
+     "account-uuid",
+     "subscription-uuid"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "environmentIds",
+     "capabilityKeys",
+     "clusterIds",
+     "page-key",
+     "page-size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_level_descendants_policy_bindings",
+   "name": "Get policy bindings within descendants of a level",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "size": {
+      "type": "integer",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/descendants/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "size",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_level_policies",
+   "name": "Lists all native policies of a level",
+   "description": "Lists all native policies of a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "categories": {
+      "type": "string",
+      "description": "Optional policy categories set. Only policies that match given categories will be returned."
+     },
+     "name": {
+      "type": "string",
+      "description": "Optional policy name. Only policies that are of equal name will be returned."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "categories",
+     "name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_level_policy",
+   "name": "Gets a policy",
+   "description": "Gets a policy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_level_policy_bindings",
+   "name": "Get policy bindings within a level",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_level_policy_bindings_for_group",
+   "name": "Get policy bindings within a level",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "group-uuid",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_limits_for_account",
+   "name": "Returns limits defined for an account",
+   "description": "Returns limits defined for an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/limits",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_limits_for_level",
+   "name": "Returns limits defined for a level",
+   "description": "Returns limits defined for a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/limits",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_platform_tokens_for_account",
+   "name": "Returns platform tokens within account",
+   "description": "Returns platform tokens within account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "searchTerm": {
+      "type": "string",
+      "description": "Optional search term. Only platform tokens that match values of tokenId, name, createdBy or scope will be returned."
+     },
+     "status": {
+      "type": "string",
+      "description": "Optional platform token status. Only platform tokens that status matches the value will be returned."
+     },
+     "page": {
+      "type": "number",
+      "description": "The number of the requested page."
+     },
+     "size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/platform-tokens",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "searchTerm",
+     "status",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_policy_boundaries",
+   "name": "Get a list of policy boundaries within a level",
+   "description": "Get a list of policy boundaries within a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "size": {
+      "type": "integer",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "account-id": {
+      "type": "string",
+      "description": "The ID of the policy boundary level. Use the UUID of the account."
+     }
+    },
+    "required": [
+     "account-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries",
+    "path": [
+     "account-id"
+    ],
+    "query": [
+     "size",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_policy_boundary",
+   "name": "Get policy boundary within a level",
+   "description": "Get policy boundary within a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-boundary-uuid": {
+      "type": "string",
+      "description": "The ID of the required boundary."
+     },
+     "account-id": {
+      "type": "string",
+      "description": "The ID of the policy boundary level. Use the UUID of the account."
+     }
+    },
+    "required": [
+     "account-id",
+     "policy-boundary-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries/{policy-boundary-uuid}",
+    "path": [
+     "policy-boundary-uuid",
+     "account-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_policy_overview_list",
+   "name": "Lists all policies for a level, including inherited from higher levels",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     }
+    },
+    "required": [
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies/aggregate",
+    "path": [
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_policy_uuids_bindings",
+   "name": "Lists all policies for a user group",
+   "description": "Lists all policies for a user group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "details": {
+      "type": "string",
+      "description": "Optional parameter to print-out additional details containing boundaries, metadata, parameters."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * global: use the `global` value. * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `global`: A global policy applies to all accounts and environments. It is defined and managed by Dynatrace. * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher"
+     }
+    },
+    "required": [
+     "group-uuid",
+     "level-id",
+     "level-type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/groups/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "details"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_wif_service_user_mapping",
+   "name": "Returns wif service user mapping",
+   "description": "Returns WIF service user mapping",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "mapping-uuid": {
+      "type": "string",
+      "description": "The UUID of the required service user mapping."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "mapping-uuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings/{mapping-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid",
+     "mapping-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.get_wif_trust_policy",
+   "name": "Returns wif trust policy",
+   "description": "Returns WIF trust policy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.groups_controller_create_groups",
+   "name": "Creates new user groups",
+   "description": "Creates new user groups",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.groups_controller_delete_group",
+   "name": "Deletes a user group",
+   "description": "Deletes a user group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.groups_controller_edit_group",
+   "name": "Edits a user group",
+   "description": "Edits a user group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     },
+     "uuid": {
+      "type": "string",
+      "description": "The UUID of the user group."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the user group."
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the user group. Max length is 255 characters."
+     },
+     "federatedAttributeValues": {
+      "type": "array",
+      "description": "A list of values associating this group with the corresponding claim from an identity provider. If present and the group has owner = `LOCAL`, then group owner is set to `SAML`. If missing and the group has owner = `SAML`, then group owner is set to `LOCAL`. Cannot set this value for groups having owner set to `SCIM` or `ALL_USERS`."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "uuid",
+     "name",
+     "description",
+     "federatedAttributeValues"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.groups_controller_get_groups",
+   "name": "Lists all user groups of an account",
+   "description": "Lists all user groups of an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.groups_controller_get_users_for_group",
+   "name": "Lists all members of a group",
+   "description": "Lists all members of a group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/users",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.insights_controller_get_cost_allocation_breakdown_page",
+   "name": "Get usage data by cost allocation field",
+   "description": "Get usage data by cost allocation field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request. (required)"
+     },
+     "field": {
+      "type": "string",
+      "description": "Field by which costs and usage should be split. Allowed values: `COSTCENTER`, `PRODUCT` (required unless page-key is provided)"
+     },
+     "environment-id": {
+      "type": "string",
+      "description": "The identifier of an environment. (required unless page-key is provided)"
+     },
+     "from": {
+      "type": "string",
+      "description": "The start of the requested timeframe in `2021-05-01` format."
+     },
+     "to": {
+      "type": "string",
+      "description": "The end of the requested timeframe in `2021-05-01` format."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     },
+     "page-key": {
+      "type": "string",
+      "description": "A base64 encoded key to retrieve a specific page. If this query parameter is set, no other query parameters can be set."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/v1/subscriptions/{subscription-uuid}/cost-allocation",
+    "path": [
+     "subscription-uuid"
+    ],
+    "query": [
+     "field",
+     "environment-id",
+     "from",
+     "to",
+     "page-size",
+     "page-key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.list_notifications_v2",
+   "name": "Lists notifications for an account",
+   "description": "Lists notifications for an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "page-key": {
+      "type": "string",
+      "description": "The cursor for the next page of results. You can find it in the **nextPageKey** field of the previous response."
+     },
+     "page-size": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     },
+     "sorts": {
+      "type": "array",
+      "description": ""
+     },
+     "environments": {
+      "type": "array",
+      "description": "A list of environment IDs to filter notifications by. To obtain environment IDs, use the [GET environments](https://dt-url.net/6823uuy) call and look for the **data[].id** field of the response."
+     },
+     "capabilities": {
+      "type": "array",
+      "description": "A list of capabilities to filter notifications by. To obtain capability keys, use the [GET subscriptions](https://dt-url.net/v302ts3) call and look for the **capabilities[].key** field of the response."
+     },
+     "severities": {
+      "type": "array",
+      "description": ""
+     },
+     "types": {
+      "type": "array",
+      "description": ""
+     },
+     "end-time": {
+      "type": "string",
+      "description": "End of the timeframe in ISO 8601 format."
+     },
+     "start-time": {
+      "type": "string",
+      "description": "Start of the timeframe in ISO 8601 format."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/v2/accounts/{account-uuid}/notifications",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "page-key",
+     "page-size",
+     "sorts",
+     "environments",
+     "capabilities",
+     "severities",
+     "types",
+     "end-time",
+     "start-time"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.list_wif_service_user_mappings",
+   "name": "Returns wif service user mappings",
+   "description": "Returns WIF service user mappings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "pageNumber": {
+      "type": "number",
+      "description": "The number of the requested page."
+     },
+     "pageSize": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.list_wif_trust_policies",
+   "name": "Returns wif trust policies within account",
+   "description": "Returns WIF trust policies within account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "pageNumber": {
+      "type": "number",
+      "description": "The number of the requested page."
+     },
+     "pageSize": {
+      "type": "number",
+      "description": "Defines the requested number of entries for the next page."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.patch_wif_service_user_mapping_status",
+   "name": "Updates wif service user mapping status",
+   "description": "Updates WIF service user mapping status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "mapping-uuid": {
+      "type": "string",
+      "description": "The UUID of the required service user mapping."
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ACTIVE",
+       "INACTIVE"
+      ]
+     }
+    },
+    "required": [
+     "account-uuid",
+     "mapping-uuid",
+     "status",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings/{mapping-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid",
+     "mapping-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.patch_wif_trust_policy_status",
+   "name": "Updates wif trust policy status",
+   "description": "Updates WIF trust policy status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ACTIVE",
+       "INACTIVE"
+      ]
+     }
+    },
+    "required": [
+     "account-uuid",
+     "status",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.post_policy_boundary",
+   "name": "Create a policy boundary within a level",
+   "description": "Create a policy boundary within a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-id": {
+      "type": "string",
+      "description": "The ID of the policy boundary level. Use the UUID of the account."
+     },
+     "name": {
+      "type": "string",
+      "description": "The display name of the policy boundary."
+     },
+     "boundaryQuery": {
+      "type": "string",
+      "description": "The boundary query of the policy boundary."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "The metadata of the policy boundary."
+     }
+    },
+    "required": [
+     "account-id",
+     "boundaryQuery",
+     "metadata",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries",
+    "path": [
+     "account-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "boundaryQuery",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.put_policy_boundary",
+   "name": "Update or create a new policy boundary by uuid within a level",
+   "description": "Update or create a new policy boundary by uuid within a level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-boundary-uuid": {
+      "type": "string",
+      "description": "The ID of the required boundary."
+     },
+     "account-id": {
+      "type": "string",
+      "description": "The ID of the policy boundary level. Use the UUID of the account."
+     },
+     "name": {
+      "type": "string",
+      "description": "The display name of the policy boundary."
+     },
+     "boundaryQuery": {
+      "type": "string",
+      "description": "The boundary query of the policy boundary."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "The metadata of the policy boundary."
+     }
+    },
+    "required": [
+     "account-id",
+     "boundaryQuery",
+     "metadata",
+     "name",
+     "policy-boundary-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries/{policy-boundary-uuid}",
+    "path": [
+     "policy-boundary-uuid",
+     "account-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "boundaryQuery",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.reference_data_controller",
+   "name": "Lists all available time zones",
+   "description": "Lists all available time zones",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/ref/v1/time-zones",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.reference_data_controller",
+   "name": "Lists all available regions",
+   "description": "Lists all available regions",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/ref/v1/regions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.reference_data_controller_get_permissions",
+   "name": "Lists all available permissions",
+   "description": "Lists all available permissions",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/ref/v1/account/permissions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.service_users_controller_create_service_user_for_account",
+   "name": "Creates a new service user in an account",
+   "description": "Creates a new service user in an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the new service user"
+     },
+     "description": {
+      "type": "string",
+      "description": "The description of the new service user"
+     }
+    },
+    "required": [
+     "account-uuid",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/service-users",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.service_users_controller_delete_user",
+   "name": "Removes service user",
+   "description": "Removes service user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "user-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "user-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/service-users/{user-uuid}",
+    "path": [
+     "account-uuid",
+     "user-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.service_users_controller_get_service_user",
+   "name": "Get service user by uuid",
+   "description": "Get service user by uuid",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "user-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "user-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/service-users/{user-uuid}",
+    "path": [
+     "account-uuid",
+     "user-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.service_users_controller_get_service_users_from_account",
+   "name": "Get service users assigned to account",
+   "description": "Get service users assigned to account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "page": {
+      "type": "integer",
+      "description": "The number of the requested page. Can be increased as long as **nextPageKey** is available in the response."
+     },
+     "page-size": {
+      "type": "integer",
+      "description": "Defines the requested number of entries for the next page."
+     },
+     "page-key": {
+      "type": "string",
+      "description": "The cursor for the next page of results. You can find it in the **nextPageKey** field of the previous response."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/service-users",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "page",
+     "page-size",
+     "page-key"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.service_users_controller_update_service_user_for_account",
+   "name": "Updates name and description of service user in an account",
+   "description": "Updates name and description of service user in an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "user-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the new service user"
+     },
+     "description": {
+      "type": "string",
+      "description": "The description of the new service user"
+     }
+    },
+    "required": [
+     "account-uuid",
+     "name",
+     "user-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/service-users/{user-uuid}",
+    "path": [
+     "account-uuid",
+     "user-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_get_forecast",
+   "name": "Gets a forecast of the subscription usage by the end of the annual commitment period",
+   "description": "Gets a forecast of the subscription usage by the end of the annual commitment period",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v2/accounts/{account-uuid}/subscriptions/forecast",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_get_subscription",
+   "name": "Get a subscription",
+   "description": "Get a subscription",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "subscription-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v2/accounts/{account-uuid}/subscriptions/{subscription-uuid}",
+    "path": [
+     "account-uuid",
+     "subscription-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_get_total_subscription_cost",
+   "name": "Gets aggregated cost data of a subscription by date",
+   "description": "Gets aggregated cost data of a subscription by date",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request."
+     },
+     "environmentIds": {
+      "type": "array",
+      "description": "A list of environments for which you want to read the usage data. To specify several environments, separate them with a comma (`,`)."
+     },
+     "capabilityKeys": {
+      "type": "array",
+      "description": "A list of capabilities for which you want to read the usage data. To specify several capabilities, separate them with a comma (`,`). To obtain capability keys, use the [GET subscriptions](https://dt-url.net/qd43uld) call and look for the **capabilities** field of the response."
+     },
+     "clusterIds": {
+      "type": "array",
+      "description": "A list of Managed clusters for which you want to read the usage data. Not applicable to SaaS environments."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "subscription-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v2/accounts/{account-uuid}/subscriptions/{subscription-uuid}/cost",
+    "path": [
+     "account-uuid",
+     "subscription-uuid"
+    ],
+    "query": [
+     "environmentIds",
+     "capabilityKeys",
+     "clusterIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_get_total_subscription_usage",
+   "name": "Gets usage data of a subscription by date",
+   "description": "Gets usage data of a subscription by date",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "subscription-uuid": {
+      "type": "string",
+      "description": "The UUID of the requested subscription. Fetch the list of subscriptions via the [GET all subscriptions](https://dt-url.net/jq03jvq) request."
+     },
+     "environmentIds": {
+      "type": "array",
+      "description": "A list of environments for which you want to read the usage data. To specify several environments, separate them with a comma (`,`)."
+     },
+     "capabilityKeys": {
+      "type": "array",
+      "description": "A list of capabilities for which you want to read the usage data. To specify several capabilities, separate them with a comma (`,`). To obtain capability keys, use the [GET subscriptions](https://dt-url.net/qd43uld) call and look for the **capabilities** field of the response."
+     },
+     "clusterIds": {
+      "type": "array",
+      "description": "A list of Managed clusters for which you want to read the usage data. Not applicable to SaaS environments."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "subscription-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v2/accounts/{account-uuid}/subscriptions/{subscription-uuid}/usage",
+    "path": [
+     "account-uuid",
+     "subscription-uuid"
+    ],
+    "query": [
+     "environmentIds",
+     "capabilityKeys",
+     "clusterIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_list_rate_cards",
+   "name": "Lists all rate cards of an account",
+   "description": "Lists all rate cards of an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v1/accounts/{account-uuid}/rate-cards",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.subscriptions_controller_list_subscriptions",
+   "name": "Lists all subscriptions of an account",
+   "description": "Lists all subscriptions of an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/sub/v2/accounts/{account-uuid}/subscriptions",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_level_policy",
+   "name": "Updates a policy",
+   "description": "If the specified policy doesn't exist, a new one is created. This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "name": {
+      "type": "string",
+      "description": "The display name of the policy."
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the policy."
+     },
+     "tags": {
+      "type": "array",
+      "description": "A list of tags."
+     },
+     "statementQuery": {
+      "type": "string",
+      "description": "The [statement](https://dt-url.net/ht03ucb) of the policy."
+     }
+    },
+    "required": [
+     "description",
+     "level-id",
+     "level-type",
+     "name",
+     "policy-uuid",
+     "statementQuery"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/policies/{policy-uuid}",
+    "path": [
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "tags",
+     "statementQuery"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_level_policy_binding_for_policy_and_group",
+   "name": "Updates or creates a policy binding for a particular group and policy",
+   "description": "This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query-params": {
+      "type": "object",
+      "description": "Key-value pairs for policy template parameters and metadata. Only bindings matching given parameters and metadata will be updated or deleted."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "policy-uuid": {
+      "type": "string",
+      "description": "The ID of the required policy."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "parameters": {
+      "type": "object",
+      "description": "Parameters provided for bindings"
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Metadata provided for bindings"
+     },
+     "boundaries": {
+      "type": "array",
+      "description": "List of boundary UUIDs used in the binding."
+     }
+    },
+    "required": [
+     "group-uuid",
+     "level-id",
+     "level-type",
+     "policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/{policy-uuid}/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "policy-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [
+     "query-params"
+    ],
+    "header": [],
+    "body": [
+     "parameters",
+     "metadata",
+     "boundaries"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_platform_token_expiration_date",
+   "name": "Updates platform token expiration data",
+   "description": "Updates platform token expiration data",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "platform-token-id": {
+      "type": "string",
+      "description": ""
+     },
+     "expirationDate": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "expirationDate",
+     "platform-token-id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/platform-tokens/{platform-token-id}/expiration-date",
+    "path": [
+     "account-uuid",
+     "platform-token-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expirationDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_platform_token_status",
+   "name": "Updates platform token status",
+   "description": "Updates platform token status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "platform-token-id": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ACTIVE",
+       "INACTIVE"
+      ]
+     }
+    },
+    "required": [
+     "account-uuid",
+     "platform-token-id",
+     "status"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/platform-tokens/{platform-token-id}/status",
+    "path": [
+     "account-uuid",
+     "platform-token-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_policy_bindings_to_group",
+   "name": "Updates policy bindings for a user group  the request overwrites an existing set of policy bindings",
+   "description": "The request overwrites existing policies. This endpoint is unavailable within global level",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group-uuid": {
+      "type": "string",
+      "description": "The ID of the required user group."
+     },
+     "level-id": {
+      "type": "string",
+      "description": "The ID of the policy level. Use one of the following values, depending on the level type: * account: use the UUID of the account. * environment: use the ID of the environment."
+     },
+     "level-type": {
+      "type": "string",
+      "description": "The type of the [policy](https://dt-url.net/eu03uap) level. The following values are available: * `account`: An account policy applies to all environments of an account. * `environment`: An environment policy applies to a specific environment. Each level inherits the policies of the higher level and extends them with its own policies."
+     },
+     "policyUuids": {
+      "type": "array",
+      "description": "A list of policies bound to the user group."
+     }
+    },
+    "required": [
+     "group-uuid",
+     "level-id",
+     "level-type",
+     "policyUuids"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/repo/{level-type}/{level-id}/bindings/groups/{group-uuid}",
+    "path": [
+     "group-uuid",
+     "level-id",
+     "level-type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "policyUuids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_wif_service_user_mapping",
+   "name": "Updates wif service user mapping",
+   "description": "Updates WIF service user mapping",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "mapping-uuid": {
+      "type": "string",
+      "description": "The UUID of the required service user mapping."
+     },
+     "serviceUserUuid": {
+      "type": "string",
+      "description": ""
+     },
+     "environmentId": {
+      "type": "string",
+      "description": ""
+     },
+     "scopes": {
+      "type": "array",
+      "description": ""
+     },
+     "claimMappings": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "claimMappings",
+     "environmentId",
+     "mapping-uuid",
+     "scopes",
+     "serviceUserUuid",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings/{mapping-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid",
+     "mapping-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "serviceUserUuid",
+     "environmentId",
+     "scopes",
+     "claimMappings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.update_wif_trust_policy",
+   "name": "Updates wif trust policy",
+   "description": "Updates WIF trust policy",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "trust-policy-uuid": {
+      "type": "string",
+      "description": "The UUID of the required trust policy."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "issuerUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "jwksUri": {
+      "type": "string",
+      "description": ""
+     },
+     "audience": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account-uuid",
+     "audience",
+     "issuerUrl",
+     "name",
+     "trust-policy-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}",
+    "path": [
+     "account-uuid",
+     "trust-policy-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "issuerUrl",
+     "jwksUri",
+     "audience",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_add_user_to_groups",
+   "name": "Adds a user to groups  any existing group membership remains unaffected",
+   "description": "Adds a user to groups. Any existing group membership remains unaffected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users/{email}",
+    "path": [
+     "account-uuid",
+     "email"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_create_user_for_account",
+   "name": "Creates a new user in an account",
+   "description": "Creates a new user in an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_get_user_groups",
+   "name": "Lists all groups of a user",
+   "description": "Lists all groups of a user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users/{email}",
+    "path": [
+     "account-uuid",
+     "email"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_get_users",
+   "name": "Lists all users of an account",
+   "description": "Lists all users of an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "service-users": {
+      "type": "boolean",
+      "description": "Specifies whether service users are included in results."
+     }
+    },
+    "required": [
+     "account-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users",
+    "path": [
+     "account-uuid"
+    ],
+    "query": [
+     "service-users"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_remove_user_from_account",
+   "name": "Removes a user from an account",
+   "description": "Removes a user from an account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users/{email}",
+    "path": [
+     "account-uuid",
+     "email"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_remove_user_from_groups",
+   "name": "Removes a user from groups",
+   "description": "Removes a user from groups",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the required user."
+     },
+     "group-uuid": {
+      "type": "array",
+      "description": "A list of groups the user is no longer a member of. To specify several groups, use the following format: `group-uuid=aaaaaa&group-uuid=bbbb`. The limit is 200 groups."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users/{email}/groups",
+    "path": [
+     "account-uuid",
+     "email"
+    ],
+    "query": [
+     "group-uuid"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.users_controller_replace_user_groups",
+   "name": "Sets group membership of a user  any existing membership is overwritten",
+   "description": "Sets group membership of a user. Any existing membership is overwritten.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the required user."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "email"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/users/{email}/groups",
+    "path": [
+     "account-uuid",
+     "email"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

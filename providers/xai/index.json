@@ -1,0 +1,2215 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "xai",
+ "source": "https://docs.x.ai/openapi.json",
+ "operations": [
+  {
+   "slug": "xai.handle_compact_request",
+   "name": "Compacts a full responses api input window into a shorter canonical window",
+   "description": "The client sends its current input (the same items that would be passed to `POST /v1/responses`) and receives a compacted output window. The output should be used **verbatim** as the `input` of the next `/v1/responses` call (appending only the new user turn). This generalizes the compaction approach used by the coding-agent harness (`generate_session_compact` in xai-grok-shell): 1. Strip tool-resu",
+   "input": {
+    "type": "object",
+    "properties": {
+     "input": {
+      "type": "string",
+      "description": "Content of the input passed to a `/v1/response` request."
+     },
+     "model": {
+      "type": "string",
+      "description": "Model to use for compaction summarization (required)."
+     }
+    },
+    "required": [
+     "input",
+     "model"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/responses/compact",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "input",
+     "model"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_create_public_url_request",
+   "name": "Create a permanent, unauthenticated public url for an existing file  the\nunderlying file is unaffected and can still be fetched through the\nauthenticated content endpoint  use this when you want to share a stored\nasset (image, video, pdf) outside your api keyed environment  public urls\ncan be revoked at any time via `post  v1 files {file id} public url revoke`",
+   "description": "Create a permanent, unauthenticated public URL for an existing file. The underlying file is unaffected and can still be fetched through the authenticated content endpoint. Use this when you want to share a stored asset (image, video, PDF) outside your API-keyed environment. Public URLs can be revoked at any time via `POST /v1/files/{file_id}/public-url/revoke`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "The file's `id`."
+     },
+     "expires_after": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Seconds from now until the public URL expires. Must be between `3600` (1 hour) and `2592000` (30 days). Omit to inherit the file's expiry (if it has one) or to make the URL valid indefinitely."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/files/{file_id}/public-url",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expires_after"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_delete_file_request",
+   "name": "Delete a file by id  after this returns, the file no longer appears in\n`get  v1 files`, content download returns 404, and the id can no longer\nbe referenced in chat attachments",
+   "description": "Delete a file by ID. After this returns, the file no longer appears in `GET /v1/files`, content download returns 404, and the ID can no longer be referenced in chat attachments.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "The file's `id` to delete."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.x.ai/v1/files/{file_id}",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_delete_skill_request",
+   "name": "Handle delete skill request",
+   "description": "Deletes this skill.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "The skill ID."
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.x.ai/v1/skills/{skill_id}",
+    "path": [
+     "skill_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "xai.handle_delete_stored_completion_request",
+   "name": "Delete a previously generated response",
+   "description": "Delete a previously generated response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "response_id": {
+      "type": "string",
+      "description": "The response id returned by a previous create response request."
+     }
+    },
+    "required": [
+     "response_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.x.ai/v1/responses/{response_id}",
+    "path": [
+     "response_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_document_search_request_v2",
+   "name": "Search for content related to the query within the given collections",
+   "description": "Search for content related to the query within the given collections.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filter": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Optional metadata filter string to apply to search results. Uses AIP-160 filter syntax for querying document metadata. Supports comparison operators: `=`, `!=`, `>`, `>=`, ` 2020 AND category = \"finance\"`"
+     },
+     "group_by": {
+      "type": "string",
+      "description": ""
+     },
+     "instructions": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "User-defined instructions to be included in the search query. Defaults to generic search instructions."
+     },
+     "limit": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "The number of chunks to return. Will always return the top matching chunks. Optional, defaults to 10."
+     },
+     "query": {
+      "type": "string",
+      "description": "The query to search for which will be embedded using the same embedding model as the one used for the source to query."
+     },
+     "ranking_metric": {
+      "type": "string",
+      "description": ""
+     },
+     "retrieval_mode": {
+      "type": "string",
+      "description": ""
+     },
+     "source": {
+      "type": "object",
+      "description": "DocumentsSource defines the source of documents to search over."
+     }
+    },
+    "required": [
+     "query",
+     "source"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/documents/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter",
+     "group_by",
+     "instructions",
+     "limit",
+     "query",
+     "ranking_metric",
+     "retrieval_mode",
+     "source"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_download_file_content_request",
+   "name": "Download the contents of a file as a stream of raw bytes  the response\n`content type` is `application octet stream`  use this for the binary\npayload; use `get  v1 files {file id}` for metadata only",
+   "description": "Download the contents of a file as a stream of raw bytes. The response `Content-Type` is `application/octet-stream`. Use this for the binary payload; use `GET /v1/files/{file_id}` for metadata only.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "The file's `id` to download."
+     },
+     "format": {
+      "type": "string",
+      "description": "Format of the downloaded content.",
+      "enum": [
+       "original",
+       "text"
+      ]
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/files/{file_id}/content",
+    "path": [
+     "file_id"
+    ],
+    "query": [
+     "format"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_download_skill_content_request",
+   "name": "Handle download skill content request",
+   "description": "Lists content.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "The skill ID."
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/skills/{skill_id}/content",
+    "path": [
+     "skill_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "xai.handle_edit_image_request",
+   "name": "Edit an image based on a prompt  this is the endpoint for making edit requests to image generation models",
+   "description": "Edit an image based on a prompt. This is the endpoint for making edit requests to image generation models.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "aspect_ratio": {
+      "type": "string",
+      "description": ""
+     },
+     "image": {
+      "type": "string",
+      "description": ""
+     },
+     "images": {
+      "type": "array",
+      "description": "List of input images for multi-reference editing. Mutually exclusive with `image`. When multiple images are provided, refer to them as \\, \\, etc. in the prompt."
+     },
+     "model": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Model to be used."
+     },
+     "n": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Number of image edits to be generated."
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt for image editing."
+     },
+     "resolution": {
+      "type": "string",
+      "description": ""
+     },
+     "response_format": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Response format to return the image in. Can be `url` or `b64_json`. If `b64_json` is specified, the image will be returned as a base64-encoded string instead of a url to the generated image file."
+     },
+     "storage_options": {
+      "type": "string",
+      "description": ""
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     }
+    },
+    "required": [
+     "prompt"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/images/edits",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "aspect_ratio",
+     "image",
+     "images",
+     "model",
+     "n",
+     "prompt",
+     "resolution",
+     "response_format",
+     "storage_options",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_edit_video_request",
+   "name": "Edit a video based on a prompt \nthis is an asynchronous operation that returns a request id for polling",
+   "description": "Edit a video based on a prompt. This is an asynchronous operation that returns a request_id for polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Model to be used."
+     },
+     "output": {
+      "type": "string",
+      "description": ""
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt for video editing."
+     },
+     "storage_options": {
+      "type": "string",
+      "description": ""
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user."
+     },
+     "video": {
+      "type": "object",
+      "description": "Video input for editing and extension requests. Accepts a public URL, a base64-encoded data URL, or a file_id from the xAI Files API."
+     }
+    },
+    "required": [
+     "prompt",
+     "video"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/videos/edits",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "model",
+     "output",
+     "prompt",
+     "storage_options",
+     "user",
+     "video"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_embedding_model_get_request",
+   "name": "Get full information about an embedding model with its model id",
+   "description": "Get full information about an embedding model with its model_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model_id": {
+      "type": "string",
+      "description": "ID of the model to get."
+     }
+    },
+    "required": [
+     "model_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/embedding-models/{model_id}",
+    "path": [
+     "model_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_embedding_models_list_request",
+   "name": "List all embedding models available to the authenticating api key with full information  additional information compared to  v1 models includes modalities, fingerprint and alias(es)",
+   "description": "List all embedding models available to the authenticating API key with full information. Additional information compared to /v1/models includes modalities, fingerprint and alias(es).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/embedding-models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_embedding_request",
+   "name": "Create an embedding vector representation corresponding to the input text  this is the endpoint for making requests to embedding models",
+   "description": "Create an embedding vector representation corresponding to the input text. This is the endpoint for making requests to embedding models.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "dimensions": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "The number of dimensions the resulting output embeddings should have."
+     },
+     "encoding_format": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The format to return the embeddings in. Can be either `float` or `base64`."
+     },
+     "input": {
+      "type": "string",
+      "description": ""
+     },
+     "model": {
+      "type": "string",
+      "description": "ID of the model to use."
+     },
+     "preview": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Flag to use the new format of the API."
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/embeddings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "dimensions",
+     "encoding_format",
+     "input",
+     "model",
+     "preview",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_extend_video_request",
+   "name": "Extend a video by generating continuation content \nthis is an asynchronous operation that returns a request id for polling",
+   "description": "Extend a video by generating continuation content. This is an asynchronous operation that returns a request_id for polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "duration": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Duration of the extension segment to generate in seconds (2-10). Defaults to 6 seconds if not specified."
+     },
+     "model": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Model to be used."
+     },
+     "output": {
+      "type": "string",
+      "description": ""
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt describing what should happen next in the video."
+     },
+     "storage_options": {
+      "type": "string",
+      "description": ""
+     },
+     "video": {
+      "type": "object",
+      "description": "Video input for editing and extension requests. Accepts a public URL, a base64-encoded data URL, or a file_id from the xAI Files API."
+     }
+    },
+    "required": [
+     "prompt",
+     "video"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/videos/extensions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "duration",
+     "model",
+     "output",
+     "prompt",
+     "storage_options",
+     "video"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generate_image_request",
+   "name": "Generate an image based on a prompt  this is the endpoint for making generation requests to image generation models",
+   "description": "Generate an image based on a prompt. This is the endpoint for making generation requests to image generation models.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "aspect_ratio": {
+      "type": "string",
+      "description": ""
+     },
+     "model": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Model to be used."
+     },
+     "n": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Number of images to be generated"
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt for image generation."
+     },
+     "resolution": {
+      "type": "string",
+      "description": ""
+     },
+     "response_format": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Response format to return the image in. Can be url or b64_json. If b64_json is specified, the image will be returned as a base64-encoded string instead of a url to the generated image file."
+     },
+     "storage_options": {
+      "type": "string",
+      "description": ""
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/images/generations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "aspect_ratio",
+     "model",
+     "n",
+     "prompt",
+     "resolution",
+     "response_format",
+     "storage_options",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generate_video_request",
+   "name": "Generate a video from a text prompt and optionally an image \nthis is an asynchronous operation that returns a request id for polling",
+   "description": "Generate a video from a text prompt and optionally an image. This is an asynchronous operation that returns a request_id for polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "aspect_ratio": {
+      "type": "string",
+      "description": ""
+     },
+     "duration": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Video duration in seconds. Range: [1, 15]. Default: 8. Also accepts `seconds` for OpenAI API compatibility. Accepts both number (8) and string (\"8\") values."
+     },
+     "image": {
+      "type": "string",
+      "description": ""
+     },
+     "model": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Model to be used."
+     },
+     "output": {
+      "type": "string",
+      "description": ""
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt for video generation. Required for text-to-video (T2V) and reference-to-video (R2V). Optional for image-to-video (I2V) \u2014 when omitted, the model generates a video from the image alone."
+     },
+     "reference_audios": {
+      "type": "array",
+      "description": "Optional reference audio clips (voice identity) for reference-to-video generation. Each entry supplies a clip via `url` or selects a voice via `voice_id`; caller-supplied clips must be at most 15 seconds long. Only supported by select video models; at most 3 entries. May be provided without `reference_images` (audio-only reference-to-video) \u2014 at least one reference of either kind selects the refer"
+     },
+     "reference_images": {
+      "type": "array",
+      "description": "Optional reference images for reference-to-video (R2V) generation. When provided generates video using these images as style/content references."
+     },
+     "resolution": {
+      "type": "string",
+      "description": ""
+     },
+     "storage_options": {
+      "type": "string",
+      "description": ""
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/videos/generations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "aspect_ratio",
+     "duration",
+     "image",
+     "model",
+     "output",
+     "prompt",
+     "reference_audios",
+     "reference_images",
+     "resolution",
+     "storage_options",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generic_complete_request",
+   "name": "(legacy   not supported by reasoning models) create a text completion response  this endpoint is compatible with the anthropic api",
+   "description": "(Legacy - Not supported by reasoning models) Create a text completion response. This endpoint is compatible with the Anthropic API.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "max_tokens_to_sample": {
+      "type": "integer",
+      "description": "The maximum number of tokens to generate before stopping."
+     },
+     "metadata": {
+      "type": "string",
+      "description": ""
+     },
+     "model": {
+      "type": "string",
+      "description": "Model to use for completion."
+     },
+     "prompt": {
+      "type": "string",
+      "description": "Prompt for the model to perform completion on."
+     },
+     "stop_sequences": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "(Not supported by reasoning models) Up to 4 sequences where the API will stop generating further tokens."
+     },
+     "stream": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "(Unsupported) If set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message."
+     },
+     "temperature": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+     },
+     "top_k": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "(Unsupported) When generating next tokens, randomly selecting the next token from the k most likely options."
+     },
+     "top_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "An alternative to sampling with `temperature`, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. It is generally recommended to alter this or `temperature` but not both."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/complete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "max_tokens_to_sample",
+     "metadata",
+     "model",
+     "prompt",
+     "stop_sequences",
+     "stream",
+     "temperature",
+     "top_k",
+     "top_p"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generic_completion_request",
+   "name": "Create a chat response from text image chat prompts  this is the endpoint for making requests to chat and image understanding models",
+   "description": "Create a chat response from text/image chat prompts. This is the endpoint for making requests to chat and image understanding models.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "deferred": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "If set to `true`, the request returns a `request_id`. You can then get the deferred response by GET `/v1/chat/deferred-completion/{request_id}`."
+     },
+     "frequency_penalty": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "(Not supported by reasoning models) Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+     },
+     "logit_bias": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "(Unsupported) A JSON object that maps tokens (specified by their token ID in the tokenizer) to an associated bias value from -100 to 100. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should result in a ban or exc"
+     },
+     "logprobs": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the content of message. Not supported by models `grok-4.20` and newer; the field will be silently ignored if set."
+     },
+     "max_completion_tokens": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "An upper bound for the number of tokens that can be generated for a completion, only applies to visible output tokens (i.e. does not apply to tokens used for reasoning or function calls). Defaults to 128,000 when unset; set a larger value to allow longer generations."
+     },
+     "max_tokens": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "\\[DEPRECATED\\] The maximum number of tokens that can be generated in the chat completion. Deprecated in favor of `max_completion_tokens`."
+     },
+     "messages": {
+      "type": "array",
+      "description": "A list of messages that make up the chat conversation. Different models support different message types, such as image and text."
+     },
+     "model": {
+      "type": "string",
+      "description": "Model name for the model to use. Obtainable from or ."
+     },
+     "n": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "How many chat completion choices to generate for each input message. Note that you will be charged based on the number of generated tokens across all of the choices. Keep n as 1 to minimize costs."
+     },
+     "parallel_tool_calls": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "If set to false, the model can perform maximum one tool call."
+     },
+     "presence_penalty": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "(Not supported by `grok-3` and reasoning models) Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."
+     },
+     "prompt_cache_key": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A stable cache key for best-effort sticky routing / prompt-cache hits across requests sharing a prompt prefix. Plumbed to `x-grok-conv-id`, same as on `/v1/responses`."
+     },
+     "reasoning_effort": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Constrains how hard a reasoning model thinks before responding. Higher efforts use more reasoning tokens for deeper thinking. The supported values and the default depend on the model."
+     },
+     "response_format": {
+      "type": "string",
+      "description": ""
+     },
+     "safety_identifier": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Supplied by the API client to identify the end user behind this request. A stable string that uniquely identifies each of your users; hash your internal user id or username rather than sending an email or name. Stored with the request metadata so a usage-policy violation can be attributed to that user rather than to the API key."
+     },
+     "search_parameters": {
+      "type": "string",
+      "description": ""
+     },
+     "seed": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same `seed` and parameters should return the same result. Determinism is not guaranteed, and you should refer to the `system_fingerprint` response parameter to monitor changes in the backend."
+     },
+     "service_tier": {
+      "type": "string",
+      "description": ""
+     },
+     "stop": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "(Not supported by reasoning models) Up to 4 sequences where the API will stop generating further tokens."
+     },
+     "stream": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "If set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message."
+     },
+     "stream_options": {
+      "type": "string",
+      "description": ""
+     },
+     "temperature": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+     },
+     "tool_choice": {
+      "type": "string",
+      "description": ""
+     },
+     "tools": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "A list of tools the model may call in JSON-schema. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 350 functions are supported."
+     },
+     "top_logprobs": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "An integer between 0 and 8 specifying the number of most likely tokens to return at each token position, each with an associated log probability. logprobs must be set to true if this parameter is used. Not supported by models `grok-4.20` and newer; the field will be silently ignored if set."
+     },
+     "top_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "An alternative to sampling with `temperature`, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. It is generally recommended to alter this or `temperature` but not both."
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     },
+     "web_search_options": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/chat/completions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "deferred",
+     "frequency_penalty",
+     "logit_bias",
+     "logprobs",
+     "max_completion_tokens",
+     "max_tokens",
+     "messages",
+     "model",
+     "n",
+     "parallel_tool_calls",
+     "presence_penalty",
+     "prompt_cache_key",
+     "reasoning_effort",
+     "response_format",
+     "safety_identifier",
+     "search_parameters",
+     "seed",
+     "service_tier",
+     "stop",
+     "stream",
+     "stream_options",
+     "temperature",
+     "tool_choice",
+     "tools",
+     "top_logprobs",
+     "top_p",
+     "user",
+     "web_search_options"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generic_messages_request",
+   "name": "Create a messages response  this endpoint is compatible with the anthropic api",
+   "description": "Create a messages response. This endpoint is compatible with the Anthropic API.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "max_tokens": {
+      "type": "integer",
+      "description": "The maximum number of tokens to generate before stopping. The model may stop before the max_tokens when it reaches the stop sequence."
+     },
+     "messages": {
+      "type": "array",
+      "description": "Input messages."
+     },
+     "metadata": {
+      "type": "string",
+      "description": ""
+     },
+     "model": {
+      "type": "string",
+      "description": "Model name for the model to use."
+     },
+     "stop_sequences": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "(Not supported by reasoning models) Up to 4 sequences where the API will stop generating further tokens."
+     },
+     "stream": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "If set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message."
+     },
+     "system": {
+      "type": "string",
+      "description": ""
+     },
+     "temperature": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. It may not work well with reasoning models."
+     },
+     "tool_choice": {
+      "type": "string",
+      "description": ""
+     },
+     "tools": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "A list of tools the model may call in JSON-schema. Currently, only functions are supported as a tool. Use this to provide a list of functions the model may generate JSON inputs for. A max of 350 functions are supported."
+     },
+     "top_k": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "(Unsupported) When generating next tokens, randomly selecting the next token from the k most likely options."
+     },
+     "top_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "An alternative to sampling with `temperature`, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. It is generally recommended to alter this or `temperature` but not both."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/messages",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "max_tokens",
+     "messages",
+     "metadata",
+     "model",
+     "stop_sequences",
+     "stream",
+     "system",
+     "temperature",
+     "tool_choice",
+     "tools",
+     "top_k",
+     "top_p"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_generic_model_request",
+   "name": "Generates a response based on text or image prompts  the response id can be used to retrieve the response later or to continue the conversation without repeating prior context  new responses will be stored for 30 days and then permanently deleted",
+   "description": "Generates a response based on text or image prompts. The response ID can be used to retrieve the response later or to continue the conversation without repeating prior context. New responses will be stored for 30 days and then permanently deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "background": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "(Unsupported) Whether to process the response asynchronously in the background."
+     },
+     "context_management": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "Optional context-management directives (e.g. compaction). Parsed but not yet executed."
+     },
+     "include": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "What additional output data to include in the response. Supported values include `reasoning.encrypted_content` (encrypted reasoning tokens) and tool-output options. OpenAI's `message.output_text.logprobs` is accepted for compatibility but silently ignored."
+     },
+     "input": {
+      "type": "string",
+      "description": "Content of the input passed to a `/v1/response` request."
+     },
+     "instructions": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "An alternate way to specify the system prompt. Note that this cannot be used alongside `previous_response_id`, where the system prompt of the previous message will be used."
+     },
+     "logprobs": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the content of message. Not supported by models `grok-4.20` and newer; the field will be silently ignored if set."
+     },
+     "max_output_tokens": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Max number of tokens that can be generated in a response. This includes both output and reasoning tokens. Defaults to 128,000 when unset; set a larger value to allow longer generations."
+     },
+     "max_turns": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Maximum number of agentic tool calling turns allowed for this request. If not set, defaults to the server's global cap. This parameter will be ignored for any non-agentic requests, and for agentic SLOP requests that have neither a server-side tool nor a file attachment."
+     },
+     "metadata": {
+      "type": "string",
+      "description": "Not supported. Only maintained for compatibility reasons."
+     },
+     "min_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "Min-p sampling: tokens whose probability is below `min_p` times the probability of the most likely token are excluded from sampling. Disabled when unset."
+     },
+     "model": {
+      "type": "string",
+      "description": "Model name for the model to use. Obtainable from or ."
+     },
+     "parallel_tool_calls": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Whether to allow the model to run parallel tool calls."
+     },
+     "previous_response_id": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of the previous response from the model."
+     },
+     "prompt_cache_key": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Plumbed to x-grok-conv-id for Open Responses compatibility, used for routing."
+     },
+     "reasoning": {
+      "type": "string",
+      "description": ""
+     },
+     "reasoning_effort": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "reasoning_effort alternative to reasoning configuration. This is a non-standard field meant to ease user experience. We only look at this if the reasoning field is unset."
+     },
+     "safety_identifier": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Supplied by the API client to identify the end user behind this request. A stable string that uniquely identifies each of your users; hash your internal user id or username rather than sending an email or name. Stored with the request metadata so a usage-policy violation can be attributed to that user rather than to the API key."
+     },
+     "search_parameters": {
+      "type": "string",
+      "description": ""
+     },
+     "service_tier": {
+      "type": "string",
+      "description": ""
+     },
+     "store": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Whether to store the input message(s) and model response for later retrieval."
+     },
+     "stream": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "If set, partial message deltas will be sent. Tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message."
+     },
+     "temperature": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic."
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "tool_choice": {
+      "type": "string",
+      "description": ""
+     },
+     "tools": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "A list of tools the model may call in JSON-schema. Currently, only functions and web search are supported as tools. A max of 350 tools are supported.`web_search_preview` tool, if specified, will be overridden by `search_parameters`."
+     },
+     "top_k": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Top-k sampling: only the `top_k` most probable tokens are considered at each sampling step. Disabled when unset."
+     },
+     "top_logprobs": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "An integer between 0 and 8 specifying the number of most likely tokens to return at each token position, each with an associated log probability. logprobs must be set to true if this parameter is used. Not supported by models `grok-4.20` and newer; the field will be silently ignored if set."
+     },
+     "top_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "An alternative to sampling with `temperature`, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. It is generally recommended to alter this or `temperature` but not both."
+     },
+     "truncation": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Not supported. Only maintained for compatibility reasons."
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     }
+    },
+    "required": [
+     "input"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/responses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "background",
+     "context_management",
+     "include",
+     "input",
+     "instructions",
+     "logprobs",
+     "max_output_tokens",
+     "max_turns",
+     "metadata",
+     "min_p",
+     "model",
+     "parallel_tool_calls",
+     "previous_response_id",
+     "prompt_cache_key",
+     "reasoning",
+     "reasoning_effort",
+     "safety_identifier",
+     "search_parameters",
+     "service_tier",
+     "store",
+     "stream",
+     "temperature",
+     "text",
+     "tool_choice",
+     "tools",
+     "top_k",
+     "top_logprobs",
+     "top_p",
+     "truncation",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_get_api_key_info_request",
+   "name": "Get information about an api key, including name, status, permissions and users who created or modified this key",
+   "description": "Get information about an API key, including name, status, permissions and users who created or modified this key.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/api-key",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_get_deferred_completion_request",
+   "name": "Tries to fetch a result for a previously started deferred completion  returns `200 success` with the response body, if the request has been completed  returns `202 accepted` when the request is pending processing",
+   "description": "Tries to fetch a result for a previously-started deferred completion. Returns `200 Success` with the response body, if the request has been completed. Returns `202 Accepted` when the request is pending processing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "request_id": {
+      "type": "string",
+      "description": "The deferred request id returned by a previous deferred chat request."
+     }
+    },
+    "required": [
+     "request_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/chat/deferred-completion/{request_id}",
+    "path": [
+     "request_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_get_deferred_video_request",
+   "name": "Get the result of a deferred video generation request",
+   "description": "Returns the current status of a video generation job. When the job completes successfully the response contains the generated video URL. When the job fails the response contains a structured `error` object with a machine-readable `code` and a human-readable `message`. Both successful and failed completions return HTTP 200 \u2014 use the `status` field (`\"done\"` or `\"failed\"`) to distinguish between the",
+   "input": {
+    "type": "object",
+    "properties": {
+     "request_id": {
+      "type": "string",
+      "description": "The deferred request id returned by a previous video generation request."
+     }
+    },
+    "required": [
+     "request_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/videos/{request_id}",
+    "path": [
+     "request_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_get_me_request",
+   "name": "Get information about the currently authenticated caller \nworks with both api keys and oauth tokens  returns identity, team, and zdr status",
+   "description": "Get information about the currently authenticated caller. Works with both API keys and OAuth tokens. Returns identity, team, and ZDR status.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_get_stored_completion_request",
+   "name": "Retrieve a previously generated response",
+   "description": "Retrieve a previously generated response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "response_id": {
+      "type": "string",
+      "description": "The response id returned by a previous create response request."
+     }
+    },
+    "required": [
+     "response_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/responses/{response_id}",
+    "path": [
+     "response_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_image_generation_model_get_request",
+   "name": "Get full information about an image generation model with its model id",
+   "description": "Get full information about an image generation model with its model_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model_id": {
+      "type": "string",
+      "description": "ID of the model to get."
+     }
+    },
+    "required": [
+     "model_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/image-generation-models/{model_id}",
+    "path": [
+     "model_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_image_generation_models_list_request",
+   "name": "List all image generation models available to the authenticating api key with full information  additional information compared to  v1 models includes modalities, fingerprint and alias(es)",
+   "description": "List all image generation models available to the authenticating API key with full information. Additional information compared to /v1/models includes modalities, fingerprint and alias(es).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/image-generation-models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_language_model_get_request",
+   "name": "Get full information about a chat or image understanding model with its model id",
+   "description": "Get full information about a chat or image understanding model with its model_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model_id": {
+      "type": "string",
+      "description": "ID of the model to get."
+     }
+    },
+    "required": [
+     "model_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/language-models/{model_id}",
+    "path": [
+     "model_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_language_models_list_request",
+   "name": "List all chat and image understanding models available to the authenticating api key with full information  additional information compared to  v1 models includes modalities, fingerprint and alias(es)",
+   "description": "List all chat and image understanding models available to the authenticating API key with full information. Additional information compared to /v1/models includes modalities, fingerprint and alias(es).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/language-models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_list_files_request",
+   "name": "List files owned by the authenticated team, paginated  the response\nalways returns a `pagination token`; pass it back as a query parameter\nto fetch the next page  the end of the list is reached when the\nreturned `data` array is shorter than `limit`",
+   "description": "List files owned by the authenticated team, paginated. The response always returns a `pagination_token`; pass it back as a query parameter to fetch the next page. The end of the list is reached when the returned `data` array is shorter than `limit`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of objects to be returned in a single response."
+     },
+     "order": {
+      "type": "string",
+      "description": "The ordering to sort the returned files. Use `asc` for ascending and `desc` for descending order."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field to sort by. Valid options: `created_at`, `filename`, `size`. Defaults to `created_at`."
+     },
+     "pagination_token": {
+      "type": "string",
+      "description": "The pagination token returned by the previous list files request."
+     },
+     "after": {
+      "type": "string",
+      "description": "Only included for compatibility. Use `pagination_token` instead."
+     },
+     "filter": {
+      "type": "string",
+      "description": "AIP-160 filter expression to narrow down results. **Filterable fields:** | Field | Type | Description | |-------|------|-------------| | `name` (or `file_name`) | string | Fuzzy match on filename | | `file_id` | string | Exact match on file ID | | `size_bytes` | integer | File size in bytes | | `content_type` | string | Partial match on MIME type (e.g. `\"pdf\"` matches `\"application/pdf\"`) | | `cre"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/files",
+    "path": [],
+    "query": [
+     "limit",
+     "order",
+     "sort_by",
+     "pagination_token",
+     "after",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_list_input_items",
+   "name": "List input items for a previously generated response",
+   "description": "Returns a paginated list of the input items that were part of the conversation context for the given response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "response_id": {
+      "type": "string",
+      "description": "The response id returned by a previous create response request."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to return (1-100, default 20)."
+     },
+     "order": {
+      "type": "string",
+      "description": "Sort order: asc or desc. Default asc.",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "after": {
+      "type": "string",
+      "description": "Cursor for pagination. Returns items after this item ID."
+     }
+    },
+    "required": [
+     "response_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/responses/{response_id}/input_items",
+    "path": [
+     "response_id"
+    ],
+    "query": [
+     "limit",
+     "order",
+     "after"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_list_skills_request",
+   "name": "Handle list skills request",
+   "description": "Lists skills.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of objects to be returned in a single response."
+     },
+     "after": {
+      "type": "string",
+      "description": "Identifier for the last item from the previous pagination request."
+     },
+     "order": {
+      "type": "string",
+      "description": "Sort order. Use `asc` for ascending and `desc` for descending order."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/skills",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "order"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "xai.handle_model_get_request",
+   "name": "Get information about a model with its model id, including pricing",
+   "description": "Get information about a model with its model_id, including pricing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model_id": {
+      "type": "string",
+      "description": "ID of the model to get."
+     }
+    },
+    "required": [
+     "model_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/models/{model_id}",
+    "path": [
+     "model_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_models_list_request",
+   "name": "List all models available to the authenticating api key, including model names (id), creation times, and pricing",
+   "description": "List all models available to the authenticating API key, including model names (ID), creation times, and pricing.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_retrieve_file_request",
+   "name": "Retrieve metadata for a single file by id  errors with 404 if the file\ndoesn't exist, has been deleted, or has passed its `expires at`",
+   "description": "Retrieve metadata for a single file by ID. Errors with 404 if the file doesn't exist, has been deleted, or has passed its `expires_at`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "The file's `id` returned by upload or list."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/files/{file_id}",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_retrieve_skill_request",
+   "name": "Handle retrieve skill request",
+   "description": "Fetches one skill.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "skill_id": {
+      "type": "string",
+      "description": "The skill ID."
+     }
+    },
+    "required": [
+     "skill_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/skills/{skill_id}",
+    "path": [
+     "skill_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "xai.handle_revoke_public_url_request",
+   "name": "Revoke the active public url for a file  the underlying file remains\navailable through the authenticated content endpoint  revoke is idempotent\n\u2014 calling it on a file without an active public url returns\n`revoked: false` without an error",
+   "description": "Revoke the active public URL for a file. The underlying file remains available through the authenticated content endpoint. Revoke is idempotent \u2014 calling it on a file without an active public URL returns `revoked: false` without an error.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "The file's `id`."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/files/{file_id}/public-url/revoke",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_sample_request",
+   "name": "(legacy   not supported by reasoning models) create a text completion response for a given prompt  replaced by  v1 chat completions",
+   "description": "(Legacy - Not supported by reasoning models) Create a text completion response for a given prompt. Replaced by /v1/chat/completions.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "best_of": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "(Unsupported) Generates multiple completions internally and returns the top-scoring one. Not functional yet."
+     },
+     "echo": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Option to include the original prompt in the response along with the generated completion."
+     },
+     "frequency_penalty": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "(Unsupported) Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim."
+     },
+     "logit_bias": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "(Unsupported) Accepts a JSON object that maps tokens to an associated bias value from -100 to 100. You can use this tokenizer tool to convert text to token IDs. Mathematically, the bias is added to the logits generated by the model prior to sampling. The exact effect will vary per model, but values between -1 and 1 should decrease or increase likelihood of selection; values like -100 or 100 should"
+     },
+     "logprobs": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Include the log probabilities on the `logprobs` most likely output tokens, as well the chosen tokens. For example, if `logprobs` is 5, the API will return a list of the 5 most likely tokens. The API will always return the logprob of the sampled token, so there may be up to `logprobs+1` elements in the response. Not supported by models `grok-4.20` and newer; the field will be silently ignored if se"
+     },
+     "max_tokens": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Limits the number of tokens that can be produced in the output. Ensure the sum of prompt tokens and `max_tokens` does not exceed the model's context limit."
+     },
+     "model": {
+      "type": "string",
+      "description": "Specifies the model to be used for the request."
+     },
+     "n": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Determines how many completion sequences to produce for each prompt. Be cautious with its use due to high token consumption; adjust `max_tokens` and stop sequences accordingly."
+     },
+     "presence_penalty": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "(Not supported by `grok-3` and reasoning models) Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics."
+     },
+     "prompt": {
+      "type": "string",
+      "description": ""
+     },
+     "seed": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "If specified, our system will make a best effort to sample deterministically, such that repeated requests with the same seed and parameters should return the same result. Determinism is not guaranteed, and you should refer to the system_fingerprint response parameter to monitor changes in the backend."
+     },
+     "stop": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "(Not supported by reasoning models) Up to 4 sequences where the API will stop generating further tokens."
+     },
+     "stream": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Whether to stream back partial progress. If set, tokens will be sent as data-only server-sent events as they become available, with the stream terminated by a `data: [DONE]` message."
+     },
+     "stream_options": {
+      "type": "string",
+      "description": ""
+     },
+     "suffix": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "(Unsupported) Optional string to append after the generated text."
+     },
+     "temperature": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or `top_p` but not both."
+     },
+     "top_p": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with `top_p` probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered. We generally recommend altering this or temperature but not both."
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "A unique identifier representing your end-user, which can help xAI to monitor and detect abuse."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/completions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "best_of",
+     "echo",
+     "frequency_penalty",
+     "logit_bias",
+     "logprobs",
+     "max_tokens",
+     "model",
+     "n",
+     "presence_penalty",
+     "prompt",
+     "seed",
+     "stop",
+     "stream",
+     "stream_options",
+     "suffix",
+     "temperature",
+     "top_p",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_tokenize_text_request",
+   "name": "Tokenize text with the specified model",
+   "description": "Tokenize text with the specified model",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model": {
+      "type": "string",
+      "description": "The model to tokenize with."
+     },
+     "text": {
+      "type": "string",
+      "description": "The text content to be tokenized."
+     },
+     "user": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Optional user identifier."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/tokenize-text",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "model",
+     "text",
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_upload_file_request",
+   "name": "Upload a file to x ai's storage  returns the file's metadata  files can\nbe referenced by id anywhere a `file id` is accepted (e g  chat\nattachments)  maximum file size: 50 mb  files are kept until you\ndelete them, or until `expires after` elapses if set at upload time",
+   "description": "Upload a file to xAI's storage. Returns the file's metadata. Files can be referenced by ID anywhere a `file_id` is accepted (e.g. chat attachments). Maximum file size: 50 MB. Files are kept until you delete them, or until `expires_after` elapses if set at upload time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "expires_after": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Optional TTL in seconds (measured from upload time). Must be between 3600 (1 hour) and 2592000 (30 days). If unset the file does not expire. Accepts either a plain integer or the OpenAI SDK deepObject form (`expires_after[anchor]=created_at` + `expires_after[seconds]=N`) as separate multipart fields. The anchor+seconds form must arrive before the `file` part."
+     },
+     "file": {
+      "type": "string",
+      "description": "The file to upload. The filename from the multipart `Content-Disposition: filename=` header is recorded as the file's `filename`."
+     },
+     "purpose": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Optional purpose label, accepted for OpenAI SDK compatibility. xAI does not enforce or interpret this field. Setting `\"assistants\"` is the conventional choice."
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/files",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "expires_after",
+     "file",
+     "purpose"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_upload_skill_request",
+   "name": "Handle upload skill request",
+   "description": "Creates a skill.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "files": {
+      "type": "array",
+      "description": "Skill zip file or one file from a directory upload. Clients may send this field once with a zip file, or repeatedly with directory files."
+     }
+    },
+    "required": [
+     "files"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.x.ai/v1/skills",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "files"
+    ],
+    "body_format": "json"
+   },
+   "described": "derived"
+  },
+  {
+   "slug": "xai.handle_video_generation_model_get_request",
+   "name": "Get full information about a video generation model with its model id",
+   "description": "Get full information about a video generation model with its model_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "model_id": {
+      "type": "string",
+      "description": "ID of the model to get."
+     }
+    },
+    "required": [
+     "model_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/video-generation-models/{model_id}",
+    "path": [
+     "model_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xai.handle_video_generation_models_list_request",
+   "name": "List all video generation models available to the authenticating api key with full information",
+   "description": "List all video generation models available to the authenticating API key with full information.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.x.ai/v1/video-generation-models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

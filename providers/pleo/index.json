@@ -1,0 +1,161 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "pleo",
+ "source": "https://developers.pleo.io/openapi.json",
+ "operations": [
+  {
+   "slug": "pleo.create_account_v4",
+   "name": "Create a new account",
+   "description": "The integration sends a request to this endpoint to create a corresponding account in Pleo for any new record created in the external ERP/accounting system. The request fails if any similar accounts with the same `externalId` and `companyId` already exists in Pleo.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{apiSubdomain}.pleo.io/v1-beta/accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "pleo.delete_account_v4",
+   "name": "Delete an account",
+   "description": "Deletes an existing account in Pleo. Only accounts not linked to any accounting entries can be deleted. Trying to delete an account linked to accounting entries will result in an error. If an account is linked, it can be archived instead. Use UPDATE endpoint to archive an account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "ID of the account to delete."
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{apiSubdomain}.pleo.io/v1-beta/accounts/{accountId}",
+    "path": [
+     "accountId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "pleo.get_account_v4",
+   "name": "Retrieves an account in pleo by its id",
+   "description": "Search for a specific account by its account ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "ID of the account to retrieve."
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{apiSubdomain}.pleo.io/v1-beta/accounts/{accountId}",
+    "path": [
+     "accountId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "pleo.search_accounts_v4",
+   "name": "Fetch a list of accounts",
+   "description": "Retrieves a list of accounts with optional filters for companyId, ids, name, code and archived status. Results are paginated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "before": {
+      "type": "string",
+      "description": "Lower bound of the page of data to return (cannot be used together with [after] or [offset])"
+     },
+     "after": {
+      "type": "string",
+      "description": "Upper bound of the page of data to return (cannot be used together with [before] or [offset])"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset of the page of data to return (cannot be used together with [before] or [after])"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum amount of items to return"
+     },
+     "sorting_keys": {
+      "type": "array",
+      "description": "The keys to sort the results by"
+     },
+     "sorting_order": {
+      "type": "array",
+      "description": "The order to sort the results by. Must be the same length as [sortingKeys]; one order per key"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{apiSubdomain}.pleo.io/v1-beta/accounts:search",
+    "path": [],
+    "query": [
+     "before",
+     "after",
+     "offset",
+     "limit",
+     "sorting_keys",
+     "sorting_order"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "pleo.update_account_v4",
+   "name": "Update an account",
+   "description": "Update details of an existing account in Pleo. The integration must send a request to this endpoint when it is trying to archive an account linked to accounting entries.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accountId": {
+      "type": "string",
+      "description": "ID of the account to update."
+     }
+    },
+    "required": [
+     "accountId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{apiSubdomain}.pleo.io/v1-beta/accounts/{accountId}",
+    "path": [
+     "accountId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

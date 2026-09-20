@@ -1,0 +1,2270 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "scrollstash-mcp",
+ "source": "https://api.scrollstash.com/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "scrollstash-mcp.ads_by_brand",
+   "name": "A brand's attributed ads (brand ad map), newest start first",
+   "description": "A brand's attributed ads (brand_ad_map), newest start first. Scope `ads:read`; cache `hourly`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "active",
+       "inactive"
+      ]
+     },
+     "format": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "video",
+       "image",
+       "carousel",
+       "dco",
+       "other"
+      ]
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/ads",
+    "path": [
+     "brandId"
+    ],
+    "query": [
+     "limit",
+     "cursor",
+     "status",
+     "format"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.ads_get",
+   "name": "One ad with its full copy, archived media and observation window",
+   "description": "One ad with its full copy, archived media and observation window. Scope `ads:read`; cache `hourly`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "adId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "adId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/ads/{adId}",
+    "path": [
+     "adId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.ads_search",
+   "name": "Search ads by copy, format, status and country  without `brand id` the scan is bounded to ads started in the last 90 days",
+   "description": "Search ads by copy, format, status and country. Without `brand_id` the scan is bounded to ads started in the last 90 days. Scope `ads:read`; cache `hourly`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_id": {
+      "type": "string",
+      "description": ""
+     },
+     "format": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "video",
+       "image",
+       "carousel",
+       "dco",
+       "other"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "active",
+       "inactive"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": ""
+     },
+     "started_after": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/ads",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "q",
+     "brand_id",
+     "format",
+     "status",
+     "country",
+     "started_after"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_create",
+   "name": "Create an alert rule on brands the workspace tracks: a trigger (new ads, confirmed stopped ads, page changes, new partners or activity coverage), a delivery cadence, and its channels (email to the creator, optional https webhook or slack incoming webhook)  the first webhook rule answers the workspace's webhook signing secret once",
+   "description": "Create an alert rule on brands the workspace tracks: a trigger (new ads, confirmed stopped ads, page changes, new partners or activity coverage), a delivery cadence, and its channels (email to the creator, optional https webhook or Slack incoming webhook). The first webhook rule answers the workspace's webhook signing secret once. Scope `alerts:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "event_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "new_ads",
+       "paused_ads",
+       "page_change",
+       "new_partner",
+       "coverage"
+      ]
+     },
+     "brand_ids": {
+      "type": "array",
+      "description": ""
+     },
+     "cadence": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "daily",
+       "weekly"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": ""
+     },
+     "email": {
+      "type": "boolean",
+      "description": ""
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": ""
+     },
+     "webhook_kind": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "generic",
+       "slack"
+      ]
+     }
+    },
+    "required": [
+     "brand_ids",
+     "event_type",
+     "name",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "event_type",
+     "brand_ids",
+     "cadence",
+     "enabled",
+     "email",
+     "webhook_url",
+     "webhook_kind"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_delete",
+   "name": "Delete an alert rule and its delivery history; answers removed:false when it did not exist",
+   "description": "Delete an alert rule and its delivery history; answers removed:false when it did not exist. Scope `alerts:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "alertId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "alertId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts/{alertId}",
+    "path": [
+     "ws",
+     "alertId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_deliveries",
+   "name": "The workspace's alert deliveries, newest first, optionally for one rule",
+   "description": "The workspace's alert deliveries, newest first, optionally for one rule. Scope `alerts:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "alert_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alert-deliveries",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "alert_id",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_list",
+   "name": "The workspace's alert rules, newest first",
+   "description": "The workspace's alert rules, newest first. Scope `alerts:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_rotate_webhook_secret",
+   "name": "Create or rotate the workspace's alert webhook signing secret and answer it once; it is never returned again and the previous secret stops signing immediately",
+   "description": "Create or rotate the workspace's alert webhook signing secret and answer it once; it is never returned again and the previous secret stops signing immediately. Scope `alerts:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts/webhook-secret",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_test",
+   "name": "Send a sample delivery for an alert rule on each of its channels now and answer what happened  webhooks are posted json signed with the workspace secret: header x scrollstash signature is v1=hex(hmac sha256(secret, `${x scrollstash timestamp} ${raw body}`))",
+   "description": "Send a sample delivery for an alert rule on each of its channels now and answer what happened. Webhooks are POSTed JSON signed with the workspace secret: header x-scrollstash-signature is v1=hex(HMAC-SHA256(secret, `${x-scrollstash-timestamp}.${raw body}`)). Scope `alerts:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "alertId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "alertId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts/{alertId}/test",
+    "path": [
+     "ws",
+     "alertId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.alerts_update",
+   "name": "Change an alert rule's name, trigger, brands, cadence, channels or whether it is enabled; webhook url null removes the webhook",
+   "description": "Change an alert rule's name, trigger, brands, cadence, channels or whether it is enabled; webhook_url null removes the webhook. Scope `alerts:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "alertId": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "event_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "new_ads",
+       "paused_ads",
+       "page_change",
+       "new_partner",
+       "coverage"
+      ]
+     },
+     "brand_ids": {
+      "type": "array",
+      "description": ""
+     },
+     "cadence": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "daily",
+       "weekly"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": ""
+     },
+     "email": {
+      "type": "boolean",
+      "description": ""
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": ""
+     },
+     "webhook_kind": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "generic",
+       "slack"
+      ]
+     }
+    },
+    "required": [
+     "alertId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/alerts/{alertId}",
+    "path": [
+     "ws",
+     "alertId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "event_type",
+     "brand_ids",
+     "cadence",
+     "enabled",
+     "email",
+     "webhook_url",
+     "webhook_kind"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.api_keys_create",
+   "name": "Create an api key for a workspace  the plaintext key is in this response only; scopes must be a subset of the caller's",
+   "description": "Create an API key for a workspace. The plaintext key is in this response only; scopes must be a subset of the caller's. Scope `apiKeys:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "scopes": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "name",
+     "scopes",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/api-keys",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "scopes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.api_keys_list",
+   "name": "The workspace's api keys, newest first, revoked ones included; never the key itself",
+   "description": "The workspace's API keys, newest first, revoked ones included; never the key itself. Scope `apiKeys:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/api-keys",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.api_keys_revoke",
+   "name": "Revoke a key  requests with it fail with 401 from the next request on",
+   "description": "Revoke a key. Requests with it fail with 401 from the next request on. Scope `apiKeys:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "keyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "keyId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/api-keys/{keyId}",
+    "path": [
+     "ws",
+     "keyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.api_keys_revoke_unused",
+   "name": "Revoke every active key not used in the given number of days (never used keys count from creation)",
+   "description": "Revoke every active key not used in the given number of days (never-used keys count from creation). Scope `apiKeys:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "unused_days": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/api-keys/revoke-unused",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "unused_days"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.api_keys_rotate",
+   "name": "Revoke a key and issue its replacement with the same name and scopes  the new plaintext is in this response only",
+   "description": "Revoke a key and issue its replacement with the same name and scopes. The new plaintext is in this response only. Scope `apiKeys:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "keyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "keyId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/api-keys/{keyId}/rotate",
+    "path": [
+     "ws",
+     "keyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.audience_segments",
+   "name": "Public brands whose similarweb audience falls in a segment, by monthly visits, with their demographics",
+   "description": "Public brands whose Similarweb audience falls in a segment, by monthly visits, with their demographics. Scope `audience:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "segment": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "gen-z",
+       "millennials",
+       "gen-x",
+       "female",
+       "male"
+      ]
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "segment"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/audience/{segment}",
+    "path": [
+     "segment"
+    ],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_breakdown",
+   "name": "Active ads by creative format for one brand",
+   "description": "Active ads by creative format for one brand. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/breakdown",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_demographics",
+   "name": "Similarweb audience gender and age shares for the brand's domain",
+   "description": "Similarweb audience gender and age shares for the brand's domain. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/demographics",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_get",
+   "name": "One brand (by id or slug) with its current ad statistics",
+   "description": "One brand (by id or slug) with its current ad statistics. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_list",
+   "name": "Public brands, filterable by category, country and name, sorted by activity",
+   "description": "Public brands, filterable by category, country and name, sorted by activity. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     },
+     "country": {
+      "type": "string",
+      "description": ""
+     },
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "letter": {
+      "type": "string",
+      "description": ""
+     },
+     "sort": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "active_ads",
+       "new_ads_7d",
+       "name"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id",
+     "country",
+     "q",
+     "letter",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_similar",
+   "name": "Sites similarweb rates as similar to this brand, by affinity, linked to tracked brands",
+   "description": "Sites Similarweb rates as similar to this brand, by affinity, linked to tracked brands. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/similar",
+    "path": [
+     "brandId"
+    ],
+    "query": [
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_sitemap",
+   "name": "Indexable brand pages for sitemap generation (slug, url, last update), optionally within a category at any level",
+   "description": "Indexable brand pages for sitemap generation (slug, url, last update), optionally within a category at any level. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/sitemap",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_tech_stack",
+   "name": "Platform tools detected on the brand's site, by tool category then name",
+   "description": "Platform tools detected on the brand's site, by tool category then name. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/tech-stack",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_track",
+   "name": "Track a brand in a workspace; the scraper hand off happens asynchronously",
+   "description": "Track a brand in a workspace; the scraper hand-off happens asynchronously. Scope `tracking:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_id": {
+      "type": "string",
+      "description": ""
+     },
+     "cadence": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "daily",
+       "weekly"
+      ]
+     }
+    },
+    "required": [
+     "brand_id",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/tracked-brands",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "brand_id",
+     "cadence"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_tracked",
+   "name": "The workspace's tracked brands, newest first, each with its current public summary",
+   "description": "The workspace's tracked brands, newest first, each with its current public summary. Scope `brands:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/tracked-brands",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_tracked_freshness",
+   "name": "Freshness slo status of the workspace's tracked brands, most overdue first: the last reliable scrape session, when the next is due, and whether the cadence's slo is breached",
+   "description": "Freshness SLO status of the workspace's tracked brands, most overdue first: the last reliable scrape session, when the next is due, and whether the cadence's SLO is breached. Scope `brands:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/tracked-brands/freshness",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_trajectory",
+   "name": "Similarweb global   category rank and monthly visits over time, oldest first",
+   "description": "Similarweb global / category rank and monthly visits over time, oldest first. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/trajectory",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_untrack",
+   "name": "Stop tracking a brand in a workspace; answers removed:false when it was not tracked",
+   "description": "Stop tracking a brand in a workspace; answers removed:false when it was not tracked. Scope `tracking:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/tracked-brands/{brandId}",
+    "path": [
+     "ws",
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.brands_velocity",
+   "name": "Weekly ad counts for one brand: every iso week with an observed day  active ads is the latest observed day's value; new ads and retired ads sum reliable days only (reliable days, 0\u20137, says how many) \u2014 shade weeks with reliable days 0",
+   "description": "Weekly ad counts for one brand: every ISO week with an observed day. active_ads is the latest observed day's value; new_ads and retired_ads sum reliable days only (reliable_days, 0\u20137, says how many) \u2014 shade weeks with reliable_days 0. Scope `brands:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "weeks": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/velocity",
+    "path": [
+     "brandId"
+    ],
+    "query": [
+     "weeks"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.briefs_feedback",
+   "name": "Record whether a brief was useful, already known or wrong; null clears it",
+   "description": "Record whether a brief was useful, already known or wrong; null clears it. Scope `briefs:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "briefId": {
+      "type": "string",
+      "description": ""
+     },
+     "feedback": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "briefId",
+     "feedback",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/briefs/{briefId}",
+    "path": [
+     "ws",
+     "briefId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "feedback"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.briefs_get",
+   "name": "One weekly brief: change counts per tracked brand for the period and up to ten notable radar items",
+   "description": "One weekly brief: change counts per tracked brand for the period and up to ten notable radar items. Scope `briefs:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "briefId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "briefId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/briefs/{briefId}",
+    "path": [
+     "ws",
+     "briefId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.briefs_list",
+   "name": "The workspace's weekly briefs, newest period first: each period's radar change counts across its tracked brands",
+   "description": "The workspace's weekly briefs, newest period first: each period's radar change counts across its tracked brands. Scope `briefs:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/briefs",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.categories_get",
+   "name": "One category (any level) with its parent and current totals",
+   "description": "One category (any level) with its parent and current totals. Scope `categories:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "categoryId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "categoryId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/categories/{categoryId}",
+    "path": [
+     "categoryId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.categories_list",
+   "name": "Top level categories, or the children of one parent; with `slug`, the categories of any level carrying that slug (the site resolves ` categories \u2026` paths with it)",
+   "description": "Top-level categories, or the children of one parent; with `slug`, the categories of any level carrying that slug (the site resolves `/categories/\u2026` paths with it). Scope `categories:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "parent_id": {
+      "type": "string",
+      "description": ""
+     },
+     "slug": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/categories",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "parent_id",
+     "slug"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.categories_sitemap",
+   "name": "Public category pages (every level) for sitemap generation",
+   "description": "Public category pages (every level) for sitemap generation. Scope `categories:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/categories/sitemap",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.categories_stats",
+   "name": "Aggregates for one category: brands, landing urls, similarweb visits, top page types and top tools",
+   "description": "Aggregates for one category: brands, landing URLs, Similarweb visits, top page types and top tools. Scope `categories:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "categoryId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "categoryId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/categories/{categoryId}/stats",
+    "path": [
+     "categoryId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.creatives_for_ad",
+   "name": "Every archived creative asset of one ad",
+   "description": "Every archived creative asset of one ad. Scope `creatives:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "adId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "adId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/ads/{adId}/creatives",
+    "path": [
+     "adId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.creatives_get",
+   "name": "One archived creative asset",
+   "description": "One archived creative asset. Scope `creatives:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "creativeId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "creativeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/creatives/{creativeId}",
+    "path": [
+     "creativeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.creatives_list",
+   "name": "Archived creative assets for an ad, or for a brand's attributed ads",
+   "description": "Archived creative assets for an ad, or for a brand's attributed ads. Scope `creatives:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "ad_id": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/creatives",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "ad_id",
+     "brand_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.me_get",
+   "name": "The caller's workspace, role, plan and granted scopes",
+   "description": "The caller's workspace, role, plan and granted scopes. Scope `me:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.operators_family",
+   "name": "The operators that own this brand's domain, each with its other public brands",
+   "description": "The operators that own this brand's domain, each with its other public brands. Scope `operators:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/brands/{brandId}/operators",
+    "path": [
+     "brandId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.operators_get",
+   "name": "One operator with the public brands it owns",
+   "description": "One operator with the public brands it owns. Scope `operators:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "operatorId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "operatorId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/operators/{operatorId}",
+    "path": [
+     "operatorId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.operators_hubs",
+   "name": "Facebook pages running paid ads for two or more brands \u2014 affiliate hubs, commerce publishers, creator pages \u2014 with each brand roster and live creative counts, biggest roster first",
+   "description": "Facebook pages running paid ads for two or more brands \u2014 affiliate hubs, commerce publishers, creator pages \u2014 with each brand roster and live creative counts, biggest roster first. Scope `operators:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/hubs",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.operators_list",
+   "name": "Operators: companies owning several domains or pages",
+   "description": "Operators: companies owning several domains or pages. Scope `operators:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "q": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/operators",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "q"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.pages_get",
+   "name": "One landing page with its scraped metadata and classification",
+   "description": "One landing page with its scraped metadata and classification. Scope `pages:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pageId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "pageId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/pages/{pageId}",
+    "path": [
+     "pageId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.pages_list",
+   "name": "Landing pages of public us ecommerce brands on hosts they own \u2014 newest first, or most seen first with `sort=popular`; filter by page type, category or a url substring  with `brand id` or `category id`, every live page of that public brand, or of the brands in that category at any level \u2014 any country",
+   "description": "Landing pages of public US ecommerce brands on hosts they own \u2014 newest first, or most-seen first with `sort=popular`; filter by page type, category or a URL substring. With `brand_id` or `category_id`, every live page of that public brand, or of the brands in that category at any level \u2014 any country. Scope `pages:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_id": {
+      "type": "string",
+      "description": ""
+     },
+     "page_type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "product_page",
+       "collection_page",
+       "landing_page",
+       "homepage",
+       "special_offer_page",
+       "category_page",
+       "service_listing_page",
+       "listicle_page",
+       "blog_post",
+       "app_download_page",
+       "lead_generation_page",
+       "advertorial_page"
+      ]
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     },
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "sort": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "newest",
+       "popular"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/pages",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "brand_id",
+     "page_type",
+     "category_id",
+     "q",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.radar_feed",
+   "name": "Observed ad changes across the workspace's tracked brands in the last `days` days, newest first: ads started, ads the scraper confirmed inactive, and ads whose destination link changed",
+   "description": "Observed ad changes across the workspace's tracked brands in the last `days` days, newest first: ads started, ads the scraper confirmed inactive, and ads whose destination link changed. Scope `tracking:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "days": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/radar",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "days",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.radar_signals",
+   "name": "Grouped radar signals for the workspace's tracked brands in the last `days` days, newest first: ads started, confirmed stops and link changes per brand and day, plus activity changes (active ad ramps and drops, launch bursts, sales, new landing pages, new linked pages, new whitelisting pairs, format mix shifts, long running ads refreshed)  each carries evidence links",
+   "description": "Grouped radar signals for the workspace's tracked brands in the last `days` days, newest first: ads started, confirmed stops and link changes per brand and day, plus activity changes (active-ad ramps and drops, launch bursts, sales, new landing pages, new linked pages, new whitelisting pairs, format-mix shifts, long-running ads refreshed). Each carries evidence links. Scope `tracking:read`; cache ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "days": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/radar/signals",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "days",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.rankings_list",
+   "name": "Brand leaderboard for the brands whose top traffic country is `country`, filterable by category",
+   "description": "Brand leaderboard for the brands whose top traffic country is `country`, filterable by category. Scope `rankings:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     },
+     "country": {
+      "type": "string",
+      "description": ""
+     },
+     "sort": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "global_ranking",
+       "new_ads_7d",
+       "active_ads"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/rankings",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id",
+     "country",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.rankings_new_advertisers",
+   "name": "Brands tracked before the window whose first attributed ad (meta's start date) started in the last `days` days, most active first  read model rewritten nightly",
+   "description": "Brands tracked before the window whose first attributed ad (Meta's start date) started in the last `days` days, most active first. Read model rewritten nightly. Scope `rankings:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     },
+     "days": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/rankings/new-advertisers",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id",
+     "days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.rankings_risers",
+   "name": "Brands whose active ads grew most between a reliable day in the last week and one 7\u201328 days earlier",
+   "description": "Brands whose active ads grew most between a reliable day in the last week and one 7\u201328 days earlier. Scope `rankings:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/rankings/risers",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.reports_create",
+   "name": "Queue a csv export of the radar (ads started, ads stopped, link changes) for tracked brands over up to 31 days  returns the queued report at once; an `idempotency key` reused in the workspace returns the report it created",
+   "description": "Queue a CSV export of the radar (ads started, ads stopped, link changes) for tracked brands over up to 31 days. Returns the queued report at once; an `idempotency_key` reused in the workspace returns the report it created. Scope `reports:write`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "kind": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "radar_csv"
+      ]
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "brand_ids": {
+      "type": "array",
+      "description": ""
+     },
+     "from": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "string",
+      "description": ""
+     },
+     "idempotency_key": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brand_ids",
+     "from",
+     "to",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/reports",
+    "path": [
+     "ws"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "kind",
+     "title",
+     "brand_ids",
+     "from",
+     "to",
+     "idempotency_key"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.reports_get",
+   "name": "One report with its status; `download url` is set once it is ready",
+   "description": "One report with its status; `download_url` is set once it is ready. Scope `reports:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "reportId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "reportId",
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/reports/{reportId}",
+    "path": [
+     "ws",
+     "reportId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.reports_list",
+   "name": "The workspace's reports, newest first, each with its status and download url once ready",
+   "description": "The workspace's reports, newest first, each with its status and download URL once ready. Scope `reports:read`; cache `none`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ws": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ws"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/workspaces/{ws}/reports",
+    "path": [
+     "ws"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.system_freshness",
+   "name": "Corpus size, last scrape time and per category coverage",
+   "description": "Corpus size, last scrape time and per-category coverage. Scope `system:read`; cache `hourly`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/system/freshness",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.tools_brands",
+   "name": "Public brands using a tool, by similarweb monthly visits; `country` keeps the brands whose top traffic country it is",
+   "description": "Public brands using a tool, by Similarweb monthly visits; `country` keeps the brands whose top traffic country it is. Scope `tools:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "toolSlug": {
+      "type": "string",
+      "description": ""
+     },
+     "category_id": {
+      "type": "string",
+      "description": ""
+     },
+     "country": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "toolSlug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/tools/{toolSlug}/brands",
+    "path": [
+     "toolSlug"
+    ],
+    "query": [
+     "limit",
+     "cursor",
+     "category_id",
+     "country"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.tools_get",
+   "name": "One tool (by slug or uuid) with adoption by category, common combinations and a traffic split",
+   "description": "One tool (by slug or uuid) with adoption by category, common combinations and a traffic split. Scope `tools:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "toolSlug": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "toolSlug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/tools/{toolSlug}",
+    "path": [
+     "toolSlug"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "scrollstash-mcp.tools_list",
+   "name": "Platform tools detected on public brands' sites, most adopted first",
+   "description": "Platform tools detected on public brands' sites, most adopted first. Scope `tools:read`; cache `daily`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.scrollstash.com/v1/tools",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

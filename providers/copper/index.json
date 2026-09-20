@@ -1,0 +1,1744 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "copper",
+ "source": "https://developer.copper.com/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "copper.get_company_activities",
+   "name": "Get company activities",
+   "description": "Retrieve all activities associated with a specific company",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Company ID"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/companies/{id}/activities",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_lead_activities",
+   "name": "Get lead activities",
+   "description": "Retrieve all activities associated with a specific lead",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Lead ID"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/leads/{id}/activities",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_opportunity",
+   "name": "Get opportunity by id",
+   "description": "Retrieve a specific opportunity by their ID. This endpoint is eligible to return computed custom field values.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Opportunity ID"
+     },
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/opportunities/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_opportunity_activities",
+   "name": "Get opportunity activities",
+   "description": "Retrieve all activities associated with a specific opportunity",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Opportunity ID"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/opportunities/{id}/activities",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_person_activities",
+   "name": "Get person activities",
+   "description": "Retrieve all activities associated with a specific person",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Person ID"
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/people/{id}/activities",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_person_by_email",
+   "name": "Fetch a person by email",
+   "description": "Email address is a unique key for People records in Copper. You can fetch a Person by its email address using this operation. This endpoint is eligible to return computed custom field values.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address to search for"
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/people/fetch_by_email",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_related_items",
+   "name": "View all records related to an entity",
+   "description": "Retrieve all related items for a specific entity. All relationships are bidirectional. Supported relationships include connections between Leads, People, Companies, Opportunities, Projects and Tasks. See docs for details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "entity_type": {
+      "type": "string",
+      "description": "Type of the source entity",
+      "enum": [
+       "leads",
+       "people",
+       "companies",
+       "opportunities",
+       "projects",
+       "tasks"
+      ]
+     },
+     "entity_id": {
+      "type": "integer",
+      "description": "ID of the source entity"
+     }
+    },
+    "required": [
+     "entity_id",
+     "entity_type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/{entity_type}/{entity_id}/related",
+    "path": [
+     "entity_type",
+     "entity_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_related_items_by_type",
+   "name": "View all records of a given entity type related to an entity",
+   "description": "Retrieve all related items of a specific type for a given entity. For example, get all opportunities related to a person, or all tasks related to a company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "entity_type": {
+      "type": "string",
+      "description": "Type of the source entity",
+      "enum": [
+       "leads",
+       "people",
+       "companies",
+       "opportunities",
+       "projects",
+       "tasks"
+      ]
+     },
+     "entity_id": {
+      "type": "integer",
+      "description": "ID of the source entity"
+     },
+     "related_entity_type": {
+      "type": "string",
+      "description": "Type of related entities to retrieve",
+      "enum": [
+       "leads",
+       "people",
+       "companies",
+       "opportunities",
+       "projects",
+       "tasks"
+      ]
+     }
+    },
+    "required": [
+     "entity_id",
+     "entity_type",
+     "related_entity_type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/{entity_type}/{entity_id}/related/{related_entity_type}",
+    "path": [
+     "entity_type",
+     "entity_id",
+     "related_entity_type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.get_user",
+   "name": "Get user by id",
+   "description": "Retrieve a specific user by their ID. Special ID 'me' can be passed in to obtain the current API user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "User ID or 'me' for the current API user"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_activity_types",
+   "name": "List activity types",
+   "description": "Retrieve a list of all available activity types in Copper",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/activity_types",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_contact_types",
+   "name": "List contact types",
+   "description": "Retrieve a list of all contact types in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/contact_types",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_custom_activity_types",
+   "name": "List all custom activity types",
+   "description": "Retrieve a list of all custom activity types in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/custom_activity_types",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_custom_field_definitions",
+   "name": "List custom field definitions",
+   "description": "Retrieve a list of all custom field definitions in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/custom_field_definitions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_customer_sources",
+   "name": "List customer sources",
+   "description": "Retrieve a list of all customer sources in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/customer_sources",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_field_layout_by_entity_type",
+   "name": "List field layout by entity type",
+   "description": "Retrieve the field layout for a given entity type. A field layout is an array of field objects, defining which fields apply to an entity type, and their display order. Layouts are configured in Copper under Settings > Manage Fields On Records. For 'opportunities', you MUST specify a pipeline_id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "entity_type": {
+      "type": "string",
+      "description": "The entity type to retrieve the field layout for",
+      "enum": [
+       "leads",
+       "people",
+       "companies",
+       "opportunities",
+       "projects",
+       "tasks"
+      ]
+     },
+     "pipeline_id": {
+      "type": "integer",
+      "description": "Pipeline ID. Required when entity_type is 'opportunities'."
+     }
+    },
+    "required": [
+     "entity_type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/field_layouts/by_entity/{entity_type}",
+    "path": [
+     "entity_type"
+    ],
+    "query": [
+     "pipeline_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_lead_statuses",
+   "name": "List lead statuses",
+   "description": "Retrieve a list of all lead statuses in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/lead_statuses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_loss_reasons",
+   "name": "List loss reasons",
+   "description": "Retrieve a list of all loss reasons in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/loss_reasons",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_pipeline_stages",
+   "name": "List all pipeline stages",
+   "description": "Retrieve a list of all pipeline stages across all pipelines in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/pipeline_stages",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_pipelines",
+   "name": "List pipelines",
+   "description": "Retrieve a list of all pipelines in the account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/pipelines",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_tags",
+   "name": "List all tags",
+   "description": "Retrieve a list of all tags and their entity usage counts. When tag_names_only=true, returns an array of strings instead of tag objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sort_by": {
+      "type": "string",
+      "description": "Can sort by the tag name or count (the total number of times it is used). Only applicable when tag_names_only=false, otherwise it is auto-sorted by name.",
+      "enum": [
+       "name",
+       "count"
+      ]
+     },
+     "tag_names_only": {
+      "type": "boolean",
+      "description": "When true, only a list of tag names is provided with no entity usage counts (returns array of strings). When false or omitted, returns full tag objects with counts."
+     },
+     "last_tag_value": {
+      "type": "string",
+      "description": "Requires tag_names_only=true. Allows you to provide a tag value to get all the tags that occur after it in the alphabetically-sorted list. The max page size is 10000 so you can use this to paginate through large tag lists."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.copper.com/developer_api/v1/tags",
+    "path": [],
+    "query": [
+     "sort_by",
+     "tag_names_only",
+     "last_tag_value"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.list_users",
+   "name": "List users",
+   "description": "Retrieve all users. Response returns a pagination envelope (`page_number`, `total`, `data`) so ChatGPT can read pagination info; the X-PW-TOTAL header remains available. Continue paging with page_number/page_size until the received records match the total value.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/users/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_activities",
+   "name": "Search activities",
+   "description": "Search activities (use min/max_activity_date for ranges). Response uses pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limit to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "parent": {
+      "type": "object",
+      "description": "Filter activities by parent resource"
+     },
+     "activity_types": {
+      "type": "array",
+      "description": "An array of activity type objects to filter by"
+     },
+     "user_ids": {
+      "type": "array",
+      "description": "An array of user IDs to filter by"
+     },
+     "minimum_activity_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum activity date to filter by"
+     },
+     "maximum_activity_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum activity date to filter by"
+     },
+     "full_result": {
+      "type": "boolean",
+      "description": "When true, returns all activities matching the criteria (pagination still applies)"
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results"
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/activities/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "parent",
+     "activity_types",
+     "user_ids",
+     "minimum_activity_date",
+     "maximum_activity_date",
+     "full_result",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_companies",
+   "name": "Search companies",
+   "description": "Search companies. Response uses a pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limited to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     },
+     "ids": {
+      "type": "array",
+      "description": "An array of Company IDs to retrieve"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by company name. Use simple string for exact match (case-insensitive), or use object format with special_value for partial matching capability."
+     },
+     "email_domain": {
+      "type": "string",
+      "description": "Filter by email domain (unique key for companies)"
+     },
+     "email_domains": {
+      "type": "array",
+      "description": "An array of email domains to filter by"
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Filter by phone number"
+     },
+     "city": {
+      "type": "string",
+      "description": "Filter by city in address"
+     },
+     "state": {
+      "type": "string",
+      "description": "Filter by state in address"
+     },
+     "postal_code": {
+      "type": "string",
+      "description": "Filter by postal code in address"
+     },
+     "country": {
+      "type": "string",
+      "description": "Filter by country in address (two-character country code)"
+     },
+     "primary_contact_ids": {
+      "type": "array",
+      "description": "An array of person IDs who are the primary contacts for these companies."
+     },
+     "tags": {
+      "type": "array",
+      "description": "An array of tags to filter by"
+     },
+     "assignee_ids": {
+      "type": "array",
+      "description": "An array of assignee IDs to filter by (the user IDs who own these companies). Use -2 for no assignee."
+     },
+     "contact_type_ids": {
+      "type": "array",
+      "description": "An array of contact type IDs to filter by. See List Contact Types."
+     },
+     "socials": {
+      "type": "array",
+      "description": "An array of social profile URLs to filter by"
+     },
+     "followed": {
+      "type": "integer",
+      "description": "Filter by followed status. Use 1 for followed companies, 2 for not followed.",
+      "enum": [
+       1,
+       2
+      ]
+     },
+     "age": {
+      "type": "integer",
+      "description": "Maximum age in seconds of the company record"
+     },
+     "minimum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by minimum number of interactions"
+     },
+     "maximum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by maximum number of interactions"
+     },
+     "minimum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the earliest date of the last interaction"
+     },
+     "maximum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the latest date of the last interaction"
+     },
+     "minimum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum creation date"
+     },
+     "maximum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum creation date"
+     },
+     "minimum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum modification date"
+     },
+     "maximum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum modification date"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "An array of custom field filters to search by. For date fields, use minimum_value and maximum_value. For multi-select fields, you can use allow_empty to include records where the field is empty."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results",
+      "enum": [
+       "name",
+       "phone",
+       "contact",
+       "contact_first_name",
+       "contact_last_name",
+       "date_modified",
+       "date_created",
+       "email_domain",
+       "city",
+       "state",
+       "country",
+       "zip"
+      ]
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specify which fields to include in the response to reduce payload size. Include system field names as strings (e.g., 'name', 'email_domain', 'phone_numbers'). To include specific custom fields, add an object with custom_fields array. If omitted, all fields are returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/companies/search",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "ids",
+     "name",
+     "email_domain",
+     "email_domains",
+     "phone_number",
+     "city",
+     "state",
+     "postal_code",
+     "country",
+     "primary_contact_ids",
+     "tags",
+     "assignee_ids",
+     "contact_type_ids",
+     "socials",
+     "followed",
+     "age",
+     "minimum_interaction_count",
+     "maximum_interaction_count",
+     "minimum_interaction_date",
+     "maximum_interaction_date",
+     "minimum_created_date",
+     "maximum_created_date",
+     "minimum_modified_date",
+     "maximum_modified_date",
+     "custom_fields",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_leads",
+   "name": "Search leads",
+   "description": "Search leads. Response uses a pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limited to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     },
+     "ids": {
+      "type": "array",
+      "description": "An array of Lead IDs to retrieve"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by lead's full name (first and last name)"
+     },
+     "first_name": {
+      "type": "string",
+      "description": "Filter by lead's first name"
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Filter by lead's last name"
+     },
+     "middle_name": {
+      "type": "string",
+      "description": "Filter by lead's middle name"
+     },
+     "emails": {
+      "type": "string",
+      "description": "Filter by email address"
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Filter by phone number"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Filter by the name of the company the lead belongs to"
+     },
+     "title": {
+      "type": "string",
+      "description": "Filter by professional title"
+     },
+     "city": {
+      "type": "string",
+      "description": "Filter by city in address"
+     },
+     "state": {
+      "type": "string",
+      "description": "Filter by state in address"
+     },
+     "postal_code": {
+      "type": "string",
+      "description": "Filter by postal code in address"
+     },
+     "country": {
+      "type": "string",
+      "description": "Filter by country in address (two-character country code)"
+     },
+     "tags": {
+      "type": "array",
+      "description": "An array of tags to filter by"
+     },
+     "assignee_ids": {
+      "type": "array",
+      "description": "An array of assignee IDs to filter by (the user IDs who own these leads). To get User IDs, see List Users. Use -2 for no assignee."
+     },
+     "status_ids": {
+      "type": "array",
+      "description": "An array of status IDs to filter by. To get lead status IDs, see List Lead Statuses."
+     },
+     "customer_source_ids": {
+      "type": "array",
+      "description": "An array of customer source IDs to filter by. To get customer source IDs, see List Customer Sources. Use -2 for no customer source."
+     },
+     "socials": {
+      "type": "array",
+      "description": "An array of social profile URLs to filter by"
+     },
+     "followed": {
+      "type": "integer",
+      "description": "Filter by followed status. Use 1 for followed leads, 2 for not followed.",
+      "enum": [
+       1,
+       2
+      ]
+     },
+     "age": {
+      "type": "integer",
+      "description": "Maximum age in seconds of the lead"
+     },
+     "minimum_monetary_value": {
+      "type": "number",
+      "description": "Filter by minimum monetary value"
+     },
+     "maximum_monetary_value": {
+      "type": "number",
+      "description": "Filter by maximum monetary value"
+     },
+     "minimum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by minimum number of interactions the lead has had"
+     },
+     "maximum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by maximum number of interactions the lead has had"
+     },
+     "minimum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the earliest date of the last interaction"
+     },
+     "maximum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the latest date of the last interaction"
+     },
+     "minimum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum creation date"
+     },
+     "maximum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum creation date"
+     },
+     "minimum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum modification date"
+     },
+     "maximum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum modification date"
+     },
+     "include_converted_leads": {
+      "type": "boolean",
+      "description": "When true, includes converted leads in the response"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "An array of custom field filters to search by. For multi-select fields, you can optionally include an 'option' property set to 'ANY' to match any of the specified values."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results. Note: date_modified and date_created sort from oldest to newest; inactive_days sorts from newest to oldest.",
+      "enum": [
+       "name",
+       "company_name",
+       "title",
+       "value",
+       "email",
+       "phone",
+       "date_modified",
+       "date_created",
+       "city",
+       "state",
+       "country",
+       "zip"
+      ]
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specify which fields to include in the response to reduce payload size. Include system field names as strings (e.g., 'name', 'status', 'email'). To include specific custom fields, add an object with custom_fields array. If omitted, all fields are returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/leads/search",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "ids",
+     "name",
+     "first_name",
+     "last_name",
+     "middle_name",
+     "emails",
+     "phone_number",
+     "company_name",
+     "title",
+     "city",
+     "state",
+     "postal_code",
+     "country",
+     "tags",
+     "assignee_ids",
+     "status_ids",
+     "customer_source_ids",
+     "socials",
+     "followed",
+     "age",
+     "minimum_monetary_value",
+     "maximum_monetary_value",
+     "minimum_interaction_count",
+     "maximum_interaction_count",
+     "minimum_interaction_date",
+     "maximum_interaction_date",
+     "minimum_created_date",
+     "maximum_created_date",
+     "minimum_modified_date",
+     "maximum_modified_date",
+     "include_converted_leads",
+     "custom_fields",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_opportunities",
+   "name": "Search opportunities",
+   "description": "Search opportunities. Response uses a pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limited to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs. WARNING: This significantly increases payload size. For ChatGPT/Copper GPT, only set this to true when the user explicitly asks for custom field labels, and then reduce page_size (<= 10) and fields to ONLY what is absolutely required."
+     },
+     "ids": {
+      "type": "array",
+      "description": "An array of Opportunity IDs to retrieve"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by opportunity name. Use simple string for exact match (case-insensitive), or use object format with special_value for partial matching capability."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Filter by the name of the primary company associated with the opportunity"
+     },
+     "company_ids": {
+      "type": "array",
+      "description": "An array of company IDs to filter by (the companies these opportunities are associated with). Use -2 for no company."
+     },
+     "primary_contact_ids": {
+      "type": "array",
+      "description": "An array of person IDs who are the primary contacts for these opportunities"
+     },
+     "close_date": {
+      "type": "integer",
+      "description": "Filter by expected close date (Unix timestamp)"
+     },
+     "minimum_close_date": {
+      "type": "integer",
+      "description": "Filter by minimum close date (Unix timestamp)"
+     },
+     "maximum_close_date": {
+      "type": "integer",
+      "description": "Filter by maximum close date (Unix timestamp)"
+     },
+     "minimum_monetary_value": {
+      "type": "number",
+      "description": "Filter by minimum monetary value"
+     },
+     "maximum_monetary_value": {
+      "type": "number",
+      "description": "Filter by maximum monetary value"
+     },
+     "minimum_win_probability": {
+      "type": "integer",
+      "description": "Filter by minimum win probability (0-100)"
+     },
+     "maximum_win_probability": {
+      "type": "integer",
+      "description": "Filter by maximum win probability (0-100)"
+     },
+     "tags": {
+      "type": "array",
+      "description": "An array of tags to filter by"
+     },
+     "assignee_ids": {
+      "type": "array",
+      "description": "An array of assignee IDs to filter by (the user IDs who own these opportunities). Use -2 for no assignee."
+     },
+     "pipeline_ids": {
+      "type": "array",
+      "description": "An array of pipeline IDs to filter by"
+     },
+     "pipeline_stage_ids": {
+      "type": "array",
+      "description": "An array of pipeline stage IDs to filter by"
+     },
+     "statuses": {
+      "type": "array",
+      "description": "An array of statuses to filter by"
+     },
+     "priorities": {
+      "type": "array",
+      "description": "An array of priorities to filter by"
+     },
+     "loss_reason_ids": {
+      "type": "array",
+      "description": "An array of loss reason IDs to filter by (for Lost opportunities)"
+     },
+     "customer_source_ids": {
+      "type": "array",
+      "description": "An array of customer source IDs to filter by"
+     },
+     "followed": {
+      "type": "integer",
+      "description": "Filter by followed status. Use 1 for followed opportunities, 2 for not followed.",
+      "enum": [
+       1,
+       2
+      ]
+     },
+     "age": {
+      "type": "integer",
+      "description": "Maximum age in seconds of the opportunity record"
+     },
+     "minimum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by minimum number of interactions"
+     },
+     "maximum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by maximum number of interactions"
+     },
+     "minimum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the earliest date of the last interaction"
+     },
+     "maximum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the latest date of the last interaction"
+     },
+     "minimum_date_stage_changed": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum date when the pipeline stage was changed"
+     },
+     "maximum_date_stage_changed": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum date when the pipeline stage was changed"
+     },
+     "minimum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum creation date"
+     },
+     "maximum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum creation date"
+     },
+     "minimum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum modification date"
+     },
+     "maximum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum modification date"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "An array of custom field filters to search by. For date fields, use minimum_value and maximum_value. For multi-select fields, you can use allow_empty to include records where the field is empty, or use option: 'ANY' to match any of the specified values."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results. Possible values: assignee, company_name, customer_source_id, date_created, date_modified, inactive_days, interaction_count, last_interaction, monetary_unit, monetary_value, name, primary_contact, priority, stage, status",
+      "enum": [
+       "assignee",
+       "company_name",
+       "customer_source_id",
+       "date_created",
+       "date_modified",
+       "inactive_days",
+       "interaction_count",
+       "last_interaction",
+       "monetary_unit",
+       "monetary_value",
+       "name",
+       "primary_contact"
+      ]
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specify which fields to include in the response to reduce payload size. For ChatGPT/Copper GPT, ALWAYS limit to the minimal set of fields needed for the current question. Default minimal set for deal analytics is: 'id', 'name', 'company_id', 'pipeline_id', 'pipeline_stage_id', 'monetary_value', 'close_date', 'assignee_id', 'status'. DO NOT request 'details', 'custom_fields', or 'custom_field_compu"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/opportunities/search",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "ids",
+     "name",
+     "company_name",
+     "company_ids",
+     "primary_contact_ids",
+     "close_date",
+     "minimum_close_date",
+     "maximum_close_date",
+     "minimum_monetary_value",
+     "maximum_monetary_value",
+     "minimum_win_probability",
+     "maximum_win_probability",
+     "tags",
+     "assignee_ids",
+     "pipeline_ids",
+     "pipeline_stage_ids",
+     "statuses",
+     "priorities",
+     "loss_reason_ids",
+     "customer_source_ids",
+     "followed",
+     "age",
+     "minimum_interaction_count",
+     "maximum_interaction_count",
+     "minimum_interaction_date",
+     "maximum_interaction_date",
+     "minimum_date_stage_changed",
+     "maximum_date_stage_changed",
+     "minimum_created_date",
+     "maximum_created_date",
+     "minimum_modified_date",
+     "maximum_modified_date",
+     "custom_fields",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_people",
+   "name": "Search people",
+   "description": "Search people. Response uses a pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limited to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     },
+     "ids": {
+      "type": "array",
+      "description": "An array of Person IDs to retrieve"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by person's full name (first and last name). Use simple string for exact match (case-insensitive), or use object format with special_value for partial matching capability."
+     },
+     "emails": {
+      "type": "array",
+      "description": "An array of email addresses to filter by"
+     },
+     "phone_numbers": {
+      "type": "array",
+      "description": "An array of phone numbers to filter by"
+     },
+     "title": {
+      "type": "string",
+      "description": "Filter by professional title"
+     },
+     "city": {
+      "type": "string",
+      "description": "Filter by city in address"
+     },
+     "state": {
+      "type": "string",
+      "description": "Filter by state in address"
+     },
+     "postal_code": {
+      "type": "string",
+      "description": "Filter by postal code in address"
+     },
+     "country": {
+      "type": "string",
+      "description": "Filter by country in address (two-character country code)"
+     },
+     "tags": {
+      "type": "array",
+      "description": "An array of tags to filter by"
+     },
+     "assignee_ids": {
+      "type": "array",
+      "description": "An array of assignee IDs to filter by (the user IDs who own these people). Use -2 for no assignee."
+     },
+     "contact_type_ids": {
+      "type": "array",
+      "description": "An array of contact type IDs to filter by. See List Contact Types."
+     },
+     "company_ids": {
+      "type": "array",
+      "description": "An array of company IDs to filter by (the companies these people are associated with)."
+     },
+     "opportunity_ids": {
+      "type": "array",
+      "description": "An array of opportunity IDs to filter by (people associated with these opportunities)"
+     },
+     "socials": {
+      "type": "array",
+      "description": "An array of social profile URLs to filter by"
+     },
+     "followed": {
+      "type": "integer",
+      "description": "Filter by followed status. Use 1 for followed people, 2 for not followed.",
+      "enum": [
+       1,
+       2
+      ]
+     },
+     "age": {
+      "type": "integer",
+      "description": "Maximum age in seconds of the person record"
+     },
+     "minimum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by minimum number of interactions"
+     },
+     "maximum_interaction_count": {
+      "type": "integer",
+      "description": "Filter by maximum number of interactions"
+     },
+     "minimum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the earliest date of the last interaction"
+     },
+     "maximum_interaction_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the latest date of the last interaction"
+     },
+     "minimum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum creation date"
+     },
+     "maximum_created_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum creation date"
+     },
+     "minimum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum modification date"
+     },
+     "maximum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum modification date"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "An array of custom field filters to search by. For date fields, use minimum_value and maximum_value. For multi-select fields, you can use allow_empty to include records where the field is empty."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results",
+      "enum": [
+       "name",
+       "title",
+       "email",
+       "phone",
+       "date_modified",
+       "date_created",
+       "city",
+       "state",
+       "country",
+       "zip",
+       "socials"
+      ]
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specify which fields to include in the response to reduce payload size. Include system field names as strings (e.g., 'name', 'title', 'emails'). To include specific custom fields, add an object with custom_fields array. If omitted, all fields are returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/people/search",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "ids",
+     "name",
+     "emails",
+     "phone_numbers",
+     "title",
+     "city",
+     "state",
+     "postal_code",
+     "country",
+     "tags",
+     "assignee_ids",
+     "contact_type_ids",
+     "company_ids",
+     "opportunity_ids",
+     "socials",
+     "followed",
+     "age",
+     "minimum_interaction_count",
+     "maximum_interaction_count",
+     "minimum_interaction_date",
+     "maximum_interaction_date",
+     "minimum_created_date",
+     "maximum_created_date",
+     "minimum_modified_date",
+     "maximum_modified_date",
+     "custom_fields",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "copper.search_tasks",
+   "name": "Search tasks",
+   "description": "Search tasks. Response uses a pagination envelope (`page_number`,`total`,`data`) so ChatGPT can read pagination info; the X-PW-TOTAL header still exists. Paginate with page_number/page_size (max 200) until received records equal total. Limited to 100K results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_field_computed_values": {
+      "type": "boolean",
+      "description": "When true, returns computed custom field values (human-readable labels) in addition to option IDs for Dropdown and Multi-select fields. The response will include a 'computed_value' field alongside the 'value' field in custom_fields array."
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by task name. Use simple string for exact match (case-insensitive), or use object format with special_value for partial matching capability."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Filter by task name (alias for 'name'). Use simple string for exact match (case-insensitive), or use object format with special_value for partial matching capability."
+     },
+     "related_resource": {
+      "type": "object",
+      "description": "Filter by the primary related resource for the task"
+     },
+     "tags": {
+      "type": "array",
+      "description": "An array of tags to filter by"
+     },
+     "assignee_ids": {
+      "type": "array",
+      "description": "An array of assignee IDs to filter by (the user IDs who own these tasks)"
+     },
+     "statuses": {
+      "type": "array",
+      "description": "An array of statuses to filter by"
+     },
+     "priorities": {
+      "type": "array",
+      "description": "An array of priorities to filter by"
+     },
+     "minimum_due_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum due date"
+     },
+     "maximum_due_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum due date"
+     },
+     "minimum_reminder_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum reminder date"
+     },
+     "maximum_reminder_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum reminder date"
+     },
+     "minimum_completed_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum completed date"
+     },
+     "maximum_completed_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum completed date"
+     },
+     "minimum_close_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum creation date"
+     },
+     "maximum_close_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum creation date"
+     },
+     "minimum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the minimum modification date"
+     },
+     "maximum_modified_date": {
+      "type": "integer",
+      "description": "Unix timestamp for the maximum modification date"
+     },
+     "custom_fields": {
+      "type": "array",
+      "description": "An array of custom field filters. Each filter can include custom_field_definition_id and optionally allow_empty to include records where the field is empty"
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "The field on which to sort the results",
+      "enum": [
+       "name",
+       "assigned_to",
+       "related_to",
+       "status",
+       "priority",
+       "due_date",
+       "reminder_date",
+       "completed_date",
+       "date_created",
+       "date_modified"
+      ]
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "The direction in which to sort the results",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "page_number": {
+      "type": "integer",
+      "description": "The page number (starting with 1) that you would like to view"
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "The number of entries included in a page of results"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.copper.com/developer_api/v1/tasks/search",
+    "path": [],
+    "query": [
+     "custom_field_computed_values"
+    ],
+    "header": [],
+    "body": [
+     "name",
+     "phrase",
+     "related_resource",
+     "tags",
+     "assignee_ids",
+     "statuses",
+     "priorities",
+     "minimum_due_date",
+     "maximum_due_date",
+     "minimum_reminder_date",
+     "maximum_reminder_date",
+     "minimum_completed_date",
+     "maximum_completed_date",
+     "minimum_close_date",
+     "maximum_close_date",
+     "minimum_modified_date",
+     "maximum_modified_date",
+     "custom_fields",
+     "sort_by",
+     "sort_direction",
+     "page_number",
+     "page_size"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

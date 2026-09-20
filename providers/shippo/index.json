@@ -1,0 +1,94 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "shippo",
+ "source": "https://docs.goshippo.com/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "shippo.delete_plants_id",
+   "name": "Shippo delete plants id",
+   "description": "Deletes a single plant based on the ID supplied",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "ID of plant to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.goshippo.com/plants/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shippo.get_plants",
+   "name": "Shippo get plants",
+   "description": "Returns all plants from the system that the user has access to",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.goshippo.com/plants",
+    "path": [],
+    "query": [
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shippo.post_plants",
+   "name": "Shippo post plants",
+   "description": "Creates a new plant in the store",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the plant"
+     },
+     "tag": {
+      "type": "string",
+      "description": "Tag to specify the type"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.goshippo.com/plants",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "tag"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,807 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "devin",
+ "source": "https://docs.devin.ai/openapi.yaml",
+ "operations": [
+  {
+   "slug": "devin.delete_sessions_session_id",
+   "name": "Terminate a session",
+   "description": "Terminate an active Devin session. This sends a stop signal to the session, causing it to gracefully shut down. Once terminated, the session cannot be resumed. Note: Sessions that have already exited cannot be terminated again.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The session ID to terminate"
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.devin.ai/sessions/{session_id}",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.delete_v1_knowledge_note_id",
+   "name": "Delete knowledge",
+   "description": "Permanently delete a piece of knowledge by its ID. This action cannot be undone.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "note_id": {
+      "type": "string",
+      "description": "The ID of the knowledge to delete"
+     }
+    },
+    "required": [
+     "note_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.devin.ai/v1/knowledge/{note_id}",
+    "path": [
+     "note_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.delete_v1_playbooks_playbook_id",
+   "name": "Delete playbook",
+   "description": "Delete a team playbook. Requires ManageOrgPlaybooks permission. This marks the playbook as deleted and removes any associated macro.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": "The ID of the playbook to delete"
+     }
+    },
+    "required": [
+     "playbook_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.devin.ai/v1/playbooks/{playbook_id}",
+    "path": [
+     "playbook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.delete_v1_secrets_secret_id",
+   "name": "Delete a secret",
+   "description": "Permanently delete a secret by its ID. This action cannot be undone.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "secret_id": {
+      "type": "string",
+      "description": "The ID of the secret to delete"
+     }
+    },
+    "required": [
+     "secret_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.devin.ai/v1/secrets/{secret_id}",
+    "path": [
+     "secret_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.delete_v1_sessions_session_id",
+   "name": "Terminate an existing session",
+   "description": "Terminate a running Devin session by sending a stop event. This will gracefully stop the session and prevent further execution. **Permission Requirements:** - If the `session-write-only-owner` feature flag is enabled for your organization, only the session owner can terminate the session. - Otherwise, any user in the organization with access to the session can terminate it. **Status Validation:** ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The session ID"
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.devin.ai/v1/sessions/{session_id}",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_enterprise_consumption",
+   "name": "Get enterprise consumption data",
+   "description": "Retrieve detailed consumption data for an enterprise organization. Data is filtered by start and end dates in ISO format.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_date": {
+      "type": "string",
+      "description": "Start date in ISO format (YYYY-MM-DD)"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "End date in ISO format (YYYY-MM-DD)"
+     }
+    },
+    "required": [
+     "end_date",
+     "start_date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/enterprise/consumption",
+    "path": [],
+    "query": [
+     "start_date",
+     "end_date"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_attachments_uuid_name",
+   "name": "Download attachment files",
+   "description": "Download a previously uploaded attachment file using its UUID and filename. This endpoint returns a redirect to a presigned URL for the file. **Note for curl users**: Use the `-L` flag to follow the redirect automatically.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "uuid": {
+      "type": "string",
+      "description": "The UUID of the attachment"
+     },
+     "name": {
+      "type": "string",
+      "description": "The filename of the attachment"
+     }
+    },
+    "required": [
+     "name",
+     "uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/attachments/{uuid}/{name}",
+    "path": [
+     "uuid",
+     "name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_audit_logs",
+   "name": "List all audit logs",
+   "description": "Get a paginated list of all audit logs for the current organization. The logs are ordered by creation date in descending order (newest first). Audit logs track various actions across organization management, sessions, API keys, secrets, knowledge management, playbooks, repository management, git integrations, enterprise settings, and search operations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of audit logs to return"
+     },
+     "before": {
+      "type": "string",
+      "description": "Filter logs before a specific timestamp"
+     },
+     "after": {
+      "type": "string",
+      "description": "Filter logs after a specific timestamp"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/audit-logs",
+    "path": [],
+    "query": [
+     "limit",
+     "before",
+     "after"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_knowledge",
+   "name": "List knowledge",
+   "description": "Gets all knowledge and folders in your current organization. This endpoint will not return system knowledge (repo indexes or built-in knowledge) managed by Cognition.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/knowledge",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_playbooks",
+   "name": "List playbooks",
+   "description": "Retrieve all team playbooks accessible to your organization. Only team playbooks are returned via the API.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/playbooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_playbooks_playbook_id",
+   "name": "Get playbook",
+   "description": "Retrieve details of a specific playbook by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": "The ID of the playbook to retrieve"
+     }
+    },
+    "required": [
+     "playbook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/playbooks/{playbook_id}",
+    "path": [
+     "playbook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_secrets",
+   "name": "List all secrets metadata",
+   "description": "Get a list of all secrets metadata. This endpoint only returns non-sensitive information about the secrets, not the secret values themselves.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/secrets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_sessions",
+   "name": "List all sessions",
+   "description": "Get a paginated list of Devin sessions. The sessions are ordered by creation date in descending order (newest first). Each session includes its status, metadata, and any structured output from the latest events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of sessions to return per page"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of sessions to skip for pagination"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Filter sessions by tags"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/sessions",
+    "path": [],
+    "query": [
+     "limit",
+     "offset",
+     "tags"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.get_v1_sessions_session_id",
+   "name": "Retrieve details about an existing session",
+   "description": "Get information about the session's current status, timestamps, snapshot/playbook references, and any structured output.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The session ID"
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.devin.ai/v1/sessions/{session_id}",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_attachments",
+   "name": "Upload files for devin",
+   "description": "Upload files via multipart/form-data. This endpoint returns a URL that can be referenced in session prompts or other requests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "The file to upload"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/attachments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_knowledge",
+   "name": "Create knowledge",
+   "description": "Create a new piece of knowledge.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "The content of the knowledge. Devin will read this when the knowledge gets triggered"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the knowledge, used only for displaying the knowledge on the knowledge page"
+     },
+     "parent_folder_id": {
+      "type": "string",
+      "description": "The id of the folder that this knowledge is located in. Null if the knowledge is not located in any folder"
+     },
+     "trigger_description": {
+      "type": "string",
+      "description": "The description of when this knowledge should be used by Devin"
+     },
+     "pinned_repo": {
+      "type": "string",
+      "description": "Pin knowledge to specific repositories. Valid values: - null: No pinning (default) - \"all\": Pin to all repositories - \"owner/repo\": Pin to specific repository"
+     }
+    },
+    "required": [
+     "body",
+     "name",
+     "trigger_description"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/knowledge",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "name",
+     "parent_folder_id",
+     "trigger_description",
+     "pinned_repo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_playbooks",
+   "name": "Create playbook",
+   "description": "Create a new team playbook. Requires ManageOrgPlaybooks permission.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": "The title of the playbook"
+     },
+     "body": {
+      "type": "string",
+      "description": "The content/instructions of the playbook"
+     },
+     "macro": {
+      "type": "string",
+      "description": "Optional macro shortcut for the playbook (e.g., !deploy)"
+     }
+    },
+    "required": [
+     "body",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/playbooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "body",
+     "macro"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_secrets",
+   "name": "Create a new secret",
+   "description": "Create a new secret in your organization. The secret value will be encrypted and stored securely.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Type of secret",
+      "enum": [
+       "cookie",
+       "key-value",
+       "totp"
+      ]
+     },
+     "value": {
+      "type": "string",
+      "description": "The secret value to store"
+     },
+     "sensitive": {
+      "type": "boolean",
+      "description": "Whether the secret should be treated as sensitive"
+     },
+     "note": {
+      "type": "string",
+      "description": "Optional note about the secret"
+     }
+    },
+    "required": [
+     "note",
+     "sensitive",
+     "type",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/secrets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "value",
+     "sensitive",
+     "note"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_sessions",
+   "name": "Create a new session",
+   "description": "Create a new Devin session. Provide a prompt to describe the task. The session can optionally be made unlisted or idempotent.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "prompt": {
+      "type": "string",
+      "description": "The task description for Devin"
+     },
+     "snapshot_id": {
+      "type": "string",
+      "description": "ID of a machine snapshot to use"
+     },
+     "unlisted": {
+      "type": "boolean",
+      "description": "Whether the session should be unlisted"
+     },
+     "idempotent": {
+      "type": "boolean",
+      "description": "Enable idempotent session creation"
+     },
+     "max_acu_limit": {
+      "type": "integer",
+      "description": "Maximum ACU limit for the session"
+     },
+     "secret_ids": {
+      "type": "array",
+      "description": "List of secret IDs to use. If None, use all secrets. If empty list, use no secrets."
+     },
+     "knowledge_ids": {
+      "type": "array",
+      "description": "List of knowledge IDs to use. If None, use all knowledge. If empty list, use no knowledge."
+     },
+     "tags": {
+      "type": "array",
+      "description": "List of tags to add to the session."
+     },
+     "title": {
+      "type": "string",
+      "description": "Custom title for the session. If None, a title will be generated automatically."
+     }
+    },
+    "required": [
+     "prompt"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/sessions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "prompt",
+     "snapshot_id",
+     "unlisted",
+     "idempotent",
+     "max_acu_limit",
+     "secret_ids",
+     "knowledge_ids",
+     "tags",
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.post_v1_sessions_session_id_message",
+   "name": "Send a message to an existing session",
+   "description": "Interact with an active Devin session by sending a message. This is particularly useful in sessions waiting for user input or confirmations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The session ID"
+     },
+     "message": {
+      "type": "string",
+      "description": "The message to send to Devin"
+     }
+    },
+    "required": [
+     "message",
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.devin.ai/v1/sessions/{session_id}/message",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "message"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.put_v1_knowledge_note_id",
+   "name": "Update knowledge",
+   "description": "Update the name, body, or trigger of a piece of knowledge.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "note_id": {
+      "type": "string",
+      "description": "The ID of the knowledge to update"
+     },
+     "body": {
+      "type": "string",
+      "description": "The content of the knowledge. Devin will read this when the knowledge gets triggered"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the knowledge, used only for displaying the knowledge on the knowledge page"
+     },
+     "parent_folder_id": {
+      "type": "string",
+      "description": "The id of the folder that this knowledge is located in. Null if the knowledge is not located in any folder"
+     },
+     "trigger_description": {
+      "type": "string",
+      "description": "The description of when this knowledge should be used by Devin"
+     },
+     "pinned_repo": {
+      "type": "string",
+      "description": "Pin knowledge to specific repositories. Valid values: - null: No pinning (default) - \"all\": Pin to all repositories - \"owner/repo\": Pin to specific repository"
+     }
+    },
+    "required": [
+     "body",
+     "name",
+     "note_id",
+     "trigger_description"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.devin.ai/v1/knowledge/{note_id}",
+    "path": [
+     "note_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "name",
+     "parent_folder_id",
+     "trigger_description",
+     "pinned_repo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.put_v1_playbooks_playbook_id",
+   "name": "Update playbook",
+   "description": "Update an existing team playbook. Requires ManageOrgPlaybooks permission. Only team playbooks can be updated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": "The ID of the playbook to update"
+     },
+     "title": {
+      "type": "string",
+      "description": "The title of the playbook"
+     },
+     "body": {
+      "type": "string",
+      "description": "The content/instructions of the playbook"
+     },
+     "macro": {
+      "type": "string",
+      "description": "Optional macro shortcut for the playbook (e.g., !deploy)"
+     }
+    },
+    "required": [
+     "body",
+     "playbook_id",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.devin.ai/v1/playbooks/{playbook_id}",
+    "path": [
+     "playbook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "body",
+     "macro"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "devin.put_v1_sessions_session_id_tags",
+   "name": "Update session tags",
+   "description": "Update the tags associated with a Devin session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": "The session ID"
+     },
+     "tags": {
+      "type": "array",
+      "description": "List of tags for the session"
+     }
+    },
+    "required": [
+     "session_id",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.devin.ai/v1/sessions/{session_id}/tags",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

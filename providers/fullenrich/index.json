@@ -1,0 +1,94 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "fullenrich",
+ "source": "https://docs.fullenrich.com/api-reference/openapi.json",
+ "operations": [
+  {
+   "slug": "fullenrich.delete_plants_id",
+   "name": "Fullenrich delete plants id",
+   "description": "Deletes a single plant based on the ID supplied",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "ID of plant to delete"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.fullenrich.com/api/plants/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "fullenrich.get_plants",
+   "name": "Fullenrich get plants",
+   "description": "Returns all plants from the system that the user has access to",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.fullenrich.com/api/plants",
+    "path": [],
+    "query": [
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "fullenrich.post_plants",
+   "name": "Fullenrich post plants",
+   "description": "Creates a new plant in the store",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the plant"
+     },
+     "tag": {
+      "type": "string",
+      "description": "Tag to specify the type"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.fullenrich.com/api/plants",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "tag"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,401 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "builtwith",
+ "source": "https://api.builtwith.com/openapi.json",
+ "operations": [
+  {
+   "slug": "builtwith.ask_for_websites",
+   "name": "Find websites with a natural language query",
+   "description": "Run an uncommitted BuiltWith Ask query and return matching websites for research and qualification. This route does not create a persistent List report.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Natural-language description of the websites to find."
+     },
+     "meta": {
+      "type": "boolean",
+      "description": "Include additional BuiltWith metadata when available."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/ask",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "meta"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.find_company_domains",
+   "name": "Find domains associated with a company name",
+   "description": "Resolve a company or brand name to associated website domains before running domain-level research.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company": {
+      "type": "string",
+      "description": "Company or brand name."
+     }
+    },
+    "required": [
+     "company"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/company-domains",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.find_domains_by_tag",
+   "name": "Find related domains from an ip address or attribute",
+   "description": "Return domains connected to a BuiltWith tag such as an IP address or infrastructure attribute.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lookup": {
+      "type": "string",
+      "description": "BuiltWith tag or attribute, for example IP-75.126.76.154."
+     }
+    },
+    "required": [
+     "lookup"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/tags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "lookup"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.find_related_websites",
+   "name": "Find websites related to a domain",
+   "description": "Find domains related through shared identifiers, infrastructure, analytics, ownership signals, and other BuiltWith relationship evidence.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/relationships",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.get_company_identifiers",
+   "name": "Get public company identifiers for a domain",
+   "description": "Return public company registration, tax, and VAT identifiers associated with one domain when available.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/company-identifiers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.get_domain_keywords",
+   "name": "Get keyword data for a domain",
+   "description": "Return keywords and topical signals associated with one website domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/keywords",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.get_domain_redirects",
+   "name": "Get live and historical redirects for a domain",
+   "description": "Return redirect destinations observed for a domain, useful for brand, migration, acquisition, and asset research.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/redirects",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.get_domain_technology_changes",
+   "name": "Get technology additions and removals for a domain",
+   "description": "Return historical technology changes for one domain, optionally constrained by a human-readable time boundary such as 'last month'.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     },
+     "since": {
+      "type": "string",
+      "description": "Optional BuiltWith time boundary, for example 'last month'."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/changes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "since"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.get_domain_trust",
+   "name": "Get trust and risk signals for a domain",
+   "description": "Return BuiltWith trust scoring and supporting signals for vendor review, fraud screening, and website due diligence.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/trust",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.lookup_domain_technologies",
+   "name": "Look up a domain's technologies and metadata",
+   "description": "Return BuiltWith technology detections and metadata for one domain. Useful for company research, stack analysis, competitive intelligence, and sales qualification.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     },
+     "liveOnly": {
+      "type": "boolean",
+      "description": "When true, include only technologies currently detected on the domain."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.builtwith.com/agent/domain",
+    "path": [],
+    "query": [
+     "domain",
+     "liveOnly"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.purchase_basic_list_pass",
+   "name": "Purchase a 30 day basic built with list pass",
+   "description": "Pay 295.00 USDC on Base for a bearer pass covering 2 primary technology reports and 2 keyword or committed Ask reports. Repeating an existing report does not consume another slot.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/x402/list-pass/basic",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.purchase_pro_list_pass",
+   "name": "Purchase a 30 day pro built with list pass",
+   "description": "Pay 495.00 USDC on Base for a bearer pass covering 50 primary technology reports and 50 keyword or committed Ask reports. Repeating an existing report does not consume another slot.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/x402/list-pass/pro",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.recommend_technologies",
+   "name": "Recommend technologies for a domain",
+   "description": "Return technology recommendations inferred from a domain's existing stack and comparable sites.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": "Domain name to research, for example example.com. Do not include a URL path."
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/recommendations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "builtwith.search_technologies",
+   "name": "Search built with technologies by concept",
+   "description": "Run semantic search over BuiltWith technologies and categories to resolve a concept such as 'payment gateway' to relevant technology names.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Natural-language technology concept or product query."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of ranked matches."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.builtwith.com/agent/technology-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

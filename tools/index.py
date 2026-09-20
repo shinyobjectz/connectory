@@ -34,7 +34,7 @@ def main():
     specs = read(os.path.join(ROOT, "specs.json"), {"specs": {}})["specs"]
     logos = read(os.path.join(ROOT, "logos.json"), {"logos": {}})["logos"]
 
-    rows, described, with_mcp = [], 0, 0
+    rows, described, with_mcp, with_context = [], 0, 0, 0
 
     for p in providers:
         slug = p["slug"]
@@ -52,6 +52,8 @@ def main():
             described += 1
         if mcp:
             with_mcp += 1
+        if os.path.exists(os.path.join(folder, "docs.md")):
+            with_context += 1
 
         rows.append({
             "slug": slug,
@@ -67,6 +69,9 @@ def main():
             "operations": len(ops),
             "operations_from": (alias or {}).get("operations_from"),
             "logo": bool(logos.get(slug)) or os.path.exists(os.path.join(folder, "logo.svg")),
+            # Documentation kept for a platform nobody describes. Context to read, never a
+            # source of endpoints.
+            "context": os.path.exists(os.path.join(folder, "docs.md")),
             "mcp": len(mcp),
             "verify": p.get("verify"),
         })
@@ -84,6 +89,7 @@ def main():
         "providers": len(rows),
         "described": described,
         "with_mcp": with_mcp,
+        "with_context": with_context,
         "index": rows,
     }
 
@@ -97,6 +103,7 @@ def main():
     print("  %d with operations indexed (%d operations)" % (described, ops_total))
     print("  %d with a mark (%.0f%%)" % (logos_total, 100 * logos_total / len(rows)))
     print("  %d with an MCP server of their own" % with_mcp)
+    print("  %d with documentation kept as context" % with_context)
     print("  %d runnable with a token from the environment" % sum(1 for r in rows if r["auth"] != "manual"))
 
 

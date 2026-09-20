@@ -1,0 +1,3627 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "lumos",
+ "source": "https://api.lumos.com/openapi.json",
+ "operations": [
+  {
+   "slug": "lumos.activity_records",
+   "name": "Update activity records",
+   "description": "Update the last_login or last_activity for a given account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "records": {
+      "type": "array",
+      "description": "The activity records to upload."
+     }
+    },
+    "required": [
+     "records"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/activity_records",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "records"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.add_app_to_app_store",
+   "name": "Add app to appstore",
+   "description": "Add app to AppStore with given settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_request_instructions": {
+      "type": "string",
+      "description": "AppStore App instructions that are shown to the requester."
+     },
+     "redirect_url": {
+      "type": "string",
+      "description": "If set, requesting this app redirects the user to this URL instead of going through the normal access-request flow. Send null to clear an existing redirect; omit the field to leave it unchanged. Max 2048 characters."
+     },
+     "request_flow": {
+      "type": "object",
+      "description": ""
+     },
+     "provisioning": {
+      "type": "object",
+      "description": ""
+     },
+     "app_id": {
+      "type": "string",
+      "description": "The ID of the app to add to the app store."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/appstore/apps",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_request_instructions",
+     "redirect_url",
+     "request_flow",
+     "provisioning",
+     "app_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.add_apps_to_access_review",
+   "name": "Add apps to access review",
+   "description": "Add apps to an existing access review. Allowed on any review that is not yet `COMPLETED`. Soft-errors on invalid or duplicate domain app UUIDs \u2014 per-app failures are returned in the `errors` array rather than raising.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_review_id": {
+      "type": "string",
+      "description": ""
+     },
+     "apps": {
+      "type": "array",
+      "description": "List of domain apps to add to the access review. Capped at 200 entries per the Access Review scale limits (technically-supported tier)."
+     }
+    },
+    "required": [
+     "access_review_id",
+     "apps"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/access_reviews/{access_review_id}/apps",
+    "path": [
+     "access_review_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "apps"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.add_role_to_user_users_user_id_roles_role_name_post",
+   "name": "Add role to user",
+   "description": "Add a role to a specific user, ensuring the user belongs to the specified domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "role_name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "role_name",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/users/{user_id}/roles/{role_name}",
+    "path": [
+     "user_id",
+     "role_name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.add_task_comment_tasks_task_id_comments_post",
+   "name": "Add task comment",
+   "description": "Add a comment to a task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     },
+     "comment": {
+      "type": "string",
+      "description": "The comment text to add."
+     }
+    },
+    "required": [
+     "comment",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/tasks/{task_id}/comments",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "comment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.cancel_access_request",
+   "name": "Cancel access request",
+   "description": "Cancel an access request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "reason": {
+      "type": "string",
+      "description": "Reason for cancellation."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/appstore/access_requests/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "reason"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.cancel_user_offboarding",
+   "name": "Cancel user offboarding",
+   "description": "Cancel a scheduled or in-progress user offboarding.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_offboarding_id": {
+      "type": "string",
+      "description": "The UUID of the user offboarding."
+     }
+    },
+    "required": [
+     "user_offboarding_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/lifecycle-management/user-offboardings/{user_offboarding_id}/cancel",
+    "path": [
+     "user_offboarding_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.complete_task_tasks_task_id_complete_post",
+   "name": "Complete task",
+   "description": "**Complete a task** \u2014 transition any task to `COMPLETED` by applying its unique completion action. For approval tasks this is the \"approve\" primitive. Common uses: - **Approve an access request** (task with `task_category=APPROVAL` and `product_area=APPSTORE`). - **Mark a non-approval task done** when it exposes exactly one action that transitions to `COMPLETED` (e.g. acknowledging a manual provis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/tasks/{task_id}/complete",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_access_policy",
+   "name": "Create access policy",
+   "description": "Create a new access policy.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the access policy."
+     },
+     "business_justification": {
+      "type": "string",
+      "description": "Explanation for why this policy exists."
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the access policy. Defaults to DRAFT when supported."
+     },
+     "is_enabled": {
+      "type": "string",
+      "description": "Whether the access policy is enabled. Defaults to false when supported."
+     },
+     "apps": {
+      "type": "array",
+      "description": "List of apps granted by this access policy."
+     },
+     "access_condition": {
+      "type": "string",
+      "description": "The Lumos Condition object determining which identities qualify for this policy. Required unless `is_everyone_condition` is `true`. This is a recursive JSON structure that allows you to define complex rules for filtering and matching identities using operators like `equals`, `in`, `and`, `or`, and `not`. For more information, see the [Lumos Conditions documentation](https://support.lumos.com/artic"
+     },
+     "is_everyone_condition": {
+      "type": "boolean",
+      "description": "Whether the access policy applies to everyone. If true, `access_condition` is ignored. Otherwise, `access_condition` must be provided."
+     }
+    },
+    "required": [
+     "apps",
+     "business_justification",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/access_policies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "business_justification",
+     "status",
+     "is_enabled",
+     "apps",
+     "access_condition",
+     "is_everyone_condition"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_access_request",
+   "name": "Create access request",
+   "description": "Create a request to access a specific permission in the appstore.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "requester_user_id": {
+      "type": "string",
+      "description": "Override the user who made the request. If omitted, use the current user. Only available to organization admins."
+     },
+     "target_user_id": {
+      "type": "string",
+      "description": "User to request access for. If omitted, request for the current user."
+     },
+     "note": {
+      "type": "string",
+      "description": "[Deprecated - use business_justification] Why the user needs access."
+     },
+     "business_justification": {
+      "type": "string",
+      "description": "Why the user needs access."
+     },
+     "expiration_in_seconds": {
+      "type": "string",
+      "description": "Once granted, how long the access should last. Omit for permanent access."
+     },
+     "access_length": {
+      "type": "string",
+      "description": "Once granted, how long the access should last. Omit for permanent access. All possible values are '2 hours', '4 hours', '8 hours', '12 hours', '1 day', '2 days', '3 days', '7 days', '14 days', '30 days', '90 days', 'Unlimited', but the exact options depend on the settings of the app and permissions."
+     },
+     "requestable_permission_ids": {
+      "type": "string",
+      "description": "The IDs of the requestable permissions the user is requesting access to. Omit this to just request access to the app."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/appstore/access_request",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "app_id",
+     "requester_user_id",
+     "target_user_id",
+     "note",
+     "business_justification",
+     "expiration_in_seconds",
+     "access_length",
+     "requestable_permission_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_access_review",
+   "name": "Create access review",
+   "description": "Create a new access review campaign. The review's initial status depends on whether apps are provided and whether a `target_launch_date` is set: - **With apps**: the review starts in `IN_PREPARATION` while account and entitlement snapshots are taken. Status automatically transitions to `IN_PROGRESS` once snapshotting completes. - **Without apps**: the review is created directly in `IN_PROGRESS`. -",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the access review campaign."
+     },
+     "deadline_at": {
+      "type": "string",
+      "description": "Deadline by which reviewers must complete their reviews. ISO 8601 datetime (e.g. '2026-05-01T00:00:00Z')."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "UUID of the user to set as the review owner. Defaults to the authenticated user if not provided."
+     },
+     "target_launch_date": {
+      "type": "string",
+      "description": "Date the review is scheduled to launch on, as an ISO 8601 datetime; the time of day is ignored. The review is held until then and launches automatically once its apps are ready. Must not be in the past, and must not be after `deadline_at`. Required to make a recurrence cadence take effect."
+     },
+     "recurrence_config": {
+      "type": "string",
+      "description": "Recurrence configuration. Mutually exclusive with recurrence_days_frequency, and only accepted together with target_launch_date."
+     },
+     "recurrence_days_frequency": {
+      "type": "string",
+      "description": "Recurrence frequency in days. Mutually exclusive with recurrence_config, and only accepted together with target_launch_date."
+     },
+     "apps": {
+      "type": "array",
+      "description": "List of domain apps to include in this review. Capped at 200 entries per the Access Review scale limits (technically-supported tier)."
+     }
+    },
+    "required": [
+     "deadline_at",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/access_reviews",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "deadline_at",
+     "owner_id",
+     "target_launch_date",
+     "recurrence_config",
+     "recurrence_days_frequency",
+     "apps"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_app",
+   "name": "Create app",
+   "description": "Create a new custom app, or connect an integration app. With a `name`/`category`/`description` body this creates a custom app. With an `app_class_id` body it connects the integration identified by `app_class_id` using the credentials in `auth` \u2014 integrations that validate in-band connect immediately and trigger an initial sync, while integrations that require browser consent are finished in the Lu",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the app you're creating. Required when creating a custom app."
+     },
+     "category": {
+      "type": "string",
+      "description": "The category of the app you're creating; required when creating a custom app. Possible values: 'Accounting & Finance', 'Marketing & Analytics', 'Content & Social Media', 'Sales & Support', 'Design & Creativity', 'IT & Security', 'Developers', 'HR & Learning', 'Office & Legal', 'Communication', 'Collaboration', 'Commerce & Marketplaces', 'Other', 'Internal'"
+     },
+     "description": {
+      "type": "string",
+      "description": "The description of the app you're creating. Required when creating a custom app."
+     },
+     "logo_url": {
+      "type": "string",
+      "description": "The URL of the logo of the app you're creating."
+     },
+     "website_url": {
+      "type": "string",
+      "description": "The URL of the website of the app you're creating."
+     },
+     "request_instructions": {
+      "type": "string",
+      "description": "The request instructions."
+     },
+     "app_class_id": {
+      "type": "string",
+      "description": "Canonical identifier of an integration to connect, e.g. `okta.com`. Providing it switches this request from creating a custom app to connecting that integration using `auth`/`settings`. Must be an integration Lumos supports for your domain; an unknown value is rejected with 400."
+     },
+     "settings": {
+      "type": "string",
+      "description": "Non-secret configuration for the integration being connected, as a JSON object \u2014 e.g. host, port, region, or tenant / instance URL. The accepted keys vary by integration and some integrations need none. Only used with `app_class_id`."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional integration version override. Pins the connection to a specific integration implementation/version instead of the current default; leave unset (`null`) unless directed otherwise. Only used with `app_class_id`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/apps",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "category",
+     "description",
+     "logo_url",
+     "website_url",
+     "request_instructions",
+     "app_class_id",
+     "settings",
+     "version"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_appstore_requestable_permission_appstore_requestable_permissions_post",
+   "name": "Create appstore requestable permission",
+   "description": "**Create a permission attached to an App in the AppStore.** *Required fields:* - app-identifier. The App should be identified either by app_id or app_class_id + app_instance_id. - label *Defaults:* - request_config: - appstore_visibility: HIDDEN - allowed_groups: - type: ALL_GROUPS - groups: [] - request_approval_config - manager_approval: NONE - request_approval_stages: [] - request_fulfillment_c",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_inherited_configs": {
+      "type": "boolean",
+      "description": "Include inherited configurations from parent app."
+     },
+     "app_id": {
+      "type": "string",
+      "description": "The ID of the app associated with this requestable permission."
+     },
+     "app_class_id": {
+      "type": "string",
+      "description": "The ID of the service associated with this requestable permission."
+     },
+     "app_instance_id": {
+      "type": "string",
+      "description": "Optionally, an app has an identifer associated with it's particular instance."
+     },
+     "label": {
+      "type": "string",
+      "description": "The label of this requestable permission."
+     },
+     "request_config": {
+      "type": "string",
+      "description": "The request config associated with this requestable permission."
+     }
+    },
+    "required": [
+     "app_id",
+     "label"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/appstore/requestable_permissions",
+    "path": [],
+    "query": [
+     "include_inherited_configs"
+    ],
+    "header": [],
+    "body": [
+     "app_id",
+     "app_class_id",
+     "app_instance_id",
+     "label",
+     "request_config"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_found_document",
+   "name": "Upload found documents",
+   "description": "Upload a newly discovered document (e.g. Order Form, Quote) to Lumos for review",
+   "input": {
+    "type": "object",
+    "properties": {
+     "unique_identifier": {
+      "type": "string",
+      "description": "A value that can be used to uniquely identify this contract (e.g. PO number, file name, etc)"
+     },
+     "files": {
+      "type": "array",
+      "description": "A list of URLs that resolve to files that should be attached to the Found Document"
+     },
+     "vendor_name": {
+      "type": "string",
+      "description": "The name of the vendor that this document is for"
+     },
+     "start_date": {
+      "type": "string",
+      "description": "The start of the vendor agreement"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "The end of the vendor agreement"
+     },
+     "source_app_id": {
+      "type": "string",
+      "description": "By passing the ID of an application within Lumos, it will appear as if this Found Document was sourced from that app"
+     },
+     "total_cost": {
+      "type": "string",
+      "description": "The total cost of the contract. If this is a multi-year contract, this should include the cost for future years"
+     },
+     "line_items": {
+      "type": "string",
+      "description": "The line items on the contract"
+     }
+    },
+    "required": [
+     "files",
+     "unique_identifier"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/found_documents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "unique_identifier",
+     "files",
+     "vendor_name",
+     "start_date",
+     "end_date",
+     "source_app_id",
+     "total_cost",
+     "line_items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_knowledge_context",
+   "name": "Create knowledge context",
+   "description": "Create a new knowledge entry in the caller's domain. Send as `multipart/form-data`. The `file` field is optional \u2014 omit it to create an entry without an attachment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": "Title of the knowledge entry. Must be unique within the domain."
+     },
+     "content": {
+      "type": "string",
+      "description": "Body text (markdown supported). Omit when providing a file attachment instead."
+     },
+     "generic_tags": {
+      "type": "array",
+      "description": "Freeform tag strings to attach."
+     },
+     "product_scopes": {
+      "type": "array",
+      "description": "Products that can consume this entry."
+     },
+     "file": {
+      "type": "string",
+      "description": "Optional file attachment."
+     }
+    },
+    "required": [
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/v1/knowledge/context",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "content",
+     "generic_tags",
+     "product_scopes",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_order",
+   "name": "Upload order",
+   "description": "Upload a newly discovered document (e.g. Order Form, Quote) to Lumos",
+   "input": {
+    "type": "object",
+    "properties": {
+     "unique_identifier": {
+      "type": "string",
+      "description": "A unique ID for the contract being uploaded. This can be an ID from an external system like Ironclad, an internal ID such as a PO number, or simply the name of the vendor + date of the contract."
+     },
+     "vendor": {
+      "type": "object",
+      "description": ""
+     },
+     "start_date": {
+      "type": "string",
+      "description": "The start date of the attached contract"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "The end date of the attached contract"
+     },
+     "opt_out_date": {
+      "type": "string",
+      "description": "The date by which a vendor must be notified before terminating the order"
+     },
+     "auto_renewal": {
+      "type": "boolean",
+      "description": "Whether or not the contract auto-renews"
+     },
+     "currency": {
+      "type": "string",
+      "description": "The currency in which the contract is being paid in ISO 4217 format"
+     },
+     "line_items": {
+      "type": "array",
+      "description": "The list of currently active line items for this Vendor Agreement. If there are no currently active line items, the most recent set of line items is returned."
+     },
+     "custom_attributes": {
+      "type": "object",
+      "description": "Any additional attributes that you would like to save on the Order. The set of available options must be configured in advance in Lumos."
+     },
+     "source_app_id": {
+      "type": "string",
+      "description": "UUID of the application in Lumos where this order was sourced (e.g. the ID of Ironclad within Lumos)"
+     }
+    },
+    "required": [
+     "auto_renewal",
+     "end_date",
+     "line_items",
+     "start_date",
+     "unique_identifier",
+     "vendor"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/orders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "unique_identifier",
+     "vendor",
+     "start_date",
+     "end_date",
+     "opt_out_date",
+     "auto_renewal",
+     "currency",
+     "line_items",
+     "custom_attributes",
+     "source_app_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_pre_approval_rule_appstore_pre_approval_rules_post",
+   "name": "Create pre approval rule",
+   "description": "Create a pre-approval rule attached to an App in the AppStore.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "justification": {
+      "type": "string",
+      "description": "The justification of this preapproval rule."
+     },
+     "time_based_access": {
+      "type": "array",
+      "description": "Preapproval rule time access length,"
+     },
+     "app_id": {
+      "type": "string",
+      "description": "The ID of the app associated with this pre-approval rule."
+     },
+     "preapproved_groups": {
+      "type": "array",
+      "description": "The preapproved groups of this preapproval rule."
+     },
+     "preapproved_permissions": {
+      "type": "array",
+      "description": "The preapproved permissions of this preapproval rule."
+     },
+     "preapproved_users_by_attribute": {
+      "type": "array",
+      "description": "The set of users this pre-approval rule applies to, defined by attributes that must be true about the user"
+     },
+     "preapproval_webhooks": {
+      "type": "array",
+      "description": "The preapproval webhooks of this preapproval rule."
+     }
+    },
+    "required": [
+     "app_id",
+     "justification"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/appstore/pre_approval_rules",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "justification",
+     "time_based_access",
+     "app_id",
+     "preapproved_groups",
+     "preapproved_permissions",
+     "preapproved_users_by_attribute",
+     "preapproval_webhooks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.create_user_offboarding",
+   "name": "Create user offboarding",
+   "description": "Trigger or schedule an offboarding for an identity using the domain's configured offboarding workflow. Omit `scheduled_at` to run immediately, or provide a future datetime to schedule it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The UUID of the identity to offboard."
+     },
+     "scheduled_at": {
+      "type": "string",
+      "description": "When to run the offboarding, as an ISO 8601 datetime. Omit to trigger the offboarding immediately; provide a future datetime to schedule it."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/lifecycle-management/user-offboardings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "scheduled_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.current_user",
+   "name": "Get current user",
+   "description": "Get current user",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/users/current",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_access_policy",
+   "name": "Delete access policy",
+   "description": "Delete an access policy by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_policy_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "access_policy_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/access_policies/{access_policy_id}",
+    "path": [
+     "access_policy_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_access_review",
+   "name": "Delete access review",
+   "description": "Soft-delete an access review campaign. Fails with 400 if a review duplication is currently in progress.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_review_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "access_review_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/access_reviews/{access_review_id}",
+    "path": [
+     "access_review_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_access_review_app",
+   "name": "Delete access review app",
+   "description": "Soft-delete an app from an access review campaign. Fails with 400 if the review is already `COMPLETED`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_review_id": {
+      "type": "string",
+      "description": ""
+     },
+     "arda_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "access_review_id",
+     "arda_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/access_reviews/{access_review_id}/apps/{arda_id}",
+    "path": [
+     "access_review_id",
+     "arda_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_appstore_permission_appstore_requestable_permissions_permission_id_delete",
+   "name": "Delete appstore permission",
+   "description": "Delete a requestable permission by ID. Only permissions of type 'NATIVE' can be deleted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "permission_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "permission_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/appstore/requestable_permissions/{permission_id}",
+    "path": [
+     "permission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_knowledge_context",
+   "name": "Delete knowledge context",
+   "description": "Archive (soft-delete) a knowledge entry. The entry is marked ARCHIVED and will no longer appear in list results. This action is reversible at the database level.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_context_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "knowledge_context_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/v1/knowledge/context/{knowledge_context_id}",
+    "path": [
+     "knowledge_context_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.delete_pre_approval_rule_appstore_pre_approval_rules_pre_approval_rule_id_delete",
+   "name": "Delete pre approval rule",
+   "description": "Delete a pre-approval rule by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pre_approval_rule_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "pre_approval_rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/appstore/pre_approval_rules/{pre_approval_rule_id}",
+    "path": [
+     "pre_approval_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.disconnect_app",
+   "name": "Disconnect app",
+   "description": "Disconnect an API-managed app. For integrations this removes the stored credentials and returns the app to a connectable state; for custom apps it removes the app. In both cases, when no users remain the underlying record is also deleted where possible (a record still referenced by other Lumos data is kept, disconnected). Reconnect an integration later with `PUT /apps/{app_id}`. Returns 404 if `ap",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.dismiss_task_tasks_task_id_dismiss_post",
+   "name": "Dismiss task",
+   "description": "**Dismiss a task** \u2014 transition any task to `DISMISSED` by applying its unique dismissal action. For approval tasks this is the \"deny / reject\" primitive; for non-approval tasks it cancels the task without performing its work. Common uses: - **Deny an access request**. - **Cancel a non-approval task** (e.g. dismiss an error task once the underlying issue is handled out-of-band). Tasks with multipl",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/tasks/{task_id}/dismiss",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_access_policies",
+   "name": "Get access policies",
+   "description": "Get all access policies. Results are sorted by created time descending by default.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by policy name (case insensitive)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/access_policies",
+    "path": [],
+    "query": [
+     "page",
+     "size",
+     "name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_access_policy",
+   "name": "Get access policy",
+   "description": "Get an access policy by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_policy_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "access_policy_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/access_policies/{access_policy_id}",
+    "path": [
+     "access_policy_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_access_request",
+   "name": "Get access request",
+   "description": "Get access request by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported values: tasks, custom_fields."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/access_requests/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_access_requests",
+   "name": "Get access requests",
+   "description": "Get all access requests for the current organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target_user_id": {
+      "type": "string",
+      "description": "Filters requests by the ID of the target user."
+     },
+     "requester_user_id": {
+      "type": "string",
+      "description": "Filters requests by the ID of the requesting user."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "Filters requests by the ID of the user."
+     },
+     "statuses": {
+      "type": "string",
+      "description": "Filters requests by their status. Possible values: 'PENDING', 'PENDING_MANAGER_APPROVAL', 'MANAGER_APPROVED', 'MANAGER_DENIED', 'PENDING_APPROVAL', 'APPROVED', 'DENIED', 'EXPIRED', 'CANCELLED', 'PENDING_PROVISIONING', 'PENDING_MANUAL_PROVISIONING', 'DENIED_PROVISIONING', 'PROVISIONED', 'PENDING_DEPROVISIONING', 'PENDING_MANUAL_DEPROVISIONING', 'TIME_BASED_EXPIRED', 'COMPLETED', 'REVERTING', 'REVER"
+     },
+     "sort": {
+      "type": "string",
+      "description": "Sort access requests ascending (ASC) or descending (DESC) by created date."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported values: tasks, custom_fields."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/access_requests",
+    "path": [],
+    "query": [
+     "target_user_id",
+     "requester_user_id",
+     "user_id",
+     "statuses",
+     "sort",
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_access_review",
+   "name": "Get access review",
+   "description": "Get an access review by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_review_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "access_review_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/access_reviews/{access_review_id}",
+    "path": [
+     "access_review_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_accounts",
+   "name": "Get accounts",
+   "description": "Get all accounts associated with apps at your company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "discovered_before": {
+      "type": "string",
+      "description": ""
+     },
+     "discovered_after": {
+      "type": "string",
+      "description": ""
+     },
+     "sources": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: app."
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "size": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/accounts",
+    "path": [],
+    "query": [
+     "app_id",
+     "discovered_before",
+     "discovered_after",
+     "sources",
+     "status",
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_activity_logs",
+   "name": "Get activity logs",
+   "description": "Get activity logs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "since": {
+      "type": "string",
+      "description": ""
+     },
+     "until": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Page size limit"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Page offset"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/activity_logs",
+    "path": [],
+    "query": [
+     "since",
+     "until",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_activity_records_job_state",
+   "name": "Get activity records job state",
+   "description": "Get the state of an activity records post-processing job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/activity_records/job/{job_id}",
+    "path": [
+     "job_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app",
+   "name": "Get app",
+   "description": "Get an app by id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app_categories",
+   "name": "Get app categories",
+   "description": "Get app categories.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/apps/categories",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app_settings",
+   "name": "Get appstore app settings",
+   "description": "Get App settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/apps/{app_id}/settings",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app_store_app",
+   "name": "Get appstore app",
+   "description": "Get AppStore app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app_store_app_settings",
+   "name": "Get appstore app settings",
+   "description": "Get AppStore app settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/apps/{app_id}/settings",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_app_store_apps",
+   "name": "Get appstore apps",
+   "description": "List all AppStore apps.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "Filters apps by the ID of the app."
+     },
+     "name_search": {
+      "type": "string",
+      "description": "Search against name, app instance identifier, and app class ID."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "Search filter should be an exact match."
+     },
+     "all_visibilities": {
+      "type": "boolean",
+      "description": "Get all apps in the AppStore regardless of visibility. Only available to admins."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/apps",
+    "path": [],
+    "query": [
+     "app_id",
+     "name_search",
+     "exact_match",
+     "all_visibilities",
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_appstore_permission_appstore_requestable_permissions_permission_id_get",
+   "name": "Get appstore permission",
+   "description": "Get an AppStore permission.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "permission_id": {
+      "type": "string",
+      "description": ""
+     },
+     "include_inherited_configs": {
+      "type": "boolean",
+      "description": "Include inherited configurations from parent app."
+     }
+    },
+    "required": [
+     "permission_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/requestable_permissions/{permission_id}",
+    "path": [
+     "permission_id"
+    ],
+    "query": [
+     "include_inherited_configs"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_appstore_permissions_appstore_requestable_permissions_get",
+   "name": "Get appstore permissions",
+   "description": "Get AppStore permissions for an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "Filters requestable permissions by the ID of the app to which they belong."
+     },
+     "search_term": {
+      "type": "string",
+      "description": "Searches permissions by the permission's group name, request configuration name, or specific integration ID."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "Search filter should be an exact match."
+     },
+     "in_app_store": {
+      "type": "string",
+      "description": "Filters permissions by visibility in the AppStore."
+     },
+     "include_inherited_configs": {
+      "type": "boolean",
+      "description": "Include inherited configurations from parent app."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/requestable_permissions",
+    "path": [],
+    "query": [
+     "app_id",
+     "search_term",
+     "exact_match",
+     "in_app_store",
+     "include_inherited_configs",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_appstore_permissions_for_app_appstore_apps_app_id_requestable_permissions_get",
+   "name": "Get appstore permissions for app",
+   "description": "Get AppStore permissions for an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "Filters requestable permissions by the ID of the app to which they belong."
+     },
+     "search_term": {
+      "type": "string",
+      "description": "Searches permissions by the permission's group name, request configuration name, or specific integration ID."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "Search filter should be an exact match."
+     },
+     "in_app_store": {
+      "type": "string",
+      "description": "Filters permissions by visibility in the AppStore."
+     },
+     "include_inherited_configs": {
+      "type": "boolean",
+      "description": "Include inherited configurations from parent app."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/apps/{app_id}/requestable_permissions",
+    "path": [
+     "app_id"
+    ],
+    "query": [
+     "search_term",
+     "exact_match",
+     "in_app_store",
+     "include_inherited_configs",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_appstore_pre_approval_rule_appstore_pre_approval_rules_pre_approval_rule_id_get",
+   "name": "Get appstore pre approval rule",
+   "description": "Get an AppStore pre-approval rule.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pre_approval_rule_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "pre_approval_rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/pre_approval_rules/{pre_approval_rule_id}",
+    "path": [
+     "pre_approval_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_appstore_pre_approval_rules_for_app_appstore_pre_approval_rules_get",
+   "name": "Get appstore pre approval rules for app",
+   "description": "Get AppStore pre-approval rules for an app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "Filters preapproval rules by the ID of the app to which they belong."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/appstore/pre_approval_rules",
+    "path": [],
+    "query": [
+     "app_id",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_group",
+   "name": "Get group",
+   "description": "Get group by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/groups/{group_id}",
+    "path": [
+     "group_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_group_membership",
+   "name": "Get group membership",
+   "description": "Get user members by group ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "group_id": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": [
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/groups/{group_id}/users",
+    "path": [
+     "group_id"
+    ],
+    "query": [
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_groups",
+   "name": "Get groups",
+   "description": "Get groups synced from connected integrations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "integration_specific_id": {
+      "type": "string",
+      "description": "Filters groups by integration specific ID, e.g. the group's Okta ID."
+     },
+     "name": {
+      "type": "string",
+      "description": "Filters groups by name."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "Search filter should be an exact match."
+     },
+     "app_id": {
+      "type": "string",
+      "description": "Filters groups by the ID of the app to which they belong."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/groups",
+    "path": [],
+    "query": [
+     "integration_specific_id",
+     "name",
+     "exact_match",
+     "app_id",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_identity_events",
+   "name": "Get identity events",
+   "description": "Get user identity events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "identity_ids": {
+      "type": "string",
+      "description": "Filter events tied to specific user UUIDs."
+     },
+     "changed_fields": {
+      "type": "string",
+      "description": "Filter events by changed field names, eg - 'title' or 'team'"
+     },
+     "start_time": {
+      "type": "string",
+      "description": ""
+     },
+     "end_time": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/identity_events",
+    "path": [],
+    "query": [
+     "identity_ids",
+     "changed_fields",
+     "start_time",
+     "end_time",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_inline_webhooks_inline_webhooks_get",
+   "name": "Get inline webhooks",
+   "description": "Get available webhooks",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/inline_webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_integration",
+   "name": "Get integration",
+   "description": "Get a connectable integration (app) by its `app_class_id` (e.g. `okta.com`). Returns catalog metadata only; integrations you have connected are read via the Apps API (`GET /apps`).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_class_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_class_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/integrations/{app_class_id}",
+    "path": [
+     "app_class_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_integration_connection_schema",
+   "name": "Get integration connection schema",
+   "description": "Get the connection schema for an integration \u2014 the JSON schema of the `auth` and `settings` fields needed to connect it via `POST /apps`. Use it to discover how to connect an integration *before* connecting it (e.g. to populate a Terraform resource). `app_class_id` is the canonical identifier (e.g. `okta.com`, `slack_ics`) \u2014 the same value the connect body uses. Integrations whose connection schem",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_class_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_class_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/integrations/{app_class_id}/connection-schema",
+    "path": [
+     "app_class_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_knowledge_context",
+   "name": "Get knowledge context",
+   "description": "Get a single knowledge entry by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_context_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "knowledge_context_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/v1/knowledge/context/{knowledge_context_id}",
+    "path": [
+     "knowledge_context_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_scope_options",
+   "name": "Get scope options endpoint",
+   "description": "Get available scope filter options for a domain app or ARDA. To use these in `scope_filters` on a create/edit request, copy an item's `value` (and `name`) verbatim \u2014 `value` is the machine-matchable identifier, while `label` is display-only. Posting a `label` as a `value` (or any value not present here) is rejected. ACCOUNT_ENTITLEMENT groups are split per `entitlement_type_label` (e.g. 'Roles', '",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "arda_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/access_reviews/scope_options",
+    "path": [],
+    "query": [
+     "domain_app_id",
+     "arda_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_task_actions_tasks_task_id_actions_get",
+   "name": "Get task actions",
+   "description": "Get available actions for a task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/tasks/{task_id}/actions",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_task_tasks_task_id_get",
+   "name": "Get task",
+   "description": "Get a task by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand: actions, assignees, comments."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_upload_job_state",
+   "name": "Get upload job state",
+   "description": "Get state of an account upload job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/accounts/upload/{job_id}",
+    "path": [
+     "job_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_user",
+   "name": "Get user",
+   "description": "Get user by id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/users/{user_id}",
+    "path": [
+     "user_id"
+    ],
+    "query": [
+     "expand"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_user_accounts",
+   "name": "Get user accounts",
+   "description": "Get a list of Accounts for this user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: app."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/users/{user_id}/accounts",
+    "path": [
+     "user_id"
+    ],
+    "query": [
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_user_offboarding",
+   "name": "Get user offboarding",
+   "description": "Get a user offboarding by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_offboarding_id": {
+      "type": "string",
+      "description": "The UUID of the user offboarding."
+     }
+    },
+    "required": [
+     "user_offboarding_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/lifecycle-management/user-offboardings/{user_offboarding_id}",
+    "path": [
+     "user_offboarding_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.get_user_roles_users_user_id_roles_get",
+   "name": "Get user roles",
+   "description": "Get the roles assigned to a specific user, ensuring the user belongs to the specified domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/users/{user_id}/roles",
+    "path": [
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_access_reviews",
+   "name": "List access reviews",
+   "description": "List access reviews for your organization. Paginated via standard `page` + `size` query params \u2014 `size` is capped at 100; requests over the cap return 422.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/access_reviews",
+    "path": [],
+    "query": [
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_apps",
+   "name": "Get apps",
+   "description": "List all of your company's apps.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name_search": {
+      "type": "string",
+      "description": "Search against name, app instance identifier, and app class ID."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "Search filter should be an exact match."
+     },
+     "connection_source": {
+      "type": "string",
+      "description": "Filter to integration apps connected via this source (`API` or `UI`)."
+     },
+     "disconnected": {
+      "type": "string",
+      "description": "Filter on whether the app has been disconnected. `false` excludes disconnected apps, `true` returns only disconnected apps whose record Lumos still holds, and omitting it lists every app. Pair `false` with `connection_source=API` to reconcile the integrations you manage from automation such as Terraform."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/apps",
+    "path": [],
+    "query": [
+     "name_search",
+     "exact_match",
+     "connection_source",
+     "disconnected",
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_integrations",
+   "name": "List integrations",
+   "description": "List the integrations (apps) available to connect in your domain (paginated). Only connectable integrations are returned \u2014 catalog-only apps (e.g. discovered SaaS without a Lumos integration) are excluded. Returns catalog metadata only \u2014 name, category, and logo. Integrations you have connected are read via the Apps API (`GET /apps`).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Case-insensitive substring filter over the integration's `app_class_id` and name. `google` matches both `workspace.google.com` and `cloud.google.com`."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/integrations",
+    "path": [],
+    "query": [
+     "query",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_knowledge_context",
+   "name": "List knowledge context",
+   "description": "List knowledge entries for the caller's domain with optional filters and cursor pagination. Pass the `next_page_token` value from the previous response back as the `page_token` query parameter to fetch the next page. When `next_page_token` is `null`, the current page is the last one.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title_search": {
+      "type": "string",
+      "description": "Case-insensitive substring match against knowledge entry titles."
+     },
+     "product_scopes": {
+      "type": "string",
+      "description": "Filter to entries tagged with any of these product scopes."
+     },
+     "page_token": {
+      "type": "string",
+      "description": "Opaque cursor from a previous response's `next_page_token`. Omit to fetch the first page. Treat as opaque: do not decode, construct, or interpret it."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Maximum number of items to return per page. Values above 25 are clamped to 25 rather than rejected."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/v1/knowledge/context",
+    "path": [],
+    "query": [
+     "title_search",
+     "product_scopes",
+     "page_token",
+     "page_size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_tasks_tasks_get",
+   "name": "List tasks",
+   "description": "List tasks visible to the current user. Combine `task_category`, `product_area`, and `status` to find the tasks you care about: - **Pending access-request approvals**: `GET /tasks?task_category=APPROVAL&product_area=APPSTORE&status=PENDING` Pass `expand=actions` or `expand=assignees` to hydrate those fields on each result. Admins may pass `show_all_tasks=true` to list tasks across the whole domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "show_all_tasks": {
+      "type": "boolean",
+      "description": "Show all tasks in the domain (admin only)."
+     },
+     "task_type": {
+      "type": "string",
+      "description": "Filter by task type."
+     },
+     "task_category": {
+      "type": "string",
+      "description": "Filter by task category."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by task status."
+     },
+     "product_area": {
+      "type": "string",
+      "description": "Filter by product area."
+     },
+     "search": {
+      "type": "string",
+      "description": "Search string."
+     },
+     "sort_by": {
+      "type": "string",
+      "description": "Sort field (createdAt, taskType, app, targetUser)."
+     },
+     "sort_direction": {
+      "type": "string",
+      "description": "Sort direction (asc, desc)."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand: actions, assignees."
+     },
+     "assigned_identity_ids": {
+      "type": "string",
+      "description": "Filter by assigned user IDs"
+     },
+     "assigned_group_ids": {
+      "type": "string",
+      "description": "Filter by assigned group IDs"
+     },
+     "access_request_id": {
+      "type": "string",
+      "description": "Filter by access request ID."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/tasks",
+    "path": [],
+    "query": [
+     "show_all_tasks",
+     "task_type",
+     "task_category",
+     "status",
+     "product_area",
+     "search",
+     "sort_by",
+     "sort_direction",
+     "expand",
+     "assigned_identity_ids",
+     "assigned_group_ids",
+     "access_request_id",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_users",
+   "name": "Get users",
+   "description": "List all of your company's users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "search_term": {
+      "type": "string",
+      "description": "Search for users by name or email."
+     },
+     "exact_match": {
+      "type": "boolean",
+      "description": "If a search_term is provided, only accept exact matches."
+     },
+     "expand": {
+      "type": "string",
+      "description": "Fields to expand. Supported fields: custom_attributes."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/users",
+    "path": [],
+    "query": [
+     "search_term",
+     "exact_match",
+     "expand",
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.list_vendor_agreements",
+   "name": "Get vendor agreements",
+   "description": "List all of your company's vendor agreements.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "size": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/vendor_agreements",
+    "path": [],
+    "query": [
+     "page",
+     "size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.lumos_art",
+   "name": "Get art",
+   "description": "Return Lumos ASCII art. Can be used to verify the API is working.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/art",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.lumos_liveness_check",
+   "name": "Get info",
+   "description": "Returns current git revision.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.lumos.com/info",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.perform_task_action_tasks_task_id_perform_action_post",
+   "name": "Perform task action",
+   "description": "**Perform a custom action on a task** \u2014 the generic escape hatch for tasks that expose workflow-specific actions beyond approve/deny. For approval tasks, prefer `POST /tasks/{task_id}/complete` or `POST /tasks/{task_id}/dismiss` \u2014 those endpoints are simpler and do not require discovering the action type. Use this endpoint only when the task exposes custom actions. Discover the available actions f",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     },
+     "action_type": {
+      "type": "string",
+      "description": "The action type to perform."
+     },
+     "transition_to": {
+      "type": "string",
+      "description": "The status to transition to. If omitted and the action has exactly one transition target, it will be inferred."
+     }
+    },
+    "required": [
+     "action_type",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/tasks/{task_id}/perform-action",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action_type",
+     "transition_to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.post_accounts",
+   "name": "Create accounts",
+   "description": "Upload accounts to an app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accounts": {
+      "type": "array",
+      "description": "Accounts to upload."
+     },
+     "app_id": {
+      "type": "string",
+      "description": "The ID of the app to upload accounts to."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/accounts/upload",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "accounts",
+     "app_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.process_airbase_milestone_event",
+   "name": "Process airbase purchase request approved",
+   "description": "Webhook for Airbase to send events as a workflow transitions through milestones",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_app_uuid": {
+      "type": "string",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "object": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "created_date": {
+      "type": "string",
+      "description": ""
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "created_date",
+     "data",
+     "domain_app_uuid",
+     "id",
+     "object",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/webhooks/airbase/purchase_request_approved/{domain_app_uuid}",
+    "path": [
+     "domain_app_uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "object",
+     "type",
+     "created_date",
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.process_vendr_request_completed_webhooks_vendr_request_completed_domain_app_uuid_post",
+   "name": "Process vendr request completed",
+   "description": "Webhook for Vendr to send request completed events to Lumos",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_app_uuid": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_app_uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/webhooks/vendr/request_completed/{domain_app_uuid}",
+    "path": [
+     "domain_app_uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.reassign_task_tasks_task_id_reassign_post",
+   "name": "Reassign task",
+   "description": "Reassign a task.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     },
+     "user_ids": {
+      "type": "string",
+      "description": "IDs of users to assign."
+     },
+     "group_ids": {
+      "type": "string",
+      "description": "IDs of groups to assign."
+     },
+     "replace": {
+      "type": "boolean",
+      "description": "Whether to replace existing assignees or add to them."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/tasks/{task_id}/reassign",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_ids",
+     "group_ids",
+     "replace"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.reconnect_app",
+   "name": "Reconnect app",
+   "description": "Update an app in place: apply domain-specific metadata overrides (the same fields as `PATCH /apps/{app_id}`) and/or rotate an integration's credentials. Providing `auth`/`settings`/`version` (with the matching `app_class_id`) reconnects the app: credentials are always overwritten and re-validated, and a sync is triggered \u2014 like connect, the app either connects in-band or awaits browser consent in ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "The updated domain-specific display name of the app. Set to null to reset to the app's default name."
+     },
+     "category": {
+      "type": "string",
+      "description": "The updated domain-specific category of the app. Set to null to reset to the app's default category. Possible values: 'Accounting & Finance', 'Marketing & Analytics', 'Content & Social Media', 'Sales & Support', 'Design & Creativity', 'IT & Security', 'Developers', 'HR & Learning', 'Office & Legal', 'Communication', 'Collaboration', 'Commerce & Marketplaces', 'Other', 'Internal'"
+     },
+     "description": {
+      "type": "string",
+      "description": "The updated domain-specific description of the app. Set to null to reset to the app's default description."
+     },
+     "logo_url": {
+      "type": "string",
+      "description": "The updated domain-specific URL of the logo of the app. Set to null to reset to the app's default logo."
+     },
+     "website_url": {
+      "type": "string",
+      "description": "The updated URL of the website of the app. Set to null to clear it."
+     },
+     "request_instructions": {
+      "type": "string",
+      "description": "The updated request instructions."
+     },
+     "app_class_id": {
+      "type": "string",
+      "description": "Canonical identifier of the integration this app belongs to, e.g. `okta.com`. Must match the existing app (a mismatch is rejected with 400); required when rotating credentials via `auth`/`settings`/`version`."
+     },
+     "settings": {
+      "type": "string",
+      "description": "Non-secret configuration for the integration being reconnected, as a JSON object \u2014 e.g. host, port, region, or tenant / instance URL. The accepted keys vary by integration and some integrations need none. Requires `app_class_id`."
+     },
+     "version": {
+      "type": "string",
+      "description": "Optional integration version override for the reconnect. Pins the connection to a specific integration implementation/version instead of the current default; leave unset (`null`) unless directed otherwise. Requires `app_class_id`."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.lumos.com/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "category",
+     "description",
+     "logo_url",
+     "website_url",
+     "request_instructions",
+     "app_class_id",
+     "settings",
+     "version"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.remove_app_from_app_store",
+   "name": "Remove app from appstore",
+   "description": "Remove app from AppStore.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/appstore/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.remove_role_from_user_users_user_id_roles_role_name_delete",
+   "name": "Remove role from user",
+   "description": "Remove a specific role from a user, ensuring the user belongs to the specified domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "role_name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "role_name",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.lumos.com/users/{user_id}/roles/{role_name}",
+    "path": [
+     "user_id",
+     "role_name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.trigger_app_sync",
+   "name": "Trigger app sync",
+   "description": "Trigger a sync for a connected app on demand (e.g. from automation, after Terraform has connected it). The sync runs asynchronously \u2014 the call returns `202 Accepted` once the sync is launched; poll `GET /apps/{app_id}` to follow status. Requires `sync_type` (only `full_sync` is supported today). The app must be connected or in an error state from a prior sync (so callers can retry after failure). ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "sync_type": {
+      "type": "string",
+      "description": "The kind of sync to trigger. MVP supports full integration sync only. The enum is the forward-compatible seam: new sync kinds (incremental, groups-only, \u2026) are added as additional members without changing the request/response contract.",
+      "enum": [
+       "full_sync"
+      ]
+     }
+    },
+    "required": [
+     "app_id",
+     "sync_type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.lumos.com/apps/{app_id}/sync",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "sync_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_access_policy",
+   "name": "Update access policy",
+   "description": "Update an access policy by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_policy_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the access policy."
+     },
+     "business_justification": {
+      "type": "string",
+      "description": "Explanation for why this policy exists."
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the access policy. Defaults to DRAFT when supported."
+     },
+     "is_enabled": {
+      "type": "string",
+      "description": "Whether the access policy is enabled. Defaults to false when supported."
+     },
+     "apps": {
+      "type": "array",
+      "description": "List of apps granted by this access policy."
+     },
+     "access_condition": {
+      "type": "string",
+      "description": "The Lumos Condition object determining which identities qualify for this policy. Required unless `is_everyone_condition` is `true`. This is a recursive JSON structure that allows you to define complex rules for filtering and matching identities using operators like `equals`, `in`, `and`, `or`, and `not`. For more information, see the [Lumos Conditions documentation](https://support.lumos.com/artic"
+     },
+     "is_everyone_condition": {
+      "type": "boolean",
+      "description": "Whether the access policy applies to everyone. If true, `access_condition` is ignored. Otherwise, `access_condition` must be provided."
+     }
+    },
+    "required": [
+     "access_policy_id",
+     "apps",
+     "business_justification",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.lumos.com/access_policies/{access_policy_id}",
+    "path": [
+     "access_policy_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "business_justification",
+     "status",
+     "is_enabled",
+     "apps",
+     "access_condition",
+     "is_everyone_condition"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_access_review",
+   "name": "Update access review",
+   "description": "Update an existing access review campaign. Top-level fields are editable on any review that is not yet `COMPLETED`. Per-app (`apps[].scope_filters`) edits are only accepted while the ARDA is still in `IN_PREPARATION` or `ASSIGNING_REVIEWERS` status. Fields absent from the body are left untouched. Setting a `target_launch_date` moves the review to `SCHEDULED`; sending it as `null` unschedules the r",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_review_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the access review campaign."
+     },
+     "deadline_at": {
+      "type": "string",
+      "description": "Deadline by which reviewers must complete their reviews. ISO 8601 datetime (e.g. '2026-05-01T00:00:00Z')."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "UUID of the user to set as the review owner."
+     },
+     "target_launch_date": {
+      "type": "string",
+      "description": "Date the review is scheduled to launch on, as an ISO 8601 datetime; the time of day is ignored. Send null to unschedule the review, which also turns off any recurrence. Must not be in the past, and must not be after `deadline_at`."
+     },
+     "recurrence_config": {
+      "type": "string",
+      "description": "Recurrence configuration. Mutually exclusive with recurrence_days_frequency; setting it clears that field. Send null to stop the review recurring. Only accepted on a review that has a target_launch_date."
+     },
+     "recurrence_days_frequency": {
+      "type": "string",
+      "description": "Recurrence frequency in days. Mutually exclusive with recurrence_config; setting it clears that field. Send null to stop the review recurring. Only accepted on a review that has a target_launch_date."
+     },
+     "apps": {
+      "type": "array",
+      "description": "Per-app (ARDA) fields to update."
+     }
+    },
+    "required": [
+     "access_review_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/access_reviews/{access_review_id}",
+    "path": [
+     "access_review_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "deadline_at",
+     "owner_id",
+     "target_launch_date",
+     "recurrence_config",
+     "recurrence_days_frequency",
+     "apps"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_app",
+   "name": "Update app",
+   "description": "Update domain-specific app metadata overrides. This updates the app instance in your domain, not the shared Lumos app catalog.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "The updated domain-specific display name of the app. Set to null to reset to the app's default name."
+     },
+     "category": {
+      "type": "string",
+      "description": "The updated domain-specific category of the app. Set to null to reset to the app's default category. Possible values: 'Accounting & Finance', 'Marketing & Analytics', 'Content & Social Media', 'Sales & Support', 'Design & Creativity', 'IT & Security', 'Developers', 'HR & Learning', 'Office & Legal', 'Communication', 'Collaboration', 'Commerce & Marketplaces', 'Other', 'Internal'"
+     },
+     "description": {
+      "type": "string",
+      "description": "The updated domain-specific description of the app. Set to null to reset to the app's default description."
+     },
+     "logo_url": {
+      "type": "string",
+      "description": "The updated domain-specific URL of the logo of the app. Set to null to reset to the app's default logo."
+     },
+     "website_url": {
+      "type": "string",
+      "description": "The updated URL of the website of the app. Set to null to clear it."
+     },
+     "request_instructions": {
+      "type": "string",
+      "description": "The updated request instructions."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/apps/{app_id}",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "category",
+     "description",
+     "logo_url",
+     "website_url",
+     "request_instructions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_app_settings",
+   "name": "Update domain app appstore settings",
+   "description": "Update app settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "custom_request_instructions": {
+      "type": "string",
+      "description": "AppStore App instructions that are shown to the requester."
+     },
+     "redirect_url": {
+      "type": "string",
+      "description": "If set, requesting this app redirects the user to this URL instead of going through the normal access-request flow. Send null to clear an existing redirect; omit the field to leave it unchanged. Max 2048 characters."
+     },
+     "request_flow": {
+      "type": "object",
+      "description": ""
+     },
+     "provisioning": {
+      "type": "object",
+      "description": ""
+     },
+     "in_app_store": {
+      "type": "boolean",
+      "description": "Whether the app is in the app store."
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/apps/{app_id}/settings",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_request_instructions",
+     "redirect_url",
+     "request_flow",
+     "provisioning",
+     "in_app_store"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_app_store_app_settings",
+   "name": "Update appstore app settings",
+   "description": "Update AppStore app settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": ""
+     },
+     "custom_request_instructions": {
+      "type": "string",
+      "description": "AppStore App instructions that are shown to the requester."
+     },
+     "redirect_url": {
+      "type": "string",
+      "description": "If set, requesting this app redirects the user to this URL instead of going through the normal access-request flow. Send null to clear an existing redirect; omit the field to leave it unchanged. Max 2048 characters."
+     },
+     "request_flow": {
+      "type": "object",
+      "description": ""
+     },
+     "provisioning": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "app_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/appstore/apps/{app_id}/settings",
+    "path": [
+     "app_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_request_instructions",
+     "redirect_url",
+     "request_flow",
+     "provisioning"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_appstore_permission_appstore_requestable_permissions_permission_id_patch",
+   "name": "Update appstore permission",
+   "description": "**Update an AppStore permission.** All fields present in the payload will override the permission's data. Any missing fields will be disregarded. Non-updatable fields for now: request_config -> request_fulfillment_config -> provisioning_group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "permission_id": {
+      "type": "string",
+      "description": ""
+     },
+     "include_inherited_configs": {
+      "type": "boolean",
+      "description": "Include inherited configurations from parent app."
+     },
+     "app_id": {
+      "type": "string",
+      "description": "The ID of the app associated with this requestable permission."
+     },
+     "app_class_id": {
+      "type": "string",
+      "description": "The ID of the service associated with this requestable permission."
+     },
+     "app_instance_id": {
+      "type": "string",
+      "description": "Optionally, an app has an identifer associated with it's particular instance."
+     },
+     "label": {
+      "type": "string",
+      "description": "The label of this requestable permission."
+     },
+     "request_config": {
+      "type": "string",
+      "description": "The request config associated with this requestable permission."
+     }
+    },
+    "required": [
+     "permission_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/appstore/requestable_permissions/{permission_id}",
+    "path": [
+     "permission_id"
+    ],
+    "query": [
+     "include_inherited_configs"
+    ],
+    "header": [],
+    "body": [
+     "app_id",
+     "app_class_id",
+     "app_instance_id",
+     "label",
+     "request_config"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_knowledge_context",
+   "name": "Update knowledge context",
+   "description": "Patch an existing knowledge entry. Only supplied (non-empty) fields are updated. Tag and scope lists replace existing values entirely \u2014 they do not append. Send as `multipart/form-data`. To replace the attached file, include a `file` field. To remove the existing file without uploading a new one, set `clear_attachment=true`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "knowledge_context_id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": "New title. Omit to leave unchanged."
+     },
+     "content": {
+      "type": "string",
+      "description": "New content body. Omit to leave unchanged."
+     },
+     "generic_tags": {
+      "type": "string",
+      "description": "Replacement tag list \u2014 replaces all existing tags. Omit to leave unchanged."
+     },
+     "product_scopes": {
+      "type": "string",
+      "description": "Replacement product scope list \u2014 replaces all existing scopes. Omit to leave unchanged."
+     },
+     "clear_attachment": {
+      "type": "boolean",
+      "description": "When true, removes the existing file attachment without uploading a new one."
+     },
+     "file": {
+      "type": "string",
+      "description": "Replacement file attachment. Omit to leave existing file unchanged."
+     }
+    },
+    "required": [
+     "knowledge_context_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/v1/knowledge/context/{knowledge_context_id}",
+    "path": [
+     "knowledge_context_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "content",
+     "generic_tags",
+     "product_scopes",
+     "clear_attachment",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_pre_approval_rule_appstore_pre_approval_rules_pre_approval_rule_id_patch",
+   "name": "Update pre approval rule",
+   "description": "**Update a pre-approval rule attached to an App in the AppStore.** All fields present in the payload will override the pre-approval rule's data. Any missing fields will be disregarded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pre_approval_rule_id": {
+      "type": "string",
+      "description": ""
+     },
+     "justification": {
+      "type": "string",
+      "description": "The justification of this preapproval rule."
+     },
+     "time_based_access": {
+      "type": "array",
+      "description": "Preapproval rule time access length,"
+     },
+     "preapproved_groups": {
+      "type": "array",
+      "description": "The preapproved groups of this preapproval rule."
+     },
+     "preapproved_permissions": {
+      "type": "array",
+      "description": "The preapproved permissions of this preapproval rule."
+     },
+     "preapproved_users_by_attribute": {
+      "type": "array",
+      "description": "The set of users this pre-approval rule applies to, defined by attributes that must be true about the user"
+     },
+     "preapproval_webhooks": {
+      "type": "array",
+      "description": "The preapproval webhooks of this preapproval rule."
+     }
+    },
+    "required": [
+     "justification",
+     "pre_approval_rule_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.lumos.com/appstore/pre_approval_rules/{pre_approval_rule_id}",
+    "path": [
+     "pre_approval_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "justification",
+     "time_based_access",
+     "preapproved_groups",
+     "preapproved_permissions",
+     "preapproved_users_by_attribute",
+     "preapproval_webhooks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "lumos.update_vendor_agreement_custom_attribute",
+   "name": "Update vendor agreement custom attribute",
+   "description": "Update a custom attribute attached to a vendor agreement.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "vendor_agreement_id": {
+      "type": "string",
+      "description": ""
+     },
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "value": {
+      "type": "string",
+      "description": "The value to store for this custom attribute. Set to null to remove the value."
+     }
+    },
+    "required": [
+     "label",
+     "vendor_agreement_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.lumos.com/vendor_agreements/{vendor_agreement_id}/custom_attributes/{label}",
+    "path": [
+     "vendor_agreement_id",
+     "label"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

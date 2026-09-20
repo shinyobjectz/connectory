@@ -1,0 +1,1269 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "amplitude",
+ "source": "https://amplitude.com/openapi.json",
+ "operations": [
+  {
+   "slug": "amplitude.create_event_property",
+   "name": "Create an event property",
+   "description": "Create an event property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event_type": {
+      "type": "string",
+      "description": ""
+     },
+     "event_property": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "is_required": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "event_property",
+     "event_type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://amplitude.com/api/2/taxonomy/event-property",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "event_type",
+     "event_property",
+     "description",
+     "type",
+     "is_required"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.create_event_type",
+   "name": "Create an event type",
+   "description": "Requires the Amplitude Data add-on.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event_type": {
+      "type": "string",
+      "description": ""
+     },
+     "category": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "display_name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "event_type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://amplitude.com/api/2/taxonomy/event",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "event_type",
+     "category",
+     "description",
+     "display_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.create_user_property",
+   "name": "Create a user property",
+   "description": "Create a user property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_property": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "user_property"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://amplitude.com/api/2/taxonomy/user-property",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_property",
+     "description",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.delete_event_type",
+   "name": "Delete an event type",
+   "description": "Delete an event type",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventType": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "eventType"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://amplitude.com/api/2/taxonomy/event/{eventType}",
+    "path": [
+     "eventType"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.download_cohort",
+   "name": "Download a cohort export",
+   "description": "Redirects to a short-lived download link. The request URL is valid for seven days; each generated link is valid for one minute.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "requestId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "requestId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/5/cohorts/request/{requestId}/file",
+    "path": [
+     "requestId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.export_events",
+   "name": "Export raw events",
+   "description": "Export raw event data for a time range as a zipped archive of newline-delimited JSON files. Range is bounded by `server_upload_time`, maximum 365 days and 4 GB per request. Data is available roughly two hours after ingestion.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First hour included, formatted YYYYMMDDTHH."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last hour included, formatted YYYYMMDDTHH."
+     }
+    },
+    "required": [
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/export",
+    "path": [],
+    "query": [
+     "start",
+     "end"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_ai_catalog",
+   "name": "Agentic resource discovery catalog",
+   "description": "Catalog of Amplitude\u2019s agent-callable resources \u2014 MCP servers, skills, and APIs \u2014 per the Agentic Resource Discovery specification.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/.well-known/ai-catalog.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_average_session_length",
+   "name": "Average session length",
+   "description": "Average session length",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     }
+    },
+    "required": [
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/sessions/average",
+    "path": [],
+    "query": [
+     "start",
+     "end"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_chart_results",
+   "name": "Get results from an existing chart",
+   "description": "Return the current results of a saved chart. The response shape depends on the chart type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "chartId": {
+      "type": "string",
+      "description": "Chart ID, taken from the chart URL in the Amplitude web app."
+     }
+    },
+    "required": [
+     "chartId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/3/chart/{chartId}/csv",
+    "path": [
+     "chartId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_cohort_export_status",
+   "name": "Get cohort export status",
+   "description": "Get cohort export status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "requestId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "requestId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/5/cohorts/request-status/{requestId}",
+    "path": [
+     "requestId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_event_segmentation",
+   "name": "Event segmentation",
+   "description": "Return metrics for one or two events over a date range, optionally segmented and grouped. URL-encode special characters in event types and property names.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "e": {
+      "type": "string",
+      "description": "Event definition as a JSON object with `event_type` and optional `filters` and `group_by`. Use `_active` for any active event, `_all` for any event, and prefix custom events with `ce:`."
+     },
+     "e2": {
+      "type": "string",
+      "description": "Second event definition, same shape as `e`."
+     },
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "m": {
+      "type": "string",
+      "description": "Metric to return. Non-property metrics: `uniques`, `totals`, `pct_dau`, `average`. Property metrics: `histogram`, `sums`, `value_avg`.",
+      "enum": [
+       "uniques",
+       "totals",
+       "pct_dau",
+       "average",
+       "histogram",
+       "sums",
+       "value_avg"
+      ]
+     },
+     "i": {
+      "type": "integer",
+      "description": "Interval: 1 for daily, 7 for weekly, 30 for monthly. Use -300000, -3600000 for realtime intervals."
+     },
+     "s": {
+      "type": "string",
+      "description": "Segment definitions, as a JSON array of filter condition objects. Repeat the parameter for multiple segments."
+     },
+     "g": {
+      "type": "string",
+      "description": "Property to group by, for example `platform`. Available only with a single segment. Limit: two."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of group-by values returned. Max 1000."
+     }
+    },
+    "required": [
+     "e",
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/events/segmentation",
+    "path": [],
+    "query": [
+     "e",
+     "e2",
+     "start",
+     "end",
+     "m",
+     "i",
+     "s",
+     "g",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_event_type",
+   "name": "Get an event type",
+   "description": "Get an event type",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventType": {
+      "type": "string",
+      "description": "URL-encoded event type name."
+     }
+    },
+    "required": [
+     "eventType"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/taxonomy/event/{eventType}",
+    "path": [
+     "eventType"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_funnel_analysis",
+   "name": "Funnel analysis",
+   "description": "Return conversion data for a series of events. Repeat the `e` parameter once per funnel step, in order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "e": {
+      "type": "string",
+      "description": "Funnel step event definition. Repeat once per step, in funnel order."
+     },
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Whether steps must occur in the given order. `ordered` (default), `unordered`, or `sequential`.",
+      "enum": [
+       "ordered",
+       "unordered",
+       "sequential"
+      ]
+     },
+     "n": {
+      "type": "string",
+      "description": "User set: `new` or `active` (default).",
+      "enum": [
+       "new",
+       "active"
+      ]
+     },
+     "cs": {
+      "type": "integer",
+      "description": "Conversion window in seconds."
+     },
+     "s": {
+      "type": "string",
+      "description": "Segment definitions, as a JSON array of filter condition objects. Repeat the parameter for multiple segments."
+     },
+     "g": {
+      "type": "string",
+      "description": "Property to group by, for example `platform`. Available only with a single segment. Limit: two."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of group-by values returned. Max 1000."
+     }
+    },
+    "required": [
+     "e",
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/funnels",
+    "path": [],
+    "query": [
+     "e",
+     "start",
+     "end",
+     "mode",
+     "n",
+     "cs",
+     "s",
+     "g",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_llms_full_txt",
+   "name": "Expanded site index for llms",
+   "description": "Expanded site index for LLMs",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/llms-full.txt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_llms_txt",
+   "name": "Site index for llms",
+   "description": "Categorized index of amplitude.com pages with titles and descriptions, following the llms.txt convention.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/llms.txt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_open_api_document",
+   "name": "This document",
+   "description": "This document",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/openapi.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_page_markdown",
+   "name": "Get any amplitude com page as markdown",
+   "description": "Append `.md` to any amplitude.com page path to get a Markdown rendering of its main content. Public and unauthenticated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pagePath": {
+      "type": "string",
+      "description": "Page path without the leading slash, for example `pricing` or `blog/some-post`."
+     }
+    },
+    "required": [
+     "pagePath"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/{pagePath}.md",
+    "path": [
+     "pagePath"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_realtime_active_users",
+   "name": "Real time active users",
+   "description": "Real-time active users",
+   "input": {
+    "type": "object",
+    "properties": {
+     "i": {
+      "type": "integer",
+      "description": "Number of 5-minute buckets to return: 1, 5, 15, or 30.",
+      "enum": [
+       1,
+       5,
+       15,
+       30
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/realtime",
+    "path": [],
+    "query": [
+     "i"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_retention_analysis",
+   "name": "Retention analysis",
+   "description": "Return retention for a starting event and a return event over a date range.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "se": {
+      "type": "string",
+      "description": "Starting event definition."
+     },
+     "re": {
+      "type": "string",
+      "description": "Returning event definition."
+     },
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "rm": {
+      "type": "string",
+      "description": "Retention type: `bracket`, `rolling` (unbounded), or `n` (N-day). Defaults to N-day.",
+      "enum": [
+       "bracket",
+       "rolling",
+       "n"
+      ]
+     },
+     "i": {
+      "type": "integer",
+      "description": "Interval: 1 daily, 7 weekly, 30 monthly.",
+      "enum": [
+       1,
+       7,
+       30
+      ]
+     },
+     "s": {
+      "type": "string",
+      "description": "Segment definitions, as a JSON array of filter condition objects. Repeat the parameter for multiple segments."
+     },
+     "g": {
+      "type": "string",
+      "description": "Property to group by, for example `platform`. Available only with a single segment. Limit: two."
+     }
+    },
+    "required": [
+     "end",
+     "re",
+     "se",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/retention",
+    "path": [],
+    "query": [
+     "se",
+     "re",
+     "start",
+     "end",
+     "rm",
+     "i",
+     "s",
+     "g"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_revenue_ltv",
+   "name": "Revenue lifetime value",
+   "description": "Revenue lifetime value",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "m": {
+      "type": "integer",
+      "description": "Chart measure: 0 ARPU, 1 ARPPU, 2 total revenue, 3 paying users.",
+      "enum": [
+       0,
+       1,
+       2,
+       3
+      ]
+     },
+     "i": {
+      "type": "integer",
+      "description": "Interval: 1 daily, 7 weekly, 30 monthly.",
+      "enum": [
+       1,
+       7,
+       30
+      ]
+     },
+     "s": {
+      "type": "string",
+      "description": "Segment definitions, as a JSON array of filter condition objects. Repeat the parameter for multiple segments."
+     },
+     "g": {
+      "type": "string",
+      "description": "Property to group by, for example `platform`. Available only with a single segment. Limit: two."
+     }
+    },
+    "required": [
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/revenue/ltv",
+    "path": [],
+    "query": [
+     "start",
+     "end",
+     "m",
+     "i",
+     "s",
+     "g"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_session_length_distribution",
+   "name": "Session length distribution",
+   "description": "Session length distribution",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "timeHistogramConfigBinTimeUnit": {
+      "type": "string",
+      "description": "Bin unit: `seconds`, `minutes`, `hours`, or `days`.",
+      "enum": [
+       "seconds",
+       "minutes",
+       "hours",
+       "days"
+      ]
+     },
+     "timeHistogramConfigBinMin": {
+      "type": "integer",
+      "description": ""
+     },
+     "timeHistogramConfigBinMax": {
+      "type": "integer",
+      "description": ""
+     },
+     "timeHistogramConfigBinSize": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/sessions/length",
+    "path": [],
+    "query": [
+     "start",
+     "end",
+     "timeHistogramConfigBinTimeUnit",
+     "timeHistogramConfigBinMin",
+     "timeHistogramConfigBinMax",
+     "timeHistogramConfigBinSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_user_activity",
+   "name": "User activity",
+   "description": "Return a single user\u2019s event stream and user properties. Rate limits for this endpoint are lower than other Dashboard REST endpoints.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "Amplitude ID of the user."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Zero-indexed offset into the event stream."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of events to return. Defaults to 1000."
+     }
+    },
+    "required": [
+     "user"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/useractivity",
+    "path": [],
+    "query": [
+     "user",
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_user_composition",
+   "name": "User composition by property",
+   "description": "User composition by property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "p": {
+      "type": "string",
+      "description": "Property to break down by. Amplitude properties include `version`, `country`, `city`, `region`, `DMA`, `language`, `platform`, `os`, `device`, `device_type`, `start_version`, and `paying`. Prefix custom user properties with `gp:`."
+     }
+    },
+    "required": [
+     "end",
+     "p",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/composition",
+    "path": [],
+    "query": [
+     "start",
+     "end",
+     "p"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.get_user_counts",
+   "name": "Active and new user counts",
+   "description": "Active and new user counts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start": {
+      "type": "string",
+      "description": "First date included in the data series, formatted YYYYMMDD."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last date included in the data series, formatted YYYYMMDD."
+     },
+     "m": {
+      "type": "string",
+      "description": "Either `active` or `new`. Defaults to `active`.",
+      "enum": [
+       "active",
+       "new"
+      ]
+     },
+     "i": {
+      "type": "integer",
+      "description": "Interval: 1 daily, 7 weekly, 30 monthly.",
+      "enum": [
+       1,
+       7,
+       30
+      ]
+     },
+     "s": {
+      "type": "string",
+      "description": "Segment definitions, as a JSON array of filter condition objects. Repeat the parameter for multiple segments."
+     },
+     "g": {
+      "type": "string",
+      "description": "Property to group by, for example `platform`. Available only with a single segment. Limit: two."
+     }
+    },
+    "required": [
+     "end",
+     "start"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/users",
+    "path": [],
+    "query": [
+     "start",
+     "end",
+     "m",
+     "i",
+     "s",
+     "g"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.list_cohorts",
+   "name": "List all cohorts",
+   "description": "List all cohorts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/3/cohorts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.list_event_properties",
+   "name": "Get event properties",
+   "description": "Get event properties",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event_type": {
+      "type": "string",
+      "description": "Limit results to properties on a single event type. Omit to return properties across all events."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/taxonomy/event-property",
+    "path": [],
+    "query": [
+     "event_type"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.list_event_types",
+   "name": "Get all event types",
+   "description": "Requires the Amplitude Data add-on.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/taxonomy/event",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.list_events",
+   "name": "List events",
+   "description": "Return every active and inactive event type in the project, with display name and deleted state.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/events/list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.list_user_properties",
+   "name": "Get all user properties",
+   "description": "Get all user properties",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/taxonomy/user-property",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.request_cohort_export",
+   "name": "Request a cohort export",
+   "description": "Start an asynchronous cohort export and return a request ID. Poll `/api/5/cohorts/request-status/{requestId}`, then download from `/api/5/cohorts/request/{requestId}/file`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cohortId": {
+      "type": "string",
+      "description": ""
+     },
+     "props": {
+      "type": "integer",
+      "description": "Set to 1 to include user properties in the export.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "propKeys": {
+      "type": "string",
+      "description": "Specific user property to include. Repeat for multiple properties."
+     }
+    },
+    "required": [
+     "cohortId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/5/cohorts/request/{cohortId}",
+    "path": [
+     "cohortId"
+    ],
+    "query": [
+     "props",
+     "propKeys"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.search_users",
+   "name": "User search",
+   "description": "Look up users by Amplitude ID, device ID, user ID, or user ID prefix.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "Amplitude ID, device ID, user ID, or user ID prefix."
+     }
+    },
+    "required": [
+     "user"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://amplitude.com/api/2/usersearch",
+    "path": [],
+    "query": [
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.update_event_type",
+   "name": "Update an event type",
+   "description": "Update an event type",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventType": {
+      "type": "string",
+      "description": ""
+     },
+     "category": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "display_name": {
+      "type": "string",
+      "description": ""
+     },
+     "new_event_type": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "eventType"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://amplitude.com/api/2/taxonomy/event/{eventType}",
+    "path": [
+     "eventType"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "category",
+     "description",
+     "display_name",
+     "new_event_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.upload_events",
+   "name": "Upload events (http v2)",
+   "description": "Send events to Amplitude in real time. Requests are limited to 1 MB; send an `insert_id` per event and implement retry logic so failures do not lose or duplicate data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "events": {
+      "type": "array",
+      "description": "Events to upload."
+     },
+     "options": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "events"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://amplitude.com/2/httpapi",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "events",
+     "options"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "amplitude.upload_events_batch",
+   "name": "Upload events (batch)",
+   "description": "Upload large volumes of event data at once. Same payload shape as HTTP V2 with higher throughput limits and looser throttling. Use this for backfills and server-to-server pipelines.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "events": {
+      "type": "array",
+      "description": "Events to upload."
+     },
+     "options": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "events"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://amplitude.com/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "events",
+     "options"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

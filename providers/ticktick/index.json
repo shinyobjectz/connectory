@@ -1,0 +1,1104 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "ticktick",
+ "source": "https://ticktick.com/openapi.yaml",
+ "operations": [
+  {
+   "slug": "ticktick.assign_task",
+   "name": "Assign a task to a project member",
+   "description": "Assign a task to a project member",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task is in"
+     },
+     "taskId": {
+      "type": "string",
+      "description": "The ID of task to assign"
+     },
+     "assigneeUsername": {
+      "type": "string",
+      "description": "Username of the assignee who is a project member"
+     }
+    },
+    "required": [
+     "assigneeUsername",
+     "projectId",
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/assign",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "projectId",
+     "taskId",
+     "assigneeUsername"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.batch_sync_tasks",
+   "name": "Batch create or update tasks",
+   "description": "Each add and update operation is limited to 50 tasks. Processing is not atomic: if one task fails, tasks processed before the failure may already have been created or updated. Do not retry the entire request without first checking which tasks succeeded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "add": {
+      "type": "array",
+      "description": "Tasks to create, up to 50 tasks"
+     },
+     "update": {
+      "type": "array",
+      "description": "Tasks to update, up to 50 tasks"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "add",
+     "update"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.complete_specify_task",
+   "name": "Complete a task by project id and task id",
+   "description": "Complete a task by project ID and task ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task in"
+     },
+     "taskId": {
+      "type": "string",
+      "description": "The ID of task"
+     }
+    },
+    "required": [
+     "projectId",
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}/task/{taskId}/complete",
+    "path": [
+     "projectId",
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.create_single_task",
+   "name": "Create a task to tick tick",
+   "description": "Create a task to TickTick",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of task"
+     },
+     "etag": {
+      "type": "string",
+      "description": "Version identifier of task, returned after task changes"
+     },
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task in"
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of task"
+     },
+     "isAllDay": {
+      "type": "string",
+      "description": "Is task all day, true or false"
+     },
+     "completedTime": {
+      "type": "string",
+      "description": "Task completed time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2019-11-13T03:00:00+0000"
+     },
+     "content": {
+      "type": "string",
+      "description": "Content of task"
+     },
+     "desc": {
+      "type": "string",
+      "description": "Description of checklist"
+     },
+     "dueDate": {
+      "type": "string",
+      "description": "Task due date time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2019-11-13T03:00:00+0000\""
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     },
+     "priority": {
+      "type": "integer",
+      "description": "Task priority, None is 0, Low is 1, Medium is 3, High is 5"
+     },
+     "reminders": {
+      "type": "array",
+      "description": "List of reminder trigger, Example [\"TRIGGER:P0DT9H0M0S\",\"TRIGGER:PT0S\"]"
+     },
+     "repeatFlag": {
+      "type": "string",
+      "description": "Recurring rules of task, Example \"RRULE:FREQ=DAILY;INTERVAL=1\""
+     },
+     "repeatFrom": {
+      "type": "string",
+      "description": "Recurrence calculation mode. This field only takes effect when repeatFlag is present. \"0\" (REPEAT_FROM_DUEDATE): Repeat from the original due or scheduled date. The next occurrence is based on dueDate and repeatFlag, for fixed schedules such as \"every Monday\". \"1\" (REPEAT_FROM_COMPLETETIME): Repeat from the completion date while preserving the original time of day, for rules such as \"3 days after ",
+      "enum": [
+       "0",
+       "1",
+       "2"
+      ]
+     },
+     "sortOrder": {
+      "type": "integer",
+      "description": "Sort order value of task, Example 12345"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start data time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2023-04-23T12:00:00+0000\""
+     },
+     "status": {
+      "type": "integer",
+      "description": "Task completion status, Abandoned is -1, Normal is 0, Completed is 2",
+      "enum": [
+       -1,
+       0,
+       2
+      ]
+     },
+     "assigneeUsername": {
+      "type": "string",
+      "description": "Username of the project member assigned to the task"
+     },
+     "timeZone": {
+      "type": "string",
+      "description": "Task timezone, Example \"America/Los_Angeles\""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "etag",
+     "projectId",
+     "title",
+     "isAllDay",
+     "completedTime",
+     "content",
+     "desc",
+     "dueDate",
+     "items",
+     "priority",
+     "reminders",
+     "repeatFlag",
+     "repeatFrom",
+     "sortOrder",
+     "startDate",
+     "status",
+     "assigneeUsername",
+     "timeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.create_tag",
+   "name": "Create a tag",
+   "description": "`name` and `label` are required. After trimming, lowercasing, and truncating each value to 64 emoji-aware characters, they must be equal. New tags are always created as personal tags.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Normalized tag name. Required to update or delete a tag."
+     },
+     "label": {
+      "type": "string",
+      "description": "Display label. It is set at creation and changes with a rename."
+     },
+     "sortOrder": {
+      "type": "integer",
+      "description": "Sort position."
+     },
+     "sortType": {
+      "type": "string",
+      "description": "Sort grouping type."
+     },
+     "color": {
+      "type": "string",
+      "description": "Tag color."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Parent tag name for a nested tag."
+     },
+     "type": {
+      "type": "integer",
+      "description": "Tag type: 1 for personal or 2 for shared. New tags are personal tags (1).",
+      "enum": [
+       1,
+       2
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/tag",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "label",
+     "sortOrder",
+     "sortType",
+     "color",
+     "parent",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.delete_specify_task",
+   "name": "Delete a task by project id and task id",
+   "description": "Delete a task by project ID and task ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task in"
+     },
+     "taskId": {
+      "type": "string",
+      "description": "The ID of task"
+     }
+    },
+    "required": [
+     "projectId",
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}/task/{taskId}",
+    "path": [
+     "projectId",
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.delete_tag",
+   "name": "Delete a tag",
+   "description": "With `scope=0`, deletes the tag record and removes it from all accessible tasks. With `scope=1`, the tag record is kept and the tag is removed only from tasks in non-shared lists.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scope": {
+      "type": "integer",
+      "description": "0 (default) applies the task change to all accessible tasks; 1 applies it only to non-shared tasks.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "The tag name to delete."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.ticktick.com/open/v1/tag/delete",
+    "path": [],
+    "query": [
+     "scope"
+    ],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.filter_tasks",
+   "name": "Filter tasks",
+   "description": "Returns at most 200 tasks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectIds": {
+      "type": "array",
+      "description": "Project IDs to search. Omit to search all accessible projects."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Include tasks with a date on or after this time"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Include tasks with a date on or before this time"
+     },
+     "priority": {
+      "type": "array",
+      "description": "Task priorities to include"
+     },
+     "tag": {
+      "type": "array",
+      "description": "Tags to include"
+     },
+     "kind": {
+      "type": "array",
+      "description": "Task kinds to include"
+     },
+     "status": {
+      "type": "array",
+      "description": "Task statuses to include"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/filter",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "projectIds",
+     "startDate",
+     "endDate",
+     "priority",
+     "tag",
+     "kind",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_all_projects",
+   "name": "Get the list of projects",
+   "description": "Get the list of projects",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/project",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_completed_tasks",
+   "name": "Get completed tasks",
+   "description": "Returns at most 200 completed tasks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectIds": {
+      "type": "array",
+      "description": "Project IDs to search. Omit to search all accessible projects."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Include tasks completed on or after this time"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Include tasks completed on or before this time"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/completed",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "projectIds",
+     "startDate",
+     "endDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_focus_by_id",
+   "name": "Get a focus record by id",
+   "description": "Get a focus record by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "focusId": {
+      "type": "string",
+      "description": "The ID of the focus record."
+     },
+     "type": {
+      "type": "integer",
+      "description": "Focus type: 0 for Pomodoro or 1 for timing.",
+      "enum": [
+       0,
+       1
+      ]
+     }
+    },
+    "required": [
+     "focusId",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/focus/{focusId}",
+    "path": [
+     "focusId"
+    ],
+    "query": [
+     "type"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_habit_by_id",
+   "name": "Get a habit by id",
+   "description": "Get a habit by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "habitId": {
+      "type": "string",
+      "description": "The ID of the habit."
+     }
+    },
+    "required": [
+     "habitId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/habit/{habitId}",
+    "path": [
+     "habitId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_project_by_id",
+   "name": "Get a project by id",
+   "description": "Get a project by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project."
+     }
+    },
+    "required": [
+     "projectId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}",
+    "path": [
+     "projectId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_project_members",
+   "name": "Get the members of a project",
+   "description": "Get the members of a project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project."
+     }
+    },
+    "required": [
+     "projectId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}/members",
+    "path": [
+     "projectId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_project_with_data_by_id",
+   "name": "Get project with data by id",
+   "description": "Get project with data by ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project."
+     }
+    },
+    "required": [
+     "projectId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}/data",
+    "path": [
+     "projectId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_tags",
+   "name": "Get tags",
+   "description": "Get tags",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/tag",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_task_by_id",
+   "name": "Get a task by project id and task id",
+   "description": "Get a task by project ID and task ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of the project containing the task."
+     },
+     "taskId": {
+      "type": "string",
+      "description": "The ID of the task."
+     }
+    },
+    "required": [
+     "projectId",
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.ticktick.com/open/v1/project/{projectId}/task/{taskId}",
+    "path": [
+     "projectId",
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.get_user_preference",
+   "name": "Get the current user's preferences",
+   "description": "Get the current user's preferences",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/preference",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.move_tasks",
+   "name": "Move tasks between projects",
+   "description": "Move tasks between projects",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/move",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.rename_tag",
+   "name": "Rename a tag",
+   "description": "When `scope` is 1, task associations in shared lists retain the old tag name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scope": {
+      "type": "integer",
+      "description": "0 (default) applies the task change to all accessible tasks; 1 applies it only to non-shared tasks.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Current tag name."
+     },
+     "newName": {
+      "type": "string",
+      "description": "New tag name."
+     }
+    },
+    "required": [
+     "name",
+     "newName"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.ticktick.com/open/v1/tag/rename",
+    "path": [],
+    "query": [
+     "scope"
+    ],
+    "header": [],
+    "body": [
+     "name",
+     "newName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.unassign_task",
+   "name": "Remove the assignee from a task",
+   "description": "Remove the assignee from a task",
+   "input": {
+    "type": "object",
+    "properties": {
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task is in"
+     },
+     "taskId": {
+      "type": "string",
+      "description": "The ID of task to unassign"
+     }
+    },
+    "required": [
+     "projectId",
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/unassign",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "projectId",
+     "taskId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.update_focus",
+   "name": "Update a focus record",
+   "description": "Updates the supplied fields of an existing focus record. `type` is required: use `0` for a Pomodoro record or `1` for a timing record. For Pomodoro records, `taskId` and `status` may also be updated. A supplied `tasks` array replaces the existing task associations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "focusId": {
+      "type": "string",
+      "description": "The ID of the focus record to update."
+     },
+     "id": {
+      "type": "string",
+      "description": "Focus record ID. It is supplied by the path when updating."
+     },
+     "type": {
+      "type": "integer",
+      "description": "Focus type: 0 for Pomodoro or 1 for timing.",
+      "enum": [
+       0,
+       1
+      ]
+     },
+     "taskId": {
+      "type": "string",
+      "description": "Task ID associated with a Pomodoro record."
+     },
+     "note": {
+      "type": "string",
+      "description": "Focus note. Blank notes are stored as null."
+     },
+     "tasks": {
+      "type": "array",
+      "description": "Replacement list of task associations."
+     },
+     "status": {
+      "type": "integer",
+      "description": "Pomodoro status."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Start time in \"yyyy-MM-dd'T'HH:mm:ssZ\" format."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "End time in \"yyyy-MM-dd'T'HH:mm:ssZ\" format. It must not precede startTime."
+     },
+     "pauseDuration": {
+      "type": "integer",
+      "description": "Paused duration in seconds."
+     },
+     "adjustTime": {
+      "type": "integer",
+      "description": "Manually adjusted duration in seconds."
+     },
+     "added": {
+      "type": "boolean",
+      "description": "Whether the focus record was manually added."
+     },
+     "duration": {
+      "type": "integer",
+      "description": "Focus duration in seconds."
+     },
+     "createdTime": {
+      "type": "string",
+      "description": "Creation time in \"yyyy-MM-dd'T'HH:mm:ssZ\" format."
+     },
+     "modifiedTime": {
+      "type": "string",
+      "description": "Last modification time in \"yyyy-MM-dd'T'HH:mm:ssZ\" format."
+     },
+     "etag": {
+      "type": "string",
+      "description": "Version identifier returned after a change."
+     }
+    },
+    "required": [
+     "focusId",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/focus/{focusId}",
+    "path": [
+     "focusId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "type",
+     "taskId",
+     "note",
+     "tasks",
+     "status",
+     "startTime",
+     "endTime",
+     "pauseDuration",
+     "adjustTime",
+     "added",
+     "duration",
+     "createdTime",
+     "modifiedTime",
+     "etag"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.update_tag",
+   "name": "Update tag attributes",
+   "description": "`name` identifies the tag and is required. Only supplied attributes are changed; `label` and `name` cannot be changed by this operation. Use the rename endpoint to change a tag name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Normalized tag name. Required to update or delete a tag."
+     },
+     "label": {
+      "type": "string",
+      "description": "Display label. It is set at creation and changes with a rename."
+     },
+     "sortOrder": {
+      "type": "integer",
+      "description": "Sort position."
+     },
+     "sortType": {
+      "type": "string",
+      "description": "Sort grouping type."
+     },
+     "color": {
+      "type": "string",
+      "description": "Tag color."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Parent tag name for a nested tag."
+     },
+     "type": {
+      "type": "integer",
+      "description": "Tag type: 1 for personal or 2 for shared. New tags are personal tags (1).",
+      "enum": [
+       1,
+       2
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.ticktick.com/open/v1/tag",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "label",
+     "sortOrder",
+     "sortType",
+     "color",
+     "parent",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "ticktick.update_task",
+   "name": "Update a task",
+   "description": "Updates the supplied task fields. For a task that is already closed (status `-1`, `1`, or `2`), include `completedTime` to correct its completion timestamp. The timestamp cannot be changed on an open task and cannot be cleared through this endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "taskId": {
+      "type": "string",
+      "description": "The ID of the task to update."
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of task"
+     },
+     "etag": {
+      "type": "string",
+      "description": "Version identifier of task, returned after task changes"
+     },
+     "projectId": {
+      "type": "string",
+      "description": "The ID of project which task in"
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of task"
+     },
+     "isAllDay": {
+      "type": "string",
+      "description": "Is task all day, true or false"
+     },
+     "completedTime": {
+      "type": "string",
+      "description": "Task completed time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2019-11-13T03:00:00+0000"
+     },
+     "content": {
+      "type": "string",
+      "description": "Content of task"
+     },
+     "desc": {
+      "type": "string",
+      "description": "Description of checklist"
+     },
+     "dueDate": {
+      "type": "string",
+      "description": "Task due date time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2019-11-13T03:00:00+0000\""
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     },
+     "priority": {
+      "type": "integer",
+      "description": "Task priority, None is 0, Low is 1, Medium is 3, High is 5"
+     },
+     "reminders": {
+      "type": "array",
+      "description": "List of reminder trigger, Example [\"TRIGGER:P0DT9H0M0S\",\"TRIGGER:PT0S\"]"
+     },
+     "repeatFlag": {
+      "type": "string",
+      "description": "Recurring rules of task, Example \"RRULE:FREQ=DAILY;INTERVAL=1\""
+     },
+     "repeatFrom": {
+      "type": "string",
+      "description": "Recurrence calculation mode. This field only takes effect when repeatFlag is present. \"0\" (REPEAT_FROM_DUEDATE): Repeat from the original due or scheduled date. The next occurrence is based on dueDate and repeatFlag, for fixed schedules such as \"every Monday\". \"1\" (REPEAT_FROM_COMPLETETIME): Repeat from the completion date while preserving the original time of day, for rules such as \"3 days after ",
+      "enum": [
+       "0",
+       "1",
+       "2"
+      ]
+     },
+     "sortOrder": {
+      "type": "integer",
+      "description": "Sort order value of task, Example 12345"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start data time in \"yyyy-MM-dd'T'HH:mm:ssZ\", Example \"2023-04-23T12:00:00+0000\""
+     },
+     "status": {
+      "type": "integer",
+      "description": "Task completion status, Abandoned is -1, Normal is 0, Completed is 2",
+      "enum": [
+       -1,
+       0,
+       2
+      ]
+     },
+     "assigneeUsername": {
+      "type": "string",
+      "description": "Username of the project member assigned to the task"
+     },
+     "timeZone": {
+      "type": "string",
+      "description": "Task timezone, Example \"America/Los_Angeles\""
+     }
+    },
+    "required": [
+     "taskId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.ticktick.com/open/v1/task/{taskId}",
+    "path": [
+     "taskId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "etag",
+     "projectId",
+     "title",
+     "isAllDay",
+     "completedTime",
+     "content",
+     "desc",
+     "dueDate",
+     "items",
+     "priority",
+     "reminders",
+     "repeatFlag",
+     "repeatFrom",
+     "sortOrder",
+     "startDate",
+     "status",
+     "assigneeUsername",
+     "timeZone"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

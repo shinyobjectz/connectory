@@ -1,0 +1,1515 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "agentcard",
+ "source": "https://docs.agentcard.sh/openapi.json",
+ "operations": [
+  {
+   "slug": "agentcard.attach_cancel",
+   "name": "Cancel an attachment",
+   "description": "Cancel a **pending** attachment with your platform token, for example one whose bank verification stalled. The member can then start a fresh add (a fresh verification session at the network). Active cards belong to the member and cannot be removed here.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "attachment_id": {
+      "type": "string",
+      "description": "The attachment id, from Start a card attachment or Get the attachment status."
+     }
+    },
+    "required": [
+     "attachment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentcard.sh/api/v2/cards/add/{attachment_id}",
+    "path": [
+     "attachment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.attach_start",
+   "name": "Start a card attachment",
+   "description": "Start attaching the connected user's own card. Returns a hosted `attach_url` for the user to open \u2014 adding the card takes about a minute (a one-time code from their bank, then a passkey). The card number is entered on the hosted page only; it never passes through your servers. Once attached, cards created over MCP charge this card directly \u2014 no identity verification and no wallet funding.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "display": {
+      "type": "string",
+      "description": "How the attach page renders. `hosted` (default) is the full Agentcard-branded page. `headless` strips it to just the checkout \u2014 no logo, backdrop, or copy \u2014 for rendering inside your own UI.",
+      "enum": [
+       "hosted",
+       "headless"
+      ]
+     },
+     "email": {
+      "type": "string",
+      "description": "Contact email for the card network's verification code. Needed when the user has no email on file (phone-only sign-in): it fills the user's record only when empty and never overwrites an existing email. Without one, the hosted page asks the user for an email directly."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/cards/add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "display",
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.attach_status",
+   "name": "Get the attachment status",
+   "description": "The connected user's latest attachment: `pending` while the user hasn't finished the link, `active` with card details once attached, or `ineligible` with a reason when the card cannot be attached (fall back to wallet funding + `create_card`).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/cards/add",
+    "path": [],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.buy",
+   "name": "Buy",
+   "description": "One conversational endpoint that places real orders. Send the user's request as plain text in `ask`; thread follow-ups with `conversation_id`; place a shown cart by echoing its `hash` in `confirm` (or an array of hashes for several carts). Money only moves on a confirm, and only for exactly the cart the hash describes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ask": {
+      "type": "string",
+      "description": "What the user wants, in plain language. Required unless the call is a confirm."
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "The thread to continue. A confirm always requires it."
+     },
+     "confirm": {
+      "type": "string",
+      "description": "A cart hash from a previous response (16 hex characters), or an array of hashes to place several carts. An array confirm cannot carry an ask in the same call."
+     },
+     "payment_source": {
+      "type": "string",
+      "description": "Pay the confirmed cart(s) with the user's own vaulted card, whatever the user's wording: the confirm pauses with decline_code vault_approval_required and an approval_url, the user approves on their device, and the same confirm places the order. Confirm-only. Omit it and the loop keeps its default source.",
+      "enum": [
+       "vault"
+      ]
+     },
+     "delivery_address": {
+      "type": "object",
+      "description": "The delivery address for this conversation, when your app manages the user's addresses. The agent ships to exactly these values, never asks the user to confirm or correct them, and does not read or update the wallet's saved default address for the conversation. Send it on any turn (the first is fine); it holds for the whole conversation, and a later turn's value replaces it. A malformed address is"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/buy",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ask",
+     "conversation_id",
+     "confirm",
+     "payment_source",
+     "delivery_address"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.connect_consent",
+   "name": "Record consent",
+   "description": "Records that the user authorized your platform to act on their behalf. Safe to retry \u2014 it's idempotent per user, so a repeat call updates the same record instead of creating a duplicate.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The `user.id` from `/connect/verify`."
+     },
+     "terms_version": {
+      "type": "string",
+      "description": "Optional. The version of your terms the user accepted, stored for your audit trail."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/connect/consent",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "terms_version"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.connect_refresh",
+   "name": "Refresh the connection",
+   "description": "Connection access tokens expire after one hour. Exchange the refresh token for a new pair before then. Each refresh returns a **new** refresh token and invalidates the old one \u2014 replace the stored token every time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "refresh_token": {
+      "type": "string",
+      "description": "The refresh token from the most recent `/connect/verify` or `/connect/refresh`."
+     }
+    },
+    "required": [
+     "refresh_token"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/connect/refresh",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "refresh_token"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.connect_start",
+   "name": "Send a code",
+   "description": "Sends a one-time code to the user by email or phone. Provide **exactly one** of `email` or `phone`. Codes are valid for 10 minutes. If you've designed a connect email in your dashboard, we send that branded email; otherwise we send a default one.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The user's email address. Provide this or `phone`, not both."
+     },
+     "phone": {
+      "type": "string",
+      "description": "The user's phone number in E.164 format (e.g. `+15551234567`). Provide this or `email`, not both."
+     },
+     "external_user_id": {
+      "type": "string",
+      "description": "Optional. Your own identifier for the user, stored on the attempt for your reference."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/connect/start",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "phone",
+     "external_user_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.connect_verify",
+   "name": "Verify the code",
+   "description": "Checks the code the user entered and, on success, connects the user and returns the token pair to store. Completing the code **is** the authorization \u2014 there is no separate approval screen. The returned `access_token` is the **user's connection token**: it acts on behalf of this user (send it as the bearer token to the MCP server to create cards, check balances, and shop as them). It is not the pl",
+   "input": {
+    "type": "object",
+    "properties": {
+     "connect_id": {
+      "type": "string",
+      "description": "The `id` returned by `/connect/start`."
+     },
+     "code": {
+      "type": "string",
+      "description": "The one-time code the user entered. Always `111111` in sandbox."
+     }
+    },
+    "required": [
+     "code",
+     "connect_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/connect/verify",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "connect_id",
+     "code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.create_access_token",
+   "name": "Create an access token",
+   "description": "Exchanges your `client_id` + `client_secret` for a platform access token (OAuth2 client credentials, RFC 6749 \u00a74.4). The token lives one hour \u2014 when it expires, exchange again; there are no refresh tokens on this grant. Get your credentials in the Agentcard dashboard under **Organization \u2192 Developer \u2192 Credentials**. A sandbox client mints tokens that act in sandbox; a production client acts in pro",
+   "input": {
+    "type": "object",
+    "properties": {
+     "grant_type": {
+      "type": "string",
+      "description": "Always `client_credentials`.",
+      "enum": [
+       "client_credentials"
+      ]
+     },
+     "client_id": {
+      "type": "string",
+      "description": "Your client id, from the dashboard."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "Your client secret (`acs_\u2026`), shown once when you create the client."
+     }
+    },
+    "required": [
+     "client_id",
+     "client_secret",
+     "grant_type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/oauth/token",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "grant_type",
+     "client_id",
+     "client_secret"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.exchange_platform_connect_code",
+   "name": "Exchange the code",
+   "description": "Exchanges the one-time `code` from the return redirect for the connected organization's `client_id` + `client_secret`. The code alone resolves the session (standard OAuth token-endpoint shape) \u2014 no session id to track. Call it with the SAME platform credential that created the session, within 10 minutes of completion. One shot: the secret is returned only here; persist both before treating the exc",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": "The `code` query parameter from the redirect to your `return_url`."
+     }
+    },
+    "required": [
+     "code"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/platform_connect_sessions/exchange",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.get_api_v2_onboarding_attempts_id",
+   "name": "Get an onboarding attempt",
+   "description": "Inspect an attempt's state while you wait for `connection.created`: whether the person has verified, whether the grant was already exchanged, and when the attempt expires. Only the client that created the attempt can read it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The attempt id from the create response."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/onboarding_attempts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.get_buy_conversation",
+   "name": "Read a purchase conversation",
+   "description": "The server's view of a /buy conversation, for a confirm whose response never arrived: whether a turn is still running, the last checkout attempt (any outcome, with its code and approval link), and every order the conversation placed, read from the ledger. Same bearer scoping as POST /buy.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The conversation_id returned by POST /buy."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/buy/conversations/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.introspect_credential",
+   "name": "Introspect credential",
+   "description": "Returns the organization and mode your token acts as. Useful as a health check and to confirm you're pointed at the right credential.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_get_status",
+   "name": "Get verification status",
+   "description": "Polls the current verification status \u2014 the alternative to the `identity.verification.updated` webhook.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/kyc",
+    "path": [],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_import",
+   "name": "Import a verification (sumsub share token)",
+   "description": "Import a verification you already ran on your **own Sumsub account** (Reusable KYC). Generate a single-use share token for the Agentcard client id, send it here, and the user skips document capture and the face scan. A successful import drops into the exact same status contract as a fresh verification: poll `GET /api/v2/kyc` or listen for `identity.verification.updated`. Requires one-time partner ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "share_token": {
+      "type": "string",
+      "description": "A Sumsub share token generated by your account for the Agentcard client id (`POST /resources/accessTokens/shareToken` with `forClientId`). Single-use; expires after its `ttlInSecs`."
+     },
+     "user_ip": {
+      "type": "string",
+      "description": "The end user's IP address as your frontend saw it (public IPv4 or IPv6; private or reserved addresses are rejected). Strongly recommended: identity screening checks the applicant's IP, and an IP belonging to a datacenter (such as your backend's) can fail an otherwise valid verification. Pass the address your user connected to you from; without it, your server's own address may be recorded as a las"
+     }
+    },
+    "required": [
+     "share_token",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/kyc/import",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "share_token",
+     "user_ip"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_simulate",
+   "name": "Simulate an outcome (test mode)",
+   "description": "**Test mode only.** Drives a test-mode verification to a chosen terminal outcome instantly \u2014 test verifications never complete on their own. The simulated verdict flows through the same status contract and fires the same `identity.verification.updated` webhook a real review produces, so your status handling and webhook consumer are exercised end to end. Requires a test-mode client credential; live",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "outcome": {
+      "type": "string",
+      "description": "The verdict to apply. `approved` \u2014 verification succeeds. `rejected` \u2014 terminal rejection. `requires_input` \u2014 a retryable bounce asking for new document photos.",
+      "enum": [
+       "approved",
+       "rejected",
+       "requires_input"
+      ]
+     },
+     "reason": {
+      "type": "string",
+      "description": "Optional end-user-safe explanation carried on non-approved outcomes \u2014 it appears as `reason` in statuses and webhook events, exactly like a real review's. It must not name internal providers or identifiers (rejected with `400 invalid_reason`), since it is shown to end users verbatim."
+     }
+    },
+    "required": [
+     "outcome",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/kyc/simulate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "outcome",
+     "reason"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_submit_information",
+   "name": "Submit information",
+   "description": "Submits the extra fields requested by a `needs_information` response. Send only the fields listed in `required_fields`; values are trimmed, and a blank value counts as not provided. For a fresh verification, the response returns the `iframe_url` for the face scan. For an imported verification (Reusable KYC), the submit that completes the residential address returns `pending` and files the card iss",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "first_name": {
+      "type": "string",
+      "description": ""
+     },
+     "last_name": {
+      "type": "string",
+      "description": ""
+     },
+     "date_of_birth": {
+      "type": "string",
+      "description": "ISO 8601 date, `YYYY-MM-DD`."
+     },
+     "national_id_number": {
+      "type": "string",
+      "description": "The user's national ID or tax identification number for the country that issued their document \u2014 for US documents this is the SSN; for any other country it is the national ID / tax number printed on (or associated with) the document. Forwarded to the verification provider only; never stored by Agentcard."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "E.164 format with country code (e.g. `+15551234567`)."
+     },
+     "address_line1": {
+      "type": "string",
+      "description": ""
+     },
+     "address_line2": {
+      "type": "string",
+      "description": ""
+     },
+     "address_city": {
+      "type": "string",
+      "description": ""
+     },
+     "address_region": {
+      "type": "string",
+      "description": "State, province, or region."
+     },
+     "address_postal_code": {
+      "type": "string",
+      "description": ""
+     },
+     "address_country": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country code (e.g. `US`)."
+     },
+     "user_ip": {
+      "type": "string",
+      "description": "The end user's IP address as your frontend saw it (public IPv4 or IPv6; private or reserved addresses are rejected). Strongly recommended: identity screening checks the applicant's IP, and an IP belonging to a datacenter (such as your backend's) can fail an otherwise valid verification. Pass the address your user connected to you from; without it, your server's own address may be recorded as a las"
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/kyc/information",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "first_name",
+     "last_name",
+     "date_of_birth",
+     "national_id_number",
+     "phone_number",
+     "address_line1",
+     "address_line2",
+     "address_city",
+     "address_region",
+     "address_postal_code",
+     "address_country",
+     "user_ip"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_upload_back",
+   "name": "Upload the back of the id",
+   "description": "Uploads the back of the document. The response tells you what to do next \u2014 this is the branch point of the flow: - `needs_information` \u2192 collect exactly the `required_fields` and post them to `/kyc/information`. - `requires_verification` \u2192 show the user the `iframe_url` for the face scan. - `rejected` \u2192 the document couldn't be verified.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/kyc/documents/back",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.kyc_upload_front",
+   "name": "Upload the front of the id",
+   "description": "Uploads the front of the user's identity document as a base64-encoded image. This step acknowledges receipt; the next step (`back`) tells you what comes next. Any upload response may include a `warnings` array with actionable feedback (for example, that the other side of the document is still needed). The response's `extracted` object carries what the document reader pulled off the image \u2014 use it ",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/kyc/documents/front",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.list_buy_merchants",
+   "name": "List the merchants  buy can place at",
+   "description": "The live catalogue for rail selection: every merchant id /buy accepts, its display name, and whether this user still needs to link an account there. Same bearer scoping as POST /buy. Merchant ids are the public ids /buy uses in `placements[].merchant` and `unmatched[].merchant` (`retail` covers Amazon, Walmart, Target, Best Buy, Home Depot, Lowe's, Macy's, Wayfair, Staples, Kohl's and B&H Photo).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/buy/merchants",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_attach_cancel",
+   "name": "Cancel an attachment (member token)",
+   "description": "Cancel a **pending** attachment as the member, for example one whose bank verification stalled. The next add starts a fresh verification session at the network. There is a [platform-token twin](/companies/api/reference/attach-cancel).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "attachment_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "attachment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentcard.sh/api/v2/attach/{attachment_id}",
+    "path": [
+     "attachment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_attach_start",
+   "name": "Start an attachment (member token)",
+   "description": "The member-token twin of [Start a card attachment](/companies/api/reference/attach-start): same rows, same hosted page, authenticated as the member instead of naming them with `user_id`. In sandbox this seeds an instantly-active test enrollment so the full flow is rehearsable without a browser.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/attach",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_attach_status",
+   "name": "Get the attachment (member token)",
+   "description": "The member's latest attachment, with a fresh `attach_url` while it is pending.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/attach",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_card_close",
+   "name": "Close a card",
+   "description": "Close a card after checkout. Idempotent: closing a closed card answers `200`. One-time cards also close themselves after their first approved charge.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "card_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "card_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/cards/{card_id}/close",
+    "path": [
+     "card_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_card_create",
+   "name": "Create a card",
+   "description": "Create a one-time virtual card against the member's added card, then key its credentials into your checkout and [close it](/companies/api/reference/member-card-close) when you're done. Sandbox answers `201` with an open test card. Production answers `202 approval_pending` with an `approval_url` the member confirms with a passkey; retry with the SAME `Idempotency-Key` (or watch [flow status](/compa",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "Stable key for THIS card intent (your order id). Retries with the same key resume the same card; they never create a second one."
+     },
+     "amount_cents": {
+      "type": "integer",
+      "description": "Exact amount in cents the card can spend, e.g. 2500 = $25.00."
+     },
+     "currency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "usd"
+      ]
+     },
+     "connected_card_id": {
+      "type": "string",
+      "description": "Draw on a specific added card. Omit to use the newest active one."
+     },
+     "merchant": {
+      "type": "object",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "Idempotency-Key",
+     "amount_cents"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/cards",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "amount_cents",
+     "currency",
+     "connected_card_id",
+     "merchant",
+     "description",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_card_get",
+   "name": "Get a card",
+   "description": "Authoritative card state. While the card is `open` it carries `credentials` (number, expiry, CVC) to key into the checkout. Each read of an open card notifies the member that the credentials were accessed, so fetch once when you are ready to pay rather than polling; poll [flow status](/companies/api/reference/member-flow-status) instead.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "card_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "card_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/cards/{card_id}",
+    "path": [
+     "card_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_cards_list",
+   "name": "List the member's cards",
+   "description": "The member's cards as this connection sees it: added cards (attachments, pending included) and the cards created against them.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/cards",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.member_flow_status",
+   "name": "Get the member flow status",
+   "description": "One read that answers \"what should happen next for this member\": add a card, create a card, share an approval link, or fetch the open card. Authenticated with the member's connection token from [Verify the code](/companies/api/reference/connect-verify).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/flow_status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.platform_connect_create",
+   "name": "Create a connect session",
+   "description": "Starts a hosted \"Connect with Agentcard\" flow for a company you're onboarding. Redirect the company to the returned `url`; when they finish, we redirect them to your `return_url` with a one-time `code` (plus your `state`) that you [exchange](/companies/api/reference/platform-connect-exchange) for the connected organization's API credentials. Requires client-credentials auth (your `client_id` + `cl",
+   "input": {
+    "type": "object",
+    "properties": {
+     "return_url": {
+      "type": "string",
+      "description": "Where we send the company when the flow completes. Must exactly match (origin + path) a redirect URI registered on your OAuth client. `https` required; `http://localhost` is allowed in test mode."
+     },
+     "state": {
+      "type": "string",
+      "description": "Opaque value echoed back on the redirect \u2014 bind it to the company's session on your side to prevent CSRF."
+     }
+    },
+    "required": [
+     "return_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/platform_connect_sessions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "return_url",
+     "state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.platform_connect_exchange",
+   "name": "Exchange the code for credentials",
+   "description": "Exchanges the one-time `code` from the redirect for the connected organization's API credentials. Single use: a second call with the same code fails. Codes expire 10 minutes after issuance and can only be exchanged by the exact OAuth client that created the session. Store the returned `client_id` + `client_secret` server-side, then mint access tokens with [`POST /api/v2/oauth/token`](/companies/ap",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     },
+     "code": {
+      "type": "string",
+      "description": "The `code` query parameter from the redirect to your `return_url`."
+     }
+    },
+    "required": [
+     "code",
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/platform_connect_sessions/{session_id}/exchange",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.platform_connect_get",
+   "name": "Get a connect session",
+   "description": "Poll a session's status. `connected_organization_id` appears once the company completes the flow. The one-time code itself is never returned here \u2014 it only rides the redirect.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/platform_connect_sessions/{session_id}",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.post_api_v2_onboarding_attempts",
+   "name": "Start attested onboarding",
+   "description": "Create an onboarding attempt for a phone number you already hold and text the returned `wallet_url` to the user. No Agentcard account exists yet: the user sees the wallet instantly, and our one-time code fires exactly once, inside our page, at their first money action. You never see or relay the code. Requires the attested-onboarding capability on your organization (ask us to enable it). The respo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "phone": {
+      "type": "string",
+      "description": "The user's phone. E.164 preferred; US local formats are normalized."
+     },
+     "external_user_id": {
+      "type": "string",
+      "description": "Your own id for this person, echoed on `connection.created` and the exchange."
+     }
+    },
+    "required": [
+     "phone"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/onboarding_attempts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "phone",
+     "external_user_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.post_api_v2_onboarding_attempts_id_exchange",
+   "name": "Exchange for the connection",
+   "description": "One-time collection of the user's connection after they verified (you'll know from the `connection.created` webhook, which carries `onboarding_attempt_id`). Returns the same token pair `connect/verify` would have: store `access_token`, `refresh_token`, and `user.id`, and keep the session alive with `POST /api/v2/connect/refresh`. Only the client that created the attempt can exchange it, and only o",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The attempt id from the create response."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/onboarding_attempts/{id}/exchange",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_fund",
+   "name": "Create a funding session",
+   "description": "Returns an Apple Pay / Google Pay payment link for the amount you specify. Show it in your UI; when the user completes the payment the funds land in their wallet. The link is single-use and expires after 30 minutes. Requires a phone verification fresh within 60 days \u2014 see `POST /api/v2/wallet/phone/start`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "amount_cents": {
+      "type": "integer",
+      "description": "Amount to fund, in USD cents."
+     },
+     "payment_method": {
+      "type": "string",
+      "description": "google_pay with link_type \"embedded\" is accepted when the user's rail returns the web checkout style; on web rails embedded is Apple Pay only (422 payment_method_not_supported).",
+      "enum": [
+       "apple_pay",
+       "google_pay"
+      ]
+     },
+     "link_type": {
+      "type": "string",
+      "description": "hosted returns an Agentcard-hosted payment page, safe to relay anywhere (chat, email, QR); the underlying payment order is created only when the user opens it, so unopened hosted sessions cost nothing. embedded creates a REAL payment order immediately for rendering inside your own app; mint it only when the user initiates payment, render it immediately, and never relay it through chat (link unfurl",
+      "enum": [
+       "hosted",
+       "embedded"
+      ]
+     }
+    },
+    "required": [
+     "amount_cents",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/wallet/fund",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "amount_cents",
+     "payment_method",
+     "link_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_fund_status",
+   "name": "Get a funding session",
+   "description": "Poll a funding session until it is `completed` \u2014 the payment status is refreshed from the provider on every read.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "session_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/wallet/fund/{session_id}",
+    "path": [
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_get",
+   "name": "Get the user's wallet",
+   "description": "The connected user's wallet and current balance \u2014 render it in your own wallet UI. Provisions the wallet on first read.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/wallet",
+    "path": [],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_phone_start",
+   "name": "Start phone verification",
+   "description": "Sends the user a one-time code. Relay it through your UI \u2014 the user reads it back to you, same pattern as the connect code. A verification stays fresh for 60 days. Provide `phone_number` only when the user has no phone on file (any E.164 number outside the prohibited-countries list).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "E.164 number (e.g. `+14155550123`). Used only when the user has no phone on file. Numbers from prohibited countries return `country_not_supported`."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/wallet/phone/start",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "phone_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_phone_verify",
+   "name": "Verify the phone code",
+   "description": "Checks the code the user read back. On success the verification stays fresh for 60 days and funding sessions can be created.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Required only when the code was sent to a number you provided."
+     }
+    },
+    "required": [
+     "code",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/wallet/phone/verify",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "code",
+     "phone_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_withdraw",
+   "name": "Request a withdrawal",
+   "description": "Requests a withdrawal from the user's spendable balance. Two rails: `bank` (default) pays a saved destination by wire; `address` sends USDC on Base to `destination_address`. Both are processed manually by the Agentcard team, usually within 1-3 business days; the user is emailed when the request is received and again when it is sent. Open (not yet completed or rejected) requests count against the b",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "amount_cents": {
+      "type": "integer",
+      "description": "Amount in USD cents, 200 to 1000000."
+     },
+     "rail": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "bank",
+       "address"
+      ]
+     },
+     "recipient_id": {
+      "type": "string",
+      "description": "Bank rail: the saved destination to pay (`wrec_...`)."
+     },
+     "destination_address": {
+      "type": "string",
+      "description": "Address rail: a 0x-prefixed address on Base to receive USDC. Agentcard-managed addresses are rejected."
+     }
+    },
+    "required": [
+     "amount_cents",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/wallet/withdrawals",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "amount_cents",
+     "rail",
+     "recipient_id",
+     "destination_address"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_withdrawal_recipient_create",
+   "name": "Save a bank destination",
+   "description": "Saves a bank account the user can withdraw to. `ach` needs `routing_number`, `account_number`, and `account_type`; `international_wire` needs `iban` and `swift_code`. Some countries need extra fields via `country_specific` (for example `ifsc`, `clabe`, `bsb`); the validation error names any missing key. A user can hold up to 25 active destinations.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ach",
+       "international_wire"
+      ]
+     },
+     "beneficiary_name": {
+      "type": "string",
+      "description": "The account holder's legal name."
+     },
+     "country_code": {
+      "type": "string",
+      "description": "ISO 3166-1 alpha-2 country of the bank account."
+     },
+     "nickname": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "routing_number": {
+      "type": "string",
+      "description": "ACH: 9-digit ABA routing number."
+     },
+     "account_number": {
+      "type": "string",
+      "description": "ACH: the account number."
+     },
+     "account_type": {
+      "type": "string",
+      "description": "ACH only.",
+      "enum": [
+       "checking",
+       "savings"
+      ]
+     },
+     "iban": {
+      "type": "string",
+      "description": "International wire: the IBAN (spaces ok, normalized on save)."
+     },
+     "swift_code": {
+      "type": "string",
+      "description": "International wire: the SWIFT/BIC."
+     },
+     "bank_name": {
+      "type": "string",
+      "description": ""
+     },
+     "address_line1": {
+      "type": "string",
+      "description": ""
+     },
+     "address_line2": {
+      "type": "string",
+      "description": ""
+     },
+     "city": {
+      "type": "string",
+      "description": ""
+     },
+     "region": {
+      "type": "string",
+      "description": ""
+     },
+     "postal_code": {
+      "type": "string",
+      "description": ""
+     },
+     "country_specific": {
+      "type": "object",
+      "description": "Country-specific banking fields, e.g. `{\"ifsc\": \"...\"}` for India or `{\"clabe\": \"...\"}` for Mexico."
+     }
+    },
+    "required": [
+     "beneficiary_name",
+     "country_code",
+     "type",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.agentcard.sh/api/v2/wallet/withdrawal-recipients",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "type",
+     "beneficiary_name",
+     "country_code",
+     "nickname",
+     "email",
+     "routing_number",
+     "account_number",
+     "account_type",
+     "iban",
+     "swift_code",
+     "bank_name",
+     "address_line1",
+     "address_line2",
+     "city",
+     "region",
+     "postal_code",
+     "country_specific"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_withdrawal_recipient_remove",
+   "name": "Remove a bank destination",
+   "description": "Soft-removes a saved destination. Withdrawals already requested against it are unaffected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "recipient_id": {
+      "type": "string",
+      "description": "The recipient id (`wrec_...`)."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "recipient_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.agentcard.sh/api/v2/wallet/withdrawal-recipients/{recipient_id}",
+    "path": [
+     "recipient_id"
+    ],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_withdrawal_recipients_list",
+   "name": "List saved bank destinations",
+   "description": "The user's active bank destinations, masked. Removed destinations never appear.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/wallet/withdrawal-recipients",
+    "path": [],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "agentcard.wallet_withdrawals_list",
+   "name": "List withdrawals",
+   "description": "The user's most recent withdrawals (up to 20), newest first, across every rail. Poll this to reflect status changes in your UI; `completed` and `rejected` are terminal and also emailed to the user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The connected user's id."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.agentcard.sh/api/v2/wallet/withdrawals",
+    "path": [],
+    "query": [
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

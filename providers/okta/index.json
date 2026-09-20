@@ -762,7 +762,7 @@
   {
    "slug": "okta.add_group_target_to_group_administrator_role_for_group",
    "name": "Add group target to group administrator role for group",
-   "description": "",
+   "description": "Updates this group.",
    "input": {
     "type": "object",
     "properties": {
@@ -797,7 +797,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.add_group_target_to_role",
@@ -5748,7 +5749,7 @@
   {
    "slug": "okta.get_csr_for_application",
    "name": "Get csr for application",
-   "description": "",
+   "description": "Fetches one csr.",
    "input": {
     "type": "object",
     "properties": {
@@ -5777,7 +5778,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.get_csr_for_identity_provider",
@@ -10202,7 +10204,7 @@
   {
    "slug": "okta.post_api_v1_apps_appId_credentials_csrs_csrId_lifecycle_publish",
    "name": "Okta post api v1 apps app id credentials csrs csr id lifecycle publish",
-   "description": "",
+   "description": "Creates a publish.",
    "input": {
     "type": "object",
     "properties": {
@@ -10231,7 +10233,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.post_api_v1_idps_idpId_credentials_csrs_csrId_lifecycle_publish",
@@ -10567,7 +10570,7 @@
   {
    "slug": "okta.remove_group_target_from_group_administrator_role_given_to_group",
    "name": "Remove group target from group administrator role given to group",
-   "description": "",
+   "description": "Deletes this group.",
    "input": {
     "type": "object",
     "properties": {
@@ -10602,7 +10605,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.remove_group_target_from_role",
@@ -10964,7 +10968,7 @@
   {
    "slug": "okta.revoke_csr_from_application",
    "name": "Revoke csr from application",
-   "description": "",
+   "description": "Deletes this csr.",
    "input": {
     "type": "object",
     "properties": {
@@ -10993,7 +10997,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.revoke_grants_for_user_and_client",
@@ -11476,7 +11481,7 @@
   {
    "slug": "okta.set_linked_object_for_user",
    "name": "Set linked object for user",
-   "description": "",
+   "description": "Updates this linked object.",
    "input": {
     "type": "object",
     "properties": {
@@ -11511,7 +11516,8 @@
     "header": [],
     "body": [],
     "body_format": "json"
-   }
+   },
+   "described": "derived"
   },
   {
    "slug": "okta.show_okta_uifooter",

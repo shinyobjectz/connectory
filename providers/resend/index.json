@@ -1,0 +1,3043 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "resend",
+ "source": "https://resend.com/openapi.json",
+ "operations": [
+  {
+   "slug": "resend.delete_api_keys_api_key_id",
+   "name": "Remove an existing api key",
+   "description": "Remove an existing API key",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api_key_id": {
+      "type": "string",
+      "description": "The API key ID."
+     }
+    },
+    "required": [
+     "api_key_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/api-keys/{api_key_id}",
+    "path": [
+     "api_key_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_automations_automation_id",
+   "name": "Delete an automation",
+   "description": "Delete an automation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     }
+    },
+    "required": [
+     "automation_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/automations/{automation_id}",
+    "path": [
+     "automation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_broadcasts_id",
+   "name": "Remove an existing broadcast that is in the draft status",
+   "description": "Remove an existing broadcast that is in the draft status",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Broadcast ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/broadcasts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_contact_properties_id",
+   "name": "Remove an existing contact property",
+   "description": "Remove an existing contact property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact Property ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/contact-properties/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_contacts_contact_id_segments_segment_id",
+   "name": "Remove a contact from a segment",
+   "description": "Remove a contact from a segment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "segment_id": {
+      "type": "string",
+      "description": "The Segment ID."
+     }
+    },
+    "required": [
+     "contact_id",
+     "segment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/contacts/{contact_id}/segments/{segment_id}",
+    "path": [
+     "contact_id",
+     "segment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_contacts_id",
+   "name": "Remove an existing contact by id or email",
+   "description": "Remove an existing contact by ID or email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_domains_domain_id",
+   "name": "Remove an existing domain",
+   "description": "Remove an existing domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": "The ID of the domain."
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_events_identifier",
+   "name": "Delete an event",
+   "description": "Delete an event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "identifier": {
+      "type": "string",
+      "description": "The event ID (UUID) or event name."
+     }
+    },
+    "required": [
+     "identifier"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/events/{identifier}",
+    "path": [
+     "identifier"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_segments_id",
+   "name": "Remove an existing segment",
+   "description": "Remove an existing segment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Segment ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/segments/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_templates_id",
+   "name": "Remove an existing template",
+   "description": "Remove an existing template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Template ID or alias."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/templates/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_topics_id",
+   "name": "Remove an existing topic",
+   "description": "Remove an existing topic",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Topic ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/topics/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.delete_webhooks_webhook_id",
+   "name": "Remove an existing webhook",
+   "description": "Remove an existing webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "The Webhook ID."
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.resend.com/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_api_keys",
+   "name": "Retrieve a list of api keys",
+   "description": "Retrieve a list of API keys",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/api-keys",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_automations",
+   "name": "Retrieve a list of automations",
+   "description": "Retrieve a list of automations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "Filter automations by status.",
+      "enum": [
+       "enabled",
+       "disabled"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/automations",
+    "path": [],
+    "query": [
+     "status",
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_automations_automation_id",
+   "name": "Retrieve a single automation",
+   "description": "Retrieve a single automation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     }
+    },
+    "required": [
+     "automation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/automations/{automation_id}",
+    "path": [
+     "automation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_automations_automation_id_runs",
+   "name": "Retrieve a list of automation runs",
+   "description": "Retrieve a list of automation runs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter runs by status. Comma-separated list of: running, completed, failed, cancelled."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": [
+     "automation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/automations/{automation_id}/runs",
+    "path": [
+     "automation_id"
+    ],
+    "query": [
+     "status",
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_automations_automation_id_runs_run_id",
+   "name": "Retrieve a single automation run",
+   "description": "Retrieve a single automation run",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     },
+     "run_id": {
+      "type": "string",
+      "description": "The ID of the automation run."
+     }
+    },
+    "required": [
+     "automation_id",
+     "run_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/automations/{automation_id}/runs/{run_id}",
+    "path": [
+     "automation_id",
+     "run_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_broadcasts",
+   "name": "Retrieve a list of broadcasts",
+   "description": "Retrieve a list of broadcasts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/broadcasts",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_broadcasts_id",
+   "name": "Retrieve a single broadcast",
+   "description": "Retrieve a single broadcast",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Broadcast ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/broadcasts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contact_properties",
+   "name": "Retrieve a list of contact properties",
+   "description": "Retrieve a list of contact properties",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contact-properties",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contact_properties_id",
+   "name": "Retrieve a single contact property",
+   "description": "Retrieve a single contact property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact Property ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contact-properties/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contacts",
+   "name": "Retrieve a list of contacts",
+   "description": "Retrieve a list of contacts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "segment_id": {
+      "type": "string",
+      "description": "Filter contacts by segment ID."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contacts",
+    "path": [],
+    "query": [
+     "segment_id",
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contacts_contact_id_segments",
+   "name": "Retrieve a list of segments for a contact",
+   "description": "Retrieve a list of segments for a contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contacts/{contact_id}/segments",
+    "path": [
+     "contact_id"
+    ],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contacts_contact_id_topics",
+   "name": "Retrieve topics for a contact",
+   "description": "Retrieve topics for a contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contacts/{contact_id}/topics",
+    "path": [
+     "contact_id"
+    ],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_contacts_id",
+   "name": "Retrieve a single contact by id or email",
+   "description": "Retrieve a single contact by ID or email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_domains",
+   "name": "Retrieve a list of domains",
+   "description": "Retrieve a list of domains",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/domains",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_domains_domain_id",
+   "name": "Retrieve a single domain",
+   "description": "Retrieve a single domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": "The ID of the domain."
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails",
+   "name": "Retrieve a list of emails",
+   "description": "Retrieve a list of emails",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_email_id",
+   "name": "Retrieve a single email",
+   "description": "Retrieve a single email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the email."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/{email_id}",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_email_id_attachments",
+   "name": "Retrieve a list of attachments for a sent email",
+   "description": "Retrieve a list of attachments for a sent email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the email."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of attachments to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results after this attachment ID. Cannot be used with 'before'."
+     },
+     "before": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results before this attachment ID. Cannot be used with 'after'."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/{email_id}/attachments",
+    "path": [
+     "email_id"
+    ],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_email_id_attachments_attachment_id",
+   "name": "Retrieve a single attachment for a sent email",
+   "description": "Retrieve a single attachment for a sent email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the email."
+     },
+     "attachment_id": {
+      "type": "string",
+      "description": "The ID of the attachment."
+     }
+    },
+    "required": [
+     "attachment_id",
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/{email_id}/attachments/{attachment_id}",
+    "path": [
+     "email_id",
+     "attachment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_receiving",
+   "name": "Retrieve a list of received emails",
+   "description": "Retrieve a list of received emails",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of received emails to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results after this email ID. Cannot be used with 'before'."
+     },
+     "before": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results before this email ID. Cannot be used with 'after'."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/receiving",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_receiving_email_id",
+   "name": "Retrieve a single received email",
+   "description": "Retrieve a single received email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the received email."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/receiving/{email_id}",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_receiving_email_id_attachments",
+   "name": "Retrieve a list of attachments for a received email",
+   "description": "Retrieve a list of attachments for a received email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the received email."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of attachments to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results after this attachment ID. Cannot be used with 'before'."
+     },
+     "before": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results before this attachment ID. Cannot be used with 'after'."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/receiving/{email_id}/attachments",
+    "path": [
+     "email_id"
+    ],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_emails_receiving_email_id_attachments_attachment_id",
+   "name": "Retrieve a single attachment for a received email",
+   "description": "Retrieve a single attachment for a received email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the received email."
+     },
+     "attachment_id": {
+      "type": "string",
+      "description": "The ID of the attachment."
+     }
+    },
+    "required": [
+     "attachment_id",
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/emails/receiving/{email_id}/attachments/{attachment_id}",
+    "path": [
+     "email_id",
+     "attachment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_events",
+   "name": "Retrieve a list of events",
+   "description": "Retrieve a list of events",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/events",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_events_identifier",
+   "name": "Retrieve a single event",
+   "description": "Retrieve a single event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "identifier": {
+      "type": "string",
+      "description": "The event ID (UUID) or event name."
+     }
+    },
+    "required": [
+     "identifier"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/events/{identifier}",
+    "path": [
+     "identifier"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_logs",
+   "name": "Retrieve a list of logs",
+   "description": "Retrieve a list of logs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/logs",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_logs_log_id",
+   "name": "Retrieve a single log",
+   "description": "Retrieve a single log",
+   "input": {
+    "type": "object",
+    "properties": {
+     "log_id": {
+      "type": "string",
+      "description": "The ID of the log."
+     }
+    },
+    "required": [
+     "log_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/logs/{log_id}",
+    "path": [
+     "log_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_segments",
+   "name": "Retrieve a list of segments",
+   "description": "Retrieve a list of segments",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/segments",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_segments_id",
+   "name": "Retrieve a single segment",
+   "description": "Retrieve a single segment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Segment ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/segments/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_templates",
+   "name": "Retrieve a list of templates",
+   "description": "Retrieve a list of templates",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/templates",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_templates_id",
+   "name": "Retrieve a single template",
+   "description": "Retrieve a single template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Template ID or alias."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/templates/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_topics",
+   "name": "Retrieve a list of topics",
+   "description": "Retrieve a list of topics",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Number of items to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Return items after this cursor."
+     },
+     "before": {
+      "type": "string",
+      "description": "Return items before this cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/topics",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_topics_id",
+   "name": "Retrieve a single topic",
+   "description": "Retrieve a single topic",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Topic ID."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/topics/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_webhooks",
+   "name": "Retrieve a list of webhooks",
+   "description": "Retrieve a list of webhooks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of webhooks to return."
+     },
+     "after": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results after this webhook ID. Cannot be used with 'before'."
+     },
+     "before": {
+      "type": "string",
+      "description": "Pagination cursor to fetch results before this webhook ID. Cannot be used with 'after'."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/webhooks",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.get_webhooks_webhook_id",
+   "name": "Retrieve a single webhook",
+   "description": "Retrieve a single webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "The Webhook ID."
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.resend.com/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_automations_automation_id",
+   "name": "Update an automation",
+   "description": "Update an automation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the automation."
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the automation.",
+      "enum": [
+       "enabled",
+       "disabled"
+      ]
+     },
+     "steps": {
+      "type": "array",
+      "description": "The steps that compose the automation workflow. Must be provided together with `connections`."
+     },
+     "connections": {
+      "type": "array",
+      "description": "The connections between steps in the automation graph. Must be provided together with `steps`."
+     }
+    },
+    "required": [
+     "automation_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/automations/{automation_id}",
+    "path": [
+     "automation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "steps",
+     "connections"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_broadcasts_id",
+   "name": "Update an existing broadcast",
+   "description": "Update an existing broadcast",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Broadcast ID."
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the broadcast."
+     },
+     "audience_id": {
+      "type": "string",
+      "description": "Use `segment_id` instead. Unique identifier of the audience this broadcast will be sent to."
+     },
+     "segment_id": {
+      "type": "string",
+      "description": "Unique identifier of the segment this broadcast will be sent to."
+     },
+     "from": {
+      "type": "string",
+      "description": "The email address of the sender."
+     },
+     "subject": {
+      "type": "string",
+      "description": "The subject line of the email."
+     },
+     "reply_to": {
+      "type": "array",
+      "description": "The email addresses to which replies should be sent."
+     },
+     "preview_text": {
+      "type": "string",
+      "description": "The preview text of the email."
+     },
+     "html": {
+      "type": "string",
+      "description": "The HTML version of the message."
+     },
+     "text": {
+      "type": "string",
+      "description": "The plain text version of the message."
+     },
+     "topic_id": {
+      "type": "string",
+      "description": "The topic ID that the broadcast will be scoped to."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/broadcasts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "audience_id",
+     "segment_id",
+     "from",
+     "subject",
+     "reply_to",
+     "preview_text",
+     "html",
+     "text",
+     "topic_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_contact_properties_id",
+   "name": "Update an existing contact property",
+   "description": "Update an existing contact property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact Property ID."
+     },
+     "fallback_value": {
+      "type": "string",
+      "description": "The default value to use when the property is not set for a contact. Must match the type of the property."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/contact-properties/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fallback_value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_contacts_contact_id_topics",
+   "name": "Update topics for a contact",
+   "description": "Update topics for a contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "topics": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact_id",
+     "topics"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/contacts/{contact_id}/topics",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "topics"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_contacts_id",
+   "name": "Update a single contact by id or email",
+   "description": "Update a single contact by ID or email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address of the contact."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "First name of the contact."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the contact."
+     },
+     "unsubscribed": {
+      "type": "boolean",
+      "description": "The Contact's global subscription status. If set to true, the contact will be unsubscribed from all Broadcasts."
+     },
+     "properties": {
+      "type": "object",
+      "description": "A map of custom property keys and values to update."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "first_name",
+     "last_name",
+     "unsubscribed",
+     "properties"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_domains_domain_id",
+   "name": "Update an existing domain",
+   "description": "Update an existing domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": "The ID of the domain."
+     },
+     "open_tracking": {
+      "type": "boolean",
+      "description": "Track the open rate of each email."
+     },
+     "click_tracking": {
+      "type": "boolean",
+      "description": "Track clicks within the body of each HTML email."
+     },
+     "tls": {
+      "type": "string",
+      "description": "enforced | opportunistic."
+     },
+     "capabilities": {
+      "type": "object",
+      "description": "Configure the domain capabilities for sending and receiving emails. At least one capability must be enabled."
+     },
+     "tracking_subdomain": {
+      "type": "string",
+      "description": "The subdomain to use for click and open tracking."
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "open_tracking",
+     "click_tracking",
+     "tls",
+     "capabilities",
+     "tracking_subdomain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_emails_email_id",
+   "name": "Update a single email",
+   "description": "Update a single email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the email."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/emails/{email_id}",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_events_identifier",
+   "name": "Update an event",
+   "description": "Update an event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "identifier": {
+      "type": "string",
+      "description": "The event ID (UUID) or event name."
+     },
+     "schema": {
+      "type": "object",
+      "description": "A flat key/type map defining the event payload schema. Set to `null` to clear the schema. Supported types are `string`, `number`, `boolean`, and `date`."
+     }
+    },
+    "required": [
+     "identifier",
+     "schema"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/events/{identifier}",
+    "path": [
+     "identifier"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "schema"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_templates_id",
+   "name": "Update an existing template",
+   "description": "Update an existing template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Template ID or alias."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the template."
+     },
+     "alias": {
+      "type": "string",
+      "description": "The alias of the template."
+     },
+     "from": {
+      "type": "string",
+      "description": "Sender email address. To include a friendly name, use the format \"Your Name \"."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Email subject."
+     },
+     "reply_to": {
+      "type": "array",
+      "description": "Reply-to email addresses."
+     },
+     "html": {
+      "type": "string",
+      "description": "The HTML version of the template."
+     },
+     "text": {
+      "type": "string",
+      "description": "The plain text version of the template."
+     },
+     "variables": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/templates/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "alias",
+     "from",
+     "subject",
+     "reply_to",
+     "html",
+     "text",
+     "variables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_topics_id",
+   "name": "Update an existing topic",
+   "description": "Update an existing topic",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Topic ID."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the topic. Max 50 characters."
+     },
+     "description": {
+      "type": "string",
+      "description": "A description of the topic. Max 200 characters."
+     },
+     "visibility": {
+      "type": "string",
+      "description": "The visibility of the topic.",
+      "enum": [
+       "public",
+       "private"
+      ]
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/topics/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "visibility"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.patch_webhooks_webhook_id",
+   "name": "Update an existing webhook",
+   "description": "Update an existing webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "The Webhook ID."
+     },
+     "endpoint": {
+      "type": "string",
+      "description": "The URL where webhook events will be sent."
+     },
+     "events": {
+      "type": "array",
+      "description": "Array of event types to subscribe to."
+     },
+     "status": {
+      "type": "string",
+      "description": "The status of the webhook.",
+      "enum": [
+       "enabled",
+       "disabled"
+      ]
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.resend.com/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "endpoint",
+     "events",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_api_keys",
+   "name": "Create a new api key",
+   "description": "Create a new API key",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The API key name."
+     },
+     "permission": {
+      "type": "string",
+      "description": "The API key can have full access to Resend\u2019s API or be only restricted to send emails. * full_access - Can create, delete, get, and update any resource. * sending_access - Can only send emails.",
+      "enum": [
+       "full_access",
+       "sending_access"
+      ]
+     },
+     "domain_id": {
+      "type": "string",
+      "description": "Restrict an API key to send emails only from a specific domain. Only used when the permission is sending_access."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/api-keys",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "permission",
+     "domain_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_automations",
+   "name": "Create an automation",
+   "description": "Create an automation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the automation."
+     },
+     "status": {
+      "type": "string",
+      "description": "The initial status of the automation. Defaults to `disabled`.",
+      "enum": [
+       "enabled",
+       "disabled"
+      ]
+     },
+     "steps": {
+      "type": "array",
+      "description": "The steps that compose the automation workflow. Must include at least one `trigger` step."
+     },
+     "connections": {
+      "type": "array",
+      "description": "The connections between steps in the automation graph."
+     }
+    },
+    "required": [
+     "connections",
+     "name",
+     "steps"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/automations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "status",
+     "steps",
+     "connections"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_automations_automation_id_stop",
+   "name": "Stop an automation",
+   "description": "Stop an automation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "automation_id": {
+      "type": "string",
+      "description": "The ID of the automation."
+     }
+    },
+    "required": [
+     "automation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/automations/{automation_id}/stop",
+    "path": [
+     "automation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_broadcasts",
+   "name": "Create a broadcast",
+   "description": "Create a broadcast",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the broadcast."
+     },
+     "segment_id": {
+      "type": "string",
+      "description": "Unique identifier of the segment this broadcast will be sent to."
+     },
+     "audience_id": {
+      "type": "string",
+      "description": "Use `segment_id` instead. Unique identifier of the segment this broadcast will be sent to."
+     },
+     "from": {
+      "type": "string",
+      "description": "The email address of the sender."
+     },
+     "subject": {
+      "type": "string",
+      "description": "The subject line of the email."
+     },
+     "reply_to": {
+      "type": "array",
+      "description": "The email addresses to which replies should be sent."
+     },
+     "preview_text": {
+      "type": "string",
+      "description": "The preview text of the email."
+     },
+     "html": {
+      "type": "string",
+      "description": "The HTML version of the message."
+     },
+     "text": {
+      "type": "string",
+      "description": "The plain text version of the message."
+     },
+     "topic_id": {
+      "type": "string",
+      "description": "The topic ID that the broadcast will be scoped to."
+     },
+     "send": {
+      "type": "boolean",
+      "description": "Whether to send the broadcast immediately or keep it as a draft."
+     },
+     "scheduled_at": {
+      "type": "string",
+      "description": "Schedule time to send the broadcast. Can only be used if `send` is true."
+     }
+    },
+    "required": [
+     "from",
+     "segment_id",
+     "subject"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/broadcasts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "segment_id",
+     "audience_id",
+     "from",
+     "subject",
+     "reply_to",
+     "preview_text",
+     "html",
+     "text",
+     "topic_id",
+     "send",
+     "scheduled_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_broadcasts_id_send",
+   "name": "Send or schedule a broadcast",
+   "description": "Send or schedule a broadcast",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Broadcast ID."
+     },
+     "scheduled_at": {
+      "type": "string",
+      "description": "Schedule email to be sent later. The date should be in ISO 8601 format."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/broadcasts/{id}/send",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "scheduled_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_contact_properties",
+   "name": "Create a new contact property",
+   "description": "Create a new contact property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The property type.",
+      "enum": [
+       "string",
+       "number"
+      ]
+     },
+     "fallback_value": {
+      "type": "string",
+      "description": "The default value to use when the property is not set for a contact. Must match the type specified in the type field."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/contact-properties",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "type",
+     "fallback_value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_contacts",
+   "name": "Create a new contact",
+   "description": "Create a new contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address of the contact."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "First name of the contact."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the contact."
+     },
+     "unsubscribed": {
+      "type": "boolean",
+      "description": "The Contact's global subscription status. If set to true, the contact will be unsubscribed from all Broadcasts."
+     },
+     "properties": {
+      "type": "object",
+      "description": "A map of custom property keys and values to create."
+     },
+     "segments": {
+      "type": "array",
+      "description": "Array of segment IDs to add the contact to."
+     },
+     "topics": {
+      "type": "array",
+      "description": "Array of topic subscriptions for the contact."
+     },
+     "audience_id": {
+      "type": "string",
+      "description": "Unique identifier of the audience to which the contact belongs."
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/contacts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "first_name",
+     "last_name",
+     "unsubscribed",
+     "properties",
+     "segments",
+     "topics",
+     "audience_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_contacts_contact_id_segments_segment_id",
+   "name": "Add a contact to a segment",
+   "description": "Add a contact to a segment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": "The Contact ID or email address."
+     },
+     "segment_id": {
+      "type": "string",
+      "description": "The Segment ID."
+     }
+    },
+    "required": [
+     "contact_id",
+     "segment_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/contacts/{contact_id}/segments/{segment_id}",
+    "path": [
+     "contact_id",
+     "segment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_domains",
+   "name": "Create a new domain",
+   "description": "Create a new domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the domain you want to create."
+     },
+     "region": {
+      "type": "string",
+      "description": "The region where emails will be sent from. Possible values are us-east-1 | eu-west-1 | sa-east-1 | ap-northeast-1",
+      "enum": [
+       "us-east-1",
+       "eu-west-1",
+       "sa-east-1",
+       "ap-northeast-1"
+      ]
+     },
+     "custom_return_path": {
+      "type": "string",
+      "description": "For advanced use cases, choose a subdomain for the Return-Path address. Defaults to 'send' (i.e., send.yourdomain.tld)."
+     },
+     "open_tracking": {
+      "type": "boolean",
+      "description": "Track the open rate of each email."
+     },
+     "click_tracking": {
+      "type": "boolean",
+      "description": "Track clicks within the body of each HTML email."
+     },
+     "tls": {
+      "type": "string",
+      "description": "TLS mode. Opportunistic attempts secure connection but falls back to unencrypted. Enforced requires TLS or email won't be sent.",
+      "enum": [
+       "opportunistic",
+       "enforced"
+      ]
+     },
+     "capabilities": {
+      "type": "object",
+      "description": "Configure the domain capabilities for sending and receiving emails. At least one capability must be enabled."
+     },
+     "tracking_subdomain": {
+      "type": "string",
+      "description": "The subdomain to use for click and open tracking."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/domains",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "region",
+     "custom_return_path",
+     "open_tracking",
+     "click_tracking",
+     "tls",
+     "capabilities",
+     "tracking_subdomain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_domains_domain_id_verify",
+   "name": "Verify an existing domain",
+   "description": "Triggers verification of the domain's DNS records including DKIM, SPF, and the tracking CNAME (if a tracking subdomain is configured).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": "The ID of the domain."
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/domains/{domain_id}/verify",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_emails",
+   "name": "Send an email",
+   "description": "Send an email",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "A unique identifier for the request to ensure emails are only sent once. [Learn more](https://resend.com/docs/dashboard/emails/idempotency-keys)"
+     },
+     "from": {
+      "type": "string",
+      "description": "Sender email address. To include a friendly name, use the format \"Your Name \"."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient email address. For multiple addresses, send as an array of strings. Max 50."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Email subject."
+     },
+     "bcc": {
+      "type": "string",
+      "description": "Bcc recipient email address. For multiple addresses, send as an array of strings."
+     },
+     "cc": {
+      "type": "string",
+      "description": "Cc recipient email address. For multiple addresses, send as an array of strings."
+     },
+     "reply_to": {
+      "type": "string",
+      "description": "Reply-to email address. For multiple addresses, send as an array of strings."
+     },
+     "html": {
+      "type": "string",
+      "description": "The HTML version of the message."
+     },
+     "text": {
+      "type": "string",
+      "description": "The plain text version of the message."
+     },
+     "template": {
+      "type": "object",
+      "description": ""
+     },
+     "headers": {
+      "type": "object",
+      "description": "Custom headers to add to the email."
+     },
+     "scheduled_at": {
+      "type": "string",
+      "description": "Schedule email to be sent later. The date should be in ISO 8601 format."
+     },
+     "attachments": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "topic_id": {
+      "type": "string",
+      "description": "The topic ID to scope the email to. If the recipient is a contact and opted-in to the topic, the email is sent. If opted-out, the email is not sent. If the recipient is not a contact, the email is sent if the topic's default subscription is opt_in."
+     }
+    },
+    "required": [
+     "from",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/emails",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "from",
+     "to",
+     "subject",
+     "bcc",
+     "cc",
+     "reply_to",
+     "html",
+     "text",
+     "template",
+     "headers",
+     "scheduled_at",
+     "attachments",
+     "tags",
+     "topic_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_emails_batch",
+   "name": "Trigger up to 100 batch emails at once",
+   "description": "Trigger up to 100 batch emails at once.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "A unique identifier for the request to ensure emails are only sent once. [Learn more](https://resend.com/docs/dashboard/emails/idempotency-keys)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/emails/batch",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_emails_email_id_cancel",
+   "name": "Cancel the schedule of the e mail",
+   "description": "Cancel the schedule of the e-mail.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": "The ID of the email."
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/emails/{email_id}/cancel",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_events",
+   "name": "Create an event",
+   "description": "Create an event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the event. Cannot start with the reserved `resend:` prefix."
+     },
+     "schema": {
+      "type": "object",
+      "description": "An optional flat key/type map defining the event payload schema. Supported types are `string`, `number`, `boolean`, and `date`."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/events",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "schema"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_events_send",
+   "name": "Send an event",
+   "description": "Send an event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event": {
+      "type": "string",
+      "description": "The name of the event to send."
+     },
+     "contact_id": {
+      "type": "string",
+      "description": "The ID of the contact to associate with this event. Exactly one of `contact_id` or `email` must be provided."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address to associate with this event. Exactly one of `contact_id` or `email` must be provided."
+     },
+     "payload": {
+      "type": "object",
+      "description": "An optional payload of key/value pairs to include with the event."
+     }
+    },
+    "required": [
+     "event"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/events/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "event",
+     "contact_id",
+     "email",
+     "payload"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_segments",
+   "name": "Create a new segment",
+   "description": "Create a new segment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the segment."
+     },
+     "audience_id": {
+      "type": "string",
+      "description": "The ID of the audience this segment belongs to."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter conditions for the segment."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/segments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "audience_id",
+     "filter"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_templates",
+   "name": "Create a template",
+   "description": "Create a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the template."
+     },
+     "alias": {
+      "type": "string",
+      "description": "The alias of the template."
+     },
+     "from": {
+      "type": "string",
+      "description": "Sender email address. To include a friendly name, use the format \"Your Name \"."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Email subject."
+     },
+     "reply_to": {
+      "type": "array",
+      "description": "Reply-to email addresses."
+     },
+     "html": {
+      "type": "string",
+      "description": "The HTML version of the template."
+     },
+     "text": {
+      "type": "string",
+      "description": "The plain text version of the template."
+     },
+     "variables": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "html",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "alias",
+     "from",
+     "subject",
+     "reply_to",
+     "html",
+     "text",
+     "variables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_templates_id_duplicate",
+   "name": "Duplicate a template",
+   "description": "Duplicate a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Template ID or alias."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/templates/{id}/duplicate",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_templates_id_publish",
+   "name": "Publish a template",
+   "description": "Publish a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Template ID or alias."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/templates/{id}/publish",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_topics",
+   "name": "Create a new topic",
+   "description": "Create a new topic",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the topic. Max 50 characters."
+     },
+     "default_subscription": {
+      "type": "string",
+      "description": "The default subscription status for the topic. Cannot be changed after creation.",
+      "enum": [
+       "opt_in",
+       "opt_out"
+      ]
+     },
+     "description": {
+      "type": "string",
+      "description": "A description of the topic. Max 200 characters."
+     },
+     "visibility": {
+      "type": "string",
+      "description": "The visibility of the topic. Public topics are visible to all contacts on the unsubscribe page. Private topics are only visible to opted-in contacts.",
+      "enum": [
+       "public",
+       "private"
+      ]
+     }
+    },
+    "required": [
+     "default_subscription",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/topics",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "default_subscription",
+     "description",
+     "visibility"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "resend.post_webhooks",
+   "name": "Create a new webhook",
+   "description": "Create a new webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "endpoint": {
+      "type": "string",
+      "description": "The URL where webhook events will be sent."
+     },
+     "events": {
+      "type": "array",
+      "description": "Array of event types to subscribe to."
+     }
+    },
+    "required": [
+     "endpoint",
+     "events"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.resend.com/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "endpoint",
+     "events"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

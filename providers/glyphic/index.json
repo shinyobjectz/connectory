@@ -1,0 +1,450 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "glyphic",
+ "source": "https://api.glyphic.ai/openapi.json",
+ "operations": [
+  {
+   "slug": "glyphic.get_agent_run",
+   "name": "Get agent run",
+   "description": "Retrieve a scheduled or event-triggered agent run by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "run_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "run_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/agent-runs/{run_id}",
+    "path": [
+     "run_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_call_info",
+   "name": "Get call",
+   "description": "Retrieve a call by its ID. - media_url is a presigned URL that expires in 24 hours",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/calls/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_call_media",
+   "name": "Get media",
+   "description": "Retrieve a call's media URL and type by its ID. - media_url is a presigned URL that expires in 24 hours",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/calls/{call_id}/media",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_call_snippets",
+   "name": "Get call snippets",
+   "description": "Retrieve a call's snippets by its ID. - snippets are sorted by created_at_utc in descending order (newest first) - media_url is a presigned URL that expires in 24 hours - transcript_turns are filtered to the snippet time range",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/calls/{call_id}/snippets",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_ping_v1_test_ping_get",
+   "name": "Get ping",
+   "description": "Get Ping",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/test/ping",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_playbook",
+   "name": "Get playbook",
+   "description": "Retrieve a playbook by its ID, including the latest version's content.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "playbook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/playbooks/{playbook_id}",
+    "path": [
+     "playbook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.get_playbook_version",
+   "name": "Get playbook version",
+   "description": "Retrieve a specific version of a playbook by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": ""
+     },
+     "version_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "playbook_id",
+     "version_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/playbooks/{playbook_id}/versions/{version_id}",
+    "path": [
+     "playbook_id",
+     "version_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.join_call",
+   "name": "Join call",
+   "description": "Join a call by creating a bot that will join the specified meeting URL. The bot will join the meeting and record it. Once the call is complete, it can be processed and retrieved through other API endpoints. Multiple bots cannot be created for the same meeting URL within 2 minutes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_url": {
+      "type": "string",
+      "description": "The URL of the meeting to join (e.g., Google Meet, Zoom, etc.)"
+     },
+     "title": {
+      "type": "string",
+      "description": "The title of the meeting to join"
+     },
+     "participants": {
+      "type": "string",
+      "description": "The participants in the meeting"
+     }
+    },
+    "required": [
+     "meeting_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.glyphic.ai/v1/call_bots",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "meeting_url",
+     "title",
+     "participants"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.list_agent_runs",
+   "name": "List agent runs",
+   "description": "Retrieve scheduled or event-triggered agent run outputs. - Results are scoped to the authenticated API key's organization. - Results are sorted by run creation time in descending order (newest first). - List results include output previews; fetch a single run for the full final output. - agent_id and agent_workflow_id are mutually exclusive; supplying both returns a 400.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "agent_id": {
+      "type": "string",
+      "description": "Filter to runs from a native scheduled agent ID. Mutually exclusive with agent_workflow_id."
+     },
+     "agent_workflow_id": {
+      "type": "string",
+      "description": "Filter to runs from a legacy agent workflow ID. Mutually exclusive with agent_id."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "Filter to runs owned by a user ID."
+     },
+     "call_id": {
+      "type": "string",
+      "description": "Filter to runs associated with a call ID."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items per page"
+     },
+     "direction": {
+      "type": "string",
+      "description": "Pagination direction",
+      "enum": [
+       "next",
+       "prev"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/agent-runs/",
+    "path": [],
+    "query": [
+     "agent_id",
+     "agent_workflow_id",
+     "user_id",
+     "call_id",
+     "cursor",
+     "limit",
+     "direction"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.list_call_tags",
+   "name": "List call tags",
+   "description": "Retrieve all call tags for your organization. Tags are sorted by creation time (oldest first).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/call_tags/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.list_calls",
+   "name": "Get calls",
+   "description": "Retrieve list of calls for your organization. - Only public calls are returned (all private calls are excluded) - Results are sorted by start time in descending order (newest first)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "participant_email": {
+      "type": "string",
+      "description": "A participant's email to filter by (case insensitive). Only calls with this participant will be shown."
+     },
+     "start_time_from": {
+      "type": "string",
+      "description": "Filter calls starting from this time (UTC ISO 8601)"
+     },
+     "start_time_to": {
+      "type": "string",
+      "description": "Filter calls starting up to this time (UTC ISO 8601)"
+     },
+     "title_filter": {
+      "type": "string",
+      "description": "Query to filter calls by call title."
+     },
+     "tag_ids": {
+      "type": "string",
+      "description": "Filter calls by tag IDs. Only calls with at least one of the specified tags will be returned."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items per page"
+     },
+     "direction": {
+      "type": "string",
+      "description": "Pagination direction",
+      "enum": [
+       "next",
+       "prev"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/calls/",
+    "path": [],
+    "query": [
+     "participant_email",
+     "start_time_from",
+     "start_time_to",
+     "title_filter",
+     "tag_ids",
+     "cursor",
+     "limit",
+     "direction"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.list_playbook_versions",
+   "name": "List playbook versions",
+   "description": "List all versions for a playbook. - Results are sorted by created time in descending order (newest first).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playbook_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "playbook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/playbooks/{playbook_id}/versions",
+    "path": [
+     "playbook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "glyphic.list_playbooks",
+   "name": "List playbooks",
+   "description": "Retrieve a paginated list of playbooks for your organization. - Results are sorted by playbook creation time in descending order (newest first). - `updated_at` reflects the latest version's update timestamp, falling back to its creation time, and finally to the playbook's own creation time when no version exists. (Because results are sorted by playbook creation time, this field is not monotonic ac",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Cursor for pagination"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items per page"
+     },
+     "direction": {
+      "type": "string",
+      "description": "Pagination direction",
+      "enum": [
+       "next",
+       "prev"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.glyphic.ai/v1/playbooks/",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "direction"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

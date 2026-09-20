@@ -1,0 +1,6143 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "boldsign",
+ "source": "https://api.boldsign.com/swagger/v1/swagger.json",
+ "operations": [
+  {
+   "slug": "boldsign.add_authentication",
+   "name": "The add authentication to recipient",
+   "description": "The add authentication to recipient.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "emailId": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "integer",
+      "description": ""
+     },
+     "accessCode": {
+      "type": "string",
+      "description": ""
+     },
+     "authenticationType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "None",
+       "EmailOTP",
+       "AccessCode",
+       "SMSOTP",
+       "IdVerification",
+       "KBA"
+      ]
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "object",
+      "description": ""
+     },
+     "identityVerificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "kbaSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "authenticationRetryCount": {
+      "type": "integer",
+      "description": ""
+     },
+     "authenticationSettings": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "authenticationType",
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/addAuthentication",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "emailId",
+     "order",
+     "accessCode",
+     "authenticationType",
+     "onBehalfOf",
+     "phoneNumber",
+     "identityVerificationSettings",
+     "kbaSettings",
+     "authenticationRetryCount",
+     "authenticationSettings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.add_document_tag",
+   "name": "Add the tags in documents",
+   "description": "Add the Tags in Documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/addTags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "documentId",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.add_template_tag",
+   "name": "Add the tags in templates",
+   "description": "Add the Tags in Templates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "documentLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "templateLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/template/addTags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "templateId",
+     "documentLabels",
+     "templateLabels",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.api_credits_count",
+   "name": "Gets the api credits details",
+   "description": "Gets the Api credits details.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/plan/apiCreditsCount",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.behalf_documents",
+   "name": "Gets the behalf documents",
+   "description": "Gets the behalf documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PageType": {
+      "type": "string",
+      "description": "The filter used to differentiate between documents sent on the user's behalf and documents sent by the user on behalf of others. The API will return documents based on the specified value.",
+      "enum": [
+       "BehalfOfOthers",
+       "BehalfOfMe"
+      ]
+     },
+     "EmailAddress": {
+      "type": "array",
+      "description": "The sender identity's email used to filter the documents returned in the API. The API will return documents that were sent on behalf of the specified email address."
+     },
+     "Signers": {
+      "type": "array",
+      "description": "A list of signer email addresses used to filter the documents returned in the API. The API will return documents where the signer's email address matches one of the email addresses provided in this list"
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get document list request."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get document list request."
+     },
+     "StartDate": {
+      "type": "string",
+      "description": "Start date of the document"
+     },
+     "Status": {
+      "type": "array",
+      "description": "Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft."
+     },
+     "EndDate": {
+      "type": "string",
+      "description": "End date of the document"
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc.,"
+     },
+     "Labels": {
+      "type": "array",
+      "description": "Labels of the document."
+     },
+     "NextCursor": {
+      "type": "integer",
+      "description": "Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records."
+     },
+     "BrandIds": {
+      "type": "array",
+      "description": "BrandId(s) of the document."
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/behalfList",
+    "path": [],
+    "query": [
+     "PageType",
+     "EmailAddress",
+     "Signers",
+     "PageSize",
+     "Page",
+     "StartDate",
+     "Status",
+     "EndDate",
+     "SearchKey",
+     "Labels",
+     "NextCursor",
+     "BrandIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.brand_list",
+   "name": "List all the brands",
+   "description": "List all the brands.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/brand/list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.cancel_editing",
+   "name": "Cancels editing for a document that is currently in edit mode",
+   "description": "Cancels editing for a document that is currently in edit-mode.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/cancelEditing",
+    "path": [],
+    "query": [
+     "documentId",
+     "onBehalfOf"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.cancel_invitation",
+   "name": "Cancel the users invitation",
+   "description": "Cancel the users invitation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "UserId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "UserId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/users/cancelInvitation",
+    "path": [],
+    "query": [
+     "UserId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.change_access_code",
+   "name": "Changes the access code for the given document signer",
+   "description": "Changes the access code for the given document signer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "DocumentId": {
+      "type": "string",
+      "description": ""
+     },
+     "EmailId": {
+      "type": "string",
+      "description": ""
+     },
+     "ZOrder": {
+      "type": "integer",
+      "description": ""
+     },
+     "accessCode": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "object",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "DocumentId",
+     "accessCode"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/changeAccessCode",
+    "path": [],
+    "query": [
+     "DocumentId",
+     "EmailId",
+     "ZOrder"
+    ],
+    "header": [],
+    "body": [
+     "accessCode",
+     "phoneNumber",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.change_recipient",
+   "name": "Change recipient details of a document",
+   "description": "Change recipient details of a document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "newSignerName": {
+      "type": "string",
+      "description": ""
+     },
+     "reason": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "integer",
+      "description": ""
+     },
+     "newSignerEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "oldSignerEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "object",
+      "description": ""
+     },
+     "oldPhoneNumber": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId",
+     "newSignerName",
+     "reason"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/changeRecipient",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "newSignerName",
+     "reason",
+     "order",
+     "newSignerEmail",
+     "oldSignerEmail",
+     "onBehalfOf",
+     "phoneNumber",
+     "oldPhoneNumber"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.change_team",
+   "name": "Change users to other team",
+   "description": "Change users to other team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "toTeamId": {
+      "type": "string",
+      "description": ""
+     },
+     "transferDocumentsToUserId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "toTeamId",
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/users/changeTeam",
+    "path": [],
+    "query": [
+     "userId"
+    ],
+    "header": [],
+    "body": [
+     "toTeamId",
+     "transferDocumentsToUserId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.contact_user_list",
+   "name": "List contact document",
+   "description": "List Contact document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get user contact list request. Default value is 10."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get user contact list request. Default value is 1."
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Contacts can be listed by the search based on the Name or Email"
+     },
+     "ContactType": {
+      "type": "string",
+      "description": "Contact type whether the contact is My Contacts or All Contacts. Default value is AllContacts.",
+      "enum": [
+       "MyContacts",
+       "AllContacts"
+      ]
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/contacts/list",
+    "path": [],
+    "query": [
+     "PageSize",
+     "Page",
+     "SearchKey",
+     "ContactType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_brand",
+   "name": "Create the brand",
+   "description": "Create the brand.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "BrandName": {
+      "type": "string",
+      "description": ""
+     },
+     "BrandLogo": {
+      "type": "string",
+      "description": ""
+     },
+     "BackgroundColor": {
+      "type": "string",
+      "description": ""
+     },
+     "ButtonColor": {
+      "type": "string",
+      "description": ""
+     },
+     "ButtonTextColor": {
+      "type": "string",
+      "description": ""
+     },
+     "EmailDisplayName": {
+      "type": "string",
+      "description": ""
+     },
+     "DisclaimerDescription": {
+      "type": "string",
+      "description": ""
+     },
+     "DisclaimerTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "RedirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "IsDefault": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CanHideTagLine": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CombineAuditTrail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CombineAttachments": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ExcludeAuditTrailFromEmail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "EmailSignedDocument": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Attachment",
+       "DocumentLink"
+      ]
+     },
+     "DocumentTimeZone": {
+      "type": "string",
+      "description": ""
+     },
+     "ShowBuiltInFormFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "AllowCustomFieldCreation": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ShowSharedCustomFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "HideDecline": {
+      "type": "boolean",
+      "description": "This option prevents signers to decline the document during the signing process."
+     },
+     "HideSave": {
+      "type": "boolean",
+      "description": "This option prevents signers to save their changes during the signing process and continue signing later."
+     },
+     "DocumentExpirySettings.ExpiryDateType": {
+      "type": "string",
+      "description": "This property represents the type for the expiry date",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "DocumentExpirySettings.ExpiryValue": {
+      "type": "integer",
+      "description": "This property is used to set the expiry value based on the expiry type"
+     },
+     "DocumentExpirySettings.EnableDefaultExpiryAlert": {
+      "type": "boolean",
+      "description": "This property will send the expiry alert email before the day of expiry for the pending signers."
+     },
+     "DocumentExpirySettings.EnableAutoReminder": {
+      "type": "boolean",
+      "description": "When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders."
+     },
+     "DocumentExpirySettings.ReminderDays": {
+      "type": "integer",
+      "description": "Remind in terms of days."
+     },
+     "DocumentExpirySettings.ReminderCount": {
+      "type": "integer",
+      "description": "Number of reminder count."
+     },
+     "CustomDomainSettings.DomainName": {
+      "type": "string",
+      "description": ""
+     },
+     "CustomDomainSettings.FromName": {
+      "type": "string",
+      "description": ""
+     },
+     "SignatureFrameSettings.EnableSignatureFrame": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowRecipientName": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowRecipientEmail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowTimeStamp": {
+      "type": "boolean",
+      "description": ""
+     },
+     "HideReassign": {
+      "type": "boolean",
+      "description": "Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation."
+     }
+    },
+    "required": [
+     "BrandLogo",
+     "BrandName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/brand/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "BrandName",
+     "BrandLogo",
+     "BackgroundColor",
+     "ButtonColor",
+     "ButtonTextColor",
+     "EmailDisplayName",
+     "DisclaimerDescription",
+     "DisclaimerTitle",
+     "RedirectUrl",
+     "IsDefault",
+     "CanHideTagLine",
+     "CombineAuditTrail",
+     "CombineAttachments",
+     "ExcludeAuditTrailFromEmail",
+     "EmailSignedDocument",
+     "DocumentTimeZone",
+     "ShowBuiltInFormFields",
+     "AllowCustomFieldCreation",
+     "ShowSharedCustomFields",
+     "HideDecline",
+     "HideSave",
+     "DocumentExpirySettings.ExpiryDateType",
+     "DocumentExpirySettings.ExpiryValue",
+     "DocumentExpirySettings.EnableDefaultExpiryAlert",
+     "DocumentExpirySettings.EnableAutoReminder",
+     "DocumentExpirySettings.ReminderDays",
+     "DocumentExpirySettings.ReminderCount",
+     "CustomDomainSettings.DomainName",
+     "CustomDomainSettings.FromName",
+     "SignatureFrameSettings.EnableSignatureFrame",
+     "SignatureFrameSettings.ShowRecipientName",
+     "SignatureFrameSettings.ShowRecipientEmail",
+     "SignatureFrameSettings.ShowTimeStamp",
+     "HideReassign"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_contact",
+   "name": "Create the new contact",
+   "description": "Create the new Contact.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/contacts/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_custom_field",
+   "name": "Create the custom field",
+   "description": "Create the custom field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "fieldName": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldDescription": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldOrder": {
+      "type": "integer",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "sharedField": {
+      "type": "boolean",
+      "description": ""
+     },
+     "formField": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/customField/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "fieldName",
+     "fieldDescription",
+     "fieldOrder",
+     "brandId",
+     "sharedField",
+     "formField"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_document_clone_url",
+   "name": "Generates a url to embeds clone document process into your application",
+   "description": "Generates a URL to embeds Clone document process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "viewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "includeFormFieldValues": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/createEmbeddedCloneUrl",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "viewOption",
+     "showSaveButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "linkValidTill",
+     "includeFormFieldValues",
+     "locale",
+     "showSendButton",
+     "showToolbar",
+     "showTooltip",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_edit_url",
+   "name": "Generates an embedded edit url that allows the document editing process to be integrated into your application",
+   "description": "Generates an embedded edit URL that allows the document editing process to be integrated into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendViewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/createEmbeddedEditUrl",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "showToolbar",
+     "sendViewOption",
+     "locale",
+     "showSendButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "linkValidTill",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_preview_url",
+   "name": "Generates a preview url for a template to view it",
+   "description": "Generates a preview URL for a template to view it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/createEmbeddedPreviewUrl",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "linkValidTill",
+     "showToolbar"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_request_url_document",
+   "name": "Generates a send url which embeds document sending process into your application",
+   "description": "Generates a send URL which embeds document sending process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendViewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "embeddedSendLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "signers": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableEmbeddedSigning": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "sendLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "AutoDetectFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/createEmbeddedRequestUrl",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "showToolbar",
+     "sendViewOption",
+     "showSaveButton",
+     "locale",
+     "showSendButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "showTooltip",
+     "embeddedSendLinkValidTill",
+     "files",
+     "title",
+     "message",
+     "signers",
+     "cc",
+     "enableSigningOrder",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "reminderSettings",
+     "enableEmbeddedSigning",
+     "disableEmails",
+     "disableSMS",
+     "brandId",
+     "hideDocumentId",
+     "labels",
+     "fileUrls",
+     "sendLinkValidTill",
+     "useTextTags",
+     "textTagDefinitions",
+     "enablePrintAndSign",
+     "enableReassign",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "AutoDetectFields",
+     "documentDownloadOption",
+     "isSandbox",
+     "metaData",
+     "formGroups",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_request_url_template",
+   "name": "Generates a send url using a template which embeds document sending process into your application",
+   "description": "Generates a send URL using a template which embeds document sending process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendViewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "roleRemovalIndices": {
+      "type": "array",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "removeFormFields": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/createEmbeddedRequestUrl",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "files",
+     "fileUrls",
+     "redirectUrl",
+     "showToolbar",
+     "sendViewOption",
+     "showSaveButton",
+     "locale",
+     "showSendButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "sendLinkValidTill",
+     "showTooltip",
+     "documentId",
+     "title",
+     "message",
+     "roles",
+     "brandId",
+     "labels",
+     "disableEmails",
+     "disableSMS",
+     "hideDocumentId",
+     "reminderSettings",
+     "cc",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "enablePrintAndSign",
+     "enableReassign",
+     "enableSigningOrder",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "isSandbox",
+     "roleRemovalIndices",
+     "documentDownloadOption",
+     "metaData",
+     "formGroups",
+     "removeFormFields",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_template_clone_url",
+   "name": "Generates a url to embeds clone template process into your application",
+   "description": "Generates a URL to embeds Clone template process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "viewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "includeFormFieldValues": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showCreateButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/createEmbeddedCloneUrl",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "viewOption",
+     "showSaveButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "linkValidTill",
+     "includeFormFieldValues",
+     "locale",
+     "showCreateButton",
+     "showToolbar",
+     "showTooltip",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_template_url",
+   "name": "Generates a create url to embeds template create process into your application",
+   "description": "Generates a create URL to embeds template create process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "viewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showCreateButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "documentTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "documentMessage": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "allowModifyFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "allowMessageEditing": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewRoles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "autoDetectFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "templateLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "formFieldPermission": {
+      "type": "object",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/createEmbeddedTemplateUrl",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "showToolbar",
+     "viewOption",
+     "showSaveButton",
+     "locale",
+     "showSendButton",
+     "showCreateButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "linkValidTill",
+     "showTooltip",
+     "title",
+     "description",
+     "documentTitle",
+     "documentMessage",
+     "files",
+     "fileUrls",
+     "roles",
+     "allowModifyFiles",
+     "cc",
+     "brandId",
+     "allowMessageEditing",
+     "allowNewRoles",
+     "allowNewFiles",
+     "enableReassign",
+     "enablePrintAndSign",
+     "enableSigningOrder",
+     "documentInfo",
+     "useTextTags",
+     "textTagDefinitions",
+     "autoDetectFields",
+     "onBehalfOf",
+     "labels",
+     "templateLabels",
+     "formGroups",
+     "recipientNotificationSettings",
+     "allowedSignatureTypes",
+     "formFieldPermission",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_embedded_verification_url",
+   "name": "Generate a url that embeds manual id verification for the specified document signer into your application",
+   "description": "Generate a URL that embeds manual ID verification for the specified document signer into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "emailId": {
+      "type": "string",
+      "description": ""
+     },
+     "countryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "integer",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/identityVerification/createEmbeddedVerificationUrl",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "emailId",
+     "countryCode",
+     "phoneNumber",
+     "redirectUrl",
+     "order",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_group_contact",
+   "name": "Create a new group contact",
+   "description": "Create a new Group Contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupName": {
+      "type": "string",
+      "description": ""
+     },
+     "directories": {
+      "type": "array",
+      "description": ""
+     },
+     "contacts": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "contacts",
+     "groupName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/contactGroups/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "groupName",
+     "directories",
+     "contacts"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_sender_identities",
+   "name": "Creates sender identity",
+   "description": "Creates sender identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "notificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/senderIdentities/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "email",
+     "notificationSettings",
+     "brandId",
+     "redirectUrl",
+     "metaData",
+     "locale"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_team",
+   "name": "Create team",
+   "description": "Create Team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "teamName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "teamName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/teams/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "teamName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_template",
+   "name": "Creates a new template",
+   "description": "Creates a new template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "documentTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "documentMessage": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "allowModifyFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "allowMessageEditing": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewRoles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "autoDetectFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "templateLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "formFieldPermission": {
+      "type": "object",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "description",
+     "documentTitle",
+     "documentMessage",
+     "files",
+     "fileUrls",
+     "roles",
+     "allowModifyFiles",
+     "cc",
+     "brandId",
+     "allowMessageEditing",
+     "allowNewRoles",
+     "allowNewFiles",
+     "enableReassign",
+     "enablePrintAndSign",
+     "enableSigningOrder",
+     "documentInfo",
+     "useTextTags",
+     "textTagDefinitions",
+     "autoDetectFields",
+     "onBehalfOf",
+     "labels",
+     "templateLabels",
+     "formGroups",
+     "recipientNotificationSettings",
+     "allowedSignatureTypes",
+     "formFieldPermission",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.create_user",
+   "name": "Create the user",
+   "description": "Create the user.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/users/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.custom_fields_list",
+   "name": "List the custom fields respective to the brand id",
+   "description": "List the custom fields respective to the brand id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/customField/list",
+    "path": [],
+    "query": [
+     "brandId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_brand",
+   "name": "Delete the brand",
+   "description": "Delete the brand.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/brand/delete",
+    "path": [],
+    "query": [
+     "brandId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_contacts",
+   "name": "Deletes a contact",
+   "description": "Deletes a contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/contacts/delete",
+    "path": [],
+    "query": [
+     "id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_custom_field",
+   "name": "Delete the custom field",
+   "description": "Delete the custom field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customFieldId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "customFieldId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/customField/delete",
+    "path": [],
+    "query": [
+     "customFieldId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_document",
+   "name": "Delete the document",
+   "description": "Delete the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "deletePermanently": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/document/delete",
+    "path": [],
+    "query": [
+     "documentId",
+     "deletePermanently"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_document_tag",
+   "name": "Delete the tags in documents",
+   "description": "Delete the Tags in Documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId",
+     "tags"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/document/deleteTags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "documentId",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_group_contact",
+   "name": "Deletes a group contact",
+   "description": "Deletes a Group Contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "groupId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/contactGroups/delete",
+    "path": [],
+    "query": [
+     "groupId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_sender_identities",
+   "name": "Deletes sender identity",
+   "description": "Deletes sender identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/senderIdentities/delete",
+    "path": [],
+    "query": [
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_template",
+   "name": "Deletes a template",
+   "description": "Deletes a template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/template/delete",
+    "path": [],
+    "query": [
+     "templateId",
+     "onBehalfOf"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.delete_template_tag",
+   "name": "Delete the tags in templates",
+   "description": "Delete the Tags in Templates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "documentLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "templateLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.boldsign.com/v1/template/deleteTags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "templateId",
+     "documentLabels",
+     "templateLabels",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.download",
+   "name": "Download the template",
+   "description": "Download the template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "includeFormFieldValues": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/template/download",
+    "path": [],
+    "query": [
+     "templateId",
+     "onBehalfOf",
+     "includeFormFieldValues"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.download_attachment",
+   "name": "Download the attachment",
+   "description": "Download the Attachment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "attachmentId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "attachmentId",
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/downloadAttachment",
+    "path": [],
+    "query": [
+     "documentId",
+     "attachmentId",
+     "onBehalfOf"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.download_audit_log",
+   "name": "Download the audit trail document",
+   "description": "Download the audit trail document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/downloadAuditLog",
+    "path": [],
+    "query": [
+     "documentId",
+     "onBehalfOf"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.download_document",
+   "name": "Download the document",
+   "description": "Download the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "format": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually"
+      ]
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/download",
+    "path": [],
+    "query": [
+     "documentId",
+     "onBehalfOf",
+     "format"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.draft_send",
+   "name": "Sends a draft status document out for signature",
+   "description": "Sends a draft-status document out for signature.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/draftSend",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.edit_brand",
+   "name": "Edit the brand",
+   "description": "Edit the brand.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "BrandName": {
+      "type": "string",
+      "description": ""
+     },
+     "BrandLogo": {
+      "type": "string",
+      "description": ""
+     },
+     "BackgroundColor": {
+      "type": "string",
+      "description": ""
+     },
+     "ButtonColor": {
+      "type": "string",
+      "description": ""
+     },
+     "ButtonTextColor": {
+      "type": "string",
+      "description": ""
+     },
+     "EmailDisplayName": {
+      "type": "string",
+      "description": ""
+     },
+     "DisclaimerDescription": {
+      "type": "string",
+      "description": ""
+     },
+     "DisclaimerTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "RedirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "IsDefault": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CanHideTagLine": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CombineAuditTrail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "CombineAttachments": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ExcludeAuditTrailFromEmail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "EmailSignedDocument": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Attachment",
+       "DocumentLink"
+      ]
+     },
+     "DocumentTimeZone": {
+      "type": "string",
+      "description": ""
+     },
+     "ShowBuiltInFormFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "AllowCustomFieldCreation": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ShowSharedCustomFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "HideDecline": {
+      "type": "boolean",
+      "description": "This option prevents signers to decline the document during the signing process."
+     },
+     "HideSave": {
+      "type": "boolean",
+      "description": "This option prevents signers to save their changes during the signing process and continue signing later."
+     },
+     "DocumentExpirySettings.ExpiryDateType": {
+      "type": "string",
+      "description": "This property represents the type for the expiry date",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "DocumentExpirySettings.ExpiryValue": {
+      "type": "integer",
+      "description": "This property is used to set the expiry value based on the expiry type"
+     },
+     "DocumentExpirySettings.EnableDefaultExpiryAlert": {
+      "type": "boolean",
+      "description": "This property will send the expiry alert email before the day of expiry for the pending signers."
+     },
+     "DocumentExpirySettings.EnableAutoReminder": {
+      "type": "boolean",
+      "description": "When auto reminder is enabled, you can select how often to remind in terms of days and select the maximum number of reminders."
+     },
+     "DocumentExpirySettings.ReminderDays": {
+      "type": "integer",
+      "description": "Remind in terms of days."
+     },
+     "DocumentExpirySettings.ReminderCount": {
+      "type": "integer",
+      "description": "Number of reminder count."
+     },
+     "CustomDomainSettings.DomainName": {
+      "type": "string",
+      "description": ""
+     },
+     "CustomDomainSettings.FromName": {
+      "type": "string",
+      "description": ""
+     },
+     "SignatureFrameSettings.EnableSignatureFrame": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowRecipientName": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowRecipientEmail": {
+      "type": "boolean",
+      "description": ""
+     },
+     "SignatureFrameSettings.ShowTimeStamp": {
+      "type": "boolean",
+      "description": ""
+     },
+     "HideReassign": {
+      "type": "boolean",
+      "description": "Enabling this option disables reassignment for all new documents. This setting cannot be changed during document creation."
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/brand/edit",
+    "path": [],
+    "query": [
+     "brandId"
+    ],
+    "header": [],
+    "body": [
+     "BrandName",
+     "BrandLogo",
+     "BackgroundColor",
+     "ButtonColor",
+     "ButtonTextColor",
+     "EmailDisplayName",
+     "DisclaimerDescription",
+     "DisclaimerTitle",
+     "RedirectUrl",
+     "IsDefault",
+     "CanHideTagLine",
+     "CombineAuditTrail",
+     "CombineAttachments",
+     "ExcludeAuditTrailFromEmail",
+     "EmailSignedDocument",
+     "DocumentTimeZone",
+     "ShowBuiltInFormFields",
+     "AllowCustomFieldCreation",
+     "ShowSharedCustomFields",
+     "HideDecline",
+     "HideSave",
+     "DocumentExpirySettings.ExpiryDateType",
+     "DocumentExpirySettings.ExpiryValue",
+     "DocumentExpirySettings.EnableDefaultExpiryAlert",
+     "DocumentExpirySettings.EnableAutoReminder",
+     "DocumentExpirySettings.ReminderDays",
+     "DocumentExpirySettings.ReminderCount",
+     "CustomDomainSettings.DomainName",
+     "CustomDomainSettings.FromName",
+     "SignatureFrameSettings.EnableSignatureFrame",
+     "SignatureFrameSettings.ShowRecipientName",
+     "SignatureFrameSettings.ShowRecipientEmail",
+     "SignatureFrameSettings.ShowTimeStamp",
+     "HideReassign"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.edit_custom_field",
+   "name": "Edit the custom field",
+   "description": "Edit the custom field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "customFieldId": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldName": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldDescription": {
+      "type": "string",
+      "description": ""
+     },
+     "fieldOrder": {
+      "type": "integer",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "sharedField": {
+      "type": "boolean",
+      "description": ""
+     },
+     "formField": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "customFieldId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/customField/edit",
+    "path": [],
+    "query": [
+     "customFieldId"
+    ],
+    "header": [],
+    "body": [
+     "fieldName",
+     "fieldDescription",
+     "fieldOrder",
+     "brandId",
+     "sharedField",
+     "formField"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.edit_document",
+   "name": "Edit and updates an existing document",
+   "description": "Edit and updates an existing document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "signers": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/document/edit",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "files",
+     "title",
+     "message",
+     "signers",
+     "cc",
+     "enableSigningOrder",
+     "enableAuditTrailLocalization",
+     "expiryDateType",
+     "expiryValue",
+     "reminderSettings",
+     "disableEmails",
+     "disableSMS",
+     "brandId",
+     "hideDocumentId",
+     "labels",
+     "disableExpiryAlert",
+     "enablePrintAndSign",
+     "enableReassign",
+     "useTextTags",
+     "textTagDefinitions",
+     "documentInfo",
+     "onBehalfOf",
+     "documentDownloadOption",
+     "metaData",
+     "recipientNotificationSettings",
+     "formGroups",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.edit_template",
+   "name": "Edit and updates an existing template",
+   "description": "Edit and updates an existing template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "documentTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "documentMessage": {
+      "type": "string",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "allowMessageEditing": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewRoles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowNewFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowModifyFiles": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "templateLabels": {
+      "type": "array",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "formFieldPermission": {
+      "type": "object",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/template/edit",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "title",
+     "description",
+     "documentTitle",
+     "documentMessage",
+     "roles",
+     "cc",
+     "brandId",
+     "allowMessageEditing",
+     "allowNewRoles",
+     "allowNewFiles",
+     "allowModifyFiles",
+     "enableReassign",
+     "enablePrintAndSign",
+     "enableSigningOrder",
+     "documentInfo",
+     "onBehalfOf",
+     "labels",
+     "templateLabels",
+     "formGroups",
+     "recipientNotificationSettings",
+     "allowedSignatureTypes",
+     "formFieldPermission",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.embed_custom_field",
+   "name": "Generates a url for creating or modifying custom fields within your application's embedded designer",
+   "description": "Generates a URL for creating or modifying custom fields within your application's embedded Designer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "BrandId": {
+      "type": "string",
+      "description": "The Brand ID for custom fields must be configured"
+     },
+     "LinkValidTill": {
+      "type": "string",
+      "description": "This property is used to set the validity of the generated URL. Its maximum validity is 30 days"
+     }
+    },
+    "required": [
+     "BrandId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/customField/createEmbeddedCustomFieldUrl",
+    "path": [],
+    "query": [
+     "BrandId",
+     "LinkValidTill"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.extend_expiry",
+   "name": "Extends the expiration date of the document",
+   "description": "Extends the expiration date of the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "newExpiryValue": {
+      "type": "string",
+      "description": ""
+     },
+     "newExpiryDate": {
+      "type": "string",
+      "description": ""
+     },
+     "warnPrior": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/extendExpiry",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "newExpiryValue",
+     "newExpiryDate",
+     "warnPrior",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_brand",
+   "name": "Get the specific brand details",
+   "description": "Get the specific brand details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/brand/get",
+    "path": [],
+    "query": [
+     "brandId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_contact",
+   "name": "Get summary of the contact",
+   "description": "Get summary of the contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/contacts/get",
+    "path": [],
+    "query": [
+     "id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_document_properties",
+   "name": "Get summary of the document",
+   "description": "Get summary of the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/properties",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_embedded_sign_link",
+   "name": "Get sign link for embedded sign",
+   "description": "Get sign link for Embedded Sign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "DocumentId": {
+      "type": "string",
+      "description": ""
+     },
+     "SignerEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "CountryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "PhoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "SignLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "RedirectUrl": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "DocumentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/getEmbeddedSignLink",
+    "path": [],
+    "query": [
+     "DocumentId",
+     "SignerEmail",
+     "CountryCode",
+     "PhoneNumber",
+     "SignLinkValidTill",
+     "RedirectUrl"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_embedded_template_edit_url",
+   "name": "Generates a edit url to embeds template edit process into your application",
+   "description": "Generates a edit URL to embeds template edit process into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "viewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showCreateButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "linkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/getEmbeddedTemplateEditUrl",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "redirectUrl",
+     "showToolbar",
+     "viewOption",
+     "showSaveButton",
+     "locale",
+     "showCreateButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "linkValidTill",
+     "showTooltip",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_group_contact",
+   "name": "Get summary of the group contact",
+   "description": "Get Summary of the Group Contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "groupId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/contactGroups/get",
+    "path": [],
+    "query": [
+     "groupId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_sender_identity_properties",
+   "name": "Gets sender identity by id or email",
+   "description": "Gets sender identity by ID or email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/senderIdentities/properties",
+    "path": [],
+    "query": [
+     "id",
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_team",
+   "name": "Get team details",
+   "description": "Get Team details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "teamId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "teamId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/teams/get",
+    "path": [],
+    "query": [
+     "teamId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_template_properties",
+   "name": "Get summary of the template",
+   "description": "Get summary of the template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/template/properties",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.get_user",
+   "name": "Get summary of the user",
+   "description": "Get summary of the user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/users/get",
+    "path": [],
+    "query": [
+     "userId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.group_contact_list",
+   "name": "List group contacts",
+   "description": "List Group Contacts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get user group contact list request. Default value is 10."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get user group contact list request. Default value is 1."
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Group Contacts can be listed by the search based on the Name or Email"
+     },
+     "ContactType": {
+      "type": "string",
+      "description": "Group Contact type whether the contact is my contacts or all contacts. Default value is AllContacts.",
+      "enum": [
+       "MyContacts",
+       "AllContacts"
+      ]
+     },
+     "Directories": {
+      "type": "array",
+      "description": "Group Contacts can be listed by the search based on the directories"
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/contactGroups/list",
+    "path": [],
+    "query": [
+     "PageSize",
+     "Page",
+     "SearchKey",
+     "ContactType",
+     "Directories"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.image",
+   "name": "Retrieve the uploaded id verification document or selfie image for the specified document signer using the file id",
+   "description": "Retrieve the uploaded ID verification document or selfie image for the specified document signer using the file ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "emailId": {
+      "type": "string",
+      "description": ""
+     },
+     "countryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "integer",
+      "description": ""
+     },
+     "fileId": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/identityVerification/image",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "emailId",
+     "countryCode",
+     "phoneNumber",
+     "order",
+     "fileId",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.list_documents",
+   "name": "List user documents",
+   "description": "List user documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "SentBy": {
+      "type": "array",
+      "description": ""
+     },
+     "Recipients": {
+      "type": "array",
+      "description": ""
+     },
+     "TransmitType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Sent",
+       "Received",
+       "Both"
+      ]
+     },
+     "DateFilterType": {
+      "type": "string",
+      "description": "Date Filter as SentBetween and ExpiresOn.",
+      "enum": [
+       "SentBetween",
+       "Expiring"
+      ]
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get document list request."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get document list request."
+     },
+     "StartDate": {
+      "type": "string",
+      "description": "Start date of the document"
+     },
+     "Status": {
+      "type": "array",
+      "description": "Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft."
+     },
+     "EndDate": {
+      "type": "string",
+      "description": "End date of the document"
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc.,"
+     },
+     "Labels": {
+      "type": "array",
+      "description": "Labels of the document."
+     },
+     "NextCursor": {
+      "type": "integer",
+      "description": "Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records."
+     },
+     "BrandIds": {
+      "type": "array",
+      "description": "BrandId(s) of the document."
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/list",
+    "path": [],
+    "query": [
+     "SentBy",
+     "Recipients",
+     "TransmitType",
+     "DateFilterType",
+     "PageSize",
+     "Page",
+     "StartDate",
+     "Status",
+     "EndDate",
+     "SearchKey",
+     "Labels",
+     "NextCursor",
+     "BrandIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.list_sender_identities",
+   "name": "Lists sender identity",
+   "description": "Lists sender identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get sender identity list request."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get sender identity request."
+     },
+     "Search": {
+      "type": "string",
+      "description": "Users can be listed by the search key present in the sender identity like sender identity name and email address"
+     },
+     "BrandIds": {
+      "type": "array",
+      "description": "A list of brand IDs to filter associated with the sender identity."
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/senderIdentities/list",
+    "path": [],
+    "query": [
+     "PageSize",
+     "Page",
+     "Search",
+     "BrandIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.list_teams",
+   "name": "List teams",
+   "description": "List Teams.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get team list request."
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get team list request."
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Teams can be listed by the search key"
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/teams/list",
+    "path": [],
+    "query": [
+     "Page",
+     "PageSize",
+     "SearchKey"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.list_templates",
+   "name": "List all the templates",
+   "description": "List all the templates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "TemplateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "mytemplates",
+       "sharedtemplate",
+       "all"
+      ]
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "Page": {
+      "type": "integer",
+      "description": ""
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": ""
+     },
+     "OnBehalfOf": {
+      "type": "array",
+      "description": "The sender identity's email used to filter the templates returned in the API. The API will return templates that were sent on behalf of the specified email address."
+     },
+     "CreatedBy": {
+      "type": "array",
+      "description": "The templates can be listed by the creator of the template."
+     },
+     "TemplateLabels": {
+      "type": "array",
+      "description": "Labels of the template."
+     },
+     "StartDate": {
+      "type": "string",
+      "description": "Start date of the template"
+     },
+     "EndDate": {
+      "type": "string",
+      "description": "End date of the template"
+     },
+     "BrandIds": {
+      "type": "array",
+      "description": "BrandId(s) of the template."
+     },
+     "SharedWithTeamId": {
+      "type": "array",
+      "description": "The templates can be listed by the shared teams."
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/template/list",
+    "path": [],
+    "query": [
+     "TemplateType",
+     "PageSize",
+     "Page",
+     "SearchKey",
+     "OnBehalfOf",
+     "CreatedBy",
+     "TemplateLabels",
+     "StartDate",
+     "EndDate",
+     "BrandIds",
+     "SharedWithTeamId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.list_users",
+   "name": "List user documents",
+   "description": "List user documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get user list request."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get user list request."
+     },
+     "Search": {
+      "type": "string",
+      "description": "Users can be listed by the search based on the user ID"
+     },
+     "UserId": {
+      "type": "array",
+      "description": "Users can be listed by the search based on the user IDs"
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/users/list",
+    "path": [],
+    "query": [
+     "PageSize",
+     "Page",
+     "Search",
+     "UserId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.merge_and_send",
+   "name": "Send the document by merging multiple templates",
+   "description": "Send the document by merging multiple templates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "templateIds": {
+      "type": "array",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "roleRemovalIndices": {
+      "type": "array",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "removeFormFields": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/mergeAndSend",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "files",
+     "fileUrls",
+     "templateIds",
+     "useTextTags",
+     "textTagDefinitions",
+     "documentId",
+     "title",
+     "message",
+     "roles",
+     "brandId",
+     "labels",
+     "disableEmails",
+     "disableSMS",
+     "hideDocumentId",
+     "reminderSettings",
+     "cc",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "enablePrintAndSign",
+     "enableReassign",
+     "enableSigningOrder",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "isSandbox",
+     "roleRemovalIndices",
+     "documentDownloadOption",
+     "metaData",
+     "formGroups",
+     "removeFormFields",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.merge_create_embedded_request_url_template",
+   "name": "Generates a merge request url using a template that combines document merging and sending processes into your application",
+   "description": "Generates a merge request URL using a template that combines document merging and sending processes into your application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "showToolbar": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendViewOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PreparePage",
+       "FillingPage"
+      ]
+     },
+     "showSaveButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     },
+     "showSendButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showPreviewButton": {
+      "type": "boolean",
+      "description": ""
+     },
+     "showNavigationButtons": {
+      "type": "boolean",
+      "description": ""
+     },
+     "sendLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "showTooltip": {
+      "type": "boolean",
+      "description": ""
+     },
+     "templateIds": {
+      "type": "array",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "roleRemovalIndices": {
+      "type": "array",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "removeFormFields": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/mergeCreateEmbeddedRequestUrl",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "files",
+     "fileUrls",
+     "redirectUrl",
+     "showToolbar",
+     "sendViewOption",
+     "showSaveButton",
+     "locale",
+     "showSendButton",
+     "showPreviewButton",
+     "showNavigationButtons",
+     "sendLinkValidTill",
+     "showTooltip",
+     "templateIds",
+     "useTextTags",
+     "textTagDefinitions",
+     "documentId",
+     "title",
+     "message",
+     "roles",
+     "brandId",
+     "labels",
+     "disableEmails",
+     "disableSMS",
+     "hideDocumentId",
+     "reminderSettings",
+     "cc",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "enablePrintAndSign",
+     "enableReassign",
+     "enableSigningOrder",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "isSandbox",
+     "roleRemovalIndices",
+     "documentDownloadOption",
+     "metaData",
+     "formGroups",
+     "removeFormFields",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.prefill_fields",
+   "name": "Updates the value (prefill) of the fields in the document",
+   "description": "Updates the value (prefill) of the fields in the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "fields": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId",
+     "fields"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/prefillFields",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "fields",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.re_request_sender_identities",
+   "name": "Rerequests denied sender identity",
+   "description": "Rerequests denied sender identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/senderIdentities/rerequest",
+    "path": [],
+    "query": [
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.remind_document",
+   "name": "Send reminder to pending signers",
+   "description": "Send reminder to pending signers.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "receiverEmails": {
+      "type": "array",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "reminderPhoneNumbers": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/remind",
+    "path": [],
+    "query": [
+     "documentId",
+     "receiverEmails"
+    ],
+    "header": [],
+    "body": [
+     "message",
+     "onBehalfOf",
+     "reminderPhoneNumbers"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.remove_authentication",
+   "name": "Remove the access code for the given document signer",
+   "description": "Remove the access code for the given document signer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "DocumentId": {
+      "type": "string",
+      "description": "Document ID of the signature request"
+     },
+     "emailId": {
+      "type": "string",
+      "description": ""
+     },
+     "zOrder": {
+      "type": "integer",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "object",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "DocumentId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/document/RemoveAuthentication",
+    "path": [],
+    "query": [
+     "DocumentId"
+    ],
+    "header": [],
+    "body": [
+     "emailId",
+     "zOrder",
+     "phoneNumber",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.report",
+   "name": "Retrieve the id verification report for the specified document signer",
+   "description": "Retrieve the ID verification report for the specified document signer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "emailId": {
+      "type": "string",
+      "description": ""
+     },
+     "countryCode": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "integer",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/identityVerification/report",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "emailId",
+     "countryCode",
+     "phoneNumber",
+     "order",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.resend_invitation",
+   "name": "Resend the users invitation",
+   "description": "Resend the users invitation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "UserId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "UserId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/users/resendInvitation",
+    "path": [],
+    "query": [
+     "UserId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.resend_invitation_sender_identities",
+   "name": "Resends sender identity invitation",
+   "description": "Resends sender identity invitation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/senderIdentities/resendInvitation",
+    "path": [],
+    "query": [
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.reset_default_brand",
+   "name": "Reset default brand",
+   "description": "Reset default brand.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "brandId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "brandId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/brand/resetdefault",
+    "path": [],
+    "query": [
+     "brandId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.revoke_document",
+   "name": "Revoke the document",
+   "description": "Revoke the document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "documentId",
+     "message"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/revoke",
+    "path": [],
+    "query": [
+     "documentId"
+    ],
+    "header": [],
+    "body": [
+     "message",
+     "onBehalfOf"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.send_document",
+   "name": "Sends the document for sign",
+   "description": "Sends the document for sign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "signers": {
+      "type": "array",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableEmbeddedSigning": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "sendLinkValidTill": {
+      "type": "string",
+      "description": ""
+     },
+     "useTextTags": {
+      "type": "boolean",
+      "description": ""
+     },
+     "textTagDefinitions": {
+      "type": "array",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "AutoDetectFields": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/document/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "files",
+     "title",
+     "message",
+     "signers",
+     "cc",
+     "enableSigningOrder",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "reminderSettings",
+     "enableEmbeddedSigning",
+     "disableEmails",
+     "disableSMS",
+     "brandId",
+     "hideDocumentId",
+     "labels",
+     "fileUrls",
+     "sendLinkValidTill",
+     "useTextTags",
+     "textTagDefinitions",
+     "enablePrintAndSign",
+     "enableReassign",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "AutoDetectFields",
+     "documentDownloadOption",
+     "isSandbox",
+     "metaData",
+     "formGroups",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.send_using_template",
+   "name": "Send a document for signature using a template",
+   "description": "Send a document for signature using a Template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     },
+     "fileUrls": {
+      "type": "array",
+      "description": ""
+     },
+     "documentId": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "string",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "brandId": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "disableEmails": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableSMS": {
+      "type": "boolean",
+      "description": ""
+     },
+     "hideDocumentId": {
+      "type": "boolean",
+      "description": ""
+     },
+     "reminderSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "cc": {
+      "type": "array",
+      "description": ""
+     },
+     "expiryDays": {
+      "type": "integer",
+      "description": ""
+     },
+     "expiryDateType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Days",
+       "Hours",
+       "SpecificDateTime"
+      ]
+     },
+     "expiryValue": {
+      "type": "integer",
+      "description": ""
+     },
+     "enablePrintAndSign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableReassign": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enableSigningOrder": {
+      "type": "boolean",
+      "description": ""
+     },
+     "disableExpiryAlert": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentInfo": {
+      "type": "array",
+      "description": ""
+     },
+     "onBehalfOf": {
+      "type": "string",
+      "description": ""
+     },
+     "isSandbox": {
+      "type": "boolean",
+      "description": ""
+     },
+     "roleRemovalIndices": {
+      "type": "array",
+      "description": ""
+     },
+     "documentDownloadOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Combined",
+       "Individually",
+       "UserPreference"
+      ]
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "formGroups": {
+      "type": "array",
+      "description": ""
+     },
+     "removeFormFields": {
+      "type": "array",
+      "description": ""
+     },
+     "recipientNotificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAuditTrailLocalization": {
+      "type": "boolean",
+      "description": ""
+     },
+     "downloadFileName": {
+      "type": "string",
+      "description": ""
+     },
+     "scheduledSendTime": {
+      "type": "integer",
+      "description": ""
+     },
+     "allowScheduledSend": {
+      "type": "boolean",
+      "description": ""
+     },
+     "allowedSignatureTypes": {
+      "type": "array",
+      "description": ""
+     },
+     "groupSignerSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "enableAllowSignEverywhere": {
+      "type": "boolean",
+      "description": ""
+     },
+     "documentTimeZone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/template/send",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "files",
+     "fileUrls",
+     "documentId",
+     "title",
+     "message",
+     "roles",
+     "brandId",
+     "labels",
+     "disableEmails",
+     "disableSMS",
+     "hideDocumentId",
+     "reminderSettings",
+     "cc",
+     "expiryDays",
+     "expiryDateType",
+     "expiryValue",
+     "enablePrintAndSign",
+     "enableReassign",
+     "enableSigningOrder",
+     "disableExpiryAlert",
+     "documentInfo",
+     "onBehalfOf",
+     "isSandbox",
+     "roleRemovalIndices",
+     "documentDownloadOption",
+     "metaData",
+     "formGroups",
+     "removeFormFields",
+     "recipientNotificationSettings",
+     "enableAuditTrailLocalization",
+     "downloadFileName",
+     "scheduledSendTime",
+     "allowScheduledSend",
+     "allowedSignatureTypes",
+     "groupSignerSettings",
+     "enableAllowSignEverywhere",
+     "documentTimeZone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.share_template",
+   "name": "Share a template with teams and manage permissions",
+   "description": "Share a template with teams and manage permissions.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "templateId": {
+      "type": "string",
+      "description": ""
+     },
+     "teams": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "templateId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.boldsign.com/v1/template/share",
+    "path": [],
+    "query": [
+     "templateId"
+    ],
+    "header": [],
+    "body": [
+     "teams"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.team_documents",
+   "name": "Get user team documents",
+   "description": "Get user Team documents.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "UserId": {
+      "type": "array",
+      "description": "UserId of the Team document."
+     },
+     "TeamId": {
+      "type": "array",
+      "description": "TeamId of the Team document."
+     },
+     "TransmitType": {
+      "type": "string",
+      "description": "Transmit type as Sent, Received and Both.",
+      "enum": [
+       "Sent",
+       "Received",
+       "Both"
+      ]
+     },
+     "DateFilterType": {
+      "type": "string",
+      "description": "Date Filter as SentBetween and Expiring.",
+      "enum": [
+       "SentBetween",
+       "Expiring"
+      ]
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": "Page size specified in get document list request."
+     },
+     "Page": {
+      "type": "integer",
+      "description": "Page index specified in get document list request."
+     },
+     "StartDate": {
+      "type": "string",
+      "description": "Start date of the document"
+     },
+     "Status": {
+      "type": "array",
+      "description": "Status of the document such as In-progress, Completed, Decline, Expired, Revoked, Draft."
+     },
+     "EndDate": {
+      "type": "string",
+      "description": "End date of the document"
+     },
+     "SearchKey": {
+      "type": "string",
+      "description": "Documents can be listed by the search key present in the document like document title, document ID, sender or recipient(s) name, etc.,"
+     },
+     "Labels": {
+      "type": "array",
+      "description": "Labels of the document."
+     },
+     "NextCursor": {
+      "type": "integer",
+      "description": "Next cursor value for pagination, required for fetching the next set of documents beyond 10,000 records."
+     },
+     "BrandIds": {
+      "type": "array",
+      "description": "BrandId(s) of the document."
+     }
+    },
+    "required": [
+     "Page"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.boldsign.com/v1/document/teamlist",
+    "path": [],
+    "query": [
+     "UserId",
+     "TeamId",
+     "TransmitType",
+     "DateFilterType",
+     "PageSize",
+     "Page",
+     "StartDate",
+     "Status",
+     "EndDate",
+     "SearchKey",
+     "Labels",
+     "NextCursor",
+     "BrandIds"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_contact",
+   "name": "Update the contact",
+   "description": "Update the contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "phoneNumber": {
+      "type": "object",
+      "description": ""
+     },
+     "jobTitle": {
+      "type": "string",
+      "description": ""
+     },
+     "companyName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/contacts/update",
+    "path": [],
+    "query": [
+     "id"
+    ],
+    "header": [],
+    "body": [
+     "email",
+     "name",
+     "phoneNumber",
+     "jobTitle",
+     "companyName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_group_contact",
+   "name": "Update the group contact",
+   "description": "Update the Group Contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupId": {
+      "type": "string",
+      "description": ""
+     },
+     "groupName": {
+      "type": "string",
+      "description": ""
+     },
+     "directories": {
+      "type": "array",
+      "description": ""
+     },
+     "contacts": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "groupId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/contactGroups/update",
+    "path": [],
+    "query": [
+     "groupId"
+    ],
+    "header": [],
+    "body": [
+     "groupName",
+     "directories",
+     "contacts"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_meta_data",
+   "name": "Update new user meta data details",
+   "description": "Update new User meta data details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "metaData",
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/users/updateMetaData",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "userId",
+     "metaData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_sender_identities",
+   "name": "Updates sender identity",
+   "description": "Updates sender identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "notificationSettings": {
+      "type": "object",
+      "description": ""
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": ""
+     },
+     "metaData": {
+      "type": "object",
+      "description": ""
+     },
+     "locale": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "EN",
+       "NO",
+       "FR",
+       "DE",
+       "ES",
+       "BG",
+       "CS",
+       "DA",
+       "IT",
+       "NL",
+       "PL",
+       "PT"
+      ]
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.boldsign.com/v1/senderIdentities/update",
+    "path": [],
+    "query": [
+     "email"
+    ],
+    "header": [],
+    "body": [
+     "name",
+     "notificationSettings",
+     "redirectUrl",
+     "metaData",
+     "locale"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_team",
+   "name": "Update team",
+   "description": "Update Team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "teamId": {
+      "type": "string",
+      "description": ""
+     },
+     "teamName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "teamId",
+     "teamName"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/teams/update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "teamId",
+     "teamName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "boldsign.update_user",
+   "name": "Update new user role",
+   "description": "Update new User role.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "userId": {
+      "type": "string",
+      "description": ""
+     },
+     "userRole": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Admin",
+       "TeamAdmin",
+       "Member"
+      ]
+     },
+     "userStatus": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Activate",
+       "Deactivate"
+      ]
+     },
+     "toUserId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "userId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.boldsign.com/v1/users/update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "userId",
+     "userRole",
+     "userStatus",
+     "toUserId"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

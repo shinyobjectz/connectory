@@ -1,0 +1,1615 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "shopvox",
+ "source": "https://developers.shopvox.com/openapi.yaml",
+ "operations": [
+  {
+   "slug": "shopvox.complete_job_step",
+   "name": "Complete a job step",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/jobs/{job_id}/steps/{id}/complete",
+    "path": [
+     "job_id",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_company",
+   "name": "Create a company",
+   "description": "**Plan: Pro.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "company"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/companies",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_contact",
+   "name": "Create a contact",
+   "description": "**Plan: Pro.** Requires a company. Pass `company_id`, or `company_name` to find-or-create the company by name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/contacts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_job",
+   "name": "Create a job",
+   "description": "**Plan: Pro.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "job"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/jobs",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "job"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_note",
+   "name": "Create a note",
+   "description": "Attach a note to a parent record. Provide **exactly one** parent reference param alongside the note - e.g. `company_id`, `contact_id`, `job_id`, `invoice_id`, `work_order_id` (sales order), `quote_id`, `sales_lead_id`. The parent model is derived from the `*_id` key name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "One example parent reference; any `_id` works."
+     },
+     "note": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "note"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/notes",
+    "path": [],
+    "query": [
+     "company_id"
+    ],
+    "header": [],
+    "body": [
+     "note"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_payment",
+   "name": "Record a payment",
+   "description": "**Plan: Pro.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "payment": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "payment"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/payments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "payment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_sales_lead",
+   "name": "Create a sales lead",
+   "description": "**Plan: Pro.** Flat (non-wrapped) `snake_case` payload.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "details": {
+      "type": "string",
+      "description": ""
+     },
+     "qualified": {
+      "type": "boolean",
+      "description": ""
+     },
+     "company_id": {
+      "type": "string",
+      "description": ""
+     },
+     "company_name": {
+      "type": "string",
+      "description": ""
+     },
+     "primary_contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "primary_contact_name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_number": {
+      "type": "string",
+      "description": ""
+     },
+     "sales_rep_id": {
+      "type": "string",
+      "description": ""
+     },
+     "sales_rep_name": {
+      "type": "string",
+      "description": ""
+     },
+     "deal_value_in_dollars": {
+      "type": "number",
+      "description": ""
+     },
+     "workflow_state": {
+      "type": "string",
+      "description": ""
+     },
+     "next_contact_date": {
+      "type": "string",
+      "description": ""
+     },
+     "expected_close_date": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_id": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_name": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_id": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_name": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_stage_id": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_stage_name": {
+      "type": "string",
+      "description": ""
+     },
+     "division_id": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_real_name": {
+      "type": "string",
+      "description": ""
+     },
+     "asset": {
+      "type": "array",
+      "description": "Asset references to attach to the lead."
+     }
+    },
+    "required": [
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/sales_leads",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "details",
+     "qualified",
+     "company_id",
+     "company_name",
+     "primary_contact_id",
+     "primary_contact_name",
+     "email",
+     "phone_number",
+     "sales_rep_id",
+     "sales_rep_name",
+     "deal_value_in_dollars",
+     "workflow_state",
+     "next_contact_date",
+     "expected_close_date",
+     "lead_source_id",
+     "lead_source_name",
+     "pipeline_id",
+     "pipeline_name",
+     "pipeline_stage_id",
+     "pipeline_stage_name",
+     "division_id",
+     "lead_source_real_name",
+     "asset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.create_sales_order",
+   "name": "Create a sales order",
+   "description": "**Plan: Pro.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sales_order": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "sales_order"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/sales_orders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "sales_order"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.delete_company",
+   "name": "Deactivate a company",
+   "description": "**Plan: Paid API.** Soft-deletes (deactivates) the company and returns its final state.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.shopvox.com/v1/companies/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.delete_contact",
+   "name": "Deactivate a contact",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.shopvox.com/v1/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.delete_note",
+   "name": "Delete a note",
+   "description": "Delete a note",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.shopvox.com/v1/notes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.delete_sales_lead",
+   "name": "Deactivate a sales lead",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.shopvox.com/v1/sales_leads/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_company",
+   "name": "Get a company",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/companies/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_connection",
+   "name": "Verify connection",
+   "description": "**Plan: All plans.** Cheap authenticated call to confirm credentials work. Used by Zapier.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/connections",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_contact",
+   "name": "Get a contact",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_invoice",
+   "name": "Get an invoice",
+   "description": "**Plan: Paid API.** May also be looked up by `txn_number` query param instead of the id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "txn_number": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/invoices/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "txn_number"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_job",
+   "name": "Get a job",
+   "description": "**Plan: Paid API.** Returns the job plus a flattened `steps` summary array.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/jobs/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_quote",
+   "name": "Get a quote",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/quotes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_sales_lead",
+   "name": "Get a sales lead",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/sales_leads/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_sales_lead_stages",
+   "name": "Pipeline board (stages with leads)",
+   "description": "**Plan: Paid API.** Kanban-style view of a pipeline: its stages, the leads in each stage, plus the list of available pipelines. Pass `pipeline_id` to select a pipeline; otherwise the first active pipeline is used.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pipeline_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/sales_leads_stages",
+    "path": [],
+    "query": [
+     "pipeline_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.get_sales_order",
+   "name": "Get a sales order",
+   "description": "**Plan: Paid API.** May also be looked up by `txn_number` query param instead of the id.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "txn_number": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/sales_orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "txn_number"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_assets",
+   "name": "List assets for a record",
+   "description": "**Plan: Paid API.** Files attached to the parent record. The pagination block is `meta`, not `stats`. In the legacy Apiary reference these per-parent asset endpoints returned only assets in the `Print Ready` category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "assetable_type": {
+      "type": "string",
+      "description": "Parent resource type, e.g. `companies`, `jobs`, `quotes`, `sales_orders`."
+     },
+     "assetable_id": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": [
+     "assetable_id",
+     "assetable_type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/{assetable_type}/{assetable_id}/assets",
+    "path": [
+     "assetable_type",
+     "assetable_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_companies",
+   "name": "List companies",
+   "description": "**Plan: Pro.** At least one filter parameter is required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Company name."
+     },
+     "active": {
+      "type": "boolean",
+      "description": "Active flag."
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/companies",
+    "path": [],
+    "query": [
+     "name",
+     "active",
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_contacts",
+   "name": "List contacts",
+   "description": "**Plan: Pro.** At least one filter parameter is required.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_id": {
+      "type": "string",
+      "description": "Company id."
+     },
+     "active": {
+      "type": "boolean",
+      "description": "Active flag."
+     },
+     "name": {
+      "type": "string",
+      "description": "Contact name."
+     },
+     "search": {
+      "type": "string",
+      "description": "Search in name or email."
+     },
+     "with_email": {
+      "type": "string",
+      "description": "If present, only contacts that have an email."
+     },
+     "cportal": {
+      "type": "boolean",
+      "description": "Customer-portal-enabled contacts."
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/contacts",
+    "path": [],
+    "query": [
+     "company_id",
+     "active",
+     "name",
+     "search",
+     "with_email",
+     "cportal",
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_invoices",
+   "name": "List invoices",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/invoices",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_jobs",
+   "name": "List jobs",
+   "description": "**Plan: Restricted.** Usage of this endpoint is off by default and must be enabled for the account - contact shopVOX support. As with every index endpoint, `txn_type` / `txn_number` are required unless the account also has the `index_api_enabled` flag (see Pagination & filter gating).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "txn_type": {
+      "type": "string",
+      "description": "Filter by the transaction the job belongs to.",
+      "enum": [
+       "invoice",
+       "sales_order",
+       "quote"
+      ]
+     },
+     "txn_number": {
+      "type": "integer",
+      "description": "Transaction number, e.g. 1001."
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/jobs",
+    "path": [],
+    "query": [
+     "txn_type",
+     "txn_number",
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_notes",
+   "name": "List notes",
+   "description": "List notes",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/notes",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_orders",
+   "name": "List in process orders",
+   "description": "**Plan: All plans.** Legacy endpoint kept for Zapier's auth check / new-order trigger. Returns a bare JSON array (no pagination wrapper) of orders currently in process, newest first.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/orders",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_payments",
+   "name": "List payments",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/payments",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_quotes",
+   "name": "List quotes",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/quotes",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_sales_leads",
+   "name": "List sales leads",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/sales_leads",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.list_sales_orders",
+   "name": "List sales orders",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Capped to 5 when the account lacks the `index_api_enabled` flag."
+     },
+     "txn_date_from": {
+      "type": "string",
+      "description": "Only sales orders with a `txnDate` on or after this date. Exactly `YYYY-MM-DD`; anything else -- including a wider year such as `9999999999-01-01`, which parses as a date but exceeds what the column can hold -- is rejected with `422`, never ignored."
+     },
+     "txn_date_to": {
+      "type": "string",
+      "description": "Only sales orders with a `txnDate` on or before this date. Exactly `YYYY-MM-DD`; anything else -- including a wider year such as `9999999999-01-01`, which parses as a date but exceeds what the column can hold -- is rejected with `422`, never ignored."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shopvox.com/v1/sales_orders",
+    "path": [],
+    "query": [
+     "page",
+     "per_page",
+     "txn_date_from",
+     "txn_date_to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.login",
+   "name": "Log in",
+   "description": "**Plan: All plans.** Exchange user credentials for an auth token. The token is tied to one user and one account. Treat it as expirable: on a later `401`, log in again and retry once. Send `account_id` + `authToken` on every other request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": ""
+     },
+     "password": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "password",
+     "user"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/login",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user",
+     "password"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.sign_invoice",
+   "name": "Attach a signature",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Signer name."
+     },
+     "location": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": "Signature image."
+     }
+    },
+    "required": [
+     "file",
+     "id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/invoices/{id}/signature",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "location",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.sign_sales_order",
+   "name": "Attach a signature",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Signer name."
+     },
+     "location": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": "Signature image."
+     }
+    },
+    "required": [
+     "file",
+     "id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/sales_orders/{id}/signature",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "location",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.start_job_step",
+   "name": "Start a job step",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/jobs/{job_id}/steps/{id}/start",
+    "path": [
+     "job_id",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.stop_job_step",
+   "name": "Stop (pause) a job step",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "job_id": {
+      "type": "string",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "job_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shopvox.com/v1/jobs/{job_id}/steps/{id}/stop",
+    "path": [
+     "job_id",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.update_company",
+   "name": "Update a company",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "company": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "company",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.shopvox.com/v1/companies/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "company"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.update_contact",
+   "name": "Update a contact",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "contact": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact",
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.shopvox.com/v1/contacts/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "contact"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.update_note",
+   "name": "Update a note",
+   "description": "Update a note",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "note": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "note"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.shopvox.com/v1/notes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "note"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.update_sales_lead",
+   "name": "Update a sales lead",
+   "description": "**Plan: Paid API.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "details": {
+      "type": "string",
+      "description": ""
+     },
+     "qualified": {
+      "type": "boolean",
+      "description": ""
+     },
+     "company_id": {
+      "type": "string",
+      "description": ""
+     },
+     "company_name": {
+      "type": "string",
+      "description": ""
+     },
+     "primary_contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "primary_contact_name": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_number": {
+      "type": "string",
+      "description": ""
+     },
+     "sales_rep_id": {
+      "type": "string",
+      "description": ""
+     },
+     "sales_rep_name": {
+      "type": "string",
+      "description": ""
+     },
+     "deal_value_in_dollars": {
+      "type": "number",
+      "description": ""
+     },
+     "workflow_state": {
+      "type": "string",
+      "description": ""
+     },
+     "next_contact_date": {
+      "type": "string",
+      "description": ""
+     },
+     "expected_close_date": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_id": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_name": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_id": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_name": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_stage_id": {
+      "type": "string",
+      "description": ""
+     },
+     "pipeline_stage_name": {
+      "type": "string",
+      "description": ""
+     },
+     "division_id": {
+      "type": "string",
+      "description": ""
+     },
+     "lead_source_real_name": {
+      "type": "string",
+      "description": ""
+     },
+     "asset": {
+      "type": "array",
+      "description": "Asset references to attach to the lead."
+     }
+    },
+    "required": [
+     "id",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.shopvox.com/v1/sales_leads/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title",
+     "details",
+     "qualified",
+     "company_id",
+     "company_name",
+     "primary_contact_id",
+     "primary_contact_name",
+     "email",
+     "phone_number",
+     "sales_rep_id",
+     "sales_rep_name",
+     "deal_value_in_dollars",
+     "workflow_state",
+     "next_contact_date",
+     "expected_close_date",
+     "lead_source_id",
+     "lead_source_name",
+     "pipeline_id",
+     "pipeline_name",
+     "pipeline_stage_id",
+     "pipeline_stage_name",
+     "division_id",
+     "lead_source_real_name",
+     "asset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shopvox.update_sales_order",
+   "name": "Update a sales order",
+   "description": "**Plan: Paid API.** Same payload as create, minus `line_items` (header fields only).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "sales_order": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "sales_order"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.shopvox.com/v1/sales_orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "sales_order"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}
