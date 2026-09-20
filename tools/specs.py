@@ -34,7 +34,7 @@ import urllib.error
 import urllib.request
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CATALOG = os.path.join(HERE, "..", "..", "library", "catalog")
+CATALOG = os.path.join(HERE, "..")
 OUT = os.path.join(CATALOG, "specs.json")
 GURU = "https://api.apis.guru/v2/list.json"
 
@@ -243,7 +243,7 @@ def from_guru(provider, index):
 
 
 def curated():
-    path = os.path.join(CATALOG, "providers.json")
+    path = os.path.join(CATALOG, "overrides.json")
     if not os.path.exists(path):
         return {}
     doc = json.load(open(path))
@@ -283,14 +283,18 @@ def save(found):
 
 def main():
     only = set(sys.argv[1:])
-    directory = json.load(open(os.path.join(CATALOG, "providers.generated.json")))
+    directory = json.load(open(os.path.join(CATALOG, "directory.json")))
     providers = [p for p in directory["providers"] if not only or p["slug"] in only]
 
     by_hand = curated()
     index = guru_index()
     sys.stderr.write("apis.guru: %d domains\n" % len(index))
 
-    found, done = {}, [0]
+    # Seed with what is already known BEFORE anything is written: this run saves as it goes,
+    # so reading the file afterwards would read over its own shoulder and a targeted run
+    # would erase every provider it was not asked about.
+    found = dict(json.load(open(OUT))["specs"]) if (only and os.path.exists(OUT)) else {}
+    done = [0]
     total = len(providers)
 
     def resolve(p):
@@ -310,11 +314,6 @@ def main():
                 )
             elif done[0] % 50 == 0:
                 sys.stderr.write("[%4d/%d] …\n" % (done[0], total))
-
-    if only and os.path.exists(OUT):
-        previous = json.load(open(OUT)).get("specs", {})
-        previous.update(found)
-        found = previous
 
     save(found)
 

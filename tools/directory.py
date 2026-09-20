@@ -24,7 +24,7 @@ import urllib.request
 
 SOURCE = "https://raw.githubusercontent.com/NangoHQ/nango/master/packages/providers/providers.yaml"
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "..", "..", "library", "catalog", "providers.generated.json")
+OUT = os.path.join(HERE, "..", "directory.json")
 
 TPL = re.compile(r"\$\{([^}]+)\}")
 

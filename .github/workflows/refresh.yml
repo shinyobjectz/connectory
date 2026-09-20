@@ -1,0 +1,71 @@
+# Keep the directory level with the world it describes.
+#
+# Four things drift, on different clocks. Vendors change their API descriptions daily; the
+# provider registry adds platforms weekly; companies publish MCP servers whenever they like;
+# logos almost never move. So this runs every morning, asks each source what changed, and
+# opens a pull request only when something actually did.
+#
+# It opens a pull request rather than pushing. An operation disappearing breaks programs people
+# have already written against a pack, and that deserves a person looking at it — which is why
+# the title says how many went missing.
+
+name: refresh
+
+on:
+  schedule:
+    - cron: "17 9 * * *"
+  workflow_dispatch:
+    inputs:
+      providers:
+        description: "Only these providers (space separated). Empty means all of them."
+        required: false
+        default: ""
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pyyaml
+
+      - name: Who exists, and how a request to them is signed
+        run: python3 tools/directory.py
+
+      # A token here only raises the rate limit while looking for descriptions; every read is
+      # of a public repository.
+      - name: Whose description belongs to whom
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 tools/specs.py
+
+      - name: Rebuild the packs whose API moved
+        id: packs
+        run: |
+          python3 tools/packs.py ${{ inputs.providers }} | tee packs.log
+          echo "summary=$(tail -1 packs.log)" >> "$GITHUB_OUTPUT"
+          echo "gone=$(grep -c '    gone: ' packs.log || true)" >> "$GITHUB_OUTPUT"
+
+      - name: A mark for anything new, and any MCP servers that appeared
+        run: |
+          python3 tools/logos.py
+          python3 tools/mcp.py
+          python3 tools/index.py
+
+      - name: The packs must still load, and still carry no credentials
+        run: python3 tools/check.py
+
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: refresh
+          title: >-
+            refresh: ${{ steps.packs.outputs.summary }}${{ steps.packs.outputs.gone != '0' && format(' ({0} operations removed)', steps.packs.outputs.gone) || '' }}
+          body-path: packs.log
+          commit-message: "refresh: rebuild from upstream"
+          labels: refresh

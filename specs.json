@@ -1,38 +1,326 @@
 {
  "_": [
-  "GENERATED \u2014 tools/specs.py rebuilds it."
+  "GENERATED \u2014 do not edit. `just update specs` rebuilds it.",
+  "",
+  "Which API description belongs to which provider, and where it came from.",
+  "source=curated a person checked it; source=vendor the vendor's own GitHub org",
+  "publishes it; source=apis.guru a mirror, matched on the API's exact domain.",
+  "",
+  "A provider missing here has no operations indexed. It is still in the directory."
  ],
- "count": 5,
+ "count": 34,
  "specs": {
+  "apple-app-store": {
+   "url": "https://api.apis.guru/v2/specs/apple.com/app-store-connect/1.4.1/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "apple.com:app-store-connect",
+   "bytes": 0,
+   "updated": "2021-06-09T09:26:30.628Z",
+   "about": "APIs.guru's mirror, matched on apple.com. A mirror lags the vendor."
+  },
+  "apple-business-manager": {
+   "url": "https://api.apis.guru/v2/specs/apple.com/app-store-connect/1.4.1/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "apple.com:app-store-connect",
+   "bytes": 0,
+   "updated": "2021-06-09T09:26:30.628Z",
+   "about": "APIs.guru's mirror, matched on apple.com. A mirror lags the vendor."
+  },
+  "asana": {
+   "url": "https://api.apis.guru/v2/specs/asana.com/1.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "asana.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on asana.com. A mirror lags the vendor."
+  },
+  "asana-mcp": {
+   "url": "https://api.apis.guru/v2/specs/asana.com/1.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "asana.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on asana.com. A mirror lags the vendor."
+  },
+  "asana-scim": {
+   "url": "https://api.apis.guru/v2/specs/asana.com/1.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "asana.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on asana.com. A mirror lags the vendor."
+  },
+  "atlassian": {
+   "url": "https://api.apis.guru/v2/specs/atlassian.com/jira/1001.0.0-SNAPSHOT/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "atlassian.com:jira",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on atlassian.com. A mirror lags the vendor."
+  },
+  "atlassian-admin": {
+   "url": "https://api.apis.guru/v2/specs/atlassian.com/jira/1001.0.0-SNAPSHOT/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "atlassian.com:jira",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on atlassian.com. A mirror lags the vendor."
+  },
+  "atlassian-service-account-api": {
+   "url": "https://api.apis.guru/v2/specs/atlassian.com/jira/1001.0.0-SNAPSHOT/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "atlassian.com:jira",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on atlassian.com. A mirror lags the vendor."
+  },
+  "autotask": {
+   "url": "https://api.apis.guru/v2/specs/autotask.net/v1/swagger.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "autotask.net",
+   "bytes": 0,
+   "updated": "2023-04-14T12:45:47.632Z",
+   "about": "APIs.guru's mirror, matched on autotask.net. A mirror lags the vendor."
+  },
+  "aws-iam": {
+   "url": "https://api.apis.guru/v2/specs/amazonaws.com/ce/2017-10-25/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "amazonaws.com:ce",
+   "bytes": 0,
+   "updated": "2020-04-21T20:02:04.000Z",
+   "about": "APIs.guru's mirror, matched on amazonaws.com. A mirror lags the vendor."
+  },
+  "aws-inspector2": {
+   "url": "https://api.apis.guru/v2/specs/amazonaws.com/ce/2017-10-25/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "amazonaws.com:ce",
+   "bytes": 0,
+   "updated": "2020-04-21T20:02:04.000Z",
+   "about": "APIs.guru's mirror, matched on amazonaws.com. A mirror lags the vendor."
+  },
+  "aws-multi-service": {
+   "url": "https://api.apis.guru/v2/specs/amazonaws.com/ce/2017-10-25/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "amazonaws.com:ce",
+   "bytes": 0,
+   "updated": "2020-04-21T20:02:04.000Z",
+   "about": "APIs.guru's mirror, matched on amazonaws.com. A mirror lags the vendor."
+  },
+  "aws-sigv4": {
+   "url": "https://api.apis.guru/v2/specs/amazonaws.com/ce/2017-10-25/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "amazonaws.com:ce",
+   "bytes": 0,
+   "updated": "2020-04-21T20:02:04.000Z",
+   "about": "APIs.guru's mirror, matched on amazonaws.com. A mirror lags the vendor."
+  },
+  "azure-blob-storage": {
+   "url": "https://api.apis.guru/v2/specs/windows.net/graphrbac/1.6/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "windows.net:graphrbac",
+   "bytes": 0,
+   "updated": "2021-06-07T09:52:13.337Z",
+   "about": "APIs.guru's mirror, matched on windows.net. A mirror lags the vendor."
+  },
+  "bitbucket": {
+   "url": "https://api.apis.guru/v2/specs/bitbucket.org/2.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "bitbucket.org",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on bitbucket.org. A mirror lags the vendor."
+  },
+  "box": {
+   "url": "https://raw.githubusercontent.com/box/box-openapi/main/openapi.json",
+   "format": "json",
+   "source": "vendor",
+   "repo": "box/box-openapi",
+   "path": "openapi.json",
+   "bytes": 1780704,
+   "license": "Apache-2.0",
+   "about": "Published by box, the vendor's own GitHub organisation."
+  },
+  "clicksend": {
+   "url": "https://api.apis.guru/v2/specs/clicksend.com/1.0.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "clicksend.com",
+   "bytes": 0,
+   "updated": "2021-07-12T10:31:14.269Z",
+   "about": "APIs.guru's mirror, matched on clicksend.com. A mirror lags the vendor."
+  },
+  "clickup": {
+   "url": "https://api.apis.guru/v2/specs/clickup.com/1.0.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "clickup.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on clickup.com. A mirror lags the vendor."
+  },
+  "cloudbeds": {
+   "url": "https://raw.githubusercontent.com/cloudbeds/openapi-specs/main/src/pms-v1.3-openapi.yaml",
+   "format": "yaml",
+   "source": "vendor",
+   "repo": "cloudbeds/openapi-specs",
+   "path": "src/pms-v1.3-openapi.yaml",
+   "bytes": 758736,
+   "license": "MIT",
+   "about": "Published by cloudbeds, the vendor's own GitHub organisation."
+  },
+  "cloudflare": {
+   "url": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.json",
+   "format": "json",
+   "source": "vendor",
+   "repo": "cloudflare/api-schemas",
+   "path": "openapi.json",
+   "bytes": 25710566,
+   "license": "BSD-3-Clause",
+   "about": "Published by cloudflare, the vendor's own GitHub organisation."
+  },
+  "cloudflare-mcp": {
+   "url": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.json",
+   "format": "json",
+   "source": "vendor",
+   "repo": "cloudflare/api-schemas",
+   "path": "openapi.json",
+   "bytes": 25710566,
+   "license": "BSD-3-Clause",
+   "about": "Published by cloudflare, the vendor's own GitHub organisation."
+  },
+  "companycam": {
+   "url": "https://raw.githubusercontent.com/CompanyCam/openapi-spec/main/openapi.yaml",
+   "format": "yaml",
+   "source": "vendor",
+   "repo": "CompanyCam/openapi-spec",
+   "path": "openapi.yaml",
+   "bytes": 187449,
+   "license": null,
+   "about": "Published by CompanyCam, the vendor's own GitHub organisation."
+  },
+  "digitalocean": {
+   "url": "https://api.apis.guru/v2/specs/digitalocean.com/2.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "digitalocean.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on digitalocean.com. A mirror lags the vendor."
+  },
+  "discord": {
+   "url": "https://raw.githubusercontent.com/discord/discord-api-spec/main/specs/openapi_preview.json",
+   "format": "json",
+   "source": "vendor",
+   "repo": "discord/discord-api-spec",
+   "path": "specs/openapi_preview.json",
+   "bytes": 1192674,
+   "license": "MIT",
+   "about": "Published by discord, the vendor's own GitHub organisation."
+  },
+  "docusign": {
+   "url": "https://api.apis.guru/v2/specs/docusign.net/v2.1/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "docusign.net",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on docusign.net. A mirror lags the vendor."
+  },
+  "drchrono": {
+   "url": "https://api.apis.guru/v2/specs/drchrono.com/v4 (Hunt Valley)/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "drchrono.com",
+   "bytes": 0,
+   "updated": "2021-07-12T10:31:14.269Z",
+   "about": "APIs.guru's mirror, matched on drchrono.com. A mirror lags the vendor."
+  },
+  "dropbox-sign": {
+   "url": "https://raw.githubusercontent.com/hellosign/hellosign-openapi/main/openapi-fern.yaml",
+   "format": "yaml",
+   "source": "vendor",
+   "repo": "hellosign/hellosign-openapi",
+   "path": "openapi-fern.yaml",
+   "bytes": 1370524,
+   "license": "NOASSERTION",
+   "about": "Published by hellosign, the vendor's own GitHub organisation."
+  },
+  "ebay": {
+   "url": "https://api.apis.guru/v2/specs/api.ebay.com/sell-account/v1.9.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "api.ebay.com:sell-account",
+   "bytes": 0,
+   "updated": "2021-06-30T09:57:47.461Z",
+   "about": "APIs.guru's mirror, matched on api.ebay.com. A mirror lags the vendor."
+  },
+  "elevenlabs": {
+   "url": "https://api.apis.guru/v2/specs/elevenlabs.io/1.0/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "elevenlabs.io",
+   "bytes": 0,
+   "updated": "2023-04-12T13:21:52.787Z",
+   "about": "APIs.guru's mirror, matched on elevenlabs.io. A mirror lags the vendor."
+  },
+  "figma": {
+   "url": "https://raw.githubusercontent.com/figma/rest-api-spec/main/openapi/openapi.yaml",
+   "format": "yaml",
+   "source": "vendor",
+   "repo": "figma/rest-api-spec",
+   "path": "openapi/openapi.yaml",
+   "bytes": 400016,
+   "license": "MIT",
+   "about": "Published by figma, the vendor's own GitHub organisation."
+  },
+  "figma-scim": {
+   "url": "https://raw.githubusercontent.com/figma/rest-api-spec/main/openapi/openapi.yaml",
+   "format": "yaml",
+   "source": "vendor",
+   "repo": "figma/rest-api-spec",
+   "path": "openapi/openapi.yaml",
+   "bytes": 400016,
+   "license": "MIT",
+   "about": "Published by figma, the vendor's own GitHub organisation."
+  },
+  "getty-images": {
+   "url": "https://api.apis.guru/v2/specs/gettyimages.com/3/openapi.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "gettyimages.com",
+   "bytes": 0,
+   "updated": "2023-03-06T07:12:59.965Z",
+   "about": "APIs.guru's mirror, matched on gettyimages.com. A mirror lags the vendor."
+  },
   "github": {
    "url": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
-   "kind": "openapi",
+   "format": "json",
    "source": "curated",
    "about": "github/rest-api-description (MIT), published by GitHub"
   },
-  "slack": {
-   "url": "https://api.slack.com/specs/openapi/v2/slack_web.json",
-   "kind": "openapi",
-   "source": "curated",
-   "about": "Slack's own Web API description"
-  },
-  "gmail": {
-   "url": "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
-   "kind": "google-discovery",
-   "source": "curated",
-   "about": "Google's own discovery document"
-  },
-  "stripe": {
-   "url": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.json",
-   "kind": "openapi",
-   "source": "curated",
-   "about": "stripe/openapi (MIT), published by Stripe"
-  },
-  "notion": {
-   "url": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
-   "kind": "openapi",
-   "source": "curated",
-   "about": "APIs.guru mirror; Notion publishes no OpenAPI of its own"
+  "gitlab": {
+   "url": "https://api.apis.guru/v2/specs/gitlab.com/v3/swagger.json",
+   "format": "json",
+   "source": "apis.guru",
+   "repo": "gitlab.com",
+   "bytes": 0,
+   "updated": "2021-06-21T12:16:53.715Z",
+   "about": "APIs.guru's mirror, matched on gitlab.com. A mirror lags the vendor."
   }
  }
 }
