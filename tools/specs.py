@@ -203,24 +203,54 @@ def from_vendor(provider):
 
 
 def guru_index():
+    """APIs.guru, by domain — keeping every service, not one per domain.
+
+    Its keys are `domain` or `domain:service`, and a domain like googleapis.com carries
+    hundreds of unrelated APIs. Collapsing that to one entry is how every Google product ends
+    up pointed at Cloud Machine Learning.
+    """
     raw = fetch(GURU)
     if not raw:
         return {}
     listing = json.loads(raw)
     by_domain = {}
     for key, api in listing.items():
-        domain = key.split(":")[0].lower()
+        domain, _, service = key.partition(":")
         versions = api.get("versions") or {}
         pref = api.get("preferred") or (list(versions) or [None])[-1]
         v = versions.get(pref) or {}
         url = v.get("swaggerUrl") or v.get("swaggerYamlUrl")
-        if not url:
-            continue
-        # One entry per domain: the one with the most operations is the main API.
-        prev = by_domain.get(domain)
-        if not prev or len(key) < len(prev[0]):
-            by_domain[domain] = (key, url, v.get("updated", ""))
+        if url:
+            by_domain.setdefault(domain.lower(), []).append(
+                {"key": key, "service": service.lower(), "url": url, "updated": v.get("updated", "")}
+            )
     return by_domain
+
+
+# A service name that means "the main one" rather than a corner of it.
+GENERIC = {"api", "rest", "public", "v1", "v2", "v3", "core"}
+
+
+def names_the_service(candidate, provider):
+    """On a domain that hosts many APIs, which one is this provider?
+
+    `google-mail` is googleapis.com:gmail, not googleapis.com:ml. The provider's own words have
+    to name the service, or we take nothing: a wrong spec is worse than no spec, and on these
+    domains a domain match alone says almost nothing.
+    """
+    service = candidate["service"]
+    if not service or service in GENERIC:
+        return True  # the domain IS the API — github.com, or twilio.com:api
+
+    words = set(re.split(r"[^a-z0-9]+", provider["slug"].lower()))
+    words |= set(re.split(r"[^a-z0-9]+", provider.get("name", "").lower()))
+    words = {w for w in words if len(w) >= 3}
+
+    flat = re.sub(r"[^a-z0-9]", "", service)
+    for w in words:
+        if w == flat or (len(w) >= 4 and w in flat) or (len(flat) >= 4 and flat in w):
+            return True
+    return False
 
 
 def from_guru(provider, index):
@@ -228,19 +258,28 @@ def from_guru(provider, index):
     parts = host.split(".")
     # Exact domain only. api.notion.com -> notion.com, and nothing looser than that.
     for n in (3, 2):
-        if len(parts) >= n:
-            domain = ".".join(parts[-n:])
-            if domain in index:
-                key, url, updated = index[domain]
-                return {
-                    "url": url,
-                    "format": "yaml" if url.endswith((".yaml", ".yml")) else "json",
-                    "source": "apis.guru",
-                    "repo": key,
-                    "bytes": 0,
-                    "updated": updated,
-                    "about": "APIs.guru's mirror, matched on %s. A mirror lags the vendor." % domain,
-                }
+        if len(parts) < n:
+            continue
+        domain = ".".join(parts[-n:])
+        candidates = [c for c in index.get(domain, []) if names_the_service(c, provider)]
+        if not candidates:
+            continue
+        # The whole API beats a corner of it: an unnamed or generic service first, then the
+        # shortest name that still names the provider. `twilio.com:api` is Twilio;
+        # `twilio.com:twilio_fax_v1` is the fax machine.
+        def rank(c):
+            return (0 if not c["service"] else 1 if c["service"] in GENERIC else 2, len(c["service"]), c["key"])
+
+        best = sorted(candidates, key=rank)[0]
+        return {
+            "url": best["url"],
+            "format": "yaml" if best["url"].endswith((".yaml", ".yml")) else "json",
+            "source": "apis.guru",
+            "repo": best["key"],
+            "bytes": 0,
+            "updated": best["updated"],
+            "about": "APIs.guru's mirror of %s, matched on %s. A mirror lags the vendor." % (best["key"], domain),
+        }
     return None
 
 
@@ -255,6 +294,7 @@ def curated():
         if spec and spec.get("url"):
             out[p["slug"]] = {
                 "url": spec["url"],
+                "kind": spec.get("kind", "openapi"),
                 "format": "yaml" if spec["url"].endswith((".yaml", ".yml")) else "json",
                 "source": "curated",
                 "about": spec.get("source", "Checked by hand."),

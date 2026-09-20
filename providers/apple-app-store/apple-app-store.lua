@@ -1,7 +1,7 @@
 -- Apple App Store — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/apple.com/app-store-connect/1.4.1/openapi.json
--- APIs.guru's mirror, matched on apple.com. A mirror lags the vendor.
+-- APIs.guru's mirror of apple.com:app-store-connect, matched on apple.com. A mirror lags the vendor.
 -- 251 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

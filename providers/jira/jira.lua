@@ -1,7 +1,7 @@
 -- Jira — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/atlassian.com/jira/1001.0.0-SNAPSHOT/openapi.json
--- APIs.guru's mirror, matched on atlassian.com. A mirror lags the vendor.
+-- APIs.guru's mirror of atlassian.com:jira, matched on atlassian.com. A mirror lags the vendor.
 -- 474 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

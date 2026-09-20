@@ -1,0 +1,1556 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "aws-multi-service",
+ "source": "https://api.apis.guru/v2/specs/amazonaws.com/service-quotas/2019-06-24/openapi.json",
+ "operations": [
+  {
+   "slug": "aws-multi-service.associate_service_quota_template",
+   "name": "Associate service quota template",
+   "description": "Associates your quota request template with your organization. When a new account is created in your organization, the quota increase requests in the template are automatically applied to the account. You can add a quota increase request for any adjustable quota to your template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.AssociateServiceQuotaTemplate"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.AssociateServiceQuotaTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.delete_service_quota_increase_request_from_template",
+   "name": "Delete service quota increase request from template",
+   "description": "Deletes the quota increase request for the specified quota from your quota request template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     },
+     "AwsRegion": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "AwsRegion",
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.DeleteServiceQuotaIncreaseRequestFromTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode",
+     "AwsRegion"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.disassociate_service_quota_template",
+   "name": "Disassociate service quota template",
+   "description": "Disables your quota request template. After a template is disabled, the quota increase requests in the template are not applied to new accounts in your organization. Disabling a quota request template does not apply its quota increase requests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.DisassociateServiceQuotaTemplate"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.DisassociateServiceQuotaTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.get_association_for_service_quota_template",
+   "name": "Get association for service quota template",
+   "description": "Retrieves the status of the association for the quota request template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.get_awsdefault_service_quota",
+   "name": "Get awsdefault service quota",
+   "description": "Retrieves the default value for the specified quota. The default value does not reflect any quota increases.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.GetAWSDefaultServiceQuota"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.GetAWSDefaultServiceQuota",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.get_requested_service_quota_change",
+   "name": "Get requested service quota change",
+   "description": "Retrieves information about the specified quota increase request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.GetRequestedServiceQuotaChange"
+      ]
+     },
+     "RequestId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "RequestId",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.GetRequestedServiceQuotaChange",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "RequestId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.get_service_quota",
+   "name": "Get service quota",
+   "description": "Retrieves the applied quota value for the specified quota. For some quotas, only the default values are available. If the applied quota value is not available for a quota, the quota is not retrieved.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.GetServiceQuota"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuota",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.get_service_quota_increase_request_from_template",
+   "name": "Get service quota increase request from template",
+   "description": "Retrieves information about the specified quota increase request in your quota request template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     },
+     "AwsRegion": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "AwsRegion",
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.GetServiceQuotaIncreaseRequestFromTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode",
+     "AwsRegion"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_awsdefault_service_quotas",
+   "name": "List awsdefault service quotas",
+   "description": "Lists the default values for the quotas for the specified AWS service. A default value does not reflect any quota increases.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListAWSDefaultServiceQuotas"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListAWSDefaultServiceQuotas",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_requested_service_quota_change_history",
+   "name": "List requested service quota change history",
+   "description": "Retrieves the quota increase requests for the specified service.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "Status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PENDING",
+       "CASE_OPENED",
+       "APPROVED",
+       "DENIED",
+       "CASE_CLOSED"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistory",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "Status",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_requested_service_quota_change_history_by_quota",
+   "name": "List requested service quota change history by quota",
+   "description": "Retrieves the quota increase requests for the specified quota.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     },
+     "Status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PENDING",
+       "CASE_OPENED",
+       "APPROVED",
+       "DENIED",
+       "CASE_CLOSED"
+      ]
+     }
+    },
+    "required": [
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListRequestedServiceQuotaChangeHistoryByQuota",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode",
+     "Status",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_service_quota_increase_requests_in_template",
+   "name": "List service quota increase requests in template",
+   "description": "Lists the quota increase requests in the specified quota request template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "AwsRegion": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotaIncreaseRequestsInTemplate",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "AwsRegion",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_service_quotas",
+   "name": "List service quotas",
+   "description": "Lists the applied quota values for the specified AWS service. For some quotas, only the default values are available. If the applied quota value is not available for a quota, the quota is not retrieved.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListServiceQuotas"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListServiceQuotas",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_services",
+   "name": "List services",
+   "description": "Lists the names and codes for the services integrated with Service Quotas.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListServices"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListServices",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.list_tags_for_resource",
+   "name": "List tags for resource",
+   "description": "Returns a list of the tags assigned to the specified applied quota.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.ListTagsForResource"
+      ]
+     },
+     "ResourceARN": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceARN",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.ListTagsForResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceARN"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.put_service_quota_increase_request_into_template",
+   "name": "Put service quota increase request into template",
+   "description": "Adds a quota increase request to your quota request template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate"
+      ]
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "AwsRegion": {
+      "type": "string",
+      "description": ""
+     },
+     "DesiredValue": {
+      "type": "number",
+      "description": ""
+     }
+    },
+    "required": [
+     "AwsRegion",
+     "DesiredValue",
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.PutServiceQuotaIncreaseRequestIntoTemplate",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "QuotaCode",
+     "ServiceCode",
+     "AwsRegion",
+     "DesiredValue"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.request_service_quota_increase",
+   "name": "Request service quota increase",
+   "description": "Submits a quota increase request for the specified quota.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.RequestServiceQuotaIncrease"
+      ]
+     },
+     "ServiceCode": {
+      "type": "string",
+      "description": ""
+     },
+     "QuotaCode": {
+      "type": "string",
+      "description": ""
+     },
+     "DesiredValue": {
+      "type": "number",
+      "description": ""
+     }
+    },
+    "required": [
+     "DesiredValue",
+     "QuotaCode",
+     "ServiceCode",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.RequestServiceQuotaIncrease",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ServiceCode",
+     "QuotaCode",
+     "DesiredValue"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.tag_resource",
+   "name": "Tag resource",
+   "description": "Adds tags to the specified applied quota. You can include one or more tags to add to the quota.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.TagResource"
+      ]
+     },
+     "ResourceARN": {
+      "type": "string",
+      "description": ""
+     },
+     "Tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceARN",
+     "Tags",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.TagResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceARN",
+     "Tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-multi-service.untag_resource",
+   "name": "Untag resource",
+   "description": "Removes tags from the specified applied quota. You can specify one or more tags to remove.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ServiceQuotasV20190624.UntagResource"
+      ]
+     },
+     "ResourceARN": {
+      "type": "string",
+      "description": ""
+     },
+     "TagKeys": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceARN",
+     "TagKeys",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=ServiceQuotasV20190624.UntagResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceARN",
+     "TagKeys"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

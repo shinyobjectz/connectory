@@ -1,7 +1,7 @@
 -- Twilio — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/twilio.com/api/1.42.0/openapi.json
--- APIs.guru's mirror, matched on twilio.com. A mirror lags the vendor.
+-- APIs.guru's mirror of twilio.com:api, matched on twilio.com. A mirror lags the vendor.
 -- 199 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

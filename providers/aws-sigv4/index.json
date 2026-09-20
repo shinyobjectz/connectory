@@ -1,0 +1,3525 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "aws-sigv4",
+ "source": "https://api.apis.guru/v2/specs/amazonaws.com/ce/2017-10-25/openapi.json",
+ "operations": [
+  {
+   "slug": "aws-sigv4.create_anomaly_monitor",
+   "name": "Create anomaly monitor",
+   "description": "Creates a new cost anomaly detection monitor with the requested type and monitor specification.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.CreateAnomalyMonitor"
+      ]
+     },
+     "AnomalyMonitor": {
+      "type": "object",
+      "description": "This object continuously inspects your account's cost data for anomalies. It's based on MonitorType and MonitorSpecification. The content consists of detailed metadata and the current status of the monitor object."
+     },
+     "ResourceTags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "AnomalyMonitor",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.CreateAnomalyMonitor",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "AnomalyMonitor",
+     "ResourceTags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.create_anomaly_subscription",
+   "name": "Create anomaly subscription",
+   "description": "Adds an alert subscription to a cost anomaly detection monitor. You can use each subscription to define subscribers with email or SNS notifications. Email subscribers can set an absolute or percentage threshold and a time frequency for receiving notifications.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.CreateAnomalySubscription"
+      ]
+     },
+     "AnomalySubscription": {
+      "type": "object",
+      "description": "The association between a monitor, threshold, and list of subscribers used to deliver notifications about anomalies detected by a monitor that exceeds a threshold. The content consists of the detailed metadata and the current status of the AnomalySubscription object."
+     },
+     "ResourceTags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "AnomalySubscription",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.CreateAnomalySubscription",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "AnomalySubscription",
+     "ResourceTags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.create_cost_category_definition",
+   "name": "Create cost category definition",
+   "description": "Creates a new Cost Category with the requested name and rules.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.CreateCostCategoryDefinition"
+      ]
+     },
+     "Name": {
+      "type": "string",
+      "description": "The unique name of the Cost Category."
+     },
+     "EffectiveStart": {
+      "type": "string",
+      "description": "The period of time that you want the usage and costs for."
+     },
+     "RuleVersion": {
+      "type": "string",
+      "description": "The rule schema version in this particular Cost Category.",
+      "enum": [
+       "CostCategoryExpression.v1"
+      ]
+     },
+     "Rules": {
+      "type": "array",
+      "description": ""
+     },
+     "DefaultValue": {
+      "type": "string",
+      "description": "The default value for the cost category."
+     },
+     "SplitChargeRules": {
+      "type": "array",
+      "description": ""
+     },
+     "ResourceTags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "Name",
+     "RuleVersion",
+     "Rules",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.CreateCostCategoryDefinition",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "Name",
+     "EffectiveStart",
+     "RuleVersion",
+     "Rules",
+     "DefaultValue",
+     "SplitChargeRules",
+     "ResourceTags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.delete_anomaly_monitor",
+   "name": "Delete anomaly monitor",
+   "description": "Deletes a cost anomaly monitor.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.DeleteAnomalyMonitor"
+      ]
+     },
+     "MonitorArn": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "MonitorArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.DeleteAnomalyMonitor",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "MonitorArn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.delete_anomaly_subscription",
+   "name": "Delete anomaly subscription",
+   "description": "Deletes a cost anomaly subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.DeleteAnomalySubscription"
+      ]
+     },
+     "SubscriptionArn": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "SubscriptionArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.DeleteAnomalySubscription",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SubscriptionArn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.delete_cost_category_definition",
+   "name": "Delete cost category definition",
+   "description": "Deletes a Cost Category. Expenses from this month going forward will no longer be categorized with this Cost Category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.DeleteCostCategoryDefinition"
+      ]
+     },
+     "CostCategoryArn": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "CostCategoryArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.DeleteCostCategoryDefinition",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "CostCategoryArn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.describe_cost_category_definition",
+   "name": "Describe cost category definition",
+   "description": "Returns the name, Amazon Resource Name (ARN), rules, definition, and effective dates of a Cost Category that's defined in the account. You have the option to use EffectiveOn to return a Cost Category that's active on a specific date. If there's no EffectiveOn specified, you see a Cost Category that's effective on the current date. If Cost Category is still effective, EffectiveEnd is omitted in the",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.DescribeCostCategoryDefinition"
+      ]
+     },
+     "CostCategoryArn": {
+      "type": "string",
+      "description": ""
+     },
+     "EffectiveOn": {
+      "type": "string",
+      "description": "The period of time that you want the usage and costs for."
+     }
+    },
+    "required": [
+     "CostCategoryArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.DescribeCostCategoryDefinition",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "CostCategoryArn",
+     "EffectiveOn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_anomalies",
+   "name": "Get anomalies",
+   "description": "Retrieves all of the cost anomalies detected on your account during the time period that's specified by the DateInterval object. Anomalies are available for up to 90 days.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetAnomalies"
+      ]
+     },
+     "MonitorArn": {
+      "type": "string",
+      "description": ""
+     },
+     "DateInterval": {
+      "type": "object",
+      "description": "The time period for an anomaly."
+     },
+     "Feedback": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "YES",
+       "NO",
+       "PLANNED_ACTIVITY"
+      ]
+     },
+     "TotalImpact": {
+      "type": "object",
+      "description": "Filters cost anomalies based on the total impact."
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "DateInterval",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetAnomalies",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "MonitorArn",
+     "DateInterval",
+     "Feedback",
+     "TotalImpact",
+     "NextPageToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_anomaly_monitors",
+   "name": "Get anomaly monitors",
+   "description": "Retrieves the cost anomaly monitor definitions for your account. You can filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetAnomalyMonitors"
+      ]
+     },
+     "MonitorArnList": {
+      "type": "array",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetAnomalyMonitors",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "MonitorArnList",
+     "NextPageToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_anomaly_subscriptions",
+   "name": "Get anomaly subscriptions",
+   "description": "Retrieves the cost anomaly subscription objects for your account. You can filter using a list of cost anomaly monitor Amazon Resource Names (ARNs).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetAnomalySubscriptions"
+      ]
+     },
+     "SubscriptionArnList": {
+      "type": "array",
+      "description": ""
+     },
+     "MonitorArn": {
+      "type": "string",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetAnomalySubscriptions",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SubscriptionArnList",
+     "MonitorArn",
+     "NextPageToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_cost_and_usage",
+   "name": "Get cost and usage",
+   "description": "Retrieves cost and usage metrics for your account. You can specify which cost and usage-related metric that you want the request to return. For example, you can specify BlendedCosts or UsageQuantity. You can also filter and group your data by various dimensions, such as SERVICE or AZ, in a specific time range. For a complete list of valid dimensions, see the GetDimensionValues operation. Managemen",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetCostAndUsage"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "Metrics": {
+      "type": "array",
+      "description": ""
+     },
+     "GroupBy": {
+      "type": "array",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "Granularity",
+     "Metrics",
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetCostAndUsage",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Granularity",
+     "Filter",
+     "Metrics",
+     "GroupBy",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_cost_and_usage_with_resources",
+   "name": "Get cost and usage with resources",
+   "description": "Retrieves cost and usage metrics with resources for your account. You can specify which cost and usage-related metric, such as BlendedCosts or UsageQuantity, that you want the request to return. You can also filter and group your data by various dimensions, such as SERVICE or AZ, in a specific time range. For a complete list of valid dimensions, see the GetDimensionValues operation. Management acc",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetCostAndUsageWithResources"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "Metrics": {
+      "type": "array",
+      "description": ""
+     },
+     "GroupBy": {
+      "type": "array",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "Filter",
+     "Granularity",
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetCostAndUsageWithResources",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Granularity",
+     "Filter",
+     "Metrics",
+     "GroupBy",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_cost_categories",
+   "name": "Get cost categories",
+   "description": "Retrieves an array of Cost Category names and values incurred cost. If some Cost Category names and values are not associated with any cost, they will not be returned by this API.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetCostCategories"
+      ]
+     },
+     "SearchString": {
+      "type": "string",
+      "description": ""
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "CostCategoryName": {
+      "type": "string",
+      "description": "The unique name of the Cost Category."
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "SortBy": {
+      "type": "array",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetCostCategories",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SearchString",
+     "TimePeriod",
+     "CostCategoryName",
+     "Filter",
+     "SortBy",
+     "MaxResults",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_cost_forecast",
+   "name": "Get cost forecast",
+   "description": "Retrieves a forecast for how much Amazon Web Services predicts that you will spend over the forecast time period that you select, based on your past costs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetCostForecast"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Metric": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "BLENDED_COST",
+       "UNBLENDED_COST",
+       "AMORTIZED_COST",
+       "NET_UNBLENDED_COST",
+       "NET_AMORTIZED_COST",
+       "USAGE_QUANTITY",
+       "NORMALIZED_USAGE_AMOUNT"
+      ]
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "PredictionIntervalLevel": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "Granularity",
+     "Metric",
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetCostForecast",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Metric",
+     "Granularity",
+     "Filter",
+     "PredictionIntervalLevel"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_dimension_values",
+   "name": "Get dimension values",
+   "description": "Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetDimensionValues"
+      ]
+     },
+     "SearchString": {
+      "type": "string",
+      "description": ""
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Dimension": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AZ",
+       "INSTANCE_TYPE",
+       "LINKED_ACCOUNT",
+       "LINKED_ACCOUNT_NAME",
+       "OPERATION",
+       "PURCHASE_TYPE",
+       "REGION",
+       "SERVICE",
+       "SERVICE_CODE",
+       "USAGE_TYPE",
+       "USAGE_TYPE_GROUP",
+       "RECORD_TYPE"
+      ]
+     },
+     "Context": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "COST_AND_USAGE",
+       "RESERVATIONS",
+       "SAVINGS_PLANS"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "SortBy": {
+      "type": "array",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "Dimension",
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetDimensionValues",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SearchString",
+     "TimePeriod",
+     "Dimension",
+     "Context",
+     "Filter",
+     "SortBy",
+     "MaxResults",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_reservation_coverage",
+   "name": "Get reservation coverage",
+   "description": "Retrieves the reservation coverage for your account, which you can use to see how much of your Amazon Elastic Compute Cloud, Amazon ElastiCache, Amazon Relational Database Service, or Amazon Redshift usage is covered by a reservation. An organization's management account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetReservationCoverage"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "GroupBy": {
+      "type": "array",
+      "description": ""
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "Metrics": {
+      "type": "array",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "SortBy": {
+      "type": "object",
+      "description": "The details for how to sort the data."
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetReservationCoverage",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "GroupBy",
+     "Granularity",
+     "Filter",
+     "Metrics",
+     "NextPageToken",
+     "SortBy",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_reservation_purchase_recommendation",
+   "name": "Get reservation purchase recommendation",
+   "description": "Gets recommendations for reservation purchases. These recommendations might help you to reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to On-Demand pricing. Amazon Web Services generates your recommendations by identifying your On-Demand usage during a specific time period and collecting your usage into categories that are eligible for a reservation. After Am",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetReservationPurchaseRecommendation"
+      ]
+     },
+     "AccountId": {
+      "type": "string",
+      "description": ""
+     },
+     "Service": {
+      "type": "string",
+      "description": ""
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "AccountScope": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PAYER",
+       "LINKED"
+      ]
+     },
+     "LookbackPeriodInDays": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "SEVEN_DAYS",
+       "THIRTY_DAYS",
+       "SIXTY_DAYS"
+      ]
+     },
+     "TermInYears": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ONE_YEAR",
+       "THREE_YEARS"
+      ]
+     },
+     "PaymentOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "NO_UPFRONT",
+       "PARTIAL_UPFRONT",
+       "ALL_UPFRONT",
+       "LIGHT_UTILIZATION",
+       "MEDIUM_UTILIZATION",
+       "HEAVY_UTILIZATION"
+      ]
+     },
+     "ServiceSpecification": {
+      "type": "object",
+      "description": "Hardware specifications for the service that you want recommendations for."
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "Service",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetReservationPurchaseRecommendation",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "AccountId",
+     "Service",
+     "Filter",
+     "AccountScope",
+     "LookbackPeriodInDays",
+     "TermInYears",
+     "PaymentOption",
+     "ServiceSpecification",
+     "PageSize",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_reservation_utilization",
+   "name": "Get reservation utilization",
+   "description": "Retrieves the reservation utilization for your account. Management account in an organization have access to member accounts. You can filter data by dimensions in a time period. You can use GetDimensionValues to determine the possible dimension values. Currently, you can group only by SUBSCRIPTION_ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetReservationUtilization"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "GroupBy": {
+      "type": "array",
+      "description": ""
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "SortBy": {
+      "type": "object",
+      "description": "The details for how to sort the data."
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetReservationUtilization",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "GroupBy",
+     "Granularity",
+     "Filter",
+     "SortBy",
+     "NextPageToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_rightsizing_recommendation",
+   "name": "Get rightsizing recommendation",
+   "description": "Creates recommendations that help you save cost by identifying idle and underutilized Amazon EC2 instances. Recommendations are generated to either downsize or terminate instances, along with providing savings detail and metrics. For more information about calculation and function, see Optimizing Your Cost with Rightsizing Recommendations in the Billing and Cost Management User Guide.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetRightsizingRecommendation"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "Configuration": {
+      "type": "object",
+      "description": "You can use RightsizingRecommendationConfiguration to customize recommendations across two attributes. You can choose to view recommendations for instances within the same instance families or across different instance families. You can also choose to view your estimated savings that are associated with recommendations with consideration of existing Savings Plans or Reserved Instance (RI) benefits"
+     },
+     "Service": {
+      "type": "string",
+      "description": ""
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "Service",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetRightsizingRecommendation",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "Filter",
+     "Configuration",
+     "Service",
+     "PageSize",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_savings_plans_coverage",
+   "name": "Get savings plans coverage",
+   "description": "Retrieves the Savings Plans covered for your account. This enables you to see how much of your cost is covered by a Savings Plan. An organization\u2019s management account can see the coverage of the associated member accounts. This supports dimensions, Cost Categories, and nested expressions. For any time period, you can filter data for Savings Plans usage with the following dimensions: LINKED_ACCOUNT",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetSavingsPlansCoverage"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "GroupBy": {
+      "type": "array",
+      "description": ""
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "Metrics": {
+      "type": "array",
+      "description": ""
+     },
+     "SortBy": {
+      "type": "object",
+      "description": "The details for how to sort the data."
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetSavingsPlansCoverage",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "GroupBy",
+     "Granularity",
+     "Filter",
+     "Metrics",
+     "NextToken",
+     "MaxResults",
+     "SortBy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_savings_plans_purchase_recommendation",
+   "name": "Get savings plans purchase recommendation",
+   "description": "Retrieves the Savings Plans recommendations for your account. First use StartSavingsPlansPurchaseRecommendationGeneration to generate a new set of recommendations, and then use GetSavingsPlansPurchaseRecommendation to retrieve them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation"
+      ]
+     },
+     "SavingsPlansType": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "COMPUTE_SP",
+       "EC2_INSTANCE_SP",
+       "SAGEMAKER_SP"
+      ]
+     },
+     "TermInYears": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "ONE_YEAR",
+       "THREE_YEARS"
+      ]
+     },
+     "PaymentOption": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "NO_UPFRONT",
+       "PARTIAL_UPFRONT",
+       "ALL_UPFRONT",
+       "LIGHT_UTILIZATION",
+       "MEDIUM_UTILIZATION",
+       "HEAVY_UTILIZATION"
+      ]
+     },
+     "AccountScope": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "PAYER",
+       "LINKED"
+      ]
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "LookbackPeriodInDays": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "SEVEN_DAYS",
+       "THIRTY_DAYS",
+       "SIXTY_DAYS"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     }
+    },
+    "required": [
+     "LookbackPeriodInDays",
+     "PaymentOption",
+     "SavingsPlansType",
+     "TermInYears",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetSavingsPlansPurchaseRecommendation",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SavingsPlansType",
+     "TermInYears",
+     "PaymentOption",
+     "AccountScope",
+     "NextPageToken",
+     "PageSize",
+     "LookbackPeriodInDays",
+     "Filter"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_savings_plans_utilization",
+   "name": "Get savings plans utilization",
+   "description": "Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use GetDimensionValues in SAVINGS_PLANS to determine the possible dimension values. You can't group by any dimension values for GetSavingsPlansUtilization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetSavingsPlansUtilization"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "SortBy": {
+      "type": "object",
+      "description": "The details for how to sort the data."
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetSavingsPlansUtilization",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Granularity",
+     "Filter",
+     "SortBy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_savings_plans_utilization_details",
+   "name": "Get savings plans utilization details",
+   "description": "Retrieves attribute data along with aggregate utilization and savings data for a given time period. This doesn't support granular or grouped data (daily/monthly) in response. You can't retrieve data by dates in a single response similar to GetSavingsPlanUtilization, but you have the option to make multiple calls to GetSavingsPlanUtilizationDetails by providing individual dates. You can use GetDime",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetSavingsPlansUtilizationDetails"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "DataType": {
+      "type": "array",
+      "description": ""
+     },
+     "SortBy": {
+      "type": "object",
+      "description": "The details for how to sort the data."
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetSavingsPlansUtilizationDetails",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Filter",
+     "DataType",
+     "NextToken",
+     "MaxResults",
+     "SortBy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_tags",
+   "name": "Get tags",
+   "description": "Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetTags"
+      ]
+     },
+     "SearchString": {
+      "type": "string",
+      "description": ""
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "TagKey": {
+      "type": "string",
+      "description": ""
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "SortBy": {
+      "type": "array",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetTags",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SearchString",
+     "TimePeriod",
+     "TagKey",
+     "Filter",
+     "SortBy",
+     "MaxResults",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.get_usage_forecast",
+   "name": "Get usage forecast",
+   "description": "Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.GetUsageForecast"
+      ]
+     },
+     "TimePeriod": {
+      "type": "object",
+      "description": "The time period of the request."
+     },
+     "Metric": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "BLENDED_COST",
+       "UNBLENDED_COST",
+       "AMORTIZED_COST",
+       "NET_UNBLENDED_COST",
+       "NET_AMORTIZED_COST",
+       "USAGE_QUANTITY",
+       "NORMALIZED_USAGE_AMOUNT"
+      ]
+     },
+     "Granularity": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "MONTHLY",
+       "HOURLY"
+      ]
+     },
+     "Filter": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     },
+     "PredictionIntervalLevel": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "Granularity",
+     "Metric",
+     "TimePeriod",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.GetUsageForecast",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "TimePeriod",
+     "Metric",
+     "Granularity",
+     "Filter",
+     "PredictionIntervalLevel"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.list_cost_allocation_tags",
+   "name": "List cost allocation tags",
+   "description": "Get a list of cost allocation tags. All inputs in the API are optional and serve as filters. By default, all cost allocation tags are returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.ListCostAllocationTags"
+      ]
+     },
+     "Status": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "Active",
+       "Inactive"
+      ]
+     },
+     "TagKeys": {
+      "type": "array",
+      "description": ""
+     },
+     "Type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSGenerated",
+       "UserDefined"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.ListCostAllocationTags",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "Status",
+     "TagKeys",
+     "Type",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.list_cost_category_definitions",
+   "name": "List cost category definitions",
+   "description": "Returns the name, Amazon Resource Name (ARN), NumberOfRules and effective dates of all Cost Categories defined in the account. You have the option to use EffectiveOn to return a list of Cost Categories that were active on a specific date. If there is no EffectiveOn specified, you\u2019ll see Cost Categories that are effective on the current date. If Cost Category is still effective, EffectiveEnd is omi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "MaxResults": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextToken": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.ListCostCategoryDefinitions"
+      ]
+     },
+     "EffectiveOn": {
+      "type": "string",
+      "description": "The period of time that you want the usage and costs for."
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.ListCostCategoryDefinitions",
+    "path": [],
+    "query": [
+     "MaxResults",
+     "NextToken"
+    ],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "EffectiveOn",
+     "NextToken",
+     "MaxResults"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.list_savings_plans_purchase_recommendation_generation",
+   "name": "List savings plans purchase recommendation generation",
+   "description": "Retrieves a list of your historical recommendation generations within the past 30 days.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration"
+      ]
+     },
+     "GenerationStatus": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "SUCCEEDED",
+       "PROCESSING",
+       "FAILED"
+      ]
+     },
+     "RecommendationIds": {
+      "type": "array",
+      "description": ""
+     },
+     "PageSize": {
+      "type": "integer",
+      "description": ""
+     },
+     "NextPageToken": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.ListSavingsPlansPurchaseRecommendationGeneration",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "GenerationStatus",
+     "RecommendationIds",
+     "PageSize",
+     "NextPageToken"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.list_tags_for_resource",
+   "name": "List tags for resource",
+   "description": "Returns a list of resource tags associated with the resource specified by the Amazon Resource Name (ARN).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.ListTagsForResource"
+      ]
+     },
+     "ResourceArn": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.ListTagsForResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceArn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.provide_anomaly_feedback",
+   "name": "Provide anomaly feedback",
+   "description": "Modifies the feedback property of a given cost anomaly.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.ProvideAnomalyFeedback"
+      ]
+     },
+     "AnomalyId": {
+      "type": "string",
+      "description": ""
+     },
+     "Feedback": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "YES",
+       "NO",
+       "PLANNED_ACTIVITY"
+      ]
+     }
+    },
+    "required": [
+     "AnomalyId",
+     "Feedback",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.ProvideAnomalyFeedback",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "AnomalyId",
+     "Feedback"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.start_savings_plans_purchase_recommendation_generation",
+   "name": "Start savings plans purchase recommendation generation",
+   "description": "Requests a Savings Plans recommendation generation. This enables you to calculate a fresh set of Savings Plans recommendations that takes your latest usage data and current Savings Plans inventory into account. You can refresh Savings Plans recommendations up to three times daily for a consolidated billing family. StartSavingsPlansPurchaseRecommendationGeneration has no request syntax because no i",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration"
+      ]
+     }
+    },
+    "required": [
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.StartSavingsPlansPurchaseRecommendationGeneration",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.tag_resource",
+   "name": "Tag resource",
+   "description": "An API operation for adding one or more tags (key-value pairs) to a resource. You can use the TagResource operation with a resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value you specify replaces the previous valu",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.TagResource"
+      ]
+     },
+     "ResourceArn": {
+      "type": "string",
+      "description": ""
+     },
+     "ResourceTags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceArn",
+     "ResourceTags",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.TagResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceArn",
+     "ResourceTags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.untag_resource",
+   "name": "Untag resource",
+   "description": "Removes one or more tags from a resource. Specify only tag keys in your request. Don't specify the value.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.UntagResource"
+      ]
+     },
+     "ResourceArn": {
+      "type": "string",
+      "description": ""
+     },
+     "ResourceTagKeys": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "ResourceArn",
+     "ResourceTagKeys",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.UntagResource",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "ResourceArn",
+     "ResourceTagKeys"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.update_anomaly_monitor",
+   "name": "Update anomaly monitor",
+   "description": "Updates an existing cost anomaly monitor. The changes made are applied going forward, and doesn't change anomalies detected in the past.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.UpdateAnomalyMonitor"
+      ]
+     },
+     "MonitorArn": {
+      "type": "string",
+      "description": ""
+     },
+     "MonitorName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "MonitorArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.UpdateAnomalyMonitor",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "MonitorArn",
+     "MonitorName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.update_anomaly_subscription",
+   "name": "Update anomaly subscription",
+   "description": "Updates an existing cost anomaly monitor subscription.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.UpdateAnomalySubscription"
+      ]
+     },
+     "SubscriptionArn": {
+      "type": "string",
+      "description": ""
+     },
+     "Threshold": {
+      "type": "number",
+      "description": ""
+     },
+     "Frequency": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "DAILY",
+       "IMMEDIATE",
+       "WEEKLY"
+      ]
+     },
+     "MonitorArnList": {
+      "type": "array",
+      "description": ""
+     },
+     "Subscribers": {
+      "type": "array",
+      "description": ""
+     },
+     "SubscriptionName": {
+      "type": "string",
+      "description": ""
+     },
+     "ThresholdExpression": {
+      "type": "object",
+      "description": "Use Expression to filter in various Cost Explorer APIs. Not all Expression types are supported in each API. Refer to the documentation for each specific API to see what is supported. There are two patterns: Simple dimension values. There are three types of simple dimension values: CostCategories, Tags, and Dimensions. Specify the CostCategories field to define a filter that acts on Cost Categories"
+     }
+    },
+    "required": [
+     "SubscriptionArn",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.UpdateAnomalySubscription",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "SubscriptionArn",
+     "Threshold",
+     "Frequency",
+     "MonitorArnList",
+     "Subscribers",
+     "SubscriptionName",
+     "ThresholdExpression"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.update_cost_allocation_tags_status",
+   "name": "Update cost allocation tags status",
+   "description": "Updates status for cost allocation tags in bulk, with maximum batch size of 20. If the tag status that's updated is the same as the existing tag status, the request doesn't fail. Instead, it doesn't have any effect on the tag status (for example, activating the active tag).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.UpdateCostAllocationTagsStatus"
+      ]
+     },
+     "CostAllocationTagsStatus": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "CostAllocationTagsStatus",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.UpdateCostAllocationTagsStatus",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "CostAllocationTagsStatus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "aws-sigv4.update_cost_category_definition",
+   "name": "Update cost category definition",
+   "description": "Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month\u2019s expenses and future expenses. This won\u2019t change categorization for the previous months.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-Amz-Content-Sha256": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Date": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Algorithm": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Credential": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Security-Token": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Signature": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-SignedHeaders": {
+      "type": "string",
+      "description": ""
+     },
+     "X-Amz-Target": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "AWSInsightsIndexService.UpdateCostCategoryDefinition"
+      ]
+     },
+     "CostCategoryArn": {
+      "type": "string",
+      "description": ""
+     },
+     "EffectiveStart": {
+      "type": "string",
+      "description": "The period of time that you want the usage and costs for."
+     },
+     "RuleVersion": {
+      "type": "string",
+      "description": "The rule schema version in this particular Cost Category.",
+      "enum": [
+       "CostCategoryExpression.v1"
+      ]
+     },
+     "Rules": {
+      "type": "array",
+      "description": ""
+     },
+     "DefaultValue": {
+      "type": "string",
+      "description": "The default value for the cost category."
+     },
+     "SplitChargeRules": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "CostCategoryArn",
+     "RuleVersion",
+     "Rules",
+     "X-Amz-Target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{service}.{region}.amazonaws.com/#X-Amz-Target=AWSInsightsIndexService.UpdateCostCategoryDefinition",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-Amz-Content-Sha256",
+     "X-Amz-Date",
+     "X-Amz-Algorithm",
+     "X-Amz-Credential",
+     "X-Amz-Security-Token",
+     "X-Amz-Signature",
+     "X-Amz-SignedHeaders",
+     "X-Amz-Target"
+    ],
+    "body": [
+     "CostCategoryArn",
+     "EffectiveStart",
+     "RuleVersion",
+     "Rules",
+     "DefaultValue",
+     "SplitChargeRules"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

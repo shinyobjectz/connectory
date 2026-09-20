@@ -1,0 +1,708 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "google-contacts",
+ "source": "https://api.apis.guru/v2/specs/googleapis.com/essentialcontacts/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_compute",
+   "name": "Essentialcontacts projects contacts compute",
+   "description": "Lists all contacts for the resource that are subscribed to the specified notification categories, including contacts inherited from any parent resources.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the resource to compute contacts for. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}"
+     },
+     "notificationCategories": {
+      "type": "array",
+      "description": "The categories of notifications to compute contacts for. If ALL is included in this list, contacts subscribed to any notification category will be returned."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of `next_page_token` in the response indicates that more results might be available. If not specified, the default page_size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. If present, retrieves the next batch of results from the preceding call to this method. `page_token` must be the value of `next_page_token` from the previous response. The values of other method parameters should be identical to those in the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://people.googleapis.com/v1/{parent}/contacts:compute",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "notificationCategories",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_create",
+   "name": "Essentialcontacts projects contacts create",
+   "description": "Adds a new contact for a resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The resource to save this contact for. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}"
+     },
+     "email": {
+      "type": "string",
+      "description": "Required. The email address to send notifications to. The email address does not need to be a Google Account."
+     },
+     "languageTag": {
+      "type": "string",
+      "description": "Required. The preferred language for notifications, as a ISO 639-1 language code. See [Supported languages](https://cloud.google.com/resource-manager/docs/managing-notification-contacts#supported-languages) for a list of supported languages."
+     },
+     "name": {
+      "type": "string",
+      "description": "Output only. The identifier for the contact. Format: {resource_type}/{resource_id}/contacts/{contact_id}"
+     },
+     "notificationCategorySubscriptions": {
+      "type": "array",
+      "description": "Required. The categories of notifications that the contact will receive communications for."
+     },
+     "validateTime": {
+      "type": "string",
+      "description": "The last time the validation_state was updated, either manually or automatically. A contact is considered stale if its validation state was updated more than 1 year ago."
+     },
+     "validationState": {
+      "type": "string",
+      "description": "The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource.",
+      "enum": [
+       "VALIDATION_STATE_UNSPECIFIED",
+       "VALID",
+       "INVALID"
+      ]
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://people.googleapis.com/v1/{parent}/contacts",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "email",
+     "languageTag",
+     "name",
+     "notificationCategorySubscriptions",
+     "validateTime",
+     "validationState"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_delete",
+   "name": "Essentialcontacts projects contacts delete",
+   "description": "Deletes a contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name of the contact to delete. Format: organizations/{organization_id}/contacts/{contact_id}, folders/{folder_id}/contacts/{contact_id} or projects/{project_id}/contacts/{contact_id}"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://people.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_get",
+   "name": "Essentialcontacts projects contacts get",
+   "description": "Gets a single contact.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name of the contact to retrieve. Format: organizations/{organization_id}/contacts/{contact_id}, folders/{folder_id}/contacts/{contact_id} or projects/{project_id}/contacts/{contact_id}"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://people.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_list",
+   "name": "Essentialcontacts projects contacts list",
+   "description": "Lists the contacts that have been set on a resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The parent resource name. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The maximum number of results to return from this request. Non-positive values are ignored. The presence of `next_page_token` in the response indicates that more results might be available. If not specified, the default page_size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. If present, retrieves the next batch of results from the preceding call to this method. `page_token` must be the value of `next_page_token` from the previous response. The values of other method parameters should be identical to those in the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://people.googleapis.com/v1/{parent}/contacts",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_patch",
+   "name": "Essentialcontacts projects contacts patch",
+   "description": "Updates a contact. Note: A contact's email address cannot be changed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Output only. The identifier for the contact. Format: {resource_type}/{resource_id}/contacts/{contact_id}"
+     },
+     "updateMask": {
+      "type": "string",
+      "description": "Optional. The update mask applied to the resource. For the `FieldMask` definition, see https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask"
+     },
+     "email": {
+      "type": "string",
+      "description": "Required. The email address to send notifications to. The email address does not need to be a Google Account."
+     },
+     "languageTag": {
+      "type": "string",
+      "description": "Required. The preferred language for notifications, as a ISO 639-1 language code. See [Supported languages](https://cloud.google.com/resource-manager/docs/managing-notification-contacts#supported-languages) for a list of supported languages."
+     },
+     "notificationCategorySubscriptions": {
+      "type": "array",
+      "description": "Required. The categories of notifications that the contact will receive communications for."
+     },
+     "validateTime": {
+      "type": "string",
+      "description": "The last time the validation_state was updated, either manually or automatically. A contact is considered stale if its validation state was updated more than 1 year ago."
+     },
+     "validationState": {
+      "type": "string",
+      "description": "The validity of the contact. A contact is considered valid if it is the correct recipient for notifications for a particular resource.",
+      "enum": [
+       "VALIDATION_STATE_UNSPECIFIED",
+       "VALID",
+       "INVALID"
+      ]
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://people.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "updateMask"
+    ],
+    "header": [],
+    "body": [
+     "email",
+     "languageTag",
+     "name",
+     "notificationCategorySubscriptions",
+     "validateTime",
+     "validationState"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-contacts.essentialcontacts_projects_contacts_send_test_message",
+   "name": "Essentialcontacts projects contacts send test message",
+   "description": "Allows a contact admin to send a test message to contact to verify that it has been configured correctly.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "resource": {
+      "type": "string",
+      "description": "Required. The name of the resource to send the test message for. All contacts must either be set directly on this resource or inherited from another resource that is an ancestor of this one. Format: organizations/{organization_id}, folders/{folder_id} or projects/{project_id}"
+     },
+     "contacts": {
+      "type": "array",
+      "description": "Required. The list of names of the contacts to send a test message to. Format: organizations/{organization_id}/contacts/{contact_id}, folders/{folder_id}/contacts/{contact_id} or projects/{project_id}/contacts/{contact_id}"
+     },
+     "notificationCategory": {
+      "type": "string",
+      "description": "Required. The notification category to send the test message for. All contacts must be subscribed to this category.",
+      "enum": [
+       "NOTIFICATION_CATEGORY_UNSPECIFIED",
+       "ALL",
+       "SUSPENSION",
+       "SECURITY",
+       "TECHNICAL",
+       "BILLING",
+       "LEGAL",
+       "PRODUCT_UPDATES",
+       "TECHNICAL_INCIDENTS"
+      ]
+     }
+    },
+    "required": [
+     "resource"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://people.googleapis.com/v1/{resource}/contacts:sendTestMessage",
+    "path": [
+     "resource"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "contacts",
+     "notificationCategory"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

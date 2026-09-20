@@ -1,7 +1,7 @@
 -- Xero — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/xero.com/xero_files/2.9.4/openapi.json
--- APIs.guru's mirror, matched on xero.com. A mirror lags the vendor.
+-- APIs.guru's mirror of xero.com:xero_files, matched on xero.com. A mirror lags the vendor.
 -- 16 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

@@ -1,0 +1,993 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "google-chat",
+ "source": "https://api.apis.guru/v2/specs/googleapis.com/chat/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "google-chat.chat_media_download",
+   "name": "Chat media download",
+   "description": "Downloads media. Download is supported on the URI `/v1/media/{+name}?alt=media`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "resourceName": {
+      "type": "string",
+      "description": "Name of the media that is being downloaded. See ReadRequest.resource_name."
+     }
+    },
+    "required": [
+     "resourceName"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://chat.googleapis.com/v1/media/{resourceName}",
+    "path": [
+     "resourceName"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_list",
+   "name": "Chat spaces list",
+   "description": "Lists spaces the caller is a member of. Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://develo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The maximum number of spaces to return. The service may return fewer than this value. If unspecified, at most 100 spaces are returned. The maximum value is 1000; values above 1000 are coerced to 1000. Negative values return an `INVALID_ARGUMENT` error."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. A page token, received from a previous list spaces call. Provide this to retrieve the subsequent page. When paginating, the filter value should match the call that provided the page token. Passing a different value may lead to unexpected results."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://chat.googleapis.com/v1/spaces",
+    "path": [],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_members_list",
+   "name": "Chat spaces members list",
+   "description": "Lists memberships in a space. Requires [authentication](https://developers.google.com/chat/api/guides/auth/). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/chat/api/guides/auth/users) as part of the [Google Workspace Developer Preview Program](https://developers.goog",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The resource name of the space for which to fetch a membership list. Format: spaces/{space}"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "The maximum number of memberships to return. The service may return fewer than this value. If unspecified, at most 100 memberships are returned. The maximum value is 1000; values above 1000 are coerced to 1000. Negative values return an INVALID_ARGUMENT error."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "A page token, received from a previous call to list memberships. Provide this to retrieve the subsequent page. When paginating, all other parameters provided should match the call that provided the page token. Passing different values to the other parameters may lead to unexpected results."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://chat.googleapis.com/v1/{parent}/members",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_messages_attachments_get",
+   "name": "Chat spaces messages attachments get",
+   "description": "Gets the metadata of a message attachment. The attachment data is fetched using the [media API](https://developers.google.com/chat/api/reference/rest/v1/media/download). Requires [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. Resource name of the attachment, in the form \"spaces/*/messages/*/attachments/*\"."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://chat.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_messages_create",
+   "name": "Chat spaces messages create",
+   "description": "Creates a message. For example usage, see [Create a message](https://developers.google.com/chat/api/guides/crudl/messages#create_a_message). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/c",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The resource name of the space in which to create a message. Format: spaces/{space}"
+     },
+     "messageId": {
+      "type": "string",
+      "description": "Optional. A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)."
+     },
+     "messageReplyOption": {
+      "type": "string",
+      "description": "Optional. Specifies whether a message starts a thread or replies to one. Only supported in named spaces.",
+      "enum": [
+       "MESSAGE_REPLY_OPTION_UNSPECIFIED",
+       "REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD",
+       "REPLY_MESSAGE_OR_FAIL"
+      ]
+     },
+     "requestId": {
+      "type": "string",
+      "description": "Optional. A unique request ID for this message. Specifying an existing request ID returns the message created with that ID instead of creating a new message."
+     },
+     "threadKey": {
+      "type": "string",
+      "description": "Optional. Deprecated: Use thread.thread_key instead. Opaque thread identifier. To start or add to a thread, create a message and specify a `threadKey` or the thread.name. For example usage, see [Start or reply to a message thread](https://developers.google.com/chat/api/guides/crudl/messages#start_or_reply_to_a_message_thread)."
+     },
+     "actionResponse": {
+      "type": "object",
+      "description": "Parameters that a Chat app can use to configure how its response is posted."
+     },
+     "annotations": {
+      "type": "array",
+      "description": "Output only. Annotations associated with the text in this message."
+     },
+     "argumentText": {
+      "type": "string",
+      "description": "Output only. Plain-text body of the message with all Chat app mentions stripped out."
+     },
+     "attachment": {
+      "type": "array",
+      "description": "User-uploaded attachment."
+     },
+     "cards": {
+      "type": "array",
+      "description": "Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards that can be used to display UI elements such as: formatted texts, buttons, clickable images. Cards are normally displayed below the plain-text body of the message. `cards` and `cards_v2` can have a maximum size of 32 KB."
+     },
+     "cardsV2": {
+      "type": "array",
+      "description": "Richly formatted and interactive cards that display UI elements and editable widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes - Radio buttons - Input widgets. Cards are usually displayed below the text body of a Chat message, but can situationally appear other places, such as [dialogs](https://developers.google.com/chat/how-tos/dialogs). Each card can have a maximum siz"
+     },
+     "clientAssignedMessageId": {
+      "type": "string",
+      "description": "A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was created in Google Chat server."
+     },
+     "fallbackText": {
+      "type": "string",
+      "description": "A plain-text description of the message's cards, used when the actual cards cannot be displayed (e.g. mobile notifications)."
+     },
+     "lastUpdateTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was last edited by a user. If the message has never been edited, this field is empty."
+     },
+     "matchedUrl": {
+      "type": "object",
+      "description": "A matched url in a Chat message. Chat apps can preview matched URLs. For more information, refer to [Preview links](https://developers.google.com/chat/how-tos/preview-links)."
+     },
+     "name": {
+      "type": "string",
+      "description": "Resource name in the form `spaces/*/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`"
+     },
+     "sender": {
+      "type": "object",
+      "description": "A user in Google Chat."
+     },
+     "slashCommand": {
+      "type": "object",
+      "description": "A [slash command](https://developers.google.com/chat/how-tos/slash-commands) in Google Chat."
+     },
+     "space": {
+      "type": "object",
+      "description": "A space in Google Chat. Spaces are conversations between two or more users or 1:1 messages between a user and a Chat app."
+     },
+     "text": {
+      "type": "string",
+      "description": "Plain-text body of the message. The first link to an image, video, web page, or other preview-able item generates a preview chip."
+     },
+     "thread": {
+      "type": "object",
+      "description": "A thread in Google Chat."
+     },
+     "threadReply": {
+      "type": "boolean",
+      "description": "Output only. When `true`, the message is a response in a reply thread. When `false`, the message is visible in the space's top-level conversation as either the first message of a thread or a message with no threaded replies. If the space doesn't support reply in threads, this field is always `false`."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://chat.googleapis.com/v1/{parent}/messages",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "messageId",
+     "messageReplyOption",
+     "requestId",
+     "threadKey"
+    ],
+    "header": [],
+    "body": [
+     "actionResponse",
+     "annotations",
+     "argumentText",
+     "attachment",
+     "cards",
+     "cardsV2",
+     "clientAssignedMessageId",
+     "createTime",
+     "fallbackText",
+     "lastUpdateTime",
+     "matchedUrl",
+     "name",
+     "sender",
+     "slashCommand",
+     "space",
+     "text",
+     "thread",
+     "threadReply"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_messages_delete",
+   "name": "Chat spaces messages delete",
+   "description": "Deletes a message. For example usage, see [Delete a message](https://developers.google.com/chat/api/guides/crudl/messages#delete_a_message). Requires [authentication](https://developers.google.com/chat/api/guides/auth). Fully supports [service account authentication](https://developers.google.com/chat/api/guides/auth/service-accounts). Supports [user authentication](https://developers.google.com/c",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. Resource name of the message to be deleted, in the form \"spaces/*/messages/*\" Example: spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://chat.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_messages_patch",
+   "name": "Chat spaces messages patch",
+   "description": "Updates a message. There's a difference between `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For example usage, see [Update a message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message). Requires [authentication](https://developers.google.com/chat/api/guides",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Resource name in the form `spaces/*/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`"
+     },
+     "allowMissing": {
+      "type": "boolean",
+      "description": "Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails."
+     },
+     "updateMask": {
+      "type": "string",
+      "description": "Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account authentication](/chat/api/guides/auth/service-accounts).) - cards_v2"
+     },
+     "actionResponse": {
+      "type": "object",
+      "description": "Parameters that a Chat app can use to configure how its response is posted."
+     },
+     "annotations": {
+      "type": "array",
+      "description": "Output only. Annotations associated with the text in this message."
+     },
+     "argumentText": {
+      "type": "string",
+      "description": "Output only. Plain-text body of the message with all Chat app mentions stripped out."
+     },
+     "attachment": {
+      "type": "array",
+      "description": "User-uploaded attachment."
+     },
+     "cards": {
+      "type": "array",
+      "description": "Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards that can be used to display UI elements such as: formatted texts, buttons, clickable images. Cards are normally displayed below the plain-text body of the message. `cards` and `cards_v2` can have a maximum size of 32 KB."
+     },
+     "cardsV2": {
+      "type": "array",
+      "description": "Richly formatted and interactive cards that display UI elements and editable widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes - Radio buttons - Input widgets. Cards are usually displayed below the text body of a Chat message, but can situationally appear other places, such as [dialogs](https://developers.google.com/chat/how-tos/dialogs). Each card can have a maximum siz"
+     },
+     "clientAssignedMessageId": {
+      "type": "string",
+      "description": "A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was created in Google Chat server."
+     },
+     "fallbackText": {
+      "type": "string",
+      "description": "A plain-text description of the message's cards, used when the actual cards cannot be displayed (e.g. mobile notifications)."
+     },
+     "lastUpdateTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was last edited by a user. If the message has never been edited, this field is empty."
+     },
+     "matchedUrl": {
+      "type": "object",
+      "description": "A matched url in a Chat message. Chat apps can preview matched URLs. For more information, refer to [Preview links](https://developers.google.com/chat/how-tos/preview-links)."
+     },
+     "sender": {
+      "type": "object",
+      "description": "A user in Google Chat."
+     },
+     "slashCommand": {
+      "type": "object",
+      "description": "A [slash command](https://developers.google.com/chat/how-tos/slash-commands) in Google Chat."
+     },
+     "space": {
+      "type": "object",
+      "description": "A space in Google Chat. Spaces are conversations between two or more users or 1:1 messages between a user and a Chat app."
+     },
+     "text": {
+      "type": "string",
+      "description": "Plain-text body of the message. The first link to an image, video, web page, or other preview-able item generates a preview chip."
+     },
+     "thread": {
+      "type": "object",
+      "description": "A thread in Google Chat."
+     },
+     "threadReply": {
+      "type": "boolean",
+      "description": "Output only. When `true`, the message is a response in a reply thread. When `false`, the message is visible in the space's top-level conversation as either the first message of a thread or a message with no threaded replies. If the space doesn't support reply in threads, this field is always `false`."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://chat.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "allowMissing",
+     "updateMask"
+    ],
+    "header": [],
+    "body": [
+     "actionResponse",
+     "annotations",
+     "argumentText",
+     "attachment",
+     "cards",
+     "cardsV2",
+     "clientAssignedMessageId",
+     "createTime",
+     "fallbackText",
+     "lastUpdateTime",
+     "matchedUrl",
+     "name",
+     "sender",
+     "slashCommand",
+     "space",
+     "text",
+     "thread",
+     "threadReply"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google-chat.chat_spaces_messages_update",
+   "name": "Chat spaces messages update",
+   "description": "Updates a message. There's a difference between `patch` and `update` methods. The `patch` method uses a `patch` request while the `update` method uses a `put` request. We recommend using the `patch` method. For example usage, see [Update a message](https://developers.google.com/chat/api/guides/crudl/messages#update_a_message). Requires [authentication](https://developers.google.com/chat/api/guides",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Resource name in the form `spaces/*/messages/*`. Example: `spaces/AAAAAAAAAAA/messages/BBBBBBBBBBB.BBBBBBBBBBB`"
+     },
+     "allowMissing": {
+      "type": "boolean",
+      "description": "Optional. If `true` and the message is not found, a new message is created and `updateMask` is ignored. The specified message ID must be [client-assigned](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message) or the request fails."
+     },
+     "updateMask": {
+      "type": "string",
+      "description": "Required. The field paths to update. Separate multiple values with commas. Currently supported field paths: - text - cards (Requires [service account authentication](/chat/api/guides/auth/service-accounts).) - cards_v2"
+     },
+     "actionResponse": {
+      "type": "object",
+      "description": "Parameters that a Chat app can use to configure how its response is posted."
+     },
+     "annotations": {
+      "type": "array",
+      "description": "Output only. Annotations associated with the text in this message."
+     },
+     "argumentText": {
+      "type": "string",
+      "description": "Output only. Plain-text body of the message with all Chat app mentions stripped out."
+     },
+     "attachment": {
+      "type": "array",
+      "description": "User-uploaded attachment."
+     },
+     "cards": {
+      "type": "array",
+      "description": "Deprecated: Use `cards_v2` instead. Rich, formatted and interactive cards that can be used to display UI elements such as: formatted texts, buttons, clickable images. Cards are normally displayed below the plain-text body of the message. `cards` and `cards_v2` can have a maximum size of 32 KB."
+     },
+     "cardsV2": {
+      "type": "array",
+      "description": "Richly formatted and interactive cards that display UI elements and editable widgets, such as: - Formatted text - Buttons - Clickable images - Checkboxes - Radio buttons - Input widgets. Cards are usually displayed below the text body of a Chat message, but can situationally appear other places, such as [dialogs](https://developers.google.com/chat/how-tos/dialogs). Each card can have a maximum siz"
+     },
+     "clientAssignedMessageId": {
+      "type": "string",
+      "description": "A custom name for a Chat message assigned at creation. Must start with `client-` and contain only lowercase letters, numbers, and hyphens up to 63 characters in length. Specify this field to get, update, or delete the message with the specified value. For example usage, see [Name a created message](https://developers.google.com/chat/api/guides/crudl/messages#name_a_created_message)."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was created in Google Chat server."
+     },
+     "fallbackText": {
+      "type": "string",
+      "description": "A plain-text description of the message's cards, used when the actual cards cannot be displayed (e.g. mobile notifications)."
+     },
+     "lastUpdateTime": {
+      "type": "string",
+      "description": "Output only. The time at which the message was last edited by a user. If the message has never been edited, this field is empty."
+     },
+     "matchedUrl": {
+      "type": "object",
+      "description": "A matched url in a Chat message. Chat apps can preview matched URLs. For more information, refer to [Preview links](https://developers.google.com/chat/how-tos/preview-links)."
+     },
+     "sender": {
+      "type": "object",
+      "description": "A user in Google Chat."
+     },
+     "slashCommand": {
+      "type": "object",
+      "description": "A [slash command](https://developers.google.com/chat/how-tos/slash-commands) in Google Chat."
+     },
+     "space": {
+      "type": "object",
+      "description": "A space in Google Chat. Spaces are conversations between two or more users or 1:1 messages between a user and a Chat app."
+     },
+     "text": {
+      "type": "string",
+      "description": "Plain-text body of the message. The first link to an image, video, web page, or other preview-able item generates a preview chip."
+     },
+     "thread": {
+      "type": "object",
+      "description": "A thread in Google Chat."
+     },
+     "threadReply": {
+      "type": "boolean",
+      "description": "Output only. When `true`, the message is a response in a reply thread. When `false`, the message is visible in the space's top-level conversation as either the first message of a thread or a message with no threaded replies. If the space doesn't support reply in threads, this field is always `false`."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://chat.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "allowMissing",
+     "updateMask"
+    ],
+    "header": [],
+    "body": [
+     "actionResponse",
+     "annotations",
+     "argumentText",
+     "attachment",
+     "cards",
+     "cardsV2",
+     "clientAssignedMessageId",
+     "createTime",
+     "fallbackText",
+     "lastUpdateTime",
+     "matchedUrl",
+     "name",
+     "sender",
+     "slashCommand",
+     "space",
+     "text",
+     "thread",
+     "threadReply"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}
