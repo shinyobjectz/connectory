@@ -1,0 +1,204 @@
+{
+  "_": [
+    "The providers a workbook can call, and the three things a spec never tells you honestly:",
+    "where the spec lives, how a request is authenticated, and what can start a workflow.",
+    "Everything else — operations, parameters, schemas — is read from the spec itself.",
+    "",
+    "auth.env is the variable the generated code reads. A workbook runs with YOUR token: there",
+    "is no OAuth dance here, and an exported workbook needs nothing but its environment.",
+    "",
+    "A trigger is curated because OpenAPI describes requests, not events. kind=poll names the",
+    "operation to call and the field that moves; kind=webhook names what the vendor posts."
+  ],
+
+  "providers": [
+    {
+      "slug": "github",
+      "name": "GitHub",
+      "icon": "github",
+      "docs": "https://docs.github.com/rest",
+      "base": "https://api.github.com",
+      "spec": {
+        "kind": "openapi",
+        "url": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
+        "source": "github/rest-api-description (MIT), published by GitHub"
+      },
+      "auth": {
+        "scheme": "bearer",
+        "env": "GITHUB_TOKEN",
+        "about": "A fine-grained personal access token, or a GitHub App installation token."
+      },
+      "headers": { "Accept": "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28" },
+      "triggers": [
+        {
+          "slug": "github.issue_opened",
+          "name": "An issue is opened",
+          "kind": "webhook",
+          "event": "issues.opened",
+          "about": "GitHub posts this to a webhook URL you register on the repository.",
+          "payload": {
+            "number": "integer — the issue number",
+            "title": "string — the issue title",
+            "body": "string — the issue body",
+            "author": "string — who opened it",
+            "repo": "string — owner/name",
+            "url": "string — the issue's web URL"
+          }
+        },
+        {
+          "slug": "github.pull_request_opened",
+          "name": "A pull request is opened",
+          "kind": "webhook",
+          "event": "pull_request.opened",
+          "payload": {
+            "number": "integer — the pull request number",
+            "title": "string — the title",
+            "body": "string — the description",
+            "author": "string — who opened it",
+            "repo": "string — owner/name",
+            "url": "string — the pull request's web URL"
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "slack",
+      "name": "Slack",
+      "icon": "slack",
+      "docs": "https://api.slack.com/methods",
+      "base": "https://slack.com/api",
+      "spec": {
+        "kind": "openapi",
+        "url": "https://api.slack.com/specs/openapi/v2/slack_web.json",
+        "source": "Slack's own Web API description"
+      },
+      "auth": {
+        "scheme": "bearer",
+        "env": "SLACK_BOT_TOKEN",
+        "about": "A bot token (xoxb-…) with the scopes the methods you use need."
+      },
+      "body": "form",
+      "triggers": [
+        {
+          "slug": "slack.message_posted",
+          "name": "A message is posted",
+          "kind": "webhook",
+          "event": "message.channels",
+          "about": "Slack's Events API posts this to a request URL you register on the app.",
+          "payload": {
+            "text": "string — what was said",
+            "user": "string — the user id who said it",
+            "channel": "string — the channel id",
+            "ts": "string — the message timestamp, which is also its id"
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "gmail",
+      "name": "Gmail",
+      "icon": "gmail",
+      "docs": "https://developers.google.com/gmail/api/reference/rest",
+      "base": "https://gmail.googleapis.com",
+      "spec": {
+        "kind": "google-discovery",
+        "url": "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
+        "source": "Google's own discovery document"
+      },
+      "auth": {
+        "scheme": "bearer",
+        "env": "GOOGLE_ACCESS_TOKEN",
+        "about": "A Google OAuth access token for the mailbox. Google issues no static key, so this is refreshed outside the workbook."
+      },
+      "triggers": [
+        {
+          "slug": "gmail.new_message",
+          "name": "A message arrives",
+          "kind": "poll",
+          "operation": "gmail.users.messages.list",
+          "cursor": "internalDate",
+          "about": "Polls the mailbox for messages newer than the last one seen. A query narrows it (e.g. in:inbox).",
+          "config": { "q": "string — a Gmail search, e.g. in:inbox -category:promotions", "interval": "integer — minutes between checks" },
+          "payload": {
+            "message_id": "string — the message id",
+            "thread_id": "string — the thread it belongs to",
+            "sender": "string — the From address",
+            "to": "string — the To address",
+            "subject": "string — the subject line",
+            "message_text": "string — the plain text body",
+            "received_at": "string — when it arrived (ISO 8601)"
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "stripe",
+      "name": "Stripe",
+      "icon": "stripe",
+      "docs": "https://docs.stripe.com/api",
+      "base": "https://api.stripe.com",
+      "spec": {
+        "kind": "openapi",
+        "url": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.json",
+        "source": "stripe/openapi (MIT), published by Stripe"
+      },
+      "auth": {
+        "scheme": "bearer",
+        "env": "STRIPE_SECRET_KEY",
+        "about": "A restricted or secret key (sk_… / rk_…)."
+      },
+      "body": "form",
+      "triggers": [
+        {
+          "slug": "stripe.payment_failed",
+          "name": "A payment fails",
+          "kind": "webhook",
+          "event": "payment_intent.payment_failed",
+          "payload": {
+            "id": "string — the payment intent id",
+            "amount": "integer — the amount, in the smallest currency unit",
+            "currency": "string — the three-letter currency code",
+            "customer": "string — the customer id",
+            "reason": "string — why it failed"
+          }
+        },
+        {
+          "slug": "stripe.charge_succeeded",
+          "name": "A charge succeeds",
+          "kind": "webhook",
+          "event": "charge.succeeded",
+          "payload": {
+            "id": "string — the charge id",
+            "amount": "integer — the amount, in the smallest currency unit",
+            "currency": "string — the three-letter currency code",
+            "customer": "string — the customer id",
+            "receipt_email": "string — where the receipt went"
+          }
+        }
+      ]
+    },
+
+    {
+      "slug": "notion",
+      "name": "Notion",
+      "icon": "notion",
+      "docs": "https://developers.notion.com/reference",
+      "base": "https://api.notion.com",
+      "spec": {
+        "kind": "openapi",
+        "url": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
+        "source": "APIs.guru mirror; Notion publishes no OpenAPI of its own"
+      },
+      "auth": {
+        "scheme": "bearer",
+        "env": "NOTION_TOKEN",
+        "about": "An internal integration secret (ntn_…), shared with the pages it may touch."
+      },
+      "headers": { "Notion-Version": "2022-06-28" },
+      "triggers": []
+    }
+  ]
+}

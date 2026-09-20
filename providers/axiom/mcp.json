@@ -1,0 +1,22 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "axiom",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "co.axiom/mcp",
+   "title": "co.axiom/mcp",
+   "description": "List datasets, schemas, run APL queries, and use prompts for exploration, anomalies, and monitoring.",
+   "endpoints": [
+    {
+     "transport": "sse",
+     "url": "https://mcp.axiom.co/sse"
+    },
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.axiom.co/mcp"
+    }
+   ]
+  }
+ ]
+}

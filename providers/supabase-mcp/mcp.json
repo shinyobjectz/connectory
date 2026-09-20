@@ -1,0 +1,23 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "supabase-mcp",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "com.supabase/mcp",
+   "title": "Supabase",
+   "description": "MCP server for interacting with the Supabase platform",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.supabase.com/mcp"
+    },
+    {
+     "transport": "stdio",
+     "registry": "npm",
+     "package": "@supabase/mcp-server-supabase"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,22 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "atlassian-service-account-api",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "com.atlassian/atlassian-mcp-server",
+   "title": "Atlassian Rovo MCP Server",
+   "description": "Connect to Atlassian Jira, Confluence, Loom, and more to search, create, and manage your work.",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.atlassian.com/v2/mcp"
+    },
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.atlassian.com/v1/mcp/authv2"
+    }
+   ]
+  }
+ ]
+}

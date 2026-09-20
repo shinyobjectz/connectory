@@ -1,0 +1,22 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "monday",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "com.monday/monday.com",
+   "title": "com.monday/monday.com",
+   "description": "MCP server for monday.com integration.",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.monday.com/mcp"
+    },
+    {
+     "transport": "sse",
+     "url": "https://mcp.monday.com/sse"
+    }
+   ]
+  }
+ ]
+}

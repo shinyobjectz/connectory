@@ -1,0 +1,23 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "prospeo",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "io.prospeo/prospeo-mcp-server",
+   "title": "io.prospeo/prospeo-mcp-server",
+   "description": "Prospeo: Find, search, and enrich people and companies with verified emails and mobile numbers.",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.prospeo.io"
+    },
+    {
+     "transport": "stdio",
+     "registry": "npm",
+     "package": "@prospeo/prospeo-mcp-server"
+    }
+   ]
+  }
+ ]
+}

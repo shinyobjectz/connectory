@@ -1,0 +1,41 @@
+{
+ "_": [
+  "GENERATED \u2014 tools/packs.py writes it.",
+  "",
+  "What each provider's description looked like when its pack was built. The etag",
+  "makes the daily check a 304 for almost everyone; the hash catches a vendor who",
+  "does not send one. A pack is rebuilt only when these stop matching."
+ ],
+ "providers": {
+  "github": {
+   "spec": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
+   "sha256": "4fbdc7d0102276803a07f9880d14ed543ba1afc10a4c9fd7bd3782408d9abaf7",
+   "etag": "\"bfb09f2785836f67c959743b1087467f10b76ea3f6dcb5e291e35213fc5f15f2\"",
+   "operations": 1201
+  },
+  "gmail": {
+   "spec": "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
+   "sha256": "ffc158b593c7763a0d37cee5b4c765ee6517653db87b77ba81dd090940a5fff6",
+   "etag": null,
+   "operations": 79
+  },
+  "notion": {
+   "spec": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
+   "sha256": "6df5889eac35a3f4eb99115eac7dd9b28b9d6040c664a742368ef7b68d45d983",
+   "etag": "\"45c1fc473583ec14732f106c28aad075\"",
+   "operations": 13
+  },
+  "slack": {
+   "spec": "https://api.slack.com/specs/openapi/v2/slack_web.json",
+   "sha256": "1f41356634b6636d1cd64ba68b72aa12b76989bde483c334f6069e2828e9f2d5",
+   "etag": null,
+   "operations": 170
+  },
+  "stripe": {
+   "spec": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.json",
+   "sha256": "f0e0fc8fffbffda45bf5f3df59846443c1d47a3cfcbfae232eedf4743124ebee",
+   "etag": "\"9e5daf02bb9412c2152c7888bb13b30c6154ece4dd6540d35efaca758d60d1ec\"",
+   "operations": 588
+  }
+ }
+}

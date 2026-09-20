@@ -1,0 +1,23 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "rootly",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "com.rootly/mcp-server",
+   "title": "Rootly",
+   "description": "Incident management, on-call scheduling, and intelligent analysis powered by Rootly.",
+   "endpoints": [
+    {
+     "transport": "sse",
+     "url": "https://mcp.rootly.com/sse"
+    },
+    {
+     "transport": "stdio",
+     "registry": "pypi",
+     "package": "rootly-mcp-server"
+    }
+   ]
+  }
+ ]
+}

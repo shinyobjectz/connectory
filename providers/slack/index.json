@@ -1,0 +1,6211 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "slack",
+ "source": "https://api.slack.com/specs/openapi/v2/slack_web.json",
+ "operations": [
+  {
+   "slug": "slack.admin_apps_approve",
+   "name": "Admin apps approve",
+   "description": "Approve an app for installation on a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "The id of the app to approve."
+     },
+     "request_id": {
+      "type": "string",
+      "description": "The id of the request to approve."
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.apps.approve",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "app_id",
+     "request_id",
+     "team_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_apps_approved_list",
+   "name": "Admin apps approved list",
+   "description": "List approved apps for an org or workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page"
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     },
+     "enterprise_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.apps.approved.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "team_id",
+     "enterprise_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_apps_requests_list",
+   "name": "Admin apps requests list",
+   "description": "List app requests for a team/workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page"
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.apps.requests.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "team_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_apps_restrict",
+   "name": "Admin apps restrict",
+   "description": "Restrict an app for installation on a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "The id of the app to restrict."
+     },
+     "request_id": {
+      "type": "string",
+      "description": "The id of the request to restrict."
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.apps.restrict",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "app_id",
+     "request_id",
+     "team_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_apps_restricted_list",
+   "name": "Admin apps restricted list",
+   "description": "List restricted apps for an org or workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page"
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     },
+     "enterprise_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.apps.restricted.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "team_id",
+     "enterprise_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_archive",
+   "name": "Admin conversations archive",
+   "description": "Archive a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to archive."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.archive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_convert_to_private",
+   "name": "Admin conversations convert to private",
+   "description": "Convert a public channel to a private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to convert to private."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.convertToPrivate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_create",
+   "name": "Admin conversations create",
+   "description": "Create a public or private channel-based conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the public or private channel to create."
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the public or private channel to create."
+     },
+     "is_private": {
+      "type": "boolean",
+      "description": "When `true`, creates a private channel instead of a public channel"
+     },
+     "org_wide": {
+      "type": "boolean",
+      "description": "When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel"
+     },
+     "team_id": {
+      "type": "string",
+      "description": "The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`."
+     }
+    },
+    "required": [
+     "is_private",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "is_private",
+     "org_wide",
+     "team_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_delete",
+   "name": "Admin conversations delete",
+   "description": "Delete a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to delete."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_disconnect_shared",
+   "name": "Admin conversations disconnect shared",
+   "description": "Disconnect a connected channel from one or more workspaces.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to be disconnected from some workspaces."
+     },
+     "leaving_team_ids": {
+      "type": "string",
+      "description": "The team to be removed from the channel. Currently only a single team id can be specified."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.disconnectShared",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id",
+     "leaving_team_ids"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_ekm_list_original_connected_channel_info",
+   "name": "Admin conversations ekm list original connected channel info",
+   "description": "List all disconnected channels\u2014i.e., channels that were once connected to other workspaces and then disconnected\u2014and the corresponding original channel IDs for key revocation with EKM.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_ids": {
+      "type": "string",
+      "description": "A comma-separated list of channels to filter to."
+     },
+     "team_ids": {
+      "type": "string",
+      "description": "A comma-separated list of the workspaces to which the channels you would like returned belong."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.conversations.ekm.listOriginalConnectedChannelInfo",
+    "path": [],
+    "query": [
+     "channel_ids",
+     "team_ids",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_get_conversation_prefs",
+   "name": "Admin conversations get conversation prefs",
+   "description": "Get conversation preferences for a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to get preferences for."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.conversations.getConversationPrefs",
+    "path": [],
+    "query": [
+     "channel_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_get_teams",
+   "name": "Admin conversations get teams",
+   "description": "Get all the workspaces a given public or private channel is connected to within this Enterprise org.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to determine connected workspaces within the organization for."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.conversations.getTeams",
+    "path": [],
+    "query": [
+     "channel_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_invite",
+   "name": "Admin conversations invite",
+   "description": "Invite a user to a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_ids": {
+      "type": "string",
+      "description": "The users to invite."
+     },
+     "channel_id": {
+      "type": "string",
+      "description": "The channel that the users will be invited to."
+     }
+    },
+    "required": [
+     "channel_id",
+     "user_ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.invite",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_ids",
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_rename",
+   "name": "Admin conversations rename",
+   "description": "Rename a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to rename."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "channel_id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.rename",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id",
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_restrict_access_add_group",
+   "name": "Admin conversations restrict access add group",
+   "description": "Add an allowlist of IDP groups for accessing a channel",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization."
+     },
+     "group_id": {
+      "type": "string",
+      "description": "The [IDP Group](https://slack.com/help/articles/115001435788-Connect-identity-provider-groups-to-your-Enterprise-Grid-org) ID to be an allowlist for the private channel."
+     },
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to link this group to."
+     }
+    },
+    "required": [
+     "channel_id",
+     "group_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.restrictAccess.addGroup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "group_id",
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_restrict_access_list_groups",
+   "name": "Admin conversations restrict access list groups",
+   "description": "List all IDP Groups linked to a channel",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": ""
+     },
+     "team_id": {
+      "type": "string",
+      "description": "The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.conversations.restrictAccess.listGroups",
+    "path": [],
+    "query": [
+     "channel_id",
+     "team_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_restrict_access_remove_group",
+   "name": "Admin conversations restrict access remove group",
+   "description": "Remove a linked IDP group linked from a private channel",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The workspace where the channel exists. This argument is required for channels only tied to one workspace, and optional for channels that are shared across an organization."
+     },
+     "group_id": {
+      "type": "string",
+      "description": "The [IDP Group](https://slack.com/help/articles/115001435788-Connect-identity-provider-groups-to-your-Enterprise-Grid-org) ID to remove from the private channel."
+     },
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to remove the linked group from."
+     }
+    },
+    "required": [
+     "channel_id",
+     "group_id",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.restrictAccess.removeGroup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "group_id",
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_search",
+   "name": "Admin conversations search",
+   "description": "Search for public or private channels in an Enterprise organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_ids": {
+      "type": "string",
+      "description": "Comma separated string of team IDs, signifying the workspaces to search through."
+     },
+     "query": {
+      "type": "string",
+      "description": "Name of the the channel to query by."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of items to be returned. Must be between 1 - 20 both inclusive. Default is 10."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     },
+     "search_channel_types": {
+      "type": "string",
+      "description": "The type of channel to include or exclude in the search. For example `private` will search private channels, while `private_exclude` will exclude them. For a full list of types, check the [Types section](#types)."
+     },
+     "sort": {
+      "type": "string",
+      "description": "Possible values are `relevant` (search ranking based on what we think is closest), `name` (alphabetical), `member_count` (number of users in the channel), and `created` (date channel was created). You can optionally pair this with the `sort_dir` arg to change how it is sorted"
+     },
+     "sort_dir": {
+      "type": "string",
+      "description": "Sort direction. Possible values are `asc` for ascending order like (1, 2, 3) or (a, b, c), and `desc` for descending order like (3, 2, 1) or (c, b, a)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.conversations.search",
+    "path": [],
+    "query": [
+     "team_ids",
+     "query",
+     "limit",
+     "cursor",
+     "search_channel_types",
+     "sort",
+     "sort_dir"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_set_conversation_prefs",
+   "name": "Admin conversations set conversation prefs",
+   "description": "Set the posting permissions for a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to set the prefs for"
+     },
+     "prefs": {
+      "type": "string",
+      "description": "The prefs for this channel in a stringified JSON format."
+     }
+    },
+    "required": [
+     "channel_id",
+     "prefs"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.setConversationPrefs",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id",
+     "prefs"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_set_teams",
+   "name": "Admin conversations set teams",
+   "description": "Set the workspaces in an Enterprise grid org that connect to a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The encoded `channel_id` to add or remove to workspaces."
+     },
+     "team_id": {
+      "type": "string",
+      "description": "The workspace to which the channel belongs. Omit this argument if the channel is a cross-workspace shared channel."
+     },
+     "target_team_ids": {
+      "type": "string",
+      "description": "A comma-separated list of workspaces to which the channel should be shared. Not required if the channel is being shared org-wide."
+     },
+     "org_channel": {
+      "type": "boolean",
+      "description": "True if channel has to be converted to an org channel"
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.setTeams",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id",
+     "team_id",
+     "target_team_ids",
+     "org_channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_conversations_unarchive",
+   "name": "Admin conversations unarchive",
+   "description": "Unarchive a public or private channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "string",
+      "description": "The channel to unarchive."
+     }
+    },
+    "required": [
+     "channel_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.conversations.unarchive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_emoji_add",
+   "name": "Admin emoji add",
+   "description": "Add an emoji.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the emoji to be removed. Colons (`:myemoji:`) around the value are not required, although they may be included."
+     },
+     "url": {
+      "type": "string",
+      "description": "The URL of a file to use as an image for the emoji. Square images under 128KB and with transparent backgrounds work best."
+     }
+    },
+    "required": [
+     "name",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.emoji.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "url"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_emoji_add_alias",
+   "name": "Admin emoji add alias",
+   "description": "Add an emoji alias.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the emoji to be aliased. Colons (`:myemoji:`) around the value are not required, although they may be included."
+     },
+     "alias_for": {
+      "type": "string",
+      "description": "The alias of the emoji."
+     }
+    },
+    "required": [
+     "alias_for",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.emoji.addAlias",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "alias_for"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_emoji_list",
+   "name": "Admin emoji list",
+   "description": "List emoji for an Enterprise Grid organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.emoji.list",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_emoji_remove",
+   "name": "Admin emoji remove",
+   "description": "Remove an emoji across an Enterprise Grid organization",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the emoji to be removed. Colons (`:myemoji:`) around the value are not required, although they may be included."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.emoji.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_emoji_rename",
+   "name": "Admin emoji rename",
+   "description": "Rename an emoji.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the emoji to be renamed. Colons (`:myemoji:`) around the value are not required, although they may be included."
+     },
+     "new_name": {
+      "type": "string",
+      "description": "The new name of the emoji."
+     }
+    },
+    "required": [
+     "name",
+     "new_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.emoji.rename",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "new_name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_invite_requests_approve",
+   "name": "Admin invite requests approve",
+   "description": "Approve a workspace invite request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace where the invite request was made."
+     },
+     "invite_request_id": {
+      "type": "string",
+      "description": "ID of the request to invite."
+     }
+    },
+    "required": [
+     "invite_request_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.inviteRequests.approve",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "invite_request_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_invite_requests_approved_list",
+   "name": "Admin invite requests approved list",
+   "description": "List all approved workspace invite requests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace where the invite requests were made."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Value of the `next_cursor` field sent as part of the previous API response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.inviteRequests.approved.list",
+    "path": [],
+    "query": [
+     "team_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_invite_requests_denied_list",
+   "name": "Admin invite requests denied list",
+   "description": "List all denied workspace invite requests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace where the invite requests were made."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Value of the `next_cursor` field sent as part of the previous api response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results that will be returned by the API on each invocation. Must be between 1 - 1000 both inclusive"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.inviteRequests.denied.list",
+    "path": [],
+    "query": [
+     "team_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_invite_requests_deny",
+   "name": "Admin invite requests deny",
+   "description": "Deny a workspace invite request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace where the invite request was made."
+     },
+     "invite_request_id": {
+      "type": "string",
+      "description": "ID of the request to invite."
+     }
+    },
+    "required": [
+     "invite_request_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.inviteRequests.deny",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "invite_request_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_invite_requests_list",
+   "name": "Admin invite requests list",
+   "description": "List all pending workspace invite requests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace where the invite requests were made."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Value of the `next_cursor` field sent as part of the previous API response"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results that will be returned by the API on each invocation. Must be between 1 - 1000, both inclusive"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.inviteRequests.list",
+    "path": [],
+    "query": [
+     "team_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_admins_list",
+   "name": "Admin teams admins list",
+   "description": "List all of the admins on a given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     },
+     "team_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.teams.admins.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "team_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_create",
+   "name": "Admin teams create",
+   "description": "Create an Enterprise team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_domain": {
+      "type": "string",
+      "description": "Team domain (for example, slacksoftballteam)."
+     },
+     "team_name": {
+      "type": "string",
+      "description": "Team name (for example, Slack Softball Team)."
+     },
+     "team_description": {
+      "type": "string",
+      "description": "Description for the team."
+     },
+     "team_discoverability": {
+      "type": "string",
+      "description": "Who can join the team. A team's discoverability can be `open`, `closed`, `invite_only`, or `unlisted`."
+     }
+    },
+    "required": [
+     "team_domain",
+     "team_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_domain",
+     "team_name",
+     "team_description",
+     "team_discoverability"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_list",
+   "name": "Admin teams list",
+   "description": "List all teams on an Enterprise organization",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 100 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.teams.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_owners_list",
+   "name": "Admin teams owners list",
+   "description": "List all of the owners on a given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Must be between 1 - 1000 both inclusive."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     }
+    },
+    "required": [
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.teams.owners.list",
+    "path": [],
+    "query": [
+     "team_id",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_info",
+   "name": "Admin teams settings info",
+   "description": "Fetch information about settings in a workspace",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.teams.settings.info",
+    "path": [],
+    "query": [
+     "team_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_set_default_channels",
+   "name": "Admin teams settings set default channels",
+   "description": "Set the default channels of a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace to set the default channel for."
+     },
+     "channel_ids": {
+      "type": "string",
+      "description": "An array of channel IDs."
+     }
+    },
+    "required": [
+     "channel_ids",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.settings.setDefaultChannels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "channel_ids"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_set_description",
+   "name": "Admin teams settings set description",
+   "description": "Set the description of a given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace to set the description for."
+     },
+     "description": {
+      "type": "string",
+      "description": "The new description for the workspace."
+     }
+    },
+    "required": [
+     "description",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.settings.setDescription",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "description"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_set_discoverability",
+   "name": "Admin teams settings set discoverability",
+   "description": "An API method that allows admins to set the discoverability of a given workspace",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID of the workspace to set discoverability on."
+     },
+     "discoverability": {
+      "type": "string",
+      "description": "This workspace's discovery setting. It must be set to one of `open`, `invite_only`, `closed`, or `unlisted`."
+     }
+    },
+    "required": [
+     "discoverability",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.settings.setDiscoverability",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "discoverability"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_set_icon",
+   "name": "Admin teams settings set icon",
+   "description": "Sets the icon of a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "image_url": {
+      "type": "string",
+      "description": "Image URL for the icon"
+     },
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace to set the icon for."
+     }
+    },
+    "required": [
+     "image_url",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.settings.setIcon",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "image_url",
+     "team_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_teams_settings_set_name",
+   "name": "Admin teams settings set name",
+   "description": "Set the name of a given workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID for the workspace to set the name for."
+     },
+     "name": {
+      "type": "string",
+      "description": "The new name of the workspace."
+     }
+    },
+    "required": [
+     "name",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.teams.settings.setName",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_usergroups_add_channels",
+   "name": "Admin usergroups add channels",
+   "description": "Add one or more default channels to an IDP group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "usergroup_id": {
+      "type": "string",
+      "description": "ID of the IDP group to add default channels for."
+     },
+     "team_id": {
+      "type": "string",
+      "description": "The workspace to add default channels in."
+     },
+     "channel_ids": {
+      "type": "string",
+      "description": "Comma separated string of channel IDs."
+     }
+    },
+    "required": [
+     "channel_ids",
+     "usergroup_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.usergroups.addChannels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "usergroup_id",
+     "team_id",
+     "channel_ids"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_usergroups_add_teams",
+   "name": "Admin usergroups add teams",
+   "description": "Associate one or more default workspaces with an organization-wide IDP group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "usergroup_id": {
+      "type": "string",
+      "description": "An encoded usergroup (IDP Group) ID."
+     },
+     "team_ids": {
+      "type": "string",
+      "description": "A comma separated list of encoded team (workspace) IDs. Each workspace *MUST* belong to the organization associated with the token."
+     },
+     "auto_provision": {
+      "type": "boolean",
+      "description": "When `true`, this method automatically creates new workspace accounts for the IDP group members."
+     }
+    },
+    "required": [
+     "team_ids",
+     "usergroup_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.usergroups.addTeams",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "usergroup_id",
+     "team_ids",
+     "auto_provision"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_usergroups_list_channels",
+   "name": "Admin usergroups list channels",
+   "description": "List the channels linked to an org-level IDP group (user group).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "usergroup_id": {
+      "type": "string",
+      "description": "ID of the IDP group to list default channels for."
+     },
+     "team_id": {
+      "type": "string",
+      "description": "ID of the the workspace."
+     },
+     "include_num_members": {
+      "type": "boolean",
+      "description": "Flag to include or exclude the count of members per channel."
+     }
+    },
+    "required": [
+     "usergroup_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.usergroups.listChannels",
+    "path": [],
+    "query": [
+     "usergroup_id",
+     "team_id",
+     "include_num_members"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_usergroups_remove_channels",
+   "name": "Admin usergroups remove channels",
+   "description": "Remove one or more default channels from an org-level IDP group (user group).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "usergroup_id": {
+      "type": "string",
+      "description": "ID of the IDP Group"
+     },
+     "channel_ids": {
+      "type": "string",
+      "description": "Comma-separated string of channel IDs"
+     }
+    },
+    "required": [
+     "channel_ids",
+     "usergroup_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.usergroups.removeChannels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "usergroup_id",
+     "channel_ids"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_assign",
+   "name": "Admin users assign",
+   "description": "Add an Enterprise user to a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to add to the workspace."
+     },
+     "is_restricted": {
+      "type": "boolean",
+      "description": "True if user should be added to the workspace as a guest."
+     },
+     "is_ultra_restricted": {
+      "type": "boolean",
+      "description": "True if user should be added to the workspace as a single-channel guest."
+     },
+     "channel_ids": {
+      "type": "string",
+      "description": "Comma separated values of channel IDs to add user in the new workspace."
+     }
+    },
+    "required": [
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.assign",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id",
+     "is_restricted",
+     "is_ultra_restricted",
+     "channel_ids"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_invite",
+   "name": "Admin users invite",
+   "description": "Invite a user to a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "email": {
+      "type": "string",
+      "description": "The email address of the person to invite."
+     },
+     "channel_ids": {
+      "type": "string",
+      "description": "A comma-separated list of `channel_id`s for this user to join. At least one channel is required."
+     },
+     "custom_message": {
+      "type": "string",
+      "description": "An optional message to send to the user in the invite email."
+     },
+     "real_name": {
+      "type": "string",
+      "description": "Full name of the user."
+     },
+     "resend": {
+      "type": "boolean",
+      "description": "Allow this invite to be resent in the future if a user has not signed up yet. (default: false)"
+     },
+     "is_restricted": {
+      "type": "boolean",
+      "description": "Is this user a multi-channel guest user? (default: false)"
+     },
+     "is_ultra_restricted": {
+      "type": "boolean",
+      "description": "Is this user a single channel guest user? (default: false)"
+     },
+     "guest_expiration_ts": {
+      "type": "string",
+      "description": "Timestamp when guest account should be disabled. Only include this timestamp if you are inviting a guest user and you want their account to expire on a certain date."
+     }
+    },
+    "required": [
+     "channel_ids",
+     "email",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.invite",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "email",
+     "channel_ids",
+     "custom_message",
+     "real_name",
+     "resend",
+     "is_restricted",
+     "is_ultra_restricted",
+     "guest_expiration_ts"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_list",
+   "name": "Admin users list",
+   "description": "List users on a workspace",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Set `cursor` to `next_cursor` returned by the previous call to list items in the next page."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Limit for how many users to be retrieved per page"
+     }
+    },
+    "required": [
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/admin.users.list",
+    "path": [],
+    "query": [
+     "team_id",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_remove",
+   "name": "Admin users remove",
+   "description": "Remove a user from a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to remove."
+     }
+    },
+    "required": [
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_session_invalidate",
+   "name": "Admin users session invalidate",
+   "description": "Invalidate a single session for a user by session_id",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "ID of the team that the session belongs to"
+     },
+     "session_id": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "session_id",
+     "team_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.session.invalidate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "session_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_session_reset",
+   "name": "Admin users session reset",
+   "description": "Wipes all valid sessions on all devices for a given user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to wipe sessions for"
+     },
+     "mobile_only": {
+      "type": "boolean",
+      "description": "Only expire mobile sessions (default: false)"
+     },
+     "web_only": {
+      "type": "boolean",
+      "description": "Only expire web sessions (default: false)"
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.session.reset",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "user_id",
+     "mobile_only",
+     "web_only"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_set_admin",
+   "name": "Admin users set admin",
+   "description": "Set an existing guest, regular user, or owner to be an admin user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to designate as an admin."
+     }
+    },
+    "required": [
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.setAdmin",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_set_expiration",
+   "name": "Admin users set expiration",
+   "description": "Set an expiration for a guest user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to set an expiration for."
+     },
+     "expiration_ts": {
+      "type": "integer",
+      "description": "Timestamp when guest account should be disabled."
+     }
+    },
+    "required": [
+     "expiration_ts",
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.setExpiration",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id",
+     "expiration_ts"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_set_owner",
+   "name": "Admin users set owner",
+   "description": "Set an existing guest, regular user, or admin user to be a workspace owner.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "Id of the user to promote to owner."
+     }
+    },
+    "required": [
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.setOwner",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.admin_users_set_regular",
+   "name": "Admin users set regular",
+   "description": "Set an existing guest user, admin user, or owner to be a regular user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team_id": {
+      "type": "string",
+      "description": "The ID (`T1234`) of the workspace."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to designate as a regular user."
+     }
+    },
+    "required": [
+     "team_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/admin.users.setRegular",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "team_id",
+     "user_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.api_test",
+   "name": "Api test",
+   "description": "Checks API calling code.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "error": {
+      "type": "string",
+      "description": "Error response to return"
+     },
+     "foo": {
+      "type": "string",
+      "description": "example property to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/api.test",
+    "path": [],
+    "query": [
+     "error",
+     "foo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_event_authorizations_list",
+   "name": "Apps event authorizations list",
+   "description": "Get a list of authorizations for the given event context. Each authorization represents an app installation that the event is visible to.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "event_context": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "event_context"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.event.authorizations.list",
+    "path": [],
+    "query": [
+     "event_context",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_permissions_info",
+   "name": "Apps permissions info",
+   "description": "Returns list of permissions this app has on a team.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.permissions.info",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_permissions_request",
+   "name": "Apps permissions request",
+   "description": "Allows an app to request additional scopes",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scopes": {
+      "type": "string",
+      "description": "A comma separated list of scopes to request for"
+     },
+     "trigger_id": {
+      "type": "string",
+      "description": "Token used to trigger the permissions API"
+     }
+    },
+    "required": [
+     "scopes",
+     "trigger_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.permissions.request",
+    "path": [],
+    "query": [
+     "scopes",
+     "trigger_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_permissions_resources_list",
+   "name": "Apps permissions resources list",
+   "description": "Returns list of resource grants this app has on a team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.permissions.resources.list",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_permissions_scopes_list",
+   "name": "Apps permissions scopes list",
+   "description": "Returns list of scopes this app has on a team.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.permissions.scopes.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.apps_uninstall",
+   "name": "Apps uninstall",
+   "description": "Uninstalls your app from a workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/apps.uninstall",
+    "path": [],
+    "query": [
+     "client_id",
+     "client_secret"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.auth_revoke",
+   "name": "Auth revoke",
+   "description": "Revokes a token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "test": {
+      "type": "boolean",
+      "description": "Setting this parameter to `1` triggers a _testing mode_ where the specified token will not actually be revoked."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/auth.revoke",
+    "path": [],
+    "query": [
+     "test"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.auth_test",
+   "name": "Auth test",
+   "description": "Checks authentication & identity.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/auth.test",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.bots_info",
+   "name": "Bots info",
+   "description": "Gets information about a bot user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "bot": {
+      "type": "string",
+      "description": "Bot user to get info on"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/bots.info",
+    "path": [],
+    "query": [
+     "bot"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_add",
+   "name": "Calls add",
+   "description": "Registers a new Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "external_unique_id": {
+      "type": "string",
+      "description": "An ID supplied by the 3rd-party Call provider. It must be unique across all Calls from that service."
+     },
+     "external_display_id": {
+      "type": "string",
+      "description": "An optional, human-readable ID supplied by the 3rd-party Call provider. If supplied, this ID will be displayed in the Call object."
+     },
+     "join_url": {
+      "type": "string",
+      "description": "The URL required for a client to join the Call."
+     },
+     "desktop_app_join_url": {
+      "type": "string",
+      "description": "When supplied, available Slack clients will attempt to directly launch the 3rd-party Call with this URL."
+     },
+     "date_start": {
+      "type": "integer",
+      "description": "Call start time in UTC UNIX timestamp format"
+     },
+     "title": {
+      "type": "string",
+      "description": "The name of the Call."
+     },
+     "created_by": {
+      "type": "string",
+      "description": "The valid Slack user ID of the user who created this Call. When this method is called with a user token, the `created_by` field is optional and defaults to the authed user of the token. Otherwise, the field is required."
+     },
+     "users": {
+      "type": "string",
+      "description": "The list of users to register as participants in the Call. [Read more on how to specify users here](/apis/calls#users)."
+     }
+    },
+    "required": [
+     "external_unique_id",
+     "join_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/calls.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "external_unique_id",
+     "external_display_id",
+     "join_url",
+     "desktop_app_join_url",
+     "date_start",
+     "title",
+     "created_by",
+     "users"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_end",
+   "name": "Calls end",
+   "description": "Ends a Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "`id` returned when registering the call using the [`calls.add`](/methods/calls.add) method."
+     },
+     "duration": {
+      "type": "integer",
+      "description": "Call duration in seconds"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/calls.end",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "duration"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_info",
+   "name": "Calls info",
+   "description": "Returns information about a Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "`id` of the Call returned by the [`calls.add`](/methods/calls.add) method."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/calls.info",
+    "path": [],
+    "query": [
+     "id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_participants_add",
+   "name": "Calls participants add",
+   "description": "Registers new participants added to a Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "`id` returned by the [`calls.add`](/methods/calls.add) method."
+     },
+     "users": {
+      "type": "string",
+      "description": "The list of users to add as participants in the Call. [Read more on how to specify users here](/apis/calls#users)."
+     }
+    },
+    "required": [
+     "id",
+     "users"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/calls.participants.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "users"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_participants_remove",
+   "name": "Calls participants remove",
+   "description": "Registers participants removed from a Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "`id` returned by the [`calls.add`](/methods/calls.add) method."
+     },
+     "users": {
+      "type": "string",
+      "description": "The list of users to remove as participants in the Call. [Read more on how to specify users here](/apis/calls#users)."
+     }
+    },
+    "required": [
+     "id",
+     "users"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/calls.participants.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "users"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.calls_update",
+   "name": "Calls update",
+   "description": "Updates information about a Call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "`id` returned by the [`calls.add`](/methods/calls.add) method."
+     },
+     "title": {
+      "type": "string",
+      "description": "The name of the Call."
+     },
+     "join_url": {
+      "type": "string",
+      "description": "The URL required for a client to join the Call."
+     },
+     "desktop_app_join_url": {
+      "type": "string",
+      "description": "When supplied, available Slack clients will attempt to directly launch the 3rd-party Call with this URL."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/calls.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "title",
+     "join_url",
+     "desktop_app_join_url"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_delete",
+   "name": "Chat delete",
+   "description": "Deletes a message.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ts": {
+      "type": "number",
+      "description": "Timestamp of the message to be deleted."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel containing the message to be deleted."
+     },
+     "as_user": {
+      "type": "boolean",
+      "description": "Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ts",
+     "channel",
+     "as_user"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_delete_scheduled_message",
+   "name": "Chat delete scheduled message",
+   "description": "Deletes a pending scheduled message from the queue.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "as_user": {
+      "type": "boolean",
+      "description": "Pass true to delete the message as the authed user with `chat:write:user` scope. [Bot users](/bot-users) in this context are considered authed users. If unused or false, the message will be deleted with `chat:write:bot` scope."
+     },
+     "channel": {
+      "type": "string",
+      "description": "The channel the scheduled_message is posting to"
+     },
+     "scheduled_message_id": {
+      "type": "string",
+      "description": "`scheduled_message_id` returned from call to chat.scheduleMessage"
+     }
+    },
+    "required": [
+     "channel",
+     "scheduled_message_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.deleteScheduledMessage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "as_user",
+     "channel",
+     "scheduled_message_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_get_permalink",
+   "name": "Chat get permalink",
+   "description": "Retrieve a permalink URL for a specific extant message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "The ID of the conversation or channel containing the message"
+     },
+     "message_ts": {
+      "type": "string",
+      "description": "A message's `ts` value, uniquely identifying it within a channel"
+     }
+    },
+    "required": [
+     "channel",
+     "message_ts"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/chat.getPermalink",
+    "path": [],
+    "query": [
+     "channel",
+     "message_ts"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_me_message",
+   "name": "Chat me message",
+   "description": "Share a me message into a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel to send message to. Can be a public channel, private group or IM channel. Can be an encoded ID, or a name."
+     },
+     "text": {
+      "type": "string",
+      "description": "Text of the message to send."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.meMessage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "text"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_post_ephemeral",
+   "name": "Chat post ephemeral",
+   "description": "Sends an ephemeral message to a user in a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "as_user": {
+      "type": "boolean",
+      "description": "Pass true to post the message as the authed user. Defaults to true if the chat:write:bot scope is not included. Otherwise, defaults to false."
+     },
+     "attachments": {
+      "type": "string",
+      "description": "A JSON-based array of structured attachments, presented as a URL-encoded string."
+     },
+     "blocks": {
+      "type": "string",
+      "description": "A JSON-based array of structured blocks, presented as a URL-encoded string."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name."
+     },
+     "icon_emoji": {
+      "type": "string",
+      "description": "Emoji to use as the icon for this message. Overrides `icon_url`. Must be used in conjunction with `as_user` set to `false`, otherwise ignored. See [authorship](#authorship) below."
+     },
+     "icon_url": {
+      "type": "string",
+      "description": "URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below."
+     },
+     "link_names": {
+      "type": "boolean",
+      "description": "Find and link channel names and usernames."
+     },
+     "parse": {
+      "type": "string",
+      "description": "Change how messages are treated. Defaults to `none`. See [below](#formatting)."
+     },
+     "text": {
+      "type": "string",
+      "description": "How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail."
+     },
+     "thread_ts": {
+      "type": "string",
+      "description": "Provide another message's `ts` value to post this message in a thread. Avoid using a reply's `ts` value; use its parent's value instead. Ephemeral messages in threads are only shown if there is already an active thread."
+     },
+     "user": {
+      "type": "string",
+      "description": "`id` of the user who will receive the ephemeral message. The user should be in the channel specified by the `channel` argument."
+     },
+     "username": {
+      "type": "string",
+      "description": "Set your bot's user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below."
+     }
+    },
+    "required": [
+     "channel",
+     "user"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.postEphemeral",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "as_user",
+     "attachments",
+     "blocks",
+     "channel",
+     "icon_emoji",
+     "icon_url",
+     "link_names",
+     "parse",
+     "text",
+     "thread_ts",
+     "user",
+     "username"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_post_message",
+   "name": "Chat post message",
+   "description": "Sends a message to a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "as_user": {
+      "type": "string",
+      "description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [authorship](#authorship) below."
+     },
+     "attachments": {
+      "type": "string",
+      "description": "A JSON-based array of structured attachments, presented as a URL-encoded string."
+     },
+     "blocks": {
+      "type": "string",
+      "description": "A JSON-based array of structured blocks, presented as a URL-encoded string."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel, private group, or IM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details."
+     },
+     "icon_emoji": {
+      "type": "string",
+      "description": "Emoji to use as the icon for this message. Overrides `icon_url`. Must be used in conjunction with `as_user` set to `false`, otherwise ignored. See [authorship](#authorship) below."
+     },
+     "icon_url": {
+      "type": "string",
+      "description": "URL to an image to use as the icon for this message. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below."
+     },
+     "link_names": {
+      "type": "boolean",
+      "description": "Find and link channel names and usernames."
+     },
+     "mrkdwn": {
+      "type": "boolean",
+      "description": "Disable Slack markup parsing by setting to `false`. Enabled by default."
+     },
+     "parse": {
+      "type": "string",
+      "description": "Change how messages are treated. Defaults to `none`. See [below](#formatting)."
+     },
+     "reply_broadcast": {
+      "type": "boolean",
+      "description": "Used in conjunction with `thread_ts` and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to `false`."
+     },
+     "text": {
+      "type": "string",
+      "description": "How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail."
+     },
+     "thread_ts": {
+      "type": "string",
+      "description": "Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead."
+     },
+     "unfurl_links": {
+      "type": "boolean",
+      "description": "Pass true to enable unfurling of primarily text-based content."
+     },
+     "unfurl_media": {
+      "type": "boolean",
+      "description": "Pass false to disable unfurling of media content."
+     },
+     "username": {
+      "type": "string",
+      "description": "Set your bot's user name. Must be used in conjunction with `as_user` set to false, otherwise ignored. See [authorship](#authorship) below."
+     }
+    },
+    "required": [
+     "channel"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.postMessage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "as_user",
+     "attachments",
+     "blocks",
+     "channel",
+     "icon_emoji",
+     "icon_url",
+     "link_names",
+     "mrkdwn",
+     "parse",
+     "reply_broadcast",
+     "text",
+     "thread_ts",
+     "unfurl_links",
+     "unfurl_media",
+     "username"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_schedule_message",
+   "name": "Chat schedule message",
+   "description": "Schedules a message to be sent to a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel, private group, or DM channel to send message to. Can be an encoded ID, or a name. See [below](#channels) for more details."
+     },
+     "text": {
+      "type": "string",
+      "description": "How this field works and whether it is required depends on other fields you use in your API call. [See below](#text_usage) for more detail."
+     },
+     "post_at": {
+      "type": "string",
+      "description": "Unix EPOCH timestamp of time in future to send the message."
+     },
+     "parse": {
+      "type": "string",
+      "description": "Change how messages are treated. Defaults to `none`. See [chat.postMessage](chat.postMessage#formatting)."
+     },
+     "as_user": {
+      "type": "boolean",
+      "description": "Pass true to post the message as the authed user, instead of as a bot. Defaults to false. See [chat.postMessage](chat.postMessage#authorship)."
+     },
+     "link_names": {
+      "type": "boolean",
+      "description": "Find and link channel names and usernames."
+     },
+     "attachments": {
+      "type": "string",
+      "description": "A JSON-based array of structured attachments, presented as a URL-encoded string."
+     },
+     "blocks": {
+      "type": "string",
+      "description": "A JSON-based array of structured blocks, presented as a URL-encoded string."
+     },
+     "unfurl_links": {
+      "type": "boolean",
+      "description": "Pass true to enable unfurling of primarily text-based content."
+     },
+     "unfurl_media": {
+      "type": "boolean",
+      "description": "Pass false to disable unfurling of media content."
+     },
+     "thread_ts": {
+      "type": "number",
+      "description": "Provide another message's `ts` value to make this message a reply. Avoid using a reply's `ts` value; use its parent instead."
+     },
+     "reply_broadcast": {
+      "type": "boolean",
+      "description": "Used in conjunction with `thread_ts` and indicates whether reply should be made visible to everyone in the channel or conversation. Defaults to `false`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.scheduleMessage",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "text",
+     "post_at",
+     "parse",
+     "as_user",
+     "link_names",
+     "attachments",
+     "blocks",
+     "unfurl_links",
+     "unfurl_media",
+     "thread_ts",
+     "reply_broadcast"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_scheduled_messages_list",
+   "name": "Chat scheduled messages list",
+   "description": "Returns a list of scheduled messages.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "The channel of the scheduled messages"
+     },
+     "latest": {
+      "type": "number",
+      "description": "A UNIX timestamp of the latest value in the time range"
+     },
+     "oldest": {
+      "type": "number",
+      "description": "A UNIX timestamp of the oldest value in the time range"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of original entries to return."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "For pagination purposes, this is the `cursor` value returned from a previous call to `chat.scheduledmessages.list` indicating where you want to start this call from."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/chat.scheduledMessages.list",
+    "path": [],
+    "query": [
+     "channel",
+     "latest",
+     "oldest",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_unfurl",
+   "name": "Chat unfurl",
+   "description": "Provide custom unfurl behavior for user-posted URLs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel ID of the message"
+     },
+     "ts": {
+      "type": "string",
+      "description": "Timestamp of the message to add unfurl behavior to."
+     },
+     "unfurls": {
+      "type": "string",
+      "description": "URL-encoded JSON map with keys set to URLs featured in the the message, pointing to their unfurl blocks or message attachments."
+     },
+     "user_auth_message": {
+      "type": "string",
+      "description": "Provide a simply-formatted string to send as an ephemeral message to the user as invitation to authenticate further and enable full unfurling behavior"
+     },
+     "user_auth_required": {
+      "type": "boolean",
+      "description": "Set to `true` or `1` to indicate the user must install your Slack app to trigger unfurls for this domain"
+     },
+     "user_auth_url": {
+      "type": "string",
+      "description": "Send users to this custom URL where they will complete authentication in your app to fully trigger unfurling. Value should be properly URL-encoded."
+     }
+    },
+    "required": [
+     "channel",
+     "ts"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.unfurl",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "ts",
+     "unfurls",
+     "user_auth_message",
+     "user_auth_required",
+     "user_auth_url"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.chat_update",
+   "name": "Chat update",
+   "description": "Updates a message.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "as_user": {
+      "type": "string",
+      "description": "Pass true to update the message as the authed user. [Bot users](/bot-users) in this context are considered authed users."
+     },
+     "attachments": {
+      "type": "string",
+      "description": "A JSON-based array of structured attachments, presented as a URL-encoded string. This field is required when not presenting `text`. If you don't include this field, the message's previous `attachments` will be retained. To remove previous `attachments`, include an empty array for this field."
+     },
+     "blocks": {
+      "type": "string",
+      "description": "A JSON-based array of [structured blocks](/block-kit/building), presented as a URL-encoded string. If you don't include this field, the message's previous `blocks` will be retained. To remove previous `blocks`, include an empty array for this field."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel containing the message to be updated."
+     },
+     "link_names": {
+      "type": "string",
+      "description": "Find and link channel names and usernames. Defaults to `none`. If you do not specify a value for this field, the original value set for the message will be overwritten with the default, `none`."
+     },
+     "parse": {
+      "type": "string",
+      "description": "Change how messages are treated. Defaults to `client`, unlike `chat.postMessage`. Accepts either `none` or `full`. If you do not specify a value for this field, the original value set for the message will be overwritten with the default, `client`."
+     },
+     "text": {
+      "type": "string",
+      "description": "New text for the message, using the [default formatting rules](/reference/surfaces/formatting). It's not required when presenting `blocks` or `attachments`."
+     },
+     "ts": {
+      "type": "string",
+      "description": "Timestamp of the message to be updated."
+     }
+    },
+    "required": [
+     "channel",
+     "ts"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/chat.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "as_user",
+     "attachments",
+     "blocks",
+     "channel",
+     "link_names",
+     "parse",
+     "text",
+     "ts"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_archive",
+   "name": "Conversations archive",
+   "description": "Archives a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of conversation to archive"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.archive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_close",
+   "name": "Conversations close",
+   "description": "Closes a direct message or multi-person direct message.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation to close."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.close",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_create",
+   "name": "Conversations create",
+   "description": "Initiates a public or private channel-based conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the public or private channel to create"
+     },
+     "is_private": {
+      "type": "boolean",
+      "description": "Create a private channel instead of a public one"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "is_private"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_history",
+   "name": "Conversations history",
+   "description": "Fetches a conversation's history of messages and events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation ID to fetch history for."
+     },
+     "latest": {
+      "type": "number",
+      "description": "End of time range of messages to include in results."
+     },
+     "oldest": {
+      "type": "number",
+      "description": "Start of time range of messages to include in results."
+     },
+     "inclusive": {
+      "type": "boolean",
+      "description": "Include messages with latest or oldest timestamp in results only when either timestamp is specified."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/conversations.history",
+    "path": [],
+    "query": [
+     "channel",
+     "latest",
+     "oldest",
+     "inclusive",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_info",
+   "name": "Conversations info",
+   "description": "Retrieve information about a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation ID to learn more about"
+     },
+     "include_locale": {
+      "type": "boolean",
+      "description": "Set this to `true` to receive the locale for this conversation. Defaults to `false`"
+     },
+     "include_num_members": {
+      "type": "boolean",
+      "description": "Set to `true` to include the member count for the specified conversation. Defaults to `false`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/conversations.info",
+    "path": [],
+    "query": [
+     "channel",
+     "include_locale",
+     "include_num_members"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_invite",
+   "name": "Conversations invite",
+   "description": "Invites users to a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "The ID of the public or private channel to invite user(s) to."
+     },
+     "users": {
+      "type": "string",
+      "description": "A comma separated list of user IDs. Up to 1000 users may be listed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.invite",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "users"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_join",
+   "name": "Conversations join",
+   "description": "Joins an existing conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of conversation to join"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.join",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_kick",
+   "name": "Conversations kick",
+   "description": "Removes a user from a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of conversation to remove user from."
+     },
+     "user": {
+      "type": "string",
+      "description": "User ID to be removed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.kick",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "user"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_leave",
+   "name": "Conversations leave",
+   "description": "Leaves a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation to leave"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.leave",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_list",
+   "name": "Conversations list",
+   "description": "Lists all channels in a Slack team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "exclude_archived": {
+      "type": "boolean",
+      "description": "Set to `true` to exclude archived channels from the list"
+     },
+     "types": {
+      "type": "string",
+      "description": "Mix and match channel types by providing a comma-separated list of any combination of `public_channel`, `private_channel`, `mpim`, `im`"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer no larger than 1000."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/conversations.list",
+    "path": [],
+    "query": [
+     "exclude_archived",
+     "types",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_mark",
+   "name": "Conversations mark",
+   "description": "Sets the read cursor in a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel or conversation to set the read cursor for."
+     },
+     "ts": {
+      "type": "number",
+      "description": "Unique identifier of message you want marked as most recently seen in this conversation."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.mark",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "ts"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_members",
+   "name": "Conversations members",
+   "description": "Retrieve members of a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of the conversation to retrieve members for"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/conversations.members",
+    "path": [],
+    "query": [
+     "channel",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_open",
+   "name": "Conversations open",
+   "description": "Opens or resumes a direct message or multi-person direct message.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Resume a conversation by supplying an `im` or `mpim`'s ID. Or provide the `users` field instead."
+     },
+     "users": {
+      "type": "string",
+      "description": "Comma separated lists of users. If only one user is included, this creates a 1:1 DM. The ordering of the users is preserved whenever a multi-person direct message is returned. Supply a `channel` when not supplying `users`."
+     },
+     "return_im": {
+      "type": "boolean",
+      "description": "Boolean, indicates you want the full IM channel definition in the response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.open",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "users",
+     "return_im"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_rename",
+   "name": "Conversations rename",
+   "description": "Renames a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of conversation to rename"
+     },
+     "name": {
+      "type": "string",
+      "description": "New name for conversation."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.rename",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_replies",
+   "name": "Conversations replies",
+   "description": "Retrieve a thread of messages posted to a conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation ID to fetch thread from."
+     },
+     "ts": {
+      "type": "number",
+      "description": "Unique identifier of a thread's parent message. `ts` must be the timestamp of an existing message with 0 or more replies. If there are no replies then just the single message referenced by `ts` will return - it is just an ordinary, unthreaded message."
+     },
+     "latest": {
+      "type": "number",
+      "description": "End of time range of messages to include in results."
+     },
+     "oldest": {
+      "type": "number",
+      "description": "Start of time range of messages to include in results."
+     },
+     "inclusive": {
+      "type": "boolean",
+      "description": "Include messages with latest or oldest timestamp in results only when either timestamp is specified."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/conversations.replies",
+    "path": [],
+    "query": [
+     "channel",
+     "ts",
+     "latest",
+     "oldest",
+     "inclusive",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_set_purpose",
+   "name": "Conversations set purpose",
+   "description": "Sets the purpose for a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation to set the purpose of"
+     },
+     "purpose": {
+      "type": "string",
+      "description": "A new, specialer purpose"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.setPurpose",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "purpose"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_set_topic",
+   "name": "Conversations set topic",
+   "description": "Sets the topic for a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Conversation to set the topic of"
+     },
+     "topic": {
+      "type": "string",
+      "description": "The new topic string. Does not support formatting or linkification."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.setTopic",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "topic"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.conversations_unarchive",
+   "name": "Conversations unarchive",
+   "description": "Reverses conversation archival.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "ID of conversation to unarchive"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/conversations.unarchive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dialog_open",
+   "name": "Dialog open",
+   "description": "Open a dialog with a user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "dialog": {
+      "type": "string",
+      "description": "The dialog definition. This must be a JSON-encoded string."
+     },
+     "trigger_id": {
+      "type": "string",
+      "description": "Exchange a trigger to post to the user."
+     }
+    },
+    "required": [
+     "dialog",
+     "trigger_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/dialog.open",
+    "path": [],
+    "query": [
+     "dialog",
+     "trigger_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dnd_end_dnd",
+   "name": "Dnd end dnd",
+   "description": "Ends the current user's Do Not Disturb session immediately.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/dnd.endDnd",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dnd_end_snooze",
+   "name": "Dnd end snooze",
+   "description": "Ends the current user's snooze mode immediately.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/dnd.endSnooze",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dnd_info",
+   "name": "Dnd info",
+   "description": "Retrieves a user's current Do Not Disturb status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "User to fetch status for (defaults to current user)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/dnd.info",
+    "path": [],
+    "query": [
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dnd_set_snooze",
+   "name": "Dnd set snooze",
+   "description": "Turns on Do Not Disturb mode for the current user, or changes its duration.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "num_minutes": {
+      "type": "string",
+      "description": "Number of minutes, from now, to snooze until."
+     }
+    },
+    "required": [
+     "num_minutes"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/dnd.setSnooze",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "num_minutes"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.dnd_team_info",
+   "name": "Dnd team info",
+   "description": "Retrieves the Do Not Disturb status for up to 50 users on a team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "users": {
+      "type": "string",
+      "description": "Comma-separated list of users to fetch Do Not Disturb status for"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/dnd.teamInfo",
+    "path": [],
+    "query": [
+     "users"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.emoji_list",
+   "name": "Emoji list",
+   "description": "Lists custom emoji for a team.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/emoji.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_comments_delete",
+   "name": "Files comments delete",
+   "description": "Deletes an existing comment on a file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "File to delete a comment from."
+     },
+     "id": {
+      "type": "string",
+      "description": "The comment to delete."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.comments.delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_delete",
+   "name": "Files delete",
+   "description": "Deletes a file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "ID of file to delete."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_info",
+   "name": "Files info",
+   "description": "Gets information about a file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Specify a file by providing its ID."
+     },
+     "count": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Parameter for pagination. File comments are paginated for a single file. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first \"page\" of the collection of comments. See [pagination](/docs/pagination) for more details."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/files.info",
+    "path": [],
+    "query": [
+     "file",
+     "count",
+     "page",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_list",
+   "name": "Files list",
+   "description": "List for a team, in a channel, or from a user with applied filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "Filter files created by a single user."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Filter files appearing in a specific channel, indicated by its ID."
+     },
+     "ts_from": {
+      "type": "number",
+      "description": "Filter files created after this timestamp (inclusive)."
+     },
+     "ts_to": {
+      "type": "number",
+      "description": "Filter files created before this timestamp (inclusive)."
+     },
+     "types": {
+      "type": "string",
+      "description": "Filter files by type ([see below](#file_types)). You can pass multiple values in the types argument, like `types=spaces,snippets`.The default value is `all`, which does not filter the list."
+     },
+     "count": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     },
+     "show_files_hidden_by_limit": {
+      "type": "boolean",
+      "description": "Show truncated file info for files hidden due to being too old, and the team who owns the file being over the file limit."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/files.list",
+    "path": [],
+    "query": [
+     "user",
+     "channel",
+     "ts_from",
+     "ts_to",
+     "types",
+     "count",
+     "page",
+     "show_files_hidden_by_limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_add",
+   "name": "Files remote add",
+   "description": "Adds a file from a remote service",
+   "input": {
+    "type": "object",
+    "properties": {
+     "external_id": {
+      "type": "string",
+      "description": "Creator defined GUID for the file."
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of the file being shared."
+     },
+     "filetype": {
+      "type": "string",
+      "description": "type of file"
+     },
+     "external_url": {
+      "type": "string",
+      "description": "URL of the remote file."
+     },
+     "preview_image": {
+      "type": "string",
+      "description": "Preview of the document via `multipart/form-data`."
+     },
+     "indexable_file_contents": {
+      "type": "string",
+      "description": "A text file (txt, pdf, doc, etc.) containing textual search terms that are used to improve discovery of the remote file."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.remote.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "external_id",
+     "title",
+     "filetype",
+     "external_url",
+     "preview_image",
+     "indexable_file_contents"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_info",
+   "name": "Files remote info",
+   "description": "Retrieve information about a remote file added to Slack",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Specify a file by providing its ID."
+     },
+     "external_id": {
+      "type": "string",
+      "description": "Creator defined GUID for the file."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/files.remote.info",
+    "path": [],
+    "query": [
+     "file",
+     "external_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_list",
+   "name": "Files remote list",
+   "description": "Retrieve information about a remote file added to Slack",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Filter files appearing in a specific channel, indicated by its ID."
+     },
+     "ts_from": {
+      "type": "number",
+      "description": "Filter files created after this timestamp (inclusive)."
+     },
+     "ts_to": {
+      "type": "number",
+      "description": "Filter files created before this timestamp (inclusive)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/files.remote.list",
+    "path": [],
+    "query": [
+     "channel",
+     "ts_from",
+     "ts_to",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_remove",
+   "name": "Files remote remove",
+   "description": "Remove a remote file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Specify a file by providing its ID."
+     },
+     "external_id": {
+      "type": "string",
+      "description": "Creator defined GUID for the file."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.remote.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "external_id"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_share",
+   "name": "Files remote share",
+   "description": "Share a remote file into a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Specify a file registered with Slack by providing its ID. Either this field or `external_id` or both are required."
+     },
+     "external_id": {
+      "type": "string",
+      "description": "The globally unique identifier (GUID) for the file, as set by the app registering the file with Slack. Either this field or `file` or both are required."
+     },
+     "channels": {
+      "type": "string",
+      "description": "Comma-separated list of channel IDs where the file will be shared."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/files.remote.share",
+    "path": [],
+    "query": [
+     "file",
+     "external_id",
+     "channels"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_remote_update",
+   "name": "Files remote update",
+   "description": "Updates an existing remote file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "Specify a file by providing its ID."
+     },
+     "external_id": {
+      "type": "string",
+      "description": "Creator defined GUID for the file."
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of the file being shared."
+     },
+     "filetype": {
+      "type": "string",
+      "description": "type of file"
+     },
+     "external_url": {
+      "type": "string",
+      "description": "URL of the remote file."
+     },
+     "preview_image": {
+      "type": "string",
+      "description": "Preview of the document via `multipart/form-data`."
+     },
+     "indexable_file_contents": {
+      "type": "string",
+      "description": "File containing contents that can be used to improve searchability for the remote file."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.remote.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "external_id",
+     "title",
+     "filetype",
+     "external_url",
+     "preview_image",
+     "indexable_file_contents"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_revoke_public_url",
+   "name": "Files revoke public url",
+   "description": "Revokes public/external sharing access for a file",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "File to revoke"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.revokePublicURL",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_shared_public_url",
+   "name": "Files shared public url",
+   "description": "Enables a file for public/external sharing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "File to share"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.sharedPublicURL",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.files_upload",
+   "name": "Files upload",
+   "description": "Uploads or creates a file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "File contents via `multipart/form-data`. If omitting this parameter, you must submit `content`."
+     },
+     "content": {
+      "type": "string",
+      "description": "File contents via a POST variable. If omitting this parameter, you must provide a `file`."
+     },
+     "filetype": {
+      "type": "string",
+      "description": "A [file type](/types/file#file_types) identifier."
+     },
+     "filename": {
+      "type": "string",
+      "description": "Filename of file."
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of file."
+     },
+     "initial_comment": {
+      "type": "string",
+      "description": "The message text introducing the file in specified `channels`."
+     },
+     "channels": {
+      "type": "string",
+      "description": "Comma-separated list of channel names or IDs where the file will be shared."
+     },
+     "thread_ts": {
+      "type": "number",
+      "description": "Provide another message's `ts` value to upload this file as a reply. Never use a reply's `ts` value; use its parent instead."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/files.upload",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "content",
+     "filetype",
+     "filename",
+     "title",
+     "initial_comment",
+     "channels",
+     "thread_ts"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.migration_exchange",
+   "name": "Migration exchange",
+   "description": "For Enterprise Grid workspaces, map local user IDs to global user IDs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "users": {
+      "type": "string",
+      "description": "A comma-separated list of user ids, up to 400 per request"
+     },
+     "team_id": {
+      "type": "string",
+      "description": "Specify team_id starts with `T` in case of Org Token"
+     },
+     "to_old": {
+      "type": "boolean",
+      "description": "Specify `true` to convert `W` global user IDs to workspace-specific `U` IDs. Defaults to `false`."
+     }
+    },
+    "required": [
+     "users"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/migration.exchange",
+    "path": [],
+    "query": [
+     "users",
+     "team_id",
+     "to_old"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.oauth_access",
+   "name": "Oauth access",
+   "description": "Exchanges a temporary OAuth verifier code for an access token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "code": {
+      "type": "string",
+      "description": "The `code` param returned via the OAuth callback."
+     },
+     "redirect_uri": {
+      "type": "string",
+      "description": "This must match the originally submitted URI (if one was sent)."
+     },
+     "single_channel": {
+      "type": "boolean",
+      "description": "Request the user to add your app only to a single channel. Only valid with a [legacy workspace app](https://api.slack.com/legacy-workspace-apps)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/oauth.access",
+    "path": [],
+    "query": [
+     "client_id",
+     "client_secret",
+     "code",
+     "redirect_uri",
+     "single_channel"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.oauth_token",
+   "name": "Oauth token",
+   "description": "Exchanges a temporary OAuth verifier code for a workspace token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "code": {
+      "type": "string",
+      "description": "The `code` param returned via the OAuth callback."
+     },
+     "redirect_uri": {
+      "type": "string",
+      "description": "This must match the originally submitted URI (if one was sent)."
+     },
+     "single_channel": {
+      "type": "boolean",
+      "description": "Request the user to add your app only to a single channel."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/oauth.token",
+    "path": [],
+    "query": [
+     "client_id",
+     "client_secret",
+     "code",
+     "redirect_uri",
+     "single_channel"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.oauth_v2_access",
+   "name": "Oauth v2 access",
+   "description": "Exchanges a temporary OAuth verifier code for an access token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_id": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "Issued when you created your application."
+     },
+     "code": {
+      "type": "string",
+      "description": "The `code` param returned via the OAuth callback."
+     },
+     "redirect_uri": {
+      "type": "string",
+      "description": "This must match the originally submitted URI (if one was sent)."
+     }
+    },
+    "required": [
+     "code"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/oauth.v2.access",
+    "path": [],
+    "query": [
+     "client_id",
+     "client_secret",
+     "code",
+     "redirect_uri"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.pins_add",
+   "name": "Pins add",
+   "description": "Pins an item to a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel to pin the item in."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to pin."
+     }
+    },
+    "required": [
+     "channel"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/pins.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.pins_list",
+   "name": "Pins list",
+   "description": "Lists items pinned to a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel to get pinned items for."
+     }
+    },
+    "required": [
+     "channel"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/pins.list",
+    "path": [],
+    "query": [
+     "channel"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.pins_remove",
+   "name": "Pins remove",
+   "description": "Un-pins an item from a channel.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel where the item is pinned to."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to un-pin."
+     }
+    },
+    "required": [
+     "channel"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/pins.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reactions_add",
+   "name": "Reactions add",
+   "description": "Adds a reaction to an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel where the message to add reaction to was posted."
+     },
+     "name": {
+      "type": "string",
+      "description": "Reaction (emoji) name."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to add reaction to."
+     }
+    },
+    "required": [
+     "channel",
+     "name",
+     "timestamp"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/reactions.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "name",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reactions_get",
+   "name": "Reactions get",
+   "description": "Gets reactions for an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel where the message to get reactions for was posted."
+     },
+     "file": {
+      "type": "string",
+      "description": "File to get reactions for."
+     },
+     "file_comment": {
+      "type": "string",
+      "description": "File comment to get reactions for."
+     },
+     "full": {
+      "type": "boolean",
+      "description": "If true always return the complete reaction list."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to get reactions for."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/reactions.get",
+    "path": [],
+    "query": [
+     "channel",
+     "file",
+     "file_comment",
+     "full",
+     "timestamp"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reactions_list",
+   "name": "Reactions list",
+   "description": "Lists reactions made by a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "Show reactions made by this user. Defaults to the authed user."
+     },
+     "full": {
+      "type": "boolean",
+      "description": "If true always return the complete reaction list."
+     },
+     "count": {
+      "type": "integer",
+      "description": ""
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more details."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/reactions.list",
+    "path": [],
+    "query": [
+     "user",
+     "full",
+     "count",
+     "page",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reactions_remove",
+   "name": "Reactions remove",
+   "description": "Removes a reaction from an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Reaction (emoji) name."
+     },
+     "file": {
+      "type": "string",
+      "description": "File to remove reaction from."
+     },
+     "file_comment": {
+      "type": "string",
+      "description": "File comment to remove reaction from."
+     },
+     "channel": {
+      "type": "string",
+      "description": "Channel where the message to remove reaction from was posted."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to remove reaction from."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/reactions.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "file",
+     "file_comment",
+     "channel",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reminders_add",
+   "name": "Reminders add",
+   "description": "Creates a reminder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "text": {
+      "type": "string",
+      "description": "The content of the reminder"
+     },
+     "time": {
+      "type": "string",
+      "description": "When this reminder should happen: the Unix timestamp (up to five years from now), the number of seconds until the reminder (if within 24 hours), or a natural language description (Ex. \"in 15 minutes,\" or \"every Thursday\")"
+     },
+     "user": {
+      "type": "string",
+      "description": "The user who will receive the reminder. If no user is specified, the reminder will go to user who created it."
+     }
+    },
+    "required": [
+     "text",
+     "time"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/reminders.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "text",
+     "time",
+     "user"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reminders_complete",
+   "name": "Reminders complete",
+   "description": "Marks a reminder as complete.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder": {
+      "type": "string",
+      "description": "The ID of the reminder to be marked as complete"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/reminders.complete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "reminder"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reminders_delete",
+   "name": "Reminders delete",
+   "description": "Deletes a reminder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder": {
+      "type": "string",
+      "description": "The ID of the reminder"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/reminders.delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "reminder"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reminders_info",
+   "name": "Reminders info",
+   "description": "Gets information about a reminder.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "reminder": {
+      "type": "string",
+      "description": "The ID of the reminder"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/reminders.info",
+    "path": [],
+    "query": [
+     "reminder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.reminders_list",
+   "name": "Reminders list",
+   "description": "Lists all reminders created by or for a given user.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/reminders.list",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.rtm_connect",
+   "name": "Rtm connect",
+   "description": "Starts a Real Time Messaging session.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "batch_presence_aware": {
+      "type": "boolean",
+      "description": "Batch presence deliveries via subscription. Enabling changes the shape of `presence_change` events. See [batch presence](/docs/presence-and-status#batching)."
+     },
+     "presence_sub": {
+      "type": "boolean",
+      "description": "Only deliver presence events when requested by subscription. See [presence subscriptions](/docs/presence-and-status#subscriptions)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/rtm.connect",
+    "path": [],
+    "query": [
+     "batch_presence_aware",
+     "presence_sub"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.search_messages",
+   "name": "Search messages",
+   "description": "Searches for messages matching a query.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Pass the number of results you want per \"page\". Maximum of `100`."
+     },
+     "highlight": {
+      "type": "boolean",
+      "description": "Pass a value of `true` to enable query highlight markers (see below)."
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Search query."
+     },
+     "sort": {
+      "type": "string",
+      "description": "Return matches sorted by either `score` or `timestamp`."
+     },
+     "sort_dir": {
+      "type": "string",
+      "description": "Change sort direction to ascending (`asc`) or descending (`desc`)."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/search.messages",
+    "path": [],
+    "query": [
+     "count",
+     "highlight",
+     "page",
+     "query",
+     "sort",
+     "sort_dir"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.stars_add",
+   "name": "Stars add",
+   "description": "Adds a star to an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel to add star to, or channel where the message to add star to was posted (used with `timestamp`)."
+     },
+     "file": {
+      "type": "string",
+      "description": "File to add star to."
+     },
+     "file_comment": {
+      "type": "string",
+      "description": "File comment to add star to."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to add star to."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/stars.add",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "file",
+     "file_comment",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.stars_list",
+   "name": "Stars list",
+   "description": "Lists stars for a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Parameter for pagination. Set `cursor` equal to the `next_cursor` attribute returned by the previous request's `response_metadata`. This parameter is optional, but pagination is mandatory: the default value simply fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more details."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/stars.list",
+    "path": [],
+    "query": [
+     "count",
+     "page",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.stars_remove",
+   "name": "Stars remove",
+   "description": "Removes a star from an item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "description": "Channel to remove star from, or channel where the message to remove star from was posted (used with `timestamp`)."
+     },
+     "file": {
+      "type": "string",
+      "description": "File to remove star from."
+     },
+     "file_comment": {
+      "type": "string",
+      "description": "File comment to remove star from."
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Timestamp of the message to remove star from."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/stars.remove",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channel",
+     "file",
+     "file_comment",
+     "timestamp"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.team_access_logs",
+   "name": "Team access logs",
+   "description": "Gets the access logs for the current team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "before": {
+      "type": "string",
+      "description": "End of time range of logs to include in results (inclusive)."
+     },
+     "count": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/team.accessLogs",
+    "path": [],
+    "query": [
+     "before",
+     "count",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.team_billable_info",
+   "name": "Team billable info",
+   "description": "Gets billable users information for the current team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "A user to retrieve the billable information for. Defaults to all users."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/team.billableInfo",
+    "path": [],
+    "query": [
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.team_info",
+   "name": "Team info",
+   "description": "Gets information about the current team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "team": {
+      "type": "string",
+      "description": "Team to get info on, if omitted, will return information about the current team. Team to get info about; if omitted, will return information about the current team."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/team.info",
+    "path": [],
+    "query": [
+     "team"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.team_integration_logs",
+   "name": "Team integration logs",
+   "description": "Gets the integration logs for the current team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "app_id": {
+      "type": "string",
+      "description": "Filter logs to this Slack app. Defaults to all logs."
+     },
+     "change_type": {
+      "type": "string",
+      "description": "Filter logs with this change type. Defaults to all logs."
+     },
+     "count": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     },
+     "service_id": {
+      "type": "string",
+      "description": "Filter logs to this service. Defaults to all logs."
+     },
+     "user": {
+      "type": "string",
+      "description": "Filter logs generated by this user\u2019s actions. Defaults to all logs."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/team.integrationLogs",
+    "path": [],
+    "query": [
+     "app_id",
+     "change_type",
+     "count",
+     "page",
+     "service_id",
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.team_profile_get",
+   "name": "Team profile get",
+   "description": "Retrieve a team's profile.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "visibility": {
+      "type": "string",
+      "description": "Filter by visibility."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/team.profile.get",
+    "path": [],
+    "query": [
+     "visibility"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_create",
+   "name": "Usergroups create",
+   "description": "Create a User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channels": {
+      "type": "string",
+      "description": "A comma separated string of encoded channel IDs for which the User Group uses as a default."
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the User Group."
+     },
+     "handle": {
+      "type": "string",
+      "description": "A mention handle. Must be unique among channels, users and User Groups."
+     },
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in each User Group."
+     },
+     "name": {
+      "type": "string",
+      "description": "A name for the User Group. Must be unique among User Groups."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/usergroups.create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "channels",
+     "description",
+     "handle",
+     "include_count",
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_disable",
+   "name": "Usergroups disable",
+   "description": "Disable an existing User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in the User Group."
+     },
+     "usergroup": {
+      "type": "string",
+      "description": "The encoded ID of the User Group to disable."
+     }
+    },
+    "required": [
+     "usergroup"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/usergroups.disable",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "include_count",
+     "usergroup"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_enable",
+   "name": "Usergroups enable",
+   "description": "Enable a User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in the User Group."
+     },
+     "usergroup": {
+      "type": "string",
+      "description": "The encoded ID of the User Group to enable."
+     }
+    },
+    "required": [
+     "usergroup"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/usergroups.enable",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "include_count",
+     "usergroup"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_list",
+   "name": "Usergroups list",
+   "description": "List all User Groups for a team",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_users": {
+      "type": "boolean",
+      "description": "Include the list of users for each User Group."
+     },
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in each User Group."
+     },
+     "include_disabled": {
+      "type": "boolean",
+      "description": "Include disabled User Groups."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/usergroups.list",
+    "path": [],
+    "query": [
+     "include_users",
+     "include_count",
+     "include_disabled"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_update",
+   "name": "Usergroups update",
+   "description": "Update an existing User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "handle": {
+      "type": "string",
+      "description": "A mention handle. Must be unique among channels, users and User Groups."
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the User Group."
+     },
+     "channels": {
+      "type": "string",
+      "description": "A comma separated string of encoded channel IDs for which the User Group uses as a default."
+     },
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in the User Group."
+     },
+     "usergroup": {
+      "type": "string",
+      "description": "The encoded ID of the User Group to update."
+     },
+     "name": {
+      "type": "string",
+      "description": "A name for the User Group. Must be unique among User Groups."
+     }
+    },
+    "required": [
+     "usergroup"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/usergroups.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "handle",
+     "description",
+     "channels",
+     "include_count",
+     "usergroup",
+     "name"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_users_list",
+   "name": "Usergroups users list",
+   "description": "List all users in a User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_disabled": {
+      "type": "boolean",
+      "description": "Allow results that involve disabled User Groups."
+     },
+     "usergroup": {
+      "type": "string",
+      "description": "The encoded ID of the User Group to update."
+     }
+    },
+    "required": [
+     "usergroup"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/usergroups.users.list",
+    "path": [],
+    "query": [
+     "include_disabled",
+     "usergroup"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.usergroups_users_update",
+   "name": "Usergroups users update",
+   "description": "Update the list of users for a User Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_count": {
+      "type": "boolean",
+      "description": "Include the number of users in the User Group."
+     },
+     "usergroup": {
+      "type": "string",
+      "description": "The encoded ID of the User Group to update."
+     },
+     "users": {
+      "type": "string",
+      "description": "A comma separated string of encoded user IDs that represent the entire list of users for the User Group."
+     }
+    },
+    "required": [
+     "usergroup",
+     "users"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/usergroups.users.update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "include_count",
+     "usergroup",
+     "users"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_conversations",
+   "name": "Users conversations",
+   "description": "List conversations the calling user may access.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "Browse conversations by a specific user ID's membership. Non-public channels are restricted to those where the calling user shares membership."
+     },
+     "types": {
+      "type": "string",
+      "description": "Mix and match channel types by providing a comma-separated list of any combination of `public_channel`, `private_channel`, `mpim`, `im`"
+     },
+     "exclude_archived": {
+      "type": "boolean",
+      "description": "Set to `true` to exclude archived channels from the list"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the list hasn't been reached. Must be an integer no larger than 1000."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.conversations",
+    "path": [],
+    "query": [
+     "user",
+     "types",
+     "exclude_archived",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_delete_photo",
+   "name": "Users delete photo",
+   "description": "Delete the user profile photo",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/users.deletePhoto",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_get_presence",
+   "name": "Users get presence",
+   "description": "Gets user presence information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user": {
+      "type": "string",
+      "description": "User to get presence info on. Defaults to the authed user."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.getPresence",
+    "path": [],
+    "query": [
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_identity",
+   "name": "Users identity",
+   "description": "Get a user's identity.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.identity",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_info",
+   "name": "Users info",
+   "description": "Gets information about a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_locale": {
+      "type": "boolean",
+      "description": "Set this to `true` to receive the locale for this user. Defaults to `false`"
+     },
+     "user": {
+      "type": "string",
+      "description": "User to get info on"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.info",
+    "path": [],
+    "query": [
+     "include_locale",
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_list",
+   "name": "Users list",
+   "description": "Lists all users in a Slack team.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Fewer than the requested number of items may be returned, even if the end of the users list hasn't been reached. Providing no `limit` value will result in Slack attempting to deliver you the entire result set. If the collection is too large you may experience `limit_required` or HTTP 500 errors."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Paginate through collections of data by setting the `cursor` parameter to a `next_cursor` attribute returned by a previous request's `response_metadata`. Default value fetches the first \"page\" of the collection. See [pagination](/docs/pagination) for more detail."
+     },
+     "include_locale": {
+      "type": "boolean",
+      "description": "Set this to `true` to receive the locale for users. Defaults to `false`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.list",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "include_locale"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_lookup_by_email",
+   "name": "Users lookup by email",
+   "description": "Find a user with an email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "An email address belonging to a user in the workspace"
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.lookupByEmail",
+    "path": [],
+    "query": [
+     "email"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_profile_get",
+   "name": "Users profile get",
+   "description": "Retrieves a user's profile information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_labels": {
+      "type": "boolean",
+      "description": "Include labels for each ID in custom profile fields"
+     },
+     "user": {
+      "type": "string",
+      "description": "User to retrieve profile info for"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/users.profile.get",
+    "path": [],
+    "query": [
+     "include_labels",
+     "user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_profile_set",
+   "name": "Users profile set",
+   "description": "Set the profile information for a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of a single key to set. Usable only if `profile` is not passed."
+     },
+     "profile": {
+      "type": "string",
+      "description": "Collection of key:value pairs presented as a URL-encoded JSON hash. At most 50 fields may be set. Each field name is limited to 255 characters."
+     },
+     "user": {
+      "type": "string",
+      "description": "ID of user to change. This argument may only be specified by team admins on paid teams."
+     },
+     "value": {
+      "type": "string",
+      "description": "Value to set a single key to. Usable only if `profile` is not passed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/users.profile.set",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "profile",
+     "user",
+     "value"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_set_active",
+   "name": "Users set active",
+   "description": "Marked a user as active. Deprecated and non-functional.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/users.setActive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_set_photo",
+   "name": "Users set photo",
+   "description": "Set the user profile photo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "crop_w": {
+      "type": "string",
+      "description": "Width/height of crop box (always square)"
+     },
+     "crop_x": {
+      "type": "string",
+      "description": "X coordinate of top-left corner of crop box"
+     },
+     "crop_y": {
+      "type": "string",
+      "description": "Y coordinate of top-left corner of crop box"
+     },
+     "image": {
+      "type": "string",
+      "description": "File contents via `multipart/form-data`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/users.setPhoto",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "crop_w",
+     "crop_x",
+     "crop_y",
+     "image"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.users_set_presence",
+   "name": "Users set presence",
+   "description": "Manually sets user presence.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "presence": {
+      "type": "string",
+      "description": "Either `auto` or `away`"
+     }
+    },
+    "required": [
+     "presence"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://slack.com/api/users.setPresence",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "presence"
+    ],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.views_open",
+   "name": "Views open",
+   "description": "Open a view for a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "trigger_id": {
+      "type": "string",
+      "description": "Exchange a trigger to post to the user."
+     },
+     "view": {
+      "type": "string",
+      "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string."
+     }
+    },
+    "required": [
+     "trigger_id",
+     "view"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/views.open",
+    "path": [],
+    "query": [
+     "trigger_id",
+     "view"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.views_publish",
+   "name": "Views publish",
+   "description": "Publish a static view for a User.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "`id` of the user you want publish a view to."
+     },
+     "view": {
+      "type": "string",
+      "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string."
+     },
+     "hash": {
+      "type": "string",
+      "description": "A string that represents view state to protect against possible race conditions."
+     }
+    },
+    "required": [
+     "user_id",
+     "view"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/views.publish",
+    "path": [],
+    "query": [
+     "user_id",
+     "view",
+     "hash"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.views_push",
+   "name": "Views push",
+   "description": "Push a view onto the stack of a root view.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "trigger_id": {
+      "type": "string",
+      "description": "Exchange a trigger to post to the user."
+     },
+     "view": {
+      "type": "string",
+      "description": "A [view payload](/reference/surfaces/views). This must be a JSON-encoded string."
+     }
+    },
+    "required": [
+     "trigger_id",
+     "view"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/views.push",
+    "path": [],
+    "query": [
+     "trigger_id",
+     "view"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.views_update",
+   "name": "Views update",
+   "description": "Update an existing view.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "view_id": {
+      "type": "string",
+      "description": "A unique identifier of the view to be updated. Either `view_id` or `external_id` is required."
+     },
+     "external_id": {
+      "type": "string",
+      "description": "A unique identifier of the view set by the developer. Must be unique for all views on a team. Max length of 255 characters. Either `view_id` or `external_id` is required."
+     },
+     "view": {
+      "type": "string",
+      "description": "A [view object](/reference/surfaces/views). This must be a JSON-encoded string."
+     },
+     "hash": {
+      "type": "string",
+      "description": "A string that represents view state to protect against possible race conditions."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/views.update",
+    "path": [],
+    "query": [
+     "view_id",
+     "external_id",
+     "view",
+     "hash"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  },
+  {
+   "slug": "slack.workflows_step_failed",
+   "name": "Workflows step failed",
+   "description": "Indicate that an app's step in a workflow failed to execute.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflow_step_execute_id": {
+      "type": "string",
+      "description": "Context identifier that maps to the correct workflow step execution."
+     },
+     "error": {
+      "type": "string",
+      "description": "A JSON-based object with a `message` property that should contain a human readable error message."
+     }
+    },
+    "required": [
+     "error",
+     "workflow_step_execute_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://slack.com/api/workflows.stepFailed",
+    "path": [],
+    "query": [
+     "workflow_step_execute_id",
+     "error"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "form"
+   }
+  }
+ ]
+}

@@ -1,0 +1,34 @@
+{
+ "_": "GENERATED \u2014 tools/mcp.py. Only servers published by the vendor themselves.",
+ "provider": "notion",
+ "servers": [
+  {
+   "source": "registry",
+   "name": "com.notion/mcp",
+   "title": "com.notion/mcp",
+   "description": "Official Notion MCP server",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.notion.com/mcp"
+    },
+    {
+     "transport": "sse",
+     "url": "https://mcp.notion.com/sse"
+    }
+   ]
+  },
+  {
+   "source": "nango",
+   "name": "notion-mcp",
+   "title": "Notion",
+   "description": "Hosted by the vendor; authenticates like the rest of this provider.",
+   "endpoints": [
+    {
+     "transport": "streamable-http",
+     "url": "https://mcp.notion.com"
+    }
+   ]
+  }
+ ]
+}
