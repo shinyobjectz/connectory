@@ -1,0 +1,43 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "rapidapi",
+ "source": "https://api.apis.guru/v2/specs/rapidapi.com/ecowetter/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "rapidapi.get_public_history",
+   "name": "Wetter 2021 f\u00fcr berlin, reichstag",
+   "description": "Abfrage der Wettervorhersage f\u00fcr einen Ort, der entweder durch Angabe eines Suchbegriffs mit dem Parameter `q` oder durch Geo-Koordinaten in den Parametern `lat` und `lon` spezifiziert wird.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "Ortssuche mit Freitext"
+     },
+     "from": {
+      "type": "string",
+      "description": "Startdatum der Abfrage im Format (JJJJ-MM-DD)"
+     },
+     "to": {
+      "type": "string",
+      "description": "Enddatum der Abfrage im Format (JJJJ-MM-DD)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.p.rapidapi.com/public/history",
+    "path": [],
+    "query": [
+     "q",
+     "from",
+     "to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

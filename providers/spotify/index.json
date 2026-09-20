@@ -1,0 +1,3233 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "spotify",
+ "source": "https://api.apis.guru/v2/specs/spotify.com/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "spotify.add_to_queue",
+   "name": "Add item to playback queue",
+   "description": "Add an item to the end of the user's current playback queue.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "uri": {
+      "type": "string",
+      "description": "The uri of the item to add to the queue. Must be a track or an episode uri."
+     },
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": [
+     "uri"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.spotify.com/me/player/queue",
+    "path": [],
+    "query": [
+     "uri",
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.add_tracks_to_playlist",
+   "name": "Add items to playlist",
+   "description": "Add one or more items to a user's playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "position": {
+      "type": "integer",
+      "description": "The position to insert the items, a zero-based index. For example, to insert the items in the first position: `position=0` ; to insert the items in the third position: `position=2`. If omitted, the items will be appended to the playlist. Items are added in the order they appear in the uris array. For example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\",\"spotify:track:1301WleyT98MSxVHPZCA6M\"]"
+     },
+     "uris": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify URIs](/documentation/web-api/#spotify-uris-and-ids) to add. For example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\",\"spotify:track:1301WleyT98MSxVHPZCA6M\", \"spotify:episode:512ojhOuo1ktJprKbVcKyQ\"]}`A maximum of 100 items can be added in one request. _**Note**: if the `uris` parameter is present in the query string, any URIs listed here in the body will be ignor"
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [
+     "position",
+     "uris"
+    ],
+    "header": [],
+    "body": [
+     "position",
+     "uris"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.change_playlist_details",
+   "name": "Change playlist details",
+   "description": "Change a playlist's name and public/private state. (The user must, of course, own the playlist.)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "collaborative": {
+      "type": "boolean",
+      "description": "If `true`, the playlist will become collaborative and other users will be able to modify the playlist in their Spotify client. _**Note**: You can only set `collaborative` to `true` on non-public playlists._"
+     },
+     "description": {
+      "type": "string",
+      "description": "Value for playlist description as displayed in Spotify Clients and in the Web API."
+     },
+     "name": {
+      "type": "string",
+      "description": "The new name for the playlist, for example `\"My New Playlist Title\"`"
+     },
+     "public": {
+      "type": "boolean",
+      "description": "If `true` the playlist will be public, if `false` it will be private."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/playlists/{playlist_id}",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "collaborative",
+     "description",
+     "name",
+     "public"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_current_user_follows",
+   "name": "Check if user follows artists or users",
+   "description": "Check to see if the current user is following one or more artists or other Spotify users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The ID type: either `artist` or `user`.",
+      "enum": [
+       "artist",
+       "user"
+      ]
+     },
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the artist or the user [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) to check. For example: `ids=74ASZWbe4lXaubB36ztrGX,08td7MxkoHQkXnWAYD8d6Q`. A maximum of 50 IDs can be sent in one request."
+     }
+    },
+    "required": [
+     "ids",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/following/contains",
+    "path": [],
+    "query": [
+     "type",
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_if_user_follows_playlist",
+   "name": "Check if users follow playlist",
+   "description": "Check to see if one or more Spotify users are following a specified playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of [Spotify User IDs](/documentation/web-api/#spotify-uris-and-ids) ; the ids of the users that you want to check to see if they follow the playlist. Maximum: 5 ids."
+     }
+    },
+    "required": [
+     "ids",
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/followers/contains",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_users_saved_albums",
+   "name": "Check user's saved albums",
+   "description": "Check if one or more albums is already saved in the current Spotify user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the albums. Maximum: 20 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/albums/contains",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_users_saved_audiobooks",
+   "name": "Check user's saved audiobooks",
+   "description": "Check if one or more audiobooks are already saved in the current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ`. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/audiobooks/contains",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_users_saved_episodes",
+   "name": "Check user's saved episodes",
+   "description": "Check if one or more episodes is already saved in the current Spotify user's 'Your Episodes' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the episodes. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/episodes/contains",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_users_saved_shows",
+   "name": "Check user's saved shows",
+   "description": "Check if one or more shows is already saved in the current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the shows. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/shows/contains",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.check_users_saved_tracks",
+   "name": "Check user's saved tracks",
+   "description": "Check if one or more tracks is already saved in the current Spotify user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/tracks/contains",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.create_playlist",
+   "name": "Create playlist",
+   "description": "Create a playlist for a Spotify user. (The playlist will be empty until you [add tracks](/documentation/web-api/reference/#/operations/add-tracks-to-playlist).)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The user's [Spotify user ID](/documentation/web-api/#spotify-uris-and-ids)."
+     },
+     "collaborative": {
+      "type": "boolean",
+      "description": "Defaults to `false`. If `true` the playlist will be collaborative. _**Note**: to create a collaborative playlist you must also set `public` to `false`. To create collaborative playlists you must have granted `playlist-modify-private` and `playlist-modify-public` [scopes](/documentation/general/guides/authorization-guide/#list-of-scopes)._"
+     },
+     "description": {
+      "type": "string",
+      "description": "value for playlist description as displayed in Spotify Clients and in the Web API."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name for the new playlist, for example `\"Your Coolest Playlist\"`. This name does not need to be unique; a user may have several playlists with the same name."
+     },
+     "public": {
+      "type": "boolean",
+      "description": "Defaults to `true`. If `true` the playlist will be public, if `false` it will be private. To be able to create private playlists, the user must have granted the `playlist-modify-private` [scope](/documentation/general/guides/authorization-guide/#list-of-scopes)"
+     }
+    },
+    "required": [
+     "name",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.spotify.com/users/{user_id}/playlists",
+    "path": [
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "collaborative",
+     "description",
+     "name",
+     "public"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.follow_artists_users",
+   "name": "Follow artists or users",
+   "description": "Add the current user as a follower of one or more artists or other Spotify users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The ID type.",
+      "enum": [
+       "artist",
+       "user"
+      ]
+     },
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the artist or user [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `{ids:[\"74ASZWbe4lXaubB36ztrGX\", \"08td7MxkoHQkXnWAYD8d6Q\"]}`. A maximum of 50 IDs can be sent in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/following",
+    "path": [],
+    "query": [
+     "type",
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.follow_playlist",
+   "name": "Follow playlist",
+   "description": "Add the current user as a follower of a playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "public": {
+      "type": "boolean",
+      "description": "Defaults to `true`. If `true` the playlist will be included in user's public playlists, if `false` it will remain private."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/followers",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "public"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_categories_playlists",
+   "name": "Get category's playlists",
+   "description": "Get a list of Spotify playlists tagged with a particular category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category_id": {
+      "type": "string",
+      "description": "The [Spotify category ID](/documentation/web-api/#spotify-uris-and-ids) for the category."
+     },
+     "country": {
+      "type": "string",
+      "description": "A country: an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure that the category exists for a particular country."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "category_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/browse/categories/{category_id}/playlists",
+    "path": [
+     "category_id"
+    ],
+    "query": [
+     "country",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_category",
+   "name": "Get single browse category",
+   "description": "Get a single category used to tag items in Spotify (on, for example, the Spotify player\u2019s \u201cBrowse\u201d tab).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category_id": {
+      "type": "string",
+      "description": "The [Spotify category ID](/documentation/web-api/#spotify-uris-and-ids) for the category."
+     },
+     "country": {
+      "type": "string",
+      "description": "A country: an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter to ensure that the category exists for a particular country."
+     },
+     "locale": {
+      "type": "string",
+      "description": "The desired language, consisting of an [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore. For example: `es_MX`, meaning &quot;Spanish (Mexico)&quot;. Provide this parameter if you want the category strings returned in a particular language. _**Note**: if `locale` is no"
+     }
+    },
+    "required": [
+     "category_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/browse/categories/{category_id}",
+    "path": [
+     "category_id"
+    ],
+    "query": [
+     "country",
+     "locale"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_chapter",
+   "name": "Get a chapter",
+   "description": "Get Spotify catalog information for a single chapter. **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the chapter."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/chapters/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_list_of_current_users_playlists",
+   "name": "Get current user's playlists",
+   "description": "Get a list of the playlists owned or followed by the current Spotify user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "'The index of the first playlist to return. Default: 0 (the first object). Maximum offset: 100.000\\. Use with `limit` to get the next set of playlists.'"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/playlists",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_show",
+   "name": "Get show",
+   "description": "Get Spotify catalog information for a single show identified by its unique Spotify ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the show."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/shows/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_shows_episodes",
+   "name": "Get show episodes",
+   "description": "Get Spotify catalog information about an show\u2019s episodes. Optional parameters can be used to limit the number of episodes returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the show."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/shows/{id}/episodes",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_a_users_available_devices",
+   "name": "Get available devices",
+   "description": "Get information about a user\u2019s available devices.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/player/devices",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_album",
+   "name": "Get album",
+   "description": "Get Spotify catalog information for a single album.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the album."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/albums/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_albums_tracks",
+   "name": "Get album tracks",
+   "description": "Get Spotify catalog information about an album\u2019s tracks. Optional parameters can be used to limit the number of tracks returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the album."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/albums/{id}/tracks",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_artist",
+   "name": "Get artist",
+   "description": "Get Spotify catalog information for a single artist identified by their unique Spotify ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the artist."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/artists/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_artists_albums",
+   "name": "Get artist's albums",
+   "description": "Get Spotify catalog information about an artist's albums.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the artist."
+     },
+     "include_groups": {
+      "type": "string",
+      "description": "A comma-separated list of keywords that will be used to filter the response. If not supplied, all album types will be returned. Valid values are:- `album`- `single`- `appears_on`- `compilation`For example: `include_groups=album,single`."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/artists/{id}/albums",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "include_groups",
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_artists_related_artists",
+   "name": "Get artist's related artists",
+   "description": "Get Spotify catalog information about artists similar to a given artist. Similarity is based on analysis of the Spotify community's [listening history](http://news.spotify.com/se/2010/02/03/related-artists/).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the artist."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/artists/{id}/related-artists",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_artists_top_tracks",
+   "name": "Get artist's top tracks",
+   "description": "Get Spotify catalog information about an artist's top tracks by country.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the artist."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/artists/{id}/top-tracks",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_audiobook",
+   "name": "Get an audiobook",
+   "description": "Get Spotify catalog information for a single audiobook. **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the audiobook."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audiobooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_an_episode",
+   "name": "Get episode",
+   "description": "Get Spotify catalog information for a single episode identified by its unique Spotify ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the episode."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/episodes/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_audio_analysis",
+   "name": "Get track's audio analysis",
+   "description": "Get a low-level audio analysis for a track in the Spotify catalog. The audio analysis describes the track\u2019s structure and musical content, including rhythm, pitch, and timbre.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the track."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audio-analysis/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_audio_features",
+   "name": "Get track's audio features",
+   "description": "Get audio feature information for a single track identified by its unique Spotify ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the track."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audio-features/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_audiobook_chapters",
+   "name": "Get audiobook chapters",
+   "description": "Get Spotify catalog information about an audiobook's chapters. **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the audiobook."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audiobooks/{id}/chapters",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_available_markets",
+   "name": "Get available markets",
+   "description": "Get the list of markets where Spotify is available.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/markets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_categories",
+   "name": "Get several browse categories",
+   "description": "Get a list of categories used to tag items in Spotify (on, for example, the Spotify player\u2019s \u201cBrowse\u201d tab).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "A country: an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want to narrow the list of returned categories to those relevant to a particular country. If omitted, the returned items will be globally relevant."
+     },
+     "locale": {
+      "type": "string",
+      "description": "The desired language, consisting of an [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code and an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore. For example: `es_MX`, meaning \"Spanish (Mexico)\". Provide this parameter if you want the category metadata returned in a particular language. _**Note**: if `locale` is not supplie"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/browse/categories",
+    "path": [],
+    "query": [
+     "country",
+     "locale",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_current_users_profile",
+   "name": "Get current user's profile",
+   "description": "Get detailed profile information about the current user (including the current user's username).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_featured_playlists",
+   "name": "Get featured playlists",
+   "description": "Get a list of Spotify featured playlists (shown, for example, on a Spotify player's 'Browse' tab).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "A country: an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries."
+     },
+     "locale": {
+      "type": "string",
+      "description": "The desired language, consisting of a lowercase [ISO 639-1 language code](http://en.wikipedia.org/wiki/ISO_639-1) and an uppercase [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2), joined by an underscore. For example: `es_MX`, meaning \"Spanish (Mexico)\". Provide this parameter if you want the results returned in a particular language (where available). _**Note**:"
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "A timestamp in [ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601): `yyyy-MM-ddTHH:mm:ss`. Use this parameter to specify the user's local time to get results tailored for that specific date and time in the day. If not provided, the response defaults to the current UTC time. Example: \"2014-10-23T09:00:00\" for a user whose local time is 9AM. If there were no featured playlists (or there is no d"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/browse/featured-playlists",
+    "path": [],
+    "query": [
+     "country",
+     "locale",
+     "timestamp",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_followed",
+   "name": "Get followed artists",
+   "description": "Get the current user's followed artists.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The ID type: currently only `artist` is supported.",
+      "enum": [
+       "artist"
+      ]
+     },
+     "after": {
+      "type": "string",
+      "description": "The last artist ID retrieved from the previous request."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20\\. Minimum: 1\\. Maximum: 50\\."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/following",
+    "path": [],
+    "query": [
+     "type",
+     "after",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_information_about_the_users_current_playback",
+   "name": "Get playback state",
+   "description": "Get information about the user\u2019s current playback state, including track or episode, progress, and active device.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "additional_types": {
+      "type": "string",
+      "description": "A comma-separated list of item types that your client supports besides the default `track` type. Valid types are: `track` and `episode`. _**Note**: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future._ In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/player",
+    "path": [],
+    "query": [
+     "market",
+     "additional_types"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_list_users_playlists",
+   "name": "Get user's playlists",
+   "description": "Get a list of the playlists owned or followed by a Spotify user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The user's [Spotify user ID](/documentation/web-api/#spotify-uris-and-ids)."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first playlist to return. Default: 0 (the first object). Maximum offset: 100.000\\. Use with `limit` to get the next set of playlists."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/users/{user_id}/playlists",
+    "path": [
+     "user_id"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_multiple_albums",
+   "name": "Get several albums",
+   "description": "Get Spotify catalog information for multiple albums identified by their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the albums. Maximum: 20 IDs."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/albums",
+    "path": [],
+    "query": [
+     "ids",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_multiple_artists",
+   "name": "Get several artists",
+   "description": "Get Spotify catalog information for several artists based on their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the artists. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/artists",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_multiple_audiobooks",
+   "name": "Get several audiobooks",
+   "description": "Get Spotify catalog information for several audiobooks identified by their Spotify IDs. **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ`. Maximum: 50 IDs."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audiobooks",
+    "path": [],
+    "query": [
+     "ids",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_multiple_episodes",
+   "name": "Get several episodes",
+   "description": "Get Spotify catalog information for several episodes based on their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the episodes. Maximum: 50 IDs."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/episodes",
+    "path": [],
+    "query": [
+     "ids",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_multiple_shows",
+   "name": "Get several shows",
+   "description": "Get Spotify catalog information for several shows based on their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the shows. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/shows",
+    "path": [],
+    "query": [
+     "market",
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_new_releases",
+   "name": "Get new releases",
+   "description": "Get a list of new album releases featured in Spotify (shown, for example, on a Spotify player\u2019s \u201cBrowse\u201d tab).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "A country: an [ISO 3166-1 alpha-2 country code](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Provide this parameter if you want the list of returned items to be relevant to a particular country. If omitted, the returned items will be relevant to all countries."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/browse/new-releases",
+    "path": [],
+    "query": [
+     "country",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_playlist",
+   "name": "Get playlist",
+   "description": "Get a playlist owned by a Spotify user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Filters for the query: a comma-separated list of the fields to return. If omitted, all fields are returned. For example, to get just the playlist''s description and URI: `fields=description,uri`. A dot separator can be used to specify non-reoccurring fields, while parentheses can be used to specify reoccurring fields within objects. For example, to get just the added date and user ID of the adder:"
+     },
+     "additional_types": {
+      "type": "string",
+      "description": "A comma-separated list of item types that your client supports besides the default `track` type. Valid types are: `track` and `episode`. _**Note**: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future._ In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by"
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/playlists/{playlist_id}",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [
+     "market",
+     "fields",
+     "additional_types"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_playlist_cover",
+   "name": "Get playlist cover image",
+   "description": "Get the current image associated with a specific playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/images",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_playlists_tracks",
+   "name": "Get playlist items",
+   "description": "Get full details of the items of a playlist owned by a Spotify user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Filters for the query: a comma-separated list of the fields to return. If omitted, all fields are returned. For example, to get just the total number of items and the request limit:`fields=total,limit`A dot separator can be used to specify non-reoccurring fields, while parentheses can be used to specify reoccurring fields within objects. For example, to get just the added date and user ID of the a"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     },
+     "additional_types": {
+      "type": "string",
+      "description": "A comma-separated list of item types that your client supports besides the default `track` type. Valid types are: `track` and `episode`. _**Note**: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future._ In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by"
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [
+     "market",
+     "fields",
+     "limit",
+     "offset",
+     "additional_types"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_queue",
+   "name": "Get the user's queue",
+   "description": "Get the list of objects that make up the user's queue.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/player/queue",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_recently_played",
+   "name": "Get recently played tracks",
+   "description": "Get tracks from the current user's recently played tracks. _**Note**: Currently doesn't support podcast episodes._",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "after": {
+      "type": "integer",
+      "description": "A Unix timestamp in milliseconds. Returns all items after (but not including) this cursor position. If `after` is specified, `before` must not be specified."
+     },
+     "before": {
+      "type": "integer",
+      "description": "A Unix timestamp in milliseconds. Returns all items before (but not including) this cursor position. If `before` is specified, `after` must not be specified."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/player/recently-played",
+    "path": [],
+    "query": [
+     "limit",
+     "after",
+     "before"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_recommendation_genres",
+   "name": "Get available genre seeds",
+   "description": "Retrieve a list of available genres seed parameter values for [recommendations](/documentation/web-api/reference/#/operations/get-recommendations).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/recommendations/available-genre-seeds",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_recommendations",
+   "name": "Get recommendations",
+   "description": "Recommendations are generated based on the available information for a given seed entity and matched against similar artists and tracks. If there is sufficient information about the provided seeds, a list of tracks will be returned together with pool size details. For artists and tracks that are very new or obscure there might not be enough data to generate a list of tracks.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The target size of the list of recommended tracks. For seeds with unusually small pools or when highly restrictive filtering is applied, it may be impossible to generate the requested number of recommended tracks. Debugging information for such cases is available in the response. Default: 20\\. Minimum: 1\\. Maximum: 100."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "seed_artists": {
+      "type": "string",
+      "description": "A comma separated list of [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for seed artists. Up to 5 seed values may be provided in any combination of `seed_artists`, `seed_tracks` and `seed_genres`."
+     },
+     "seed_genres": {
+      "type": "string",
+      "description": "A comma separated list of any genres in the set of [available genre seeds](#available-genre-seeds). Up to 5 seed values may be provided in any combination of `seed_artists`, `seed_tracks` and `seed_genres`."
+     },
+     "seed_tracks": {
+      "type": "string",
+      "description": "A comma separated list of [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for a seed track. Up to 5 seed values may be provided in any combination of `seed_artists`, `seed_tracks` and `seed_genres`."
+     },
+     "min_acousticness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_acousticness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_acousticness": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_danceability": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_danceability": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_danceability": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_duration_ms": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_duration_ms": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_duration_ms": {
+      "type": "integer",
+      "description": "Target duration of the track (ms)"
+     },
+     "min_energy": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_energy": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_energy": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_instrumentalness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_instrumentalness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_instrumentalness": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_key": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_key": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_key": {
+      "type": "integer",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_liveness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_liveness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_liveness": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_loudness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_loudness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_loudness": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_mode": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_mode": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_mode": {
+      "type": "integer",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_popularity": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_popularity": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_popularity": {
+      "type": "integer",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_speechiness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_speechiness": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_speechiness": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_tempo": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_tempo": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_tempo": {
+      "type": "number",
+      "description": "Target tempo (BPM)"
+     },
+     "min_time_signature": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_time_signature": {
+      "type": "integer",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_time_signature": {
+      "type": "integer",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     },
+     "min_valence": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard floor on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `min_tempo=140` would restrict results to only those tracks with a tempo of greater than 140 beats per minute."
+     },
+     "max_valence": {
+      "type": "number",
+      "description": "For each tunable track attribute, a hard ceiling on the selected track attribute\u2019s value can be provided. See tunable track attributes below for the list of available options. For example, `max_instrumentalness=0.35` would filter out most tracks that are likely to be instrumental."
+     },
+     "target_valence": {
+      "type": "number",
+      "description": "For each of the tunable track attributes (below) a target value may be provided. Tracks with the attribute values nearest to the target values will be preferred. For example, you might request `target_energy=0.6` and `target_danceability=0.8`. All target values will be weighed equally in ranking results."
+     }
+    },
+    "required": [
+     "seed_artists",
+     "seed_genres",
+     "seed_tracks"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/recommendations",
+    "path": [],
+    "query": [
+     "limit",
+     "market",
+     "seed_artists",
+     "seed_genres",
+     "seed_tracks",
+     "min_acousticness",
+     "max_acousticness",
+     "target_acousticness",
+     "min_danceability",
+     "max_danceability",
+     "target_danceability",
+     "min_duration_ms",
+     "max_duration_ms",
+     "target_duration_ms",
+     "min_energy",
+     "max_energy",
+     "target_energy",
+     "min_instrumentalness",
+     "max_instrumentalness",
+     "target_instrumentalness",
+     "min_key",
+     "max_key",
+     "target_key",
+     "min_liveness",
+     "max_liveness",
+     "target_liveness",
+     "min_loudness",
+     "max_loudness",
+     "target_loudness",
+     "min_mode",
+     "max_mode",
+     "target_mode",
+     "min_popularity",
+     "max_popularity",
+     "target_popularity",
+     "min_speechiness",
+     "max_speechiness",
+     "target_speechiness",
+     "min_tempo",
+     "max_tempo",
+     "target_tempo",
+     "min_time_signature",
+     "max_time_signature",
+     "target_time_signature",
+     "min_valence",
+     "max_valence",
+     "target_valence"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_several_audio_features",
+   "name": "Get tracks' audio features",
+   "description": "Get audio features for multiple tracks based on their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the tracks. Maximum: 100 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/audio-features",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_several_chapters",
+   "name": "Get several chapters",
+   "description": "Get Spotify catalog information for several chapters identified by their Spotify IDs. **Note: Chapters are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=0IsXVP0JmcB2adSE338GkK,3ZXb8FKZGU0EHALYX6uCzU`. Maximum: 50 IDs."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/chapters",
+    "path": [],
+    "query": [
+     "ids",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_several_tracks",
+   "name": "Get several tracks",
+   "description": "Get Spotify catalog information for multiple tracks based on their Spotify IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=4iV5W9uYEdYUVa79Axb7Rh,1301WleyT98MSxVHPZCA6M`. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/tracks",
+    "path": [],
+    "query": [
+     "market",
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_the_users_currently_playing_track",
+   "name": "Get currently playing track",
+   "description": "Get the object currently being played on the user's Spotify account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "additional_types": {
+      "type": "string",
+      "description": "A comma-separated list of item types that your client supports besides the default `track` type. Valid types are: `track` and `episode`. _**Note**: This parameter was introduced to allow existing clients to maintain their current behaviour and might be deprecated in the future._ In addition to providing this parameter, make sure that your client properly handles cases of new types in the future by"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/player/currently-playing",
+    "path": [],
+    "query": [
+     "market",
+     "additional_types"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_track",
+   "name": "Get track",
+   "description": "Get Spotify catalog information for a single track identified by its unique Spotify ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) for the track."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/tracks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_profile",
+   "name": "Get user's profile",
+   "description": "Get public profile information about a Spotify user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The user's [Spotify user ID](/documentation/web-api/#spotify-uris-and-ids)."
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/users/{user_id}",
+    "path": [
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_saved_albums",
+   "name": "Get user's saved albums",
+   "description": "Get a list of the albums saved in the current Spotify user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/albums",
+    "path": [],
+    "query": [
+     "limit",
+     "offset",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_saved_audiobooks",
+   "name": "Get user's saved audiobooks",
+   "description": "Get a list of the audiobooks saved in the current Spotify user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/audiobooks",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_saved_episodes",
+   "name": "Get user's saved episodes",
+   "description": "Get a list of the episodes saved in the current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/episodes",
+    "path": [],
+    "query": [
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_saved_shows",
+   "name": "Get user's saved shows",
+   "description": "Get a list of shows saved in the current Spotify user's library. Optional parameters can be used to limit the number of shows returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/shows",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_saved_tracks",
+   "name": "Get user's saved tracks",
+   "description": "Get a list of the songs saved in the current Spotify user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/tracks",
+    "path": [],
+    "query": [
+     "market",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.get_users_top_artists_and_tracks",
+   "name": "Get user's top items",
+   "description": "Get the current user's top artists or tracks based on calculated affinity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The type of entity to return. Valid values: `artists` or `tracks`",
+      "enum": [
+       "artists",
+       "tracks"
+      ]
+     },
+     "time_range": {
+      "type": "string",
+      "description": "Over what time frame the affinities are computed. Valid values: `long_term` (calculated from several years of data and including all new data as it becomes available), `medium_term` (approximately last 6 months), `short_term` (approximately last 4 weeks). Default: `medium_term`"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of items to return. Default: 20. Minimum: 1. Maximum: 50."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first item to return. Default: 0 (the first item). Use with limit to get the next set of items."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/me/top/{type}",
+    "path": [
+     "type"
+    ],
+    "query": [
+     "time_range",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.pause_a_users_playback",
+   "name": "Pause playback",
+   "description": "Pause playback on the user's account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/pause",
+    "path": [],
+    "query": [
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_albums_user",
+   "name": "Remove users' saved albums",
+   "description": "Remove one or more albums from the current user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `[\"4iV5W9uYEdYUVa79Axb7Rh\", \"1301WleyT98MSxVHPZCA6M\"]`A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/albums",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_audiobooks_user",
+   "name": "Remove user's saved audiobooks",
+   "description": "Remove one or more audiobooks from the Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ`. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/audiobooks",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_episodes_user",
+   "name": "Remove user's saved episodes",
+   "description": "Remove one or more episodes from the current user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/episodes",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_shows_user",
+   "name": "Remove user's saved shows",
+   "description": "Delete one or more shows from current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the shows. Maximum: 50 IDs."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/shows",
+    "path": [],
+    "query": [
+     "ids",
+     "market"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_tracks_playlist",
+   "name": "Remove playlist items",
+   "description": "Remove one or more items from a user's playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "snapshot_id": {
+      "type": "string",
+      "description": "The playlist's snapshot ID against which you want to make the changes. The API will validate that the specified items exist and in the specified positions and make the changes, even if more recent changes have been made to the playlist."
+     },
+     "tracks": {
+      "type": "array",
+      "description": "An array of objects containing [Spotify URIs](https://developer.spotify.com/documentation/web-api/#spotify-uris-and-ids) of the tracks or episodes to remove. For example: `{ \"tracks\": [{ \"uri\": \"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\" },{ \"uri\": \"spotify:track:1301WleyT98MSxVHPZCA6M\" }] }`. A maximum of 100 objects can be sent at once."
+     }
+    },
+    "required": [
+     "playlist_id",
+     "tracks"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "snapshot_id",
+     "tracks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.remove_tracks_user",
+   "name": "Remove user's saved tracks",
+   "description": "Remove one or more tracks from the current user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `[\"4iV5W9uYEdYUVa79Axb7Rh\", \"1301WleyT98MSxVHPZCA6M\"]`A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/tracks",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.reorder_or_replace_playlists_tracks",
+   "name": "Update playlist items",
+   "description": "Either reorder or replace items in a playlist depending on the request's parameters. To reorder items, include `range_start`, `insert_before`, `range_length` and `snapshot_id` in the request's body. To replace items, include `uris` as either a query parameter or in the request's body. Replacing items in a playlist will overwrite its existing items. This operation can be used for replacing or clear",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     },
+     "uris": {
+      "type": "array",
+      "description": ""
+     },
+     "insert_before": {
+      "type": "integer",
+      "description": "The position where the items should be inserted.To reorder the items to the end of the playlist, simply set _insert_before_ to the position after the last item.Examples:To reorder the first item to the last position in a playlist with 10 items, set _range_start_ to 0, and _insert_before_ to 10.To reorder the last item in a playlist with 10 items to the start of the playlist, set _range_start_ to 9"
+     },
+     "range_length": {
+      "type": "integer",
+      "description": "The amount of items to be reordered. Defaults to 1 if not set.The range of items to be reordered begins from the _range_start_ position, and includes the _range_length_ subsequent items.Example:To move the items at index 9-10 to the start of the playlist, _range_start_ is set to 9, and _range_length_ is set to 2."
+     },
+     "range_start": {
+      "type": "integer",
+      "description": "The position of the first item to be reordered."
+     },
+     "snapshot_id": {
+      "type": "string",
+      "description": "The playlist's snapshot ID against which you want to make the changes."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/tracks",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [
+     "uris"
+    ],
+    "header": [],
+    "body": [
+     "insert_before",
+     "range_length",
+     "range_start",
+     "snapshot_id",
+     "uris"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.save_albums_user",
+   "name": "Save albums for current user",
+   "description": "Save one or more albums to the current user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `[\"4iV5W9uYEdYUVa79Axb7Rh\", \"1301WleyT98MSxVHPZCA6M\"]`A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/albums",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.save_audiobooks_user",
+   "name": "Save audiobooks for current user",
+   "description": "Save one or more audiobooks to the current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `ids=18yVqkdbdRvS24c0Ilj2ci,1HGw3J3NxZO1TP1BTtVhpZ`. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/audiobooks",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.save_episodes_user",
+   "name": "Save episodes for current user",
+   "description": "Save one or more episodes to the current user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids",
+     "uris"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/episodes",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.save_shows_user",
+   "name": "Save shows for current user",
+   "description": "Save one or more shows to current Spotify user's library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "string",
+      "description": "A comma-separated list of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids) for the shows. Maximum: 50 IDs."
+     }
+    },
+    "required": [
+     "ids"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/shows",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.save_tracks_user",
+   "name": "Save tracks for current user",
+   "description": "Save one or more tracks to the current user's 'Your Music' library.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `[\"4iV5W9uYEdYUVa79Axb7Rh\", \"1301WleyT98MSxVHPZCA6M\"]`A maximum of 50 items can be specified in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids",
+     "uris"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/tracks",
+    "path": [],
+    "query": [
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.search",
+   "name": "Search for item",
+   "description": "Get Spotify catalog information about albums, artists, playlists, tracks, shows, episodes or audiobooks that match a keyword string. **Note: Audiobooks are only available for the US, UK, Ireland, New Zealand and Australia markets.**",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "Your search query. You can narrow down your search using field filters. The available filters are `album`, `artist`, `track`, `year`, `upc`, `tag:hipster`, `tag:new`, `isrc`, and `genre`. Each field filter only applies to certain result types. The `artist` and `year` filters can be used while searching albums, artists and tracks. You can filter on a single `year` or a range (e.g. 1955-1960). The `"
+     },
+     "type": {
+      "type": "array",
+      "description": "A comma-separated list of item types to search across. Search results include hits from all the specified item types. For example: `q=abacab&type=album,track` returns both albums and tracks matching \"abacab\"."
+     },
+     "market": {
+      "type": "string",
+      "description": "An [ISO 3166-1 alpha-2 country code](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). If a country code is specified, only content that is available in that market will be returned. If a valid user access token is specified in the request header, the country associated with the user account will take priority over this parameter. _**Note**: If neither market or user country are provided, the con"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return in each item type."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The index of the first result to return. Use with limit to get the next page of search results."
+     },
+     "include_external": {
+      "type": "string",
+      "description": "If `include_external=audio` is specified it signals that the client can play externally hosted audio content, and marks the content as playable in the response. By default externally hosted audio content is marked as unplayable in the response.",
+      "enum": [
+       "audio"
+      ]
+     }
+    },
+    "required": [
+     "q",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.spotify.com/search",
+    "path": [],
+    "query": [
+     "q",
+     "type",
+     "market",
+     "limit",
+     "offset",
+     "include_external"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.seek_to_position_in_currently_playing_track",
+   "name": "Seek to position",
+   "description": "Seeks to the given position in the user\u2019s currently playing track.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "position_ms": {
+      "type": "integer",
+      "description": "The position in milliseconds to seek to. Must be a positive number. Passing in a position that is greater than the length of the track will cause the player to start playing the next song."
+     },
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": [
+     "position_ms"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/seek",
+    "path": [],
+    "query": [
+     "position_ms",
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.set_repeat_mode_on_users_playback",
+   "name": "Set repeat mode",
+   "description": "Set the repeat mode for the user's playback. Options are repeat-track, repeat-context, and off.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "string",
+      "description": "**track**, **context** or **off**. **track** will repeat the current track. **context** will repeat the current context. **off** will turn repeat off."
+     },
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/repeat",
+    "path": [],
+    "query": [
+     "state",
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.set_volume_for_users_playback",
+   "name": "Set playback volume",
+   "description": "Set the volume for the user\u2019s current playback device.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "volume_percent": {
+      "type": "integer",
+      "description": "The volume to set. Must be a value from 0 to 100 inclusive."
+     },
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": [
+     "volume_percent"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/volume",
+    "path": [],
+    "query": [
+     "volume_percent",
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.skip_users_playback_to_next_track",
+   "name": "Skip to next",
+   "description": "Skips to next track in the user\u2019s queue.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.spotify.com/me/player/next",
+    "path": [],
+    "query": [
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.skip_users_playback_to_previous_track",
+   "name": "Skip to previous",
+   "description": "Skips to previous track in the user\u2019s queue.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.spotify.com/me/player/previous",
+    "path": [],
+    "query": [
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.start_a_users_playback",
+   "name": "Start resume playback",
+   "description": "Start a new context or resume current playback on the user's active device.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     },
+     "context_uri": {
+      "type": "string",
+      "description": "Optional. Spotify URI of the context to play. Valid contexts are albums, artists & playlists. `{context_uri:\"spotify:album:1Je1IMUlBXcx1Fz0WE7oPT\"}`"
+     },
+     "offset": {
+      "type": "object",
+      "description": "Optional. Indicates from where in the context playback should start. Only available when context_uri corresponds to an album or playlist object \"position\" is zero based and can\u2019t be negative. Example: `\"offset\": {\"position\": 5}` \"uri\" is a string representing the uri of the item to start at. Example: `\"offset\": {\"uri\": \"spotify:track:1301WleyT98MSxVHPZCA6M\"}`"
+     },
+     "position_ms": {
+      "type": "integer",
+      "description": "integer"
+     },
+     "uris": {
+      "type": "array",
+      "description": "Optional. A JSON array of the Spotify track URIs to play. For example: `{\"uris\": [\"spotify:track:4iV5W9uYEdYUVa79Axb7Rh\", \"spotify:track:1301WleyT98MSxVHPZCA6M\"]}`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/play",
+    "path": [],
+    "query": [
+     "device_id"
+    ],
+    "header": [],
+    "body": [
+     "context_uri",
+     "offset",
+     "position_ms",
+     "uris"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.toggle_shuffle_for_users_playback",
+   "name": "Toggle playback shuffle",
+   "description": "Toggle shuffle on or off for user\u2019s playback.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "state": {
+      "type": "boolean",
+      "description": "**true** : Shuffle user's playback. **false** : Do not shuffle user's playback."
+     },
+     "device_id": {
+      "type": "string",
+      "description": "The id of the device this command is targeting. If not supplied, the user's currently active device is the target."
+     }
+    },
+    "required": [
+     "state"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player/shuffle",
+    "path": [],
+    "query": [
+     "state",
+     "device_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.transfer_a_users_playback",
+   "name": "Transfer playback",
+   "description": "Transfer playback to a new device and determine if it should start playing.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device_ids": {
+      "type": "array",
+      "description": "A JSON array containing the ID of the device on which playback should be started/transferred.For example:`{device_ids:[\"74ASZWbe4lXaubB36ztrGX\"]}`_**Note**: Although an array is accepted, only a single device_id is currently supported. Supplying more than one will return `400 Bad Request`_"
+     },
+     "play": {
+      "type": "boolean",
+      "description": "**true**: ensure playback happens on new device.**false** or not provided: keep the current playback state."
+     }
+    },
+    "required": [
+     "device_ids"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/me/player",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "device_ids",
+     "play"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.unfollow_artists_users",
+   "name": "Unfollow artists or users",
+   "description": "Remove the current user as a follower of one or more artists or other Spotify users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "The ID type: either `artist` or `user`.",
+      "enum": [
+       "artist",
+       "user"
+      ]
+     },
+     "ids": {
+      "type": "array",
+      "description": "A JSON array of the artist or user [Spotify IDs](/documentation/web-api/#spotify-uris-and-ids). For example: `{ids:[\"74ASZWbe4lXaubB36ztrGX\", \"08td7MxkoHQkXnWAYD8d6Q\"]}`. A maximum of 50 IDs can be sent in one request. _**Note**: if the `ids` parameter is present in the query string, any IDs listed here in the body will be ignored._"
+     }
+    },
+    "required": [
+     "ids",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/me/following",
+    "path": [],
+    "query": [
+     "type",
+     "ids"
+    ],
+    "header": [],
+    "body": [
+     "ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.unfollow_playlist",
+   "name": "Unfollow playlist",
+   "description": "Remove the current user as a follower of a playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/followers",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "spotify.upload_custom_playlist_cover",
+   "name": "Add custom playlist cover image",
+   "description": "Replace the image used to represent a specific playlist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "playlist_id": {
+      "type": "string",
+      "description": "The [Spotify ID](/documentation/web-api/#spotify-uris-and-ids) of the playlist."
+     }
+    },
+    "required": [
+     "playlist_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.spotify.com/playlists/{playlist_id}/images",
+    "path": [
+     "playlist_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

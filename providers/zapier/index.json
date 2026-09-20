@@ -1,0 +1,104 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "zapier",
+ "source": "https://api.apis.guru/v2/specs/zapier.com/nla/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "zapier.check",
+   "name": "Check",
+   "description": "Test that the API and auth are working.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.zapier.com/api/v1/check/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "zapier.execute_app_action_endpoint",
+   "name": "Execute app action endpoint",
+   "description": "Give us a plain english description of exact action you want to do. There should be dynamically generated documentation for this endpoint for each action that is exposed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "exposed_app_action_id": {
+      "type": "string",
+      "description": ""
+     },
+     "instructions": {
+      "type": "string",
+      "description": "Plain english instructions. Provide as much detail as possible."
+     },
+     "preview_only": {
+      "type": "boolean",
+      "description": "If true, we will not execute the action, but will return the params of the preview."
+     }
+    },
+    "required": [
+     "exposed_app_action_id",
+     "instructions"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.zapier.com/api/v1/exposed/{exposed_app_action_id}/execute/",
+    "path": [
+     "exposed_app_action_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "instructions",
+     "preview_only"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "zapier.get_configuration_link",
+   "name": "Get configuration link",
+   "description": "If the user wants to execute actions that are not exposed, they can go here to configure and expose more.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.zapier.com/api/v1/configuration-link/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "zapier.list_exposed_actions",
+   "name": "List exposed actions",
+   "description": "List all the currently exposed actions for the given account.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.zapier.com/api/v1/exposed/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

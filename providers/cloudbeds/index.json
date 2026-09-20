@@ -1,0 +1,6204 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "cloudbeds",
+ "source": "https://raw.githubusercontent.com/cloudbeds/openapi-specs/main/src/pms-v1.3-openapi.yaml",
+ "operations": [
+  {
+   "slug": "cloudbeds.delete_deleteAdjustment",
+   "name": "Delete adjustment",
+   "description": "Voids the AdjustmentID transaction on the specified reservationID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "adjustmentID": {
+      "type": "string",
+      "description": "Adjustment identifier"
+     }
+    },
+    "required": [
+     "adjustmentID",
+     "reservationID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudbeds.com/deleteAdjustment",
+    "path": [],
+    "query": [
+     "propertyID",
+     "reservationID",
+     "adjustmentID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.delete_deleteGuestNote",
+   "name": "Delete guest note",
+   "description": "Archives an existing guest note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest ID"
+     },
+     "noteID": {
+      "type": "string",
+      "description": "Note ID"
+     }
+    },
+    "required": [
+     "guestID",
+     "noteID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudbeds.com/deleteGuestNote",
+    "path": [],
+    "query": [
+     "propertyID",
+     "guestID",
+     "noteID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.delete_deleteReservationNote",
+   "name": "Delete reservation note",
+   "description": "Archives an existing reservation note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier"
+     },
+     "reservationNoteID": {
+      "type": "string",
+      "description": "Reservation Note ID"
+     }
+    },
+    "required": [
+     "reservationID",
+     "reservationNoteID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudbeds.com/deleteReservationNote",
+    "path": [],
+    "query": [
+     "propertyID",
+     "reservationID",
+     "reservationNoteID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.delete_deleteWebhook",
+   "name": "Delete webhook",
+   "description": "Remove subscription for webhook. Read the [Webhooks guide](https://integrations.cloudbeds.com/hc/en-us/articles/360007612553-Webhooks) to see available objects, actions, payload info and more. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "subscriptionID": {
+      "type": "string",
+      "description": "Subscription ID"
+     }
+    },
+    "required": [
+     "subscriptionID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudbeds.com/deleteWebhook",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "subscriptionID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getAllotmentBlocks",
+   "name": "Get allotment blocks",
+   "description": "Retrieve allotment blocks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID (optional, by default all authorized properties will be included)"
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment block code"
+     },
+     "allotmentBlockName": {
+      "type": "string",
+      "description": "Allotment block name"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "A group profile code"
+     },
+     "groupProfileID": {
+      "type": "string",
+      "description": "GPS (Group Profile Service) external profile ID. Returns all allotment blocks linked to this GPS profile."
+     },
+     "eventCode": {
+      "type": "string",
+      "description": "An event code"
+     },
+     "allotmentBlockStatus": {
+      "type": "string",
+      "description": "Allotment block status(es)",
+      "enum": [
+       "definite",
+       "tentative",
+       "lead",
+       "cancelled"
+      ]
+     },
+     "allotmentBlockType": {
+      "type": "string",
+      "description": "The type of allotment block",
+      "enum": [
+       "aggregate",
+       "allotment"
+      ]
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "Filters allotment blocks with the supplied Room Type ID."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Number of allotment blocks to return per page (min: 1, max: 100)"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Which page in the results to access"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Interval start date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Interval end date"
+     },
+     "forUpdate": {
+      "type": "boolean",
+      "description": "If false (default) this will show the effective availability on each date. If true, will read raw availability from the allotment intervals."
+     },
+     "includeResources": {
+      "type": "boolean",
+      "description": "When true, each block in the response will include a resources[] array with associated space resource quotes. Requires the spaces-allotment-blocks feature flag to be enabled for the property; when the flag is off, resources[] will be empty even if the param is true."
+     }
+    },
+    "required": [
+     "propertyID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getAllotmentBlocks",
+    "path": [],
+    "query": [
+     "propertyID",
+     "allotmentBlockCode",
+     "allotmentBlockName",
+     "groupCode",
+     "groupProfileID",
+     "eventCode",
+     "allotmentBlockStatus",
+     "allotmentBlockType",
+     "roomTypeID",
+     "pageSize",
+     "pageNumber",
+     "startDate",
+     "endDate",
+     "forUpdate",
+     "includeResources"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getAppPropertySettings",
+   "name": "Get app property settings",
+   "description": "Returns the app property settings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": [
+     "propertyID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getAppPropertySettings",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getAppSettings",
+   "name": "Get app settings",
+   "description": "Get the current app settings for a property.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property identifier to be queried"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getAppSettings",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getAppState",
+   "name": "Get app state",
+   "description": "Get the current app integration state for a property. This call is only available for third-party integration partners, and not for property client IDs. Read the [Connecting/Disconnecting Apps guide](https://integrations.cloudbeds.com/hc/en-us/articles/360007613213-Connecting-Disconnecting-Apps) to further understand the use cases.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property identifier to be queried"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getAppState",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getAvailableRoomTypes",
+   "name": "Get available room types",
+   "description": "Returns a list of room types with availability considering the informed parameters ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "Property ID list, comma-separated, i.e. 37,345,89"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-In date."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-Out date."
+     },
+     "rooms": {
+      "type": "integer",
+      "description": "Number of rooms."
+     },
+     "adults": {
+      "type": "integer",
+      "description": "Number of adults."
+     },
+     "children": {
+      "type": "integer",
+      "description": "Number of children."
+     },
+     "promoCode": {
+      "type": "string",
+      "description": "Promotional code"
+     },
+     "detailedRates": {
+      "type": "boolean",
+      "description": "If detailed rates are expected"
+     },
+     "includeSharedRooms": {
+      "type": "boolean",
+      "description": "Include shared rooms in the result for multiple adults/children"
+     },
+     "sort": {
+      "type": "string",
+      "description": "Sort parameter",
+      "enum": [
+       "room_name",
+       "hotel_name",
+       "room_price",
+       "hotel_stars"
+      ]
+     },
+     "order": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "minRate": {
+      "type": "number",
+      "description": "Minimum daily rate. Used to filter results"
+     },
+     "maxRate": {
+      "type": "number",
+      "description": "Maximum daily rate. Used to filter results"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": [
+     "adults",
+     "children",
+     "endDate",
+     "rooms",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getAvailableRoomTypes",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "startDate",
+     "endDate",
+     "rooms",
+     "adults",
+     "children",
+     "promoCode",
+     "detailedRates",
+     "includeSharedRooms",
+     "sort",
+     "order",
+     "minRate",
+     "maxRate",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getCurrencySettings",
+   "name": "Get currency settings",
+   "description": "Get currency settings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getCurrencySettings",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getCustomFields",
+   "name": "Get custom fields",
+   "description": "Gets custom fields list \u00b9 data.displayed = \"booking\" - Display this field to guests on the booking engine. \u00b9 data.displayed = \"reservation\" - Add this field to the reservation folio for use by staff. \u00b9 data.displayed = \"card\" - Make this field available for registration cards.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "customFieldID": {
+      "type": "string",
+      "description": "Field identifier"
+     },
+     "shortcode": {
+      "type": "string",
+      "description": "Internal reference and is used for integration purposes such as custom links and the API"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getCustomFields",
+    "path": [],
+    "query": [
+     "propertyID",
+     "customFieldID",
+     "shortcode"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getDashboard",
+   "name": "Get dashboard",
+   "description": "Returns basic information about the current state of the hotel",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "date": {
+      "type": "string",
+      "description": "Return data for this date. Format: YYYY-MM-DD"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getDashboard",
+    "path": [],
+    "query": [
+     "propertyID",
+     "date"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getEmailSchedule",
+   "name": "Get email schedule",
+   "description": "Returns a list of all existing email scheduling. This call is only available for third-party integration partners, and not for property client IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getEmailSchedule",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getEmailTemplates",
+   "name": "Get email templates",
+   "description": "Returns a list of all existing email templates. This call is only available for third-party integration partners, and not for property client IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getEmailTemplates",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getFiles",
+   "name": "Get files",
+   "description": "Returns a list of files attached to a hotel or group profile, ordered by creation date",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "The group code, if the files are to be fetched from a group profile"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort By parameter",
+      "enum": [
+       "name",
+       "type",
+       "source",
+       "date"
+      ]
+     },
+     "orderBy": {
+      "type": "string",
+      "description": "Order response in DESCending or ASCending order, used together with sortBy",
+      "enum": [
+       "desc",
+       "asc"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter filess by name. Include only with names containing specified string"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getFiles",
+    "path": [],
+    "query": [
+     "propertyID",
+     "groupCode",
+     "sortBy",
+     "orderBy",
+     "name",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGroupNotes",
+   "name": "Get group notes",
+   "description": "Returns group notes",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group code"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Number of groups notes to return per page (min: 1, max: 100)"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Which page in the results to access"
+     }
+    },
+    "required": [
+     "groupCode",
+     "pageNumber",
+     "pageSize",
+     "propertyID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGroupNotes",
+    "path": [],
+    "query": [
+     "propertyID",
+     "groupCode",
+     "pageSize",
+     "pageNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGroups",
+   "name": "Get groups",
+   "description": "Returns the groups for a property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Unique ID for a group"
+     },
+     "groupProfileID": {
+      "type": "string",
+      "description": "GPS (Group Profile Service) external profile ID. Returns all MFD groups linked to this GPS profile."
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of group",
+      "enum": [
+       "group",
+       "company",
+       "travel_agent"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Group status",
+      "enum": [
+       "open",
+       "closed"
+      ]
+     },
+     "createdFrom": {
+      "type": "string",
+      "description": "Datetime (lower limit) to be queried"
+     },
+     "createdTo": {
+      "type": "string",
+      "description": "Datetime (upper limit) to be queried"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Number of groups to return per page (min: 1, max: 100)"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Which page in the results to access"
+     }
+    },
+    "required": [
+     "propertyID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGroups",
+    "path": [],
+    "query": [
+     "propertyID",
+     "groupCode",
+     "groupProfileID",
+     "type",
+     "status",
+     "createdFrom",
+     "createdTo",
+     "pageSize",
+     "pageNumber"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuest",
+   "name": "Get guest",
+   "description": "Returns information on a guest specified by the Reservation ID parameter",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier. Required if no guestID is provided."
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest ID. Required if no reservationID is provided."
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuest",
+    "path": [],
+    "query": [
+     "propertyID",
+     "reservationID",
+     "guestID",
+     "includeGuestRequirements"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuestList",
+   "name": "Get guest list",
+   "description": "Returns a list of guests, ordered by modification date ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "resultsFrom": {
+      "type": "string",
+      "description": "Inferior limit datetime, used to filter guests result, based on latest creation/modification date"
+     },
+     "resultsTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter guests result, based on latest creation/modification date"
+     },
+     "checkInFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range starting on this date"
+     },
+     "checkInTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range ending on this date"
+     },
+     "checkOutFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range starting on this date"
+     },
+     "checkOutTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range ending on this date"
+     },
+     "guestFirstName": {
+      "type": "string",
+      "description": "Filters guests result based on Guest First Name"
+     },
+     "guestLastName": {
+      "type": "string",
+      "description": "Filters guests result based on Guest Last Name"
+     },
+     "guestEmail": {
+      "type": "string",
+      "description": "Filters guests result based on Guest Email"
+     },
+     "guestPhone": {
+      "type": "string",
+      "description": "Filters guests result based on Guest Phone Number"
+     },
+     "guestCellPhone": {
+      "type": "string",
+      "description": "Filters guests result based on Guest Cell Phone Number"
+     },
+     "status": {
+      "type": "string",
+      "description": "Reservation status If more than one, send as comma-separated values. i.e. in_progress,confirmed",
+      "enum": [
+       "in_progress",
+       "confirmed",
+       "not_confirmed",
+       "canceled",
+       "checked_in",
+       "checked_out",
+       "no_show"
+      ]
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort By parameter",
+      "enum": [
+       "creation",
+       "modification"
+      ]
+     },
+     "includeGuestInfo": {
+      "type": "boolean",
+      "description": "If API response should return with more of Guest's information"
+     },
+     "excludeSecondaryGuests": {
+      "type": "boolean",
+      "description": "If true, response only returns main guest's"
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuestList",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "resultsFrom",
+     "resultsTo",
+     "checkInFrom",
+     "checkInTo",
+     "checkOutFrom",
+     "checkOutTo",
+     "guestFirstName",
+     "guestLastName",
+     "guestEmail",
+     "guestPhone",
+     "guestCellPhone",
+     "status",
+     "sortBy",
+     "includeGuestInfo",
+     "excludeSecondaryGuests",
+     "includeGuestRequirements",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuestNotes",
+   "name": "Get guest notes",
+   "description": "Retrieves a guest notes",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest ID"
+     }
+    },
+    "required": [
+     "guestID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuestNotes",
+    "path": [],
+    "query": [
+     "propertyID",
+     "guestID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuestsByFilter",
+   "name": "Get guests by filter",
+   "description": "Returns a list of guests matching the selected parameters ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "status": {
+      "type": "string",
+      "description": "Current guest status",
+      "enum": [
+       "cancelled",
+       "checked_out",
+       "in_house",
+       "not_checked_in"
+      ]
+     },
+     "reservationID": {
+      "type": "string",
+      "description": ""
+     },
+     "roomID": {
+      "type": "string",
+      "description": ""
+     },
+     "guestName": {
+      "type": "string",
+      "description": ""
+     },
+     "checkInFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range starting on this date"
+     },
+     "checkInTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range ending on this date"
+     },
+     "checkOutFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range starting on this date"
+     },
+     "checkOutTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range ending on this date"
+     }
+    },
+    "required": [
+     "status"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuestsByFilter",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "status",
+     "reservationID",
+     "roomID",
+     "guestName",
+     "checkInFrom",
+     "checkInTo",
+     "checkOutFrom",
+     "checkOutTo"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuestsByStatus",
+   "name": "Get guests by status",
+   "description": "Returns a list of guests in the current status (Not Checked In, In House, Checked Out or Cancelled), sorted by modification date. If no date range is passed, it returns all guests with the selected status. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "Guest status during the period",
+      "enum": [
+       "canceled",
+       "checked_out",
+       "in_house",
+       "not_checked_in"
+      ]
+     },
+     "propertyID": {
+      "type": "string",
+      "description": "ID for the properties to be queried (comma-separated, i.e. 37,345,89). It can be omitted if the API key is single-property, or to get results from all properties on an association."
+     },
+     "resultsFrom": {
+      "type": "string",
+      "description": "Used to filter guests result, and returns only the guests that were last modified starting on \"resultsFrom\" value"
+     },
+     "resultsTo": {
+      "type": "string",
+      "description": "Used to filter guests result, and returns only the guests that were last modified ending on \"resultsTo\" value"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": [
+     "status"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuestsByStatus",
+    "path": [],
+    "query": [
+     "status",
+     "propertyID",
+     "resultsFrom",
+     "resultsTo",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getGuestsModified",
+   "name": "Get guests modified",
+   "description": "Returns a list of guests based on their modification date. Note that when a guest checks in or checks out of a room, their record is modified at that time. If no date range is passed, only the records for the current day are returned. Also note that if the guest is assigned to multiple rooms, it will result in multiple records. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "inHouse": {
+      "type": "boolean",
+      "description": "When used, and true, will return guests only currently in-house. If the guest checks-out, it will not appear on the results."
+     },
+     "resultsFrom": {
+      "type": "string",
+      "description": "Inferior limit datetime, used to filter guests result, based on latest creation/modification date"
+     },
+     "resultsTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter guests result, based on latest creation/modification date"
+     },
+     "checkInFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range starting on this date"
+     },
+     "checkInTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-in date range ending on this date"
+     },
+     "checkOutFrom": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range starting on this date"
+     },
+     "checkOutTo": {
+      "type": "string",
+      "description": "Filters guests result to return only guests with check-out date range ending on this date"
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getGuestsModified",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "inHouse",
+     "resultsFrom",
+     "resultsTo",
+     "checkInFrom",
+     "checkInTo",
+     "checkOutFrom",
+     "checkOutTo",
+     "includeGuestRequirements",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getHotelDetails",
+   "name": "Get hotel details",
+   "description": "Returns the details of a specific hotel, identified by \"propertyID\"",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getHotelDetails",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getHotels",
+   "name": "Get hotels",
+   "description": "Returns a list of hotels, filtered by the parameters passed ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "propertyName": {
+      "type": "string",
+      "description": "Property name, or part of it"
+     },
+     "propertyCity": {
+      "type": "string",
+      "description": "Property city, or part of it"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getHotels",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "propertyName",
+     "propertyCity",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getHouseAccountList",
+   "name": "Get house account list",
+   "description": "Pulls list of active house accounts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getHouseAccountList",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getHousekeepers",
+   "name": "Get housekeepers",
+   "description": "Returns a list of housekeepers ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "ID for the properties to be queried (comma-separated, i.e. 37,345,89). It can be omitted if the API key is single-property, or to get results from all properties on an association."
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 1000"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getHousekeepers",
+    "path": [],
+    "query": [
+     "propertyID",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getHousekeepingStatus",
+   "name": "Get housekeeping status",
+   "description": "Returns the current date's housekeeping information The housekeeping status is calculated basing on the set of fields roomOccupied | roomCondition | roomBlocked | vacantPickup | roomBlocked | refusedService The available statuses are: - Vacant and Dirty (VD): false | \u201cdirty\u201d | false | false | false | false - Occupied and Dirty (OD): true | \u201cdirty\u201d | false | false | false | false - Vacant and Clean",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomTypeIDs": {
+      "type": "string",
+      "description": "Filter by room type ID. If more than one, send as comma-separated, i.e. 37,345,89"
+     },
+     "housekeeperIDs": {
+      "type": "string",
+      "description": "Use this parameter to filter by housekeeper. If you need to specify multiple housekeepers, send their IDs as a comma-separated list (e.g., 37, 345, 89). To retrieve unassigned housekeepers, use the value 0."
+     },
+     "roomCondition": {
+      "type": "string",
+      "description": "Condition of room",
+      "enum": [
+       "clean",
+       "dirty"
+      ]
+     },
+     "roomOccupied": {
+      "type": "boolean",
+      "description": "Flag for current room occupation status"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 5000"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getHousekeepingStatus",
+    "path": [],
+    "query": [
+     "propertyID",
+     "roomTypeIDs",
+     "housekeeperIDs",
+     "roomCondition",
+     "roomOccupied",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getItem",
+   "name": "Get item",
+   "description": "Gets the details for the one itemID 1 only if data.stockInventory = true 2 Taxes, fees and totals will show up only if an item has assigned tax or fee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "itemID": {
+      "type": "string",
+      "description": "Item identifier"
+     }
+    },
+    "required": [
+     "itemID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getItem",
+    "path": [],
+    "query": [
+     "propertyID",
+     "itemID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getItemCategories",
+   "name": "Get item categories",
+   "description": "Gets the item category list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getItemCategories",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getItems",
+   "name": "Get items",
+   "description": "Gets all the items and their prices the hotel has created in myfrontdesk 1 only if data.stockInventory = true 2 Taxes, fees and totals will show up only if an item has assigned tax or fee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "itemCategoryID": {
+      "type": "string",
+      "description": "Category identifier"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getItems",
+    "path": [],
+    "query": [
+     "propertyID",
+     "itemCategoryID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getPackageNames",
+   "name": "Get package names",
+   "description": "Return a list of billing package names for a property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getPackageNames",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getPackages",
+   "name": "Get packages",
+   "description": "This efficient method allows you to retrieve the collection of packages associated with a property. Packages here define a group of features that a property has the ability to utilize or access. By invoking this API method, developers will get a comprehensive view of the feature sets that are available and active for a specific property. The getPackages method boasts a seamless execution that offe",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getPackages",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getPaymentMethods",
+   "name": "Get payment methods",
+   "description": "Get a list of active methods for a property, or list of properties",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "ID for the property to be queried"
+     },
+     "lang": {
+      "type": "string",
+      "description": "Language that payment methods name should return (if available).",
+      "enum": [
+       "en",
+       "pt-br",
+       "es"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getPaymentMethods",
+    "path": [],
+    "query": [
+     "propertyID",
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getPaymentsCapabilities",
+   "name": "Get payments capabilities",
+   "description": "Lists the payment capabilities of a given property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "ID for the property to be queried"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getPaymentsCapabilities",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRate",
+   "name": "Get rate",
+   "description": "Returns the rate of the room type selected, based on the provided parameters",
+   "input": {
+    "type": "object",
+    "properties": {
+     "roomTypeID": {
+      "type": "string",
+      "description": "Room Type ID"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-in date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-out date"
+     },
+     "adults": {
+      "type": "integer",
+      "description": "Number of adults"
+     },
+     "children": {
+      "type": "integer",
+      "description": "Number of children"
+     },
+     "detailedRates": {
+      "type": "boolean",
+      "description": "If the rates need detailed information"
+     },
+     "promoCode": {
+      "type": "boolean",
+      "description": "Return information for one or more specific rate plans by promo code. This parameter is DEPRECATED and not recommended for usage. Use method getRatePlans instead"
+     }
+    },
+    "required": [
+     "endDate",
+     "roomTypeID",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRate",
+    "path": [],
+    "query": [
+     "roomTypeID",
+     "startDate",
+     "endDate",
+     "adults",
+     "children",
+     "detailedRates",
+     "promoCode"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRateJobs",
+   "name": "Get rate jobs",
+   "description": "Returns a list of Rate Jobs. Rate jobs are only returned within 7 days of creation, after 7 days they will not be returned in the response. Requests which do not provide a jobReferenceID will be filtered by the client ID of the request's token.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobReferenceID": {
+      "type": "string",
+      "description": "Filter Rate Jobs by jobReferenceID"
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter Rate Jobs based on status"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRateJobs",
+    "path": [],
+    "query": [
+     "jobReferenceID",
+     "status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRatePlans",
+   "name": "Get rate plans",
+   "description": "Returns the rates of the room type or promo code selected, based on the provided parameters. If no parameters are provided, then the method will return all publicly available rate plans. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     },
+     "rateIDs": {
+      "type": "string",
+      "description": "List of Rate IDs, comma-separated, i.e. 37,345,89"
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "List of Room Type IDs, comma-separated, i.e. 37,345,89"
+     },
+     "promoCode": {
+      "type": "string",
+      "description": "List of Promo Codes, comma-separated, i.e. 37,345,89"
+     },
+     "includePromoCode": {
+      "type": "boolean",
+      "description": "Include rate plans with promo code"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-in date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-out date"
+     },
+     "adults": {
+      "type": "integer",
+      "description": "Number of adults"
+     },
+     "children": {
+      "type": "integer",
+      "description": "Number of children"
+     },
+     "detailedRates": {
+      "type": "boolean",
+      "description": "If the rates need detailed information"
+     },
+     "includeSharedRooms": {
+      "type": "boolean",
+      "description": "Include shared rooms in the result for multiple adults/children"
+     }
+    },
+    "required": [
+     "endDate",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRatePlans",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "rateIDs",
+     "roomTypeID",
+     "promoCode",
+     "includePromoCode",
+     "startDate",
+     "endDate",
+     "adults",
+     "children",
+     "detailedRates",
+     "includeSharedRooms"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservation",
+   "name": "Get reservation",
+   "description": "Returns information on a booking specified by the reservationID parameter",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier. Obtained from one of the \"Reservations\" group methods"
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response."
+     }
+    },
+    "required": [
+     "reservationID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservation",
+    "path": [],
+    "query": [
+     "propertyID",
+     "reservationID",
+     "includeGuestRequirements"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservationAssignments",
+   "name": "Get reservation assignments",
+   "description": "Returns a list of rooms/reservations assigned for a selected date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "date": {
+      "type": "string",
+      "description": "Date selected to get the assignments. If no date is passed, it will return the results for the current day."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservationAssignments",
+    "path": [],
+    "query": [
+     "propertyID",
+     "date"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservationNotes",
+   "name": "Get reservation notes",
+   "description": "Retrieves reservation notes based on parameters",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier"
+     }
+    },
+    "required": [
+     "reservationID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservationNotes",
+    "path": [],
+    "query": [
+     "propertyID",
+     "reservationID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservationRoomDetails",
+   "name": "Get reservation room details",
+   "description": "Returns information about particular room in reservation by its subReservationID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation ID of the specific assigned room"
+     }
+    },
+    "required": [
+     "subReservationID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservationRoomDetails",
+    "path": [],
+    "query": [
+     "propertyID",
+     "subReservationID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservations",
+   "name": "Get reservations",
+   "description": "Returns a list of reservations that matched the filters criteria. Please note that some reservations modification may not be reflected in this timestamp. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "ID for the properties to be queried (comma-separated, i.e. 37,345,89). It can be omitted if the API key is single-property, or to get results from all properties on an association."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter by current reservation status",
+      "enum": [
+       "not_confirmed",
+       "confirmed",
+       "canceled",
+       "checked_in",
+       "checked_out",
+       "no_show"
+      ]
+     },
+     "resultsFrom": {
+      "type": "string",
+      "description": "Inferior limit datetime, used to filter reservations, based on booking date"
+     },
+     "resultsTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on booking date"
+     },
+     "modifiedFrom": {
+      "type": "string",
+      "description": "Inferior limit datetime, used to filter reservations, based on booking modification date"
+     },
+     "modifiedTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on booking modification date"
+     },
+     "checkInFrom": {
+      "type": "string",
+      "description": "Filters reservations result to return only reservations with check-in date range starting on this date"
+     },
+     "checkInTo": {
+      "type": "string",
+      "description": "Filters reservations result to return only reservations with check-in date range ending on this date"
+     },
+     "checkOutFrom": {
+      "type": "string",
+      "description": "Filters reservations result to return only reservations with check-out date range starting on this date"
+     },
+     "checkOutTo": {
+      "type": "string",
+      "description": "Filters reservations result to return only reservations with check-out date range ending on this date"
+     },
+     "datesQueryMode": {
+      "type": "string",
+      "description": "If we should consider the booking's check-in/check-out dates or the start and end dates for the associated rooms.",
+      "enum": [
+       "booking",
+       "rooms"
+      ]
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Filters reservation with the supplied room ID. CheckIn/checkOut dates OR status are required. If dates are provided and span more than one day, more than one reservation can be returned. If roomID supplied, roomName is ignored."
+     },
+     "roomName": {
+      "type": "string",
+      "description": "Filters reservation with the supplied room name (customizable by each property). CheckIn/checkOut dates OR status are required. If dates are provided and span more than one day, more than one reservation can be returned."
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "Filters reservation with the supplied Room Type ID."
+     },
+     "includeGuestsDetails": {
+      "type": "boolean",
+      "description": "If guests details should be included or not"
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response. Requires `includeGuestsDetails=true`."
+     },
+     "includeCustomFields": {
+      "type": "boolean",
+      "description": "If reservation custom fields should be included or not"
+     },
+     "includeAllRooms": {
+      "type": "boolean",
+      "description": "When specified, the response will include an additional rooms field that combines both unassigned and assigned rooms."
+     },
+     "sourceId": {
+      "type": "string",
+      "description": "Filters reservation with the supplied source ID."
+     },
+     "sourceReservationId": {
+      "type": "string",
+      "description": "Filters reservation with the supplied reservation source ID."
+     },
+     "ratePlanId": {
+      "type": "string",
+      "description": "Filters reservation with the supplied rate plan ID."
+     },
+     "firstName": {
+      "type": "string",
+      "description": "Filters reservation with the supplied primary guest first name."
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Filters reservation with the supplied primary guest last name."
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Filters reservation with the supplied Guest ID (Including additional guests)."
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Filters reservation with the supplied allotment block code."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Filters reservation with the supplied group code."
+     },
+     "sortByRecent": {
+      "type": "boolean",
+      "description": "Sort response results by most recent action"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservations",
+    "path": [],
+    "query": [
+     "propertyID",
+     "status",
+     "resultsFrom",
+     "resultsTo",
+     "modifiedFrom",
+     "modifiedTo",
+     "checkInFrom",
+     "checkInTo",
+     "checkOutFrom",
+     "checkOutTo",
+     "datesQueryMode",
+     "roomID",
+     "roomName",
+     "roomTypeID",
+     "includeGuestsDetails",
+     "includeGuestRequirements",
+     "includeCustomFields",
+     "includeAllRooms",
+     "sourceId",
+     "sourceReservationId",
+     "ratePlanId",
+     "firstName",
+     "lastName",
+     "guestID",
+     "allotmentBlockCode",
+     "groupCode",
+     "sortByRecent",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getReservationsWithRateDetails",
+   "name": "Get reservations with rate details",
+   "description": "Returns a list of reservations with added information regarding booked rates and sources. Please note that some reservations modification may not be reflected in this timestamp.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "resultsFrom": {
+      "type": "string",
+      "description": "Inferior limit datetime, used to filter reservations, based on booking date"
+     },
+     "resultsTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on booking date. If it is not set, will return the reservations up to current date"
+     },
+     "modifiedFrom": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on modification date."
+     },
+     "modifiedTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on modification date."
+     },
+     "sortByRecent": {
+      "type": "boolean",
+      "description": "Sort response results by most recent action"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifiers, comma-separated, i.e. 37,345,89, used to return transactions limited to the selected reservations."
+     },
+     "reservationCheckOutFrom": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on reservation check-out date."
+     },
+     "reservationCheckOutTo": {
+      "type": "string",
+      "description": "Superior limit datetime, used to filter reservations, based on reservation check-out date."
+     },
+     "includeDeleted": {
+      "type": "boolean",
+      "description": "Include deleted reservations"
+     },
+     "excludeStatuses": {
+      "type": "string",
+      "description": "List of statuses (separated by comma) to be excluded from search"
+     },
+     "includeGuestsDetails": {
+      "type": "boolean",
+      "description": "If guests details should be included or not"
+     },
+     "includeGuestRequirements": {
+      "type": "boolean",
+      "description": "Includes guest requirements data in the response. Requires `includeGuestsDetails=true`."
+     },
+     "includeCustomFields": {
+      "type": "boolean",
+      "description": "If reservation custom fields should be included or not"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Filters reservations with the supplied Guest ID (Including additional guests)."
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Results page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Results page size. Max = 100"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getReservationsWithRateDetails",
+    "path": [],
+    "query": [
+     "propertyID",
+     "resultsFrom",
+     "resultsTo",
+     "modifiedFrom",
+     "modifiedTo",
+     "sortByRecent",
+     "reservationID",
+     "reservationCheckOutFrom",
+     "reservationCheckOutTo",
+     "includeDeleted",
+     "excludeStatuses",
+     "includeGuestsDetails",
+     "includeGuestRequirements",
+     "includeCustomFields",
+     "guestID",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRoomBlocks",
+   "name": "Get room blocks",
+   "description": "Returns a list of all room blocks considering the informed parameters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomBlockID": {
+      "type": "string",
+      "description": "Room block ID"
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "Room type ID"
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room ID"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Defaults to today. Start date - will filter for any room blocks that include this date (Date range must be 35 days or less)"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Defaults to today. End date - will filter for any room blocks that include this date (Date range must be 35 days or less)"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Page size"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRoomBlocks",
+    "path": [],
+    "query": [
+     "propertyID",
+     "roomBlockID",
+     "roomTypeID",
+     "roomID",
+     "startDate",
+     "endDate",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRoomTypes",
+   "name": "Get room types",
+   "description": "Returns a list of room types filtered by the selected parameters ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "Property ID list, comma-separated, i.e. 37,345,89"
+     },
+     "roomTypeIDs": {
+      "type": "string",
+      "description": "Room Type ID list, If more than one, send as comma-separated, i.e. 37,345,89"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-in date. Required for the rates to be returned."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-out date. Required for the rates to be returned."
+     },
+     "adults": {
+      "type": "integer",
+      "description": "Number of adults. Required for the rates to be returned."
+     },
+     "children": {
+      "type": "integer",
+      "description": "Number of children. Required for the rates to be returned."
+     },
+     "detailedRates": {
+      "type": "boolean",
+      "description": "If detailed rates are expected"
+     },
+     "roomTypeName": {
+      "type": "string",
+      "description": "Room type name, used to filter"
+     },
+     "propertyCity": {
+      "type": "string",
+      "description": "Hotel city, used to filter"
+     },
+     "propertyName": {
+      "type": "string",
+      "description": "Hotel name, used to filter"
+     },
+     "maxGuests": {
+      "type": "string",
+      "description": "Max number of guests, used to filter"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Page size"
+     },
+     "sort": {
+      "type": "string",
+      "description": "Sorting rules, semicolon-separated. Format: `field[:direction]`, where `direction` is `asc` or `desc`, defaults to `asc` if not provided. Valid fields: `sorting_position`. Examples: - `sort=sorting_position` - `sort=sorting_position:desc`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRoomTypes",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "roomTypeIDs",
+     "startDate",
+     "endDate",
+     "adults",
+     "children",
+     "detailedRates",
+     "roomTypeName",
+     "propertyCity",
+     "propertyName",
+     "maxGuests",
+     "pageNumber",
+     "pageSize",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRooms",
+   "name": "Get rooms",
+   "description": "Returns a list of all rooms considering the informed parameters. If Check-in/out dates are sent, only unassigned rooms are returned. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "Property ID list, comma-separated, i.e. 37,345,89"
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "Room type ID, comma-separated, i.e. 37,345,89"
+     },
+     "roomTypeNameShort": {
+      "type": "string",
+      "description": "Room Type (short-version)"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Initial stay date. If sent, only returns unassigned rooms in this period. If not sent, will return all rooms available in property. Necessary if endDate is sent."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Final stay date. Necessary if startDate is sent."
+     },
+     "includeRoomRelations": {
+      "type": "integer",
+      "description": "Determines whether room relations info should be included in the response"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Page size"
+     },
+     "sort": {
+      "type": "string",
+      "description": "Sorting rules, semicolon-separated. Format: `field[:direction]`, where `direction` is `asc` or `desc`, defaults to `asc` if not provided. Valid fields: `room_position`, `sorting_position`. Examples: - `sort=room_position;sorting_position` - `sort=room_position:asc;sorting_position:desc`"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRooms",
+    "path": [],
+    "query": [
+     "propertyIDs",
+     "roomTypeID",
+     "roomTypeNameShort",
+     "startDate",
+     "endDate",
+     "includeRoomRelations",
+     "pageNumber",
+     "pageSize",
+     "sort"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRoomsFeesAndTaxes",
+   "name": "Get rooms fees and taxes",
+   "description": "Get applicable fees and tax to a booking. This is meant to be used on checkout to display to the guest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-in date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-out date"
+     },
+     "roomsTotal": {
+      "type": "number",
+      "description": "Total value of the rooms to be booked, with included taxes"
+     },
+     "roomsCount": {
+      "type": "integer",
+      "description": "Number of rooms to be booked"
+     },
+     "adultsPerRoom": {
+      "type": "integer",
+      "description": "Adult occupants per room (applied uniformly across `roomsCount`). Required for `fixed_per_person` taxes/fees to compute non-zero values; otherwise per-person amounts return 0."
+     },
+     "childrenPerRoom": {
+      "type": "integer",
+      "description": "Child occupants per room. Same semantics as `adultsPerRoom`."
+     }
+    },
+    "required": [
+     "endDate",
+     "roomsCount",
+     "roomsTotal",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRoomsFeesAndTaxes",
+    "path": [],
+    "query": [
+     "propertyID",
+     "startDate",
+     "endDate",
+     "roomsTotal",
+     "roomsCount",
+     "adultsPerRoom",
+     "childrenPerRoom"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getRoomsUnassigned",
+   "name": "Get rooms unassigned",
+   "description": "Returns a list of unassigned rooms in the property. Call is alias of [getRooms](#api-Room-getRooms). Please check its documentation for parameters, response and example. ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "List of property IDs, comma-separated, i.e. 37,345,89"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getRoomsUnassigned",
+    "path": [],
+    "query": [
+     "propertyIDs"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getSources",
+   "name": "Get sources",
+   "description": "Gets available property sources",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyIDs": {
+      "type": "string",
+      "description": "ID for the properties to be queried (comma-separated, i.e. 37,345,89)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getSources",
+    "path": [],
+    "query": [
+     "propertyIDs"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getTaxesAndFees",
+   "name": "Get taxes and fees",
+   "description": "Returns the taxes and fees set for the property. Read the [Rate-Based tax (Dynamic Tax) guide](https://myfrontdesk.cloudbeds.com/hc/en-us/articles/360014103514-rate-based-tax-dynamic-tax) to understand its usage.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "includeDeleted": {
+      "type": "boolean",
+      "description": "If the response should include deleted taxes and fees"
+     },
+     "includeExpired": {
+      "type": "boolean",
+      "description": "If the response should include expired taxes and fees"
+     },
+     "includeCustomItemTaxes": {
+      "type": "boolean",
+      "description": "If the response should include custom item taxes"
+     },
+     "availableFor": {
+      "type": "string",
+      "description": "Filter by entity type applicability",
+      "enum": [
+       "product",
+       "rate",
+       "fee",
+       "tax",
+       "custom_item",
+       "payment"
+      ]
+     },
+     "sourceId": {
+      "type": "string",
+      "description": "Filter by booking source ID. Requires isRootSource and isHotelCollectBooking."
+     },
+     "isRootSource": {
+      "type": "boolean",
+      "description": "Root source flag. Required with sourceId."
+     },
+     "isHotelCollectBooking": {
+      "type": "boolean",
+      "description": "Hotel collect flag. Required with sourceId."
+     },
+     "productId": {
+      "type": "string",
+      "description": "Filter taxes/fees for a product. Mutually exclusive with addonId."
+     },
+     "addonId": {
+      "type": "string",
+      "description": "Filter taxes/fees for an addon (resolves to product). Mutually exclusive with productId."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getTaxesAndFees",
+    "path": [],
+    "query": [
+     "propertyID",
+     "includeDeleted",
+     "includeExpired",
+     "includeCustomItemTaxes",
+     "availableFor",
+     "sourceId",
+     "isRootSource",
+     "isHotelCollectBooking",
+     "productId",
+     "addonId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getUsers",
+   "name": "Get users",
+   "description": "Returns information on the properties' users ### Group account support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "property_ids": {
+      "type": "string",
+      "description": "Property numeric identifiers (comma-separated, i.e. 37,345,89)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getUsers",
+    "path": [],
+    "query": [
+     "property_ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_getWebhooks",
+   "name": "Get webhooks",
+   "description": "List webhooks for which the API client is subscribed to.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/getWebhooks",
+    "path": [],
+    "query": [
+     "propertyID"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_listAllotmentBlockNotes",
+   "name": "List allotment block notes",
+   "description": "List notes added to an allotment block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment block code"
+     },
+     "status": {
+      "type": "string",
+      "description": "Note status",
+      "enum": [
+       "all",
+       "active",
+       "archived"
+      ]
+     },
+     "pageNumber": {
+      "type": "integer",
+      "description": "Page"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Number of Items per Page (min 1, max 100)"
+     }
+    },
+    "required": [
+     "allotmentBlockCode",
+     "propertyID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/listAllotmentBlockNotes",
+    "path": [],
+    "query": [
+     "propertyID",
+     "allotmentBlockCode",
+     "status",
+     "pageNumber",
+     "pageSize"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_oauth_metadata",
+   "name": "Metadata",
+   "description": "In the context of properties being distributed across multiple localizations, this endpoint serves to retrieve the precise location of the property associated with the provided access token. Further information can be found in the [Authentication guide](https://integrations.cloudbeds.com/hc/en-us/sections/14731510501915-Authentication).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/oauth/metadata",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.get_userinfo",
+   "name": "Userinfo",
+   "description": "Returns information on user who authorized connection",
+   "input": {
+    "type": "object",
+    "properties": {
+     "property_id": {
+      "type": "string",
+      "description": "Specify a property ID when using role_details"
+     },
+     "role_details": {
+      "type": "boolean",
+      "description": "Specify whether to include role and acl details of the user."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudbeds.com/userinfo",
+    "path": [],
+    "query": [
+     "property_id",
+     "role_details"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_access_token",
+   "name": "Access token",
+   "description": "Query the authorization server for an access token used to access property resources. If the automatic delivery method for API keys is used, the grant type `urn:ietf:params:oauth:grant-type:api-key` needs to be used to request an API key. This grant type requires `grant_type=urn:ietf:params:oauth:grant-type:api-key`, `client_id`, `client_secret`, `redirect_uri` and `code`. For OAuth 2.0., two diff",
+   "input": {
+    "type": "object",
+    "properties": {
+     "grant_type": {
+      "type": "string",
+      "description": "The OAuth2 grant type.",
+      "enum": [
+       "authorization_code",
+       "refresh_token",
+       "urn:ietf:params:oauth:grant-type:api-key"
+      ]
+     },
+     "client_id": {
+      "type": "string",
+      "description": "The client identifier. Each client must be provisioned an identifier."
+     },
+     "client_secret": {
+      "type": "string",
+      "description": "The client secret. Each client must be provisioned a secret."
+     },
+     "redirect_uri": {
+      "type": "string",
+      "description": "The client pre-configured redirect URI. (Required for grant type 'authorization_code' and 'urn:ietf:params:oauth:grant-type:api-key')."
+     },
+     "code": {
+      "type": "string",
+      "description": "An authorization code provisioned by /oauth (Required for grant type 'authorization_code' and 'urn:ietf:params:oauth:grant-type:api-key')."
+     },
+     "refresh_token": {
+      "type": "string",
+      "description": "A refresh token to renew an access_token (Required for grant type 'refresh_token' only)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/access_token",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "grant_type",
+     "client_id",
+     "client_secret",
+     "redirect_uri",
+     "code",
+     "refresh_token"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_appendCustomItem",
+   "name": "Append custom item",
+   "description": "Append single, or multiple, custom items and their associated payments to an existing one in a Reservation, House Account, or Group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier. Required if no houseAccountID or groupCode is provided."
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account identifier. Required if no reservationID or groupCode is provided."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group code. Required if no reservationID or houseAccountID is provided."
+     },
+     "referenceID": {
+      "type": "string",
+      "description": "partner's transaction reference. If exist then Cloudbeds will prevent adding of duplicates"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier"
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room identifier (Ignored if subReservationID exist)"
+     },
+     "items": {
+      "type": "array",
+      "description": "list of items will be posted"
+     },
+     "saleDate": {
+      "type": "string",
+      "description": "Posting date. Defaults to now."
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest identifier"
+     },
+     "guestName": {
+      "type": "string",
+      "description": "(Ignored if guestID exist)"
+     },
+     "payments": {
+      "type": "array",
+      "description": "list of payments If the item is already paid"
+     },
+     "itemPaid": {
+      "type": "boolean",
+      "description": "If the item is already paid. Note: If set to true, a payment in cash will be registered for the total value of the item, taxes and fees. If this is not the expected behavior, set to false, and register the operation manually. (Ignored if payments array exist)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/appendCustomItem",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupCode",
+     "referenceID",
+     "subReservationID",
+     "roomID",
+     "items",
+     "saleDate",
+     "guestID",
+     "guestName",
+     "payments",
+     "itemPaid"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_createAllotmentBlock",
+   "name": "Create allotment block",
+   "description": "Retreive allotment blocks @apiQuery {Integer} propertyID Property ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupCode": {
+      "type": "string",
+      "description": "The unique identifier of the group profile the allotment block should be created"
+     },
+     "eventCode": {
+      "type": "string",
+      "description": "The unique identifier of the event the allotment block should be created"
+     },
+     "allotmentBlockName": {
+      "type": "string",
+      "description": "The name for the allotment block"
+     },
+     "rateType": {
+      "type": "string",
+      "description": "The rate type for the associated intervals",
+      "enum": [
+       "base_rate",
+       "rate_plan",
+       "custom"
+      ]
+     },
+     "ratePlanId": {
+      "type": "string",
+      "description": "The rate plan ID. Required if rateType is \"rate_plan\"."
+     },
+     "allotmentType": {
+      "type": "string",
+      "description": "The allotment type",
+      "enum": [
+       "allotment",
+       "based_on_availability"
+      ]
+     },
+     "allotmentBlockStatus": {
+      "type": "string",
+      "description": "The status for the allotment block under",
+      "enum": [
+       "definite",
+       "tentative",
+       "lead"
+      ]
+     },
+     "allowOverbooking": {
+      "type": "boolean",
+      "description": "If false, or omitted, then this command will fail if it would result in an overbooking. If true, then the update will succeed even if it results in an overbooking."
+     },
+     "autoRelease": {
+      "type": "object",
+      "description": "Optional auto-release configuration"
+     },
+     "allotmentIntervals": {
+      "type": "array",
+      "description": "The day-based data for the allotment block."
+     },
+     "resources": {
+      "type": "array",
+      "description": "Optional array of space resource quotes to associate with the block. When the spaces-allotment-blocks flag is off, this field is silently ignored."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/createAllotmentBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "groupCode",
+     "eventCode",
+     "allotmentBlockName",
+     "rateType",
+     "ratePlanId",
+     "allotmentType",
+     "allotmentBlockStatus",
+     "allowOverbooking",
+     "autoRelease",
+     "allotmentIntervals",
+     "resources"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_createAllotmentBlockNotes",
+   "name": "Create allotment block notes",
+   "description": "Add a note to an allotment block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment Block Code"
+     },
+     "text": {
+      "type": "string",
+      "description": "Note's text"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/createAllotmentBlockNotes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "allotmentBlockCode",
+     "text"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_deleteAllotmentBlock",
+   "name": "Delete allotment block",
+   "description": "Delete allotment blocks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "The unique code of the allotment Block"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/deleteAllotmentBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "allotmentBlockCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_deleteAppPropertySettings",
+   "name": "Delete app property settings",
+   "description": "deleteAppPropertySettings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Key"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/deleteAppPropertySettings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_deleteRoomBlock",
+   "name": "Delete room block",
+   "description": "Deletes a room block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomBlockID": {
+      "type": "string",
+      "description": "Room block ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/deleteRoomBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "roomBlockID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_patchGroup",
+   "name": "Patch group",
+   "description": "Updates an existing group with information provided. At least one information field is required for this call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupCode": {
+      "type": "string",
+      "description": "code for a group"
+     },
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name for a group"
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of group",
+      "enum": [
+       "group",
+       "company",
+       "travel_agent",
+       "wholesaler"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Group status",
+      "enum": [
+       "open",
+       "closed"
+      ]
+     },
+     "sourceID": {
+      "type": "string",
+      "description": "Source ID for a group"
+     },
+     "address1": {
+      "type": "string",
+      "description": "Address line 1 for a group"
+     },
+     "address2": {
+      "type": "string",
+      "description": "Address line 2 for a group"
+     },
+     "city": {
+      "type": "string",
+      "description": "City for a group"
+     },
+     "zip": {
+      "type": "string",
+      "description": "Zip for a group"
+     },
+     "state": {
+      "type": "string",
+      "description": "State for a group"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/patchGroup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "groupCode",
+     "propertyID",
+     "name",
+     "type",
+     "status",
+     "sourceID",
+     "address1",
+     "address2",
+     "city",
+     "zip",
+     "state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_patchRate",
+   "name": "Patch rate",
+   "description": "Update the rate of the room based on rateID selected, based on the provided parameters. You can make multiple rate updates in a single API call. Providing a startDate and/or endDate will update rates only within the interval provided. Only non derived rates can be updated, requests to update a derived rate will return an error. This endpoint performs updates asynchronously, rate updates are added ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rates": {
+      "type": "array",
+      "description": "Array of rates to update"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/patchRate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "rates"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postAdjustment",
+   "name": "Post adjustment",
+   "description": "Adds an adjustment to a reservation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "type": {
+      "type": "string",
+      "description": "Apply Adjustment to",
+      "enum": [
+       "rate",
+       "product",
+       "fee",
+       "tax"
+      ]
+     },
+     "amount": {
+      "type": "number",
+      "description": "Adjustment amount"
+     },
+     "notes": {
+      "type": "string",
+      "description": "Adjustment notes"
+     },
+     "itemID": {
+      "type": "string",
+      "description": "Apply Adjustment to. Identifier for: product, tax, fee. Not for rate"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postAdjustment",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "type",
+     "amount",
+     "notes",
+     "itemID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postAppError",
+   "name": "Post app error",
+   "description": "Submit the error received by the hybrid integration from the partner to the MFD",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property identifier to be queried"
+     },
+     "timestamp": {
+      "type": "string",
+      "description": "Date/time that the error was received by the middleware"
+     },
+     "eventType": {
+      "type": "string",
+      "description": "Description for the type of event that caused the error",
+      "enum": [
+       "create",
+       "delete",
+       "update",
+       "sync"
+      ]
+     },
+     "statusCode": {
+      "type": "string",
+      "description": "HTTP error status code or other error code ID"
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the error"
+     },
+     "errorMessage": {
+      "type": "string",
+      "description": "Detailed message for error"
+     },
+     "entityType": {
+      "type": "string",
+      "description": "Type of the entity related to the error",
+      "enum": [
+       "invoice",
+       "transaction",
+       "reservation"
+      ]
+     },
+     "entityID": {
+      "type": "string",
+      "description": "Unique ID for the entity related to the error"
+     },
+     "userID": {
+      "type": "string",
+      "description": "User ID for the user that triggered event that caused the error"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postAppError",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "timestamp",
+     "eventType",
+     "statusCode",
+     "description",
+     "errorMessage",
+     "entityType",
+     "entityID",
+     "userID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postAppPropertySettings",
+   "name": "Post app property settings",
+   "description": "postAppPropertySettings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "appClientID": {
+      "type": "string",
+      "description": "Application Client ID"
+     },
+     "value": {
+      "type": "string",
+      "description": "Value"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postAppPropertySettings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "appClientID",
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postAppState",
+   "name": "Post app state",
+   "description": "Update app integration state for a property ID. This call is only available for third-party integration partners, and not for property client IDs. If an app is set to 'disabled', it will remove all active sessions Read the [Connecting/Disconnecting Apps guide](https://integrations.cloudbeds.com/hc/en-us/articles/360007613213-Connecting-Disconnecting-Apps) to further understand the use cases.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property identifier to be updated"
+     },
+     "app_state": {
+      "type": "string",
+      "description": "Current integration state between third-party and property.",
+      "enum": [
+       "enabled",
+       "disabled",
+       "installing",
+       "pending"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postAppState",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "app_state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postCharge",
+   "name": "Post charge",
+   "description": "Use a payment method to process a payment on a reservation, group profile, accounts receivable ledger, or house account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": ""
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation ID"
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account ID"
+     },
+     "groupID": {
+      "type": "string",
+      "description": "Group ID"
+     },
+     "accountsReceivableLedgerID": {
+      "type": "string",
+      "description": "Accounts Receivable Ledger ID"
+     },
+     "amount": {
+      "type": "string",
+      "description": "Amount to charge"
+     },
+     "currency": {
+      "type": "string",
+      "description": "Currency to charge"
+     },
+     "description": {
+      "type": "string",
+      "description": "Description of the payment to display on folio"
+     },
+     "cardToken": {
+      "type": "string",
+      "description": "cardToken provided by Cloudbeds vault"
+     },
+     "paymentMethodId": {
+      "type": "string",
+      "description": "Payment method UUID"
+     },
+     "isDeposit": {
+      "type": "boolean",
+      "description": "determine if this payment is a deposit (default: false)"
+     },
+     "redirectUrl": {
+      "type": "string",
+      "description": "client will be redirected to this page after he completed 3ds challenge. User will be redirected with HTTP get redirect and parameter **result** will be added to query string with possible values: - **failed** if 3ds challenge is not passed - **successful** if 3ds challenge is passed If not provided for card with 3ds the request will be rejected"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postCharge",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupID",
+     "accountsReceivableLedgerID",
+     "amount",
+     "currency",
+     "description",
+     "cardToken",
+     "paymentMethodId",
+     "isDeposit",
+     "redirectUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postCreditCard",
+   "name": "Post credit card",
+   "description": "Returns the rate of the room type selected, based on the provided parameters",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": ""
+     },
+     "reservationID": {
+      "type": "string",
+      "description": ""
+     },
+     "cardToken": {
+      "type": "string",
+      "description": "A card token provided by StripeJS (`tok_` prefixed) or /vault/v1/tokens/card (uuid formatted). Not required if paymentMethodId is provided."
+     },
+     "paymentMethodId": {
+      "type": "string",
+      "description": "Payment Method ID provided by the Payment Element SDK (begins with cbpm_). Not required if cardToken is provided."
+     },
+     "returnUrl": {
+      "type": "string",
+      "description": "client will be redirected to this page after he completed 3ds challenge. User will be redirected with HTTP get redirect and parameter **result** will be added to query string with possible values: - **failed** if 3ds challenge is not passed - **successful** if 3ds challenge is passed If not provided for card with 3ds the request will be rejected"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postCreditCard",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "cardToken",
+     "paymentMethodId",
+     "returnUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postCustomField",
+   "name": "Post custom field",
+   "description": "Sets custom fields. The call should only be made once to add the field to the system.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Field name"
+     },
+     "shortcode": {
+      "type": "string",
+      "description": "Internal reference and is used for integration purposes such as custom links and the API"
+     },
+     "applyTo": {
+      "type": "string",
+      "description": "Where put this field in reservation or guest section of the booking. reservation - applies the custom field to reservations in myfrontdesk guest - applies the custom field to guest interface in myfrontdesk",
+      "enum": [
+       "reservation",
+       "guest"
+      ]
+     },
+     "required": {
+      "type": "boolean",
+      "description": "Specify whether this field is required to be filled out."
+     },
+     "maxCharacters": {
+      "type": "integer",
+      "description": "Maximum number of characters allowed to be entered in this field."
+     },
+     "type": {
+      "type": "string",
+      "description": "The field's input type.",
+      "enum": [
+       "input",
+       "text"
+      ]
+     },
+     "displayed": {
+      "type": "array",
+      "description": "\u00b9 Specify where this custom field to show up. reservation - applies the custom field to reservation interface in myfrontdesk booking - applies the custom field to the booking engine card - applies the custom field to Registration cards"
+     },
+     "isPersonal": {
+      "type": "boolean",
+      "description": "Specifies if the contents of this field may contain personal information. User's personal information may be removed upon request according to GDPR rules."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postCustomField",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "name",
+     "shortcode",
+     "applyTo",
+     "required",
+     "maxCharacters",
+     "type",
+     "displayed",
+     "isPersonal"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postCustomItem",
+   "name": "Post custom item",
+   "description": "Adds single, or multiple, custom items and their associated payments to a Reservation or House Account as a single transaction.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier. Required if no houseAccountID or groupCode is provided."
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House account identifier. Required if no reservationID or groupCode is provided."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group identifier. Required if no reservationID or houseAccountID is provided."
+     },
+     "referenceID": {
+      "type": "string",
+      "description": "partner's transaction reference. If exist then Cloudbeds will prevent adding of duplicates"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier"
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room identifier (Ignored if subReservationID exist)"
+     },
+     "items": {
+      "type": "array",
+      "description": "list of items will be posted"
+     },
+     "saleDate": {
+      "type": "string",
+      "description": "Posting date. Defaults to current date."
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest identifier"
+     },
+     "guestName": {
+      "type": "string",
+      "description": "(Ignored if guestID exist)"
+     },
+     "payments": {
+      "type": "array",
+      "description": "list of payments If the item is already paid"
+     },
+     "itemPaid": {
+      "type": "boolean",
+      "description": "If the item is already paid. Note: If set to true, a payment in cash will be registered for the total value of the item, taxes and fees. If this is not the expected behavior, set to false, and register the operation manually. (Ignored if payments array exist)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postCustomItem",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupCode",
+     "referenceID",
+     "subReservationID",
+     "roomID",
+     "items",
+     "saleDate",
+     "guestID",
+     "guestName",
+     "payments",
+     "itemPaid"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postCustomPaymentMethod",
+   "name": "Post custom payment method",
+   "description": "Add a Custom Payment Method to a property. This call does not allow to add Payment Methods: credit cards, bank transfer or Pay Pal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID, if not sent will retrieve property ID from credentials, only one property ID call."
+     },
+     "method": {
+      "type": "string",
+      "description": "Payment Method, value used in future calls. Must be unique for each property and no whitespaces are allowed (use camel case or underline instead). Will be verified against existing Payment Methods, if it exists, will try to enable it."
+     },
+     "methodName": {
+      "type": "string",
+      "description": "Payment Method Name, value used to represent the Payment Method. Can use spaces. If nothing is sent, will use value for method."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postCustomPaymentMethod",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "method",
+     "methodName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postEmailSchedule",
+   "name": "Post email schedule",
+   "description": "Creates a new email schedule for existing email template. Email template can be scheduled based on two parameters: reservationStatusChange and reservationEvent. Only one of the parameters can be used. *reservationStatusChange* schedules email to be sent when reservation status transitions to a specific one, for instance: `confirmed`. *reservationEvent* schedules email to be sent number of days pri",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "emailTemplateID": {
+      "type": "string",
+      "description": "ID of the email template that will be used when sending an email."
+     },
+     "scheduleName": {
+      "type": "string",
+      "description": "User friendly schedule name that appears in the list. Should contain app name."
+     },
+     "schedule": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postEmailSchedule",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "emailTemplateID",
+     "scheduleName",
+     "schedule"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postEmailTemplate",
+   "name": "Post email template",
+   "description": "Creates a new email template. See the full list of available language parameters here. This call is only available for third-party integration partners, and not for property client IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "emailType": {
+      "type": "string",
+      "description": "Type of the email template: Marketing or Non-Marketing. Only applicable to GDPR-compliant properties.",
+      "enum": [
+       "nonMarketing",
+       "marketing"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Template name"
+     },
+     "from": {
+      "type": "string",
+      "description": "Email address from which the email message may be sent"
+     },
+     "fromName": {
+      "type": "string",
+      "description": "from which the email message may be sent. If empty email will be used"
+     },
+     "subject": {
+      "type": "object",
+      "description": "Email message subject. The subject key should be a language code (IETF). A few examples are listed below."
+     },
+     "body": {
+      "type": "object",
+      "description": "Email message body. The body key should be a language code (IETF). A few examples are listed below."
+     },
+     "replyTo": {
+      "type": "string",
+      "description": "Email address to which the email message may be replied. If empty, the value on from parameter will be used."
+     },
+     "replyToName": {
+      "type": "string",
+      "description": "Name to which the email message may be replied. If empty, email will be used."
+     },
+     "autofillAllLanguages": {
+      "type": "boolean",
+      "description": "If set, all languages will be set with the value for the property language. If not informed and only one language is sent, it's considered true, if more than one language is sent, it'll be considered false."
+     },
+     "cc": {
+      "type": "string",
+      "description": "Email address to which the email message may be sent as a Carbon Copy"
+     },
+     "bcc": {
+      "type": "string",
+      "description": "Email address to which the email message may be sent as a Blind Carbon Copy"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postEmailTemplate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "emailType",
+     "name",
+     "from",
+     "fromName",
+     "subject",
+     "body",
+     "replyTo",
+     "replyToName",
+     "autofillAllLanguages",
+     "cc",
+     "bcc"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postFile",
+   "name": "Post file",
+   "description": "Attaches a file to a hotel",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "file": {
+      "type": "string",
+      "description": "Form-based File Upload Allowed file types: *.pdf, *.rtf, *.doc, *.docx, *.txt, *.jpg, *.jpeg, *.png, *.gif, *.csv, *.xls, *.xlsx, *.xml, *.json Allowed max file size: 100MB"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "optional - the group code if the file is to be attached to a group profile"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postFile",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "file",
+     "groupCode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGovernmentReceipt",
+   "name": "Post government receipt",
+   "description": "Add a Government Receipt to a Reservation or House Account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property identifier to be updated"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier. It, or houseAccountID, is necessary."
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account identifier. It, or reservationID, is necessary."
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the document. Will be used to describe document in MFD."
+     },
+     "url": {
+      "type": "string",
+      "description": "URL for user to download document."
+     },
+     "amount": {
+      "type": "number",
+      "description": "Value of posted document"
+     },
+     "identifier": {
+      "type": "string",
+      "description": "Receipt Identifier of document. If not sent, a random identifier will be generated."
+     },
+     "issueDate": {
+      "type": "string",
+      "description": "Datetime of document emission, if not sent, current datetime will be assumed."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGovernmentReceipt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "name",
+     "url",
+     "amount",
+     "identifier",
+     "issueDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGroupNote",
+   "name": "Post group note",
+   "description": "Adds a group note",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group code"
+     },
+     "groupNote": {
+      "type": "string",
+      "description": "Group note"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGroupNote",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "groupCode",
+     "groupNote"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGuest",
+   "name": "Post guest",
+   "description": "Adds a guest to reservation as an additional guest.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation ID"
+     },
+     "guestFirstName": {
+      "type": "string",
+      "description": ""
+     },
+     "guestLastName": {
+      "type": "string",
+      "description": ""
+     },
+     "guestGender": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "M",
+       "F",
+       "N/A"
+      ]
+     },
+     "guestEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "guestPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCellPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "guestAddress1": {
+      "type": "string",
+      "description": ""
+     },
+     "guestAddress2": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCity": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCountry": {
+      "type": "string",
+      "description": "ISO-Code for Country (2 characters)"
+     },
+     "guestNationality": {
+      "type": "string",
+      "description": "Guest nationality (citizenship). ISO-Code for Country (2 characters)"
+     },
+     "guestState": {
+      "type": "string",
+      "description": ""
+     },
+     "guestZip": {
+      "type": "string",
+      "description": ""
+     },
+     "guestBirthDate": {
+      "type": "string",
+      "description": ""
+     },
+     "guestDocumentType": {
+      "type": "string",
+      "description": "Document Type dni - Identity card nie - Residence permit na - non selection cpf - Brazilian Tax ID",
+      "enum": [
+       "cpf",
+       "dni",
+       "driver_license",
+       "na",
+       "nie",
+       "passport",
+       "social_security_card",
+       "student_id"
+      ]
+     },
+     "guestDocumentNumber": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent)"
+     },
+     "guestDocumentIssueDate": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent and is not DNI or CPF)"
+     },
+     "guestDocumentIssuingCountry": {
+      "type": "string",
+      "description": "Valid ISO-Code for Country (2 characters) (mandatory when guestDocumentType is sent)"
+     },
+     "guestDocumentExpirationDate": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent and is not DNI, NIE, or CPF)"
+     },
+     "guestRequirements": {
+      "type": "array",
+      "description": "Object with guest requirements information."
+     },
+     "customFields": {
+      "type": "array",
+      "description": "Only guest custom fields are allowed."
+     },
+     "guestNote": {
+      "type": "string",
+      "description": "Note to be added to the Guest"
+     },
+     "reservationNote": {
+      "type": "string",
+      "description": "Note to be added only to the Reservation."
+     },
+     "guestCompanyName": {
+      "type": "string",
+      "description": "Guest company name"
+     },
+     "guestCompanyTaxId": {
+      "type": "string",
+      "description": "Guest company tax ID"
+     },
+     "guestTaxId": {
+      "type": "string",
+      "description": "Guest tax ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGuest",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "guestFirstName",
+     "guestLastName",
+     "guestGender",
+     "guestEmail",
+     "guestPhone",
+     "guestCellPhone",
+     "guestAddress1",
+     "guestAddress2",
+     "guestCity",
+     "guestCountry",
+     "guestNationality",
+     "guestState",
+     "guestZip",
+     "guestBirthDate",
+     "guestDocumentType",
+     "guestDocumentNumber",
+     "guestDocumentIssueDate",
+     "guestDocumentIssuingCountry",
+     "guestDocumentExpirationDate",
+     "guestRequirements",
+     "customFields",
+     "guestNote",
+     "reservationNote",
+     "guestCompanyName",
+     "guestCompanyTaxId",
+     "guestTaxId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGuestDocument",
+   "name": "Post guest document",
+   "description": "Attaches a document to a guest",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest Unique Identifier"
+     },
+     "file": {
+      "type": "string",
+      "description": "Form-based File Upload Allowed file types: *.pdf, *.rtf, *.doc, *.docx, *.txt, *.jpg, *.jpeg, *.png, *.gif, *.csv, *.xls, *.xlsx, *.xml, *.json Allowed max file size: 100MB"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGuestDocument",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "guestID",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGuestNote",
+   "name": "Post guest note",
+   "description": "Adds a guest note",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest ID"
+     },
+     "guestNote": {
+      "type": "string",
+      "description": "Note to be added to guest profile. It's strictly forbidden to send unencrypted payment data through the API. Numeric values longer than 12 characters and considered valid by Luhn's algorithm will be rejected."
+     },
+     "userID": {
+      "type": "string",
+      "description": "User ID Identify the actual user that is posting the note"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGuestNote",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "guestID",
+     "guestNote",
+     "userID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGuestPhoto",
+   "name": "Post guest photo",
+   "description": "Attaches a photo to a guest",
+   "input": {
+    "type": "object",
+    "properties": {
+     "guestID": {
+      "type": "string",
+      "description": "Guest Unique Identifier"
+     },
+     "file": {
+      "type": "string",
+      "description": "Form-based File Upload Allowed file types: *.jpg, *.jpeg, *.png, *.gif Allowed max file size: 15MB"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGuestPhoto",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "guestID",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postGuestsToRoom",
+   "name": "Post guests to room",
+   "description": "Assigns guest(s) to a room in a reservation and adds these guests as additional guests.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation ID"
+     },
+     "roomID": {
+      "type": "integer",
+      "description": "Room ID already assigned to Reservation"
+     },
+     "guestIDs": {
+      "type": "string",
+      "description": "Guest ID(s) to be assigned to room. If more than one, send as comma-separated, i.e. 37,345,89"
+     },
+     "removeGuestIDs": {
+      "type": "string",
+      "description": "If sent, will remove guest ID(s) before adding guests sent in guestIDs parameter. If more than one, send as comma-separated, i.e. 37,345,89. Main Guest is never removed."
+     },
+     "removeGuestIDsFromRoom": {
+      "type": "string",
+      "description": "If sent, will remove guest ID(s) only from the specified Room ID(s). If more than one, send as comma-separated, i.e. 37,345,89. Incompatible with removeAll parameter."
+     },
+     "removeAll": {
+      "type": "boolean",
+      "description": "If set true, will remove all guests assigned to roomID before assigning guests sent in guestIDs parameter. Main Guest is never removed."
+     },
+     "mainGuestId": {
+      "type": "string",
+      "description": "Guest ID to promote as main guest of the booking room. MUST be present in guestIDs. When omitted, the room's main guest is left unchanged."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postGuestsToRoom",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "roomID",
+     "guestIDs",
+     "removeGuestIDs",
+     "removeGuestIDsFromRoom",
+     "removeAll",
+     "mainGuestId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postHousekeeper",
+   "name": "Post housekeeper",
+   "description": "Add New Housekeeper",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Housekeeper name"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postHousekeeper",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postHousekeepingAssignment",
+   "name": "Post housekeeping assignment",
+   "description": "Assign rooms (single or multiple) to an existing housekeeper",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomIDs": {
+      "type": "string",
+      "description": "List of room IDs comma-separated, i.e. 37,345,89"
+     },
+     "housekeeperID": {
+      "type": "string",
+      "description": "Housekeeper ID. To designate a room as unassigned, simply set the value to 0."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postHousekeepingAssignment",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "roomIDs",
+     "housekeeperID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postHousekeepingStatus",
+   "name": "Post housekeeping status",
+   "description": "Switches the current date's housekeeping status for a specific room ID to either clean or dirty The housekeeping status is calculated basing on the set of fields roomOccupied | roomCondition | roomBlocked | vacantPickup | roomBlocked | refusedService The available statuses are: - Vacant and Dirty (VD): false | \u201cdirty\u201d | false | false | false | false - Occupied and Dirty (OD): true | \u201cdirty\u201d | fals",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room ID"
+     },
+     "roomCondition": {
+      "type": "string",
+      "description": "New room condition. If no optional parameters are sent, will switch from current room condition. \"inspected\" status is available only if the property has the feature enabled.",
+      "enum": [
+       "dirty",
+       "clean",
+       "inspected"
+      ]
+     },
+     "doNotDisturb": {
+      "type": "boolean",
+      "description": "New \"do not disturb\" status"
+     },
+     "roomComments": {
+      "type": "string",
+      "description": "New room comments."
+     },
+     "refusedService": {
+      "type": "boolean",
+      "description": "New \"refused service\" status"
+     },
+     "vacantPickup": {
+      "type": "boolean",
+      "description": "New \"vacant_pickup\" status"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postHousekeepingStatus",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "roomID",
+     "roomCondition",
+     "doNotDisturb",
+     "roomComments",
+     "refusedService",
+     "vacantPickup"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postItem",
+   "name": "Post item",
+   "description": "Adds an item either to a reservation or to a house account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier. Required if no houseAccountID or groupCode is provided."
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House account identifier. Required if no reservationID or groupCode is provided."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group identifier. Required if no reservationID or houseAccountID is provided."
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier."
+     },
+     "itemID": {
+      "type": "string",
+      "description": "Item identifier"
+     },
+     "itemQuantity": {
+      "type": "integer",
+      "description": "Items quantity"
+     },
+     "itemPrice": {
+      "type": "string",
+      "description": "Item price, if not sent, items registered price will be used"
+     },
+     "itemNote": {
+      "type": "string",
+      "description": "Item note"
+     },
+     "itemPaid": {
+      "type": "boolean",
+      "description": "If the item is already paid. Note: If set to true, a payment in cash will be registered for the total value of the item, taxes and fees. If this is not the expected behavior, set to false, and register the operation manually. If payments is set, itemPaid is ignored."
+     },
+     "saleDate": {
+      "type": "string",
+      "description": "Posting date. Defaults to current date."
+     },
+     "payments": {
+      "type": "array",
+      "description": "list of payments If the item is already paid"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postItem",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupCode",
+     "subReservationID",
+     "itemID",
+     "itemQuantity",
+     "itemPrice",
+     "itemNote",
+     "itemPaid",
+     "saleDate",
+     "payments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postItemCategory",
+   "name": "Post item category",
+   "description": "Adds new items category",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "categoryName": {
+      "type": "string",
+      "description": "Category name"
+     },
+     "categoryCode": {
+      "type": "string",
+      "description": "Category code"
+     },
+     "itemID": {
+      "type": "array",
+      "description": "Existing ItemIDs to reassign to new category"
+     },
+     "categoryColor": {
+      "type": "string",
+      "description": "Category color (like #3b7be7)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postItemCategory",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "categoryName",
+     "categoryCode",
+     "itemID",
+     "categoryColor"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postItemsToInventory",
+   "name": "Post items to inventory",
+   "description": "Adds new items batch \u00b9 only if item.stockInventory = true",
+   "input": {
+    "type": "object",
+    "properties": {
+     "item": {
+      "type": "object",
+      "description": "Items"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postItemsToInventory",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "item"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postNewHouseAccount",
+   "name": "Post new house account",
+   "description": "Add a new House Account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "accountName": {
+      "type": "string",
+      "description": "House Account name"
+     },
+     "isPrivate": {
+      "type": "boolean",
+      "description": "Whether House Account is available only to user"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postNewHouseAccount",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "accountName",
+     "isPrivate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postPayment",
+   "name": "Post payment",
+   "description": "Add a payment to a specified reservation, house account, or group. If multiple IDs are provided, precedence is reservationID, then houseAccountID, then groupCode.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account identifier is necessary if reservationID not sent"
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group Code. Required if neither reservationID nor houseAccountID is sent"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "The Sub Reservation identifier. reservationID is still mandatory if subReservationID is sent."
+     },
+     "type": {
+      "type": "string",
+      "description": "Payment type. Use the call [getPaymentMethods](#api-Payment-getPaymentMethods) to get the properties enabled payment methods."
+     },
+     "amount": {
+      "type": "number",
+      "description": "Amount paid on this transaction"
+     },
+     "cardType": {
+      "type": "string",
+      "description": "If type = credit, cardType is necessary. Allowed values are property based, but possible strings are: \"visa\",\"master\",\"amex\",\"aura\",\"diners\",\"hiper\",\"elo\",\"Discover\",\"jcb\",\"maestro\",\"dan\",\"PostCard\",\"Eurocard\",\"union_pay\""
+     },
+     "description": {
+      "type": "string",
+      "description": "Note to be added to payment"
+     },
+     "isDeposit": {
+      "type": "boolean",
+      "description": "determine if this payment is a deposit (default: false)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postPayment",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupCode",
+     "subReservationID",
+     "type",
+     "amount",
+     "cardType",
+     "description",
+     "isDeposit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postReservation",
+   "name": "Post reservation",
+   "description": "Adds a reservation to the selected property",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "sourceID": {
+      "type": "string",
+      "description": "The source ID for this reservation. Accepted formats: \"s-{id}\" for primary sources (no suffix), or \"ss-{id}-0\" / \"ss-{id}-1\" for third-party sources (suffix required: 0 = channel-collect, 1 = hotel-collect). The format must match the source type."
+     },
+     "thirdPartyIdentifier": {
+      "type": "string",
+      "description": "If it was received from a booking channel, this can be an identifier from that channel."
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Check-In date."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Check-Out date."
+     },
+     "guestFirstName": {
+      "type": "string",
+      "description": "First name of the guest"
+     },
+     "guestLastName": {
+      "type": "string",
+      "description": "Last name of the guest"
+     },
+     "guestGender": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "M",
+       "F",
+       "N/A"
+      ]
+     },
+     "guestCountry": {
+      "type": "string",
+      "description": "Valid ISO-Code for Country (2 characters)"
+     },
+     "guestNationality": {
+      "type": "string",
+      "description": "Guest nationality (citizenship). ISO-Code for Country (2 characters). Distinct from `guestCountry`, which is the address country."
+     },
+     "guestZip": {
+      "type": "string",
+      "description": "ZIP Code"
+     },
+     "guestEmail": {
+      "type": "string",
+      "description": "Guest email"
+     },
+     "guestPhone": {
+      "type": "string",
+      "description": "Guest main phone number"
+     },
+     "guestRequirements": {
+      "type": "array",
+      "description": "Object with guest requirements information."
+     },
+     "estimatedArrivalTime": {
+      "type": "string",
+      "description": "Estimated Arrival Time, 24-hour format."
+     },
+     "rooms": {
+      "type": "array",
+      "description": "Array with quantity of rooms"
+     },
+     "adults": {
+      "type": "array",
+      "description": "Array with number of adults"
+     },
+     "children": {
+      "type": "array",
+      "description": "Array with number of children"
+     },
+     "paymentMethod": {
+      "type": "string",
+      "description": "Payment Method of choice.",
+      "enum": [
+       "cash",
+       "credit",
+       "ebanking",
+       "pay_pal"
+      ]
+     },
+     "cardToken": {
+      "type": "string",
+      "description": "Credit Card identifier. Payment Method must be credit. This field should be filled with credit card identifier according to gateway. Only available for Stripe and should send the Customer ID."
+     },
+     "paymentAuthorizationCode": {
+      "type": "string",
+      "description": "Transaction identifier. Payment Method must be credit. This field should be filled with transaction identifier according to gateway. Only available for Stripe and it should be filled with Charge ID associated to the Payment Intent."
+     },
+     "customFields": {
+      "type": "array",
+      "description": "Array with custom fields information"
+     },
+     "promoCode": {
+      "type": "string",
+      "description": "Promotional code. Required for specials and packages that uses it. \"rateID\" parameter required for using \"promoCode\"."
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment block code to add reservation to allotment block."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Code from the Aggregate Allotment block the reservation will be added to."
+     },
+     "dateCreated": {
+      "type": "string",
+      "description": "Date reservation was made. Defaults to current date if omitted."
+     },
+     "sendEmailConfirmation": {
+      "type": "boolean",
+      "description": "Send confirmation email to guest."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postReservation",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "sourceID",
+     "thirdPartyIdentifier",
+     "startDate",
+     "endDate",
+     "guestFirstName",
+     "guestLastName",
+     "guestGender",
+     "guestCountry",
+     "guestNationality",
+     "guestZip",
+     "guestEmail",
+     "guestPhone",
+     "guestRequirements",
+     "estimatedArrivalTime",
+     "rooms",
+     "adults",
+     "children",
+     "paymentMethod",
+     "cardToken",
+     "paymentAuthorizationCode",
+     "customFields",
+     "promoCode",
+     "allotmentBlockCode",
+     "groupCode",
+     "dateCreated",
+     "sendEmailConfirmation"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postReservationDocument",
+   "name": "Post reservation document",
+   "description": "Attaches a document to a reservation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier"
+     },
+     "file": {
+      "type": "string",
+      "description": "Form-based File Upload Allowed file types: *.pdf, *.rtf, *.doc, *.docx, *.txt, *.jpg, *.jpeg, *.png, *.gif, *.csv, *.xls, *.xlsx, *.xml, *.json Allowed max file size: 100MB"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postReservationDocument",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postReservationNote",
+   "name": "Post reservation note",
+   "description": "Adds a reservation note",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier"
+     },
+     "reservationNote": {
+      "type": "string",
+      "description": "Note to be added to reservation"
+     },
+     "userID": {
+      "type": "string",
+      "description": "User ID Identify the actual user that is posting the note"
+     },
+     "dateCreated": {
+      "type": "string",
+      "description": "Datetime the note was created."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postReservationNote",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "reservationNote",
+     "userID",
+     "dateCreated"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postRoomAssign",
+   "name": "Post room assign",
+   "description": "Assign/Reassign a room on a guest reservation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier"
+     },
+     "reservationRoomID": {
+      "type": "string",
+      "description": "Reservation room ID. Must be set if you want to unassign a room."
+     },
+     "newRoomID": {
+      "type": "string",
+      "description": "Room ID of the room that will be assigned. Empty field must be sent if you want to unassign a room."
+     },
+     "roomTypeID": {
+      "type": "string",
+      "description": "Room Type ID of the room that will be assigned. Need to be provided in case of assignment."
+     },
+     "oldRoomID": {
+      "type": "string",
+      "description": "Room ID of the room that was assigned. Need to be provided in case of reassignment."
+     },
+     "overrideRates": {
+      "type": "boolean",
+      "description": "Deprecated. Please use adjustPrice instead. Setting overrideRates=true will have the opposite of the effect that the name implies. It will cause the rates to NOT be overridden, but instead to be recalculated based on the new room assignment."
+     },
+     "adjustPrice": {
+      "type": "boolean",
+      "description": "If room assignment would result in an upcharge or discount, this parameter needs to be set to true to approve the charges. If not set, the rate will retain its original value."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postRoomAssign",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "subReservationID",
+     "reservationRoomID",
+     "newRoomID",
+     "roomTypeID",
+     "oldRoomID",
+     "overrideRates",
+     "adjustPrice"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postRoomBlock",
+   "name": "Post room block",
+   "description": "Adds a room block to the selected property.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomBlockType": {
+      "type": "string",
+      "description": "Room block type. \u2018blocked_dates\u2019 - Room block. \u2018out_of_service\u2019 - Out of service block. \u2018courtesy_hold\u2019 - Courtesy hold block.",
+      "enum": [
+       "blocked_dates",
+       "out_of_service",
+       "courtesy_hold"
+      ]
+     },
+     "roomBlockReason": {
+      "type": "string",
+      "description": "Room block reason"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Room block start date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Room block end date"
+     },
+     "rooms": {
+      "type": "array",
+      "description": "All rooms for room block. When multiple rooms are submitted they will be created under the same roomBlockID. For properties using split inventory (virtual rooms linked to physical rooms), only provide the source rooms you want to block. Linked rooms will be automatically added. Do not include auto-added linked rooms in the request - the API will reject requests that include both a source room and "
+     },
+     "firstName": {
+      "type": "string",
+      "description": "First name - for courtesy hold updates"
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Last name - for courtesy hold updates"
+     },
+     "lengthOfHoldInHours": {
+      "type": "integer",
+      "description": "Length of hold in hours - for courtesy hold updates"
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address - for courtesy hold updates"
+     },
+     "phone": {
+      "type": "string",
+      "description": "Phone number - for courtesy hold updates"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postRoomBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "roomBlockType",
+     "roomBlockReason",
+     "startDate",
+     "endDate",
+     "rooms",
+     "firstName",
+     "lastName",
+     "lengthOfHoldInHours",
+     "email",
+     "phone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postRoomCheckIn",
+   "name": "Post room check in",
+   "description": "Check-in a room already assigned for a guest",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier, allows for granular control over what room is being checked-in. If sent, roomID is ignored."
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room ID of the room that will be checked-in."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postRoomCheckIn",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "subReservationID",
+     "roomID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postRoomCheckOut",
+   "name": "Post room check out",
+   "description": "Check-out a room already assigned for a guest. If all rooms are checked out, the reservation status will update accordingly to \"Checked Out\" as well.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "subReservationID": {
+      "type": "string",
+      "description": "Sub Reservation identifier, allows for granular control over what room is being checked out. If sent, roomID is ignored."
+     },
+     "roomID": {
+      "type": "string",
+      "description": "Room ID of the room that will be checked out."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postRoomCheckOut",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "subReservationID",
+     "roomID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postVoidItem",
+   "name": "Post void item",
+   "description": "Voids the itemID transaction on the specified Reservation ID, House Account ID, or Group. If payments were sent in calls [postItem](https://developers.cloudbeds.com/reference/post_postitem) or [postCustomItem](https://developers.cloudbeds.com/reference/post_postcustomitem), they will be deleted too.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier. Required if no houseAccountID or groupCode is provided."
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account identifier. Required if no reservationID or groupCode is provided."
+     },
+     "groupCode": {
+      "type": "string",
+      "description": "Group identifier. Required if no reservationID or houseAccountID is provided."
+     },
+     "soldProductID": {
+      "type": "string",
+      "description": "Item identifier"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postVoidItem",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "groupCode",
+     "soldProductID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postVoidPayment",
+   "name": "Post void payment",
+   "description": "Voids a payment (using paymentID) to a specified reservation or house account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation identifier"
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account identifier is necessary if reservationID not sent"
+     },
+     "paymentID": {
+      "type": "string",
+      "description": "paymentID of transaction that should be voided."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postVoidPayment",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "houseAccountID",
+     "paymentID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_postWebhook",
+   "name": "Post webhook",
+   "description": "Subscribe a webhook for a specified event. Read the [Webhooks guide](https://integrations.cloudbeds.com/hc/en-us/articles/360007612553-Webhooks) to see available objects, actions, payload info and more.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "object": {
+      "type": "string",
+      "description": "Event object"
+     },
+     "action": {
+      "type": "string",
+      "description": "Event action"
+     },
+     "endpointUrl": {
+      "type": "string",
+      "description": "Endpoint URL"
+     },
+     "authHeaderName": {
+      "type": "string",
+      "description": "HTTP header sent with every delivery, i.e. `Authorization`. Use instead of credentials in `endpointUrl`. Requires `authHeaderValue`."
+     },
+     "authHeaderValue": {
+      "type": "string",
+      "description": "Value for `authHeaderName`, i.e. `Basic dXNlcjpwYXNz`. Never returned by getWebhooks. Re-post to rotate. Requires `authHeaderName`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/postWebhook",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "object",
+     "action",
+     "endpointUrl",
+     "authHeaderName",
+     "authHeaderValue"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_putAppPropertySettings",
+   "name": "Put app property settings",
+   "description": "putAppPropertySettings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "value": {
+      "type": "string",
+      "description": "Value"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/putAppPropertySettings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_putGroup",
+   "name": "Put group",
+   "description": "Adds a group to the property. Please note that the default setting for 'Route to Group Folio' will be 'No,' and the 'Reservation Folio Configuration' will be set as the default folio configuration. You can edit these settings through the user interface (UI).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Name for a group"
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of group",
+      "enum": [
+       "group",
+       "company",
+       "travel_agent",
+       "wholesaler"
+      ]
+     },
+     "status": {
+      "type": "string",
+      "description": "Group status",
+      "enum": [
+       "open",
+       "closed"
+      ]
+     },
+     "commissionType": {
+      "type": "string",
+      "description": "Commission Type",
+      "enum": [
+       "fixed",
+       "percent"
+      ]
+     },
+     "sourceID": {
+      "type": "string",
+      "description": "Source ID for a group"
+     },
+     "address1": {
+      "type": "string",
+      "description": "Address line 1 for a group"
+     },
+     "address2": {
+      "type": "string",
+      "description": "Address line 2 for a group"
+     },
+     "city": {
+      "type": "string",
+      "description": "City for a group"
+     },
+     "zip": {
+      "type": "string",
+      "description": "Zip for a group"
+     },
+     "state": {
+      "type": "string",
+      "description": "State for a group"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/putGroup",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "name",
+     "type",
+     "status",
+     "commissionType",
+     "sourceID",
+     "address1",
+     "address2",
+     "city",
+     "zip",
+     "state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_putRate",
+   "name": "Put rate",
+   "description": "Update the rate of the room based on rateID selected, based on the provided parameters. You can make multiple rate updates in a single API call. Providing a startDate and/or endDate will update rates only within the interval provided. Only non derived rates can be updated, requests to update a derived rate will return an error. This endpoint performs updates asynchronously, rate updates are added ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rates": {
+      "type": "array",
+      "description": "Array of rates to update"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/putRate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "rates"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_updateAllotmentBlock",
+   "name": "Update allotment block",
+   "description": "Update an allotment block @apiQuery {Integer} propertyID Property ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "The allotment block code identifying the allotment block to update"
+     },
+     "allotmentBlockName": {
+      "type": "string",
+      "description": "The name for the allotment block"
+     },
+     "allowOverbooking": {
+      "type": "boolean",
+      "description": "If false, or omitted, then this update will fail if it would result in an overbooking. If true, then the update will succeed even if it results in an overbooking."
+     },
+     "allotmentType": {
+      "type": "string",
+      "description": "The allotment type",
+      "enum": [
+       "allotment",
+       "based_on_availability"
+      ]
+     },
+     "allotmentBlockStatus": {
+      "type": "string",
+      "description": "The status for the allotment block under",
+      "enum": [
+       "definite",
+       "tentative",
+       "lead",
+       "cancelled"
+      ]
+     },
+     "autoRelease": {
+      "type": "object",
+      "description": "Optional auto-release configuration NOTE: pass empty object to remove auto-release configuration"
+     },
+     "allotmentIntervals": {
+      "type": "array",
+      "description": "The day-based data for the allotment block."
+     },
+     "resources": {
+      "type": "array",
+      "description": "Optional full-desired-state array of space resource quotes. Passing an empty array deletes all existing quotes. When the spaces-allotment-blocks flag is off, this field is silently ignored."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/updateAllotmentBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "allotmentBlockCode",
+     "allotmentBlockName",
+     "allowOverbooking",
+     "allotmentType",
+     "allotmentBlockStatus",
+     "autoRelease",
+     "allotmentIntervals",
+     "resources"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.post_updateAllotmentBlockNotes",
+   "name": "Update allotment block notes",
+   "description": "Update a note on an allotment block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment Block Code"
+     },
+     "noteID": {
+      "type": "string",
+      "description": "Note's ID"
+     },
+     "text": {
+      "type": "string",
+      "description": "Note's text (null for no change)"
+     },
+     "status": {
+      "type": "string",
+      "description": "Note status",
+      "enum": [
+       "active",
+       "archived"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudbeds.com/updateAllotmentBlockNotes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "allotmentBlockCode",
+     "noteID",
+     "text",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putGuest",
+   "name": "Put guest",
+   "description": "Updates an existing guest with information provided. At least one information field is required for this call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Valid Guest ID"
+     },
+     "guestFirstName": {
+      "type": "string",
+      "description": ""
+     },
+     "guestLastName": {
+      "type": "string",
+      "description": ""
+     },
+     "guestGender": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "M",
+       "F",
+       "N/A"
+      ]
+     },
+     "guestEmail": {
+      "type": "string",
+      "description": ""
+     },
+     "guestPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCellPhone": {
+      "type": "string",
+      "description": ""
+     },
+     "guestAddress1": {
+      "type": "string",
+      "description": ""
+     },
+     "guestAddress2": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCity": {
+      "type": "string",
+      "description": ""
+     },
+     "guestCountry": {
+      "type": "string",
+      "description": "ISO-Code for Country (2 characters)"
+     },
+     "guestNationality": {
+      "type": "string",
+      "description": "Guest nationality (citizenship). ISO-Code for Country (2 characters)"
+     },
+     "guestState": {
+      "type": "string",
+      "description": ""
+     },
+     "guestZip": {
+      "type": "string",
+      "description": ""
+     },
+     "guestBirthDate": {
+      "type": "string",
+      "description": ""
+     },
+     "guestDocumentType": {
+      "type": "string",
+      "description": "It is mandatory to send all document information na - non selection dni - Identity card nie - Residence permit cpf - Brazilian Tax ID",
+      "enum": [
+       "na",
+       "driver_licence",
+       "student_id",
+       "passport",
+       "dni",
+       "nie",
+       "social_security_card",
+       "cpf"
+      ]
+     },
+     "guestDocumentNumber": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent)"
+     },
+     "guestDocumentIssueDate": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent and is not DNI or CPF)"
+     },
+     "guestDocumentIssuingCountry": {
+      "type": "string",
+      "description": "ISO-Code for Country (2 characters) (mandatory when guestDocumentType is sent)"
+     },
+     "guestDocumentExpirationDate": {
+      "type": "string",
+      "description": "(mandatory when guestDocumentType is sent and is not DNI, NIE, or CPF)"
+     },
+     "guestRequirements": {
+      "type": "array",
+      "description": "Object with guest requirements information."
+     },
+     "guestCustomFields": {
+      "type": "array",
+      "description": ""
+     },
+     "guestCompanyName": {
+      "type": "string",
+      "description": "Guest company name"
+     },
+     "guestCompanyTaxId": {
+      "type": "string",
+      "description": "Guest company tax ID"
+     },
+     "guestTaxId": {
+      "type": "string",
+      "description": "Guest tax ID unencrypted payment data through the API. Numeric values longer than 12 characters and considered valid by Luhn's algorithm will be rejected."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putGuest",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "guestID",
+     "guestFirstName",
+     "guestLastName",
+     "guestGender",
+     "guestEmail",
+     "guestPhone",
+     "guestCellPhone",
+     "guestAddress1",
+     "guestAddress2",
+     "guestCity",
+     "guestCountry",
+     "guestNationality",
+     "guestState",
+     "guestZip",
+     "guestBirthDate",
+     "guestDocumentType",
+     "guestDocumentNumber",
+     "guestDocumentIssueDate",
+     "guestDocumentIssuingCountry",
+     "guestDocumentExpirationDate",
+     "guestRequirements",
+     "guestCustomFields",
+     "guestCompanyName",
+     "guestCompanyTaxId",
+     "guestTaxId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putGuestNote",
+   "name": "Put guest note",
+   "description": "Updates an existing guest note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "guestID": {
+      "type": "string",
+      "description": "Guest ID"
+     },
+     "noteID": {
+      "type": "string",
+      "description": "Note ID"
+     },
+     "guestNote": {
+      "type": "string",
+      "description": "Note to be added to guest profile. It's strictly forbidden to send unencrypted payment data through the API. Numeric values longer than 12 characters and considered valid by Luhn's algorithm will be rejected."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putGuestNote",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "guestID",
+     "noteID",
+     "guestNote"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putHouseAccountStatus",
+   "name": "Put house account status",
+   "description": "Change specific house account to either open or closed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "houseAccountID": {
+      "type": "string",
+      "description": "House Account ID"
+     },
+     "status": {
+      "type": "string",
+      "description": "House Account status",
+      "enum": [
+       "open",
+       "closed"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putHouseAccountStatus",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "houseAccountID",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putHousekeeper",
+   "name": "Put housekeeper",
+   "description": "Edit Housekeeper Details",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "name": {
+      "type": "string",
+      "description": "Housekeeper name"
+     },
+     "housekeeperID": {
+      "type": "string",
+      "description": "Housekeeper ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putHousekeeper",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "name",
+     "housekeeperID"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putItemToInventory",
+   "name": "Put item to inventory",
+   "description": "Updates an item with information provided \u00b9 only if item.stockInventory = true",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "itemID": {
+      "type": "string",
+      "description": "Item identifier"
+     },
+     "itemName": {
+      "type": "string",
+      "description": "Item name"
+     },
+     "itemType": {
+      "type": "string",
+      "description": "Item type",
+      "enum": [
+       "product",
+       "service"
+      ]
+     },
+     "itemSKU": {
+      "type": "string",
+      "description": "Item SKU. Will be generated if not set"
+     },
+     "itemCode": {
+      "type": "string",
+      "description": "Item code"
+     },
+     "itemDescription": {
+      "type": "string",
+      "description": "Item description"
+     },
+     "itemPrice": {
+      "type": "number",
+      "description": "Item price"
+     },
+     "stockInventory": {
+      "type": "boolean",
+      "description": "Track stock inventory for this item"
+     },
+     "itemQuantity": {
+      "type": "integer",
+      "description": "\u00b9 Current amount of item available"
+     },
+     "reorderThreshold": {
+      "type": "integer",
+      "description": "\u00b9 Quantity at which to reorder item"
+     },
+     "stopSellMet": {
+      "type": "boolean",
+      "description": "\u00b9 true - Whether item is at or below value set for stop-sell threshold."
+     },
+     "stopSell": {
+      "type": "integer",
+      "description": "\u00b9 Quantity at which to stop selling product."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putItemToInventory",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "itemID",
+     "itemName",
+     "itemType",
+     "itemSKU",
+     "itemCode",
+     "itemDescription",
+     "itemPrice",
+     "stockInventory",
+     "itemQuantity",
+     "reorderThreshold",
+     "stopSellMet",
+     "stopSell"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putReservation",
+   "name": "Put reservation",
+   "description": "Updates a reservation, such as custom fields, estimated arrival time, room configuration and reservation status.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier, one reservation ID per call."
+     },
+     "estimatedArrivalTime": {
+      "type": "string",
+      "description": "Estimated Arrival Time, 24-hour format."
+     },
+     "status": {
+      "type": "string",
+      "description": "Reservation status 'confirmed' - Reservation is confirmed 'not_confirmed' - Reservation not passed confirmation 'canceled' - Reservation is canceled 'checked_in' - Guest is in hotel 'checked_out' - Guest already left hotel 'no_show' - Guest didn't showed up on check-in date",
+      "enum": [
+       "confirmed",
+       "not_confirmed",
+       "canceled",
+       "checked_in",
+       "checked_out",
+       "no_show"
+      ]
+     },
+     "checkoutDate": {
+      "type": "string",
+      "description": "Update the checkoutDate across the whole reservation"
+     },
+     "customFields": {
+      "type": "array",
+      "description": "Array with custom fields information"
+     },
+     "rooms": {
+      "type": "array",
+      "description": "Array with rooms information to change accommodations assigned to the reservation"
+     },
+     "dateCreated": {
+      "type": "string",
+      "description": "Date reservation was made. Do not change if omitted."
+     },
+     "allotmentBlockCode": {
+      "type": "string",
+      "description": "Allotment block code to link the reservation to. If provided along with eventCode, the allotment block must belong to the event. To unlink, send the parameter with an empty value (`allotmentBlockCode=`); a form-urlencoded body cannot carry a real null, so sending the literal text \"null\" is treated as an ordinary block code rather than as an unlink. One unlink call clears both the allotment block a"
+     },
+     "eventCode": {
+      "type": "string",
+      "description": "Event (group profile) code to link the reservation to. When sent without allotmentBlockCode, links to the group profile only. Unlinks the same way as allotmentBlockCode: send the parameter with an empty value (`eventCode=`)."
+     },
+     "sendStatusChangeEmail": {
+      "type": "boolean",
+      "description": "Send email on reservation status change to property and guest."
+     },
+     "canceledByGuest": {
+      "type": "boolean",
+      "description": "Marks the cancellation as initiated by the guest (self-service portal, CFAR, or a guest request relayed by the integration). Only valid together with status='canceled' \u2014 sending it with any other status returns success=false. The reservation's main guest is recorded as the cancellation actor; the caller cannot supply actor identity."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putReservation",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "estimatedArrivalTime",
+     "status",
+     "checkoutDate",
+     "customFields",
+     "rooms",
+     "dateCreated",
+     "allotmentBlockCode",
+     "eventCode",
+     "sendStatusChangeEmail",
+     "canceledByGuest"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putReservationNote",
+   "name": "Put reservation note",
+   "description": "Updates an existing reservation note.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "reservationID": {
+      "type": "string",
+      "description": "Reservation Unique Identifier"
+     },
+     "reservationNoteID": {
+      "type": "string",
+      "description": "Reservation Note ID"
+     },
+     "reservationNote": {
+      "type": "string",
+      "description": "Note to be added to reservation"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putReservationNote",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "reservationID",
+     "reservationNoteID",
+     "reservationNote"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudbeds.put_putRoomBlock",
+   "name": "Put room block",
+   "description": "Updates a room block.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "propertyID": {
+      "type": "string",
+      "description": "Property ID"
+     },
+     "roomBlockID": {
+      "type": "string",
+      "description": "Room block ID"
+     },
+     "roomBlockReason": {
+      "type": "string",
+      "description": "Room block reason"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Room block start date"
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Room block end date"
+     },
+     "rooms": {
+      "type": "array",
+      "description": "All rooms for room block. When multiple rooms are submitted they will be created under the same roomBlockID. For properties using split inventory (virtual rooms linked to physical rooms), only provide the source rooms you want to block. Linked rooms will be automatically added. Do not include auto-added linked rooms in the request - the API will reject requests that include both a source room and "
+     },
+     "firstName": {
+      "type": "string",
+      "description": "First name - for courtesy hold updates"
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Last name - for courtesy hold updates"
+     },
+     "lengthOfHoldInHours": {
+      "type": "integer",
+      "description": "Length of hold in hours - for courtesy hold updates"
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address - for courtesy hold updates"
+     },
+     "phone": {
+      "type": "string",
+      "description": "Phone number - for courtesy hold updates"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.cloudbeds.com/putRoomBlock",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "propertyID",
+     "roomBlockID",
+     "roomBlockReason",
+     "startDate",
+     "endDate",
+     "rooms",
+     "firstName",
+     "lastName",
+     "lengthOfHoldInHours",
+     "email",
+     "phone"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

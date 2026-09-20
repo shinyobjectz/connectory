@@ -1,0 +1,740 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "xero",
+ "source": "https://api.apis.guru/v2/specs/xero.com/xero_files/2.9.4/openapi.json",
+ "operations": [
+  {
+   "slug": "xero.create_file_association",
+   "name": "Creates a new file association",
+   "description": "By passing in the appropriate options, you can create a new folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "The unique identifier of the file"
+     },
+     "ObjectGroup": {
+      "type": "string",
+      "description": "The Object Group that the object is in. These roughly correlate to the endpoints that can be used to retrieve the object via the core accounting API.",
+      "enum": [
+       "Account",
+       "BankTransaction",
+       "Contact",
+       "CreditNote",
+       "Invoice",
+       "Item",
+       "ManualJournal",
+       "Overpayment",
+       "Payment",
+       "Prepayment",
+       "Receipt"
+      ]
+     },
+     "ObjectId": {
+      "type": "string",
+      "description": "The identifier of the object that the file is being associated with (e.g. InvoiceID, BankTransactionID, ContactID)"
+     },
+     "ObjectType": {
+      "type": "string",
+      "description": "The Object Type",
+      "enum": [
+       "Unknown",
+       "Accpay",
+       "AccPayCredit",
+       "AccPayPayment",
+       "AccRec",
+       "AccRecCredit",
+       "AccRecPayment",
+       "Adjustment",
+       "ApCreditPayment",
+       "ApOverPayment",
+       "ApOverPaymentPayment",
+       "ApOverPaymentSourcePayment"
+      ]
+     }
+    },
+    "required": [
+     "FileId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.xero.com/Files/{FileId}/Associations",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [
+     "FileId",
+     "ObjectGroup",
+     "ObjectId",
+     "ObjectType"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.create_folder",
+   "name": "Creates a new folder",
+   "description": "By passing in the appropriate properties, you can create a new folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "Email": {
+      "type": "string",
+      "description": "The email address used to email files to the inbox. Only the inbox will have this element."
+     },
+     "FileCount": {
+      "type": "integer",
+      "description": "The number of files in the folder"
+     },
+     "Id": {
+      "type": "string",
+      "description": "Xero unique identifier for a folder Files"
+     },
+     "IsInbox": {
+      "type": "boolean",
+      "description": "to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted."
+     },
+     "Name": {
+      "type": "string",
+      "description": "The name of the folder"
+     }
+    },
+    "required": [
+     "name",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.xero.com/Folders",
+    "path": [],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [
+     "Email",
+     "FileCount",
+     "Id",
+     "IsInbox",
+     "Name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.delete_file",
+   "name": "Deletes a specific file",
+   "description": "Delete a specific file",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     }
+    },
+    "required": [
+     "FileId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.xero.com/Files/{FileId}",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.delete_file_association",
+   "name": "Deletes an existing file association",
+   "description": "By passing in the appropriate options, you can create a new folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     },
+     "ObjectId": {
+      "type": "string",
+      "description": "Object id for single object"
+     }
+    },
+    "required": [
+     "FileId",
+     "ObjectId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.xero.com/Files/{FileId}/Associations/{ObjectId}",
+    "path": [
+     "FileId",
+     "ObjectId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.delete_folder",
+   "name": "Deletes a folder",
+   "description": "By passing in the appropriate ID, you can delete a folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FolderId": {
+      "type": "string",
+      "description": "Folder id for single object"
+     }
+    },
+    "required": [
+     "FolderId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.xero.com/Folders/{FolderId}",
+    "path": [
+     "FolderId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_associations_by_object",
+   "name": "Retrieves an association object using a unique object id",
+   "description": "By passing in the appropriate options,",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "ObjectId": {
+      "type": "string",
+      "description": "Object id for single object"
+     }
+    },
+    "required": [
+     "ObjectId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Associations/{ObjectId}",
+    "path": [
+     "ObjectId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_file",
+   "name": "Retrieves a file by a unique file id",
+   "description": "Retrieves a file by a unique file ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     }
+    },
+    "required": [
+     "FileId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Files/{FileId}",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_file_associations",
+   "name": "Retrieves a specific file associations",
+   "description": "By passing in the appropriate options,",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     }
+    },
+    "required": [
+     "FileId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Files/{FileId}/Associations",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_file_content",
+   "name": "Retrieves the content of a specific file",
+   "description": "By passing in the appropriate options, retrieve data for specific file",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     }
+    },
+    "required": [
+     "FileId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Files/{FileId}/Content",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_files",
+   "name": "Retrieves files",
+   "description": "Retrieves files",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "pass an optional page size value"
+     },
+     "page": {
+      "type": "integer",
+      "description": "number of records to skip for pagination"
+     },
+     "sort": {
+      "type": "string",
+      "description": "values to sort by",
+      "enum": [
+       "Name",
+       "Size",
+       "CreatedDateUTC"
+      ]
+     }
+    },
+    "required": [
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Files",
+    "path": [],
+    "query": [
+     "pagesize",
+     "page",
+     "sort"
+    ],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_folder",
+   "name": "Retrieves specific folder by using a unique folder id",
+   "description": "By passing in the appropriate ID, you can search for specific folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FolderId": {
+      "type": "string",
+      "description": "Folder id for single object"
+     }
+    },
+    "required": [
+     "FolderId",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Folders/{FolderId}",
+    "path": [
+     "FolderId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_folders",
+   "name": "Retrieves folders",
+   "description": "By passing in the appropriate options, you can search for available folders",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "sort": {
+      "type": "string",
+      "description": "values to sort by",
+      "enum": [
+       "Name",
+       "Size",
+       "CreatedDateUTC"
+      ]
+     }
+    },
+    "required": [
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Folders",
+    "path": [],
+    "query": [
+     "sort"
+    ],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.get_inbox",
+   "name": "Retrieves inbox folder",
+   "description": "Search for the user inbox",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     }
+    },
+    "required": [
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.xero.com/Inbox",
+    "path": [],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.update_file",
+   "name": "Update a file",
+   "description": "Updates file properties of a single file",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FileId": {
+      "type": "string",
+      "description": "File id for single object"
+     },
+     "CreatedDateUtc": {
+      "type": "string",
+      "description": "Created date in UTC"
+     },
+     "FolderId": {
+      "type": "string",
+      "description": "Folder relation object's UUID"
+     },
+     "Id": {
+      "type": "string",
+      "description": "File object's UUID"
+     },
+     "MimeType": {
+      "type": "string",
+      "description": "MimeType of the file (image/png, image/jpeg, application/pdf, etc..)"
+     },
+     "Name": {
+      "type": "string",
+      "description": "File Name"
+     },
+     "Size": {
+      "type": "integer",
+      "description": "Numeric value in bytes"
+     },
+     "UpdatedDateUtc": {
+      "type": "string",
+      "description": "Updated date in UTC"
+     },
+     "User": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "FileId",
+     "id",
+     "manufacturer",
+     "name",
+     "releaseDate",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.xero.com/Files/{FileId}",
+    "path": [
+     "FileId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [
+     "CreatedDateUtc",
+     "FolderId",
+     "Id",
+     "MimeType",
+     "Name",
+     "Size",
+     "UpdatedDateUtc",
+     "User"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.update_folder",
+   "name": "Updates an existing folder",
+   "description": "By passing in the appropriate ID and properties, you can update a folder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FolderId": {
+      "type": "string",
+      "description": "Folder id for single object"
+     },
+     "Email": {
+      "type": "string",
+      "description": "The email address used to email files to the inbox. Only the inbox will have this element."
+     },
+     "FileCount": {
+      "type": "integer",
+      "description": "The number of files in the folder"
+     },
+     "Id": {
+      "type": "string",
+      "description": "Xero unique identifier for a folder Files"
+     },
+     "IsInbox": {
+      "type": "boolean",
+      "description": "to indicate if the folder is the Inbox. The Inbox cannot be renamed or deleted."
+     },
+     "Name": {
+      "type": "string",
+      "description": "The name of the folder"
+     }
+    },
+    "required": [
+     "FolderId",
+     "name",
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.xero.com/Folders/{FolderId}",
+    "path": [
+     "FolderId"
+    ],
+    "query": [],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [
+     "Email",
+     "FileCount",
+     "Id",
+     "IsInbox",
+     "Name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "xero.upload_file",
+   "name": "Uploads a file",
+   "description": "Uploads a File",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xero-tenant-id": {
+      "type": "string",
+      "description": "Xero identifier for Tenant"
+     },
+     "FolderId": {
+      "type": "string",
+      "description": "pass an optional folder id to save file to specific folder"
+     },
+     "body": {
+      "type": "string",
+      "description": ""
+     },
+     "filename": {
+      "type": "string",
+      "description": ""
+     },
+     "mimeType": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "exact name of the file you are uploading"
+     }
+    },
+    "required": [
+     "xero-tenant-id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.xero.com/Files",
+    "path": [],
+    "query": [
+     "FolderId"
+    ],
+    "header": [
+     "xero-tenant-id"
+    ],
+    "body": [
+     "body",
+     "filename",
+     "mimeType",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

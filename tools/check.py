@@ -126,8 +126,9 @@ def check_index(problems):
         fail(problems, "%d providers are in the index but not the directory" % len(extra))
 
     for row in index["index"]:
-        if row["operations"] and not os.path.exists(os.path.join(PROVIDERS, row["slug"], "%s.lua" % row["slug"])):
-            fail(problems, "%s claims %d operations but has no pack" % (row["slug"], row["operations"]))
+        owner = row.get("operations_from") or row["slug"]
+        if row["operations"] and not os.path.exists(os.path.join(PROVIDERS, owner, "%s.lua" % owner)):
+            fail(problems, "%s claims %d operations but %s has no pack" % (row["slug"], row["operations"], owner))
 
     if not missing and not extra:
         print("  %d platforms, index agrees with the directory" % len(listed))

@@ -1,0 +1,1898 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "paylocity",
+ "source": "https://api.apis.guru/v2/specs/paylocity.com/2/openapi.json",
+ "operations": [
+  {
+   "slug": "paylocity.add_client_secret",
+   "name": "Obtain new client secret",
+   "description": "Obtain new client secret for Paylocity-issued client id. See Setup section for details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": "A value sent with the 'ACTION NEEDED: Web Link API Credentials Expiring Soon.' email notification."
+     }
+    },
+    "required": [
+     "code"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environment}.paylocity.com/v2/credentials/secrets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_employee",
+   "name": "Add new employee",
+   "description": "New Employee API sends new employee data directly to Web Pay. Companies who use the New Hire Template in Web Pay may require additional fields when hiring employees. New Employee API Requests will honor these required fields.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_local_tax",
+   "name": "Add new local tax",
+   "description": "Sends new employee local tax information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "exemptions": {
+      "type": "number",
+      "description": "Local tax exemptions value.Decimal (12,2)"
+     },
+     "exemptions2": {
+      "type": "number",
+      "description": "Local tax exemptions 2 value.Decimal (12,2)"
+     },
+     "filingStatus": {
+      "type": "string",
+      "description": "Employee local tax filing status. Must match specific local tax setup. Max length: 50"
+     },
+     "residentPSD": {
+      "type": "string",
+      "description": "Resident PSD (political subdivision code) applicable in PA. Must match Company setup. Max length: 9"
+     },
+     "taxCode": {
+      "type": "string",
+      "description": "Local tax code.Max length: 50"
+     },
+     "workPSD": {
+      "type": "string",
+      "description": "Work location PSD. Must match Company setup. Max length: 9"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "exemptions",
+     "exemptions2",
+     "filingStatus",
+     "residentPSD",
+     "taxCode",
+     "workPSD"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_new_employee_to_web_link",
+   "name": "Add new employee to web link",
+   "description": "Add new employee to Web Link will send partially completed or potentially erroneous new hire record to Web Link, where it can be corrected and competed by company administrator or authorized Paylocity Service Bureau employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "additionalDirectDeposit": {
+      "type": "array",
+      "description": "Add up to 19 direct deposit accounts in addition to the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with information provided on the request. GET API will not return direct deposit data."
+     },
+     "benefitSetup": {
+      "type": "array",
+      "description": "Add setup values used for employee benefits integration, insurance plan settings, and ACA reporting."
+     },
+     "birthDate": {
+      "type": "string",
+      "description": "Employee birthdate. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*."
+     },
+     "customBooleanFields": {
+      "type": "array",
+      "description": "Up to 8 custom fields of boolean (checkbox) type value."
+     },
+     "customDateFields": {
+      "type": "array",
+      "description": "Up to 8 custom fields of the date type value."
+     },
+     "customDropDownFields": {
+      "type": "array",
+      "description": "Up to 8 custom fields of the dropdown type value."
+     },
+     "customNumberFields": {
+      "type": "array",
+      "description": "Up to 8 custom fields of numeric type value."
+     },
+     "customTextFields": {
+      "type": "array",
+      "description": "Up to 8 custom fields of text type value."
+     },
+     "departmentPosition": {
+      "type": "array",
+      "description": "Add home department cost center, position, supervisor, reviewer, employment type, EEO class, pay settings, and union information."
+     },
+     "disabilityDescription": {
+      "type": "string",
+      "description": "Indicates if employee has disability status."
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Leave blank to have Web Pay automatically assign the next available employee ID. Max length: 10"
+     },
+     "ethnicity": {
+      "type": "string",
+      "description": "Employee ethnicity. Max length: 10"
+     },
+     "federalTax": {
+      "type": "array",
+      "description": "Add federal tax amount type (taxCalculationCode), amount or percentage, filing status, and exemptions."
+     },
+     "firstName": {
+      "type": "string",
+      "description": "Employee first name. Max length: 40"
+     },
+     "fitwExemptReason": {
+      "type": "string",
+      "description": "Reason code for FITW exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). Max length: 30"
+     },
+     "futaExemptReason": {
+      "type": "string",
+      "description": "Reason code for FUTA exemption. Common values are *501* (5019c)(3) Organization), *IC* (Independent Contractor). Max length: 30"
+     },
+     "gender": {
+      "type": "string",
+      "description": "Employee gender. Common values *M* (Male), *F* (Female). Max length: 1"
+     },
+     "homeAddress": {
+      "type": "array",
+      "description": "Add employee's home address, personal phone numbers, and personal email."
+     },
+     "isEmployee943": {
+      "type": "boolean",
+      "description": "Indicates if employee in agriculture or farming."
+     },
+     "isSmoker": {
+      "type": "boolean",
+      "description": "Indicates if employee is a smoker."
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Employee last name. Max length: 40"
+     },
+     "localTax": {
+      "type": "array",
+      "description": "Add local tax code, filing status, and exemptions including PA-PSD taxes."
+     },
+     "mainDirectDeposit": {
+      "type": "array",
+      "description": "Add the main direct deposit account. After deposits are made to any additional direct deposit accounts, the remaining net check is deposited in the main direct deposit account. IMPORTANT: A direct deposit update will remove ALL existing main and additional direct deposit information in WebPay and replace with what is provided on the request. GET API will not return direct deposit data."
+     },
+     "maritalStatus": {
+      "type": "string",
+      "description": "Employee marital status. Common values *D (Divorced), M (Married), S (Single), W (Widowed)*. Max length: 10"
+     },
+     "medExemptReason": {
+      "type": "string",
+      "description": "Reason code for Medicare exemption. Common values are *501* (5019c)(3) Organization), *IC* (Independent Contractor). Max length: 30"
+     },
+     "middleName": {
+      "type": "string",
+      "description": "Employee middle name. Max length: 20"
+     },
+     "nonPrimaryStateTax": {
+      "type": "array",
+      "description": "Add non-primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, supplemental check (specialCheckCalc), and reciprocity code information."
+     },
+     "preferredName": {
+      "type": "string",
+      "description": "Employee preferred display name. Max length: 20"
+     },
+     "primaryPayRate": {
+      "type": "array",
+      "description": "Add hourly or salary pay rate, effective date, and pay frequency."
+     },
+     "primaryStateTax": {
+      "type": "array",
+      "description": "Add primary state tax code, amount type (taxCalculationCode), amount or percentage, filing status, exemptions, and supplemental check (specialCheckCalc) information. Only one primary state is allowed."
+     },
+     "priorLastName": {
+      "type": "string",
+      "description": "Prior last name if applicable.Max length: 40"
+     },
+     "salutation": {
+      "type": "string",
+      "description": "Employee preferred salutation. Max length: 10"
+     },
+     "sitwExemptReason": {
+      "type": "string",
+      "description": "Reason code for SITW exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). Max length: 30"
+     },
+     "ssExemptReason": {
+      "type": "string",
+      "description": "Reason code for Social Security exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). Max length: 30"
+     },
+     "ssn": {
+      "type": "string",
+      "description": "Employee social security number. Leave it blank if valid social security number not available. Max length: 11"
+     },
+     "status": {
+      "type": "array",
+      "description": "Add employee status, change reason, effective date, and adjusted seniority date. Note that companies that are still in Implementation cannot hire future employees."
+     },
+     "suffix": {
+      "type": "string",
+      "description": "Employee name suffix. Common values are *Jr, Sr, II*.Max length: 30"
+     },
+     "suiExemptReason": {
+      "type": "string",
+      "description": "Reason code for SUI exemption. Common values are *SE* (Statutory employee), *CR* (clergy/Religious). Max length: 30"
+     },
+     "suiState": {
+      "type": "string",
+      "description": "Employee SUI (State Unemployment Insurance) state. Max length: 2"
+     },
+     "taxDistributionCode1099R": {
+      "type": "string",
+      "description": "Employee 1099R distribution code. Common values are *7* (Normal Distribution), *F* (Charitable Gift Annuity). Max length: 1"
+     },
+     "taxForm": {
+      "type": "string",
+      "description": "Employee tax form for reporting income. Valid values are *W2, 1099M, 1099R*. Default is W2. Max length: 15"
+     },
+     "veteranDescription": {
+      "type": "string",
+      "description": "Indicates if employee is a veteran."
+     },
+     "webTime": {
+      "type": "object",
+      "description": "Add Web Time badge number and charge rate and synchronize Web Pay and Web Time employee data."
+     },
+     "workAddress": {
+      "type": "array",
+      "description": "Add employee's work address, phone numbers, and email. Work Location drop down field is not included."
+     },
+     "workEligibility": {
+      "type": "array",
+      "description": "Add I-9 work authorization information."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environment}.paylocity.com/v2/weblinkstaging/companies/{companyId}/employees/newemployees",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "additionalDirectDeposit",
+     "benefitSetup",
+     "birthDate",
+     "customBooleanFields",
+     "customDateFields",
+     "customDropDownFields",
+     "customNumberFields",
+     "customTextFields",
+     "departmentPosition",
+     "disabilityDescription",
+     "employeeId",
+     "ethnicity",
+     "federalTax",
+     "firstName",
+     "fitwExemptReason",
+     "futaExemptReason",
+     "gender",
+     "homeAddress",
+     "isEmployee943",
+     "isSmoker",
+     "lastName",
+     "localTax",
+     "mainDirectDeposit",
+     "maritalStatus",
+     "medExemptReason",
+     "middleName",
+     "nonPrimaryStateTax",
+     "preferredName",
+     "primaryPayRate",
+     "primaryStateTax",
+     "priorLastName",
+     "salutation",
+     "sitwExemptReason",
+     "ssExemptReason",
+     "ssn",
+     "status",
+     "suffix",
+     "suiExemptReason",
+     "suiState",
+     "taxDistributionCode1099R",
+     "taxForm",
+     "veteranDescription",
+     "webTime",
+     "workAddress",
+     "workEligibility"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_additional_rates",
+   "name": "Add update additional rates",
+   "description": "Sends new or updated employee additional rates information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "changeReason": {
+      "type": "string",
+      "description": "Not required. If populated, must match one of the system coded values available in the Additional Rates Change Reason drop down."
+     },
+     "costCenter1": {
+      "type": "string",
+      "description": "Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 1 drop down. This cell must be in a text format."
+     },
+     "costCenter2": {
+      "type": "string",
+      "description": "Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 2 drop down. This cell must be in a text format."
+     },
+     "costCenter3": {
+      "type": "string",
+      "description": "Not required. Valid values must match one of the system coded cost centers available in the Additional Rates Cost Center level 3 drop down. This cell must be in a text format."
+     },
+     "effectiveDate": {
+      "type": "string",
+      "description": "Required. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*."
+     },
+     "endCheckDate": {
+      "type": "string",
+      "description": "Not required. Must match one of the system coded check dates available in the Additional Rates End Check Date drop down. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*."
+     },
+     "job": {
+      "type": "string",
+      "description": "Not required. If populated, must match one of the system coded values available in the Additional Rates Job drop down."
+     },
+     "rate": {
+      "type": "number",
+      "description": "Required. Enter dollar amount that corresponds to the Per selection."
+     },
+     "rateCode": {
+      "type": "string",
+      "description": "Required. If populated, must match one of the system coded values available in the Additional Rates Rate Code drop down."
+     },
+     "rateNotes": {
+      "type": "string",
+      "description": "Not required.Max length: 4000"
+     },
+     "ratePer": {
+      "type": "string",
+      "description": "Required. Valid values are HOUR or WEEK."
+     },
+     "shift": {
+      "type": "string",
+      "description": "Not required. If populated, must match one of the system coded values available in the Additional Rates Shift drop down."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/additionalRates",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "changeReason",
+     "costCenter1",
+     "costCenter2",
+     "costCenter3",
+     "effectiveDate",
+     "endCheckDate",
+     "job",
+     "rate",
+     "rateCode",
+     "rateNotes",
+     "ratePer",
+     "shift"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_an_employee_earning",
+   "name": "Add update earning",
+   "description": "Add/Update Earning API sends new or updated employee earnings information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "agency": {
+      "type": "string",
+      "description": "Third-party agency associated with earning. Must match Company setup.Max length: 10"
+     },
+     "amount": {
+      "type": "number",
+      "description": "Value that matches CalculationCode to add to gross wages. For percentage (%), enter whole number (10 = 10%). Decimal(12,2)"
+     },
+     "annualMaximum": {
+      "type": "number",
+      "description": "Year to Date dollar amount not to be exceeded for an earning in the calendar year. Used only with company driven maximums. Decimal(12,2)"
+     },
+     "calculationCode": {
+      "type": "string",
+      "description": "Defines how earnings are calculated. Common values are *% (percentage of gross), flat (flat dollar amount)*. Defaulted to the Company setup calcCode for earning. Max length: 20"
+     },
+     "costCenter1": {
+      "type": "string",
+      "description": "Cost Center associated with earning. Must match Company setup. Max length: 10"
+     },
+     "costCenter2": {
+      "type": "string",
+      "description": "Cost Center associated with earning. Must match Company setup. Max length: 10"
+     },
+     "costCenter3": {
+      "type": "string",
+      "description": "Cost Center associated with earning. Must match Company setup. Max length: 10"
+     },
+     "earningCode": {
+      "type": "string",
+      "description": "Earning code. Must match Company setup. Max length: 10"
+     },
+     "effectiveDate": {
+      "type": "string",
+      "description": "Date earning is active. Defaulted to run date or check date based on Company setup. Common formats are MM-DD-CCYY, CCYY-MM-DD."
+     },
+     "endDate": {
+      "type": "string",
+      "description": "Stop date of an earning. Common formats are MM-DD-CCYY, CCYY-MM-DD."
+     },
+     "frequency": {
+      "type": "string",
+      "description": "Needed if earning is applied differently from the payroll frequency (one time earning for example). Max length: 5"
+     },
+     "goal": {
+      "type": "number",
+      "description": "Dollar amount. The employee earning will stop when the goal amount is reached. Decimal(12,2)"
+     },
+     "hoursOrUnits": {
+      "type": "number",
+      "description": "The value is used in conjunction with the Rate field. When entering Group Term Life Insurance (GTL), it should contain the full amount of the group term life insurance policy. Decimal(12,2)"
+     },
+     "isSelfInsured": {
+      "type": "boolean",
+      "description": "Used for ACA. If not entered, defaulted to Company earning setup."
+     },
+     "jobCode": {
+      "type": "string",
+      "description": "Job code associated with earnings. Must match Company setup. Max length: 20"
+     },
+     "miscellaneousInfo": {
+      "type": "string",
+      "description": "Information to print on the check stub if agency is set up for this earning. Max length: 50"
+     },
+     "paidTowardsGoal": {
+      "type": "number",
+      "description": "Amount already paid to employee toward goal. Decimal(12,2)"
+     },
+     "payPeriodMaximum": {
+      "type": "number",
+      "description": "Maximum amount of the earning on a single paycheck. Decimal(12,2)"
+     },
+     "payPeriodMinimum": {
+      "type": "number",
+      "description": "Minimum amount of the earning on a single paycheck. Decimal(12,2)"
+     },
+     "rate": {
+      "type": "number",
+      "description": "Rate is used in conjunction with the hoursOrUnits field. Decimal(12,2)"
+     },
+     "rateCode": {
+      "type": "string",
+      "description": "Rate Code applies to additional pay rates entered for an employee. Must match Company setup. Max length: 10"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start date of an earning based on payroll calendar. Common formats are MM-DD-CCYY, CCYY-MM-DD."
+     }
+    },
+    "required": [
+     "companyId",
+     "earningCode",
+     "employeeId",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "agency",
+     "amount",
+     "annualMaximum",
+     "calculationCode",
+     "costCenter1",
+     "costCenter2",
+     "costCenter3",
+     "earningCode",
+     "effectiveDate",
+     "endDate",
+     "frequency",
+     "goal",
+     "hoursOrUnits",
+     "isSelfInsured",
+     "jobCode",
+     "miscellaneousInfo",
+     "paidTowardsGoal",
+     "payPeriodMaximum",
+     "payPeriodMinimum",
+     "rate",
+     "rateCode",
+     "startDate"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_emergency_contacts",
+   "name": "Add update emergency contacts",
+   "description": "Sends new or updated employee emergency contacts directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "address1": {
+      "type": "string",
+      "description": "1st address line."
+     },
+     "address2": {
+      "type": "string",
+      "description": "2nd address line."
+     },
+     "city": {
+      "type": "string",
+      "description": "City."
+     },
+     "country": {
+      "type": "string",
+      "description": "County."
+     },
+     "county": {
+      "type": "string",
+      "description": "Country. Must be a valid 3 character country code. Common values are *USA* (United States), *CAN* (Canada)."
+     },
+     "email": {
+      "type": "string",
+      "description": "Contact email. Must be valid email address format."
+     },
+     "firstName": {
+      "type": "string",
+      "description": "Required. Contact first name. Max length: 40"
+     },
+     "homePhone": {
+      "type": "string",
+      "description": "Contact Home Phone. Valid phone format *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed."
+     },
+     "lastName": {
+      "type": "string",
+      "description": "Required. Contact last name. Max length: 40"
+     },
+     "mobilePhone": {
+      "type": "string",
+      "description": "Contact Mobile Phone. Valid phone format *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Notes. Max length: 1000"
+     },
+     "pager": {
+      "type": "string",
+      "description": "Contact Pager. Valid phone format *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed."
+     },
+     "primaryPhone": {
+      "type": "string",
+      "description": "Required. Contact primary phone type. Must match Company setup. Valid values are H (Home), M (Mobile), P (Pager), W (Work)"
+     },
+     "priority": {
+      "type": "string",
+      "description": "Required. Contact priority. Valid values are *P* (Primary) or *S* (Secondary)."
+     },
+     "relationship": {
+      "type": "string",
+      "description": "Required. Contact relationship. Must match Company setup. Common values are Spouse, Mother, Father."
+     },
+     "state": {
+      "type": "string",
+      "description": "State or Province. If U.S. address, must be valid 2 character state code. Common values are *IL* (Illinois), *CA* (California)."
+     },
+     "syncEmployeeInfo": {
+      "type": "boolean",
+      "description": "Valid values are *true* or *false*."
+     },
+     "workExtension": {
+      "type": "string",
+      "description": "Work Extension."
+     },
+     "workPhone": {
+      "type": "string",
+      "description": "Contact Work Phone. Valid phone format *(###) #######* or *######-####* or *### ### ####* or *##########* or, if international, starts with *+#*, only spaces and digits allowed."
+     },
+     "zip": {
+      "type": "string",
+      "description": "Postal code. If U.S. address, must be a valid zip code."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId",
+     "firstName",
+     "lastName"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/emergencyContacts",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "address1",
+     "address2",
+     "city",
+     "country",
+     "county",
+     "email",
+     "firstName",
+     "homePhone",
+     "lastName",
+     "mobilePhone",
+     "notes",
+     "pager",
+     "primaryPhone",
+     "priority",
+     "relationship",
+     "state",
+     "syncEmployeeInfo",
+     "workExtension",
+     "workPhone",
+     "zip"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_non_primary_state_tax",
+   "name": "Add update non primary state tax",
+   "description": "Sends new or updated employee non-primary state tax information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "amount": {
+      "type": "number",
+      "description": "State tax code. Max length: 50"
+     },
+     "deductionsAmount": {
+      "type": "number",
+      "description": "Box 4(b) on form W4 (year 2020 or later): Deductions amount. Decimal (12,2)"
+     },
+     "dependentsAmount": {
+      "type": "number",
+      "description": "Box 3 on form W4 (year 2020 or later): Total dependents amount. Decimal (12,2)"
+     },
+     "exemptions": {
+      "type": "number",
+      "description": "State tax exemptions value.Decimal (12,2)"
+     },
+     "exemptions2": {
+      "type": "number",
+      "description": "State tax exemptions 2 value.Decimal (12,2)"
+     },
+     "filingStatus": {
+      "type": "string",
+      "description": "Employee state tax filing status. Common values are *S* (Single), *M* (Married).Max length: 50"
+     },
+     "higherRate": {
+      "type": "boolean",
+      "description": "Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. Boolean"
+     },
+     "otherIncomeAmount": {
+      "type": "number",
+      "description": "Box 4(a) on form W4 (year 2020 or later): Other income amount. Decimal (12,2)"
+     },
+     "percentage": {
+      "type": "number",
+      "description": "State Tax percentage. Decimal (12,2)"
+     },
+     "reciprocityCode": {
+      "type": "string",
+      "description": "Non-primary state tax reciprocity code. Max length: 50"
+     },
+     "specialCheckCalc": {
+      "type": "string",
+      "description": "Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). Max length: 10"
+     },
+     "taxCalculationCode": {
+      "type": "string",
+      "description": "Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). Max length: 10"
+     },
+     "taxCode": {
+      "type": "string",
+      "description": "State tax code. Max length: 50"
+     },
+     "w4FormYear": {
+      "type": "integer",
+      "description": "The state W4 form year Integer"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/nonprimaryStateTax",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "deductionsAmount",
+     "dependentsAmount",
+     "exemptions",
+     "exemptions2",
+     "filingStatus",
+     "higherRate",
+     "otherIncomeAmount",
+     "percentage",
+     "reciprocityCode",
+     "specialCheckCalc",
+     "taxCalculationCode",
+     "taxCode",
+     "w4FormYear"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_primary_state_tax",
+   "name": "Add update primary state tax",
+   "description": "Sends new or updated employee primary state tax information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "amount": {
+      "type": "number",
+      "description": "State tax code. Max length: 50"
+     },
+     "deductionsAmount": {
+      "type": "number",
+      "description": "Box 4(b) on form W4 (year 2020 or later): Deductions amount. Decimal (12,2)"
+     },
+     "dependentsAmount": {
+      "type": "number",
+      "description": "Box 3 on form W4 (year 2020 or later): Total dependents amount. Decimal (12,2)"
+     },
+     "exemptions": {
+      "type": "number",
+      "description": "State tax exemptions value.Decimal (12,2)"
+     },
+     "exemptions2": {
+      "type": "number",
+      "description": "State tax exemptions 2 value.Decimal (12,2)"
+     },
+     "filingStatus": {
+      "type": "string",
+      "description": "Employee state tax filing status. Common values are *S* (Single), *M* (Married).Max length: 50"
+     },
+     "higherRate": {
+      "type": "boolean",
+      "description": "Box 2(c) on form W4 (year 2020 or later): Multiple Jobs or Spouse Works. Boolean"
+     },
+     "otherIncomeAmount": {
+      "type": "number",
+      "description": "Box 4(a) on form W4 (year 2020 or later): Other income amount. Decimal (12,2)"
+     },
+     "percentage": {
+      "type": "number",
+      "description": "State Tax percentage. Decimal (12,2)"
+     },
+     "specialCheckCalc": {
+      "type": "string",
+      "description": "Supplemental check calculation code. Common values are *Blocked* (Taxes blocked on Supplemental checks), *Supp* (Use supplemental Tax Rate-Code). Max length: 10"
+     },
+     "taxCalculationCode": {
+      "type": "string",
+      "description": "Tax calculation code. Common values are *F* (Flat), *P* (Percentage), *FDFP* (Flat Dollar Amount plus Fixed Percentage). Max length: 10"
+     },
+     "taxCode": {
+      "type": "string",
+      "description": "State tax code. Max length: 50"
+     },
+     "w4FormYear": {
+      "type": "integer",
+      "description": "The state W4 form year Integer"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/primaryStateTax",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "amount",
+     "deductionsAmount",
+     "dependentsAmount",
+     "exemptions",
+     "exemptions2",
+     "filingStatus",
+     "higherRate",
+     "otherIncomeAmount",
+     "percentage",
+     "specialCheckCalc",
+     "taxCalculationCode",
+     "taxCode",
+     "w4FormYear"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.add_or_update_sensitive_data",
+   "name": "Add update sensitive data",
+   "description": "Sends new or updated employee sensitive data information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "disability": {
+      "type": "object",
+      "description": "Add or update disability data."
+     },
+     "ethnicity": {
+      "type": "object",
+      "description": "Add or update ethnicity data."
+     },
+     "gender": {
+      "type": "object",
+      "description": "Add or update gender data."
+     },
+     "veteran": {
+      "type": "object",
+      "description": "Add or update veteran data."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "disability",
+     "ethnicity",
+     "gender",
+     "veteran"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.delete_earning_by_earning_code_and_start_date",
+   "name": "Delete earning by earning code and start date",
+   "description": "Delete Earning by Earning Code and Start Date",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "earningCode": {
+      "type": "string",
+      "description": "Earning Code"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start Date"
+     }
+    },
+    "required": [
+     "companyId",
+     "earningCode",
+     "employeeId",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "earningCode",
+     "startDate"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.delete_local_tax_by_tax_code",
+   "name": "Delete local tax by tax code",
+   "description": "Delete local tax by tax code",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "taxCode": {
+      "type": "string",
+      "description": "Tax Code"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId",
+     "taxCode"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "taxCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_company_codes_and_descriptions_by_resource",
+   "name": "Get all company codes",
+   "description": "Get All Company Codes for the selected company and resource",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "codeResource": {
+      "type": "string",
+      "description": "Type of Company Code. Common values costcenter1, costcenter2, costcenter3, deductions, earnings, taxes, paygrade, positions."
+     }
+    },
+    "required": [
+     "codeResource",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/codes/{codeResource}",
+    "path": [
+     "companyId",
+     "codeResource"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_custom_fields_by_category",
+   "name": "Get all custom fields",
+   "description": "Get All Custom Fields for the selected company",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "category": {
+      "type": "string",
+      "description": "Custom Fields Category"
+     }
+    },
+    "required": [
+     "category",
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/customfields/{category}",
+    "path": [
+     "companyId",
+     "category"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_direct_deposit",
+   "name": "Get all direct deposit",
+   "description": "Get All Direct Deposit returns main direct deposit and all additional direct depositsfor the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/directDeposit",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_earnings",
+   "name": "Get all earnings",
+   "description": "Get All Earnings returns all earnings for the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_employees",
+   "name": "Get all employees",
+   "description": "Get All Employees API will return employee data currently available in Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "Number of records per page. Default value is 25."
+     },
+     "pagenumber": {
+      "type": "integer",
+      "description": "Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0."
+     },
+     "includetotalcount": {
+      "type": "boolean",
+      "description": "Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true."
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/",
+    "path": [
+     "companyId"
+    ],
+    "query": [
+     "pagesize",
+     "pagenumber",
+     "includetotalcount"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_all_local_taxes",
+   "name": "Get all local taxes",
+   "description": "Returns all local taxes for the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_company_specific_open_api_documentation",
+   "name": "Get company specific open api documentation",
+   "description": "The company-specific Open API endpoint allows the client to GET an Open API document for the Paylocity API that is customized with company-specific resource schemas. These customized resource schemas define certain properties as enumerations of pre-defined values that correspond to the company's setup with Web Pay. The customized schemas also indicate which properties are required by the company w",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     }
+    },
+    "required": [
+     "companyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/openapi",
+    "path": [
+     "companyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_earning_by_earning_code_and_start_date",
+   "name": "Get earning by earning code and start date",
+   "description": "Get Earnings returns the single earning with the provided earning code and start date for the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "earningCode": {
+      "type": "string",
+      "description": "Earning Code"
+     },
+     "startDate": {
+      "type": "string",
+      "description": "Start Date"
+     }
+    },
+    "required": [
+     "companyId",
+     "earningCode",
+     "employeeId",
+     "startDate"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}/{startDate}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "earningCode",
+     "startDate"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_earnings_by_earning_code",
+   "name": "Get earnings by earning code",
+   "description": "Get Earnings returns all earnings with the provided earning code for the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "earningCode": {
+      "type": "string",
+      "description": "Earning Code"
+     }
+    },
+    "required": [
+     "companyId",
+     "earningCode",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/earnings/{earningCode}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "earningCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_employee",
+   "name": "Get employee",
+   "description": "Get Employee API will return employee data currently available in Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_local_tax_by_tax_code",
+   "name": "Get local taxes by tax code",
+   "description": "Returns all local taxes with the provided tax code for the selected employee.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "taxCode": {
+      "type": "string",
+      "description": "Tax Code"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId",
+     "taxCode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/localTaxes/{taxCode}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "taxCode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.get_sensitive_data",
+   "name": "Get sensitive data",
+   "description": "Gets employee sensitive data information directly from Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/sensitivedata",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.gets_employee_pay_statement_detail_data_based_on_the_specified_year",
+   "name": "Get employee pay statement details data for the specified year",
+   "description": "Get pay statement details API will return employee pay statement details data currently available in Web Pay for the specified year.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "year": {
+      "type": "string",
+      "description": "The year for which to retrieve pay statement data"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "Number of records per page. Default value is 25."
+     },
+     "pagenumber": {
+      "type": "integer",
+      "description": "Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0."
+     },
+     "includetotalcount": {
+      "type": "boolean",
+      "description": "Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true."
+     },
+     "codegroup": {
+      "type": "string",
+      "description": "Retrieve pay statement details related to specific deduction, earning or tax types. Common values include 401k, Memo, Reg, OT, Cash Tips, FED and SITW."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "year"
+    ],
+    "query": [
+     "pagesize",
+     "pagenumber",
+     "includetotalcount",
+     "codegroup"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.gets_employee_pay_statement_detail_data_based_on_the_specified_year_and_check_date",
+   "name": "Get employee pay statement details data for the specified year and check date",
+   "description": "Get pay statement details API will return employee pay statement detail data currently available in Web Pay for the specified year and check date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "year": {
+      "type": "string",
+      "description": "The year for which to retrieve pay statement data"
+     },
+     "checkDate": {
+      "type": "string",
+      "description": "The check date for which to retrieve pay statement data"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "Number of records per page. Default value is 25."
+     },
+     "pagenumber": {
+      "type": "integer",
+      "description": "Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0."
+     },
+     "includetotalcount": {
+      "type": "boolean",
+      "description": "Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true."
+     },
+     "codegroup": {
+      "type": "string",
+      "description": "Retrieve pay statement details related to specific deduction, earning or tax types. Common values include 401k, Memo, Reg, OT, Cash Tips, FED and SITW."
+     }
+    },
+    "required": [
+     "checkDate",
+     "companyId",
+     "employeeId",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/details/{year}/{checkDate}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "year",
+     "checkDate"
+    ],
+    "query": [
+     "pagesize",
+     "pagenumber",
+     "includetotalcount",
+     "codegroup"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.gets_employee_pay_statement_summary_data_based_on_the_specified_year",
+   "name": "Get employee pay statement summary data for the specified year",
+   "description": "Get pay statement summary API will return employee pay statement summary data currently available in Web Pay for the specified year.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "year": {
+      "type": "string",
+      "description": "The year for which to retrieve pay statement data"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "Number of records per page. Default value is 25."
+     },
+     "pagenumber": {
+      "type": "integer",
+      "description": "Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0."
+     },
+     "includetotalcount": {
+      "type": "boolean",
+      "description": "Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true."
+     },
+     "codegroup": {
+      "type": "string",
+      "description": "Retrieve pay statement details related to specific deduction, earning or tax types. Common values include 401k, Memo, Reg, OT, Cash Tips, FED and SITW."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "year"
+    ],
+    "query": [
+     "pagesize",
+     "pagenumber",
+     "includetotalcount",
+     "codegroup"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.gets_employee_pay_statement_summary_data_based_on_the_specified_year_and_check_date",
+   "name": "Get employee pay statement summary data for the specified year and check date",
+   "description": "Get pay statement summary API will return employee pay statement summary data currently available in Web Pay for the specified year and check date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "year": {
+      "type": "string",
+      "description": "The year for which to retrieve pay statement data"
+     },
+     "checkDate": {
+      "type": "string",
+      "description": "The check date for which to retrieve pay statement data"
+     },
+     "pagesize": {
+      "type": "integer",
+      "description": "Number of records per page. Default value is 25."
+     },
+     "pagenumber": {
+      "type": "integer",
+      "description": "Page number to retrieve; page numbers are 0-based (so to get the first page of results, pass pagenumber=0). Default value is 0."
+     },
+     "includetotalcount": {
+      "type": "boolean",
+      "description": "Whether to include the total record count in the header's X-Pcty-Total-Count property. Default value is true."
+     },
+     "codegroup": {
+      "type": "string",
+      "description": "Retrieve pay statement details related to specific deduction, earning or tax types. Common values include 401k, Memo, Reg, OT, Cash Tips, FED and SITW."
+     }
+    },
+    "required": [
+     "checkDate",
+     "companyId",
+     "employeeId",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/paystatement/summary/{year}/{checkDate}",
+    "path": [
+     "companyId",
+     "employeeId",
+     "year",
+     "checkDate"
+    ],
+    "query": [
+     "pagesize",
+     "pagenumber",
+     "includetotalcount",
+     "codegroup"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.update_employee",
+   "name": "Update employee",
+   "description": "Update Employee API will update existing employee data in WebPay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paylocity.update_or_add_employee_benefit_setup",
+   "name": "Add update employee's benefit setup",
+   "description": "Sends new or updated employee benefit setup information directly to Web Pay.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companyId": {
+      "type": "string",
+      "description": "Company Id"
+     },
+     "employeeId": {
+      "type": "string",
+      "description": "Employee Id"
+     },
+     "benefitClass": {
+      "type": "string",
+      "description": "Benefit Class code. Values are configured in Web Pay Company > Setup > Benefits > Classes.Max length: 30"
+     },
+     "benefitClassEffectiveDate": {
+      "type": "string",
+      "description": "Date when Benefit Class takes effect. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*."
+     },
+     "benefitSalary": {
+      "type": "number",
+      "description": "Salary used to configure benefits.Decimal(12,2)"
+     },
+     "benefitSalaryEffectiveDate": {
+      "type": "string",
+      "description": "Date when Benefit Salary takes effect. Common formats include *MM-DD-CCYY*, *CCYY-MM-DD*."
+     },
+     "doNotApplyAdministrativePeriod": {
+      "type": "boolean",
+      "description": "Applicable only for HR Enhanced clients and Benefit Classes with ACA Employment Type of Full Time."
+     },
+     "isMeasureAcaEligibility": {
+      "type": "boolean",
+      "description": "Only valid for HR Enhanced clients and Benefit Classes that are ACA Employment Type of Full Time."
+     }
+    },
+    "required": [
+     "companyId",
+     "employeeId"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environment}.paylocity.com/v2/companies/{companyId}/employees/{employeeId}/benefitSetup",
+    "path": [
+     "companyId",
+     "employeeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "benefitClass",
+     "benefitClassEffectiveDate",
+     "benefitSalary",
+     "benefitSalaryEffectiveDate",
+     "doNotApplyAdministrativePeriod",
+     "isMeasureAcaEligibility"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

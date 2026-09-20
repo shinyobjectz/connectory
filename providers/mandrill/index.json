@@ -1,0 +1,3117 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "mandrill",
+ "source": "https://api.apis.guru/v2/specs/mandrillapp.com/1.0/swagger.json",
+ "operations": [
+  {
+   "slug": "mandrill.post_exports_activity_json",
+   "name": "Mandrill post exports activity json",
+   "description": "Begins an export of your activity history. The activity will be exported to a zip archive containing a single file named activity.csv in the same format as you would be able to export from your account's activity view. It includes the following fields: Date, Email Address, Sender, Subject, Status, Tags, Opens, Clicks, Bounce Detail. If you have configured any custom metadata fields, they will be i",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api_keys": {
+      "type": "array",
+      "description": ""
+     },
+     "date_from": {
+      "type": "string",
+      "description": ""
+     },
+     "date_to": {
+      "type": "string",
+      "description": ""
+     },
+     "notify_email": {
+      "type": "string",
+      "description": ""
+     },
+     "senders": {
+      "type": "array",
+      "description": ""
+     },
+     "states": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/exports/activity.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "api_keys",
+     "date_from",
+     "date_to",
+     "notify_email",
+     "senders",
+     "states",
+     "tags",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_exports_info_json",
+   "name": "Mandrill post exports info json",
+   "description": "Returns information about an export job. If the export job's state is 'complete', the returned data will include a URL you can use to fetch the results. Every export job produces a zip archive, but the format of the archive is distinct for each job type. The api calls that initiate exports include more details about the output format for that job type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/exports/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_exports_list_json",
+   "name": "Mandrill post exports list json",
+   "description": "Returns a list of your exports.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/exports/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_exports_rejects_json",
+   "name": "Mandrill post exports rejects json",
+   "description": "Begins an export of your rejection blacklist. The blacklist will be exported to a zip archive containing a single file named rejects.csv that includes the following fields: email, reason, detail, created_at, expires_at, last_event_at, expires_at.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "notify_email": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/exports/rejects.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "notify_email",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_exports_whitelist_json",
+   "name": "Mandrill post exports whitelist json",
+   "description": "Begins an export of your rejection whitelist. The whitelist will be exported to a zip archive containing a single file named whitelist.csv that includes the following fields: email, detail, created_at.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "notify_email": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/exports/whitelist.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "notify_email",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_add_domain_json",
+   "name": "Mandrill post inbound add domain json",
+   "description": "Add an inbound domain to your account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/add-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_add_route_json",
+   "name": "Mandrill post inbound add route json",
+   "description": "Add a new mailbox route to an inbound domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "pattern": {
+      "type": "string",
+      "description": ""
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/add-route.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "pattern",
+     "url",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_check_domain_json",
+   "name": "Mandrill post inbound check domain json",
+   "description": "Check the MX settings for an inbound domain. The domain must have already been added with the add-domain call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/check-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_delete_domain_json",
+   "name": "Mandrill post inbound delete domain json",
+   "description": "Delete an inbound domain from the account. All mail will stop routing for this domain immediately.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/delete-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_delete_route_json",
+   "name": "Mandrill post inbound delete route json",
+   "description": "Delete an existing inbound mailbox route",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/delete-route.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_domains_json",
+   "name": "Mandrill post inbound domains json",
+   "description": "List the domains that have been configured for inbound delivery",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/domains.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_routes_json",
+   "name": "Mandrill post inbound routes json",
+   "description": "List the mailbox routes defined for an inbound domain",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/routes.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_send_raw_json",
+   "name": "Mandrill post inbound send raw json",
+   "description": "Take a raw MIME document destined for a domain with inbound domains set up, and send it to the inbound hook exactly as if it had been sent over SMTP",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_address": {
+      "type": "string",
+      "description": ""
+     },
+     "helo": {
+      "type": "string",
+      "description": ""
+     },
+     "mail_from": {
+      "type": "string",
+      "description": ""
+     },
+     "raw_message": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "array",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/send-raw.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "client_address",
+     "helo",
+     "mail_from",
+     "raw_message",
+     "to",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_inbound_update_route_json",
+   "name": "Mandrill post inbound update route json",
+   "description": "Update the pattern or webhook of an existing inbound mailbox route. If null is provided for any fields, the values will remain unchanged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "pattern": {
+      "type": "string",
+      "description": ""
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/inbound/update-route.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "pattern",
+     "url",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_cancel_warmup_json",
+   "name": "Mandrill post ips cancel warmup json",
+   "description": "Cancels the warmup process for a dedicated IP.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/cancel-warmup.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_check_custom_dns_json",
+   "name": "Mandrill post ips check custom dns json",
+   "description": "Tests whether a domain name is valid for use as the custom reverse DNS for a dedicated IP.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/check-custom-dns.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_create_pool_json",
+   "name": "Mandrill post ips create pool json",
+   "description": "Creates a pool and returns it. If a pool already exists with this name, no action will be performed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pool": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/create-pool.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "pool",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_delete_json",
+   "name": "Mandrill post ips delete json",
+   "description": "Deletes a dedicated IP. This is permanent and cannot be undone.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_delete_pool_json",
+   "name": "Mandrill post ips delete pool json",
+   "description": "Deletes a pool. A pool must be empty before you can delete it, and you cannot delete your default pool.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pool": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/delete-pool.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "pool",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_info_json",
+   "name": "Mandrill post ips info json",
+   "description": "Retrieves information about a single dedicated ip.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_list_json",
+   "name": "Mandrill post ips list json",
+   "description": "Lists your dedicated IPs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_list_pools_json",
+   "name": "Mandrill post ips list pools json",
+   "description": "Lists your dedicated IP pools.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/list-pools.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_pool_info_json",
+   "name": "Mandrill post ips pool info json",
+   "description": "Describes a single dedicated IP pool.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pool": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/pool-info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "pool",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_provision_json",
+   "name": "Mandrill post ips provision json",
+   "description": "Requests an additional dedicated IP for your account. Accounts may have one outstanding request at any time, and provisioning requests are processed within 24 hours.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "pool": {
+      "type": "string",
+      "description": ""
+     },
+     "warmup": {
+      "type": "boolean",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/provision.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "pool",
+     "warmup",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_set_custom_dns_json",
+   "name": "Mandrill post ips set custom dns json",
+   "description": "Configures the custom DNS name for a dedicated IP.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/set-custom-dns.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_set_pool_json",
+   "name": "Mandrill post ips set pool json",
+   "description": "Moves a dedicated IP to a different pool.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "create_pool": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "pool": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/set-pool.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "create_pool",
+     "ip",
+     "pool",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_ips_start_warmup_json",
+   "name": "Mandrill post ips start warmup json",
+   "description": "Begins the warmup process for a dedicated IP. During the warmup process, Mandrill will gradually increase the percentage of your mail that is sent over the warming-up IP, over a period of roughly 30 days. The rest of your mail will be sent over shared IPs or other dedicated IPs in the same pool.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ip": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/ips/start-warmup.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ip",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_cancel_scheduled_json",
+   "name": "Mandrill post messages cancel scheduled json",
+   "description": "Cancels a scheduled email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "null",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/cancel-scheduled.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_content_json",
+   "name": "Mandrill post messages content json",
+   "description": "Get the full content of a recently sent message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/content.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_info_json",
+   "name": "Mandrill post messages info json",
+   "description": "Get the information for a single recently sent message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_list_scheduled_json",
+   "name": "Mandrill post messages list scheduled json",
+   "description": "Queries your scheduled emails by sender or recipient, or both.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "to": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/list-scheduled.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "to",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_parse_json",
+   "name": "Mandrill post messages parse json",
+   "description": "Parse the full MIME document for an email message, returning the content of the message broken into its constituent pieces",
+   "input": {
+    "type": "object",
+    "properties": {
+     "raw_message": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/parse.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "raw_message",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_reschedule_json",
+   "name": "Mandrill post messages reschedule json",
+   "description": "Reschedules a scheduled email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "send_at": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/reschedule.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "send_at",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_search_json",
+   "name": "Mandrill post messages search json",
+   "description": "Search the content of recently sent messages and optionally narrow by date range, tags and senders. This method may be called up to 20 times per minute. If you need the data more often, you can use /messages/info.json to get the information for a single message, or webhooks to push activity to your own application for querying.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api_keys": {
+      "type": "array",
+      "description": ""
+     },
+     "date_from": {
+      "type": "string",
+      "description": ""
+     },
+     "date_to": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": ""
+     },
+     "senders": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/search.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "api_keys",
+     "date_from",
+     "date_to",
+     "limit",
+     "query",
+     "senders",
+     "tags",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_search_time_series_json",
+   "name": "Mandrill post messages search time series json",
+   "description": "Search the content of recently sent messages and return the aggregated hourly stats for matching messages",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_from": {
+      "type": "string",
+      "description": ""
+     },
+     "date_to": {
+      "type": "string",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": ""
+     },
+     "senders": {
+      "type": "array",
+      "description": ""
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/search-time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "date_from",
+     "date_to",
+     "query",
+     "senders",
+     "tags",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_send_json",
+   "name": "Mandrill post messages send json",
+   "description": "Send a new transactional message through Mandrill",
+   "input": {
+    "type": "object",
+    "properties": {
+     "async": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ip_pool": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "object",
+      "description": ""
+     },
+     "send_at": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/send.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "async",
+     "ip_pool",
+     "message",
+     "send_at",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_send_raw_json",
+   "name": "Mandrill post messages send raw json",
+   "description": "Take a raw MIME document for a message, and send it exactly as if it were sent through Mandrill's SMTP servers",
+   "input": {
+    "type": "object",
+    "properties": {
+     "async": {
+      "type": "boolean",
+      "description": ""
+     },
+     "from_email": {
+      "type": "string",
+      "description": ""
+     },
+     "from_name": {
+      "type": "string",
+      "description": ""
+     },
+     "ip_pool": {
+      "type": "string",
+      "description": ""
+     },
+     "raw_message": {
+      "type": "string",
+      "description": ""
+     },
+     "return_path_domain": {
+      "type": "null",
+      "description": ""
+     },
+     "send_at": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "array",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/send-raw.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "async",
+     "from_email",
+     "from_name",
+     "ip_pool",
+     "raw_message",
+     "return_path_domain",
+     "send_at",
+     "to",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_messages_send_template_json",
+   "name": "Mandrill post messages send template json",
+   "description": "Send a new transactional message through Mandrill using a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "async": {
+      "type": "boolean",
+      "description": ""
+     },
+     "ip_pool": {
+      "type": "string",
+      "description": ""
+     },
+     "message": {
+      "type": "object",
+      "description": ""
+     },
+     "send_at": {
+      "type": "string",
+      "description": ""
+     },
+     "template_content": {
+      "type": "array",
+      "description": ""
+     },
+     "template_name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/messages/send-template.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "async",
+     "ip_pool",
+     "message",
+     "send_at",
+     "template_content",
+     "template_name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_metadata_add_json",
+   "name": "Mandrill post metadata add json",
+   "description": "Add a new custom metadata field to be indexed for the account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "view_template": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/metadata/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "view_template",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_metadata_delete_json",
+   "name": "Mandrill post metadata delete json",
+   "description": "Delete an existing custom metadata field. Deletion isn't instataneous, and /metadata/list will continue to return the field until the asynchronous deletion process is complete.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/metadata/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_metadata_list_json",
+   "name": "Mandrill post metadata list json",
+   "description": "Get the list of custom metadata fields indexed for the account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/metadata/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_metadata_update_json",
+   "name": "Mandrill post metadata update json",
+   "description": "Update an existing custom metadata field.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "view_template": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/metadata/update.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "view_template",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_rejects_add_json",
+   "name": "Mandrill post rejects add json",
+   "description": "Adds an email to your email rejection blacklist. Addresses that you add manually will never expire and there is no reputation penalty for removing them from your blacklist. Attempting to blacklist an address that has been whitelisted will have no effect.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "subaccount": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/rejects/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "comment",
+     "email",
+     "subaccount",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_rejects_delete_json",
+   "name": "Mandrill post rejects delete json",
+   "description": "Deletes an email rejection. There is no limit to how many rejections you can remove from your blacklist, but keep in mind that each deletion has an affect on your reputation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "subaccount": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/rejects/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "subaccount",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_rejects_list_json",
+   "name": "Mandrill post rejects list json",
+   "description": "Retrieves your email rejection blacklist. You can provide an email address to limit the results. Returns up to 1000 results. By default, entries that have expired are excluded from the results; set include_expired to true to include them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "include_expired": {
+      "type": "boolean",
+      "description": ""
+     },
+     "subaccount": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/rejects/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "include_expired",
+     "subaccount",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_add_domain_json",
+   "name": "Mandrill post senders add domain json",
+   "description": "Adds a sender domain to your account. Sender domains are added automatically as you send, but you can use this call to add them ahead of time.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/add-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_check_domain_json",
+   "name": "Mandrill post senders check domain json",
+   "description": "Checks the SPF and DKIM settings for a domain. If you haven't already added this domain to your account, it will be added automatically.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/check-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_domains_json",
+   "name": "Mandrill post senders domains json",
+   "description": "Returns the sender domains that have been added to this account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/domains.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_info_json",
+   "name": "Mandrill post senders info json",
+   "description": "Return more detailed information about a single sender, including aggregates of recent stats",
+   "input": {
+    "type": "object",
+    "properties": {
+     "address": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "address",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_list_json",
+   "name": "Mandrill post senders list json",
+   "description": "Return the senders that have tried to use this account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_time_series_json",
+   "name": "Mandrill post senders time series json",
+   "description": "Return the recent history (hourly stats for the last 30 days) for a sender",
+   "input": {
+    "type": "object",
+    "properties": {
+     "address": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "address",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_senders_verify_domain_json",
+   "name": "Mandrill post senders verify domain json",
+   "description": "Sends a verification email in order to verify ownership of a domain. Domain verification is an optional step to confirm ownership of a domain. Once a domain has been verified in a Mandrill account, other accounts may not have their messages signed by that domain unless they also verify the domain. This prevents other Mandrill accounts from sending mail signed by your domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "mailbox": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/senders/verify-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "mailbox",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_add_json",
+   "name": "Mandrill post subaccounts add json",
+   "description": "Add a new subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_quota": {
+      "type": "integer",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_quota",
+     "id",
+     "name",
+     "notes",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_delete_json",
+   "name": "Mandrill post subaccounts delete json",
+   "description": "Delete an existing subaccount. Any email related to the subaccount will be saved, but stats will be removed and any future sending calls to this subaccount will fail.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_info_json",
+   "name": "Mandrill post subaccounts info json",
+   "description": "Given the ID of an existing subaccount, return the data about it",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_list_json",
+   "name": "Mandrill post subaccounts list json",
+   "description": "Get the list of subaccounts defined for the account, optionally filtered by a prefix",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "q",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_pause_json",
+   "name": "Mandrill post subaccounts pause json",
+   "description": "Pause a subaccount's sending. Any future emails delivered to this subaccount will be queued for a maximum of 3 days until the subaccount is resumed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/pause.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_resume_json",
+   "name": "Mandrill post subaccounts resume json",
+   "description": "Resume a paused subaccount's sending",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/resume.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_subaccounts_update_json",
+   "name": "Mandrill post subaccounts update json",
+   "description": "Update an existing subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_quota": {
+      "type": "integer",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "notes": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/subaccounts/update.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_quota",
+     "id",
+     "name",
+     "notes",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_tags_all_time_series_json",
+   "name": "Mandrill post tags all time series json",
+   "description": "Return the recent history (hourly stats for the last 30 days) for all tags",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/tags/all-time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_tags_delete_json",
+   "name": "Mandrill post tags delete json",
+   "description": "Deletes a tag permanently. Deleting a tag removes the tag from any messages that have been sent, and also deletes the tag's stats. There is no way to undo this operation, so use it carefully.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/tags/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "tag",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_tags_info_json",
+   "name": "Mandrill post tags info json",
+   "description": "Return more detailed information about a single tag, including aggregates of recent stats",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/tags/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "tag",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_tags_list_json",
+   "name": "Mandrill post tags list json",
+   "description": "Return all of the user-defined tag information",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/tags/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_tags_time_series_json",
+   "name": "Mandrill post tags time series json",
+   "description": "Return the recent history (hourly stats for the last 30 days) for a tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/tags/time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "tag",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_add_json",
+   "name": "Mandrill post templates add json",
+   "description": "Add a new template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "from_email": {
+      "type": "string",
+      "description": ""
+     },
+     "from_name": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "publish": {
+      "type": "boolean",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "code",
+     "from_email",
+     "from_name",
+     "labels",
+     "name",
+     "publish",
+     "subject",
+     "text",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_delete_json",
+   "name": "Mandrill post templates delete json",
+   "description": "Delete a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_info_json",
+   "name": "Mandrill post templates info json",
+   "description": "Get the information for an existing template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_list_json",
+   "name": "Mandrill post templates list json",
+   "description": "Return a list of all the templates available to this user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "label": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "label",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_publish_json",
+   "name": "Mandrill post templates publish json",
+   "description": "Publish the content for the template. Any new messages sent using this template will start using the content that was previously in draft.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/publish.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_render_json",
+   "name": "Mandrill post templates render json",
+   "description": "Inject content and optionally merge fields into a template, returning the HTML that results",
+   "input": {
+    "type": "object",
+    "properties": {
+     "merge_vars": {
+      "type": "array",
+      "description": ""
+     },
+     "template_content": {
+      "type": "array",
+      "description": ""
+     },
+     "template_name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/render.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "merge_vars",
+     "template_content",
+     "template_name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_time_series_json",
+   "name": "Mandrill post templates time series json",
+   "description": "Return the recent history (hourly stats for the last 30 days) for a template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_templates_update_json",
+   "name": "Mandrill post templates update json",
+   "description": "Update the code for an existing template. If null is provided for any fields, the values will remain unchanged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "string",
+      "description": ""
+     },
+     "from_email": {
+      "type": "string",
+      "description": ""
+     },
+     "from_name": {
+      "type": "string",
+      "description": ""
+     },
+     "labels": {
+      "type": "array",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "publish": {
+      "type": "boolean",
+      "description": ""
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/templates/update.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "code",
+     "from_email",
+     "from_name",
+     "labels",
+     "name",
+     "publish",
+     "subject",
+     "text",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_add_tracking_domain_json",
+   "name": "Mandrill post urls add tracking domain json",
+   "description": "Add a tracking domain to your account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/add-tracking-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_check_tracking_domain_json",
+   "name": "Mandrill post urls check tracking domain json",
+   "description": "Checks the CNAME settings for a tracking domain. The domain must have been added already with the add-tracking-domain call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/check-tracking-domain.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "domain",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_list_json",
+   "name": "Mandrill post urls list json",
+   "description": "Get the 100 most clicked URLs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_search_json",
+   "name": "Mandrill post urls search json",
+   "description": "Return the 100 most clicked URLs that match the search query given",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/search.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "q",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_time_series_json",
+   "name": "Mandrill post urls time series json",
+   "description": "Return the recent history (hourly stats for the last 30 days) for a url",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/time-series.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_urls_tracking_domains_json",
+   "name": "Mandrill post urls tracking domains json",
+   "description": "Get the list of tracking domains set up for this account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/urls/tracking-domains.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_users_info_json",
+   "name": "Mandrill post users info json",
+   "description": "Return the information about the API-connected user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/users/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_users_ping2_json",
+   "name": "Mandrill post users ping2 json",
+   "description": "Validate an API key and respond to a ping (anal JSON parser version)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/users/ping2.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_users_ping_json",
+   "name": "Mandrill post users ping json",
+   "description": "Validate an API key and respond to a ping",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/users/ping.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_users_senders_json",
+   "name": "Mandrill post users senders json",
+   "description": "Return the senders that have tried to use this account, both verified and unverified",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/users/senders.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_webhooks_add_json",
+   "name": "Mandrill post webhooks add json",
+   "description": "Add a new webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "events": {
+      "type": "array",
+      "description": ""
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/webhooks/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "description",
+     "events",
+     "url",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_webhooks_delete_json",
+   "name": "Mandrill post webhooks delete json",
+   "description": "Delete an existing webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/webhooks/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_webhooks_info_json",
+   "name": "Mandrill post webhooks info json",
+   "description": "Given the ID of an existing webhook, return the data about it",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/webhooks/info.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_webhooks_list_json",
+   "name": "Mandrill post webhooks list json",
+   "description": "Get the list of all webhooks defined on the account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/webhooks/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_webhooks_update_json",
+   "name": "Mandrill post webhooks update json",
+   "description": "Update an existing webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "events": {
+      "type": "array",
+      "description": ""
+     },
+     "id": {
+      "type": "integer",
+      "description": ""
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/webhooks/update.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "description",
+     "events",
+     "id",
+     "url",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_whitelists_add_json",
+   "name": "Mandrill post whitelists add json",
+   "description": "Adds an email to your email rejection whitelist. If the address is currently on your blacklist, that blacklist entry will be removed automatically.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/whitelists/add.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_whitelists_delete_json",
+   "name": "Mandrill post whitelists delete json",
+   "description": "Removes an email address from the whitelist.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/whitelists/delete.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "mandrill.post_whitelists_list_json",
+   "name": "Mandrill post whitelists list json",
+   "description": "Retrieves your email rejection whitelist. You can provide an email address or search prefix to limit the results. Returns up to 1000 results.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "body": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mandrillapp.com/api/whitelists/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "body"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

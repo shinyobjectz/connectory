@@ -1,0 +1,6770 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "clicksend",
+ "source": "https://api.apis.guru/v2/specs/clicksend.com/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "clicksend.account_usage",
+   "name": "Account usage",
+   "description": "Account Usage",
+   "input": {
+    "type": "object",
+    "properties": {
+     "year": {
+      "type": "number",
+      "description": "Your account usage year."
+     },
+     "month": {
+      "type": "number",
+      "description": "Your account usage month."
+     },
+     "type": {
+      "type": "string",
+      "description": "The account type. Value can only be either email or subaccount."
+     }
+    },
+    "required": [
+     "month",
+     "type",
+     "year"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/account/usage/{year}/{month}/{type}",
+    "path": [
+     "year",
+     "month",
+     "type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.add_a_test_delivery_receipt",
+   "name": "Add a test delivery receipt",
+   "description": "Add a Test Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/fax/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.add_a_test_inbound_sms",
+   "name": "Add a test inbound sms",
+   "description": "Add a Test Inbound SMS",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/inbound",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.buy_dedicated_number",
+   "name": "Buy dedicated number",
+   "description": "Buy dedicated number",
+   "input": {
+    "type": "object",
+    "properties": {
+     "dedicated_number": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     }
+    },
+    "required": [
+     "dedicated_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/numbers/buy/{dedicated_number}",
+    "path": [
+     "dedicated_number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.calculate_direct_mail_campaign_price",
+   "name": "Calculate direct mail campaign price",
+   "description": "Calculate direct mail campaign price.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "areas": {
+      "type": "array",
+      "description": "List of location where you want to send your campaign, and the quantity per location."
+     },
+     "file_urls": {
+      "type": "array",
+      "description": "Campaign file urls. You can submit max 2 file urls."
+     },
+     "name": {
+      "type": "string",
+      "description": "Campaign name."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "size": {
+      "type": "string",
+      "description": "Campaign file size. It can be A5 or DL."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     }
+    },
+    "required": [
+     "file_urls",
+     "name",
+     "size"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/direct-mail/campaigns/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "areas",
+     "file_urls",
+     "name",
+     "schedule",
+     "size",
+     "source"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.calculate_price",
+   "name": "Calculate price",
+   "description": "Calculate Price",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email-campaigns/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.calculate_price_for_sms_campaign",
+   "name": "Calculate price for sms campaign",
+   "description": "Calculate Price for SMS Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your campaign message."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list id."
+     },
+     "name": {
+      "type": "string",
+      "description": "Your campaign name."
+     }
+    },
+    "required": [
+     "body",
+     "list_id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms-campaigns/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "from",
+     "list_id",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.calculate_pricing",
+   "name": "Calculate pricing",
+   "description": "For `file_urls` field. You can attach at least 1 and max of 2 PDF file urls. - Supply a single pdf with 2 pages (front and back) - Supply 2 urls to seperate PDFs",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_urls": {
+      "type": "array",
+      "description": "Postcard file urls. You can submit max 2 file urls."
+     },
+     "recipients": {
+      "type": "array",
+      "description": "Your recipients."
+     }
+    },
+    "required": [
+     "file_urls",
+     "recipients"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/postcards/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file_urls",
+     "recipients"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_a_scheduled_message",
+   "name": "Cancel a scheduled message",
+   "description": "Cancel a Scheduled Message",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "B7CE432193CD-0753597B7293 (string, required) - The message ID you want to cancel."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/{message_id}/cancel",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_a_specific_voice_call",
+   "name": "Cancel a specific voice call",
+   "description": "Cancel a Specific Voice Call",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Your voice message id."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/voice/{message_id}/cancel",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_all_mms",
+   "name": "Cancel all mms",
+   "description": "Cancel All MMS",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/mms/cancel-all",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_all_scheduled_messages",
+   "name": "Cancel all scheduled messages",
+   "description": "Cancel all Scheduled Messages",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/cancel-all",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_all_voice_calls",
+   "name": "Cancel all voice calls",
+   "description": "Cancel all Voice Calls",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/voice/cancel-all",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_an_sms_campaign",
+   "name": "Cancel an sms campaign",
+   "description": "Cancel an SMS Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sms_campaign_id": {
+      "type": "number",
+      "description": "Your SMS Campaign id."
+     }
+    },
+    "required": [
+     "sms_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}/cancel",
+    "path": [
+     "sms_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_email_campaign",
+   "name": "Cancel email campaign",
+   "description": "Cancel Email Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_campaign_id": {
+      "type": "number",
+      "description": "The email campaign id you want to cancel."
+     }
+    },
+    "required": [
+     "email_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}/cancel",
+    "path": [
+     "email_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.cancel_mms",
+   "name": "Cancel mms",
+   "description": "Cancel MMS",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Message ID."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/mms/{message_id}/cancel",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_account",
+   "name": "Create a new account",
+   "description": "**Note:** *Authentication isn't required to create a new account.*",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_name": {
+      "type": "string",
+      "description": "Your delivery to value."
+     },
+     "country": {
+      "type": "string",
+      "description": "Your country."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your password."
+     },
+     "user_email": {
+      "type": "string",
+      "description": "Your email."
+     },
+     "user_first_name": {
+      "type": "string",
+      "description": "Your first name."
+     },
+     "user_last_name": {
+      "type": "string",
+      "description": "Your last name."
+     },
+     "user_phone": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     },
+     "username": {
+      "type": "string",
+      "description": "Your username."
+     }
+    },
+    "required": [
+     "account_name",
+     "country",
+     "password",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/account",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "account_name",
+     "country",
+     "password",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_contact",
+   "name": "Create a new contact",
+   "description": "Note that the fields `phone_number`, `fax_number` and email` are all optional; however at least one of them must be specified, otherwise the API call will fail.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id where your contact be associated."
+     },
+     "address_city": {
+      "type": "string",
+      "description": "Contact city."
+     },
+     "address_country": {
+      "type": "string",
+      "description": "Contact two-letter country code defined in ISO 3166."
+     },
+     "address_line_1": {
+      "type": "string",
+      "description": "Contact address line 1."
+     },
+     "address_line_2": {
+      "type": "string",
+      "description": "Contact address line 2."
+     },
+     "address_postal_code": {
+      "type": "string",
+      "description": "Contact postal code."
+     },
+     "address_state": {
+      "type": "string",
+      "description": "Contact state."
+     },
+     "custom_1": {
+      "type": "string",
+      "description": "Contact custom 1 text."
+     },
+     "custom_2": {
+      "type": "string",
+      "description": "Contact custom 2 text."
+     },
+     "custom_3": {
+      "type": "string",
+      "description": "Contact custom 3 text."
+     },
+     "custom_4": {
+      "type": "string",
+      "description": "Contact custom 4 text."
+     },
+     "email": {
+      "type": "string",
+      "description": "Contact email."
+     },
+     "fax_number": {
+      "type": "string",
+      "description": "Contact fax number."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "Contact firstname."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Contact lastname."
+     },
+     "organization_name": {
+      "type": "string",
+      "description": "Your organization name."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Contact phone number in E.164 format."
+     }
+    },
+    "required": [
+     "list_id",
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/lists/{list_id}/contacts",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "address_city",
+     "address_country",
+     "address_line_1",
+     "address_line_2",
+     "address_postal_code",
+     "address_state",
+     "custom_1",
+     "custom_2",
+     "custom_3",
+     "custom_4",
+     "email",
+     "fax_number",
+     "first_name",
+     "last_name",
+     "organization_name",
+     "phone_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_contact_list",
+   "name": "Create a new contact list",
+   "description": "Create a new contact list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_name": {
+      "type": "string",
+      "description": "Your contact list name."
+     }
+    },
+    "required": [
+     "list_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_rule",
+   "name": "Create a new rule",
+   "description": "Create a New Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "match_type": {
+      "type": "number",
+      "description": "Match Type. 0=All reports."
+     },
+     "rule_name": {
+      "type": "string",
+      "description": "Rule Name."
+     }
+    },
+    "required": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/fax/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_rule",
+   "name": "Create a new rule",
+   "description": "Create a new rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "dedicated_number": {
+      "type": "number",
+      "description": "Dedicated Number."
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "message_search_term": {
+      "type": "string",
+      "description": "Message Search Term."
+     },
+     "message_search_type": {
+      "type": "number",
+      "description": "Message Search Type: 0=Any message, 1=starts with, 2=contains, 3=does not contain."
+     },
+     "rule_name": {
+      "type": "string",
+      "description": "Rule Name."
+     }
+    },
+    "required": [
+     "action",
+     "action_address",
+     "dedicated_number",
+     "enabled",
+     "message_search_term",
+     "message_search_type",
+     "rule_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/sms/inbound/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "dedicated_number",
+     "enabled",
+     "message_search_term",
+     "message_search_type",
+     "rule_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_new_subaccount",
+   "name": "Create a new subaccount",
+   "description": "Create a new subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "access_billing": {
+      "type": "number",
+      "description": "Your access billing flag value, must be 1 or 0."
+     },
+     "access_contacts": {
+      "type": "number",
+      "description": "Your access contacts flag value, must be 1 or 0."
+     },
+     "access_reporting": {
+      "type": "number",
+      "description": "Your access reporting flag value, must be 1 or 0."
+     },
+     "access_settings": {
+      "type": "number",
+      "description": "Your access settings flag value, must be 1 or 0."
+     },
+     "access_users": {
+      "type": "number",
+      "description": "Your access users flag value, must be 1 or 0."
+     },
+     "api_username": {
+      "type": "string",
+      "description": "Your new api username."
+     },
+     "email": {
+      "type": "string",
+      "description": "Your new email."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "Your firstname."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Your lastname."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your new password."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     },
+     "share_campaigns": {
+      "type": "number",
+      "description": "Your share campaigns flag value, must be 1 or 0."
+     }
+    },
+    "required": [
+     "api_username",
+     "email",
+     "first_name",
+     "last_name",
+     "password",
+     "phone_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/subaccounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "access_billing",
+     "access_contacts",
+     "access_reporting",
+     "access_settings",
+     "access_users",
+     "api_username",
+     "email",
+     "first_name",
+     "last_name",
+     "password",
+     "phone_number",
+     "share_campaigns"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_post_return_address",
+   "name": "Create a post return address",
+   "description": "Create a Post Return Address",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/return-addresses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_a_template",
+   "name": "Create a template",
+   "description": "Create new template.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your template body."
+     },
+     "template_name": {
+      "type": "string",
+      "description": "Your template name."
+     }
+    },
+    "required": [
+     "body",
+     "template_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "template_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_allowed_email_address",
+   "name": "Create allowed email address",
+   "description": "Create Allowed Email Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Body": {
+      "type": "string",
+      "description": "{ \"email_address\" : \"test222@user.com\" }"
+     },
+     "email_address": {
+      "type": "string",
+      "description": "Your email."
+     }
+    },
+    "required": [
+     "email_address"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/addresses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "Body",
+     "email_address"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_delivery_issue",
+   "name": "Create delivery issue",
+   "description": "Create Delivery Issue",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_comments": {
+      "type": "string",
+      "description": "The user's comments."
+     },
+     "description": {
+      "type": "string",
+      "description": "The description of the message."
+     },
+     "email_address": {
+      "type": "string",
+      "description": "The user's email address."
+     },
+     "message_id": {
+      "type": "string",
+      "description": "The message id of the message."
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of message, must be one of the following values: `SMS`, `MMS`, `VOICE`, `EMAIL_MARKETING`, `EMAIL_TRANSACTIONAL`, `FAX`, `POST`."
+     }
+    },
+    "required": [
+     "description",
+     "email_address",
+     "message_id",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/delivery-issues",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "client_comments",
+     "description",
+     "email_address",
+     "message_id",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_email_campaign",
+   "name": "Create email campaign",
+   "description": "Create Email Campaign",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email-campaigns/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_email_to_sms_allowed_address",
+   "name": "Create email to sms allowed address",
+   "description": "Create an allowed email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address": {
+      "type": "string",
+      "description": "Your email address."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     }
+    },
+    "required": [
+     "email_address"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/email-sms",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email_address",
+     "from"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_new_campaign",
+   "name": "Create new campaign",
+   "description": "Create new direct mail campaign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "areas": {
+      "type": "array",
+      "description": "List of location where you want to send your campaign, and the quantity per location."
+     },
+     "file_urls": {
+      "type": "array",
+      "description": "Campaign file urls. You can submit max 2 file urls."
+     },
+     "name": {
+      "type": "string",
+      "description": "Campaign name."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "size": {
+      "type": "string",
+      "description": "Campaign file size. It can be A5 or DL."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     }
+    },
+    "required": [
+     "file_urls",
+     "name",
+     "size"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/direct-mail/campaigns/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "areas",
+     "file_urls",
+     "name",
+     "schedule",
+     "size",
+     "source"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_new_email_template_from_master_template",
+   "name": "Create new email template from master template",
+   "description": "Create New Email Template from Master Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id_master": {
+      "type": "number",
+      "description": "The ID of the master template you want to base on."
+     },
+     "template_name": {
+      "type": "string",
+      "description": "The intended name for the new template."
+     }
+    },
+    "required": [
+     "template_id_master",
+     "template_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "template_id_master",
+     "template_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_reseller_account",
+   "name": "Create reseller account",
+   "description": "Create Reseller Account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/reseller/accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_reseller_account_public",
+   "name": "Create reseller account   public",
+   "description": "Create Reseller Account - Public",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_name": {
+      "type": "string",
+      "description": "Your delivery to value."
+     },
+     "country": {
+      "type": "string",
+      "description": "Client country."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your password."
+     },
+     "reseller_user_id": {
+      "type": "number",
+      "description": "Reseller User ID."
+     },
+     "user_email": {
+      "type": "string",
+      "description": "Your email."
+     },
+     "user_first_name": {
+      "type": "string",
+      "description": "Your first name."
+     },
+     "user_last_name": {
+      "type": "string",
+      "description": "Your last name."
+     },
+     "user_phone": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     },
+     "username": {
+      "type": "string",
+      "description": "Your username."
+     }
+    },
+    "required": [
+     "account_name",
+     "country",
+     "password",
+     "reseller_user_id",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/reseller/accounts-public",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "account_name",
+     "country",
+     "password",
+     "reseller_user_id",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.create_stripped_string",
+   "name": "Create stripped string",
+   "description": "Create Stripped String",
+   "input": {
+    "type": "object",
+    "properties": {
+     "strip_string": {
+      "type": "string",
+      "description": "The string that you want to strip from the body of email."
+     }
+    },
+    "required": [
+     "strip_string"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "strip_string"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_rule",
+   "name": "Delete a rule",
+   "description": "Delete a Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The email receipt rule id you want to delete."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_rule",
+   "name": "Delete a rule",
+   "description": "Delete a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Inbound Rule ID."
+     }
+    },
+    "required": [
+     "inbound_rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_specific_contact",
+   "name": "Delete a specific contact",
+   "description": "Delete a specific contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     },
+     "contact_id": {
+      "type": "number",
+      "description": "Your contact id you want to access."
+     }
+    },
+    "required": [
+     "contact_id",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "path": [
+     "list_id",
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_specific_contact_list",
+   "name": "Delete a specific contact list",
+   "description": "Delete a specific contact list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_specific_subaccount",
+   "name": "Delete a specific subaccount",
+   "description": "Delete a specific subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subaccount_id": {
+      "type": "number",
+      "description": "The subaccount ID you want to access."
+     }
+    },
+    "required": [
+     "subaccount_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "path": [
+     "subaccount_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_a_template",
+   "name": "Delete a template",
+   "description": "Delete a Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": "Your template id."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/sms/templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_allowed_email_address",
+   "name": "Delete allowed email address",
+   "description": "Delete Allowed Email Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "The email address you want to access."
+     }
+    },
+    "required": [
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/email/addresses/{email_address_id}",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_automations_email_receipt_rule_id",
+   "name": "Delete a rule",
+   "description": "Delete a Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The email receipt rule id you want to delete."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_automations_fax_inbound_inbound_rule_id",
+   "name": "Delete a rule",
+   "description": "Delete a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Fax inbound rule id"
+     }
+    },
+    "required": [
+     "inbound_rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_automations_sms_receipts_receipt_rule_id",
+   "name": "Delete a rule",
+   "description": "Delete a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_automations_voice_receipts_receipt_rule_id",
+   "name": "Delete a rule",
+   "description": "Delete a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_email_template",
+   "name": "Delete email template",
+   "description": "Delete Email Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "number",
+      "description": "Your template id."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_email_to_sms_allowed_address",
+   "name": "Delete email to sms allowed address",
+   "description": "Delete a specific allowed email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "Your email address id."
+     }
+    },
+    "required": [
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_post_return_address",
+   "name": "Delete post return address",
+   "description": "Delete Post Return Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "return_address_id": {
+      "type": "number",
+      "description": "Your return address id."
+     }
+    },
+    "required": [
+     "return_address_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "path": [
+     "return_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.delete_stripped_string",
+   "name": "Delete stripped string",
+   "description": "Delete Stripped String",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The rule id you want to access."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.detect_address",
+   "name": "Detect address",
+   "description": "The `detect-address` endpoint accepts either a letter in PDF format or an address string and attempts to convert it to a standard address format. Note that the PDF should be in standard address format, having the recipient's name and address listed at the top. The endpoint accepts two types of data: 1. A PDF file in `base64` encoding. In this case, submit the `base64`-encoded PDF file contents in ",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/letters/detect-address",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.email_history",
+   "name": "Email history",
+   "description": "Email History",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/history",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.email_price",
+   "name": "Email price",
+   "description": "Email Price",
+   "input": {
+    "type": "object",
+    "properties": {
+     "attachments": {
+      "type": "array",
+      "description": "The attachments of the email. See sample request for more details."
+     },
+     "bcc": {
+      "type": "array",
+      "description": "The bcc of the email. See sample request for more details."
+     },
+     "body": {
+      "type": "string",
+      "description": "The content of the email."
+     },
+     "cc": {
+      "type": "array",
+      "description": "The cc of the email. See sample request for more details."
+     },
+     "from.email_address_id": {
+      "type": "number",
+      "description": "The sender's email address id."
+     },
+     "from.name": {
+      "type": "string",
+      "description": "The sender's name."
+     },
+     "subject": {
+      "type": "string",
+      "description": "The subject of the email."
+     },
+     "to": {
+      "type": "array",
+      "description": "The recipients of the email. See sample request for more details."
+     }
+    },
+    "required": [
+     "attachments",
+     "body",
+     "from.email_address_id",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "attachments",
+     "bcc",
+     "body",
+     "cc",
+     "from.email_address_id",
+     "from.name",
+     "subject",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.email_send",
+   "name": "Email send",
+   "description": "Email Send",
+   "input": {
+    "type": "object",
+    "properties": {
+     "attachments": {
+      "type": "array",
+      "description": "The attachments of the email."
+     },
+     "bcc": {
+      "type": "array",
+      "description": "The bcc of the email. Follows the same structure as `to`."
+     },
+     "body": {
+      "type": "string",
+      "description": "The content of the email."
+     },
+     "cc": {
+      "type": "array",
+      "description": "The cc of the email. Follows the same structure as `to`."
+     },
+     "from.email_address_id": {
+      "type": "number",
+      "description": "The sender's email address ID."
+     },
+     "from.name": {
+      "type": "string",
+      "description": "The sender's name."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "to": {
+      "type": "array",
+      "description": "The recipients of the email."
+     }
+    },
+    "required": [
+     "body",
+     "from.email_address_id",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "attachments",
+     "bcc",
+     "body",
+     "cc",
+     "from.email_address_id",
+     "from.name",
+     "schedule",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_contacts_list",
+   "name": "Export contacts list",
+   "description": "Export Contacts List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     },
+     "list_id": {
+      "type": "string",
+      "description": "Automatically added"
+     }
+    },
+    "required": [
+     "filename",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists/{list_id}/export?filename={filename}",
+    "path": [
+     "filename",
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_fax_history",
+   "name": "Export fax history",
+   "description": "Export Fax History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/fax/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_history",
+   "name": "Export history",
+   "description": "Export History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_mms_history",
+   "name": "Export mms history",
+   "description": "Export MMS History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/mms/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_post_letter_history",
+   "name": "Export post letter history",
+   "description": "Export Post Letter History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/letters/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_postcard_history",
+   "name": "Export postcard history",
+   "description": "Export Postcard History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Filename for the export file."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/postcards/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_sms_history",
+   "name": "Export sms history",
+   "description": "Export SMS History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.export_voice_history",
+   "name": "Export voice history",
+   "description": "Export Voice History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/voice/history/export?filename={filename}",
+    "path": [
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.find_specific_stripped_string",
+   "name": "Find specific stripped string",
+   "description": "Find Specific Stripped String",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The rule id you want to access."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.forgot_password",
+   "name": "Forgot password",
+   "description": "Forgot Password",
+   "input": {
+    "type": "object",
+    "properties": {
+     "username": {
+      "type": "string",
+      "description": "Your username."
+     }
+    },
+    "required": [
+     "username"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/forgot-password",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "username"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.forgot_username",
+   "name": "Forgot username",
+   "description": "Forgot Username",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Your country. Used to format phone number. This is required if phone_number is not in international-format."
+     },
+     "email": {
+      "type": "string",
+      "description": "Your email. This is required if phone_number is not present."
+     },
+     "phone_number": {
+      "type": "number",
+      "description": "Your phone number. This is required if email is not present."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/forgot-username",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "country",
+     "email",
+     "phone_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_contact",
+   "name": "Get a specific contact",
+   "description": "Get a specific contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     },
+     "contact_id": {
+      "type": "number",
+      "description": "Your contact id you want to access."
+     }
+    },
+    "required": [
+     "contact_id",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "path": [
+     "list_id",
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_contact_list",
+   "name": "Get a specific contact list",
+   "description": "Get a specific contact list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_delivery_receipt",
+   "name": "Get a specific delivery receipt",
+   "description": "Get a Specific Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Your message id."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/receipts/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_fax_delivery_receipt",
+   "name": "Get a specific fax delivery receipt",
+   "description": "Get a Specific Fax Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "D2AF-479B-8955-6395D561DEF4\" (required, number) - Message ID."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/fax/receipts/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_rule",
+   "name": "Get a specific rule",
+   "description": "Get a Specific Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The rule id you want to access."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_rule",
+   "name": "Get a specific rule",
+   "description": "Get a specific rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Inbound Rule ID."
+     }
+    },
+    "required": [
+     "inbound_rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_subaccount",
+   "name": "Get a specific subaccount",
+   "description": "Get a specific subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subaccount_id": {
+      "type": "string",
+      "description": "The subaccount ID you want to access."
+     }
+    },
+    "required": [
+     "subaccount_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "path": [
+     "subaccount_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_a_specific_transaction",
+   "name": "Get a specific transaction",
+   "description": "Get a specific transaction",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transaction_id": {
+      "type": "string",
+      "description": "1c65-47fa-aea2-3ded9ed57557 (number, required) - Your transction id."
+     }
+    },
+    "required": [
+     "transaction_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/recharge/transactions/{transaction_id}",
+    "path": [
+     "transaction_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_account",
+   "name": "Get account",
+   "description": "Get account",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/account",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_allowed_email_addresses",
+   "name": "Get all allowed email addresses",
+   "description": "Get All Allowed Email Addresses",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/addresses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_contact_lists",
+   "name": "Get all contact lists",
+   "description": "Get all Contact Lists",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_contacts_in_a_list",
+   "name": "Get all contacts in a list",
+   "description": "Get all Contacts in a List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id where your contacts belong."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists/{list_id}/contacts",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_countries",
+   "name": "Get all countries",
+   "description": "Get all Countries",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/countries",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_dedicated_numbers",
+   "name": "Get all dedicated numbers",
+   "description": "Get all Dedicated Numbers",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/numbers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_delivery_receipts",
+   "name": "Get all delivery receipts",
+   "description": "Get all Delivery Receipts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/mms/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_email_campaigns",
+   "name": "Get all email campaigns",
+   "description": "Get All Email Campaigns",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email-campaigns",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_email_templates",
+   "name": "Get all email templates",
+   "description": "Get All Email Templates",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_history",
+   "name": "Get all history",
+   "description": "**SMS Delivery Status** **Status (status field)** | Status | Description | |---|---|---| | `Completed` | Added to delivery queue. Waiting to be sent to the network.| | `Sent` | Message sent to the network.| | `Cancelled` | Message cancelled.| | `Scheduled` | Message scheduled.| | `WaitApproval` | Waiting approval by our team. This is temporary and will change to 'Sent' once approved. This only hap",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_from": {
+      "type": "string",
+      "description": "Timestamp (from) used to show records by date."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Timestamp (to) used to show recrods by date."
+     }
+    },
+    "required": [
+     "date_from",
+     "date_to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/history?date_from={date_from}&date_to={date_to}",
+    "path": [
+     "date_from",
+     "date_to"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_inbound_sms_pull",
+   "name": "Get all inbound sms   pull",
+   "description": "Get all Inbound SMS - Pull",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/inbound",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_master_email_templates",
+   "name": "Get all master email templates",
+   "description": "Get All Master Email Templates",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/master-templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_master_template_categories",
+   "name": "Get all master template categories",
+   "description": "Get All Master Template Categories",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/master-templates-categories",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_subaccounts",
+   "name": "Get all subaccounts",
+   "description": "Get all Subaccounts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/subaccounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_all_templates_for_category",
+   "name": "Get all templates for category",
+   "description": "Get All Templates For Category",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category_id": {
+      "type": "string",
+      "description": "Your category id."
+     }
+    },
+    "required": [
+     "category_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/master-templates-categories/{category_id}/master-templates",
+    "path": [
+     "category_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_email_receipt",
+   "name": "List rules",
+   "description": "List Rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/email/receipt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_email_receipt_rule_id",
+   "name": "Get a specific rule",
+   "description": "Get a Specific Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The rule id you want to access."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_fax_inbound",
+   "name": "List rules",
+   "description": "List rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/fax/inbound",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_fax_inbound_inbound_rule_id",
+   "name": "Get a specific rule",
+   "description": "Get a specific rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Fax inbound rule id"
+     }
+    },
+    "required": [
+     "inbound_rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_sms_receipts",
+   "name": "List rules",
+   "description": "List rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/sms/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_sms_receipts_receipt_rule_id",
+   "name": "Get a specific rule",
+   "description": "Get a specific rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_voice_receipts",
+   "name": "List rules",
+   "description": "List rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/voice/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_automations_voice_receipts_receipt_rule_id",
+   "name": "Get a specific rule",
+   "description": "Get a specific rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_country_pricing",
+   "name": "Get country pricing",
+   "description": "Get Country Pricing",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Two-letter representation of the country."
+     },
+     "currency": {
+      "type": "string",
+      "description": "Three-letter representation of the currency."
+     }
+    },
+    "required": [
+     "country",
+     "currency"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/pricing/{country}?currency={currency}",
+    "path": [
+     "country",
+     "currency"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_credit_card_info",
+   "name": "Get credit card info",
+   "description": "Get Credit Card info",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/recharge/credit-card",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_delivery_issues",
+   "name": "Get delivery issues",
+   "description": "Get Delivery Issues",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/delivery-issues",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_delivery_receipt",
+   "name": "Get delivery receipt",
+   "description": "Get Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Message ID."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/mms/receipts/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_fax_history",
+   "name": "Get fax history",
+   "description": "Get a list of Fax History.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_from": {
+      "type": "number",
+      "description": "Customize result by setting from date (timestsamp)"
+     },
+     "date_to": {
+      "type": "number",
+      "description": "Customize result by setting to date (timestamp)"
+     },
+     "q": {
+      "type": "string",
+      "description": "Custom query"
+     },
+     "order_by": {
+      "type": "string",
+      "description": "Order result by"
+     }
+    },
+    "required": [
+     "date_from",
+     "date_to",
+     "order_by",
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/fax/history?date_from={date_from}&date_to={date_to}&q={q}&order_by={order_by}",
+    "path": [
+     "date_from",
+     "date_to",
+     "q",
+     "order_by"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_list_of_acceptable_import_fields",
+   "name": "Get list of acceptable import fields",
+   "description": "Get List of Acceptable Import Fields",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "string",
+      "description": "Automatically added"
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/lists/{list_id}/import-fields",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_list_of_post_return_addresses",
+   "name": "Get list of post return addresses",
+   "description": "Get List of Post Return Addresses",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/return-addresses",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_list_of_referral_accounts",
+   "name": "Get list of referral accounts",
+   "description": "Get List of Referral Accounts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/referral/accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_list_of_sms_campaigns",
+   "name": "Get list of sms campaigns",
+   "description": "Get list of SMS Campaigns",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms-campaigns",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_mms_history",
+   "name": "Get mms history",
+   "description": "Get MMS History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "A custom query."
+     },
+     "order_by": {
+      "type": "string",
+      "description": "Sort records by."
+     },
+     "date_from": {
+      "type": "string",
+      "description": "[Unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp) (from) used to show records by date."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "[Unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp) (to) used to show records by date."
+     }
+    },
+    "required": [
+     "date_from",
+     "date_to",
+     "order_by",
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/mms/history?q={q}&order_by={order_by}&date_from={date_from}&date_to={date_to}",
+    "path": [
+     "q",
+     "order_by",
+     "date_from",
+     "date_to"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_post_letter_history",
+   "name": "Get post letter history",
+   "description": "Get Post Letter History",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/letters/history",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_post_return_address",
+   "name": "Get post return address",
+   "description": "Get Post Return Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "return_address_id": {
+      "type": "number",
+      "description": "Your return address id."
+     }
+    },
+    "required": [
+     "return_address_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "path": [
+     "return_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_postcard_history",
+   "name": "Get postcard history",
+   "description": "Get Postcard History",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/postcards/history",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_price",
+   "name": "Get price",
+   "description": "Get Price",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "Recipient country."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "from_email": {
+      "type": "string",
+      "description": "An email address where the reply should be emailed to. If omitted, the reply will be emailed back to the user who sent the outgoing SMS."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'."
+     },
+     "media_file": {
+      "type": "string",
+      "description": "Media file you want to send."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Subject line. Maximum 20 characters."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     }
+    },
+    "required": [
+     "body",
+     "media_file",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/mms/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "from",
+     "from_email",
+     "list_id",
+     "media_file",
+     "schedule",
+     "source",
+     "subject",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_reseller_account",
+   "name": "Get reseller account",
+   "description": "Get a specific reseller account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_user_id": {
+      "type": "number",
+      "description": "The client user id."
+     }
+    },
+    "required": [
+     "client_user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/reseller/accounts/{client_user_id}",
+    "path": [
+     "client_user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_reseller_setting",
+   "name": "Get reseller setting",
+   "description": "Get reseller setting.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/reseller",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_sms_campaign",
+   "name": "Get sms campaign",
+   "description": "Get SMS Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sms_campaign_id": {
+      "type": "number",
+      "description": "Your SMS campaign id."
+     }
+    },
+    "required": [
+     "sms_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}",
+    "path": [
+     "sms_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_sms_receipts",
+   "name": "Get all delivery receipts",
+   "description": "Get all Delivery Receipts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_sms_statistics",
+   "name": "Get sms statistics",
+   "description": "Get SMS Statistics",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/statistics/sms",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_allowed_email_address",
+   "name": "Get specific allowed email address",
+   "description": "Get Specific Allowed Email Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "The email address you want to access."
+     }
+    },
+    "required": [
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/addresses/{email_address_id}",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_email_campaign",
+   "name": "Get specific email campaign",
+   "description": "Get Specific Email Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_campaign_id": {
+      "type": "number",
+      "description": "The email campaign id you want to access."
+     }
+    },
+    "required": [
+     "email_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}",
+    "path": [
+     "email_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_email_campaign_history",
+   "name": "Get specific email campaign history",
+   "description": "Get Specific Email Campaign History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaign_id": {
+      "type": "number",
+      "description": "The email campaign id you want to access."
+     }
+    },
+    "required": [
+     "campaign_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email-campaigns/{campaign_id}/history",
+    "path": [
+     "campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_email_template",
+   "name": "Get specific email template",
+   "description": "Get Specific Email Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "number",
+      "description": "The email template id."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_email_template_category",
+   "name": "Get specific email template category",
+   "description": "Get Specific Email Template Category",
+   "input": {
+    "type": "object",
+    "properties": {
+     "category_id": {
+      "type": "string",
+      "description": "Your category id."
+     }
+    },
+    "required": [
+     "category_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/master-templates-categories/{category_id}",
+    "path": [
+     "category_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_email_to_sms_allowed_address",
+   "name": "Get specific email to sms allowed address",
+   "description": "Get a specific allowed email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "Your email address id."
+     }
+    },
+    "required": [
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_inbound_pull",
+   "name": "Get specific inbound   pull",
+   "description": "Get Specific Inbound - Pull",
+   "input": {
+    "type": "object",
+    "properties": {
+     "outbound_message_id": {
+      "type": "string",
+      "description": "Message ID of the original outbound message, to which the inbound message is a reply. Must be a valid GUID."
+     }
+    },
+    "required": [
+     "outbound_message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/inbound/{outbound_message_id}",
+    "path": [
+     "outbound_message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_master_template",
+   "name": "Get specific master template",
+   "description": "Get Specific Master Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": "Your template id."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/email/master-templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_specific_voice_receipt",
+   "name": "Get specific voice receipt",
+   "description": "Get Specific Voice Receipt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "3055-45F1-9B79-F2C43509FD16 (string, required) - The voice receipt message id."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/voice/receipts/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_timezones",
+   "name": "Get timezones",
+   "description": "Get supported list of timezones.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/timezones",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_transactions",
+   "name": "Get transactions",
+   "description": "Get Transactions",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/recharge/transactions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_voice_history",
+   "name": "Get voice history",
+   "description": "Get Voice History",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_from": {
+      "type": "string",
+      "description": "Timestamp (from) used to show records by date."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Timestamp (to) used to show recrods by date."
+     }
+    },
+    "required": [
+     "date_from",
+     "date_to"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/voice/history?date_from={date_from}&date_to={date_to}",
+    "path": [
+     "date_from",
+     "date_to"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_voice_receipts",
+   "name": "Get voice receipts",
+   "description": "Get Voice receipts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/voice/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.get_voice_statistics",
+   "name": "Get voice statistics",
+   "description": "Get Voice Statistics",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/statistics/voice",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.import_contacts_to_list",
+   "name": "Import contacts to list",
+   "description": "Import Contacts to List",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     },
+     "field_order": {
+      "type": "array",
+      "description": "Your field order for your contact import file."
+     },
+     "file_url": {
+      "type": "string",
+      "description": "Path to your CSV import file."
+     }
+    },
+    "required": [
+     "field_order",
+     "file_url",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/lists/{list_id}/import",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "field_order",
+     "file_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.link_statistics",
+   "name": "Link statistics",
+   "description": "Get the breakdown of statistics for your campaign. Note that the returned values vary depending on your specific customers' interaction, so it's not safe to assume a value will always be specified.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaign_id": {
+      "type": "number",
+      "description": "Your campaign id."
+     }
+    },
+    "required": [
+     "campaign_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-statistics",
+    "path": [
+     "campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.link_tracking",
+   "name": "Link tracking",
+   "description": "This endpoint gives you a paginated overview of all the links in a particular campaign, and who has and hasn't visited them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaign_id": {
+      "type": "number",
+      "description": "Your campaign id."
+     }
+    },
+    "required": [
+     "campaign_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-tracking",
+    "path": [
+     "campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.link_tracking_export",
+   "name": "Link tracking export",
+   "description": "Compile all link tracking for the specified campaign into a CSV for download.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaign_id": {
+      "type": "number",
+      "description": "Your campaign id."
+     },
+     "filename": {
+      "type": "string",
+      "description": "Your export filename."
+     }
+    },
+    "required": [
+     "campaign_id",
+     "filename"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms-campaigns/{campaign_id}/link-export?filename={filename}",
+    "path": [
+     "campaign_id",
+     "filename"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_contact_suggestions",
+   "name": "List contact suggestions",
+   "description": "List Contact Suggestions",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/contact-suggestions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_direct_mail_campaigns",
+   "name": "List direct mail campaigns",
+   "description": "Get list of direct mail campaigns.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/direct-mail/campaigns",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_of_email_to_sms_allowed_address",
+   "name": "List of email to sms allowed address",
+   "description": "Get list of allowed email addresses.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/email-sms",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_of_fax_delivery_receipts",
+   "name": "List of fax delivery receipts",
+   "description": "List of Fax Delivery Receipts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/fax/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_of_packages",
+   "name": "List of packages",
+   "description": "List of Packages",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Your country."
+     }
+    },
+    "required": [
+     "country"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/recharge/packages?country={country}",
+    "path": [
+     "country"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_of_reseller_accounts",
+   "name": "List of reseller accounts",
+   "description": "Get list of Reseller Accounts",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/reseller/accounts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_of_templates",
+   "name": "List of templates",
+   "description": "Get list of templates.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/templates",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_rules",
+   "name": "List rules",
+   "description": "List Rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/fax/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_rules",
+   "name": "List rules",
+   "description": "List rules",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/automations/sms/inbound",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.list_stripped_strings",
+   "name": "List stripped strings",
+   "description": "List Stripped Strings",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.mark_a_specific_inbound_sms_as_read",
+   "name": "Mark a specific inbound sms as read",
+   "description": "Mark a specific Inbound SMS as read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "message_id": {
+      "type": "string",
+      "description": "Message ID. Must be a valid GUID."
+     }
+    },
+    "required": [
+     "message_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/inbound-read/{message_id}",
+    "path": [
+     "message_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.mark_all_inbound_sms_as_read",
+   "name": "Mark all inbound sms as read",
+   "description": "Mark all Inbound SMS as read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_before": {
+      "type": "number",
+      "description": "An optional timestamp - mark all as read before this timestamp. If not given, all messages will be marked as read."
+     }
+    },
+    "required": [
+     "date_before"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/inbound-read",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "date_before"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.mark_delivery_receipts_as_read",
+   "name": "Mark delivery receipts as read",
+   "description": "Mark Delivery Receipts as read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_before": {
+      "type": "number",
+      "description": "An optional timestamp - mark all as read before this timestamp. If not given, all receipts will be marked as read."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/receipts-read",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "date_before"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.mark_fax_delivery_receipts_as_read",
+   "name": "Mark fax delivery receipts as read",
+   "description": "Mark Fax Delivery Receipts as read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_before": {
+      "type": "number",
+      "description": "An optional [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp) - mark all as read before this timestamp. If not given, all receipts will be marked as read."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/fax/receipts-read",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "date_before"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.mark_receipts_as_read",
+   "name": "Mark receipts as read",
+   "description": "Mark Receipts As Read",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/mms/receipts-read",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.marked_voice_receipts_as_read",
+   "name": "Marked voice receipts as read",
+   "description": "Marked Voice Receipts as Read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date_before": {
+      "type": "number",
+      "description": "An optional [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp) - mark all as read before this timestamp. If not given, all receipts will be marked as read."
+     }
+    },
+    "required": [
+     "date_before"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/voice/receipts-read?date_before={date_before}",
+    "path": [
+     "date_before"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_automations_email_receipt",
+   "name": "Create a new rule",
+   "description": "Create a New Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "match_type": {
+      "type": "number",
+      "description": "Match Type. 0=All reports."
+     },
+     "rule_name": {
+      "type": "string",
+      "description": "Rule Name."
+     }
+    },
+    "required": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/email/receipt",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_automations_fax_inbound",
+   "name": "Create a new rule",
+   "description": "Create a new rule",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/fax/inbound",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_automations_sms_receipts",
+   "name": "Create a new rule",
+   "description": "Create a new rule",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/sms/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_automations_voice_receipts",
+   "name": "Create a new rule",
+   "description": "Create a new rule",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/automations/voice/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_email_receipts",
+   "name": "Add a test delivery receipt",
+   "description": "Add a Test Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_fax_price",
+   "name": "Calculate price",
+   "description": "Calculate Price",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/fax/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_post_letters_price",
+   "name": "Calculate price",
+   "description": "Calculate Price",
+   "input": {
+    "type": "object",
+    "properties": {
+     "colour": {
+      "type": "number",
+      "description": "Is it in colored?"
+     },
+     "duplex": {
+      "type": "number",
+      "description": "Is it in duplex?"
+     },
+     "file_url": {
+      "type": "string",
+      "description": "Your URL to your PDF file."
+     },
+     "priority_post": {
+      "type": "number",
+      "description": "Is it priority? 0 = Not Priority, 1 = Priority."
+     },
+     "recipients": {
+      "type": "array",
+      "description": "Your recipients."
+     },
+     "template_used": {
+      "type": "number",
+      "description": "Whether you used our template or not ([More Info](http://help.clicksend.com/13996-Post/post-letter-template))."
+     }
+    },
+    "required": [
+     "file_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/letters/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "colour",
+     "duplex",
+     "file_url",
+     "priority_post",
+     "recipients",
+     "template_used"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_sms_price",
+   "name": "Calculate price",
+   "description": "Calculate Price",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "Recipient country."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     }
+    },
+    "required": [
+     "body",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "from",
+     "list_id",
+     "schedule",
+     "source",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_sms_receipts",
+   "name": "Add a test delivery receipt",
+   "description": "Add a Test Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_voice_price",
+   "name": "Calculate price",
+   "description": "Calculate Price",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "The country of the recipient."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "lang": {
+      "type": "string",
+      "description": "au (string, required) - See section on available languages."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'."
+     },
+     "require_input": {
+      "type": "number",
+      "description": "Whether you want to receive a keypress from the call recipient (1 for on, 0 [default] for off)"
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     },
+     "voice": {
+      "type": "string",
+      "description": "Either 'female' or 'male'."
+     }
+    },
+    "required": [
+     "body",
+     "to",
+     "voice"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/voice/price",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "lang",
+     "list_id",
+     "require_input",
+     "schedule",
+     "source",
+     "to",
+     "voice"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.post_voice_receipts",
+   "name": "Add a test delivery receipt",
+   "description": "Add a Test Delivery Receipt",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/voice/receipts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.purchase_a_package",
+   "name": "Purchase a package",
+   "description": "Purchase a Package",
+   "input": {
+    "type": "object",
+    "properties": {
+     "package_id": {
+      "type": "number",
+      "description": "Your package id."
+     }
+    },
+    "required": [
+     "package_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/recharge/purchase/{package_id}",
+    "path": [
+     "package_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.put_automations_email_receipt_rule_id",
+   "name": "Update a rule",
+   "description": "Update a Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The email receipt rule id you want to access."
+     },
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "match_type": {
+      "type": "number",
+      "description": "Match Type. 0=All reports."
+     },
+     "rule_name": {
+      "type": "string",
+      "description": "Rule Name."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/email/receipt/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.put_automations_fax_inbound_inbound_rule_id",
+   "name": "Update a rule",
+   "description": "Update a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Fax inbound rule id"
+     }
+    },
+    "required": [
+     "inbound_rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/fax/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.put_automations_sms_receipts_receipt_rule_id",
+   "name": "Update a rule",
+   "description": "Update a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/sms/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.put_automations_voice_receipts_receipt_rule_id",
+   "name": "Update a rule",
+   "description": "Update a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "receipt_rule_id": {
+      "type": "number",
+      "description": "Receipt Rule ID."
+     }
+    },
+    "required": [
+     "receipt_rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/voice/receipts/{receipt_rule_id}",
+    "path": [
+     "receipt_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.regenerate_api_key",
+   "name": "Regenerate api key",
+   "description": "Regenerate API Key",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subaccount_id": {
+      "type": "number",
+      "description": "The ID of the subaccount to be accessed."
+     }
+    },
+    "required": [
+     "subaccount_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}/regen-api-key",
+    "path": [
+     "subaccount_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.remove_duplicate_contacts",
+   "name": "Remove duplicate contacts",
+   "description": "Remove Duplicate Contacts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id."
+     },
+     "fields": {
+      "type": "array",
+      "description": "List of Contact's fields to be used for checking."
+     }
+    },
+    "required": [
+     "fields",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/lists/{list_id}/remove-duplicates",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.remove_opted_out_contacts",
+   "name": "Remove opted out contacts",
+   "description": "Remove Opted Out Contacts",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id."
+     },
+     "opt_out_list_id": {
+      "type": "number",
+      "description": "Your opt out list id."
+     }
+    },
+    "required": [
+     "list_id",
+     "opt_out_list_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/lists/{list_id}/remove-opted-out-contacts/{opt_out_list_id}",
+    "path": [
+     "list_id",
+     "opt_out_list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.reseller_by_subdomain",
+   "name": "Reseller by subdomain",
+   "description": "Get reseller setting by subdomin.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subdomain": {
+      "type": "string",
+      "description": "Subdomain"
+     }
+    },
+    "required": [
+     "subdomain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/reseller/{subdomain}",
+    "path": [
+     "subdomain"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.sdk_download",
+   "name": "Sdk download",
+   "description": "SDK Download",
+   "input": {
+    "type": "object",
+    "properties": {
+     "type": {
+      "type": "string",
+      "description": "Supported types."
+     }
+    },
+    "required": [
+     "type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/sdk-download/{type}",
+    "path": [
+     "type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.search_contacts_lists",
+   "name": "Search contacts lists",
+   "description": "Search Contacts-Lists",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "Your keyword or query."
+     }
+    },
+    "required": [
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/search/contacts-lists?q={q}",
+    "path": [
+     "q"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.search_dedicated_numbers_by_country",
+   "name": "Search dedicated numbers by country",
+   "description": "Search Dedicated Numbers by Country",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Your preferred country."
+     },
+     "search": {
+      "type": "string",
+      "description": "Your search pattern or query."
+     },
+     "search_type": {
+      "type": "number",
+      "description": "Your strategy for searching, 0 = starts with, 1 = anywhere, 2 = ends with."
+     }
+    },
+    "required": [
+     "country",
+     "search",
+     "search_type"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/numbers/search/{country}?{search}=1&{search_type}=2",
+    "path": [
+     "country",
+     "search",
+     "search_type"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.search_locations",
+   "name": "Search locations",
+   "description": "Search Locations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": "Country code."
+     },
+     "query": {
+      "type": "string",
+      "description": "A postal code or place name."
+     }
+    },
+    "required": [
+     "country",
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/post/direct-mail/locations/search/{country}/?q={query}",
+    "path": [
+     "country",
+     "query"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_a_voice_call",
+   "name": "Send a voice call",
+   "description": "You can post **up to 1000 messages** with each API call. We support some SSML tags allowing custom breaks or pauses to be entered, and the readout rate to be altered. [More info](https://help.clicksend.com/voice/how-to-adjust-tts-voice-calls).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "The country of the recipient."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "lang": {
+      "type": "string",
+      "description": "au (string, required) - See section on available languages."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'. Will override 'to' if both are used."
+     },
+     "machine_detection": {
+      "type": "number",
+      "description": "Whether to attempt to detect an answering machine or voicemail service and leave a message (1 for on, 0 [default] for off)"
+     },
+     "require_input": {
+      "type": "number",
+      "description": "Whether you want to receive a keypress from the call recipient (1 for on, 0 [default] for off)"
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     },
+     "voice": {
+      "type": "string",
+      "description": "Either 'female' or 'male'."
+     }
+    },
+    "required": [
+     "body",
+     "to",
+     "voice"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/voice/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "lang",
+     "list_id",
+     "machine_detection",
+     "require_input",
+     "schedule",
+     "source",
+     "to",
+     "voice"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_account_activation_token",
+   "name": "Send account activation token",
+   "description": "Send account activation token",
+   "input": {
+    "type": "object",
+    "properties": {
+     "country": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": ""
+     },
+     "user_phone": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/account-verify/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "country",
+     "type",
+     "user_phone"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_an_sms",
+   "name": "Send an sms",
+   "description": "You can post **up to 1000 messages** with each API call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "Recipient country."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "from_email": {
+      "type": "string",
+      "description": "An email address where the reply should be emailed to. If omitted, the reply will be emailed back to the user who sent the outgoing SMS."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     }
+    },
+    "required": [
+     "body",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "from",
+     "from_email",
+     "list_id",
+     "schedule",
+     "source",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_fax",
+   "name": "Send fax",
+   "description": "**Letter File Options** **Use existing URL** With this option, you can use an existing URL to a PDF document. For example, you might generate the pdf on your server. **Upload File to Our Server** With this option, you can use the `/uploads` endpoint to upload the document. The `/uploads` endpoint returns a URL that can be used in the `/fax/send` endpoint.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/fax/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_mms",
+   "name": "Send mms",
+   "description": "Send MMS",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your message."
+     },
+     "country": {
+      "type": "string",
+      "description": "Recipient country."
+     },
+     "custom_string": {
+      "type": "string",
+      "description": "Your reference. Will be passed back with all replies and delivery reports."
+     },
+     "from": {
+      "type": "string",
+      "description": "The number to send from. Either leave blank or use a ClickSend number only."
+     },
+     "from_email": {
+      "type": "string",
+      "description": "An email address where the reply should be emailed to. If omitted, the reply will be emailed back to the user who sent the outgoing SMS."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list ID if sending to a whole list. Can be used instead of 'to'."
+     },
+     "media_file": {
+      "type": "string",
+      "description": "Media file you want to send."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "source": {
+      "type": "string",
+      "description": "Your method of sending e.g. 'wordpress', 'php', 'c#'."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Subject line. Maximum 20 characters."
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient number in E.164 format or local format ([more info](https://help.clicksend.com/SMS/what-format-does-the-recipient-phone-number-need-to-be-in))."
+     }
+    },
+    "required": [
+     "body",
+     "media_file",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/mms/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "country",
+     "custom_string",
+     "from",
+     "from_email",
+     "list_id",
+     "media_file",
+     "schedule",
+     "source",
+     "subject",
+     "to"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_post_letter",
+   "name": "Send post letter",
+   "description": "**Supported File Types** We support `pdf`, `docx` and `doc` files. Contact us to add support for any other file type. If you're using `docx` or `doc` files, you'll need to convert the file first using our uploads endpoint with the querystring parameter `convert=post` e.g. `POST /uploads?convert=post`. This will return a URL to the converted pdf file that can be used in the `/post/letters/send` end",
+   "input": {
+    "type": "object",
+    "properties": {
+     "colour": {
+      "type": "number",
+      "description": "Is it in colour? 0 = Black and White, 1 = Colour."
+     },
+     "duplex": {
+      "type": "number",
+      "description": "Is it in duplex? 0 = Simplex, 1 = Duplex."
+     },
+     "file_url": {
+      "type": "string",
+      "description": "Your URL to your PDF file."
+     },
+     "priority_post": {
+      "type": "number",
+      "description": "Is it priority? 0 = Not Priority, 1 = Priority."
+     },
+     "recipients": {
+      "type": "array",
+      "description": "Your recipients."
+     },
+     "template_used": {
+      "type": "number",
+      "description": "Whether you used our template or not ([More Info](http://help.clicksend.com/13996-Post/post-letter-template))."
+     }
+    },
+    "required": [
+     "file_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/letters/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "colour",
+     "duplex",
+     "file_url",
+     "priority_post",
+     "recipients",
+     "template_used"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_postcard",
+   "name": "Send postcard",
+   "description": "**Supported File Types** We support PDF, docx and doc. Contact us to add support for any other file type. If you're using docx or doc files, you'll need to convert the file first using our uploads endpoint with the querystring parameter ?convert=post. e.g. POST /uploads?convert=post. This will return a URL to the converted pdf file that can be used in the /post/postcards/send endpoint. **Postcard ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_urls": {
+      "type": "array",
+      "description": "Postcard file urls. You can submit max 2 file urls."
+     },
+     "recipients": {
+      "type": "array",
+      "description": "Your recipients."
+     }
+    },
+    "required": [
+     "file_urls",
+     "recipients"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/post/postcards/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file_urls",
+     "recipients"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.send_verification_token",
+   "name": "Send verification token",
+   "description": "Send Verification Token",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "The email addess id you want to access."
+     }
+    },
+    "required": [
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/email/address-verify/{email_address_id}/send",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.show_csv_import_file_preview",
+   "name": "Show csv import file preview",
+   "description": "Show first row of the csv import file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id."
+     },
+     "file_url": {
+      "type": "string",
+      "description": "Path to your CSV import file."
+     }
+    },
+    "required": [
+     "file_url",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/lists/{list_id}/import-csv-preview",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "file_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.transfer_a_contact",
+   "name": "Transfer a contact",
+   "description": "Transfers a specific contact to another list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from_list_id": {
+      "type": "number",
+      "description": "From list id."
+     },
+     "contact_id": {
+      "type": "number",
+      "description": "Contact ID."
+     },
+     "to_list_id": {
+      "type": "number",
+      "description": "To list id."
+     }
+    },
+    "required": [
+     "contact_id",
+     "from_list_id",
+     "to_list_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/lists/{from_list_id}/contacts/{contact_id}/{to_list_id}",
+    "path": [
+     "from_list_id",
+     "contact_id",
+     "to_list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.transfer_credit",
+   "name": "Transfer credit",
+   "description": "Transfer Credit",
+   "input": {
+    "type": "object",
+    "properties": {
+     "balance": {
+      "type": "number",
+      "description": "Your amount."
+     },
+     "client_user_id": {
+      "type": "string",
+      "description": "Your client user id."
+     },
+     "currency": {
+      "type": "string",
+      "description": "Your currency."
+     }
+    },
+    "required": [
+     "balance",
+     "client_user_id",
+     "currency"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/reseller/transfer-credit",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "balance",
+     "client_user_id",
+     "currency"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_rule",
+   "name": "Update a rule",
+   "description": "Update a Rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The email receipt rule id you want to access."
+     },
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "match_type": {
+      "type": "number",
+      "description": "Match Type. 0=All reports."
+     },
+     "rule_name": {
+      "type": "string",
+      "description": "Rule Name."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/fax/receipts/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "enabled",
+     "match_type",
+     "rule_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_rule",
+   "name": "Update a rule",
+   "description": "Update a rule",
+   "input": {
+    "type": "object",
+    "properties": {
+     "inbound_rule_id": {
+      "type": "number",
+      "description": "Inbound Rule ID."
+     },
+     "action": {
+      "type": "string",
+      "description": "Action."
+     },
+     "action_address": {
+      "type": "string",
+      "description": "Action Address."
+     },
+     "dedicated_number": {
+      "type": "string",
+      "description": "Dedicated Number"
+     },
+     "enabled": {
+      "type": "number",
+      "description": "Enabled."
+     },
+     "message_search_term": {
+      "type": "string",
+      "description": "Message Search Term."
+     },
+     "message_search_type": {
+      "type": "number",
+      "description": "Message Search Type: 0=Any message, 1=starts with, 2=contains, 3=does not contain."
+     }
+    },
+    "required": [
+     "action",
+     "action_address",
+     "dedicated_number",
+     "enabled",
+     "inbound_rule_id",
+     "message_search_term",
+     "message_search_type"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/automations/sms/inbound/{inbound_rule_id}",
+    "path": [
+     "inbound_rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "action_address",
+     "dedicated_number",
+     "enabled",
+     "message_search_term",
+     "message_search_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_specific_contact",
+   "name": "Update a specific contact",
+   "description": "Update a specific contact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Contact list id you want to access."
+     },
+     "contact_id": {
+      "type": "number",
+      "description": "Contact id you want to access."
+     },
+     "address_city": {
+      "type": "string",
+      "description": "Contact city."
+     },
+     "address_country": {
+      "type": "string",
+      "description": "Contact two-letter country code defined in ISO 3166."
+     },
+     "address_line_1": {
+      "type": "string",
+      "description": "Contact address line 1."
+     },
+     "address_line_2": {
+      "type": "string",
+      "description": "Contact address line 2."
+     },
+     "address_postal_code": {
+      "type": "string",
+      "description": "Contact postal code."
+     },
+     "address_state": {
+      "type": "string",
+      "description": "Contact state."
+     },
+     "custom_1": {
+      "type": "string",
+      "description": "Contact custom 1 text."
+     },
+     "custom_2": {
+      "type": "string",
+      "description": "Contact custom 2 text."
+     },
+     "custom_3": {
+      "type": "string",
+      "description": "Contact custom 3 text."
+     },
+     "custom_4": {
+      "type": "string",
+      "description": "Contact custom 4 text."
+     },
+     "email": {
+      "type": "string",
+      "description": "Contact email."
+     },
+     "fax_number": {
+      "type": "string",
+      "description": "Contact fax number."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "Contact firstname."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Contact lastname."
+     },
+     "organization_name": {
+      "type": "string",
+      "description": "Contact organization name."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Contact phone number in E.164 format."
+     }
+    },
+    "required": [
+     "contact_id",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/lists/{list_id}/contacts/{contact_id}",
+    "path": [
+     "list_id",
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "address_city",
+     "address_country",
+     "address_line_1",
+     "address_line_2",
+     "address_postal_code",
+     "address_state",
+     "custom_1",
+     "custom_2",
+     "custom_3",
+     "custom_4",
+     "email",
+     "fax_number",
+     "first_name",
+     "last_name",
+     "organization_name",
+     "phone_number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_specific_contact_list",
+   "name": "Update a specific contact list",
+   "description": "Update a specific contact list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "number",
+      "description": "Your contact list id you want to access."
+     },
+     "list_name": {
+      "type": "string",
+      "description": "Your new contact list name."
+     }
+    },
+    "required": [
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/lists/{list_id}",
+    "path": [
+     "list_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_specific_subaccount",
+   "name": "Update a specific subaccount",
+   "description": "Update a specific subaccount",
+   "input": {
+    "type": "object",
+    "properties": {
+     "subaccount_id": {
+      "type": "number",
+      "description": "The subaccount ID you want to access."
+     },
+     "access_billing": {
+      "type": "number",
+      "description": "Your access billing flag value, must be 1 or 0."
+     },
+     "access_contacts": {
+      "type": "number",
+      "description": "Your access contacts flag value, must be 1 or 0."
+     },
+     "access_reporting": {
+      "type": "number",
+      "description": "Your access reporting flag value, must be 1 or 0."
+     },
+     "access_settings": {
+      "type": "number",
+      "description": "Your access settings flag value, must be 1 or 0."
+     },
+     "access_users": {
+      "type": "number",
+      "description": "Your access users flag value, must be 1 or 0."
+     },
+     "email": {
+      "type": "string",
+      "description": "Your new email."
+     },
+     "first_name": {
+      "type": "string",
+      "description": "Your firstname."
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Your lastname."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your new password."
+     },
+     "phone_number": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     },
+     "share_campaigns": {
+      "type": "number",
+      "description": "Your share campaigns flag value, must be 1 or 0."
+     }
+    },
+    "required": [
+     "subaccount_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/subaccounts/{subaccount_id}",
+    "path": [
+     "subaccount_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "access_billing",
+     "access_contacts",
+     "access_reporting",
+     "access_settings",
+     "access_users",
+     "email",
+     "first_name",
+     "last_name",
+     "password",
+     "phone_number",
+     "share_campaigns"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_a_template",
+   "name": "Update a template",
+   "description": "Update a Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": "Your template id."
+     },
+     "body": {
+      "type": "string",
+      "description": "Your template body."
+     },
+     "template_name": {
+      "type": "string",
+      "description": "Your template name."
+     }
+    },
+    "required": [
+     "body",
+     "template_id",
+     "template_name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "template_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_account",
+   "name": "Update account",
+   "description": "Update Account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_name": {
+      "type": "string",
+      "description": "Your delivery to value."
+     },
+     "country": {
+      "type": "string",
+      "description": "Your country."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your password."
+     },
+     "private_uploads": {
+      "type": "number",
+      "description": "Set the private uploads flag. 0 or 1 only."
+     },
+     "setting_sms_hide_business_name": {
+      "type": "number",
+      "description": "Set the private uploads flag. 0 or 1 only."
+     },
+     "setting_sms_hide_your_number": {
+      "type": "number",
+      "description": "Set the private uploads flag. 0 or 1 only."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "Timezone."
+     },
+     "user_email": {
+      "type": "string",
+      "description": "Your email."
+     },
+     "user_first_name": {
+      "type": "string",
+      "description": "Your first name."
+     },
+     "user_last_name": {
+      "type": "string",
+      "description": "Your last name."
+     },
+     "user_phone": {
+      "type": "string",
+      "description": "Your phone number in E.164 format."
+     },
+     "username": {
+      "type": "string",
+      "description": "Your username."
+     }
+    },
+    "required": [
+     "account_name",
+     "country",
+     "password",
+     "timezone",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/account",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "account_name",
+     "country",
+     "password",
+     "private_uploads",
+     "setting_sms_hide_business_name",
+     "setting_sms_hide_your_number",
+     "timezone",
+     "user_email",
+     "user_first_name",
+     "user_last_name",
+     "user_phone",
+     "username"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_an_email_template",
+   "name": "Update an email template",
+   "description": "Update an Email Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "number",
+      "description": "The id of the template to be updated."
+     },
+     "body": {
+      "type": "string",
+      "description": "Your template body."
+     },
+     "template_name": {
+      "type": "string",
+      "description": "The intended name for the new template."
+     }
+    },
+    "required": [
+     "body",
+     "template_id",
+     "template_name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/email/templates/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "template_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_an_sms_campaign",
+   "name": "Update an sms campaign",
+   "description": "Update an SMS Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sms_campaign_id": {
+      "type": "number",
+      "description": "Your SMS Campaign id."
+     },
+     "body": {
+      "type": "string",
+      "description": "Your campaign message."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list id."
+     },
+     "name": {
+      "type": "string",
+      "description": "Your campaign name."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Will replace existing schedule (even if left blank). Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     }
+    },
+    "required": [
+     "body",
+     "list_id",
+     "name",
+     "sms_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms-campaigns/{sms_campaign_id}",
+    "path": [
+     "sms_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "from",
+     "list_id",
+     "name",
+     "schedule"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_credit_card_info",
+   "name": "Update credit card info",
+   "description": "Update Credit Card info",
+   "input": {
+    "type": "object",
+    "properties": {
+     "bank_name": {
+      "type": "string",
+      "description": "Your bank's name that issued the credit card."
+     },
+     "cvc": {
+      "type": "number",
+      "description": "Your CVC digits."
+     },
+     "expiry_month": {
+      "type": "number",
+      "description": "Your credit card expiry month."
+     },
+     "expiry_year": {
+      "type": "number",
+      "description": "Your credit card expiry year."
+     },
+     "name": {
+      "type": "string",
+      "description": "Your name."
+     },
+     "number": {
+      "type": "number",
+      "description": "Your credit card no."
+     }
+    },
+    "required": [
+     "bank_name",
+     "cvc",
+     "expiry_month",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/recharge/credit-card",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "bank_name",
+     "cvc",
+     "expiry_month",
+     "expiry_year",
+     "name",
+     "number"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_email_campaign",
+   "name": "Update email campaign",
+   "description": "Update Email Campaign",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_campaign_id": {
+      "type": "number",
+      "description": "The email campaign id you want to access."
+     },
+     "from_email_address_id": {
+      "type": "number",
+      "description": "The allowed email address id."
+     },
+     "from_name": {
+      "type": "string",
+      "description": "The name that will appear on the email."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "The list id you want to access."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the sender."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Will replace existing schedule (even if left blank). Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "subject": {
+      "type": "string",
+      "description": "The subject of the email campaign."
+     },
+     "template_id": {
+      "type": "number",
+      "description": "The template id you want to use."
+     }
+    },
+    "required": [
+     "email_campaign_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/email-campaigns/{email_campaign_id}",
+    "path": [
+     "email_campaign_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "from_email_address_id",
+     "from_name",
+     "list_id",
+     "name",
+     "schedule",
+     "subject",
+     "template_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_email_to_sms_allowed_address",
+   "name": "Update email to sms allowed address",
+   "description": "Update a specific allowed email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "Your email address id."
+     },
+     "email_address": {
+      "type": "string",
+      "description": "Your email address."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     }
+    },
+    "required": [
+     "email_address",
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/email-sms/{email_address_id}",
+    "path": [
+     "email_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "email_address",
+     "from"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_post_return_address",
+   "name": "Update post return address",
+   "description": "Update Post Return Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "return_address_id": {
+      "type": "number",
+      "description": "Your return address id."
+     }
+    },
+    "required": [
+     "return_address_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/post/return-addresses/{return_address_id}",
+    "path": [
+     "return_address_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_reseller_account",
+   "name": "Update reseller account",
+   "description": "Update Reseller Account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "client_user_id": {
+      "type": "number",
+      "description": "Your client user id."
+     }
+    },
+    "required": [
+     "client_user_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/reseller/accounts/{client_user_id}",
+    "path": [
+     "client_user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_reseller_setting",
+   "name": "Update reseller setting",
+   "description": "Update a specific reseller setting.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "allow_public_signups": {
+      "type": "number",
+      "description": "Allow public signups."
+     },
+     "colour_navigation": {
+      "type": "string",
+      "description": "Colour navigation."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name."
+     },
+     "default_margin": {
+      "type": "number",
+      "description": "Default margin."
+     },
+     "default_margin_numbers": {
+      "type": "number",
+      "description": "Default margin numbers."
+     },
+     "logo_url_dark": {
+      "type": "string",
+      "description": "Logo URL (dark)"
+     },
+     "logo_url_light": {
+      "type": "string",
+      "description": "Logo URL (light)"
+     },
+     "subdomain": {
+      "type": "string",
+      "description": "Subdomain."
+     },
+     "trial_balance": {
+      "type": "number",
+      "description": "Trial balance."
+     }
+    },
+    "required": [
+     "allow_public_signups",
+     "colour_navigation",
+     "company_name",
+     "default_margin",
+     "default_margin_numbers",
+     "logo_url_dark",
+     "logo_url_light",
+     "subdomain",
+     "trial_balance"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/reseller",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "allow_public_signups",
+     "colour_navigation",
+     "company_name",
+     "default_margin",
+     "default_margin_numbers",
+     "logo_url_dark",
+     "logo_url_light",
+     "subdomain",
+     "trial_balance"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.update_stripped_string",
+   "name": "Update stripped string",
+   "description": "Update Stripped String",
+   "input": {
+    "type": "object",
+    "properties": {
+     "rule_id": {
+      "type": "number",
+      "description": "The rule id you want to access."
+     },
+     "strip_string": {
+      "type": "string",
+      "description": "The string that you want to strip from the body of email."
+     }
+    },
+    "required": [
+     "rule_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/sms/email-sms-stripped-strings/{rule_id}",
+    "path": [
+     "rule_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "strip_string"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.upload_a_file",
+   "name": "Upload a file",
+   "description": "Upload a file",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/uploads?convert={convert}",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.upload_image_to_specific_template",
+   "name": "Upload image to specific template",
+   "description": "Upload Image to Specific Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "template_id": {
+      "type": "string",
+      "description": "Your template id."
+     },
+     "image": {
+      "type": "string",
+      "description": "Uploads your selected image file."
+     },
+     "url": {
+      "type": "string",
+      "description": "Uploads the image from the supplied URL."
+     }
+    },
+    "required": [
+     "template_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/email/templates-images/{template_id}",
+    "path": [
+     "template_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "image",
+     "url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.use_short_url",
+   "name": "Use short url",
+   "description": "This is functionally identical to the **POST /sms-campaigns/send** endpoint, other than adding the `smsg.us/xxxxx` string to the message body additional `url_to_shorten` parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "body": {
+      "type": "string",
+      "description": "Your campaign message."
+     },
+     "from": {
+      "type": "string",
+      "description": "Your sender id - [more info](http://help.clicksend.com/SMS/what-is-a-sender-id-or-sender-number)."
+     },
+     "list_id": {
+      "type": "number",
+      "description": "Your list id."
+     },
+     "name": {
+      "type": "string",
+      "description": "Your campaign name."
+     },
+     "schedule": {
+      "type": "number",
+      "description": "Leave blank for immediate delivery. Your schedule time as a [unix timestamp](http://help.clicksend.com/what-is-a-unix-timestamp)."
+     },
+     "url_to_shorten": {
+      "type": "string",
+      "description": "The URL you want to shorten (only required when using this feature). This must be only `http` or `https`."
+     }
+    },
+    "required": [
+     "body",
+     "list_id",
+     "name",
+     "url_to_shorten"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://rest.clicksend.com/sms-campaigns/send",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "body",
+     "from",
+     "list_id",
+     "name",
+     "schedule",
+     "url_to_shorten"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.verify_allowed_email_address",
+   "name": "Verify allowed email address",
+   "description": "Verify Allowed Email Address",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_address_id": {
+      "type": "number",
+      "description": "The email address id you want to access."
+     },
+     "activation_token": {
+      "type": "string",
+      "description": "6E8B-4FDB-99A7-7ED08DF97BCC (required, string) - Your activation token."
+     }
+    },
+    "required": [
+     "activation_token",
+     "email_address_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/email/address-verify/{email_address_id}/verify/{activation_token}",
+    "path": [
+     "email_address_id",
+     "activation_token"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.verify_forgot_password",
+   "name": "Verify forgot password",
+   "description": "Verify Forgot Password",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activation_token": {
+      "type": "string",
+      "description": "Your email activation token."
+     },
+     "password": {
+      "type": "string",
+      "description": "Your new password."
+     },
+     "subaccount_id": {
+      "type": "number",
+      "description": "Your subaccount id."
+     }
+    },
+    "required": [
+     "activation_token",
+     "password",
+     "subaccount_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/forgot-password/verify",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "activation_token",
+     "password",
+     "subaccount_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.verify_new_account",
+   "name": "Verify new account",
+   "description": "Verify new account",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activation_token": {
+      "type": "string",
+      "description": "The ActivationToken to be used to verify an account."
+     }
+    },
+    "required": [
+     "activation_token"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://rest.clicksend.com/account-verify/verify/{activation_token}",
+    "path": [
+     "activation_token"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "clicksend.voice_languages",
+   "name": "Voice languages",
+   "description": "Voice Languages",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://rest.clicksend.com/voice/lang",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

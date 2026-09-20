@@ -1,0 +1,5697 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "webflow",
+ "source": "https://raw.githubusercontent.com/webflow/openapi-spec/main/openapi/v2.yml",
+ "operations": [
+  {
+   "slug": "webflow.add_custom_code_to_page",
+   "name": "Add update custom code",
+   "description": "Apply registered scripts to a page. If you have multiple scripts your App needs to apply or maintain on a page, ensure they are always included in the request body for this endpoint. To remove individual scripts, simply call this endpoint without the script in the request body. To apply a script to a page, the script must first be registered to a Site via the [Register Script](/data/reference/cust",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     },
+     "scripts": {
+      "type": "array",
+      "description": "A list of scripts applied to a Site or a Page"
+     },
+     "lastUpdated": {
+      "type": "string",
+      "description": "Date when the Site's scripts were last updated"
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "Date when the Site's scripts were created"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "path": [
+     "page_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "scripts",
+     "lastUpdated",
+     "createdOn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.add_custom_code_tosite",
+   "name": "Add update custom code",
+   "description": "Apply registered scripts to a site. If you have multiple scripts your App needs to apply or maintain on a site, ensure they are always included in the request body for this endpoint. To remove individual scripts, simply call this endpoint without the script in the request body. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/refere",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "scripts": {
+      "type": "array",
+      "description": "A list of scripts applied to a Site or a Page"
+     },
+     "lastUpdated": {
+      "type": "string",
+      "description": "Date when the Site's scripts were last updated"
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "Date when the Site's scripts were created"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "scripts",
+     "lastUpdated",
+     "createdOn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.authorized_by",
+   "name": "Get authorization user info",
+   "description": "Information about the Authorized User Required Scope | `authorized_user:read`",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/token/authorized_by",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.batch_create_custom_fonts",
+   "name": "Batch create custom fonts",
+   "description": "Register 1\u201325 custom fonts in a single request and get a presigned S3 URL for each one. This collapses the registration step for a whole font family (for example, Regular, Bold, Italic, and Bold Italic) into one rate-limited request. Registration is batched, but the binary uploads are not: the response contains one `upload` object per registered font, and you must POST each font binary to its own ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "items": {
+      "type": "array",
+      "description": "The custom fonts to register. Each item uses the same shape as the single-font create request."
+     }
+    },
+    "required": [
+     "items",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/batchCreate",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.batch_delete_custom_fonts",
+   "name": "Batch delete custom fonts",
+   "description": "Delete 1-100 custom fonts in a single request. The response is always `200 OK` for a valid request body. Per-font results are reported in the `deleted` and `failed` arrays. The endpoint is idempotent: fonts that do not exist appear in `failed` with `name: \"NotFound\"` rather than failing the entire request. You can safely retry a partial failure by re-sending only the IDs that did not appear in `de",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "items",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/batchDelete",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.collection_details",
+   "name": "Get collection details",
+   "description": "Get the full details of a collection from its ID. Required scope | `cms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{collection_id}",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_asset",
+   "name": "Upload asset",
+   "description": "The first step in uploading an asset to a site. This endpoint generates a response with the following information: `uploadUrl` and `uploadDetails`. Use these properties in the header of a [POST request to Amazson s3](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPOST.html) to complete the upload. To learn more about how to upload assets to Webflow, see our [assets guide](/data/docs/wor",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "fileName": {
+      "type": "string",
+      "description": "File name including file extension. File names must be less than 100 characters."
+     },
+     "fileHash": {
+      "type": "string",
+      "description": "MD5 hash of the file"
+     },
+     "parentFolder": {
+      "type": "string",
+      "description": "ID of the Asset folder (optional)"
+     }
+    },
+    "required": [
+     "fileHash",
+     "fileName",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/assets",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fileName",
+     "fileHash",
+     "parentFolder"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_asset_folder",
+   "name": "Create asset folder",
+   "description": "Create an Asset Folder within a given site Required scope | `assets:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "A human readable name for the Asset Folder"
+     },
+     "parentFolder": {
+      "type": "string",
+      "description": "An (optional) pointer to a parent Asset Folder (or null for root)"
+     }
+    },
+    "required": [
+     "displayName",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/asset_folders",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "displayName",
+     "parentFolder"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_collection",
+   "name": "Create collection",
+   "description": "Create a Collection for a site with collection fields. Each collection includes the required _name_ and _slug_ fields, which are generated automatically. You can update the `displayName` of these fields, but the slug for them cannot be changed. Fields slugs are automatically converted to lowercase. Spaces in slugs are replaced with hyphens. Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "Name of the collection. Each collection name must be distinct."
+     },
+     "singularName": {
+      "type": "string",
+      "description": "Singular name of each item."
+     },
+     "slug": {
+      "type": "string",
+      "description": "Part of a URL that identifier"
+     },
+     "fields": {
+      "type": "array",
+      "description": "An array of custom fields to add to the collection"
+     }
+    },
+    "required": [
+     "displayName",
+     "singularName",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/collections",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "displayName",
+     "singularName",
+     "slug",
+     "fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_comment_reply",
+   "name": "Create comment reply",
+   "description": "Create a reply to an existing comment thread. The reply author is always the user who authorized the OAuth token. To @mention a user in the reply, include their user ID in double square brackets in the `content` field, as in `[[userId]]`. The `comment_created` webhook fires automatically when a reply is created. Required scope | `comments:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "comment_thread_id": {
+      "type": "string",
+      "description": "Unique identifier for a Comment Thread"
+     },
+     "content": {
+      "type": "string",
+      "description": "The text content of the reply. To @mention a user, include their user ID in double square brackets, as in `[[userId]]`."
+     }
+    },
+    "required": [
+     "comment_thread_id",
+     "content",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}/replies",
+    "path": [
+     "site_id",
+     "comment_thread_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "content"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_custom_font",
+   "name": "Create custom font",
+   "description": "Register a custom font on a site and get a presigned S3 URL to upload the font binary. The response includes a `customFont` object and an `upload` object. Use the `upload.url` and `upload.fields` to POST the font binary directly to S3 as `multipart/form-data`. The binary must go in a field named `file` and must be the last field in the form (an AWS S3 requirement). S3 returns `201 Created` on a su",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "fileName": {
+      "type": "string",
+      "description": "File name including extension. Accepted extensions are `.woff2`, `.woff`, `.ttf`, `.otf`, and `.eot`. Maximum 256 characters."
+     },
+     "fileHash": {
+      "type": "string",
+      "description": "Lowercase hex MD5 hash of the font binary (exactly 32 characters)"
+     },
+     "fontFamily": {
+      "type": "string",
+      "description": "The CSS font-family name (1-256 characters). Commas are stripped server-side."
+     },
+     "weight": {
+      "type": "integer",
+      "description": "CSS font-weight value (1-1000)"
+     },
+     "italic": {
+      "type": "boolean",
+      "description": "Whether the font is italic"
+     },
+     "fontDisplay": {
+      "type": "string",
+      "description": "CSS font-display value",
+      "enum": [
+       "auto",
+       "block",
+       "swap",
+       "fallback",
+       "optional"
+      ]
+     },
+     "axes": {
+      "type": "array",
+      "description": "Variable font axes. Omit or pass an empty array for static fonts."
+     }
+    },
+    "required": [
+     "fileHash",
+     "fileName",
+     "fontDisplay",
+     "fontFamily",
+     "italic",
+     "site_id",
+     "weight"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fileName",
+     "fileHash",
+     "fontFamily",
+     "weight",
+     "italic",
+     "fontDisplay",
+     "axes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_field",
+   "name": "Create collection field",
+   "description": "Create a custom field in a collection. Field validation is currently not available through the API. Bulk creation of fields is not supported with this endpoint. To add multiple fields at once, include them when you [create the collection.](/data/v2.0.0/reference/cms/collections/create) Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/collections/{collection_id}/fields",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_item",
+   "name": "Create collection item(s)",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_item_live",
+   "name": "Create live collection item(s)",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_items",
+   "name": "Create collection items",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     },
+     "cmsLocaleIds": {
+      "type": "array",
+      "description": "Array of identifiers for the locales where the item will be created"
+     },
+     "lastPublished": {
+      "type": "string",
+      "description": "The date and time when the item was last published."
+     },
+     "lastUpdated": {
+      "type": "string",
+      "description": "The date and time when the item was last updated."
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "The date and time when the item was created."
+     },
+     "isArchived": {
+      "type": "boolean",
+      "description": "Indicates whether the item is archived."
+     },
+     "isDraft": {
+      "type": "boolean",
+      "description": "Indicates whether the item is in draft state."
+     },
+     "fieldData": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id",
+     "fieldData"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/bulk",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [
+     "cmsLocaleIds",
+     "lastPublished",
+     "lastUpdated",
+     "createdOn",
+     "isArchived",
+     "isDraft",
+     "fieldData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_product",
+   "name": "Create product & sku",
+   "description": "Create a new ecommerce product and defaultSKU. A product, at minimum, must have a single SKU. To create a product with multiple SKUs: - First, create a list of `sku-properties`, also known as [product options](https://help.webflow.com/hc/en-us/articles/33961334531347-Create-product-options-and-variants). For example, a T-shirt product may have a \"color\" `sku-property`, with a list of enum values: ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "publishStatus": {
+      "type": "string",
+      "description": "Indicate whether your Product should be set as \"staging\" or \"live\"",
+      "enum": [
+       "staging",
+       "live"
+      ]
+     },
+     "product": {
+      "type": "object",
+      "description": ""
+     },
+     "sku": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "product",
+     "site_id",
+     "sku"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/products",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishStatus",
+     "product",
+     "sku"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_redirect",
+   "name": "Create a 301 redirect",
+   "description": "Add a new 301 redirection rule to a site. This endpoint allows you to define a source path (`fromUrl`) and its corresponding destination path (`toUrl`), which will dictate how traffic is rerouted on your site. This is useful for managing site changes, restructuring URLs, or handling outdated links. This endpoint requires an Enterprise workspace. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the specific redirect rule"
+     },
+     "fromUrl": {
+      "type": "string",
+      "description": "The source URL path that will be redirected."
+     },
+     "toUrl": {
+      "type": "string",
+      "description": "The target URL path where the user or client will be redirected."
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/redirects",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "fromUrl",
+     "toUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_site",
+   "name": "Create site",
+   "description": "Create a site. This endpoint requires an Enterprise workspace. Required scope | `workspace:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id": {
+      "type": "string",
+      "description": "Unique identifier for a Workspace"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the site"
+     },
+     "templateName": {
+      "type": "string",
+      "description": "The workspace or marketplace template to use"
+     },
+     "parentFolderId": {
+      "type": "string",
+      "description": "MegaDodo Publications - Potential Book Ideas"
+     }
+    },
+    "required": [
+     "name",
+     "workspace_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/workspaces/{workspace_id}/sites",
+    "path": [
+     "workspace_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "templateName",
+     "parentFolderId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_skus",
+   "name": "Create skus",
+   "description": "Create additional SKUs to manage every [option and variant of your Product.](https://help.webflow.com/hc/en-us/articles/33961334531347-Create-product-options-and-variants) Creating SKUs through the API will set the product type to `Advanced`, which ensures all Product and SKU fields will be shown to users in the Designer. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Unique identifier for a Product"
+     },
+     "publishStatus": {
+      "type": "string",
+      "description": "Indicate whether your Product should be set as \"staging\" or \"live\"",
+      "enum": [
+       "staging",
+       "live"
+      ]
+     },
+     "skus": {
+      "type": "array",
+      "description": "An array of the SKU data your are adding"
+     }
+    },
+    "required": [
+     "product_id",
+     "site_id",
+     "skus"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}/skus",
+    "path": [
+     "site_id",
+     "product_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishStatus",
+     "skus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.create_webhook",
+   "name": "Create webhook",
+   "description": "Create a new Webhook. Limit of 75 registrations per `triggerType`, per site. Access to this endpoint requires a bearer token from a [Data Client App](/data/docs/data-clients/getting-started). Required scope | `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "id": {
+      "type": "string",
+      "description": "Unique identifier for the Webhook registration"
+     },
+     "triggerType": {
+      "type": "string",
+      "description": "The type of event that triggered the request. See the the documentation for details on [supported events](/data/reference/all-events).",
+      "enum": [
+       "form_submission",
+       "site_publish",
+       "page_created",
+       "page_metadata_updated",
+       "page_deleted",
+       "ecomm_new_order",
+       "ecomm_order_changed",
+       "ecomm_inventory_changed",
+       "collection_item_created",
+       "collection_item_changed",
+       "collection_item_deleted",
+       "collection_item_published"
+      ]
+     },
+     "url": {
+      "type": "string",
+      "description": "URL to send the Webhook payload to"
+     },
+     "workspaceId": {
+      "type": "string",
+      "description": "Unique identifier for the Workspace the Webhook is registered in"
+     },
+     "siteId": {
+      "type": "string",
+      "description": "Unique identifier for the Site the Webhook is registered in"
+     },
+     "filter": {
+      "type": "object",
+      "description": "Only supported for the `form_submission` trigger type. Filter for the form you want Webhooks to be sent for."
+     },
+     "lastTriggered": {
+      "type": "string",
+      "description": "Date the Webhook instance was last triggered"
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "Date the Webhook registration was created"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/webhooks",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "triggerType",
+     "url",
+     "workspaceId",
+     "siteId",
+     "filter",
+     "lastTriggered",
+     "createdOn"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_asset",
+   "name": "Delete asset",
+   "description": "Delete an Asset Required Scope: `assets: write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "asset_id": {
+      "type": "string",
+      "description": "Unique identifier for an Asset on a site"
+     }
+    },
+    "required": [
+     "asset_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/assets/{asset_id}",
+    "path": [
+     "asset_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_collection",
+   "name": "Delete collection",
+   "description": "Delete a collection using its ID. Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_custom_font",
+   "name": "Delete custom font",
+   "description": "Delete a custom font from a site. Required scope | `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "font_id": {
+      "type": "string",
+      "description": "Unique identifier for a custom font on a site"
+     }
+    },
+    "required": [
+     "font_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "path": [
+     "site_id",
+     "font_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_field",
+   "name": "Delete collection field",
+   "description": "Delete a custom field in a collection. This endpoint does not currently support bulk deletion. Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "field_id": {
+      "type": "string",
+      "description": "Unique identifier for a Field in a collection"
+     }
+    },
+    "required": [
+     "collection_id",
+     "field_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}/fields/{field_id}",
+    "path": [
+     "collection_id",
+     "field_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_form_submission",
+   "name": "Delete form submission",
+   "description": "Delete a form submission Required scope | `forms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     }
+    },
+    "required": [
+     "form_submission_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "path": [
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_form_submission_by_site",
+   "name": "Delete form submission by site",
+   "description": "Delete a form submission within a specific site. Required scope | `forms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     }
+    },
+    "required": [
+     "form_submission_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "path": [
+     "site_id",
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_google_tag",
+   "name": "Delete google tag",
+   "description": "Delete a single Google Tag ID from a site. The `order` values of the remaining tags are renormalized after deletion. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "tag_id": {
+      "type": "string",
+      "description": "The Google Tag ID (e.g. G-XXXXXXXXXX)"
+     }
+    },
+    "required": [
+     "site_id",
+     "tag_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags/{tag_id}",
+    "path": [
+     "site_id",
+     "tag_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_google_tags",
+   "name": "Delete google tags",
+   "description": "Delete all Google Tag IDs from a site. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_item",
+   "name": "Delete collection item",
+   "description": "Delete an item from a collection. Required scope | `CMS:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. To query multiple locales, input a comma separated string."
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "cmsLocaleId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_item_live",
+   "name": "Unpublish live collection item",
+   "description": "Unpublish a live item from the site and set the `isDraft` property to `true`. For bulk unpublishing, please use [this endpoint.](/data/v2.0.0/reference/cms/collection-items/live-items/delete-items-live) Required scope | `CMS:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. To query multiple locales, input a comma separated string."
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "cmsLocaleId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_items",
+   "name": "Delete collection items",
+   "description": "Delete Items from a Collection. Items will only be deleted in the primary locale unless a `cmsLocaleId` is included in the request. Required scope | `CMS:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id",
+     "items"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_items_live",
+   "name": "Unpublish live collection items",
+   "description": "Unpublish up to 100 items from the live site and set the `isDraft` property to `true`. Items will only be unpublished in the primary locale unless a `cmsLocaleId` is included in the request. Required scope | `CMS:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id",
+     "items"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_page_custom_code",
+   "name": "Delete custom code",
+   "description": "Remove all scripts from a page applied by the App. This endpoint will not remove scripts from the site's registered scripts. To remove individual scripts applied by the App, use the [Add/Update Custom Code](/data/reference/custom-code/custom-code-pages/upsert-custom-code) endpoint. Access to this endpoint requires a bearer token obtained from an [OAuth Code Grant Flow](/data/reference/oauth-app). ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "path": [
+     "page_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_redirects",
+   "name": "Delete 301 redirects",
+   "description": "Remove a 301 redirection rule from a site. This is useful for cleaning up outdated or unnecessary redirects, ensuring that your site's routing behavior remains efficient and up-to-date. This endpoint requires an Enterprise workspace. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "redirect_id": {
+      "type": "string",
+      "description": "Unique identifier site redirect"
+     }
+    },
+    "required": [
+     "redirect_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/redirects/{redirect_id}",
+    "path": [
+     "site_id",
+     "redirect_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_robots_txt",
+   "name": "Delete robots txt",
+   "description": "Remove specific rules for a user-agent in your `robots.txt` file. To delete all rules for a user-agent, provide an empty rule set. This will remove the user-agent's entry entirely, leaving it subject to your site's default crawling behavior. **Note:** Deleting a user-agent with no rules will make the user-agent's access unrestricted unless other directives apply. This endpoint requires an Enterpri",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "rules": {
+      "type": "array",
+      "description": "List of rules for user agents."
+     },
+     "sitemap": {
+      "type": "string",
+      "description": "URL to the sitemap."
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "rules",
+     "sitemap"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_site",
+   "name": "Delete site",
+   "description": "Delete a site. This endpoint requires an Enterprise workspace. Required scope | `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_site_custom_code",
+   "name": "Delete custom code",
+   "description": "Remove all scripts from a site applied by the App. This endpoint will not remove scripts from the site's registered scripts. To remove individual scripts applied by the App, use the [Add/Update Custom Code](/data/reference/custom-code/custom-code-sites/upsert-custom-code) endpoint. Access to this endpoint requires a bearer token obtained from an [OAuth Code Grant Flow](/data/reference/oauth-app). ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.delete_well_known",
+   "name": "Delete a well known file",
+   "description": "Delete existing well-known files from a site. This endpoint requires an Enterprise workspace. Required scope: `site_config:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "fileNames": {
+      "type": "array",
+      "description": "A list of file names to delete"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/sites/{site_id}/well_known",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fileNames"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.ecommerce_settings",
+   "name": "Get ecommerce settings",
+   "description": "Retrieve ecommerce settings for a site. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/ecommerce/settings",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.fulfill_order",
+   "name": "Fulfill order",
+   "description": "Updates an order's status to fulfilled Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "order_id": {
+      "type": "string",
+      "description": "Unique identifier for an Order"
+     },
+     "sendOrderFulfilledEmail": {
+      "type": "boolean",
+      "description": "Whether or not the Order Fulfilled email should be sent"
+     }
+    },
+    "required": [
+     "order_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/fulfill",
+    "path": [
+     "site_id",
+     "order_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "sendOrderFulfilledEmail"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_analyze_time_on_page_report",
+   "name": "Get time on page report",
+   "description": "Returns the average time on page over a time window \u2014 as a single aggregate value, or bucketed by day or week when `timeseries` is supplied. Choose how the average is computed with `metricScope` (per session, user, or pageview). Filter the report with top-level query parameters (`country`, `deviceType`, `pagePath`, etc.) or via the `filter` parameter for multi-value and negation matching. This end",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Inclusive start of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-01T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be on or after `2025-04-09T00:00:00Z`."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Exclusive end of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-08T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be greater than `startTime` and within 100 days of it."
+     },
+     "metricScope": {
+      "type": "string",
+      "description": "How the average time on page is computed \u2014 per session, user, or pageview.",
+      "enum": [
+       "session",
+       "user",
+       "pageview"
+      ]
+     },
+     "timeseries": {
+      "type": "object",
+      "description": "Include bucketed average time data using the supplied granularity and IANA time zone. Omit this parameter to return a single aggregate value for the requested window."
+     },
+     "deviceType": {
+      "type": "string",
+      "description": "Restrict the report to a single device type.",
+      "enum": [
+       "desktop",
+       "mobile",
+       "tablet"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": "Restrict the report to a single country. ISO 3166-1 alpha-2 (two letters, normalized to uppercase)."
+     },
+     "pagePath": {
+      "type": "string",
+      "description": "Restrict the report to a single page path."
+     },
+     "trafficSource": {
+      "type": "string",
+      "description": "Restrict the report to a single traffic source code (for example, `SO` for Organic Search)."
+     },
+     "referrer": {
+      "type": "string",
+      "description": "Restrict the report to a single referrer domain."
+     },
+     "browser": {
+      "type": "string",
+      "description": "Restrict the report to a single browser."
+     },
+     "utmCampaign": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_campaign` value."
+     },
+     "utmMedium": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_medium` value."
+     },
+     "utmSource": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_source` value."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter the report by dimension. Use bracket notation. Scalars take a single value (`filter[country][eq]=US`, `filter[country][ne]=US`). Arrays use indexed brackets (`filter[country][in][0]=US&filter[country][in][1]=CA`, `filter[country][nin][0]=US&filter[country][nin][1]=CA`). Each dimension entry takes at least one of `eq`, `in`, `ne`, or `nin`. Filter a given dimension in one place \u2014 either a to"
+     }
+    },
+    "required": [
+     "endTime",
+     "metricScope",
+     "site_id",
+     "startTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/time_on_page",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "metricScope",
+     "timeseries",
+     "deviceType",
+     "country",
+     "pagePath",
+     "trafficSource",
+     "referrer",
+     "browser",
+     "utmCampaign",
+     "utmMedium",
+     "utmSource",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_analyze_top_dimensions_report",
+   "name": "Get top dimensions report",
+   "description": "Returns the top values within a chosen `dimension` \u2014 top countries, top traffic sources, top campaigns, top audiences, and so on \u2014 over a time window, ranked by sessions or users. Filter the report with top-level query parameters (`country`, `deviceType`, `pagePath`, etc.) or via the `filter` parameter for multi-value and negation matching. This endpoint requires a workspace with the Analyze add-o",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Inclusive start of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-01T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be on or after `2025-04-09T00:00:00Z`."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Exclusive end of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-08T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be greater than `startTime` and within 100 days of it."
+     },
+     "dimension": {
+      "type": "string",
+      "description": "The dimension whose top values are ranked. See `TopDimensionsDimension` for the supported values.",
+      "enum": [
+       "country",
+       "region",
+       "deviceType",
+       "os",
+       "browser",
+       "language",
+       "locale",
+       "referrer",
+       "trafficSource",
+       "utmCampaign",
+       "utmContent",
+       "utmMedium"
+      ]
+     },
+     "metricScope": {
+      "type": "string",
+      "description": "The unit each row's `count` is measured in \u2014 sessions or users.",
+      "enum": [
+       "session",
+       "user"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of rows to return. Defaults to `25`, up to a maximum of `100`."
+     },
+     "deviceType": {
+      "type": "string",
+      "description": "Restrict the report to a single device type.",
+      "enum": [
+       "desktop",
+       "mobile",
+       "tablet"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": "Restrict the report to a single country. ISO 3166-1 alpha-2 (two letters, normalized to uppercase)."
+     },
+     "pagePath": {
+      "type": "string",
+      "description": "Restrict the report to a single page path."
+     },
+     "trafficSource": {
+      "type": "string",
+      "description": "Restrict the report to a single traffic source code (for example, `SO` for Organic Search)."
+     },
+     "referrer": {
+      "type": "string",
+      "description": "Restrict the report to a single referrer domain."
+     },
+     "browser": {
+      "type": "string",
+      "description": "Restrict the report to a single browser."
+     },
+     "utmCampaign": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_campaign` value."
+     },
+     "utmMedium": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_medium` value."
+     },
+     "utmSource": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_source` value."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter the report by dimension. Use bracket notation. Scalars take a single value (`filter[country][eq]=US`, `filter[country][ne]=US`). Arrays use indexed brackets (`filter[country][in][0]=US&filter[country][in][1]=CA`, `filter[country][nin][0]=US&filter[country][nin][1]=CA`). Each dimension entry takes at least one of `eq`, `in`, `ne`, or `nin`. Filter a given dimension in one place \u2014 either a to"
+     }
+    },
+    "required": [
+     "dimension",
+     "endTime",
+     "metricScope",
+     "site_id",
+     "startTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_dimensions",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "dimension",
+     "metricScope",
+     "limit",
+     "deviceType",
+     "country",
+     "pagePath",
+     "trafficSource",
+     "referrer",
+     "browser",
+     "utmCampaign",
+     "utmMedium",
+     "utmSource",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_analyze_top_events_report",
+   "name": "Get top events report",
+   "description": "Returns the top events over a time window, ranked by how often they occurred. Events are counted individually, not rolled up into sessions, users, or pageviews \u2014 so this report has no `metricScope`. Each row's `count` is how many times the event occurred. Filter the report with top-level query parameters (`country`, `deviceType`, `pagePath`, etc.) or via the `filter` parameter for multi-value and ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Inclusive start of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-01T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be on or after `2025-04-09T00:00:00Z`."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Exclusive end of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-08T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be greater than `startTime` and within 100 days of it."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of rows to return. Defaults to `25`, up to a maximum of `250`."
+     },
+     "timeseries": {
+      "type": "object",
+      "description": "Include a daily event count `timeseries` for each row, bucketed in the supplied IANA time zone. Omit this parameter to return ranked rows without per-event timeseries data."
+     },
+     "deviceType": {
+      "type": "string",
+      "description": "Restrict the report to a single device type.",
+      "enum": [
+       "desktop",
+       "mobile",
+       "tablet"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": "Restrict the report to a single country. ISO 3166-1 alpha-2 (two letters, normalized to uppercase)."
+     },
+     "pagePath": {
+      "type": "string",
+      "description": "Restrict the report to a single page path."
+     },
+     "trafficSource": {
+      "type": "string",
+      "description": "Restrict the report to a single traffic source code (for example, `SO` for Organic Search)."
+     },
+     "browser": {
+      "type": "string",
+      "description": "Restrict the report to a single browser."
+     },
+     "utmCampaign": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_campaign` value."
+     },
+     "utmMedium": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_medium` value."
+     },
+     "utmSource": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_source` value."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter the report by dimension. Use bracket notation. Scalars take a single value (`filter[country][eq]=US`, `filter[country][ne]=US`). Arrays use indexed brackets (`filter[country][in][0]=US&filter[country][in][1]=CA`, `filter[country][nin][0]=US&filter[country][nin][1]=CA`). Each dimension entry takes at least one of `eq`, `in`, `ne`, or `nin`. Filter a given dimension in one place \u2014 either a to"
+     }
+    },
+    "required": [
+     "endTime",
+     "site_id",
+     "startTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_events",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "limit",
+     "timeseries",
+     "deviceType",
+     "country",
+     "pagePath",
+     "trafficSource",
+     "browser",
+     "utmCampaign",
+     "utmMedium",
+     "utmSource",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_analyze_top_pages_report",
+   "name": "Get top pages report",
+   "description": "Returns the most-visited pages over a time window, ranked by `sortBy` (sessions, users, or pageviews). Each row carries all three scope counts; `sortBy` only governs ordering. Filter the report with top-level query parameters (`country`, `deviceType`, `pagePath`, etc.) or via the `filter` parameter for multi-value and negation matching. Set `timeseries[bucketTimeZone]` to attach a daily pageview `",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Inclusive start of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-01T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be on or after `2025-04-09T00:00:00Z`."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Exclusive end of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-08T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be greater than `startTime` and within 100 days of it."
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Metric used to rank rows in the response, descending. Defaults to `session`.",
+      "enum": [
+       "session",
+       "user",
+       "pageview"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of rows to return. Defaults to `25`, up to a maximum of `250`."
+     },
+     "timeseries": {
+      "type": "object",
+      "description": "Include a daily pageview `timeseries` for each row, bucketed in the supplied IANA time zone. Omit this parameter to return ranked rows without per-page timeseries data."
+     },
+     "deviceType": {
+      "type": "string",
+      "description": "Restrict the report to a single device type.",
+      "enum": [
+       "desktop",
+       "mobile",
+       "tablet"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": "Restrict the report to a single country. ISO 3166-1 alpha-2 (two letters, normalized to uppercase)."
+     },
+     "pagePath": {
+      "type": "string",
+      "description": "Restrict the report to a single page path."
+     },
+     "trafficSource": {
+      "type": "string",
+      "description": "Restrict the report to a single traffic source code (for example, `SO` for Organic Search)."
+     },
+     "referrer": {
+      "type": "string",
+      "description": "Restrict the report to a single referrer domain."
+     },
+     "browser": {
+      "type": "string",
+      "description": "Restrict the report to a single browser."
+     },
+     "utmCampaign": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_campaign` value."
+     },
+     "utmMedium": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_medium` value."
+     },
+     "utmSource": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_source` value."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter the report by dimension. Use bracket notation. Scalars take a single value (`filter[country][eq]=US`, `filter[country][ne]=US`). Arrays use indexed brackets (`filter[country][in][0]=US&filter[country][in][1]=CA`, `filter[country][nin][0]=US&filter[country][nin][1]=CA`). Each dimension entry takes at least one of `eq`, `in`, `ne`, or `nin`. Filter a given dimension in one place \u2014 either a to"
+     }
+    },
+    "required": [
+     "endTime",
+     "site_id",
+     "startTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/top_pages",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "sortBy",
+     "limit",
+     "timeseries",
+     "deviceType",
+     "country",
+     "pagePath",
+     "trafficSource",
+     "referrer",
+     "browser",
+     "utmCampaign",
+     "utmMedium",
+     "utmSource",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_analyze_traffic_report",
+   "name": "Get traffic report",
+   "description": "Returns a daily time series of a single metric \u2014 sessions, users, or pageviews \u2014 over a time window. Filter the report with top-level query parameters (`country`, `deviceType`, `pagePath`, etc.) or via the `filter` parameter for multi-value and negation matching. This endpoint requires a workspace with the Analyze add-on. Each access token can have one Analyze request in flight at a time, across a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Inclusive start of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-01T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be on or after `2025-04-09T00:00:00Z`."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Exclusive end of the reporting window. Must be a UTC timestamp in ISO 8601 / RFC 3339 format ending in `Z` (for example, `2026-04-08T00:00:00Z`); numeric offsets such as `-04:00` or `+00:00` are not accepted. Must be greater than `startTime` and within 100 days of it."
+     },
+     "metricScope": {
+      "type": "string",
+      "description": "The unit each `count` data point is measured in.",
+      "enum": [
+       "session",
+       "user",
+       "pageview"
+      ]
+     },
+     "bucketTimeZone": {
+      "type": "string",
+      "description": "IANA time zone used to align daily bucket boundaries."
+     },
+     "deviceType": {
+      "type": "string",
+      "description": "Restrict the report to a single device type.",
+      "enum": [
+       "desktop",
+       "mobile",
+       "tablet"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "description": "Restrict the report to a single country. ISO 3166-1 alpha-2 (two letters, normalized to uppercase)."
+     },
+     "pagePath": {
+      "type": "string",
+      "description": "Restrict the report to a single page path."
+     },
+     "trafficSource": {
+      "type": "string",
+      "description": "Restrict the report to a single traffic source code (for example, `SO` for Organic Search)."
+     },
+     "referrer": {
+      "type": "string",
+      "description": "Restrict the report to a single referrer domain."
+     },
+     "browser": {
+      "type": "string",
+      "description": "Restrict the report to a single browser."
+     },
+     "utmCampaign": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_campaign` value."
+     },
+     "utmMedium": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_medium` value."
+     },
+     "utmSource": {
+      "type": "string",
+      "description": "Restrict the report to a single `utm_source` value."
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter the report by dimension. Use bracket notation. Scalars take a single value (`filter[country][eq]=US`, `filter[country][ne]=US`). Arrays use indexed brackets (`filter[country][in][0]=US&filter[country][in][1]=CA`, `filter[country][nin][0]=US&filter[country][nin][1]=CA`). Each dimension entry takes at least one of `eq`, `in`, `ne`, or `nin`. Filter a given dimension in one place \u2014 either a to"
+     }
+    },
+    "required": [
+     "bucketTimeZone",
+     "endTime",
+     "metricScope",
+     "site_id",
+     "startTime"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/analyze/reports/traffic",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "startTime",
+     "endTime",
+     "metricScope",
+     "bucketTimeZone",
+     "deviceType",
+     "country",
+     "pagePath",
+     "trafficSource",
+     "referrer",
+     "browser",
+     "utmCampaign",
+     "utmMedium",
+     "utmSource",
+     "filter"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_asset",
+   "name": "Get asset",
+   "description": "Get details about an asset Required scope | `assets:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "asset_id": {
+      "type": "string",
+      "description": "Unique identifier for an Asset on a site"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     }
+    },
+    "required": [
+     "asset_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/assets/{asset_id}",
+    "path": [
+     "asset_id"
+    ],
+    "query": [
+     "localeId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_asset_folder",
+   "name": "Get asset folder",
+   "description": "Get details about a specific Asset Folder Required scope | `assets:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "asset_folder_id": {
+      "type": "string",
+      "description": "Unique identifier for an Asset Folder"
+     }
+    },
+    "required": [
+     "asset_folder_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/asset_folders/{asset_folder_id}",
+    "path": [
+     "asset_folder_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_comment_thread",
+   "name": "Get comment thread",
+   "description": "Get details of a specific comment thread. There may be a delay of up to 5 minutes before new comments appear in the system. Required scope | `comments:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "comment_thread_id": {
+      "type": "string",
+      "description": "Unique identifier for a Comment Thread"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort results by the provided value. Only allowed when sortOrder is provided.",
+      "enum": [
+       "createdOn",
+       "lastUpdated"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": [
+     "comment_thread_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}",
+    "path": [
+     "site_id",
+     "comment_thread_id"
+    ],
+    "query": [
+     "localeId",
+     "offset",
+     "limit",
+     "sortBy",
+     "sortOrder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_component_content",
+   "name": "Get component content",
+   "description": "Get static content from a component definition. This includes text nodes, image nodes, select nodes, text input nodes, submit button nodes, and nested component instances. To retrieve dynamic content set by component properties, use the [get component properties](/data/reference/pages-and-components/components/get-properties) endpoint. If you do not provide a Locale ID in your request, the respons",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "component_id": {
+      "type": "string",
+      "description": "Unique identifier for a Component"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "branchId": {
+      "type": "string",
+      "description": "Scope the operation to work on a specific branch."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "component_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/dom",
+    "path": [
+     "site_id",
+     "component_id"
+    ],
+    "query": [
+     "localeId",
+     "branchId",
+     "limit",
+     "offset",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_component_properties",
+   "name": "Get component properties",
+   "description": "Get the default property values of a component definition. If you do not include a `localeId` in your request, the response will return any properties that can be localized from the Primary locale. Required scope | `components:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "component_id": {
+      "type": "string",
+      "description": "Unique identifier for a Component"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "branchId": {
+      "type": "string",
+      "description": "Scope the operation to work on a specific branch."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "component_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/properties",
+    "path": [
+     "site_id",
+     "component_id"
+    ],
+    "query": [
+     "localeId",
+     "branchId",
+     "limit",
+     "offset",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_custom_domains",
+   "name": "Get custom domains",
+   "description": "Get a list of all custom domains related to site. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_domains",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_custom_font",
+   "name": "Get custom font",
+   "description": "Get details about a custom font on a site. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "font_id": {
+      "type": "string",
+      "description": "Unique identifier for a custom font on a site"
+     }
+    },
+    "required": [
+     "font_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "path": [
+     "site_id",
+     "font_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_form_schema",
+   "name": "Get form schema",
+   "description": "Get information about a given form. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "form_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form"
+     }
+    },
+    "required": [
+     "form_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/forms/{form_id}",
+    "path": [
+     "form_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_form_submission",
+   "name": "Get form submission",
+   "description": "Get information about a given form submissio. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     }
+    },
+    "required": [
+     "form_submission_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "path": [
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_form_submission_by_site",
+   "name": "Get form submission by site",
+   "description": "Get information about a form submission within a specific site. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     }
+    },
+    "required": [
+     "form_submission_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "path": [
+     "site_id",
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_item",
+   "name": "Get collection item",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. This endpoint returns a single item, so it accepts one locale. To retrieve an item in several locales, use [List Collection Items](/data/reference/cms/collection-items/staged-items/list-items) with `filter[id][eq]` and a comma separated `cmsLocaleId`."
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "cmsLocaleId",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_item_live",
+   "name": "Get live collection item",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. This endpoint returns a single item, so it accepts one locale. To retrieve an item in several locales, use [List Collection Items](/data/reference/cms/collection-items/staged-items/list-items) with `filter[id][eq]` and a comma separated `cmsLocaleId`."
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "cmsLocaleId",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_order",
+   "name": "Get order",
+   "description": "Retrieve a single product by its ID. All of its SKUs will also be retrieved. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "order_id": {
+      "type": "string",
+      "description": "Unique identifier for an Order"
+     }
+    },
+    "required": [
+     "order_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}",
+    "path": [
+     "site_id",
+     "order_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_page_custom_code",
+   "name": "Get custom code",
+   "description": "Get all scripts applied to a page. Access to this endpoint requires a bearer token obtained from an [OAuth Code Grant Flow](/data/reference/oauth-app). Required scope | `custom_code:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/pages/{page_id}/custom_code",
+    "path": [
+     "page_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_page_metadata",
+   "name": "Get page metadata",
+   "description": "Get metadata information for a single page. Required scope | `pages:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/pages/{page_id}",
+    "path": [
+     "page_id"
+    ],
+    "query": [
+     "localeId",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_product",
+   "name": "Get product and skus",
+   "description": "Retrieve a single product by its ID. All of its SKUs will also be retrieved. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Unique identifier for a Product"
+     }
+    },
+    "required": [
+     "product_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}",
+    "path": [
+     "site_id",
+     "product_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_redirects",
+   "name": "Get 301 redirects",
+   "description": "Fetch a list of all 301 redirect rules configured for a specific site. Use this endpoint to review, audit, or manage the redirection rules that control how traffic is rerouted on your site. This endpoint requires an Enterprise workspace. Required scope: `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/redirects",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_robots_txt",
+   "name": "Get robots txt",
+   "description": "Retrieve the robots.txt configuration for various user agents. This endpoint requires an Enterprise workspace. Required scope: `site_config:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_scripts",
+   "name": "Get registered scripts",
+   "description": "Get a list of scripts that have been registered to a site. A site can have a maximum of 800 registered scripts. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/reference/custom-code/custom-code/register-hosted) endpoints. Once registered, the script can be applied to a Site or Page using the appropriate endpoints. See the documenta",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_site",
+   "name": "Get site",
+   "description": "Get details of a site. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_site_activity_logs",
+   "name": "Get site activity logs",
+   "description": "Retrieve Activity Logs for a specific Site. This endpoint requires an Enterprise workspace. Required scope: `site_activity:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/activity_logs",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_site_custom_code",
+   "name": "Get custom code",
+   "description": "Get all scripts applied to a site by the App. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/reference/custom-code/custom-code/register-hosted) endpoints. Once registered, the script can be applied to a Site or Page using the appropriate endpoints. See the documentation on [working with Custom Code](/data/docs/custom-code) for mor",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_code",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_site_custom_code_blocks",
+   "name": "List custom code blocks",
+   "description": "Get a list of scripts that have been applied to a site and/or individual pages. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/reference/custom-code/custom-code/register-hosted) endpoints. Once registered, the script can be applied to a Site or Page using the appropriate endpoints. See the documentation on [working with Custom Cod",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_code/blocks",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_site_plan",
+   "name": "Get site plan",
+   "description": "Get site plan details for the specified Site. This endpoint requires an Enterprise workspace. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/plan",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_static_content",
+   "name": "Get page content",
+   "description": "Get text and component instance content from a static page. Localization Required scope | `pages:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/pages/{page_id}/dom",
+    "path": [
+     "page_id"
+    ],
+    "query": [
+     "localeId",
+     "limit",
+     "offset",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_webhook",
+   "name": "Get webhook",
+   "description": "Get a specific Webhook instance Required scope: `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "Unique identifier for a Webhook"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.get_workspace_audit_logs",
+   "name": "Get workspace audit logs",
+   "description": "Get audit logs for a workspace. This endpoint requires an Enterprise workspace and a workspace token with the `workspace_activity:read` scope. Create a workspace token from your workspace dashboard integrations page to use this endpoint. Required scope | `workspace_activity:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_id_or_slug": {
+      "type": "string",
+      "description": "Unique identifier or slug for a Workspace"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "eventType": {
+      "type": "string",
+      "description": "The event type to filter by",
+      "enum": [
+       "user_access",
+       "custom_role",
+       "workspace_membership",
+       "site_membership",
+       "workspace_invitation",
+       "workspace_setting"
+      ]
+     },
+     "from": {
+      "type": "string",
+      "description": "The start date to filter by"
+     },
+     "to": {
+      "type": "string",
+      "description": "The end date to filter by"
+     }
+    },
+    "required": [
+     "workspace_id_or_slug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/workspaces/{workspace_id_or_slug}/audit_logs",
+    "path": [
+     "workspace_id_or_slug"
+    ],
+    "query": [
+     "limit",
+     "offset",
+     "sortOrder",
+     "eventType",
+     "from",
+     "to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.introspect",
+   "name": "Get authorization info",
+   "description": "Information about the authorization token Access to this endpoint requires a bearer token from a [Data Client App](/data/docs/data-clients/getting-started).",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/token/introspect",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_asset_folders",
+   "name": "List asset folders",
+   "description": "List Asset Folders within a given site Required scope | `assets:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/asset_folders",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_assets",
+   "name": "List assets",
+   "description": "List of assets uploaded to a site Required scope | `assets:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "folderId": {
+      "type": "string",
+      "description": "Filter assets to those in the specified folder and all descendant folders. Must be a 24-character hex ObjectId."
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/assets",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "localeId",
+     "offset",
+     "limit",
+     "folderId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_collection_items",
+   "name": "List collection items",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. To query multiple locales, input a comma separated string."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by the exact name of the item(s)"
+     },
+     "slug": {
+      "type": "string",
+      "description": "Filter by the exact slug of the item"
+     },
+     "createdOn": {
+      "type": "object",
+      "description": "Filter by the creation date of the item(s)"
+     },
+     "lastPublished": {
+      "type": "object",
+      "description": "Filter by the last published date of the item(s)"
+     },
+     "lastUpdated": {
+      "type": "object",
+      "description": "Filter by the last updated date of the item(s)"
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter collection items by custom field values. Use bracket notation: `filter[][]=`. Example: `filter[price][gte]=10&filter[price][lte]=100&filter[name][contains]=shirt`. Filters are combined with AND. You can combine custom field filters with top-level filters such as `name`, `slug`, `createdOn`, `lastPublished`, and `lastUpdated`. OR logic and nested filter groups are not supported on GET reques"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort results by the provided value",
+      "enum": [
+       "createdOn",
+       "lastPublished",
+       "lastUpdated",
+       "name",
+       "slug"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "sort": {
+      "type": "object",
+      "description": "Sort collection items by custom fields using bracket notation: `sort[]=`. - Example: `sort[price]=desc` - Multiple sort fields are applied in query-string order. When `sort[...]` is provided, it takes precedence over `sortBy` and `sortOrder`. - Sortable field types: `PlainText`, `Email`, `Phone`, `Number`, `DateTime`, and `Switch`. - Unknown fields, invalid sort directions, and non-sortable field "
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "cmsLocaleId",
+     "offset",
+     "limit",
+     "name",
+     "slug",
+     "createdOn",
+     "lastPublished",
+     "lastUpdated",
+     "filter",
+     "sortBy",
+     "sortOrder",
+     "sort",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_collection_items_live",
+   "name": "List live collection items",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Unique identifier for a CMS Locale. This UID is different from the Site locale identifier and is listed as `cmsLocaleId` in the Sites response. To query multiple locales, input a comma separated string."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "name": {
+      "type": "string",
+      "description": "Filter by the exact name of the item(s)"
+     },
+     "slug": {
+      "type": "string",
+      "description": "Filter by the exact slug of the item"
+     },
+     "createdOn": {
+      "type": "object",
+      "description": "Filter by the creation date of the item(s)"
+     },
+     "lastPublished": {
+      "type": "object",
+      "description": "Filter by the last published date of the item(s)"
+     },
+     "lastUpdated": {
+      "type": "object",
+      "description": "Filter by the last updated date of the item(s)"
+     },
+     "filter": {
+      "type": "object",
+      "description": "Filter collection items by custom field values. Use bracket notation: `filter[][]=`. Example: `filter[price][gte]=10&filter[price][lte]=100&filter[name][contains]=shirt`. Filters are combined with AND. You can combine custom field filters with top-level filters such as `name`, `slug`, `createdOn`, `lastPublished`, and `lastUpdated`. OR logic and nested filter groups are not supported on GET reques"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort results by the provided value",
+      "enum": [
+       "createdOn",
+       "lastPublished",
+       "lastUpdated",
+       "name",
+       "slug"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     },
+     "sort": {
+      "type": "object",
+      "description": "Sort collection items by custom fields using bracket notation: `sort[]=`. - Example: `sort[price]=desc` - Multiple sort fields are applied in query-string order. When `sort[...]` is provided, it takes precedence over `sortBy` and `sortOrder`. - Sortable field types: `PlainText`, `Email`, `Phone`, `Number`, `DateTime`, and `Switch`. - Unknown fields, invalid sort directions, and non-sortable field "
+     },
+     "translatable": {
+      "type": "string",
+      "description": "Unique identifier for the secondary Locale you're translating **into**. Returns only content that hasn't been excluded from translation for that locale. This is independent of `localeId`, which selects which version of the content is returned. To fetch the source text to translate, request the primary locale's content and set `translatable` to the locale you're translating into: `?localeId={primar"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "cmsLocaleId",
+     "offset",
+     "limit",
+     "name",
+     "slug",
+     "createdOn",
+     "lastPublished",
+     "lastUpdated",
+     "filter",
+     "sortBy",
+     "sortOrder",
+     "sort",
+     "translatable"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_collections",
+   "name": "List collections",
+   "description": "List of all Collections within a Site. Required scope | `cms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/collections",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_comment_replies",
+   "name": "List comment replies",
+   "description": "List all replies to a specific comment thread. There may be a delay of up to 5 minutes before new comments appear in the system. Required scope | `comments:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "comment_thread_id": {
+      "type": "string",
+      "description": "Unique identifier for a Comment Thread"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort results by the provided value. Only allowed when sortOrder is provided.",
+      "enum": [
+       "createdOn",
+       "lastUpdated"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": [
+     "comment_thread_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}/replies",
+    "path": [
+     "site_id",
+     "comment_thread_id"
+    ],
+    "query": [
+     "localeId",
+     "offset",
+     "limit",
+     "sortBy",
+     "sortOrder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_comment_threads",
+   "name": "List comment threads",
+   "description": "List all comment threads for a site. There may be a delay of up to 5 minutes before new comments appear in the system. Required scope | `comments:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "sortBy": {
+      "type": "string",
+      "description": "Sort results by the provided value. Only allowed when sortOrder is provided.",
+      "enum": [
+       "createdOn",
+       "lastUpdated"
+      ]
+     },
+     "sortOrder": {
+      "type": "string",
+      "description": "Sorts the results by asc or desc",
+      "enum": [
+       "asc",
+       "desc"
+      ]
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/comments",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "localeId",
+     "offset",
+     "limit",
+     "sortBy",
+     "sortOrder"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_components",
+   "name": "List components",
+   "description": "List of all components for a site. Required scope | `components:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "branchId": {
+      "type": "string",
+      "description": "Scope the operation to work on a specific branch."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/components",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "branchId",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_custom_fonts",
+   "name": "List custom fonts",
+   "description": "List the custom fonts uploaded to a site. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_forms",
+   "name": "List forms",
+   "description": "List forms for a given site. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/forms",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_google_tags",
+   "name": "List google tags",
+   "description": "List all Google Tag IDs configured for a site, sorted by order. Required scope: `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_inventory",
+   "name": "List inventory",
+   "description": "List the current inventory levels for a particular SKU item. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sku_collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a SKU collection. Use the List Collections API to find this ID."
+     },
+     "sku_id": {
+      "type": "string",
+      "description": "Unique identifier for a SKU"
+     }
+    },
+    "required": [
+     "sku_collection_id",
+     "sku_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/collections/{sku_collection_id}/items/{sku_id}/inventory",
+    "path": [
+     "sku_collection_id",
+     "sku_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_orders",
+   "name": "List orders",
+   "description": "List all orders created for a given site. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter the orders by status",
+      "enum": [
+       "pending",
+       "refunded",
+       "dispute-lost",
+       "fulfilled",
+       "disputed",
+       "unfulfilled"
+      ]
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/orders",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "status",
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_pages",
+   "name": "List pages",
+   "description": "List of all pages for a site. Required scope | `pages:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/pages",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "localeId",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_products",
+   "name": "List products & skus",
+   "description": "Retrieve all products for a site. Use `limit` and `offset` to page through all products with subsequent requests. All SKUs for each product will also be fetched and returned. The `limit`, `offset` and `total` values represent Products only and do not include any SKUs. Required scope | `ecommerce:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/products",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_sites",
+   "name": "List sites",
+   "description": "List of all sites the provided access token is able to access. Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_submissions",
+   "name": "List form submissions",
+   "description": "List form submissions for a given form When a form is used in a component definition, each instance of the form is considered a unique form. To get a combined list of submissions for a form that appears across multiple component instances, use the [List Form Submissions by Site](/data/reference/forms/form-submissions/list-submissions-by-site) endpoint. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "form_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "form_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/forms/{form_id}/submissions",
+    "path": [
+     "form_id"
+    ],
+    "query": [
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_submissions",
+   "name": "List form submissions",
+   "description": "List form submissions for a given form ID within a specific site. Use the [List Form Submissions by Site endpoint](/data/reference/forms/form-submissions/list-submissions-by-site) to list form submissions for a given site with the ability to filter by a `formElementId`. Required scope | `forms:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "form_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "form_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/forms/{form_id}/submissions",
+    "path": [
+     "site_id",
+     "form_id"
+    ],
+    "query": [
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_submissions_by_site",
+   "name": "List form submissions by site",
+   "description": "List all form submissions for a given site with the ability to filter submissions by a centralized `elementId`. Add `elementId` when you want to filter form submissions to a specific form in a site. You can get the `elementId` from the [List forms endpoint](/data/reference/forms/forms/list) (displayed as `formElementId` in the response). When a form is used in a Webflow component definition, each ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "elementId": {
+      "type": "string",
+      "description": "Identifier for an element"
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Offset used for pagination if the results have more than limit records"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of records to be returned (max limit: 100)"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/form_submissions",
+    "path": [
+     "site_id"
+    ],
+    "query": [
+     "elementId",
+     "offset",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.list_webhooks",
+   "name": "List webhooks",
+   "description": "List all App-created Webhooks registered for a given site Required scope | `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.webflow.com/sites/{site_id}/webhooks",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.modify_form_submission",
+   "name": "Modify form submission",
+   "description": "Update hidden fields on a form submission Required scope | `forms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     },
+     "formSubmissionData": {
+      "type": "object",
+      "description": "An existing **hidden field** defined on the form schema, and the corresponding value to set"
+     }
+    },
+    "required": [
+     "form_submission_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/form_submissions/{form_submission_id}",
+    "path": [
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "formSubmissionData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.modify_form_submission_by_site",
+   "name": "Modify form submission by site",
+   "description": "Update hidden fields on a form submission within a specific site. Required scope | `forms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "form_submission_id": {
+      "type": "string",
+      "description": "Unique identifier for a Form Submission"
+     },
+     "formSubmissionData": {
+      "type": "object",
+      "description": "An existing **hidden field** defined on the form schema, and the corresponding value to set"
+     }
+    },
+    "required": [
+     "form_submission_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/form_submissions/{form_submission_id}",
+    "path": [
+     "site_id",
+     "form_submission_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "formSubmissionData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.patch_asset",
+   "name": "Update asset",
+   "description": "Update details of an Asset. Required scope | `assets:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "asset_id": {
+      "type": "string",
+      "description": "Unique identifier for an Asset on a site"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "A human readable name for the asset. This value is not localizable."
+     },
+     "altText": {
+      "type": "string",
+      "description": "Alternate text describing the image"
+     }
+    },
+    "required": [
+     "asset_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/assets/{asset_id}",
+    "path": [
+     "asset_id"
+    ],
+    "query": [
+     "localeId"
+    ],
+    "header": [],
+    "body": [
+     "displayName",
+     "altText"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.patch_collection",
+   "name": "Update collection",
+   "description": "Update a collection's display name, singular name, slug, or field groups. **Field group rules:** - A collection can have a maximum of 50 field groups - Each `displayName` must be unique across all field groups in the collection - Each `fieldId` must be unique across all field groups in the collection - Ecommerce collections do not support field groups Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "Name given to the Collection"
+     },
+     "singularName": {
+      "type": "string",
+      "description": "The name of one Item in Collection (e.g. \u201dBlog Post\u201d if the Collection is called \u201cBlog Posts\u201d)"
+     },
+     "slug": {
+      "type": "string",
+      "description": "Slug of Collection in Site URL structure"
+     },
+     "fieldGroups": {
+      "type": "array",
+      "description": "The list of field groups in the Collection. Replaces the existing field groups."
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "displayName",
+     "singularName",
+     "slug",
+     "fieldGroups"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.post_hosted_script",
+   "name": "Register script   hosted",
+   "description": "Register a hosted script to a site. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/reference/custom-code/custom-code/register-hosted) endpoints. Once registered, the script can be applied to a Site or Page using the appropriate endpoints. See the documentation on [working with Custom Code](/data/docs/custom-code) for more informat",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "hostedLocation": {
+      "type": "string",
+      "description": "URI for an externally hosted script location"
+     },
+     "integrityHash": {
+      "type": "string",
+      "description": "Sub-Resource Integrity Hash"
+     },
+     "canCopy": {
+      "type": "boolean",
+      "description": "Define whether the script can be copied on site duplication and transfer"
+     },
+     "version": {
+      "type": "string",
+      "description": "A Semantic Version (SemVer) string, denoting the version of the script"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "User-facing name for the script. Must be between 1 and 50 alphanumeric characters"
+     }
+    },
+    "required": [
+     "displayName",
+     "hostedLocation",
+     "integrityHash",
+     "site_id",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts/hosted",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "hostedLocation",
+     "integrityHash",
+     "canCopy",
+     "version",
+     "displayName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.post_inline_scripts",
+   "name": "Register script   inline",
+   "description": "Register an inline script to a site. Inline scripts are limited to 2000 characters. To apply a script to a site or page, the script must first be registered to a site via the [Register Script](/data/reference/custom-code/custom-code/register-hosted) endpoints. Once registered, the script can be applied to a Site or Page using the appropriate endpoints. See the documentation on [working with Custom",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "sourceCode": {
+      "type": "string",
+      "description": "The code to be added to the site (to be hosted by Webflow)."
+     },
+     "integrityHash": {
+      "type": "string",
+      "description": "Sub-Resource Integrity Hash. Only required for externally hosted scripts (passed via hostedLocation)"
+     },
+     "canCopy": {
+      "type": "boolean",
+      "description": "Define whether the script can be copied on site duplication and transfer"
+     },
+     "version": {
+      "type": "string",
+      "description": "A Semantic Version (SemVer) string, denoting the version of the script"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "User-facing name for the script. Must be between 1 and 50 alphanumeric characters"
+     }
+    },
+    "required": [
+     "displayName",
+     "site_id",
+     "sourceCode",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/registered_scripts/inline",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "sourceCode",
+     "integrityHash",
+     "canCopy",
+     "version",
+     "displayName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.publish_item",
+   "name": "Publish collection item",
+   "description": "Publish an item or multiple items. Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/publish",
+    "path": [
+     "collection_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.refund_order",
+   "name": "Refund order",
+   "description": "This API will reverse a Stripe charge and refund an order back to a customer. It will also set the order's status to `refunded`. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "order_id": {
+      "type": "string",
+      "description": "Unique identifier for an Order"
+     },
+     "reason": {
+      "type": "string",
+      "description": "The reason for the refund",
+      "enum": [
+       "duplicate",
+       "fraudulent",
+       "requested"
+      ]
+     }
+    },
+    "required": [
+     "order_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/refund",
+    "path": [
+     "site_id",
+     "order_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "reason"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.remove_webhook",
+   "name": "Remove webhook",
+   "description": "Remove a Webhook Required scope: `sites:read`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "Unique identifier for a Webhook"
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.webflow.com/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.replace_custom_font_file",
+   "name": "Replace custom font file",
+   "description": "Replace the binary of an existing custom font while preserving its ID and any references to it. The upload handshake is identical to [Create custom font](#operation/create-custom-font). If the existing font has a non-empty `axes` array (a variable font), you must include an `axes` field in the request. Send `axes: []` to declare that the new binary is a static font, or send the new variable axes t",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "font_id": {
+      "type": "string",
+      "description": "Unique identifier for a custom font on a site"
+     },
+     "fileName": {
+      "type": "string",
+      "description": "File name including extension. Accepted extensions are `.woff2`, `.woff`, `.ttf`, `.otf`, and `.eot`. Maximum 256 characters."
+     },
+     "fileHash": {
+      "type": "string",
+      "description": "Lowercase hex MD5 hash of the font binary (exactly 32 characters)"
+     },
+     "axes": {
+      "type": "array",
+      "description": "Variable font axes for the replacement binary. Required when the existing font has a non-empty `axes` array."
+     }
+    },
+    "required": [
+     "fileHash",
+     "fileName",
+     "font_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}/file",
+    "path": [
+     "site_id",
+     "font_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fileName",
+     "fileHash",
+     "axes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.replace_robots_txt",
+   "name": "Replace robots txt",
+   "description": "Replace the `robots.txt` configuration for various user agents. This endpoint requires an Enterprise workspace. Required scope | `site_config:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "rules": {
+      "type": "array",
+      "description": "List of rules for user agents."
+     },
+     "sitemap": {
+      "type": "string",
+      "description": "URL to the sitemap."
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "rules",
+     "sitemap"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.resolve_comment_thread",
+   "name": "Resolve comment thread",
+   "description": "Resolve or unresolve a comment thread. This endpoint is rate limited to 60 requests per minute per site. Required scope | `comments:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "comment_thread_id": {
+      "type": "string",
+      "description": "Unique identifier for a Comment Thread"
+     },
+     "resolved": {
+      "type": "boolean",
+      "description": "Set to `true` to resolve the thread, or `false` to unresolve it"
+     }
+    },
+    "required": [
+     "comment_thread_id",
+     "resolved",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/comments/{comment_thread_id}",
+    "path": [
+     "site_id",
+     "comment_thread_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "resolved"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.set_well_known",
+   "name": "Set a well known file",
+   "description": "Upload a supported well-known file to a site. The current restrictions on well-known files are as follows: - Each file must be smaller than 100kb - Less than 30 total files - Have one of the following file extensions (or no extension): `.txt`, `.json`, `.noext` `.noext` is a special file extension that removes other extensions. For example, `apple-app-site-association.noext.txt` will be uploaded a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "fileName": {
+      "type": "string",
+      "description": "The name of the file"
+     },
+     "fileData": {
+      "type": "string",
+      "description": "The contents of the file"
+     },
+     "contentType": {
+      "type": "string",
+      "description": "The content type of the file. Defaults to application/json",
+      "enum": [
+       "application/json",
+       "text/plain"
+      ]
+     }
+    },
+    "required": [
+     "fileData",
+     "fileName",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/sites/{site_id}/well_known",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fileName",
+     "fileData",
+     "contentType"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.site_publish",
+   "name": "Publish site",
+   "description": "Publishes a site or an individual page to one or more domains. If multiple individual pages are published to staging, publishing from staging to production publishes all staged changes. To publish to a specific custom domain, use the domain IDs from the [Get Custom Domains](/data/reference/sites/get-custom-domain) endpoint. You must include at least one of the `customDomains` or `publishToWebflowS",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "customDomains": {
+      "type": "array",
+      "description": "Array of Custom Domain IDs to publish"
+     },
+     "publishToWebflowSubdomain": {
+      "type": "boolean",
+      "description": "Choice of whether to publish to the default Webflow Subdomain"
+     },
+     "pageId": {
+      "type": "string",
+      "description": "The ID of the page to publish"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/publish",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "customDomains",
+     "publishToWebflowSubdomain",
+     "pageId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.unfulfill_order",
+   "name": "Unfulfill order",
+   "description": "Updates an order's status to unfulfilled Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "order_id": {
+      "type": "string",
+      "description": "Unique identifier for an Order"
+     }
+    },
+    "required": [
+     "order_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}/unfulfill",
+    "path": [
+     "site_id",
+     "order_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_component_content",
+   "name": "Update component content",
+   "description": "This endpoint updates content within a component defintion for **secondary locales**. It supports updating up to 1000 nodes in a single request. Before making updates: 1. Use the [get component content](/data/reference/pages-and-components/components/get-content) endpoint to identify available content nodes and their types. 2. If your component definition has a component instance nested within it,",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "component_id": {
+      "type": "string",
+      "description": "Unique identifier for a Component"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "branchId": {
+      "type": "string",
+      "description": "Scope the operation to work on a specific branch."
+     },
+     "nodes": {
+      "type": "array",
+      "description": "List of DOM Nodes with the new content that will be updated in each node."
+     }
+    },
+    "required": [
+     "component_id",
+     "nodes",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/dom",
+    "path": [
+     "site_id",
+     "component_id"
+    ],
+    "query": [
+     "localeId",
+     "branchId"
+    ],
+    "header": [],
+    "body": [
+     "nodes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_component_properties",
+   "name": "Update component properties",
+   "description": "Update the default property values of a component definition in a specificed locale. Before making updates: 1. Use the [get component properties](/data/reference/pages-and-components/components/get-properties) endpoint to identify properties that can be updated in a secondary locale. 2. Rich Text properties may include a `data-w-id` attribute. This attribute is used by Webflow to maintain links ac",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "component_id": {
+      "type": "string",
+      "description": "Unique identifier for a Component"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "branchId": {
+      "type": "string",
+      "description": "Scope the operation to work on a specific branch."
+     },
+     "properties": {
+      "type": "array",
+      "description": "A list of component properties to update within the specified secondary locale."
+     }
+    },
+    "required": [
+     "component_id",
+     "properties",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/sites/{site_id}/components/{component_id}/properties",
+    "path": [
+     "site_id",
+     "component_id"
+    ],
+    "query": [
+     "localeId",
+     "branchId"
+    ],
+    "header": [],
+    "body": [
+     "properties"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_custom_font",
+   "name": "Update custom font",
+   "description": "Update the metadata of a custom font. The font binary is not changed by this endpoint. To replace the binary, use [Replace custom font file](#operation/replace-custom-font-file). The request body must include at least one of `fontFamily`, `weight`, `italic`, or `fontDisplay`. Required scope | `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "font_id": {
+      "type": "string",
+      "description": "Unique identifier for a custom font on a site"
+     },
+     "fontFamily": {
+      "type": "string",
+      "description": "The CSS font-family name (1-256 characters)"
+     },
+     "weight": {
+      "type": "integer",
+      "description": "CSS font-weight value (1-1000)"
+     },
+     "italic": {
+      "type": "boolean",
+      "description": "Whether the font is italic"
+     },
+     "fontDisplay": {
+      "type": "string",
+      "description": "CSS font-display value",
+      "enum": [
+       "auto",
+       "block",
+       "swap",
+       "fallback",
+       "optional"
+      ]
+     }
+    },
+    "required": [
+     "font_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/custom_fonts/{font_id}",
+    "path": [
+     "site_id",
+     "font_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "fontFamily",
+     "weight",
+     "italic",
+     "fontDisplay"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_field",
+   "name": "Update collection field",
+   "description": "Update a custom field in a collection. Required scope | `cms:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "field_id": {
+      "type": "string",
+      "description": "Unique identifier for a Field in a collection"
+     },
+     "isRequired": {
+      "type": "boolean",
+      "description": "Define whether a field is required in a collection"
+     },
+     "displayName": {
+      "type": "string",
+      "description": "The name of a field"
+     },
+     "helpText": {
+      "type": "string",
+      "description": "Additional text to help anyone filling out this field"
+     }
+    },
+    "required": [
+     "collection_id",
+     "field_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}/fields/{field_id}",
+    "path": [
+     "collection_id",
+     "field_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "isRequired",
+     "displayName",
+     "helpText"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_inventory",
+   "name": "Update item inventory",
+   "description": "Updates the current inventory levels for a particular SKU item. Updates may be given in one or two methods, absolutely or incrementally. - Absolute updates are done by setting `quantity` directly. - Incremental updates are by specifying the inventory delta in `updateQuantity` which is then added to the `quantity` stored on the server. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sku_collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a SKU collection. Use the List Collections API to find this ID."
+     },
+     "sku_id": {
+      "type": "string",
+      "description": "Unique identifier for a SKU"
+     },
+     "inventoryType": {
+      "type": "string",
+      "description": "infinite or finite",
+      "enum": [
+       "infinite",
+       "finite"
+      ]
+     },
+     "updateQuantity": {
+      "type": "number",
+      "description": "Adds this quantity to currently store quantity. Can be negative."
+     },
+     "quantity": {
+      "type": "number",
+      "description": "Immediately sets quantity to this value."
+     }
+    },
+    "required": [
+     "inventoryType",
+     "sku_collection_id",
+     "sku_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{sku_collection_id}/items/{sku_id}/inventory",
+    "path": [
+     "sku_collection_id",
+     "sku_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "inventoryType",
+     "updateQuantity",
+     "quantity"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_item",
+   "name": "Update collection item",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     },
+     "id": {
+      "type": "string",
+      "description": "Unique identifier for the Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Identifier for the locale of the CMS item"
+     },
+     "lastPublished": {
+      "type": "string",
+      "description": "The date the item was last published"
+     },
+     "lastUpdated": {
+      "type": "string",
+      "description": "The date the item was last updated"
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "The date the item was created"
+     },
+     "isArchived": {
+      "type": "boolean",
+      "description": "Boolean determining if the Item is set to archived"
+     },
+     "isDraft": {
+      "type": "boolean",
+      "description": "Sets the item's draft state. The resulting status depends on whether the item has been published before: - **Item that has never been published:** `isDraft: true` results in a `Draft` status. - **Already-published item:** `isDraft: true` results in a `Changes in draft` status. The live item stays published, and your changes are held back until you publish them. Setting `isDraft: true` never unpubl"
+     },
+     "fieldData": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [
+     "id",
+     "cmsLocaleId",
+     "lastPublished",
+     "lastUpdated",
+     "createdOn",
+     "isArchived",
+     "isDraft",
+     "fieldData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_item_live",
+   "name": "Update live collection item",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "item_id": {
+      "type": "string",
+      "description": "Unique identifier for an Item"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     },
+     "id": {
+      "type": "string",
+      "description": "Unique identifier for the Item"
+     },
+     "cmsLocaleId": {
+      "type": "string",
+      "description": "Identifier for the locale of the CMS item"
+     },
+     "lastPublished": {
+      "type": "string",
+      "description": "The date the item was last published"
+     },
+     "lastUpdated": {
+      "type": "string",
+      "description": "The date the item was last updated"
+     },
+     "createdOn": {
+      "type": "string",
+      "description": "The date the item was created"
+     },
+     "isArchived": {
+      "type": "boolean",
+      "description": "Boolean determining if the Item is set to archived"
+     },
+     "isDraft": {
+      "type": "boolean",
+      "description": "Sets the item's draft state. The resulting status depends on whether the item has been published before: - **Item that has never been published:** `isDraft: true` results in a `Draft` status. - **Already-published item:** `isDraft: true` results in a `Changes in draft` status. The live item stays published, and your changes are held back until you publish them. Setting `isDraft: true` never unpubl"
+     },
+     "fieldData": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id",
+     "item_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/{item_id}/live",
+    "path": [
+     "collection_id",
+     "item_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [
+     "id",
+     "cmsLocaleId",
+     "lastPublished",
+     "lastUpdated",
+     "createdOn",
+     "isArchived",
+     "isDraft",
+     "fieldData"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_items",
+   "name": "Update collection items",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}/items",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_items_live",
+   "name": "Update live collection items",
+   "description": "Rich Text field values may contain Webflow component instances as `` markup. On read they appear inline in the field's HTML; on write, the same markup creates or updates the instance. Scalar props are `prop-=\"\u2026\"` attributes on the ``. Text and rich-text props are nested `\" type=\"text|richtext\">\u2026` children. A write is rejected with a `400` if a component can't be resolved, contains a Collection Lis",
+   "input": {
+    "type": "object",
+    "properties": {
+     "collection_id": {
+      "type": "string",
+      "description": "Unique identifier for a Collection"
+     },
+     "skipInvalidFiles": {
+      "type": "boolean",
+      "description": "When true, invalid files are skipped and processing continues. When false, the entire request fails if any file is invalid."
+     },
+     "items": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "collection_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/collections/{collection_id}/items/live",
+    "path": [
+     "collection_id"
+    ],
+    "query": [
+     "skipInvalidFiles"
+    ],
+    "header": [],
+    "body": [
+     "items"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_order",
+   "name": "Update order",
+   "description": "This API lets you update the fields, `comment`, `shippingProvider`, and/or `shippingTracking` for a given order. All three fields can be updated simultaneously or independently. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "order_id": {
+      "type": "string",
+      "description": "Unique identifier for an Order"
+     },
+     "comment": {
+      "type": "string",
+      "description": "Arbitrary data for your records"
+     },
+     "shippingProvider": {
+      "type": "string",
+      "description": "Company or method used to ship order"
+     },
+     "shippingTracking": {
+      "type": "string",
+      "description": "Tracking number for order shipment"
+     },
+     "shippingTrackingURL": {
+      "type": "string",
+      "description": "URL to track order shipment"
+     }
+    },
+    "required": [
+     "order_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/orders/{order_id}",
+    "path": [
+     "site_id",
+     "order_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "comment",
+     "shippingProvider",
+     "shippingTracking",
+     "shippingTrackingURL"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_page_settings",
+   "name": "Update page metadata",
+   "description": "Update Page-level metadata, including SEO and Open Graph fields. Required scope | `pages:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "Unique identifier for a specific Locale. [Learn more about localization.](/data/v2.0.0/docs/working-with-localization)"
+     },
+     "title": {
+      "type": "string",
+      "description": "Title for the page"
+     },
+     "slug": {
+      "type": "string",
+      "description": "Slug for the page. **Note:** The slug field is ignored in the following cases \u2014 all other fields in the same request still apply: - The site's home page, collection template pages, and utility pages (e.g. 404, password, search). - For secondary locales, updating the slug requires an Advanced or Enterprise localization add-on plan."
+     },
+     "seo": {
+      "type": "object",
+      "description": "SEO-related fields for the Page"
+     },
+     "openGraph": {
+      "type": "object",
+      "description": "Open Graph fields for the Page"
+     }
+    },
+    "required": [
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.webflow.com/pages/{page_id}",
+    "path": [
+     "page_id"
+    ],
+    "query": [
+     "localeId"
+    ],
+    "header": [],
+    "body": [
+     "title",
+     "slug",
+     "seo",
+     "openGraph"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_product",
+   "name": "Update product",
+   "description": "Update an existing Product. Updating an existing Product will set the product type to `Advanced`, which ensures all Product and SKU fields will be shown to users in the Designer. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Unique identifier for a Product"
+     },
+     "publishStatus": {
+      "type": "string",
+      "description": "Indicate whether your Product should be set as \"staging\" or \"live\"",
+      "enum": [
+       "staging",
+       "live"
+      ]
+     },
+     "product": {
+      "type": "object",
+      "description": "The Product object"
+     },
+     "sku": {
+      "type": "object",
+      "description": "The SKU object"
+     }
+    },
+    "required": [
+     "product_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}",
+    "path": [
+     "site_id",
+     "product_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishStatus",
+     "product",
+     "sku"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_redirect",
+   "name": "Update 301 redirect",
+   "description": "Update a 301 redirection rule from a site. This endpoint requires an Enterprise workspace. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "redirect_id": {
+      "type": "string",
+      "description": "Unique identifier site redirect"
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the specific redirect rule"
+     },
+     "fromUrl": {
+      "type": "string",
+      "description": "The source URL path that will be redirected."
+     },
+     "toUrl": {
+      "type": "string",
+      "description": "The target URL path where the user or client will be redirected."
+     }
+    },
+    "required": [
+     "redirect_id",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/redirects/{redirect_id}",
+    "path": [
+     "site_id",
+     "redirect_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "fromUrl",
+     "toUrl"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_robots_txt",
+   "name": "Update robots txt",
+   "description": "Update the `robots.txt` configuration for various user agents. This endpoint requires an Enterprise workspace. Required scope | `site_config:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "rules": {
+      "type": "array",
+      "description": "List of rules for user agents."
+     },
+     "sitemap": {
+      "type": "string",
+      "description": "URL to the sitemap."
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/robots_txt",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "rules",
+     "sitemap"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_site",
+   "name": "Update site",
+   "description": "Update a site. This endpoint requires an Enterprise workspace. Required scope | `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the site"
+     },
+     "parentFolderId": {
+      "type": "string",
+      "description": "The parent folder ID of the site"
+     }
+    },
+    "required": [
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "parentFolderId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_sku",
+   "name": "Update sku",
+   "description": "Update a specified SKU. Updating an existing SKU will set the Product type to `Advanced`, which ensures all Product and SKU fields will be shown to users in the Designer. Required scope | `ecommerce:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "product_id": {
+      "type": "string",
+      "description": "Unique identifier for a Product"
+     },
+     "sku_id": {
+      "type": "string",
+      "description": "Unique identifier for a SKU"
+     },
+     "publishStatus": {
+      "type": "string",
+      "description": "Indicate whether your Product should be set as \"staging\" or \"live\"",
+      "enum": [
+       "staging",
+       "live"
+      ]
+     },
+     "sku": {
+      "type": "object",
+      "description": "The SKU object"
+     }
+    },
+    "required": [
+     "product_id",
+     "site_id",
+     "sku",
+     "sku_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/products/{product_id}/skus/{sku_id}",
+    "path": [
+     "site_id",
+     "product_id",
+     "sku_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "publishStatus",
+     "sku"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.update_static_content",
+   "name": "Update page content",
+   "description": "This endpoint updates content on a static page in **secondary locales**. It supports updating up to 1000 nodes in a single request. Before making updates: 1. Use the [get page content](/data/reference/pages-and-components/pages/get-content) endpoint to identify available content nodes and their types. 2. If the page has component instances, retrieve the component's properties that you'll override ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": "Unique identifier for a Page"
+     },
+     "localeId": {
+      "type": "string",
+      "description": "The locale identifier."
+     },
+     "nodes": {
+      "type": "array",
+      "description": "List of DOM Nodes with the new content that will be updated in each node."
+     }
+    },
+    "required": [
+     "localeId",
+     "nodes",
+     "page_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.webflow.com/pages/{page_id}/dom",
+    "path": [
+     "page_id"
+    ],
+    "query": [
+     "localeId"
+    ],
+    "header": [],
+    "body": [
+     "nodes"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "webflow.upsert_google_tags",
+   "name": "Update google tag",
+   "description": "Add or update Google Tag IDs for a site. Existing tags not referenced in the request are preserved. A site may have a maximum of 25 tags total. `order` is optional on input \u2014 it is auto-assigned for new tags and returned on all tags in the response. Required scope: `sites:write`",
+   "input": {
+    "type": "object",
+    "properties": {
+     "site_id": {
+      "type": "string",
+      "description": "Unique identifier for a Site"
+     },
+     "googleTagIds": {
+      "type": "array",
+      "description": "List of Google Tags configured for a site, sorted by order."
+     }
+    },
+    "required": [
+     "googleTagIds",
+     "site_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.webflow.com/sites/{site_id}/integrations/google_tags",
+    "path": [
+     "site_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "googleTagIds"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

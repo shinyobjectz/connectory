@@ -1,0 +1,2563 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "azure-blob-storage",
+ "source": "https://api.apis.guru/v2/specs/windows.net/graphrbac/1.6/openapi.json",
+ "operations": [
+  {
+   "slug": "azure-blob-storage.applications_add_owner",
+   "name": "Applications add owner",
+   "description": "Add an owner to an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "The object ID of the application to which to add the owner."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/$links/owners",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_create",
+   "name": "Applications create",
+   "description": "Create a new application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "The display name of the application."
+     },
+     "identifierUris": {
+      "type": "array",
+      "description": "A collection of URIs for the application."
+     }
+    },
+    "required": [
+     "api-version",
+     "displayName",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "displayName",
+     "identifierUris"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_delete",
+   "name": "Applications delete",
+   "description": "Delete an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_get",
+   "name": "Applications get",
+   "description": "Get an application by object ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_get_service_principals_id_by_app_id",
+   "name": "Applications get service principals id by app id",
+   "description": "Gets an object id for a given application id from the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "applicationID": {
+      "type": "string",
+      "description": "The application ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationID",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipalsByAppId/{applicationID}/objectId",
+    "path": [
+     "tenantID",
+     "applicationID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_list",
+   "name": "Applications list",
+   "description": "Lists applications by filter parameters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filters to apply to the operation."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_list_key_credentials",
+   "name": "Applications list key credentials",
+   "description": "Get the keyCredentials associated with an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/keyCredentials",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_list_owners",
+   "name": "Directory objects that are owners of the application",
+   "description": "The owners are a set of non-admin users who are allowed to modify this object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "The object ID of the application for which to get owners."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/owners",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_list_password_credentials",
+   "name": "Applications list password credentials",
+   "description": "Get the passwordCredentials associated with an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/passwordCredentials",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_patch",
+   "name": "Applications patch",
+   "description": "Update an existing application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "The display name of the application."
+     },
+     "identifierUris": {
+      "type": "array",
+      "description": "A collection of URIs for the application."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "displayName",
+     "identifierUris"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_remove_owner",
+   "name": "Applications remove owner",
+   "description": "Remove a member from owners.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "The object ID of the application from which to remove the owner."
+     },
+     "ownerObjectId": {
+      "type": "string",
+      "description": "Owner object id"
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "ownerObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/$links/owners/{ownerObjectId}",
+    "path": [
+     "applicationObjectId",
+     "ownerObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_update_key_credentials",
+   "name": "Applications update key credentials",
+   "description": "Update the keyCredentials associated with an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "value": {
+      "type": "array",
+      "description": "A collection of KeyCredentials."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/keyCredentials",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.applications_update_password_credentials",
+   "name": "Applications update password credentials",
+   "description": "Update passwordCredentials associated with an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "value": {
+      "type": "array",
+      "description": "A collection of PasswordCredentials."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/applications/{applicationObjectId}/passwordCredentials",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.deleted_applications_hard_delete",
+   "name": "Deleted applications hard delete",
+   "description": "Hard-delete an application.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "applicationObjectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "applicationObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/deletedApplications/{applicationObjectId}",
+    "path": [
+     "applicationObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.deleted_applications_list",
+   "name": "Deleted applications list",
+   "description": "Gets a list of deleted applications in the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filter to apply to the operation."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/deletedApplications",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.deleted_applications_restore",
+   "name": "Deleted applications restore",
+   "description": "Restores the deleted application in the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "Application object ID."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/deletedApplications/{objectId}/restore",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.domains_get",
+   "name": "Domains get",
+   "description": "Gets a specific domain in the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domainName": {
+      "type": "string",
+      "description": "name of the domain."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "domainName",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/domains/{domainName}",
+    "path": [
+     "domainName",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.domains_list",
+   "name": "Domains list",
+   "description": "Gets a list of domains for the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filter to apply to the operation."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/domains",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_add_member",
+   "name": "Groups add member",
+   "description": "Add a member to a group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupObjectId": {
+      "type": "string",
+      "description": "The object ID of the group to which to add the member."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "url": {
+      "type": "string",
+      "description": "A member object URL, such as \"https://graph.windows.net/0b1f9851-1bf0-433f-aec3-cb9272f093dc/directoryObjects/f260bbc4-c254-447b-94cf-293b5ec434dd\", where \"0b1f9851-1bf0-433f-aec3-cb9272f093dc\" is the tenantId and \"f260bbc4-c254-447b-94cf-293b5ec434dd\" is the objectId of the member (user, application, servicePrincipal, group) to be added."
+     }
+    },
+    "required": [
+     "api-version",
+     "groupObjectId",
+     "tenantID",
+     "url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{groupObjectId}/$links/members",
+    "path": [
+     "groupObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_add_owner",
+   "name": "Groups add owner",
+   "description": "Add an owner to a group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the application to which to add the owner."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}/$links/owners",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_create",
+   "name": "Groups create",
+   "description": "Create a group in the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "Group display name"
+     },
+     "mailEnabled": {
+      "type": "boolean",
+      "description": "Whether the group is mail-enabled. Must be false. This is because only pure security groups can be created using the Graph API.",
+      "enum": [
+       false
+      ]
+     },
+     "mailNickname": {
+      "type": "string",
+      "description": "Mail nickname"
+     },
+     "securityEnabled": {
+      "type": "boolean",
+      "description": "Whether the group is a security group. Must be true. This is because only pure security groups can be created using the Graph API.",
+      "enum": [
+       true
+      ]
+     }
+    },
+    "required": [
+     "api-version",
+     "displayName",
+     "mailEnabled",
+     "mailNickname",
+     "securityEnabled",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "displayName",
+     "mailEnabled",
+     "mailNickname",
+     "securityEnabled"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_delete",
+   "name": "Groups delete",
+   "description": "Delete a group from the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the group to delete."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_get",
+   "name": "Groups get",
+   "description": "Gets group information from the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the user for which to get group information."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_get_group_members",
+   "name": "Groups get group members",
+   "description": "Gets the members of a group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the group whose members should be retrieved."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}/members",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_get_member_groups",
+   "name": "Groups get member groups",
+   "description": "Gets a collection of object IDs of groups of which the specified group is a member.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the group for which to get group membership."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "securityEnabledOnly": {
+      "type": "boolean",
+      "description": "If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "securityEnabledOnly",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}/getMemberGroups",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "securityEnabledOnly"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_is_member_of",
+   "name": "Groups is member of",
+   "description": "Checks whether the specified user, group, contact, or service principal is a direct or transitive member of the specified group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "groupId": {
+      "type": "string",
+      "description": "The object ID of the group to check."
+     },
+     "memberId": {
+      "type": "string",
+      "description": "The object ID of the contact, group, user, or service principal to check for membership in the specified group."
+     }
+    },
+    "required": [
+     "api-version",
+     "groupId",
+     "memberId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/isMemberOf",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "groupId",
+     "memberId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_list",
+   "name": "Groups list",
+   "description": "Gets list of groups for the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filter to apply to the operation."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_list_owners",
+   "name": "Directory objects that are owners of the group",
+   "description": "The owners are a set of non-admin users who are allowed to modify this object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the group for which to get owners."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}/owners",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_remove_member",
+   "name": "Groups remove member",
+   "description": "Remove a member from a group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "groupObjectId": {
+      "type": "string",
+      "description": "The object ID of the group from which to remove the member."
+     },
+     "memberObjectId": {
+      "type": "string",
+      "description": "Member object id"
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "groupObjectId",
+     "memberObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{groupObjectId}/$links/members/{memberObjectId}",
+    "path": [
+     "groupObjectId",
+     "memberObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.groups_remove_owner",
+   "name": "Groups remove owner",
+   "description": "Remove a member from owners.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the group from which to remove the owner."
+     },
+     "ownerObjectId": {
+      "type": "string",
+      "description": "Owner object id"
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "ownerObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/groups/{objectId}/$links/owners/{ownerObjectId}",
+    "path": [
+     "objectId",
+     "ownerObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.oauth2_permission_grant_create",
+   "name": "Oauth2 permission grant create",
+   "description": "Grants OAuth2 permissions for the relevant resource Ids of an app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "clientId": {
+      "type": "string",
+      "description": "The id of the resource's service principal granted consent to impersonate the user when accessing the resource (represented by the resourceId property)."
+     },
+     "consentType": {
+      "type": "string",
+      "description": "Indicates if consent was provided by the administrator (on behalf of the organization) or by an individual.",
+      "enum": [
+       "AllPrincipals",
+       "Principal"
+      ]
+     },
+     "expiryTime": {
+      "type": "string",
+      "description": "Expiry time for TTL"
+     },
+     "objectId": {
+      "type": "string",
+      "description": "The id of the permission grant"
+     },
+     "odata.type": {
+      "type": "string",
+      "description": "Microsoft.DirectoryServices.OAuth2PermissionGrant"
+     },
+     "principalId": {
+      "type": "string",
+      "description": "When consent type is Principal, this property specifies the id of the user that granted consent and applies only for that user."
+     },
+     "resourceId": {
+      "type": "string",
+      "description": "Object Id of the resource you want to grant"
+     },
+     "scope": {
+      "type": "string",
+      "description": "Specifies the value of the scope claim that the resource application should expect in the OAuth 2.0 access token. For example, User.Read"
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Start time for TTL"
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/oauth2PermissionGrants",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "clientId",
+     "consentType",
+     "expiryTime",
+     "objectId",
+     "odata.type",
+     "principalId",
+     "resourceId",
+     "scope",
+     "startTime"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.oauth2_permission_grant_delete",
+   "name": "Oauth2 permission grant delete",
+   "description": "Delete a OAuth2 permission grant for the relevant resource Ids of an app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of a permission grant."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/oauth2PermissionGrants/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.oauth2_permission_grant_list",
+   "name": "Oauth2 permission grant list",
+   "description": "Queries OAuth2 permissions grants for the relevant SP ObjectId of an app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "This is the Service Principal ObjectId associated with the app"
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/oauth2PermissionGrants",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.objects_get_objects_by_object_ids",
+   "name": "Objects get objects by object ids",
+   "description": "Gets the directory objects specified in a list of object IDs. You can also specify which resource collections (users, groups, etc.) should be searched by specifying the optional types parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "includeDirectoryObjectReferences": {
+      "type": "boolean",
+      "description": "If true, also searches for object IDs in the partner tenant."
+     },
+     "objectIds": {
+      "type": "array",
+      "description": "The requested object IDs."
+     },
+     "types": {
+      "type": "array",
+      "description": "The requested object types."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/getObjectsByObjectIds",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "includeDirectoryObjectReferences",
+     "objectIds",
+     "types"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_add_owner",
+   "name": "Service principals add owner",
+   "description": "Add an owner to a service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal to which to add the owner."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/$links/owners",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_create",
+   "name": "Service principals create",
+   "description": "Creates a service principal in the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "appId": {
+      "type": "string",
+      "description": "The application ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "appId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "appId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_delete",
+   "name": "Service principals delete",
+   "description": "Deletes a service principal from the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal to delete."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_get",
+   "name": "Service principals get",
+   "description": "Gets service principal information from the directory. Query by objectId or pass a filter to query by appId",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal to get."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list",
+   "name": "Service principals list",
+   "description": "Gets a list of service principals from the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filter to apply to the operation."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list_app_role_assigned_to",
+   "name": "Principals (users, groups, and service principals) that are assigned to this service principal",
+   "description": "Principals (users, groups, and service principals) that are assigned to this service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal for which to get owners."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/appRoleAssignedTo",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list_app_role_assignments",
+   "name": "Applications that the service principal is assigned to",
+   "description": "Applications that the service principal is assigned to.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal for which to get owners."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/appRoleAssignments",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list_key_credentials",
+   "name": "Service principals list key credentials",
+   "description": "Get the keyCredentials associated with the specified service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal for which to get keyCredentials."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/keyCredentials",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list_owners",
+   "name": "Directory objects that are owners of this service principal",
+   "description": "The owners are a set of non-admin users who are allowed to modify this object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal for which to get owners."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/owners",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_list_password_credentials",
+   "name": "Service principals list password credentials",
+   "description": "Gets the passwordCredentials associated with a service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/passwordCredentials",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_remove_owner",
+   "name": "Service principals remove owner",
+   "description": "Remove a member from owners.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal from which to remove the owner."
+     },
+     "ownerObjectId": {
+      "type": "string",
+      "description": "Owner object id"
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "ownerObjectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/$links/owners/{ownerObjectId}",
+    "path": [
+     "objectId",
+     "ownerObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_update",
+   "name": "Service principals update",
+   "description": "Updates a service principal in the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal to delete."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "accountEnabled": {
+      "type": "boolean",
+      "description": "whether or not the service principal account is enabled"
+     },
+     "appRoleAssignmentRequired": {
+      "type": "boolean",
+      "description": "Specifies whether an AppRoleAssignment to a user or group is required before Azure AD will issue a user or access token to the application."
+     },
+     "keyCredentials": {
+      "type": "array",
+      "description": "The collection of key credentials associated with the service principal."
+     },
+     "passwordCredentials": {
+      "type": "array",
+      "description": "The collection of password credentials associated with the service principal."
+     },
+     "servicePrincipalType": {
+      "type": "string",
+      "description": "the type of the service principal"
+     },
+     "tags": {
+      "type": "array",
+      "description": "Optional list of tags that you can apply to your service principals. Not nullable."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "accountEnabled",
+     "appRoleAssignmentRequired",
+     "keyCredentials",
+     "passwordCredentials",
+     "servicePrincipalType",
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_update_key_credentials",
+   "name": "Service principals update key credentials",
+   "description": "Update the keyCredentials associated with a service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID for which to get service principal information."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "value": {
+      "type": "array",
+      "description": "A collection of KeyCredentials."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/keyCredentials",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.service_principals_update_password_credentials",
+   "name": "Service principals update password credentials",
+   "description": "Updates the passwordCredentials associated with a service principal.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the service principal."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "value": {
+      "type": "array",
+      "description": "A collection of PasswordCredentials."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "tenantID",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/servicePrincipals/{objectId}/passwordCredentials",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.signed_in_user_get",
+   "name": "Signed in user get",
+   "description": "Gets the details for the currently logged-in user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/me",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.signed_in_user_list_owned_objects",
+   "name": "Signed in user list owned objects",
+   "description": "Get the list of directory objects that are owned by the user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/me/ownedObjects",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_create",
+   "name": "Users create",
+   "description": "Create a new user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "accountEnabled": {
+      "type": "boolean",
+      "description": "Whether the account is enabled."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "The display name of the user."
+     },
+     "mail": {
+      "type": "string",
+      "description": "The primary email address of the user."
+     },
+     "mailNickname": {
+      "type": "string",
+      "description": "The mail alias for the user."
+     },
+     "passwordProfile": {
+      "type": "object",
+      "description": "The password profile associated with a user."
+     },
+     "userPrincipalName": {
+      "type": "string",
+      "description": "The user principal name (someuser@contoso.com). It must contain one of the verified domains for the tenant."
+     }
+    },
+    "required": [
+     "accountEnabled",
+     "api-version",
+     "displayName",
+     "mailNickname",
+     "passwordProfile",
+     "tenantID",
+     "userPrincipalName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "accountEnabled",
+     "displayName",
+     "mail",
+     "mailNickname",
+     "passwordProfile",
+     "userPrincipalName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_delete",
+   "name": "Users delete",
+   "description": "Delete a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "upnOrObjectId": {
+      "type": "string",
+      "description": "The object ID or principal name of the user to delete."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID",
+     "upnOrObjectId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users/{upnOrObjectId}",
+    "path": [
+     "upnOrObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_get",
+   "name": "Users get",
+   "description": "Gets user information from the directory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "upnOrObjectId": {
+      "type": "string",
+      "description": "The object ID or principal name of the user for which to get information."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID",
+     "upnOrObjectId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users/{upnOrObjectId}",
+    "path": [
+     "upnOrObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_get_member_groups",
+   "name": "Users get member groups",
+   "description": "Gets a collection that contains the object IDs of the groups of which the user is a member.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "objectId": {
+      "type": "string",
+      "description": "The object ID of the user for which to get group membership."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "securityEnabledOnly": {
+      "type": "boolean",
+      "description": "If true, only membership in security-enabled groups should be checked. Otherwise, membership in all groups should be checked."
+     }
+    },
+    "required": [
+     "api-version",
+     "objectId",
+     "securityEnabledOnly",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users/{objectId}/getMemberGroups",
+    "path": [
+     "objectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "securityEnabledOnly"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_list",
+   "name": "Users list",
+   "description": "Gets list of users for the current tenant.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$filter": {
+      "type": "string",
+      "description": "The filter to apply to the operation."
+     },
+     "$expand": {
+      "type": "string",
+      "description": "The expand value for the operation result."
+     },
+     "$top": {
+      "type": "integer",
+      "description": "(Optional) Set the maximum number of results per response."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users",
+    "path": [
+     "tenantID"
+    ],
+    "query": [
+     "$filter",
+     "$expand",
+     "$top",
+     "api-version"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "azure-blob-storage.users_update",
+   "name": "Users update",
+   "description": "Updates a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "upnOrObjectId": {
+      "type": "string",
+      "description": "The object ID or principal name of the user to update."
+     },
+     "api-version": {
+      "type": "string",
+      "description": "Client API version."
+     },
+     "tenantID": {
+      "type": "string",
+      "description": "The tenant ID."
+     },
+     "accountEnabled": {
+      "type": "boolean",
+      "description": "Whether the account is enabled."
+     },
+     "displayName": {
+      "type": "string",
+      "description": "The display name of the user."
+     },
+     "mail": {
+      "type": "string",
+      "description": "The primary email address of the user."
+     },
+     "mailNickname": {
+      "type": "string",
+      "description": "The mail alias for the user."
+     },
+     "passwordProfile": {
+      "type": "object",
+      "description": "The password profile associated with a user."
+     },
+     "userPrincipalName": {
+      "type": "string",
+      "description": "The user principal name (someuser@contoso.com). It must contain one of the verified domains for the tenant."
+     }
+    },
+    "required": [
+     "api-version",
+     "tenantID",
+     "upnOrObjectId"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{accountName}.blob.core.windows.net/{tenantID}/users/{upnOrObjectId}",
+    "path": [
+     "upnOrObjectId",
+     "tenantID"
+    ],
+    "query": [
+     "api-version"
+    ],
+    "header": [],
+    "body": [
+     "accountEnabled",
+     "displayName",
+     "mail",
+     "mailNickname",
+     "passwordProfile",
+     "userPrincipalName"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

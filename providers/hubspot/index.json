@@ -1,0 +1,106 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "hubspot",
+ "source": "https://api.apis.guru/v2/specs/hubapi.com/cms/v3/openapi.json",
+ "operations": [
+  {
+   "slug": "hubspot.get_cms_v3_domains_domain_id_get_by_id",
+   "name": "Get a single domain",
+   "description": "Returns a single domains with the id specified.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domainId": {
+      "type": "string",
+      "description": "The unique ID of the domain."
+     }
+    },
+    "required": [
+     "domainId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.hubapi.com/cms/v3/domains/{domainId}",
+    "path": [
+     "domainId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hubspot.get_cms_v3_domains_get_page",
+   "name": "Get current domains",
+   "description": "Returns all existing domains that have been created. Results can be limited and filtered by creation or updated date.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "createdAt": {
+      "type": "string",
+      "description": "Only return domains created at this date."
+     },
+     "createdAfter": {
+      "type": "string",
+      "description": "Only return domains created after this date."
+     },
+     "createdBefore": {
+      "type": "string",
+      "description": "Only return domains created before this date."
+     },
+     "updatedAt": {
+      "type": "string",
+      "description": "Only return domains updated at this date."
+     },
+     "updatedAfter": {
+      "type": "string",
+      "description": "Only return domains updated after this date."
+     },
+     "updatedBefore": {
+      "type": "string",
+      "description": "Only return domains updated before this date."
+     },
+     "sort": {
+      "type": "array",
+      "description": ""
+     },
+     "after": {
+      "type": "string",
+      "description": "The paging cursor token of the last successfully read resource will be returned as the `paging.next.after` JSON property of a paged response containing more results."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of results per page."
+     },
+     "archived": {
+      "type": "boolean",
+      "description": "Whether to return only results that have been archived."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.hubapi.com/cms/v3/domains/",
+    "path": [],
+    "query": [
+     "createdAt",
+     "createdAfter",
+     "createdBefore",
+     "updatedAt",
+     "updatedAfter",
+     "updatedBefore",
+     "sort",
+     "after",
+     "limit",
+     "archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,3048 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "getty-images",
+ "source": "https://api.apis.guru/v2/specs/gettyimages.com/3/openapi.json",
+ "operations": [
+  {
+   "slug": "getty-images.delete_v3_asset_changes_change_sets_change_set_id",
+   "name": "Confirm asset change notifications",
+   "description": "# Delete Asset Changes Confirm asset changes acknowledges receipt of asset changes (from the PUT asset-changes endpoint). ## Quickstart You'll need an API key and an access token to use this resource. Use the change_set_id from the PUT asset-changes/change-sets endpoint to confirm receipt of notifications.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "change-set-id": {
+      "type": "integer",
+      "description": "Specify the change-set-id associated with a transaction resource whose receipt you want to confirm."
+     }
+    },
+    "required": [
+     "change-set-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.gettyimages.com/v3/asset-changes/change-sets/{change-set-id}",
+    "path": [
+     "change-set-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.delete_v3_boards_board_id",
+   "name": "Delete a board",
+   "description": "Delete a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to delete."
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.delete_v3_boards_board_id_assets",
+   "name": "Remove assets from a board",
+   "description": "Remove assets from a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to remove assets from."
+     },
+     "asset_ids": {
+      "type": "array",
+      "description": "List the assets to be removed from the board."
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/assets",
+    "path": [
+     "board_id"
+    ],
+    "query": [
+     "asset_ids"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.delete_v3_boards_board_id_assets_asset_id",
+   "name": "Remove an asset from a board",
+   "description": "Remove an asset from a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to remove an asset from."
+     },
+     "asset_id": {
+      "type": "string",
+      "description": "Specify the asset to remove from the board."
+     }
+    },
+    "required": [
+     "asset_id",
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/assets/{asset_id}",
+    "path": [
+     "board_id",
+     "asset_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.delete_v3_boards_board_id_comments_comment_id",
+   "name": "Delete a comment from a board",
+   "description": "Delete a comment from a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board containing the comment to delete."
+     },
+     "comment_id": {
+      "type": "string",
+      "description": "Specify the comment to delete."
+     }
+    },
+    "required": [
+     "board_id",
+     "comment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/comments/{comment_id}",
+    "path": [
+     "board_id",
+     "comment_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_affiliates_search_images",
+   "name": "Getty images get v3 affiliates search images",
+   "description": "",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Search images using a search phrase."
+     },
+     "style": {
+      "type": "string",
+      "description": "Filter based on graphical style of the image.",
+      "enum": [
+       "photography",
+       "vector"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/affiliates/search/images",
+    "path": [],
+    "query": [
+     "phrase",
+     "style"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_affiliates_search_videos",
+   "name": "Getty images get v3 affiliates search videos",
+   "description": "",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "phrase": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/affiliates/search/videos",
+    "path": [],
+    "query": [
+     "phrase"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_artists_images",
+   "name": "Search for images by a photographer",
+   "description": "Search for images by a photographer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "artist_name": {
+      "type": "string",
+      "description": "Name of artist for desired images"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default page is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default page_size is 10, maximum page_size is 100."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/artists/images",
+    "path": [],
+    "query": [
+     "artist_name",
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_artists_videos",
+   "name": "Search for videos by a photographer",
+   "description": "Search for videos by a photographer",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "artist_name": {
+      "type": "string",
+      "description": "Name of artist for desired images"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Comma separated list of fields. Allows restricting which fields are returned. If no fields are selected, the summary_set of fields are returned."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default page is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default page_size is 10, maximum page_size is 100."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/artists/videos",
+    "path": [],
+    "query": [
+     "artist_name",
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_asset_changes_channels",
+   "name": "Get a list of asset change notification channels",
+   "description": "# Get Partner Channels Retrieves the channel data for the partner. This data can be used to populate the channel_id parameter in the Put Asset Changes query. ## Quickstart You'll need an API key and an access token to use this resource. Partners who have a channel that has been removed should contact their sales representative to be set up again.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/asset-changes/channels",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_asset_management_assets_send_events",
+   "name": "Getty images get v3 asset management assets send events",
+   "description": "",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "last_offset": {
+      "type": "string",
+      "description": "Specifies a date/time (with timezone information) for continuing retrieval of events. Events occuring _after_ the `last_offset` value provided will be returned."
+     },
+     "event_count": {
+      "type": "integer",
+      "description": "Specifies the number of events to return. Default is 50, maximum value is 100."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/asset-management/assets/send-events",
+    "path": [],
+    "query": [
+     "last_offset",
+     "event_count"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_boards",
+   "name": "Get all boards that the user participates in",
+   "description": "Get all boards that the user participates in",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "board_relationship": {
+      "type": "string",
+      "description": "Search for boards the user owns or has been invited to as an editor.",
+      "enum": [
+       "owned",
+       "invited"
+      ]
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Sort the list of boards by last update date or name. Defaults to date_last_updated_descending.",
+      "enum": [
+       "date_last_updated_descending",
+       "date_last_updated_ascending",
+       "name_ascending",
+       "name_decending"
+      ]
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Request number of boards to return in each page. (default is 30)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/boards",
+    "path": [],
+    "query": [
+     "page",
+     "board_relationship",
+     "sort_order",
+     "pageSize"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_boards_board_id",
+   "name": "Get assets and metadata for a specific board",
+   "description": "Get assets and metadata for a specific board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Retrieve details for a specific board."
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_boards_board_id_comments",
+   "name": "Get comments from a board",
+   "description": "Get comments from a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to retrieve comments from."
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/comments",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_collections",
+   "name": "Gets collections applicable for the customer",
+   "description": "Use this endpoint to retrieve collections associated with your Getty Images account. To browse available collections see our [Image collections page]( http://www.gettyimages.com/creative-images/collections). You'll need an API key and access token to use this resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/collections",
+    "path": [],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_countries",
+   "name": "Gets countries codes and names",
+   "description": "Returns a list of country objects that contains country name, two letter ISO abbreviation and three letter ISO abbreviation. You'll need an API key and access token to use this resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/countries",
+    "path": [],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_customers_current",
+   "name": "Returns information about the current user",
+   "description": "Returns the first, middle and last name of the authenticated user. You'll need an API key and access token to use this resource. Please consult our [Authorization FAQ](http://developers.gettyimages.com/en/authorization-faq.html) for more information on authorization tokens.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/customers/current",
+    "path": [],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_downloads",
+   "name": "Returns information about a customer's downloaded assets",
+   "description": "Returns information about a customer's previously downloaded assets. You'll need an API key and access token to use this resource. This endpoint requires being a Getty Images customer to limit your results to only assets that you have a license to use, you need to also include an authorization token in the header of your request. Please consult our [Authorization FAQ](http://developers.gettyimages",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "date_from": {
+      "type": "string",
+      "description": "If specified, selects assets downloaded on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD). Any hour, minute, second values in the request are not used, unless useTimePart parameter is included. Date/times in the response are UTC. Default is 30 days prior to date_to"
+     },
+     "date_to": {
+      "type": "string",
+      "description": "If specified, selects assets downloaded on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD) Any hour, minute, second values in the request are not used, unless useTimePart parameter is included. Date/times in the response are UTC. Default is current date or 30 days after specified start date, whichever one is earlier."
+     },
+     "use_time": {
+      "type": "boolean",
+      "description": "If specified, time values provided with date_to or date_from will be used. Time values should be appended to the date value in ISO 8601 format i.e.: 2019-09-19T19:30:37 or 2019-09-19 19:30:37. Time zone can be specified as optional. Default value is false"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     },
+     "product_type": {
+      "type": "string",
+      "description": "Specifies product type to be included in the previous download results. Product types easyaccess, editorialsubscription, imagepack, and premiumaccess are for GettyImages API keys. Product types royaltyfreesubscription and creditpack are for iStock API keys. To get previous iStockPhoto credit downloads, creditpack must be selected.",
+      "enum": [
+       "easyaccess",
+       "editorialsubscription",
+       "imagepack",
+       "premiumaccess",
+       "royaltyfreesubscription",
+       "creditpack"
+      ]
+     },
+     "company_downloads": {
+      "type": "boolean",
+      "description": "If specified, returns the list of previously downloaded images for all users in your company. Your account must be enabled for this functionality. Contact your Getty Images account rep for more information. Default is false."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/downloads",
+    "path": [],
+    "query": [
+     "date_from",
+     "date_to",
+     "use_time",
+     "page",
+     "page_size",
+     "product_type",
+     "company_downloads"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_events",
+   "name": "Get metadata for multiple events",
+   "description": "This endpoint returns the detailed event metadata for all specified events. Getty Images news, sports and entertainment photographers and videographers cover editorially relevant events occurring around the world. All images or video clips produced in association with an event, are assigned the same EventID. EventIDs are part of the meta-data returned in SearchForImages Results. Only content produ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "ids": {
+      "type": "array",
+      "description": "A comma separated list of event ids."
+     },
+     "fields": {
+      "type": "array",
+      "description": "A comma separated list of fields to return in the response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/events",
+    "path": [],
+    "query": [
+     "ids",
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_events_id",
+   "name": "Get metadata for a single event",
+   "description": "This endpoint returns the detailed event metadata for a specified event. Getty Images news, sports and entertainment photographers and videographers cover editorially relevant events occurring around the world. All images or video clips produced in association with an event, are assigned the same EventID. EventIDs are part of the meta-data returned in SearchForImages Results. Only content produced",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "integer",
+      "description": "An event id."
+     },
+     "fields": {
+      "type": "array",
+      "description": "A comma separated list of fields to return in the response."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/events/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_images",
+   "name": "Get metadata for multiple images by supplying multiple image ids",
+   "description": "This endpoint returns the detailed image metadata for all specified images. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available: #### Summary Fields Set The **summary_set** query string parameter fields value represents a smal",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "ids": {
+      "type": "array",
+      "description": "Specifies one or more image ids to return. Use comma delimiter when requesting multiple ids. Maximum of 100 ids."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/images",
+    "path": [],
+    "query": [
+     "ids",
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_images_id",
+   "name": "Get metadata for a single image by supplying one image id",
+   "description": "This endpoint returns the detailed image metadata for a specified image. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available: #### Summary Fields Set The **summary_set** query string parameter fields value represents a small b",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "An image id. For more than one image please use the /v3/images endpoint."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/images/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_images_id_downloadhistory",
+   "name": "Returns information about a customer's download history for a specific asset",
+   "description": "Returns information about a customer's download history for a specific asset",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "An image id."
+     },
+     "company_downloads": {
+      "type": "boolean",
+      "description": "If specified, returns the list of previously downloaded images for all users in your company. Your account must be enabled for this functionality. Contact your Getty Images account rep for more information. Default is false."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/images/{id}/downloadhistory",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "company_downloads"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_images_id_same_series",
+   "name": "Retrieve creative images from the same series",
+   "description": "This endpoint will provide the list of images, if any exist, from the same series as the specified creative asset id. These images are typically from the same photo shoot. This functionality will not work for editorial assets. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of meta",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Identifies an existing image"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/images/{id}/same-series",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_images_id_similar",
+   "name": "Retrieve similar images",
+   "description": "This endpoint will provide a list of images that are similar to the specified asset id. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available: #### Summary Fields Set The **summary_set** query string parameter fields value repre",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Identifies an existing image"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/images/{id}/similar",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_orders_id",
+   "name": "Get order metadata",
+   "description": "This endpoint returns detailed order metadata for a specified order. Use of this endpoint requires configuration changes to your API key. You'll need an API key and access token to use this resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "integer",
+      "description": "An order id."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_products",
+   "name": "Get products",
+   "description": "This endpoint returns all products available to the username used during authentication. As such, this endpoint requires the use of a fully authorized access_token. The product data can then be used as search filters, restricting results to images from a specific product. You'll need an API key and access token to use this resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Comma separated list of fields. Allows product download requirements to be returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/products",
+    "path": [],
+    "query": [
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_purchased_assets",
+   "name": "Get previously purchased images and video",
+   "description": "This endpoint returns a list of all assets purchased on gettyimages.com by the username used for authentication. Use of this endpoint requires configuration changes to your API key. Please contact your sales representative to learn more. You'll need an API key and access token to use this resource.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "If specified, retrieves previous purchases on or before this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD)."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 75, maximum page_size is 100."
+     },
+     "date_from": {
+      "type": "string",
+      "description": "If specified, retrieves previous purchases on or after this date. Dates should be submitted in ISO 8601 format (i.e., YYYY-MM-DD)."
+     },
+     "company_purchases": {
+      "type": "boolean",
+      "description": "If specified, returns the list of previously purchased assets for all users in your company. Your account must be enabled for this functionality. Contact your Getty Images account rep for more information. Default is false."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/purchased-assets",
+    "path": [],
+    "query": [
+     "date_to",
+     "page",
+     "page_size",
+     "date_from",
+     "company_purchases"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_events",
+   "name": "Search for events",
+   "description": "Use this endpoint to search Getty Images news, sports and entertainment events. Getty Images photographers and videographers cover editorially relevant events occurring around the world. All images or video clips produced in association with an event, are assigned the same EventID. EventIDs are part of the meta-data returned in Search Results. Only content produced under a Getty Images brand name ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "editorial_segment": {
+      "type": "string",
+      "description": "Filters to events with a matching editorial segment.",
+      "enum": [
+       "archival",
+       "entertainment",
+       "news",
+       "publicity",
+       "royalty",
+       "sport"
+      ]
+     },
+     "date_from": {
+      "type": "string",
+      "description": "Filters to events that start on or after this date. Use ISO 8601 format (e.g., 1999-12-31). Defaults to UTC unless otherwise specified."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Filters to events that start on or before this date. Use ISO 8601 format (e.g., 1999-12-31). Defaults to UTC unless otherwise specified."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Default set is 'id','name','start_date'."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1, maximum is 50)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of events to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Filters to events related to this phrase"
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Specifies the order in which to sort the results. Default is `newest`.",
+      "enum": [
+       "newest",
+       "oldest"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/events",
+    "path": [],
+    "query": [
+     "editorial_segment",
+     "date_from",
+     "date_to",
+     "fields",
+     "page",
+     "page_size",
+     "phrase",
+     "sort_order"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_images",
+   "name": "Search for both creative and editorial images   *** deprecated ***",
+   "description": "## _This endpoint draws from such a large diversity of content, the results will not be as relevant as when the more specific Creative or Editorial endpoints are used. Additionally, the response time for this endpoint is slower compared to that for Creative and Editorial-specific endpoints. For these reasons,_ _**it is highly recommended that those endpoints are used instead of this blended endpoi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "age_of_people": {
+      "type": "array",
+      "description": "Filter based on the age of individuals in an image."
+     },
+     "artists": {
+      "type": "string",
+      "description": "Search for images by specific artists (free-text, comma-separated list of artists)."
+     },
+     "collection_codes": {
+      "type": "array",
+      "description": "Filter by collection codes (comma-separated list). Include or exclude based on collections_filter_type."
+     },
+     "collections_filter_type": {
+      "type": "string",
+      "description": "Provides searching based on specified collection(s). The default is Include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "color": {
+      "type": "string",
+      "description": "Filter based on predominant color in an image. Use 6 character hexidecimal format (e.g., #002244). Note: when specified, results will not contain editorial images."
+     },
+     "compositions": {
+      "type": "array",
+      "description": "Filter based on image composition."
+     },
+     "download_product": {
+      "type": "string",
+      "description": "Filters based on which product the asset will download against. Allowed values are easyaccess, editorialsubscription, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the download_product value woul"
+     },
+     "embed_content_only": {
+      "type": "boolean",
+      "description": "Restrict search results to embeddable images. The default is false."
+     },
+     "event_ids": {
+      "type": "array",
+      "description": "Filter based on specific events"
+     },
+     "ethnicity": {
+      "type": "array",
+      "description": "Filter search results based on the ethnicity of individuals in an image."
+     },
+     "exclude_nudity": {
+      "type": "boolean",
+      "description": "Excludes images containing nudity. The default is false."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'."
+     },
+     "file_types": {
+      "type": "array",
+      "description": "Return only images having a specific file type."
+     },
+     "graphical_styles": {
+      "type": "array",
+      "description": "Filter based on graphical style of the image."
+     },
+     "graphical_styles_filter_type": {
+      "type": "string",
+      "description": "Provides searching based on specified graphical style(s). The default is Include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "include_related_searches": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include related searches in the response. The default is false."
+     },
+     "keyword_ids": {
+      "type": "array",
+      "description": "Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned."
+     },
+     "minimum_size": {
+      "type": "string",
+      "description": "Filter based on minimum size requested. The default is x-small",
+      "enum": [
+       "x_small",
+       "small",
+       "medium",
+       "large",
+       "x_large",
+       "xx_large",
+       "vector"
+      ]
+     },
+     "number_of_people": {
+      "type": "array",
+      "description": "Filter based on the number of people in the image."
+     },
+     "orientations": {
+      "type": "array",
+      "description": "Return only images with selected aspect ratios."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of images to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Search images using a search phrase."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Select sort order of results. The default is best_match",
+      "enum": [
+       "best_match",
+       "most_popular",
+       "newest",
+       "random"
+      ]
+     },
+     "specific_people": {
+      "type": "array",
+      "description": "Return only images associated with specific people (using a comma-delimited list)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/images",
+    "path": [],
+    "query": [
+     "age_of_people",
+     "artists",
+     "collection_codes",
+     "collections_filter_type",
+     "color",
+     "compositions",
+     "download_product",
+     "embed_content_only",
+     "event_ids",
+     "ethnicity",
+     "exclude_nudity",
+     "fields",
+     "file_types",
+     "graphical_styles",
+     "graphical_styles_filter_type",
+     "include_related_searches",
+     "keyword_ids",
+     "minimum_size",
+     "number_of_people",
+     "orientations",
+     "page",
+     "page_size",
+     "phrase",
+     "sort_order",
+     "specific_people"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_images_creative",
+   "name": "Search for creative images only",
+   "description": "Use this endpoint to search our contemporary stock photos, illustrations and archival images. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on the \"fields\" parameter (see details below). You can search with only an API key, and that will give you search results that are equivalent to doing a search on the Getty",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "age_of_people": {
+      "type": "array",
+      "description": "Filter based on the age of individuals in an image."
+     },
+     "artists": {
+      "type": "string",
+      "description": "Search for images by specific artists (free-text, comma-separated list of artists)."
+     },
+     "collection_codes": {
+      "type": "array",
+      "description": "Filter by collection codes (comma-separated list). Include or exclude based on collections_filter_type."
+     },
+     "collections_filter_type": {
+      "type": "string",
+      "description": "Use to include or exclude collections from search. The default is include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "color": {
+      "type": "string",
+      "description": "Filter based on predominant color in an image. Use 6 character hexadecimal format (e.g., #002244)."
+     },
+     "compositions": {
+      "type": "array",
+      "description": "Filter based on image composition."
+     },
+     "download_product": {
+      "type": "string",
+      "description": "Filters based on which product the asset will download against. Allowed values are easyaccess, editorialsubscription, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the download_product value woul"
+     },
+     "embed_content_only": {
+      "type": "boolean",
+      "description": "Restrict search results to embeddable images. The default is false."
+     },
+     "ethnicity": {
+      "type": "array",
+      "description": "Filter search results based on the ethnicity of individuals in an image."
+     },
+     "exclude_keyword_ids": {
+      "type": "array",
+      "description": "Return only images not tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also do not contain the requested keyword(s) are returned."
+     },
+     "exclude_nudity": {
+      "type": "boolean",
+      "description": "Excludes images containing nudity. The default is false."
+     },
+     "exclude_editorial_use_only": {
+      "type": "boolean",
+      "description": "Exclude images that are only available for editorial (non-commercial) use. Default value is false."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     },
+     "file_types": {
+      "type": "array",
+      "description": "Return only images having a specific file type."
+     },
+     "graphical_styles": {
+      "type": "array",
+      "description": "Filter based on graphical style of the image."
+     },
+     "graphical_styles_filter_type": {
+      "type": "string",
+      "description": "Provides searching based on specified graphical style(s). The default is include.",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "include_related_searches": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include related searches in the response. The default is false."
+     },
+     "keyword_ids": {
+      "type": "array",
+      "description": "Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned."
+     },
+     "minimum_size": {
+      "type": "string",
+      "description": "Filter based on minimum size requested. The default is x-small.",
+      "enum": [
+       "x_small",
+       "small",
+       "medium",
+       "large",
+       "x_large",
+       "xx_large",
+       "vector"
+      ]
+     },
+     "number_of_people": {
+      "type": "array",
+      "description": "Filter based on the number of people in the image."
+     },
+     "orientations": {
+      "type": "array",
+      "description": "Return only images with selected aspect ratios."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of images to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Search images using a search phrase."
+     },
+     "safe_search": {
+      "type": "boolean",
+      "description": "Setting safe_search to \"true\" excludes images containing nudity, death, profanity, drugs and alcohol, suggestive content, and graphic content from the result set. The default is false. Because this is a keyword-based filter, it's possible that a small number of unsafe images may not be caught by the filter. Please direct feedback to your Getty Images Account or API support representative."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Select sort order of results. The default is best_match",
+      "enum": [
+       "best_match",
+       "most_popular",
+       "newest",
+       "random"
+      ]
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/images/creative",
+    "path": [],
+    "query": [
+     "age_of_people",
+     "artists",
+     "collection_codes",
+     "collections_filter_type",
+     "color",
+     "compositions",
+     "download_product",
+     "embed_content_only",
+     "ethnicity",
+     "exclude_keyword_ids",
+     "exclude_nudity",
+     "exclude_editorial_use_only",
+     "fields",
+     "file_types",
+     "graphical_styles",
+     "graphical_styles_filter_type",
+     "include_related_searches",
+     "keyword_ids",
+     "minimum_size",
+     "number_of_people",
+     "orientations",
+     "page",
+     "page_size",
+     "phrase",
+     "safe_search",
+     "sort_order",
+     "facet_fields",
+     "include_facets",
+     "facet_max_count"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_images_creative_by_image",
+   "name": "Search for creative images based on url",
+   "description": "Search for **similar creative images** by passing an `image_url` to an uploaded image OR an `asset_id` of an asset in our catalog. All responses will have the `exclude_nudity` filter automatically applied. ## Searching by URL Before calling the search by image endpoint, an image in JPEG format must be uploaded to `https://api.gettyimages.com/v3/search/by-image/uploads/{CLIENT_IMAGE.jpg}`, where th",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "asset_id": {
+      "type": "string",
+      "description": "Specifies the Getty image id to use in the search."
+     },
+     "exclude_editorial_use_only": {
+      "type": "boolean",
+      "description": "Exclude images that are only available for editorial (non-commercial) use. Default value is false."
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     },
+     "image_url": {
+      "type": "string",
+      "description": "Specifies the location of the image to use in the search."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of images to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "product_types": {
+      "type": "array",
+      "description": "Filter images to those from one of your product types. Allowed values are easyaccess, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the product_types value would be premiumaccess:1234. Product ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/images/creative/by-image",
+    "path": [],
+    "query": [
+     "asset_id",
+     "exclude_editorial_use_only",
+     "facet_fields",
+     "facet_max_count",
+     "fields",
+     "image_url",
+     "include_facets",
+     "page",
+     "page_size",
+     "product_types"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_images_editorial",
+   "name": "Search for editorial images only",
+   "description": "Use this endpoint to search our editorial stock photos, illustrations and archival images. Editorial images represent newsworthy events or illustrate matters of general interest, such as news, sport and entertainment and are generally intended for editorial use. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "age_of_people": {
+      "type": "array",
+      "description": "Filter based on the age of individuals in an image."
+     },
+     "artists": {
+      "type": "string",
+      "description": "Search for images by specific artists (free-text, comma-separated list of artists)."
+     },
+     "collection_codes": {
+      "type": "array",
+      "description": "Filter by collections (comma-separated list of collection codes). Include or exclude based on collections_filter_type."
+     },
+     "collections_filter_type": {
+      "type": "string",
+      "description": "Use to include or exclude collections from search. The default is include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "compositions": {
+      "type": "array",
+      "description": "Filter based on image composition."
+     },
+     "date_from": {
+      "type": "string",
+      "description": "Return only images that are created on or after this date. Use ISO 8601 format (e.g., 1999-12-31)."
+     },
+     "date_to": {
+      "type": "string",
+      "description": "Return only images that are created on or before this date. Use ISO 8601 format (e.g., 1999-12-31)."
+     },
+     "download_product": {
+      "type": "string",
+      "description": "Filters based on which product the asset will download against. Allowed values are easyaccess, editorialsubscription, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the download_product value woul"
+     },
+     "editorial_segments": {
+      "type": "array",
+      "description": "Return only events with a matching editorial segment."
+     },
+     "embed_content_only": {
+      "type": "boolean",
+      "description": "Restrict search results to embeddable images. The default is false."
+     },
+     "ethnicity": {
+      "type": "array",
+      "description": "Filter search results based on the ethnicity of individuals in an image."
+     },
+     "event_ids": {
+      "type": "array",
+      "description": "Filter based on specific events"
+     },
+     "exclude_keyword_ids": {
+      "type": "array",
+      "description": "Return only images not tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also do not contain the requested keyword(s) are returned."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes, height, and width returned by 'download_sizes' field are estimates."
+     },
+     "file_types": {
+      "type": "array",
+      "description": "Return only images having a specific file type."
+     },
+     "graphical_styles": {
+      "type": "array",
+      "description": "Filter based on graphical style of the image."
+     },
+     "graphical_styles_filter_type": {
+      "type": "string",
+      "description": "Provides searching based on specified graphical style(s). The default is include.",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "include_related_searches": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include related searches in the response. The default is false."
+     },
+     "keyword_ids": {
+      "type": "array",
+      "description": "Return only images tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those images matching the query phrase which also contain the requested keyword(s) are returned."
+     },
+     "minimum_size": {
+      "type": "string",
+      "description": "Filter based on minimum size requested. The default is x-small.",
+      "enum": [
+       "x_small",
+       "small",
+       "medium",
+       "large",
+       "x_large",
+       "xx_large",
+       "vector"
+      ]
+     },
+     "number_of_people": {
+      "type": "array",
+      "description": "Filter based on the number of people in the image."
+     },
+     "orientations": {
+      "type": "array",
+      "description": "Return only images with selected aspect ratios."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of images to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Search images using a search phrase."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Select sort order of results. The default is best_match",
+      "enum": [
+       "best_match",
+       "most_popular",
+       "newest",
+       "oldest",
+       "random"
+      ]
+     },
+     "specific_people": {
+      "type": "array",
+      "description": "Return only images associated with specific people (using a comma-delimited list)."
+     },
+     "minimum_quality_rank": {
+      "type": "integer",
+      "description": "Filter search results based on minimum quality ranking. Possible values 1, 2, 3 with 1 being best."
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/images/editorial",
+    "path": [],
+    "query": [
+     "age_of_people",
+     "artists",
+     "collection_codes",
+     "collections_filter_type",
+     "compositions",
+     "date_from",
+     "date_to",
+     "download_product",
+     "editorial_segments",
+     "embed_content_only",
+     "ethnicity",
+     "event_ids",
+     "exclude_keyword_ids",
+     "fields",
+     "file_types",
+     "graphical_styles",
+     "graphical_styles_filter_type",
+     "include_related_searches",
+     "keyword_ids",
+     "minimum_size",
+     "number_of_people",
+     "orientations",
+     "page",
+     "page_size",
+     "phrase",
+     "sort_order",
+     "specific_people",
+     "minimum_quality_rank",
+     "facet_fields",
+     "include_facets",
+     "facet_max_count"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_videos_creative",
+   "name": "Search for creative videos",
+   "description": "Use this endpoint to search premium stock video, from archival film to contemporary 4K and HD footage. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on the \"fields\" parameter (see details below). You can search with only an API key, and that will give you search results that are equivalent to doing a search on ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "age_of_people": {
+      "type": "array",
+      "description": "Provides filtering according to the age of individuals in a video."
+     },
+     "artists": {
+      "type": "string",
+      "description": "Search for videos by specific artists (free-text, comma-separated list of artists)."
+     },
+     "aspect_ratios": {
+      "type": "array",
+      "description": "Search for videos by specific aspect ratios."
+     },
+     "collection_codes": {
+      "type": "array",
+      "description": "Provides filtering by collection code."
+     },
+     "collections_filter_type": {
+      "type": "string",
+      "description": "Use to include or exclude collections from search. The default is include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "compositions": {
+      "type": "array",
+      "description": "Filter based on video composition."
+     },
+     "download_product": {
+      "type": "string",
+      "description": "Filters based on which product the asset will download against. Allowed values are easyaccess, editorialsubscription, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the download_product value woul"
+     },
+     "exclude_nudity": {
+      "type": "boolean",
+      "description": "Excludes videos containing nudity. The default is false."
+     },
+     "exclude_editorial_use_only": {
+      "type": "boolean",
+      "description": "Exclude videos that are only available for editorial (non-commercial) use. Default value is false."
+     },
+     "exclude_keyword_ids": {
+      "type": "array",
+      "description": "Return only videos not tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those videos matching the query phrase which also do not contain the requested keyword(s) are returned."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     },
+     "format_available": {
+      "type": "string",
+      "description": "Filters according to the digital video format available on a film asset.",
+      "enum": [
+       "sd",
+       "hd",
+       "4k",
+       "hd_web"
+      ]
+     },
+     "frame_rates": {
+      "type": "array",
+      "description": "Provides filtering by video frame rate (frames/second)."
+     },
+     "image_techniques": {
+      "type": "array",
+      "description": "Filter based on image technique."
+     },
+     "include_related_searches": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include related searches in the response. The default is false."
+     },
+     "keyword_ids": {
+      "type": "array",
+      "description": "Return only videos tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those videos matching the query phrase which also contain the requested keyword(s) are returned."
+     },
+     "license_models": {
+      "type": "array",
+      "description": "Specifies the video licensing model(s)."
+     },
+     "orientations": {
+      "type": "array",
+      "description": "Return only videos with selected orientations."
+     },
+     "min_clip_length": {
+      "type": "integer",
+      "description": "Provides filtering by minimum length of video clip, in seconds"
+     },
+     "max_clip_length": {
+      "type": "integer",
+      "description": "Provides filtering by maximum length of video, in seconds"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Free-text search query."
+     },
+     "safe_search": {
+      "type": "boolean",
+      "description": "Setting safe_search to \"true\" excludes images containing nudity, death, profanity, drugs and alcohol, suggestive content, and graphic content from the result set. The default is false. Because this is a keyword-based filter, it's possible that a small number of unsafe images may not be caught by the filter. Please direct feedback to your Getty Images Account or API support representative."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Select sort order of results. The default is best_match",
+      "enum": [
+       "best_match",
+       "most_popular",
+       "newest",
+       "random"
+      ]
+     },
+     "release_status": {
+      "type": "string",
+      "description": "Allows filtering by type of model release.",
+      "enum": [
+       "release_not_important",
+       "fully_released"
+      ]
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "viewpoints": {
+      "type": "array",
+      "description": "Filter based on viewpoint."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/videos/creative",
+    "path": [],
+    "query": [
+     "age_of_people",
+     "artists",
+     "aspect_ratios",
+     "collection_codes",
+     "collections_filter_type",
+     "compositions",
+     "download_product",
+     "exclude_nudity",
+     "exclude_editorial_use_only",
+     "exclude_keyword_ids",
+     "fields",
+     "format_available",
+     "frame_rates",
+     "image_techniques",
+     "include_related_searches",
+     "keyword_ids",
+     "license_models",
+     "orientations",
+     "min_clip_length",
+     "max_clip_length",
+     "page",
+     "page_size",
+     "phrase",
+     "safe_search",
+     "sort_order",
+     "release_status",
+     "facet_fields",
+     "facet_max_count",
+     "include_facets",
+     "viewpoints"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_videos_creative_by_image",
+   "name": "Search for creative videos based on url",
+   "description": "Search for **similar creative videos** by passing an `image_url` to an uploaded image/frame grab from a video OR an `asset_id` of an asset in our catalog. All responses will have the `exclude_nudity` filter automatically applied. ## Searching by URL Before calling the search by image endpoint, an image or frame grab in JPEG format must be uploaded to `https://api.gettyimages.com/v3/search/by-image",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "asset_id": {
+      "type": "string",
+      "description": "Specifies the Getty video id to use in the search."
+     },
+     "exclude_editorial_use_only": {
+      "type": "boolean",
+      "description": "Exclude videos that are only available for editorial (non-commercial) use. Default value is false."
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     },
+     "image_url": {
+      "type": "string",
+      "description": "Specifies the location of the image to use in the search."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Request results starting at a page number (default is 1)."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Request number of images to return in each page. Default is 30, maximum page_size is 100."
+     },
+     "product_types": {
+      "type": "array",
+      "description": "Filter images to those from one of your product types. Allowed values are easyaccess, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the product_types value would be premiumaccess:1234. Product ID"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/videos/creative/by-image",
+    "path": [],
+    "query": [
+     "asset_id",
+     "exclude_editorial_use_only",
+     "facet_fields",
+     "facet_max_count",
+     "fields",
+     "image_url",
+     "include_facets",
+     "page",
+     "page_size",
+     "product_types"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_search_videos_editorial",
+   "name": "Search for editorial videos",
+   "description": "Use this endpoint to search current and archival video clips of celebrities, newsmakers, and events. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on the \"fields\" parameter (see details below). You can search with only an API key, and that will give you search results that are equivalent to doing a search on th",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "GI-Country-Code": {
+      "type": "string",
+      "description": "Receive regionally relevant search results based on the value specified. Accepts only ISO Alpha-3 country codes. The Countries operation can be used to retrieve the codes."
+     },
+     "age_of_people": {
+      "type": "array",
+      "description": "Provides filtering according to the age of individuals in a video."
+     },
+     "artists": {
+      "type": "string",
+      "description": "Search for videos by specific artists (free-text, comma-separated list of artists)."
+     },
+     "aspect_ratios": {
+      "type": "array",
+      "description": "Search for videos by specific aspect ratios."
+     },
+     "collection_codes": {
+      "type": "array",
+      "description": "Provides filtering by collection code."
+     },
+     "collections_filter_type": {
+      "type": "string",
+      "description": "Use to include or exclude collections from search. The default is include",
+      "enum": [
+       "include",
+       "exclude"
+      ]
+     },
+     "compositions": {
+      "type": "array",
+      "description": "Filter based on video composition."
+     },
+     "download_product": {
+      "type": "string",
+      "description": "Filters based on which product the asset will download against. Allowed values are easyaccess, editorialsubscription, imagepack, premiumaccess and royaltyfreesubscription. If you have more than one instance of a product, you may also include the ID of the product instance you wish to filter on. For example, some users may have more than one premiumaccess product, so the download_product value woul"
+     },
+     "editorial_video_types": {
+      "type": "array",
+      "description": "Allows filtering by types of video."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     },
+     "format_available": {
+      "type": "string",
+      "description": "Filters according to the digital video format available on a film asset.",
+      "enum": [
+       "sd",
+       "hd",
+       "4k",
+       "hd_web"
+      ]
+     },
+     "frame_rates": {
+      "type": "array",
+      "description": "Provides filtering by video frame rate (frames/second)."
+     },
+     "image_techniques": {
+      "type": "array",
+      "description": "Filter based on image technique."
+     },
+     "include_related_searches": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include related searches in the response. The default is false."
+     },
+     "keyword_ids": {
+      "type": "array",
+      "description": "Return only videos tagged with specific keyword(s). Specify using a comma-separated list of keyword Ids. If keyword Ids and phrase are both specified, only those videos matching the query phrase which also contain the requested keyword(s) are returned."
+     },
+     "min_clip_length": {
+      "type": "integer",
+      "description": "Provides filtering by minimum length of video clip, in seconds"
+     },
+     "max_clip_length": {
+      "type": "integer",
+      "description": "Provides filtering by maximum length of video clip, in seconds"
+     },
+     "orientations": {
+      "type": "array",
+      "description": "Return only videos with selected orientations."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     },
+     "phrase": {
+      "type": "string",
+      "description": "Free-text search query."
+     },
+     "sort_order": {
+      "type": "string",
+      "description": "Select sort order of results. The default is best_match",
+      "enum": [
+       "best_match",
+       "most_popular",
+       "newest",
+       "oldest",
+       "random"
+      ]
+     },
+     "specific_people": {
+      "type": "array",
+      "description": "Allows filtering by specific peoples' names."
+     },
+     "release_status": {
+      "type": "string",
+      "description": "Allows filtering by type of model release.",
+      "enum": [
+       "release_not_important",
+       "fully_released"
+      ]
+     },
+     "facet_fields": {
+      "type": "array",
+      "description": "Specifies the facets to return in the response. Facets provide additional search parameters to refine your results. The include_facets parameter must be set to \"true\" for facets to be returned."
+     },
+     "include_facets": {
+      "type": "boolean",
+      "description": "Specifies whether or not to include facets in the result set. Default is \"false\"."
+     },
+     "facet_max_count": {
+      "type": "integer",
+      "description": "Specifies the maximum number of facets to return per type. Default is 300."
+     },
+     "viewpoints": {
+      "type": "array",
+      "description": "Filter based on viewpoint."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/search/videos/editorial",
+    "path": [],
+    "query": [
+     "age_of_people",
+     "artists",
+     "aspect_ratios",
+     "collection_codes",
+     "collections_filter_type",
+     "compositions",
+     "download_product",
+     "editorial_video_types",
+     "fields",
+     "format_available",
+     "frame_rates",
+     "image_techniques",
+     "include_related_searches",
+     "keyword_ids",
+     "min_clip_length",
+     "max_clip_length",
+     "orientations",
+     "page",
+     "page_size",
+     "phrase",
+     "sort_order",
+     "specific_people",
+     "release_status",
+     "facet_fields",
+     "include_facets",
+     "facet_max_count",
+     "viewpoints"
+    ],
+    "header": [
+     "Accept-Language",
+     "GI-Country-Code"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_videos",
+   "name": "Get metadata for multiple videos by supplying multiple video ids",
+   "description": "Use this endpoint to return detailed video metadata for all the specified video ids. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on the \"fields\" parameter (see details below). You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.co",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "ids": {
+      "type": "array",
+      "description": "Specifies one or more video ids to return. Use comma delimiter when requesting multiple ids. Maximum of 100 ids."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/videos",
+    "path": [],
+    "query": [
+     "ids",
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_videos_id",
+   "name": "Get metadata for a single video by supplying one video id",
+   "description": "Use this endpoint to return detailed video metadata for the specified video id. You'll need an API key and access token to use this resource. You can show different information in the response by specifying values on the \"fields\" parameter (see details below). You can search with only an API key, and that will give you search results that are equivalent to doing a search on the GettyImages.com sit",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "A video id. For more than one video please use the /v3/video endpoint."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/videos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_videos_id_downloadhistory",
+   "name": "Returns information about a customer's download history for a specific asset",
+   "description": "Returns information about a customer's download history for a specific asset",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "A video id."
+     },
+     "company_downloads": {
+      "type": "boolean",
+      "description": "If specified, returns the list of previously downloaded videos for all users in your company. Your account must be enabled for this functionality. Contact your Getty Images account rep for more information. Default is false."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/videos/{id}/downloadhistory",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "company_downloads"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_videos_id_same_series",
+   "name": "Retrieve creative videos from the same series",
+   "description": "This endpoint will provide the list of videos, if any exist, from the same series as the specified creative asset id. These images are typically from the same photo shoot. This functionality will not work for editorial assets. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of meta",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Identifies an existing video"
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/videos/{id}/same-series",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.get_v3_videos_id_similar",
+   "name": "Retrieve similar videos",
+   "description": "This endpoint will provide a list of videos that are similar to the specified asset id. You'll need an API key and access token to use this resource. ## Working with Fields Sets Fields sets are used in the **fields** request parameter to receive a suite of metadata fields. The following fields sets are available: #### Summary Fields Set The **summary_set** query string parameter fields value repre",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "A video id."
+     },
+     "fields": {
+      "type": "array",
+      "description": "Specifies fields to return. Defaults to 'summary_set'. NOTE: Bytes returned by 'download_sizes' field is an estimate."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Identifies page to return. Default is 1."
+     },
+     "page_size": {
+      "type": "integer",
+      "description": "Specifies page size. Default is 30, maximum page_size is 100."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.gettyimages.com/v3/videos/{id}/similar",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields",
+     "page",
+     "page_size"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.post_v3_asset_licensing_assetId",
+   "name": "Endpoint for acquiring extended licenses with i stock credits for an asset",
+   "description": "Endpoint for acquiring extended licenses with iStock credits for an asset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "assetId": {
+      "type": "string",
+      "description": "Getty Images assetId - examples 520621493, 112301284"
+     },
+     "extended_licenses": {
+      "type": "array",
+      "description": ""
+     },
+     "use_team_credits": {
+      "type": "boolean",
+      "description": "Defaults to false."
+     }
+    },
+    "required": [
+     "assetId",
+     "extended_licenses"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.gettyimages.com/v3/asset-licensing/{assetId}",
+    "path": [
+     "assetId"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "extended_licenses",
+     "use_team_credits"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.post_v3_boards",
+   "name": "Create a new board",
+   "description": "Create a new board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.gettyimages.com/v3/boards",
+    "path": [],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "description",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.post_v3_boards_board_id_comments",
+   "name": "Add a comment to a board",
+   "description": "Add a comment to a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to add a comment to."
+     },
+     "text": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/comments",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "text"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.post_v3_downloads_images_id",
+   "name": "Download an image",
+   "description": "Use this endpoint to generate download URLs and related data for images you are authorized to download. Most product offerings have enforced periodic download limits such as monthly, weekly, and daily. When this operation executes, the count of allowed downloads is decremented by one for the product offering. Once the download limit is reached for a given product offering, no further downloads may",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Id of image to download."
+     },
+     "auto_download": {
+      "type": "boolean",
+      "description": "Specifies whether to auto-download the image. If true is specified, a 303 SeeOther status is returned with a Location header set to the location of the image. If false is specified, the download URI will be returned in the response message. Default is true."
+     },
+     "file_type": {
+      "type": "string",
+      "description": "File Type expressed with three character file extension.",
+      "enum": [
+       "eps",
+       "jpg"
+      ]
+     },
+     "height": {
+      "type": "string",
+      "description": "Specifies the pixel height of the particular image to download. Available heights can be found in the images/{ids} response for the specific image. If left blank, it will return the largest available size."
+     },
+     "product_id": {
+      "type": "integer",
+      "description": "Identifier of the instance for the selected product offering type."
+     },
+     "product_type": {
+      "type": "string",
+      "description": "Product types easyaccess, editorialsubscription, imagepack, and premiumaccess are for GettyImages API keys. Product types royaltyfreesubscription and creditpack are for iStock API keys. Default product type for iStock API keys is creditpack.",
+      "enum": [
+       "easyaccess",
+       "editorialsubscription",
+       "imagepack",
+       "premiumaccess",
+       "royaltyfreesubscription",
+       "creditpack"
+      ]
+     },
+     "use_team_credits": {
+      "type": "boolean",
+      "description": "Specifies whether to download the image with iStock Team Credits. Only applicable to iStock API keys authenticated with a user that has Team Credits. Blank is the same as False."
+     },
+     "download_notes": {
+      "type": "string",
+      "description": ""
+     },
+     "project_code": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.gettyimages.com/v3/downloads/images/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "auto_download",
+     "file_type",
+     "height",
+     "product_id",
+     "product_type",
+     "use_team_credits"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "download_notes",
+     "project_code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.post_v3_downloads_videos_id",
+   "name": "Download a video",
+   "description": "Use this endpoint to generate download URLs and related data for videos you are authorized to download. Most product offerings have enforced periodic download limits such as monthly, weekly, and daily. When this operation executes, the count of allowed downloads is decremented by one for the product offering. Once the download limit is reached for a given product offering, no further downloads may",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "id": {
+      "type": "string",
+      "description": "Id of video to download."
+     },
+     "auto_download": {
+      "type": "boolean",
+      "description": "Specifies whether to auto-download the video. If true is specified, a 303 SeeOther status is returned with a Location header set to the location of the video. If false is specified, the download URI will be returned in the response message. Default is false."
+     },
+     "size": {
+      "type": "string",
+      "description": "Specifies the size to be downloaded."
+     },
+     "product_id": {
+      "type": "integer",
+      "description": "Identifier of the instance for the selected product offering type."
+     },
+     "product_type": {
+      "type": "string",
+      "description": "Product types easyaccess, editorialsubscription, imagepack, and premiumaccess are for GettyImages API keys. Product types royaltyfreesubscription and creditpack are for iStock API keys. Default product type for iStock API keys is creditpack.",
+      "enum": [
+       "easyaccess",
+       "editorialsubscription",
+       "imagepack",
+       "premiumaccess",
+       "royaltyfreesubscription",
+       "creditpack"
+      ]
+     },
+     "use_team_credits": {
+      "type": "boolean",
+      "description": "Specifies whether to download the image with iStock Team Credits. Only applicable to iStock API keys authenticated with a user that has Team Credits. Blank is the same as False."
+     },
+     "download_notes": {
+      "type": "string",
+      "description": ""
+     },
+     "project_code": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.gettyimages.com/v3/downloads/videos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "auto_download",
+     "size",
+     "product_id",
+     "product_type",
+     "use_team_credits"
+    ],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "download_notes",
+     "project_code"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_asset_changes_change_sets",
+   "name": "Get asset change notifications",
+   "description": "# Asset Changes Get notifications about new, updated or deleted assets for a specific channel. ## Quickstart You'll need an API key and an access token to use this resource. Maximum batch size is 2200. Change-sets must be confirmed before a new batch of notifications can be retrieved from this endpoint. Use the DELETE asset-changes/change-sets/{change-set-id} endpoint to confirm reciept of these n",
+   "input": {
+    "type": "object",
+    "properties": {
+     "channel_id": {
+      "type": "integer",
+      "description": "Specifies the id of the channel for the asset data. Valid channel ids can be found in the results of the Get Partner Channel query."
+     },
+     "batch_size": {
+      "type": "integer",
+      "description": "Specifies the number of assets to return. The default is 2200; maximum is 2200."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/asset-changes/change-sets",
+    "path": [],
+    "query": [
+     "channel_id",
+     "batch_size"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_boards_board_id",
+   "name": "Update a board",
+   "description": "Update a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to update."
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "board_id",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [
+     "description",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_boards_board_id_assets",
+   "name": "Add assets to a board",
+   "description": "Add assets to a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to add assets to."
+     }
+    },
+    "required": [
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/assets",
+    "path": [
+     "board_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_boards_board_id_assets_asset_id",
+   "name": "Add an asset to a board",
+   "description": "Add an asset to a board",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Accept-Language": {
+      "type": "string",
+      "description": "Provide a header to specify the language of result values. Supported values: cs (iStock only), de, en-GB, en-US, es, fi (iStock only), fr, hu (iStock only), id (iStock only), it, ja, ko (creative assets only), nl, pl (creative assets only), pt-BR, pt-PT, ro (iStock only), ru (creative assets only), sv, th (iStock only), tr, uk (iStock only), vi (iStock only), zh-HK (creative assets only)."
+     },
+     "board_id": {
+      "type": "string",
+      "description": "Specify the board to add an asset to."
+     },
+     "asset_id": {
+      "type": "string",
+      "description": "Specify the asset to add to the board. If it is already in the board's asset collection, no action is taken."
+     }
+    },
+    "required": [
+     "asset_id",
+     "board_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/boards/{board_id}/assets/{asset_id}",
+    "path": [
+     "board_id",
+     "asset_id"
+    ],
+    "query": [],
+    "header": [
+     "Accept-Language"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_search_by_image_uploads_file_name",
+   "name": "Upload image for use by the search creative images videos operations",
+   "description": "Upload image for use by the search creative images/videos operations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file-name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file-name"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/search/by-image/uploads/{file-name}",
+    "path": [
+     "file-name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "getty-images.put_v3_usage_batches_id",
+   "name": "Report usage of assets via a batch format",
+   "description": "# Report Usage Use this endpoint to report the usages of a set of assets. The count of assets submitted in a single batch to this endpoint is limited to 1000. Note that all asset Ids specified must be valid or the operation will fail causing no usages to be recorded. In this case, you will need to remove the invalid asset Ids from the query request and re-submit the query. ## Quickstart You'll nee",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Specifies a unique batch transaction id to identify the report."
+     },
+     "asset_usages": {
+      "type": "array",
+      "description": "Identifies the list of asset id, usage count and date of usage combinations to record."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.gettyimages.com/v3/usage-batches/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "asset_usages"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

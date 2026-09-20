@@ -1,0 +1,665 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "elevenlabs",
+ "source": "https://api.apis.guru/v2/specs/elevenlabs.io/1.0/openapi.json",
+ "operations": [
+  {
+   "slug": "elevenlabs.add_voice_v1_voices_add_post",
+   "name": "Add voice",
+   "description": "Add a new voice to your collection of voices in VoiceLab.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "description": {
+      "type": "string",
+      "description": "How would you describe the voice?"
+     },
+     "files": {
+      "type": "array",
+      "description": "One or more audio files to clone the voice from"
+     },
+     "labels": {
+      "type": "string",
+      "description": "Serialized labels dictionary for the voice."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name that identifies this voice. This will be displayed in the dropdown of the website."
+     }
+    },
+    "required": [
+     "files",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/voices/add",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "description",
+     "files",
+     "labels",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.delete_history_item_v1_history_history_item_id_delete",
+   "name": "Delete history item",
+   "description": "Delete a history item by its ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "history_item_id": {
+      "type": "string",
+      "description": "History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "history_item_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.elevenlabs.io/v1/history/{history_item_id}",
+    "path": [
+     "history_item_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.delete_sample_v1_voices_voice_id_samples_sample_id_delete",
+   "name": "Delete sample",
+   "description": "Removes a sample by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "sample_id": {
+      "type": "string",
+      "description": "Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "sample_id",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}/samples/{sample_id}",
+    "path": [
+     "voice_id",
+     "sample_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.delete_voice_v1_voices_voice_id_delete",
+   "name": "Delete voice",
+   "description": "Deletes a voice by its ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.download_history_items_v1_history_download_post",
+   "name": "Download history items",
+   "description": "Download one or more history items. If one history item ID is provided, we will return a single audio file. If more than one history item IDs are provided, we will provide the history items packed into a .zip file.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "history_item_ids": {
+      "type": "array",
+      "description": "A list of history items to download, you can get IDs of history items and other metadata using the GET https://api.elevenlabs.io/v1/history endpoint."
+     }
+    },
+    "required": [
+     "history_item_ids"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/history/download",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "history_item_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.edit_voice_settings_v1_voices_voice_id_settings_edit_post",
+   "name": "Edit voice settings",
+   "description": "Edit your settings for a specific voice. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "similarity_boost": {
+      "type": "number",
+      "description": ""
+     },
+     "stability": {
+      "type": "number",
+      "description": ""
+     }
+    },
+    "required": [
+     "similarity_boost",
+     "stability",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}/settings/edit",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "similarity_boost",
+     "stability"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.edit_voice_v1_voices_voice_id_edit_post",
+   "name": "Edit voice",
+   "description": "Edit a voice created by you.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "description": {
+      "type": "string",
+      "description": "How would you describe the voice?"
+     },
+     "files": {
+      "type": "array",
+      "description": "Audio files to add to the voice"
+     },
+     "labels": {
+      "type": "string",
+      "description": "Serialized labels dictionary for the voice."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name that identifies this voice. This will be displayed in the dropdown of the website."
+     }
+    },
+    "required": [
+     "name",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}/edit",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "description",
+     "files",
+     "labels",
+     "name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_audio_from_history_item_v1_history_history_item_id_audio_get",
+   "name": "Get audio from history item",
+   "description": "Returns the audio of an history item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "history_item_id": {
+      "type": "string",
+      "description": "History item ID to be used, you can use GET https://api.elevenlabs.io/v1/history to receive a list of history items and their IDs."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "history_item_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/history/{history_item_id}/audio",
+    "path": [
+     "history_item_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_audio_from_sample_v1_voices_voice_id_samples_sample_id_audio_get",
+   "name": "Get audio from sample",
+   "description": "Returns the audio corresponding to a sample attached to a voice.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "sample_id": {
+      "type": "string",
+      "description": "Sample ID to be used, you can use GET https://api.elevenlabs.io/v1/voices/{voice_id} to list all the available samples for a voice."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "sample_id",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}/samples/{sample_id}/audio",
+    "path": [
+     "voice_id",
+     "sample_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_default_voice_settings_v1_voices_settings_default_get",
+   "name": "Get default voice settings",
+   "description": "Gets the default settings for voices. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/voices/settings/default",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_generated_items_v1_history_get",
+   "name": "Get generated items",
+   "description": "Returns metadata about all your generated audio.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/history",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_user_info_v1_user_get",
+   "name": "Get user info",
+   "description": "Gets information about the user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/user",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_user_subscription_info_v1_user_subscription_get",
+   "name": "Get user subscription info",
+   "description": "Gets extended information about the users subscription",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/user/subscription",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_voice_settings_v1_voices_voice_id_settings_get",
+   "name": "Get voice settings",
+   "description": "Returns the settings for a specific voice. \"similarity_boost\" corresponds to\"Clarity + Similarity Enhancement\" in the web app and \"stability\" corresponds to \"Stability\" slider in the web app.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}/settings",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_voice_v1_voices_voice_id_get",
+   "name": "Get voice",
+   "description": "Returns metadata about a specific voice.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "with_settings": {
+      "type": "boolean",
+      "description": "If set will return settings information corresponding to the voice, requires authorization."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": [
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/voices/{voice_id}",
+    "path": [
+     "voice_id"
+    ],
+    "query": [
+     "with_settings"
+    ],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.get_voices_v1_voices_get",
+   "name": "Get voices",
+   "description": "Gets a list of all available voices for a user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.elevenlabs.io/v1/voices",
+    "path": [],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.text_to_speech_v1_text_to_speech_voice_id_post",
+   "name": "Text to speech",
+   "description": "Converts text into speech using a voice of your choice and returns audio.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "text": {
+      "type": "string",
+      "description": "The text that will get converted into speech. Currently only English text is supported."
+     },
+     "voice_settings": {
+      "type": "object",
+      "description": "Voice settings overriding stored setttings for the given voice. They are applied only on the given TTS request."
+     }
+    },
+    "required": [
+     "text",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "text",
+     "voice_settings"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "elevenlabs.text_to_speech_v1_text_to_speech_voice_id_stream_post",
+   "name": "Text to speech",
+   "description": "Converts text into speech using a voice of your choice and returns audio as an audio stream.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "voice_id": {
+      "type": "string",
+      "description": "Voice ID to be used, you can use https://api.elevenlabs.io/v1/voices to list all the available voices."
+     },
+     "xi-api-key": {
+      "type": "string",
+      "description": "Your API key. This is required by most endpoints to access our API programatically. You can view your xi-api-key using the 'Profile' tab on the website."
+     },
+     "text": {
+      "type": "string",
+      "description": "The text that will get converted into speech. Currently only English text is supported."
+     },
+     "voice_settings": {
+      "type": "object",
+      "description": "Voice settings overriding stored setttings for the given voice. They are applied only on the given TTS request."
+     }
+    },
+    "required": [
+     "text",
+     "voice_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/stream",
+    "path": [
+     "voice_id"
+    ],
+    "query": [],
+    "header": [
+     "xi-api-key"
+    ],
+    "body": [
+     "text",
+     "voice_settings"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

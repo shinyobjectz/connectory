@@ -409,16 +409,40 @@ def build(slug, provider, spec_ref):
             },
             f,
             indent=1,
+            # YAML turns an unquoted 2024-01-01 in a vendor's example into a date object.
+            default=str,
         )
         f.write("\n")
 
     return ops
 
 
+def owners(s):
+    """One pack per description, not one per credential.
+
+    A registry lists `microsoft`, `microsoft-admin`, `microsoft-ads` and two more because they
+    authenticate differently — but they are all Microsoft Graph, and writing the same seventeen
+    megabytes five times is eighty-three megabytes of nothing. So the shortest slug owns the
+    pack and the rest record where their operations live. The credential that made them
+    separate entries is in the directory, where it was all along.
+    """
+    by_url = {}
+    for slug, ref in s.items():
+        by_url.setdefault(ref["url"], []).append(slug)
+
+    owner_of = {}
+    for url, slugs in by_url.items():
+        owner = sorted(slugs, key=lambda x: (len(x), x))[0]
+        for slug in slugs:
+            owner_of[slug] = owner
+    return owner_of
+
+
 def main():
     only = set(sys.argv[1:])
     d = directory()
     s = specs()
+    owner_of = owners(s)
     total = 0
 
     for slug, spec_ref in sorted(s.items()):
@@ -426,6 +450,24 @@ def main():
             continue
         provider = d.get(slug)
         if not provider:
+            continue
+
+        owner = owner_of.get(slug, slug)
+        if owner != slug:
+            folder = os.path.join(OUT, slug)
+            os.makedirs(folder, exist_ok=True)
+            for stale in ("%s.lua" % slug, "index.json"):
+                path = os.path.join(folder, stale)
+                if os.path.exists(path):
+                    os.remove(path)
+            with open(os.path.join(folder, "alias.json"), "w") as f:
+                json.dump({
+                    "_": "This platform is the same API as another, reached with a different credential.",
+                    "provider": slug,
+                    "operations_from": owner,
+                }, f, indent=1)
+                f.write("\n")
+            print("%-26s → %s" % (slug, owner))
             continue
         try:
             ops = build(slug, provider, spec_ref)

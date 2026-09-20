@@ -1,0 +1,3054 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "google",
+ "source": "https://api.apis.guru/v2/specs/googleapis.com/ml/v1/openapi.json",
+ "operations": [
+  {
+   "slug": "google.ml_projects_explain",
+   "name": "Ml projects explain",
+   "description": "Performs explanation on the data in the request. {% dynamic include \"/ai-platform/includes/___explain-request\" %}",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The resource name of a model or a version. Authorization: requires the `predict` permission on the specified resource."
+     },
+     "httpBody": {
+      "type": "object",
+      "description": "Message that represents an arbitrary HTTP body. It should only be used for payload formats that can't be represented as JSON, such as raw binary or an HTML page. This message can be used both in streaming and non-streaming API methods in the request as well as the response. It can be used as a top-level request field, which is convenient if one wants to extract parameters from either the URL or HT"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:explain",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "httpBody"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_get_config",
+   "name": "Ml projects get config",
+   "description": "Get the service account information associated with your project. You need this information in order to grant the service account permissions for the Google Cloud Storage location where you put your model training code for training the model with Google Cloud Machine Learning.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The project name."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{name}:getConfig",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_jobs_create",
+   "name": "Ml projects jobs create",
+   "description": "Creates a training or a batch prediction job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The project name."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. When the job was created."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Output only. When the job processing was completed."
+     },
+     "errorMessage": {
+      "type": "string",
+      "description": "Output only. The details of a failure or a cancellation."
+     },
+     "etag": {
+      "type": "string",
+      "description": "`etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a job from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform job updates in order to avoid race conditions: An `etag` is returned in the response to `GetJob`, and systems are expected to put that etag in the request to `Upda"
+     },
+     "jobId": {
+      "type": "string",
+      "description": "Required. The user-specified id of the job."
+     },
+     "jobPosition": {
+      "type": "string",
+      "description": "Output only. It's only effect when the job is in QUEUED state. If it's positive, it indicates the job's position in the job scheduler. It's 0 when the job is already scheduled."
+     },
+     "labels": {
+      "type": "object",
+      "description": "Optional. One or more labels that you can add, to organize your jobs. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels."
+     },
+     "predictionInput": {
+      "type": "object",
+      "description": "Represents input parameters for a prediction job."
+     },
+     "predictionOutput": {
+      "type": "object",
+      "description": "Represents results of a prediction job."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Output only. When the job processing was started."
+     },
+     "state": {
+      "type": "string",
+      "description": "Output only. The detailed state of a job.",
+      "enum": [
+       "STATE_UNSPECIFIED",
+       "QUEUED",
+       "PREPARING",
+       "RUNNING",
+       "SUCCEEDED",
+       "FAILED",
+       "CANCELLING",
+       "CANCELLED"
+      ]
+     },
+     "trainingInput": {
+      "type": "object",
+      "description": "Represents input parameters for a training job. When using the gcloud command to submit your training job, you can specify the input parameters as command-line arguments and/or in a YAML configuration file referenced from the --config command-line argument. For details, see the guide to [submitting a training job](/ai-platform/training/docs/training-jobs)."
+     },
+     "trainingOutput": {
+      "type": "object",
+      "description": "Represents results of a training job. Output only."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/jobs",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "createTime",
+     "endTime",
+     "errorMessage",
+     "etag",
+     "jobId",
+     "jobPosition",
+     "labels",
+     "predictionInput",
+     "predictionOutput",
+     "startTime",
+     "state",
+     "trainingInput",
+     "trainingOutput"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_jobs_list",
+   "name": "Ml projects jobs list",
+   "description": "Lists the jobs in the project. If there are no jobs that match the request parameters, the list request returns an empty response body: {}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the project for which to list jobs."
+     },
+     "filter": {
+      "type": "string",
+      "description": "Optional. Specifies the subset of jobs to retrieve. You can filter on the value of one or more attributes of the job object. For example, retrieve jobs with a job identifier that starts with 'census': gcloud ai-platform jobs list --filter='jobId:census*' List all failed jobs with names that start with 'rnn': gcloud ai-platform jobs list --filter='jobId:rnn* AND state:FAILED' For more examples, see"
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The number of jobs to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. A page token to request the next page of results. You get the token from the `next_page_token` field of the response from the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/jobs",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "filter",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_list",
+   "name": "Ml projects locations list",
+   "description": "List all locations that provides at least one type of CMLE capability.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the project for which available locations are to be listed (since some locations might be whitelisted for specific projects)."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The number of locations to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. A page token to request the next page of results. You get the token from the `next_page_token` field of the response from the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/locations",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_create",
+   "name": "Ml projects locations studies create",
+   "description": "Creates a study.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The project and location that the study belongs to. Format: projects/{project}/locations/{location}"
+     },
+     "studyId": {
+      "type": "string",
+      "description": "Required. The ID to use for the study, which will become the final component of the study's resource name."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. Time at which the study was created."
+     },
+     "inactiveReason": {
+      "type": "string",
+      "description": "Output only. A human readable reason why the Study is inactive. This should be empty if a study is ACTIVE or COMPLETED."
+     },
+     "name": {
+      "type": "string",
+      "description": "Output only. The name of a study."
+     },
+     "state": {
+      "type": "string",
+      "description": "Output only. The detailed state of a study.",
+      "enum": [
+       "STATE_UNSPECIFIED",
+       "ACTIVE",
+       "INACTIVE",
+       "COMPLETED"
+      ]
+     },
+     "studyConfig": {
+      "type": "object",
+      "description": "Represents configuration of a study."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/studies",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "studyId"
+    ],
+    "header": [],
+    "body": [
+     "createTime",
+     "inactiveReason",
+     "name",
+     "state",
+     "studyConfig"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_list",
+   "name": "Ml projects locations studies list",
+   "description": "Lists all the studies in a region for an associated project.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The project and location that the study belongs to. Format: projects/{project}/locations/{location}"
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/studies",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_add_measurement",
+   "name": "Ml projects locations studies trials add measurement",
+   "description": "Adds a measurement of the objective metrics to a trial. This measurement is assumed to have been taken before the trial is complete.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The trial name."
+     },
+     "measurement": {
+      "type": "object",
+      "description": "A message representing a measurement."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:addMeasurement",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "measurement"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_check_early_stopping_state",
+   "name": "Ml projects locations studies trials check early stopping state",
+   "description": "Checks whether a trial should stop or not. Returns a long-running operation. When the operation is successful, it will contain a CheckTrialEarlyStoppingStateResponse.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The trial name."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:checkEarlyStoppingState",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_complete",
+   "name": "Ml projects locations studies trials complete",
+   "description": "Marks a trial as complete.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The trial name.metat"
+     },
+     "finalMeasurement": {
+      "type": "object",
+      "description": "A message representing a measurement."
+     },
+     "infeasibleReason": {
+      "type": "string",
+      "description": "Optional. A human readable reason why the trial was infeasible. This should only be provided if `trial_infeasible` is true."
+     },
+     "trialInfeasible": {
+      "type": "boolean",
+      "description": "Optional. True if the trial cannot be run with the given Parameter, and final_measurement will be ignored."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:complete",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "finalMeasurement",
+     "infeasibleReason",
+     "trialInfeasible"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_create",
+   "name": "Ml projects locations studies trials create",
+   "description": "Adds a user provided trial to a study.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the study that the trial belongs to."
+     },
+     "clientId": {
+      "type": "string",
+      "description": "Output only. The identifier of the client that originally requested this trial."
+     },
+     "endTime": {
+      "type": "string",
+      "description": "Output only. Time at which the trial's status changed to COMPLETED."
+     },
+     "finalMeasurement": {
+      "type": "object",
+      "description": "A message representing a measurement."
+     },
+     "infeasibleReason": {
+      "type": "string",
+      "description": "Output only. A human readable string describing why the trial is infeasible. This should only be set if trial_infeasible is true."
+     },
+     "measurements": {
+      "type": "array",
+      "description": "A list of measurements that are strictly lexicographically ordered by their induced tuples (steps, elapsed_time). These are used for early stopping computations."
+     },
+     "name": {
+      "type": "string",
+      "description": "Output only. Name of the trial assigned by the service."
+     },
+     "parameters": {
+      "type": "array",
+      "description": "The parameters of the trial."
+     },
+     "startTime": {
+      "type": "string",
+      "description": "Output only. Time at which the trial was started."
+     },
+     "state": {
+      "type": "string",
+      "description": "The detailed state of a trial.",
+      "enum": [
+       "STATE_UNSPECIFIED",
+       "REQUESTED",
+       "ACTIVE",
+       "COMPLETED",
+       "STOPPING"
+      ]
+     },
+     "trialInfeasible": {
+      "type": "boolean",
+      "description": "Output only. If true, the parameters in this trial are not attempted again."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/trials",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "clientId",
+     "endTime",
+     "finalMeasurement",
+     "infeasibleReason",
+     "measurements",
+     "name",
+     "parameters",
+     "startTime",
+     "state",
+     "trialInfeasible"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_list",
+   "name": "Ml projects locations studies trials list",
+   "description": "Lists the trials associated with a study.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the study that the trial belongs to."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/trials",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_list_optimal_trials",
+   "name": "Ml projects locations studies trials list optimal trials",
+   "description": "Lists the pareto-optimal trials for multi-objective study or the optimal trials for single-objective study. The definition of pareto-optimal can be checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the study that the pareto-optimal trial belongs to."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/trials:listOptimalTrials",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_stop",
+   "name": "Ml projects locations studies trials stop",
+   "description": "Stops a trial.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The trial name."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:stop",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_locations_studies_trials_suggest",
+   "name": "Ml projects locations studies trials suggest",
+   "description": "Adds one or more trials to a study, with parameter values suggested by AI Platform Vizier. Returns a long-running operation associated with the generation of trial suggestions. When this long-running operation succeeds, it will contain a SuggestTrialsResponse.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the study that the trial belongs to."
+     },
+     "clientId": {
+      "type": "string",
+      "description": "Required. The identifier of the client that is requesting the suggestion. If multiple SuggestTrialsRequests have the same `client_id`, the service will return the identical suggested trial if the trial is pending, and provide a new trial if the last suggested trial was completed."
+     },
+     "suggestionCount": {
+      "type": "integer",
+      "description": "Required. The number of suggestions requested."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/trials:suggest",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "clientId",
+     "suggestionCount"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_create",
+   "name": "Ml projects models create",
+   "description": "Creates a model which will later contain one or more versions. You must add at least one version before you can request predictions from the model. Add versions by calling projects.models.versions.create.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The project name."
+     },
+     "defaultVersion": {
+      "type": "object",
+      "description": "Represents a version of the model. Each version is a trained model deployed in the cloud, ready to handle prediction requests. A model can have multiple versions. You can get information about all of the versions of a given model by calling projects.models.versions.list."
+     },
+     "description": {
+      "type": "string",
+      "description": "Optional. The description specified for the model when it was created."
+     },
+     "etag": {
+      "type": "string",
+      "description": "`etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a model from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform model updates in order to avoid race conditions: An `etag` is returned in the response to `GetModel`, and systems are expected to put that etag in the request to"
+     },
+     "labels": {
+      "type": "object",
+      "description": "Optional. One or more labels that you can add, to organize your models. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels. Note that this field is not updatable for mls1* models."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name specified for the model when it was created. The model name must be unique within the project it is created in."
+     },
+     "onlinePredictionConsoleLogging": {
+      "type": "boolean",
+      "description": "Optional. If true, online prediction nodes send `stderr` and `stdout` streams to Cloud Logging. These can be more verbose than the standard access logs (see `onlinePredictionLogging`) and can incur higher cost. However, they are helpful for debugging. Note that [logs may incur a cost](/stackdriver/pricing), especially if your project receives prediction requests at a high QPS. Estimate your costs "
+     },
+     "onlinePredictionLogging": {
+      "type": "boolean",
+      "description": "Optional. If true, online prediction access logs are sent to Cloud Logging. These logs are like standard server access logs, containing information like timestamp and latency for each request. Note that [logs may incur a cost](/stackdriver/pricing), especially if your project receives prediction requests at a high queries per second rate (QPS). Estimate your costs before enabling this option. Defa"
+     },
+     "regions": {
+      "type": "array",
+      "description": "Optional. The list of regions where the model is going to be deployed. Only one region per model is supported. Defaults to 'us-central1' if nothing is set. See the available regions for AI Platform services. Note: * No matter where a model is deployed, it can always be accessed by users from anywhere, both for online and batch prediction. * The region for a batch prediction job is set by the regio"
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/models",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "defaultVersion",
+     "description",
+     "etag",
+     "labels",
+     "name",
+     "onlinePredictionConsoleLogging",
+     "onlinePredictionLogging",
+     "regions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_get_iam_policy",
+   "name": "Ml projects models get iam policy",
+   "description": "Gets the access control policy for a resource. Returns an empty policy if the resource exists and does not have a policy set.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "resource": {
+      "type": "string",
+      "description": "REQUIRED: The resource for which the policy is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field."
+     },
+     "options.requestedPolicyVersion": {
+      "type": "integer",
+      "description": "Optional. The maximum policy version that will be used to format the policy. Valid values are 0, 1, and 3. Requests specifying an invalid value will be rejected. Requests for policies with any conditional role bindings must specify version 3. Policies with no conditional role bindings may specify any valid value or leave the field unset. The policy in the response might use the policy version that"
+     }
+    },
+    "required": [
+     "resource"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{resource}:getIamPolicy",
+    "path": [
+     "resource"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "options.requestedPolicyVersion"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_list",
+   "name": "Ml projects models list",
+   "description": "Lists the models in a project. Each project can contain multiple models, and each model can have multiple versions. If there are no models that match the request parameters, the list request returns an empty response body: {}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the project whose models are to be listed."
+     },
+     "filter": {
+      "type": "string",
+      "description": "Optional. Specifies the subset of models to retrieve."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The number of models to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. A page token to request the next page of results. You get the token from the `next_page_token` field of the response from the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/models",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "filter",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_set_iam_policy",
+   "name": "Ml projects models set iam policy",
+   "description": "Sets the access control policy on the specified resource. Replaces any existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "resource": {
+      "type": "string",
+      "description": "REQUIRED: The resource for which the policy is being specified. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field."
+     },
+     "policy": {
+      "type": "object",
+      "description": "An Identity and Access Management (IAM) policy, which specifies access controls for Google Cloud resources. A `Policy` is a collection of `bindings`. A `binding` binds one or more `members`, or principals, to a single `role`. Principals can be user accounts, service accounts, Google groups, and domains (such as G Suite). A `role` is a named list of permissions; each `role` can be an IAM predefined"
+     },
+     "updateMask": {
+      "type": "string",
+      "description": "OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only the fields in the mask will be modified. If no mask is provided, the following default mask is used: `paths: \"bindings, etag\"`"
+     }
+    },
+    "required": [
+     "resource"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{resource}:setIamPolicy",
+    "path": [
+     "resource"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "policy",
+     "updateMask"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_test_iam_permissions",
+   "name": "Ml projects models test iam permissions",
+   "description": "Returns permissions that a caller has on the specified resource. If the resource does not exist, this will return an empty set of permissions, not a `NOT_FOUND` error. Note: This operation is designed to be used for building permission-aware UIs and command-line tools, not for authorization checking. This operation may \"fail open\" without warning.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "resource": {
+      "type": "string",
+      "description": "REQUIRED: The resource for which the policy detail is being requested. See [Resource names](https://cloud.google.com/apis/design/resource_names) for the appropriate value for this field."
+     },
+     "permissions": {
+      "type": "array",
+      "description": "The set of permissions to check for the `resource`. Permissions with wildcards (such as `*` or `storage.*`) are not allowed. For more information see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions)."
+     }
+    },
+    "required": [
+     "resource"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{resource}:testIamPermissions",
+    "path": [
+     "resource"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "permissions"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_versions_create",
+   "name": "Ml projects models versions create",
+   "description": "Creates a new version of a model from a trained TensorFlow model. If the version created in the cloud by this call is the first deployed version of the specified model, it will be made the default version of the model. When you add a version to a model that already has one or more versions, the default version does not automatically change. If you want a new version to be the default, you must cal",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the model."
+     },
+     "acceleratorConfig": {
+      "type": "object",
+      "description": "Represents a hardware accelerator request config. Note that the AcceleratorConfig can be used in both Jobs and Versions. Learn more about [accelerators for training](/ml-engine/docs/using-gpus) and [accelerators for online prediction](/ml-engine/docs/machine-types-online-prediction#gpus)."
+     },
+     "autoScaling": {
+      "type": "object",
+      "description": "Options for automatically scaling a model."
+     },
+     "container": {
+      "type": "object",
+      "description": "Specification of a custom container for serving predictions. This message is a subset of the [Kubernetes Container v1 core specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#container-v1-core)."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. The time the version was created."
+     },
+     "deploymentUri": {
+      "type": "string",
+      "description": "The Cloud Storage URI of a directory containing trained model artifacts to be used to create the model version. See the [guide to deploying models](/ai-platform/prediction/docs/deploying-models) for more information. The total number of files under this directory must not exceed 1000. During projects.models.versions.create, AI Platform Prediction copies all files from the specified directory to a "
+     },
+     "description": {
+      "type": "string",
+      "description": "Optional. The description specified for the version when it was created."
+     },
+     "errorMessage": {
+      "type": "string",
+      "description": "Output only. The details of a failure or a cancellation."
+     },
+     "etag": {
+      "type": "string",
+      "description": "`etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a model from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform model updates in order to avoid race conditions: An `etag` is returned in the response to `GetVersion`, and systems are expected to put that etag in the request "
+     },
+     "explanationConfig": {
+      "type": "object",
+      "description": "Message holding configuration options for explaining model predictions. There are three feature attribution methods supported for TensorFlow models: integrated gradients, sampled Shapley, and XRAI. [Learn more about feature attributions.](/ai-platform/prediction/docs/ai-explanations/overview)"
+     },
+     "framework": {
+      "type": "string",
+      "description": "Optional. The machine learning framework AI Platform uses to train this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`, `XGBOOST`. If you do not specify a framework, AI Platform will analyze files in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version of the model to 1.4 or greater. Do **not** specify a ",
+      "enum": [
+       "FRAMEWORK_UNSPECIFIED",
+       "TENSORFLOW",
+       "SCIKIT_LEARN",
+       "XGBOOST"
+      ]
+     },
+     "isDefault": {
+      "type": "boolean",
+      "description": "Output only. If true, this version will be used to handle prediction requests that do not specify a version. You can change the default version by calling projects.methods.versions.setDefault."
+     },
+     "labels": {
+      "type": "object",
+      "description": "Optional. One or more labels that you can add, to organize your model versions. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels. Note that this field is not updatable for mls1* models."
+     },
+     "lastMigrationModelId": {
+      "type": "string",
+      "description": "Output only. The [AI Platform (Unified) `Model`](https://cloud.google.com/ai-platform-unified/docs/reference/rest/v1beta1/projects.locations.models) ID for the last [model migration](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified)."
+     },
+     "lastMigrationTime": {
+      "type": "string",
+      "description": "Output only. The last time this version was successfully [migrated to AI Platform (Unified)](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified)."
+     },
+     "lastUseTime": {
+      "type": "string",
+      "description": "Output only. The time the version was last used for prediction."
+     },
+     "machineType": {
+      "type": "string",
+      "description": "Optional. The type of machine on which to serve the model. Currently only applies to online prediction service. To learn about valid values for this field, read [Choosing a machine type for online prediction](/ai-platform/prediction/docs/machine-types-online-prediction). If this field is not specified and you are using a [regional endpoint](/ai-platform/prediction/docs/regional-endpoints), then th"
+     },
+     "manualScaling": {
+      "type": "object",
+      "description": "Options for manually scaling a model."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name specified for the version when it was created. The version name must be unique within the model it is created in."
+     },
+     "packageUris": {
+      "type": "array",
+      "description": "Optional. Cloud Storage paths (`gs://\u2026`) of packages for [custom prediction routines](/ml-engine/docs/tensorflow/custom-prediction-routines) or [scikit-learn pipelines with custom code](/ml-engine/docs/scikit/exporting-for-prediction#custom-pipeline-code). For a custom prediction routine, one of these packages must contain your Predictor class (see [`predictionClass`](#Version.FIELDS.prediction_cl"
+     },
+     "predictionClass": {
+      "type": "string",
+      "description": "Optional. The fully qualified name (module_name.class_name) of a class that implements the Predictor interface described in this reference field. The module containing this class should be included in a package provided to the [`packageUris` field](#Version.FIELDS.package_uris). Specify this field if and only if you are deploying a [custom prediction routine (beta)](/ml-engine/docs/tensorflow/cust"
+     },
+     "pythonVersion": {
+      "type": "string",
+      "description": "Required. The version of Python used in prediction. The following Python versions are available: * Python '3.7' is available when `runtime_version` is set to '1.15' or later. * Python '3.5' is available when `runtime_version` is set to a version from '1.4' to '1.14'. * Python '2.7' is available when `runtime_version` is set to '1.15' or earlier. Read more about the Python versions available for [e"
+     },
+     "requestLoggingConfig": {
+      "type": "object",
+      "description": "Configuration for logging request-response pairs to a BigQuery table. Online prediction requests to a model version and the responses to these requests are converted to raw strings and saved to the specified BigQuery table. Logging is constrained by [BigQuery quotas and limits](/bigquery/quotas). If your project exceeds BigQuery quotas or limits, AI Platform Prediction does not log request-respons"
+     },
+     "routes": {
+      "type": "object",
+      "description": "Specifies HTTP paths served by a custom container. AI Platform Prediction sends requests to these paths on the container; the custom container must run an HTTP server that responds to these requests with appropriate responses. Read [Custom container requirements](/ai-platform/prediction/docs/custom-container-requirements) for details on how to create your container image to meet these requirements"
+     },
+     "runtimeVersion": {
+      "type": "string",
+      "description": "Required. The AI Platform runtime version to use for this deployment. For more information, see the [runtime version list](/ml-engine/docs/runtime-version-list) and [how to manage runtime versions](/ml-engine/docs/versioning)."
+     },
+     "serviceAccount": {
+      "type": "string",
+      "description": "Optional. Specifies the service account for resource access control. If you specify this field, then you must also specify either the `containerSpec` or the `predictionClass` field. Learn more about [using a custom service account](/ai-platform/prediction/docs/custom-service-account)."
+     },
+     "state": {
+      "type": "string",
+      "description": "Output only. The state of a version.",
+      "enum": [
+       "UNKNOWN",
+       "READY",
+       "CREATING",
+       "FAILED",
+       "DELETING",
+       "UPDATING"
+      ]
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{parent}/versions",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "acceleratorConfig",
+     "autoScaling",
+     "container",
+     "createTime",
+     "deploymentUri",
+     "description",
+     "errorMessage",
+     "etag",
+     "explanationConfig",
+     "framework",
+     "isDefault",
+     "labels",
+     "lastMigrationModelId",
+     "lastMigrationTime",
+     "lastUseTime",
+     "machineType",
+     "manualScaling",
+     "name",
+     "packageUris",
+     "predictionClass",
+     "pythonVersion",
+     "requestLoggingConfig",
+     "routes",
+     "runtimeVersion",
+     "serviceAccount",
+     "state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_versions_delete",
+   "name": "Ml projects models versions delete",
+   "description": "Deletes a model version. Each model can have multiple versions deployed and in use at any given time. Use this method to remove a single version. Note: You cannot delete the version that is set as the default version of the model unless it is the only remaining version.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name of the version. You can get the names of all the versions of a model by calling projects.models.versions.list."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://www.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_versions_list",
+   "name": "Ml projects models versions list",
+   "description": "Gets basic information about all the versions of a model. If you expect that a model has many versions, or if you need to handle only a limited number of results at a time, you can request that the list be retrieved in batches (called pages). If there are no versions that match the request parameters, the list request returns an empty response body: {}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "parent": {
+      "type": "string",
+      "description": "Required. The name of the model for which to list the version."
+     },
+     "filter": {
+      "type": "string",
+      "description": "Optional. Specifies the subset of versions to retrieve."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "Optional. The number of versions to retrieve per \"page\" of results. If there are more remaining results than this number, the response message will contain a valid value in the `next_page_token` field. The default value is 20, and the maximum page size is 100."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "Optional. A page token to request the next page of results. You get the token from the `next_page_token` field of the response from the previous call."
+     }
+    },
+    "required": [
+     "parent"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{parent}/versions",
+    "path": [
+     "parent"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "filter",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_versions_patch",
+   "name": "Ml projects models versions patch",
+   "description": "Updates the specified Version resource. Currently the only update-able fields are `description`, `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name specified for the version when it was created. The version name must be unique within the model it is created in."
+     },
+     "updateMask": {
+      "type": "string",
+      "description": "Required. Specifies the path, relative to `Version`, of the field to update. Must be present and non-empty. For example, to change the description of a version to \"foo\", the `update_mask` parameter would be specified as `description`, and the `PATCH` request body would specify the new value, as follows: ``` { \"description\": \"foo\" } ``` Currently the only supported update mask fields are `descripti"
+     },
+     "acceleratorConfig": {
+      "type": "object",
+      "description": "Represents a hardware accelerator request config. Note that the AcceleratorConfig can be used in both Jobs and Versions. Learn more about [accelerators for training](/ml-engine/docs/using-gpus) and [accelerators for online prediction](/ml-engine/docs/machine-types-online-prediction#gpus)."
+     },
+     "autoScaling": {
+      "type": "object",
+      "description": "Options for automatically scaling a model."
+     },
+     "container": {
+      "type": "object",
+      "description": "Specification of a custom container for serving predictions. This message is a subset of the [Kubernetes Container v1 core specification](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#container-v1-core)."
+     },
+     "createTime": {
+      "type": "string",
+      "description": "Output only. The time the version was created."
+     },
+     "deploymentUri": {
+      "type": "string",
+      "description": "The Cloud Storage URI of a directory containing trained model artifacts to be used to create the model version. See the [guide to deploying models](/ai-platform/prediction/docs/deploying-models) for more information. The total number of files under this directory must not exceed 1000. During projects.models.versions.create, AI Platform Prediction copies all files from the specified directory to a "
+     },
+     "description": {
+      "type": "string",
+      "description": "Optional. The description specified for the version when it was created."
+     },
+     "errorMessage": {
+      "type": "string",
+      "description": "Output only. The details of a failure or a cancellation."
+     },
+     "etag": {
+      "type": "string",
+      "description": "`etag` is used for optimistic concurrency control as a way to help prevent simultaneous updates of a model from overwriting each other. It is strongly suggested that systems make use of the `etag` in the read-modify-write cycle to perform model updates in order to avoid race conditions: An `etag` is returned in the response to `GetVersion`, and systems are expected to put that etag in the request "
+     },
+     "explanationConfig": {
+      "type": "object",
+      "description": "Message holding configuration options for explaining model predictions. There are three feature attribution methods supported for TensorFlow models: integrated gradients, sampled Shapley, and XRAI. [Learn more about feature attributions.](/ai-platform/prediction/docs/ai-explanations/overview)"
+     },
+     "framework": {
+      "type": "string",
+      "description": "Optional. The machine learning framework AI Platform uses to train this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`, `XGBOOST`. If you do not specify a framework, AI Platform will analyze files in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version of the model to 1.4 or greater. Do **not** specify a ",
+      "enum": [
+       "FRAMEWORK_UNSPECIFIED",
+       "TENSORFLOW",
+       "SCIKIT_LEARN",
+       "XGBOOST"
+      ]
+     },
+     "isDefault": {
+      "type": "boolean",
+      "description": "Output only. If true, this version will be used to handle prediction requests that do not specify a version. You can change the default version by calling projects.methods.versions.setDefault."
+     },
+     "labels": {
+      "type": "object",
+      "description": "Optional. One or more labels that you can add, to organize your model versions. Each label is a key-value pair, where both the key and the value are arbitrary strings that you supply. For more information, see the documentation on using labels. Note that this field is not updatable for mls1* models."
+     },
+     "lastMigrationModelId": {
+      "type": "string",
+      "description": "Output only. The [AI Platform (Unified) `Model`](https://cloud.google.com/ai-platform-unified/docs/reference/rest/v1beta1/projects.locations.models) ID for the last [model migration](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified)."
+     },
+     "lastMigrationTime": {
+      "type": "string",
+      "description": "Output only. The last time this version was successfully [migrated to AI Platform (Unified)](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified)."
+     },
+     "lastUseTime": {
+      "type": "string",
+      "description": "Output only. The time the version was last used for prediction."
+     },
+     "machineType": {
+      "type": "string",
+      "description": "Optional. The type of machine on which to serve the model. Currently only applies to online prediction service. To learn about valid values for this field, read [Choosing a machine type for online prediction](/ai-platform/prediction/docs/machine-types-online-prediction). If this field is not specified and you are using a [regional endpoint](/ai-platform/prediction/docs/regional-endpoints), then th"
+     },
+     "manualScaling": {
+      "type": "object",
+      "description": "Options for manually scaling a model."
+     },
+     "packageUris": {
+      "type": "array",
+      "description": "Optional. Cloud Storage paths (`gs://\u2026`) of packages for [custom prediction routines](/ml-engine/docs/tensorflow/custom-prediction-routines) or [scikit-learn pipelines with custom code](/ml-engine/docs/scikit/exporting-for-prediction#custom-pipeline-code). For a custom prediction routine, one of these packages must contain your Predictor class (see [`predictionClass`](#Version.FIELDS.prediction_cl"
+     },
+     "predictionClass": {
+      "type": "string",
+      "description": "Optional. The fully qualified name (module_name.class_name) of a class that implements the Predictor interface described in this reference field. The module containing this class should be included in a package provided to the [`packageUris` field](#Version.FIELDS.package_uris). Specify this field if and only if you are deploying a [custom prediction routine (beta)](/ml-engine/docs/tensorflow/cust"
+     },
+     "pythonVersion": {
+      "type": "string",
+      "description": "Required. The version of Python used in prediction. The following Python versions are available: * Python '3.7' is available when `runtime_version` is set to '1.15' or later. * Python '3.5' is available when `runtime_version` is set to a version from '1.4' to '1.14'. * Python '2.7' is available when `runtime_version` is set to '1.15' or earlier. Read more about the Python versions available for [e"
+     },
+     "requestLoggingConfig": {
+      "type": "object",
+      "description": "Configuration for logging request-response pairs to a BigQuery table. Online prediction requests to a model version and the responses to these requests are converted to raw strings and saved to the specified BigQuery table. Logging is constrained by [BigQuery quotas and limits](/bigquery/quotas). If your project exceeds BigQuery quotas or limits, AI Platform Prediction does not log request-respons"
+     },
+     "routes": {
+      "type": "object",
+      "description": "Specifies HTTP paths served by a custom container. AI Platform Prediction sends requests to these paths on the container; the custom container must run an HTTP server that responds to these requests with appropriate responses. Read [Custom container requirements](/ai-platform/prediction/docs/custom-container-requirements) for details on how to create your container image to meet these requirements"
+     },
+     "runtimeVersion": {
+      "type": "string",
+      "description": "Required. The AI Platform runtime version to use for this deployment. For more information, see the [runtime version list](/ml-engine/docs/runtime-version-list) and [how to manage runtime versions](/ml-engine/docs/versioning)."
+     },
+     "serviceAccount": {
+      "type": "string",
+      "description": "Optional. Specifies the service account for resource access control. If you specify this field, then you must also specify either the `containerSpec` or the `predictionClass` field. Learn more about [using a custom service account](/ai-platform/prediction/docs/custom-service-account)."
+     },
+     "state": {
+      "type": "string",
+      "description": "Output only. The state of a version.",
+      "enum": [
+       "UNKNOWN",
+       "READY",
+       "CREATING",
+       "FAILED",
+       "DELETING",
+       "UPDATING"
+      ]
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://www.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "updateMask"
+    ],
+    "header": [],
+    "body": [
+     "acceleratorConfig",
+     "autoScaling",
+     "container",
+     "createTime",
+     "deploymentUri",
+     "description",
+     "errorMessage",
+     "etag",
+     "explanationConfig",
+     "framework",
+     "isDefault",
+     "labels",
+     "lastMigrationModelId",
+     "lastMigrationTime",
+     "lastUseTime",
+     "machineType",
+     "manualScaling",
+     "name",
+     "packageUris",
+     "predictionClass",
+     "pythonVersion",
+     "requestLoggingConfig",
+     "routes",
+     "runtimeVersion",
+     "serviceAccount",
+     "state"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_models_versions_set_default",
+   "name": "Ml projects models versions set default",
+   "description": "Designates a version to be the default for the model. The default version is used for prediction requests made against the model that don't specify a version. The first version to be created for a model is automatically set as the default. You must make any subsequent changes to the default version setting manually using this method.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The name of the version to make the default for the model. You can get the names of all the versions of a model by calling projects.models.versions.list."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:setDefault",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_operations_cancel",
+   "name": "Ml projects operations cancel",
+   "description": "Starts asynchronous cancellation on a long-running operation. The server makes a best effort to cancel the operation, but success is not guaranteed. If the server doesn't support this method, it returns `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or other methods to check whether the cancellation succeeded or whether the operation completed despite cancellation. On suc",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the operation resource to be cancelled."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:cancel",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_operations_get",
+   "name": "Ml projects operations get",
+   "description": "Gets the latest state of a long-running operation. Clients can use this method to poll the operation result at intervals as recommended by the API service.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the operation resource."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{name}",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_operations_list",
+   "name": "Ml projects operations list",
+   "description": "Lists operations that match the specified filter in the request. If the server doesn't support this method, it returns `UNIMPLEMENTED`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the operation's parent resource."
+     },
+     "filter": {
+      "type": "string",
+      "description": "The standard list filter."
+     },
+     "pageSize": {
+      "type": "integer",
+      "description": "The standard list page size."
+     },
+     "pageToken": {
+      "type": "string",
+      "description": "The standard list page token."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://www.googleapis.com/v1/{name}/operations",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType",
+     "filter",
+     "pageSize",
+     "pageToken"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "google.ml_projects_predict",
+   "name": "Ml projects predict",
+   "description": "Performs online prediction on the data in the request. {% dynamic include \"/ai-platform/includes/___predict-request\" %}",
+   "input": {
+    "type": "object",
+    "properties": {
+     "$.xgafv": {
+      "type": "string",
+      "description": "V1 error format.",
+      "enum": [
+       "1",
+       "2"
+      ]
+     },
+     "alt": {
+      "type": "string",
+      "description": "Data format for response.",
+      "enum": [
+       "json",
+       "media",
+       "proto"
+      ]
+     },
+     "callback": {
+      "type": "string",
+      "description": "JSONP"
+     },
+     "fields": {
+      "type": "string",
+      "description": "Selector specifying which fields to include in a partial response."
+     },
+     "oauth_token": {
+      "type": "string",
+      "description": "OAuth 2.0 token for the current user."
+     },
+     "prettyPrint": {
+      "type": "boolean",
+      "description": "Returns response with indentations and line breaks."
+     },
+     "quotaUser": {
+      "type": "string",
+      "description": "Available to use for quota purposes for server-side applications. Can be any arbitrary string assigned to a user, but should not exceed 40 characters."
+     },
+     "upload_protocol": {
+      "type": "string",
+      "description": "Upload protocol for media (e.g. \"raw\", \"multipart\")."
+     },
+     "uploadType": {
+      "type": "string",
+      "description": "Legacy upload protocol for media (e.g. \"media\", \"multipart\")."
+     },
+     "name": {
+      "type": "string",
+      "description": "Required. The resource name of a model or a version. Authorization: requires the `predict` permission on the specified resource."
+     },
+     "httpBody": {
+      "type": "object",
+      "description": "Message that represents an arbitrary HTTP body. It should only be used for payload formats that can't be represented as JSON, such as raw binary or an HTML page. This message can be used both in streaming and non-streaming API methods in the request as well as the response. It can be used as a top-level request field, which is convenient if one wants to extract parameters from either the URL or HT"
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://www.googleapis.com/v1/{name}:predict",
+    "path": [
+     "name"
+    ],
+    "query": [
+     "$.xgafv",
+     "alt",
+     "callback",
+     "fields",
+     "oauth_token",
+     "prettyPrint",
+     "quotaUser",
+     "upload_protocol",
+     "uploadType"
+    ],
+    "header": [],
+    "body": [
+     "httpBody"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

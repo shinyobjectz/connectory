@@ -1,0 +1,813 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "instagram",
+ "source": "https://api.apis.guru/v2/specs/instagram.com/1.0.0/swagger.json",
+ "operations": [
+  {
+   "slug": "instagram.delete_media_media_id_comments_comment_id",
+   "name": "Remove a comment",
+   "description": "Remove a comment either on the authenticated user's media object or authored by the authenticated user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     },
+     "comment-id": {
+      "type": "string",
+      "description": "The ID of the comment entry."
+     }
+    },
+    "required": [
+     "comment-id",
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://graph.instagram.com/media/{media-id}/comments/{comment-id}",
+    "path": [
+     "media-id",
+     "comment-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.delete_media_media_id_likes",
+   "name": "Remove a like on this media by the current user",
+   "description": "Remove a like on this media by the currently authenticated user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     }
+    },
+    "required": [
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://graph.instagram.com/media/{media-id}/likes",
+    "path": [
+     "media-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_locations_location_id",
+   "name": "Get information about a location",
+   "description": "Get information about a location.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "location-id": {
+      "type": "string",
+      "description": "The location ID."
+     }
+    },
+    "required": [
+     "location-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/locations/{location-id}",
+    "path": [
+     "location-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_locations_location_id_media_recent",
+   "name": "Get a list of recent media objects from a given location",
+   "description": "Get a list of recent media objects from a given location.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "location-id": {
+      "type": "string",
+      "description": "The location ID."
+     },
+     "min_timestamp": {
+      "type": "integer",
+      "description": "Return media after this UNIX timestamp."
+     },
+     "max_timestamp": {
+      "type": "integer",
+      "description": "Return media before this UNIX timestamp."
+     },
+     "min_id": {
+      "type": "string",
+      "description": "Return media before this `min_id`."
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Return media after this `max_id`."
+     }
+    },
+    "required": [
+     "location-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/locations/{location-id}/media/recent",
+    "path": [
+     "location-id"
+    ],
+    "query": [
+     "min_timestamp",
+     "max_timestamp",
+     "min_id",
+     "max_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_locations_search",
+   "name": "Search for a location by geographic coordinate",
+   "description": "Search for a location by geographic coordinate.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "distance": {
+      "type": "integer",
+      "description": "Default is 1000m (distance=1000), max distance is 5000."
+     },
+     "facebook_places_id": {
+      "type": "string",
+      "description": "Returns a location mapped off of a Facebook places id. If used, a Foursquare id and `lat`, `lng` are not required."
+     },
+     "foursquare_id": {
+      "type": "string",
+      "description": "Returns a location mapped off of a foursquare v1 api location id. If used, you are not required to use `lat` and `lng`. Note that this method is deprecated; you should use the new foursquare IDs with V2 of their API."
+     },
+     "lat": {
+      "type": "number",
+      "description": "Latitude of the center search coordinate. If used, `lng` is required."
+     },
+     "lng": {
+      "type": "number",
+      "description": "Longitude of the center search coordinate. If used, `lat` is required."
+     },
+     "foursquare_v2_id": {
+      "type": "string",
+      "description": "Returns a location mapped off of a foursquare v2 api location id. If used, you are not required to use `lat` and `lng`."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/locations/search",
+    "path": [],
+    "query": [
+     "distance",
+     "facebook_places_id",
+     "foursquare_id",
+     "lat",
+     "lng",
+     "foursquare_v2_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_media_media_id",
+   "name": "Get information about a media object",
+   "description": "Get information about a media object. The returned type key will allow you to differentiate between image and video media. **Note:** if you authenticate with an OAuth Token, you will receive the user_has_liked key which quickly tells you whether the current user has liked this media item.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     }
+    },
+    "required": [
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/media/{media-id}",
+    "path": [
+     "media-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_media_media_id_comments",
+   "name": "Get a list of recent comments on a media object",
+   "description": "Get a list of recent comments on a media object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     }
+    },
+    "required": [
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/media/{media-id}/comments",
+    "path": [
+     "media-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_media_media_id_likes",
+   "name": "Get a list of users who have liked this media",
+   "description": "Get a list of users who have liked this media.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     }
+    },
+    "required": [
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/media/{media-id}/likes",
+    "path": [
+     "media-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_media_search",
+   "name": "Search for media in a given area",
+   "description": "Search for media in a given area. The default time span is set to 5 days. The time span must not exceed 7 days. Defaults time stamps cover the last 5 days. Can return mix of `image` and `video` types.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lat": {
+      "type": "number",
+      "description": "Latitude of the center search coordinate. If used, `lng` is required."
+     },
+     "lng": {
+      "type": "number",
+      "description": "Longitude of the center search coordinate. If used, `lat` is required."
+     },
+     "min_timestamp": {
+      "type": "integer",
+      "description": "A unix timestamp. All media returned will be taken later than this timestamp."
+     },
+     "max_timestamp": {
+      "type": "integer",
+      "description": "A unix timestamp. All media returned will be taken earlier than this timestamp."
+     },
+     "distance": {
+      "type": "integer",
+      "description": "Default is 1km (distance=1000), max distance is 5km."
+     }
+    },
+    "required": [
+     "lat",
+     "lng"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/media/search",
+    "path": [],
+    "query": [
+     "lat",
+     "lng",
+     "min_timestamp",
+     "max_timestamp",
+     "distance"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_media_shortcode_shortcode",
+   "name": "Get information about a media object",
+   "description": "This endpoint returns the same response as `GET /media/{media-id}`. A media object's shortcode can be found in its shortlink URL. An example shortlink is `http://instagram.com/p/D/`, its corresponding shortcode is `D`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "shortcode": {
+      "type": "string",
+      "description": "The short code of the media resource."
+     }
+    },
+    "required": [
+     "shortcode"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/media/shortcode/{shortcode}",
+    "path": [
+     "shortcode"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_tags_search",
+   "name": "Search for tags by name",
+   "description": "Search for tags by name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "A valid tag name without a leading \\#. (eg. snowy, nofilter)"
+     }
+    },
+    "required": [
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/tags/search",
+    "path": [],
+    "query": [
+     "q"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_tags_tag_name",
+   "name": "Get information about a tag object",
+   "description": "Get information about a tag object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag-name": {
+      "type": "string",
+      "description": "The tag name."
+     }
+    },
+    "required": [
+     "tag-name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/tags/{tag-name}",
+    "path": [
+     "tag-name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_tags_tag_name_media_recent",
+   "name": "Get a list of recently tagged media",
+   "description": "Get a list of recently tagged media. Use the `max_tag_id` and `min_tag_id` parameters in the pagination response to paginate through these objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag-name": {
+      "type": "string",
+      "description": "The tag name."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Count of tagged media to return."
+     },
+     "min_tag_id": {
+      "type": "string",
+      "description": "Return media before this `min_tag_id`."
+     },
+     "max_tag_id": {
+      "type": "string",
+      "description": "Return media after this `max_tag_id`."
+     }
+    },
+    "required": [
+     "tag-name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/tags/{tag-name}/media/recent",
+    "path": [
+     "tag-name"
+    ],
+    "query": [
+     "count",
+     "min_tag_id",
+     "max_tag_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_search",
+   "name": "Search for a user by name",
+   "description": "Search for a user by name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "A query string."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Number of users to return."
+     }
+    },
+    "required": [
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/search",
+    "path": [],
+    "query": [
+     "q",
+     "count"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_self_media_liked",
+   "name": "See the list of media liked by the authenticated user",
+   "description": "See the list of media liked by the authenticated user. Private media is returned as long as the authenticated user has permission to view that media. Liked media lists are only available for the currently authenticated user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Count of media to return."
+     },
+     "max_like_id": {
+      "type": "string",
+      "description": "Return media liked before this id."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/self/media/liked",
+    "path": [],
+    "query": [
+     "count",
+     "max_like_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_self_requested_by",
+   "name": "List the users who have requested this user's permission to follow",
+   "description": "List the users who have requested this user's permission to follow.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/self/requested-by",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_user_id",
+   "name": "Get basic information about a user",
+   "description": "Get basic information about a user. To get information about the owner of the access token, you can use **self** instead of the `user-id`. Security scope `public_content` is required to read information about other users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of a user to get information about, or **self** to retrieve information about authenticated user."
+     }
+    },
+    "required": [
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/{user-id}",
+    "path": [
+     "user-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_user_id_followed_by",
+   "name": "Get the list of users this user is followed by",
+   "description": "Get the list of users this user is followed by. To get users followed by the owner of the access token, you can use **self** instead of the `user-id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of a user, or **self** to retrieve information about authenticated user."
+     }
+    },
+    "required": [
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/{user-id}/followed-by",
+    "path": [
+     "user-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_user_id_follows",
+   "name": "Get the list of users this user follows",
+   "description": "Get the list of users this user follows. To get follows of the owner of the access token, you can use **self** instead of the `user-id`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of a user, or **self** to retrieve information about authenticated user."
+     }
+    },
+    "required": [
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/{user-id}/follows",
+    "path": [
+     "user-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_user_id_media_recent",
+   "name": "Get the most recent media published by a user",
+   "description": "Get the most recent media published by a user. To get the most recent media published by the owner of the access token, you can use **self** instead of the `user-id`. Security scope `public_content` is required to read information about other users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of a user to get recent media of, or **self** to retrieve media of authenticated user."
+     },
+     "count": {
+      "type": "integer",
+      "description": "Count of media to return."
+     },
+     "max_timestamp": {
+      "type": "integer",
+      "description": "Return media before this UNIX timestamp."
+     },
+     "min_timestamp": {
+      "type": "integer",
+      "description": "Return media after this UNIX timestamp."
+     },
+     "min_id": {
+      "type": "string",
+      "description": "Return media later than this `min_id`."
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Return media earlier than this `max_id`."
+     }
+    },
+    "required": [
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/{user-id}/media/recent",
+    "path": [
+     "user-id"
+    ],
+    "query": [
+     "count",
+     "max_timestamp",
+     "min_timestamp",
+     "min_id",
+     "max_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.get_users_user_id_relationship",
+   "name": "Get information about a relationship to another user",
+   "description": "Get information about a relationship to another user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of a user to get information about."
+     }
+    },
+    "required": [
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://graph.instagram.com/users/{user-id}/relationship",
+    "path": [
+     "user-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.post_media_media_id_comments",
+   "name": "Create a comment on a media object",
+   "description": "Create a comment on a media object with the following rules: * The total length of the comment cannot exceed 300 characters. * The comment cannot contain more than 4 hashtags. * The comment cannot contain more than 1 URL. * The comment cannot consist of all capital letters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     },
+     "text": {
+      "type": "string",
+      "description": "Text to post as a comment on the media object as specified in `media-id`."
+     }
+    },
+    "required": [
+     "media-id",
+     "text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://graph.instagram.com/media/{media-id}/comments",
+    "path": [
+     "media-id"
+    ],
+    "query": [
+     "text"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.post_media_media_id_likes",
+   "name": "Set a like on this media by the current user",
+   "description": "Set a like on this media by the currently authenticated user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "media-id": {
+      "type": "string",
+      "description": "The ID of the media resource."
+     }
+    },
+    "required": [
+     "media-id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://graph.instagram.com/media/{media-id}/likes",
+    "path": [
+     "media-id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "instagram.post_users_user_id_relationship",
+   "name": "Modify the relationship between the current user and the target user",
+   "description": "Modify the relationship between the current user and the target user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user-id": {
+      "type": "string",
+      "description": "The ID of the target user."
+     },
+     "action": {
+      "type": "string",
+      "description": "Type of action to apply for relationship with the user.",
+      "enum": [
+       "follow",
+       "unfollow",
+       "block",
+       "unblock",
+       "approve",
+       "ignore"
+      ]
+     }
+    },
+    "required": [
+     "action",
+     "user-id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://graph.instagram.com/users/{user-id}/relationship",
+    "path": [
+     "user-id"
+    ],
+    "query": [
+     "action"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

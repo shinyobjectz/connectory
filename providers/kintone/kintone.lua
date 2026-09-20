@@ -1,0 +1,27 @@
+-- Kintone — every call this API accepts, as data.
+--
+-- GENERATED from https://raw.githubusercontent.com/kintone/rest-api-spec/main/kintone/20250423000000/openapi.yaml
+-- Published by kintone, the vendor's own GitHub organisation.
+-- 0 operations · do not edit
+--
+-- The credential is never in here. `auth.env` names an environment variable; the value
+-- stays in the environment, which is what makes this file safe to publish.
+return {
+  provider = "kintone",
+  name = "Kintone",
+  base = "https://{subdomain}.kintone.com",
+  docs = "https://nango.dev/docs/integrations/all/kintone",
+  auth = {
+    kind = "oauth",
+    header = "authorization",
+    format = "Bearer {token}",
+    env = "KINTONE_TOKEN",
+    user_env = nil,
+    pass_env = nil,
+    param = nil,
+  },
+  config = { ["subdomain"] = "KINTONE_SUBDOMAIN" },
+  headers = {},
+  operations = {
+  },
+}

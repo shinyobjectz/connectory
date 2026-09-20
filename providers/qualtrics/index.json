@@ -1,0 +1,270 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "qualtrics",
+ "source": "https://api.apis.guru/v2/specs/qualtrics.com/0.2/openapi.json",
+ "operations": [
+  {
+   "slug": "qualtrics.create_contact_in_mailinglist",
+   "name": "Create contact in mailing list",
+   "description": "Creates a contact in a given mailing list",
+   "input": {
+    "type": "object",
+    "properties": {
+     "DirectoryId": {
+      "type": "string",
+      "description": "ID of the qualtrics directory to create the contact to"
+     },
+     "MailingListId": {
+      "type": "string",
+      "description": "ID of the mailing list"
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "firstName": {
+      "type": "string",
+      "description": ""
+     },
+     "lastName": {
+      "type": "string",
+      "description": ""
+     },
+     "unsubscribed": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "DirectoryId",
+     "MailingListId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.qualtrics.com/directories/{DirectoryId}/mailinglists/{MailingListId}/contacts",
+    "path": [
+     "DirectoryId",
+     "MailingListId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "firstName",
+     "lastName",
+     "unsubscribed"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.generate_distribution_links",
+   "name": "Generate distribution links",
+   "description": "Geneates links for individual distribution",
+   "input": {
+    "type": "object",
+    "properties": {
+     "action": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "expirationDate": {
+      "type": "string",
+      "description": ""
+     },
+     "linkType": {
+      "type": "string",
+      "description": ""
+     },
+     "mailingListId": {
+      "type": "string",
+      "description": ""
+     },
+     "surveyId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.qualtrics.com/distributions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "action",
+     "description",
+     "expirationDate",
+     "linkType",
+     "mailingListId",
+     "surveyId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.get_distributions",
+   "name": "Get distributions for survey",
+   "description": "Gets all distributions for a given survey",
+   "input": {
+    "type": "object",
+    "properties": {
+     "surveyId": {
+      "type": "string",
+      "description": "The survey for which to load the distributions"
+     }
+    },
+    "required": [
+     "surveyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.qualtrics.com/distributions",
+    "path": [],
+    "query": [
+     "surveyId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.get_event_subscriptions",
+   "name": "Get event subscriptions",
+   "description": "Get event subscriptions",
+   "input": {
+    "type": "object",
+    "properties": {
+     "SubscriptionId": {
+      "type": "string",
+      "description": "ID of event subscription - can be obtained from web hook response"
+     }
+    },
+    "required": [
+     "SubscriptionId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/{SubscriptionId}",
+    "path": [
+     "SubscriptionId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.get_survey",
+   "name": "Get survey",
+   "description": "Gets a single Qualtrics survey speficied by its ID",
+   "input": {
+    "type": "object",
+    "properties": {
+     "SurveyId": {
+      "type": "string",
+      "description": "ID of survey (eg. SV_123)"
+     }
+    },
+    "required": [
+     "SurveyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.qualtrics.com/survey-definitions/{SurveyId}",
+    "path": [
+     "SurveyId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.retrievedistributionlinks",
+   "name": "Retrieve distribution links",
+   "description": "Retrieves all the individual links for a given distribution",
+   "input": {
+    "type": "object",
+    "properties": {
+     "surveyId": {
+      "type": "string",
+      "description": "ID of the survey (eg: SV_123)"
+     },
+     "DistributionId": {
+      "type": "string",
+      "description": "ID of the distribution list"
+     }
+    },
+    "required": [
+     "DistributionId",
+     "surveyId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.qualtrics.com/distributions/{DistributionId}/links",
+    "path": [
+     "DistributionId"
+    ],
+    "query": [
+     "surveyId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.webhook_delete",
+   "name": "Remove subscription to response event",
+   "description": "Remove event subscription",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "qualtrics.when_aresponse_is_received",
+   "name": "Triggers when a response is submitted to a qualtrics survey",
+   "description": "Subscribe to response event",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.qualtrics.com/eventsubscriptions/",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

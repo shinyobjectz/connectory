@@ -41,7 +41,10 @@ def main():
         folder = os.path.join(OUT, slug)
         auth = p.get("auth") or {}
 
-        ops = read(os.path.join(folder, "index.json"), {"operations": []})["operations"]
+        # A variant points at the pack it shares; it can still be called, through that one.
+        alias = read(os.path.join(folder, "alias.json"))
+        source = alias["operations_from"] if alias else slug
+        ops = read(os.path.join(OUT, source, "index.json"), {"operations": []})["operations"]
         mcp = read(os.path.join(folder, "mcp.json"), {"servers": []})["servers"]
         spec = specs.get(slug)
 
@@ -62,6 +65,7 @@ def main():
             + [c["env"] for c in p.get("config") or []],
             "spec": spec.get("source") if spec else None,
             "operations": len(ops),
+            "operations_from": (alias or {}).get("operations_from"),
             "logo": bool(logos.get(slug)) or os.path.exists(os.path.join(folder, "logo.svg")),
             "mcp": len(mcp),
             "verify": p.get("verify"),

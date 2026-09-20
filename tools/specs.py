@@ -33,6 +33,8 @@ import time
 import urllib.error
 import urllib.request
 
+from common import directory as merged_directory
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 CATALOG = os.path.join(HERE, "..")
 OUT = os.path.join(CATALOG, "specs.json")
@@ -283,8 +285,9 @@ def save(found):
 
 def main():
     only = set(sys.argv[1:])
-    directory = json.load(open(os.path.join(CATALOG, "directory.json")))
-    providers = [p for p in directory["providers"] if not only or p["slug"] in only]
+    # The merged view, so a provider that exists only in the overrides — the registry calls
+    # Gmail `google-mail` — is resolved too, rather than quietly dropped.
+    providers = [p for p in merged_directory().values() if not only or p["slug"] in only]
 
     by_hand = curated()
     index = guru_index()

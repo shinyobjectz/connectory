@@ -1,0 +1,3597 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "leadmagic",
+ "source": "https://raw.githubusercontent.com/LeadMagic/leadmagic-openapi/main/leadmagic-openapi-3.1.json",
+ "operations": [
+  {
+   "slug": "leadmagic.add_suppression_emails",
+   "name": "Add emails to suppression list",
+   "description": "Add emails to an existing suppression list. Emails are SHA-256 hashed server-side.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": "Identifier of the suppression list."
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists/{listId}/emails",
+    "path": [
+     "listId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_credits",
+   "name": "Credit history",
+   "description": "Get credit consumption history with daily breakdown.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "days": {
+      "type": "integer",
+      "description": "Number of days to include (1-90)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/credits",
+    "path": [],
+    "query": [
+     "days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_daily",
+   "name": "Daily metrics",
+   "description": "Get detailed daily metrics with performance data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "days": {
+      "type": "integer",
+      "description": "Number of days to include (1-90)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/daily",
+    "path": [],
+    "query": [
+     "days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_dashboard",
+   "name": "Dashboard overview",
+   "description": "Get a real-time snapshot of your account including credits, rate limits, and usage statistics.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/dashboard",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_day",
+   "name": "Day breakdown",
+   "description": "Get per-product breakdown for a specific day.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "date": {
+      "type": "string",
+      "description": "Date in YYYY-MM-DD format"
+     }
+    },
+    "required": [
+     "date"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/day/{date}",
+    "path": [
+     "date"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_products",
+   "name": "Products breakdown",
+   "description": "Get per-product usage with requests, credits, and success rates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "days": {
+      "type": "integer",
+      "description": "Number of days to include (1-90)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/products",
+    "path": [],
+    "query": [
+     "days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_summary",
+   "name": "All time summary",
+   "description": "Get lifetime statistics for your account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "start_date": {
+      "type": "string",
+      "description": "Start date (YYYY-MM-DD)"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "End date (YYYY-MM-DD)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/summary",
+    "path": [],
+    "query": [
+     "start_date",
+     "end_date"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.analytics_usage",
+   "name": "Usage summary",
+   "description": "Get daily usage summary with requests, credits consumed, and chargeable rates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "days": {
+      "type": "integer",
+      "description": "Number of days to include (1-90)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/analytics/usage",
+    "path": [],
+    "query": [
+     "days"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.b2b_ad_details",
+   "name": "B2 b ad details",
+   "description": "Get detailed information about a specific B2B ad using its ad library URL, path, or numeric ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "ad_url": {
+      "type": "string",
+      "description": "B2B ad library URL, path (/ad-library/detail/{id}), or numeric ad ID"
+     }
+    },
+    "required": [
+     "ad_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/ads/b2b-ads-details",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "ad_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.b2b_ads_search",
+   "name": "B2 b search ads",
+   "description": "Search for B2B ads by company domain or name. Charged 1 base credit plus 1 credit per ad returned (minimum 1 credit).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Company domain name"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of ads to return. Because you are charged 1 credit per ad returned, this also caps the per-ad credits spent on the request; the 1 base credit per search still applies. Omit to return every ad found."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/ads/b2b-ads-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_name",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.b2b_profile_email",
+   "name": "B2 b person profile to email",
+   "description": "Provide a B2B person profile and get back the work email of the person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "B2B person profile URL or slug"
+     }
+    },
+    "required": [
+     "profile_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/b2b-profile-email",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_campaign_metrics",
+   "name": "Get campaign metrics",
+   "description": "Aggregate usage and success metrics across batches in a campaign.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "Campaign identifier used to group related batches."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/campaign/{campaignId}/metrics",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_client_create",
+   "name": "Create a batch client",
+   "description": "Create an organization-scoped client for segmenting downstream batch work.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Unique client identifier (slug). Lowercase, alphanumeric with hyphens."
+     },
+     "display_name": {
+      "type": "string",
+      "description": "Human-readable display name."
+     },
+     "contact_email": {
+      "type": "string",
+      "description": "Contact email for notifications."
+     },
+     "billing_rate": {
+      "type": "number",
+      "description": "Optional billing rate applied to this client."
+     },
+     "notes": {
+      "type": "string",
+      "description": "Internal notes."
+     },
+     "industry": {
+      "type": "string",
+      "description": "Industry classification."
+     },
+     "website": {
+      "type": "string",
+      "description": "Client website."
+     },
+     "phone": {
+      "type": "string",
+      "description": "Phone number."
+     },
+     "address": {
+      "type": "object",
+      "description": "Physical address object."
+     },
+     "custom_fields": {
+      "type": "object",
+      "description": "Arbitrary custom fields stored with the client."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/clients",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "display_name",
+     "contact_email",
+     "billing_rate",
+     "notes",
+     "industry",
+     "website",
+     "phone",
+     "address",
+     "custom_fields"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_client_list",
+   "name": "List batch clients",
+   "description": "List client records for the authenticated organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/clients",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_client_metrics",
+   "name": "Get batch client metrics",
+   "description": "Return aggregate batch usage and success metrics for a client.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "clientId": {
+      "type": "string",
+      "description": "UUID of the client record, returned when the client was created."
+     }
+    },
+    "required": [
+     "clientId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/clients/{clientId}/metrics",
+    "path": [
+     "clientId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_client_webhook_create",
+   "name": "Create a batch client webhook",
+   "description": "Register a webhook for client batch lifecycle events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "clientId": {
+      "type": "string",
+      "description": "UUID of the client record, returned when the client was created."
+     }
+    },
+    "required": [
+     "clientId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/clients/{clientId}/webhooks",
+    "path": [
+     "clientId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_client_webhook_list",
+   "name": "List batch client webhooks",
+   "description": "List delivery webhooks configured for a client.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "clientId": {
+      "type": "string",
+      "description": "UUID of the client record, returned when the client was created."
+     }
+    },
+    "required": [
+     "clientId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/clients/{clientId}/webhooks",
+    "path": [
+     "clientId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_list",
+   "name": "List batches",
+   "description": "List batches across all products for the authenticated organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "client_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch",
+    "path": [],
+    "query": [
+     "product",
+     "status",
+     "client_id",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_provider_create",
+   "name": "Create an external batch provider",
+   "description": "Register an HTTPS external enrichment provider.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Display name for the provider."
+     },
+     "baseUrl": {
+      "type": "string",
+      "description": "HTTPS endpoint to call. Private IP addresses are rejected."
+     },
+     "authType": {
+      "type": "string",
+      "description": "How the credential is presented to the provider.",
+      "enum": [
+       "api_key",
+       "bearer",
+       "header"
+      ]
+     },
+     "authCredentialName": {
+      "type": "string",
+      "description": "Header or parameter name carrying the credential."
+     },
+     "authCredentialValue": {
+      "type": "string",
+      "description": "Credential value. Redacted in every response."
+     },
+     "defaultMethod": {
+      "type": "string",
+      "description": "HTTP method used for provider calls.",
+      "enum": [
+       "GET",
+       "POST"
+      ]
+     },
+     "defaultHeaders": {
+      "type": "object",
+      "description": "Extra headers sent with every provider call."
+     },
+     "rateLimitRpm": {
+      "type": "integer",
+      "description": "Requests per minute ceiling for this provider."
+     },
+     "responseMapping": {
+      "type": "object",
+      "description": "Maps provider response fields onto LeadMagic output columns."
+     },
+     "healthCheckUrl": {
+      "type": "string",
+      "description": "URL polled to determine provider health."
+     },
+     "healthCheckExpectedStatus": {
+      "type": "integer",
+      "description": "HTTP status treated as healthy."
+     }
+    },
+    "required": [
+     "authCredentialName",
+     "authCredentialValue",
+     "authType",
+     "baseUrl",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "baseUrl",
+     "authType",
+     "authCredentialName",
+     "authCredentialValue",
+     "defaultMethod",
+     "defaultHeaders",
+     "rateLimitRpm",
+     "responseMapping",
+     "healthCheckUrl",
+     "healthCheckExpectedStatus"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_provider_list",
+   "name": "List external batch providers",
+   "description": "List external enrichment providers registered by the organization.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_status",
+   "name": "Get batch status",
+   "description": "Return status, progress, cost, and metadata for a mixed-product batch.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "batchId": {
+      "type": "string",
+      "description": "Identifier of the batch returned when it was submitted."
+     }
+    },
+    "required": [
+     "batchId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/{batchId}",
+    "path": [
+     "batchId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_submit",
+   "name": "Submit a mixed product batch",
+   "description": "Submit a batch containing items for one or more enrichment products.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "items": {
+      "type": "array",
+      "description": "Batch items. Each item carries `product` (required for mixed-product batches), `input`, and optional `client_id`, `client_name`, and `metadata`."
+     },
+     "idempotencyKey": {
+      "type": "string",
+      "description": "Submitting the same key twice returns the original batch instead of creating a duplicate."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Arbitrary metadata stored with the batch."
+     },
+     "client_id": {
+      "type": "string",
+      "description": "Associate the whole batch with a client record."
+     },
+     "client_name": {
+      "type": "string",
+      "description": "Client name recorded alongside the batch."
+     },
+     "budget_user_id": {
+      "type": "string",
+      "description": "Charge the batch against this member's credit budget."
+     },
+     "webhook_url": {
+      "type": "string",
+      "description": "HTTPS URL notified when the batch completes. SSRF-validated \u2014 must resolve to a public IP."
+     },
+     "priority": {
+      "type": "string",
+      "description": "Queue priority for this batch.",
+      "enum": [
+       "normal",
+       "low"
+      ]
+     }
+    },
+    "required": [
+     "items"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "items",
+     "idempotencyKey",
+     "metadata",
+     "client_id",
+     "client_name",
+     "budget_user_id",
+     "webhook_url",
+     "priority"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.batch_update",
+   "name": "Update batch metadata",
+   "description": "Update batch metadata or its associated client within the mutable window.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "Enrichment product slug, e.g. `email-finder`. Hyphens and underscores are both accepted."
+     },
+     "batchId": {
+      "type": "string",
+      "description": "Identifier of the batch returned when it was submitted."
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     },
+     "client_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "batchId",
+     "product"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.leadmagic.io/v1/{product}/batch/{batchId}",
+    "path": [
+     "product",
+     "batchId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "metadata",
+     "client_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.budget_status",
+   "name": "Get budget status",
+   "description": "Consumption status for all budgets.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/budgets/status",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_capabilities",
+   "name": "Get bulk api capabilities",
+   "description": "Return the machine-readable bulk enrichment capability and tool manifest.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/capabilities",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_download",
+   "name": "Download bulk job results as csv",
+   "description": "Stream the full results as a CSV file. No pagination \u2014 all rows are included.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/download",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_errors",
+   "name": "Get failed bulk job rows",
+   "description": "Return failed rows and their error details for a bulk job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Rows to return per page."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Zero-based row offset for pagination."
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter failed rows by status."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/errors",
+    "path": [
+     "jobId"
+    ],
+    "query": [
+     "limit",
+     "offset",
+     "status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_events",
+   "name": "Get bulk job events",
+   "description": "Return the append-only event log for a bulk job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Events to return, newest first."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/events",
+    "path": [
+     "jobId"
+    ],
+    "query": [
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_list",
+   "name": "List bulk jobs",
+   "description": "Retrieve a paginated list of bulk jobs owned by the authenticated account, newest first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "Filter jobs by current status."
+     },
+     "product": {
+      "type": "string",
+      "description": "Filter jobs by enrichment product."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of jobs per page."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Number of jobs to skip."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs",
+    "path": [],
+    "query": [
+     "status",
+     "product",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_pause",
+   "name": "Pause a bulk job",
+   "description": "Pause a queued or running bulk job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/pause",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_priority",
+   "name": "Update bulk job priority",
+   "description": "Change the processing priority of a queued or running bulk job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "priority": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "low",
+       "normal",
+       "high"
+      ]
+     }
+    },
+    "required": [
+     "jobId",
+     "priority"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/priority",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "priority"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_progress",
+   "name": "Get lightweight bulk job progress",
+   "description": "Return a compact progress snapshot for frequent polling.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/progress",
+    "path": [],
+    "query": [
+     "jobId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_restart",
+   "name": "Restart a bulk job",
+   "description": "Restart a bulk job in full, from failed rows, or from a specified position.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Which rows to reprocess.",
+      "enum": [
+       "full",
+       "failed_only",
+       "from_row",
+       "from_shard"
+      ]
+     },
+     "startRowIndex": {
+      "type": "integer",
+      "description": "Zero-based row to restart from. Required when `mode` is `from_row`."
+     },
+     "startShardIndex": {
+      "type": "integer",
+      "description": "Zero-based shard to restart from. Required when `mode` is `from_shard`."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/restart",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "mode",
+     "startRowIndex",
+     "startShardIndex"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_results",
+   "name": "Get bulk job results",
+   "description": "Retrieve paginated row-level results for a bulk job as JSON.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": "Filter rows by status."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/results",
+    "path": [
+     "jobId"
+    ],
+    "query": [
+     "limit",
+     "offset",
+     "status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_resume",
+   "name": "Resume a bulk job",
+   "description": "Resume a paused bulk job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/resume",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_review",
+   "name": "Review bulk job (cancel or approve)",
+   "description": "Cancel a queued or processing bulk job by submitting {\"action\": \"reject\"}, or resume a paused job with {\"action\": \"approve\"}. Completed or failed jobs cannot be reviewed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     },
+     "action": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "approve",
+       "reject"
+      ]
+     }
+    },
+    "required": [
+     "action",
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/review",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "action"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_status",
+   "name": "Get bulk job status",
+   "description": "Retrieve the current status and progress of a specific bulk job. Accepts progress-token auth from the submit response.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_job_stream",
+   "name": "Stream bulk job progress",
+   "description": "Open a server-sent events stream for real-time bulk job progress.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "jobId": {
+      "type": "string",
+      "description": "UUID identifier of the bulk job."
+     }
+    },
+    "required": [
+     "jobId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/bulk/jobs/{jobId}/stream",
+    "path": [
+     "jobId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_local_leads",
+   "name": "Submit a local leads search",
+   "description": "Submit long-running local-leads searches to the dedicated bulk queue.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "keywords": {
+      "type": "array",
+      "description": "Search terms. Expanded against every city \u2014 one search row per keyword \u00d7 city pair."
+     },
+     "cities": {
+      "type": "array",
+      "description": "Cities to search. Expanded against every keyword."
+     },
+     "countryCodes": {
+      "type": "array",
+      "description": "Two-letter country code per city, aligned by index. Defaults to `US` when omitted."
+     },
+     "fileName": {
+      "type": "string",
+      "description": "Label for the resulting job, shown in the dashboard."
+     },
+     "magicKey": {
+      "type": "string",
+      "description": "Promotional key that waives credit charges when valid."
+     }
+    },
+    "required": [
+     "cities",
+     "keywords"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/local-leads",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "keywords",
+     "cities",
+     "countryCodes",
+     "fileName",
+     "magicKey"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_submit",
+   "name": "Submit bulk job",
+   "description": "Submit data for bulk enrichment. Provide exactly one of rows (JSON array), csv (string), fileUrl (HTTPS URL), or scrape (browser rendering config). The job is processed asynchronously; use the returned jobId to poll status via GET /bulk/jobs/{jobId}. **Security**: fileUrl and callback.url are SSRF-validated server-side. Private/internal IP ranges, localhost, cloud metadata endpoints (169.254.169.2",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "The enrichment product to run on each row (e.g. email_finder, email_validation, mobile_finder, profile_search, company_search)."
+     },
+     "rows": {
+      "type": "array",
+      "description": "JSON array of row objects for /bulk/json (or /bulk/submit auto-detect). Each row is an object whose keys match the input fields the selected product expects."
+     },
+     "csv": {
+      "type": "string",
+      "description": "Inline CSV string for /bulk/csv (or /bulk/submit)."
+     },
+     "fileUrl": {
+      "type": "string",
+      "description": "Public HTTPS URL to a remote file (CSV, JSON, JSONL). SSRF-validated server-side."
+     },
+     "format": {
+      "type": "string",
+      "description": "File format for fileUrl submissions.",
+      "enum": [
+       "csv",
+       "json",
+       "jsonl"
+      ]
+     },
+     "scrape": {
+      "type": "object",
+      "description": "Browser-rendering config for /bulk/scrape (or /bulk/submit)."
+     },
+     "inputMapping": {
+      "type": "object",
+      "description": "Optional column mapping from CSV/JSON columns to product input fields."
+     },
+     "callback": {
+      "type": "object",
+      "description": "Webhook configuration."
+     },
+     "idempotencyKey": {
+      "type": "string",
+      "description": "Optional idempotency key for safe retries."
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     },
+     "presetId": {
+      "type": "string",
+      "description": ""
+     },
+     "outputTransform": {
+      "type": "object",
+      "description": ""
+     },
+     "priority": {
+      "type": "integer",
+      "description": ""
+     },
+     "fileName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "product"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/submit",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "product",
+     "rows",
+     "csv",
+     "fileUrl",
+     "format",
+     "scrape",
+     "inputMapping",
+     "callback",
+     "idempotencyKey",
+     "metadata",
+     "presetId",
+     "outputTransform",
+     "priority",
+     "fileName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.bulk_validate",
+   "name": "Validate a bulk submission",
+   "description": "Validate a bulk submission payload without persisting or processing a job.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "product": {
+      "type": "string",
+      "description": "The enrichment product to run on each row (e.g. email_finder, email_validation, mobile_finder, profile_search, company_search)."
+     },
+     "rows": {
+      "type": "array",
+      "description": "JSON array of row objects for /bulk/json (or /bulk/submit auto-detect). Each row is an object whose keys match the input fields the selected product expects."
+     },
+     "csv": {
+      "type": "string",
+      "description": "Inline CSV string for /bulk/csv (or /bulk/submit)."
+     },
+     "fileUrl": {
+      "type": "string",
+      "description": "Public HTTPS URL to a remote file (CSV, JSON, JSONL). SSRF-validated server-side."
+     },
+     "format": {
+      "type": "string",
+      "description": "File format for fileUrl submissions.",
+      "enum": [
+       "csv",
+       "json",
+       "jsonl"
+      ]
+     },
+     "scrape": {
+      "type": "object",
+      "description": "Browser-rendering config for /bulk/scrape (or /bulk/submit)."
+     },
+     "inputMapping": {
+      "type": "object",
+      "description": "Optional column mapping from CSV/JSON columns to product input fields."
+     },
+     "callback": {
+      "type": "object",
+      "description": "Webhook configuration."
+     },
+     "idempotencyKey": {
+      "type": "string",
+      "description": "Optional idempotency key for safe retries."
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     },
+     "presetId": {
+      "type": "string",
+      "description": ""
+     },
+     "outputTransform": {
+      "type": "object",
+      "description": ""
+     },
+     "priority": {
+      "type": "integer",
+      "description": ""
+     },
+     "fileName": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "product"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/bulk/validate",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "product",
+     "rows",
+     "csv",
+     "fileUrl",
+     "format",
+     "scrape",
+     "inputMapping",
+     "callback",
+     "idempotencyKey",
+     "metadata",
+     "presetId",
+     "outputTransform",
+     "priority",
+     "fileName"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.check_credits",
+   "name": "Check credits",
+   "description": "Check your current credit balance.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/credits",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.company_funding",
+   "name": "Company funding",
+   "description": "Provide the Company Domain or Company Name and get back the complete funding details of the company.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_name": {
+      "type": "string",
+      "description": "Provide Company Name"
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Provide Company Domain"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/companies/company-funding",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_name",
+     "company_domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.company_lookalike_v3",
+   "name": "Company lookalike",
+   "description": "Find similar companies from a seed domain or description with full company output. Costs **5 credits** when one or more lookalikes are returned; **free** when empty. Common aliases (`domain`, `website`, `company_website`, `name`) and misspellings (`companny_domain`, `limmit`, \u2026) are accepted and remapped.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Seed company domain. Aliases include domain, website, company_website, seed.domain. Typos like companny_domain are remapped."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Alias for company_domain."
+     },
+     "website": {
+      "type": "string",
+      "description": "Seed website URL or domain."
+     },
+     "company_website": {
+      "type": "string",
+      "description": "Alias for website."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Seed company name used as text intent when no domain is supplied."
+     },
+     "name": {
+      "type": "string",
+      "description": "Alias for company_name."
+     },
+     "description": {
+      "type": "string",
+      "description": "Free-text seed description."
+     },
+     "company_description": {
+      "type": "string",
+      "description": "Alias for description."
+     },
+     "seed": {
+      "type": "object",
+      "description": "Optional seed object. Prefer seed.domain."
+     },
+     "company_filters": {
+      "type": "object",
+      "description": "Same full company filter family as Company Search. Alias filters."
+     },
+     "filters": {
+      "type": "object",
+      "description": "Alias for company_filters."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Page size. Typos like limmit are remapped."
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/companies/lookalike",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "domain",
+     "website",
+     "company_website",
+     "company_name",
+     "name",
+     "description",
+     "company_description",
+     "seed",
+     "company_filters",
+     "filters",
+     "limit",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.company_search",
+   "name": "Company search",
+   "description": "Search for companies and retrieve comprehensive company intelligence including funding, employees, industry, and more.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "Business company profile URL or identifier"
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Provide Company Domain"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Provide Company Name"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/companies/company-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url",
+     "company_domain",
+     "company_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.company_search_v3",
+   "name": "Company search",
+   "description": "Canonical V3 company lookup with all company filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Direct one-company lookup input. Returns one rich company row plus legacy-friendly aliases when no broad filters or explicit limit are supplied."
+     },
+     "domain": {
+      "type": "string",
+      "description": "Alias for company_domain."
+     },
+     "website": {
+      "type": "string",
+      "description": "Company website URL or domain."
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name lookup input."
+     },
+     "profile_url": {
+      "type": "string",
+      "description": "Company profile URL."
+     },
+     "linkedin_url": {
+      "type": "string",
+      "description": "Company profile URL."
+     },
+     "company_filters": {
+      "type": "object",
+      "description": "Full company filter object."
+     },
+     "query": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Opaque next_cursor from the previous page. Send unchanged with the same filters and limit."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Legacy offset pagination; prefer cursor. Unstable ordering, uncached. Restart at offset 0 to obtain a cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/companies/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "domain",
+     "website",
+     "company_name",
+     "profile_url",
+     "linkedin_url",
+     "company_filters",
+     "query",
+     "limit",
+     "cursor",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.competitors_search",
+   "name": "Competitors search",
+   "description": "Find competitors of a company by analyzing market position and industry data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Company website domain"
+     },
+     "company_url": {
+      "type": "string",
+      "description": "Company profile URL or identifier (optional)"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/companies/competitors-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_url",
+     "company_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.create_budget",
+   "name": "Create credit budget",
+   "description": "Create a new credit budget to cap spend per scope.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "scope": {
+      "type": "string",
+      "description": ""
+     },
+     "scope_value": {
+      "type": "string",
+      "description": ""
+     },
+     "max_credits": {
+      "type": "number",
+      "description": ""
+     },
+     "period": {
+      "type": "string",
+      "description": ""
+     },
+     "alert_threshold_pct": {
+      "type": "number",
+      "description": ""
+     },
+     "alert_email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "max_credits",
+     "scope",
+     "scope_value"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/budgets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "scope",
+     "scope_value",
+     "max_credits",
+     "period",
+     "alert_threshold_pct",
+     "alert_email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.create_suppression_list",
+   "name": "Create suppression list",
+   "description": "Create a new suppression list with initial emails. Emails are SHA-256 hashed server-side.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "string",
+      "description": ""
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "list_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "list_id",
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.delete_budget",
+   "name": "Delete credit budget",
+   "description": "Hard-delete a credit budget.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Identifier of the credit budget."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.leadmagic.io/v1/batch/budgets/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.delete_suppression_list",
+   "name": "Delete suppression list",
+   "description": "Delete an entire suppression list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": "Identifier of the suppression list."
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists/{listId}",
+    "path": [
+     "listId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.email_finder",
+   "name": "Email finder",
+   "description": "Find a person's work email address using their name and company information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "first_name": {
+      "type": "string",
+      "description": "First name of the person (optional if full_name provided)"
+     },
+     "last_name": {
+      "type": "string",
+      "description": "Last name of the person (optional)"
+     },
+     "full_name": {
+      "type": "string",
+      "description": "Full name of the person (alternative to first_name + last_name)"
+     },
+     "domain": {
+      "type": "string",
+      "description": "Company domain name (required if company_name not provided)"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name (required if domain not provided)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/email-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "first_name",
+     "last_name",
+     "full_name",
+     "domain",
+     "company_name"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.email_to_b2b_profile",
+   "name": "Email address to b2 b person profile",
+   "description": "Use this endpoint to find a B2B person profile based on the provided email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "work_email": {
+      "type": "string",
+      "description": "Provide the Work Email of the person"
+     },
+     "personal_email": {
+      "type": "string",
+      "description": "Provide the Personal Email of the person"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/b2b-profile",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "work_email",
+     "personal_email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.email_validation",
+   "name": "Email validation",
+   "description": "Validate an email address for deliverability and get company enrichment data.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address to validate"
+     }
+    },
+    "required": [
+     "email"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/email-validation",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.employee_finder",
+   "name": "Employee finder",
+   "description": "Find employees at a company. Returns a list of employees with their profiles, titles, and locations. Costs 0.05 credits per employee returned \u2014 free when no employees are found.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Company website domain (preferred \u2014 more accurate than company_name)"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name. Use if domain is not available."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of employees to return"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/employee-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_name",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.get_suppression_list",
+   "name": "Get suppression list",
+   "description": "Get list details and paginated email hashes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": "Identifier of the suppression list."
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "offset": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists/{listId}",
+    "path": [
+     "listId"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.google_ads_search",
+   "name": "Google ads search",
+   "description": "Search for Google Ads run by a company to understand their advertising strategy.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Company domain name"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of ads to return. Because you are charged 1 credit per ad returned, this also caps the credits spent on the request. Omit to return every ad found."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/ads/google-ads-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_name",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_board_stats",
+   "name": "Job board stats",
+   "description": "Alias of Job Search Dataset Stats for job-board integrations. Free.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/job-board/stats",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_change_detector",
+   "name": "Job change detector",
+   "description": "Monitor employee transitions and detect when someone has changed jobs. Costs 3 credits per check. The submitted company_name is authoritative; a company_domain lookup only adds matcher aliases. job_change_detected is true only when status is JOB_CHANGE_DETECTED. When the profile URL does not resolve, the response is status PROFILE_NOT_FOUND with resolution_reason PROFILE_NOT_FOUND and credits_cons",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "Professional profile URL or identifier"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Expected company name (either company_name or company_domain is required)"
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Expected company domain (either company_name or company_domain is required)"
+     }
+    },
+    "required": [
+     "profile_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/job-change-detector",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url",
+     "company_name",
+     "company_domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_company_types",
+   "name": "Job company type",
+   "description": "Use this API to retrieve the Company Type ID, which can then be used in the Jobs Finder API to filter jobs by Company Type.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/jobs/company-types",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_country",
+   "name": "Job country",
+   "description": "Use this API to retrieve the country ID, which can then be used in the Jobs Finder API to filter jobs by country.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/jobs/countries",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_industry",
+   "name": "Job industry",
+   "description": "Use this API to retrieve the Industry ID, which can then be used in the Jobs Finder API to filter jobs by Industry.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/jobs/industries",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_regions",
+   "name": "Job region",
+   "description": "Use this API to retrieve the region ID, which can then be used in the Jobs Finder API to filter jobs by region.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/jobs/regions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search",
+   "name": "Job search",
+   "description": "Search jobs with title, occupation taxonomy, company, location, tag, salary, seniority, and date filters. The endpoint resolves friendly values into normalized filter IDs before searching. Company objects do not include logo fields.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "titles": {
+      "type": "object",
+      "description": ""
+     },
+     "occupationTaxonomy": {
+      "type": "object",
+      "description": ""
+     },
+     "companies": {
+      "type": "object",
+      "description": ""
+     },
+     "location": {
+      "type": "object",
+      "description": ""
+     },
+     "tags": {
+      "type": "object",
+      "description": ""
+     },
+     "salary": {
+      "type": "object",
+      "description": ""
+     },
+     "seniority": {
+      "type": "array",
+      "description": ""
+     },
+     "postedAfter": {
+      "type": "string",
+      "description": ""
+     },
+     "postedBefore": {
+      "type": "string",
+      "description": ""
+     },
+     "postedWithin": {
+      "type": "integer",
+      "description": "Include jobs posted within the last N days."
+     },
+     "languages": {
+      "type": "array",
+      "description": ""
+     },
+     "hasRemote": {
+      "type": "boolean",
+      "description": ""
+     },
+     "jobTypeIds": {
+      "type": "array",
+      "description": ""
+     },
+     "industryIds": {
+      "type": "array",
+      "description": ""
+     },
+     "companyTypeIds": {
+      "type": "array",
+      "description": ""
+     },
+     "companySizeCodes": {
+      "type": "array",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Opaque cursor from pagination.next_cursor. Send unchanged with the same filters and limit."
+     },
+     "includeDescription": {
+      "type": "boolean",
+      "description": "Include job description text. Enabling descriptions may increase response time."
+     },
+     "includeFacets": {
+      "type": "boolean",
+      "description": "Include facet metadata. Enabling facets may increase response time."
+     },
+     "totalMode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "none",
+       "capped",
+       "exact"
+      ]
+     },
+     "mode": {
+      "type": "string",
+      "description": "fast returns paginated browsing results when descriptions and facets are omitted; deep enables broader text matching.",
+      "enum": [
+       "fast",
+       "deep"
+      ]
+     },
+     "autoResolve": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/jobs/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "titles",
+     "occupationTaxonomy",
+     "companies",
+     "location",
+     "tags",
+     "salary",
+     "seniority",
+     "postedAfter",
+     "postedBefore",
+     "postedWithin",
+     "languages",
+     "hasRemote",
+     "jobTypeIds",
+     "industryIds",
+     "companyTypeIds",
+     "companySizeCodes",
+     "limit",
+     "cursor",
+     "includeDescription",
+     "includeFacets",
+     "totalMode",
+     "mode",
+     "autoResolve"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_alias",
+   "name": "Job search alias",
+   "description": "Alias for POST /v3/jobs/search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "titles": {
+      "type": "object",
+      "description": ""
+     },
+     "location": {
+      "type": "object",
+      "description": ""
+     },
+     "tags": {
+      "type": "object",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "totalMode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "none",
+       "capped",
+       "exact"
+      ]
+     },
+     "mode": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "fast",
+       "deep"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/jobs-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "titles",
+     "location",
+     "tags",
+     "limit",
+     "totalMode",
+     "mode"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_catalogs",
+   "name": "Job search catalogs",
+   "description": "Filter catalogs for countries, regions, job types, industries, company types, seniority, and public-safe Jobs Search stats.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/catalogs",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_companies",
+   "name": "Job search companies helper",
+   "description": "Company autocomplete and cards for Job Search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "domain": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/companies",
+    "path": [],
+    "query": [
+     "q",
+     "domain",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_export",
+   "name": "Job search export",
+   "description": "Bulk export of job postings using the full Job Search filter vocabulary. Returns up to 5,000 jobs per request with descriptions included by default. Credit-metered on all plans.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "titles": {
+      "type": "object",
+      "description": "Same title filters as Job Search, including include/exclude and vector."
+     },
+     "companies": {
+      "type": "object",
+      "description": ""
+     },
+     "location": {
+      "type": "object",
+      "description": ""
+     },
+     "tags": {
+      "type": "object",
+      "description": ""
+     },
+     "occupationTaxonomy": {
+      "type": "object",
+      "description": ""
+     },
+     "salary": {
+      "type": "object",
+      "description": ""
+     },
+     "workModes": {
+      "type": "array",
+      "description": ""
+     },
+     "postedWithin": {
+      "type": "integer",
+      "description": "Days back, max 365."
+     },
+     "includeDescription": {
+      "type": "boolean",
+      "description": ""
+     },
+     "includeCompany": {
+      "type": "boolean",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum jobs to export. Cursor pagination is not supported on export; narrow filters instead."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/jobs/search/export",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "titles",
+     "companies",
+     "location",
+     "tags",
+     "occupationTaxonomy",
+     "salary",
+     "workModes",
+     "postedWithin",
+     "includeDescription",
+     "includeCompany",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_locations",
+   "name": "Job search locations helper",
+   "description": "Country, region, state, and city autocomplete for exact geo filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "type": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "country",
+       "region",
+       "state",
+       "city"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/locations",
+    "path": [],
+    "query": [
+     "q",
+     "type",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_occupation_taxonomy",
+   "name": "Job search occupation taxonomy helper",
+   "description": "Occupation taxonomy autocomplete with level1, level2, and level3 IDs and labels.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "level": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "level1",
+       "level2",
+       "level3"
+      ]
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/occupation-taxonomy",
+    "path": [],
+    "query": [
+     "q",
+     "level",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_resolve",
+   "name": "Resolve job search filters",
+   "description": "Resolve friendly companies, countries, tags, occupation taxonomy values, and titles into canonical filter IDs. This endpoint does not return job rows and is free.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "companies": {
+      "type": "object",
+      "description": ""
+     },
+     "tags": {
+      "type": "object",
+      "description": ""
+     },
+     "occupationTaxonomy": {
+      "type": "object",
+      "description": ""
+     },
+     "location": {
+      "type": "object",
+      "description": ""
+     },
+     "titles": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/jobs/search/resolve",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "companies",
+     "tags",
+     "occupationTaxonomy",
+     "location",
+     "titles"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_roles",
+   "name": "Job search roles helper",
+   "description": "Role autocomplete for occupation-based filtering, mapped to occupation taxonomy IDs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/roles",
+    "path": [],
+    "query": [
+     "q",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_stats",
+   "name": "Job search dataset stats",
+   "description": "Public-safe dataset statistics for the Jobs Search index \u2014 totals and freshness. Free.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/stats",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_tags",
+   "name": "Job search tags helper",
+   "description": "Tag autocomplete with occupation taxonomy metadata.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "tag_type": {
+      "type": "integer",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/tags",
+    "path": [],
+    "query": [
+     "q",
+     "tag_type",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_search_titles",
+   "name": "Job search titles helper",
+   "description": "Title autocomplete with occupation taxonomy metadata.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v3/jobs/search/titles",
+    "path": [],
+    "query": [
+     "q",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.job_types",
+   "name": "Job type",
+   "description": "Use this API to retrieve the Job Type ID, which can then be used in the Jobs Finder API to filter jobs by Job Type.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/jobs/job-types",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.jobs_finder",
+   "name": "Jobs finder",
+   "description": "LeadMagic's Jobs Finder",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_name": {
+      "type": "string",
+      "description": "Provide the Company Name. (Optional)"
+     },
+     "company_website": {
+      "type": "string",
+      "description": "Provide the Company Website. (Optional)"
+     },
+     "job_title": {
+      "type": "string",
+      "description": "Provide the Job Title."
+     },
+     "location": {
+      "type": "string",
+      "description": "Location of the job"
+     },
+     "experience_level": {
+      "type": "string",
+      "description": "Indicates the required experience level for the job. Choose \"entry\" for Entry Level, \"mid\" for Mid Level, \"senior\" for Senior Level, or \"executive\" for Executive Level. If not specified, jobs from all experience levels will be included."
+     },
+     "job_description": {
+      "type": "string",
+      "description": "Filters jobs based on specific keywords or phrases found in the job description."
+     },
+     "city_name": {
+      "type": "string",
+      "description": "Filter jobs by city name. Pair with `country_id` to disambiguate cities that share a name."
+     },
+     "country_id": {
+      "type": "string",
+      "description": "Filter jobs by country code, such as US or GB. Use the country helper for supported values."
+     },
+     "region_id": {
+      "type": "integer",
+      "description": "Filter jobs by region ID."
+     },
+     "job_type_id": {
+      "type": "integer",
+      "description": "Filter jobs by job type ID."
+     },
+     "company_type_id": {
+      "type": "integer",
+      "description": "Filter jobs by company type ID."
+     },
+     "company_industry_id": {
+      "type": "integer",
+      "description": "Filter jobs by company industry ID."
+     },
+     "min_employees": {
+      "type": "integer",
+      "description": "Minimum number of employees"
+     },
+     "max_employees": {
+      "type": "integer",
+      "description": "Maximum number of employees"
+     },
+     "has_remote": {
+      "type": "boolean",
+      "description": "Determines whether the jobs offer remote work options. Set to true to include remote-only listings, or false to include non-remote listings."
+     },
+     "posted_within": {
+      "type": "integer",
+      "description": "Specify the number of days within which the job was posted."
+     },
+     "posted_after": {
+      "type": "string",
+      "description": "Filters jobs posted on or after a specific date. Use the format YYYY-MM-DD."
+     },
+     "posted_before": {
+      "type": "string",
+      "description": "Filters jobs posted on or before a specific date. Use the format YYYY-MM-DD."
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number"
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Provide number of results needed per page. (Maximum per_page can be 50)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/jobs/jobs-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_name",
+     "company_website",
+     "job_title",
+     "location",
+     "experience_level",
+     "job_description",
+     "city_name",
+     "country_id",
+     "region_id",
+     "job_type_id",
+     "company_type_id",
+     "company_industry_id",
+     "min_employees",
+     "max_employees",
+     "has_remote",
+     "posted_within",
+     "posted_after",
+     "posted_before",
+     "page",
+     "per_page"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.list_budgets",
+   "name": "List credit budgets",
+   "description": "List all credit budgets for the authenticated account.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/budgets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.list_suppression_lists",
+   "name": "List suppression lists",
+   "description": "List all suppression lists for the authenticated account.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.meta_ads_search",
+   "name": "Meta ads search",
+   "description": "Search for Meta Ads by company domain or name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "Company domain name"
+     },
+     "company_name": {
+      "type": "string",
+      "description": "Company name"
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Maximum number of ads to return. Because you are charged 1 credit per ad returned, this also caps the credits spent on the request. Omit to return every ad found."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/ads/meta-ads-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_name",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.mobile_finder",
+   "name": "Mobile finder",
+   "description": "Find a person's mobile phone number using their profile URL or email address.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "Provide their Social Media URL"
+     },
+     "work_email": {
+      "type": "string",
+      "description": "Provide the Work Email of the person"
+     },
+     "personal_email": {
+      "type": "string",
+      "description": "Provide the Personal Email of the person"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/mobile-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url",
+     "work_email",
+     "personal_email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.people_search",
+   "name": "People search",
+   "description": "Canonical V3 people lookup with all company, title, role, people, channel, and contact-detail filters.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": ""
+     },
+     "company_name": {
+      "type": "string",
+      "description": ""
+     },
+     "linkedin_url": {
+      "type": "string",
+      "description": "B2B company profile URL or slug."
+     },
+     "company_filters": {
+      "type": "object",
+      "description": "Criteria-based company set. Supports the full Company Search filter family."
+     },
+     "people_filters": {
+      "type": "object",
+      "description": "People-level filters for names, title/function/level, geography, profile URLs, headline/about-me/industry, languages, seniority, connection count, and channel availability. Canonical keys use the contact_* prefix (e.g. contact_linkedin_about_me); bare aliases such as about_me, headline, industry, job_function, and city are accepted. contact_job_function accepts short chips (Sales, Marketing, Finan"
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     },
+     "job_title": {
+      "type": "string",
+      "description": ""
+     },
+     "titles": {
+      "type": "array",
+      "description": ""
+     },
+     "roles": {
+      "type": "array",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "Free-text people/title query."
+     },
+     "required_email": {
+      "type": "boolean",
+      "description": "Only return people with email availability."
+     },
+     "required_mobile": {
+      "type": "boolean",
+      "description": "Only return people with mobile availability."
+     },
+     "channels": {
+      "type": "array",
+      "description": "Legacy alias for contactability requirements."
+     },
+     "channel_match": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "any",
+       "all"
+      ]
+     },
+     "include_company": {
+      "type": "boolean",
+      "description": ""
+     },
+     "include_domain_intel": {
+      "type": "boolean",
+      "description": ""
+     },
+     "include_contact_details": {
+      "type": "boolean",
+      "description": "Opt in to paid raw email/mobile fields (alias \u2014 full_search). Bills 1 extra credit per returned email and 5 per returned mobile; base results are 1 credit per returned person. Search RPS / unmetered people-search plans cannot unlock email or mobile (403); unlocks require a credit-metered plan."
+     },
+     "include_email": {
+      "type": "boolean",
+      "description": "When contact details are on, return and bill raw emails (+1 credit each). If neither include_email nor include_mobile is set, both default to true. If either flag is set, the omitted flag defaults to false (include_email=true alone is email-only)."
+     },
+     "include_mobile": {
+      "type": "boolean",
+      "description": "When contact details are on, return and bill raw mobiles (+5 credits each). Same default rules as include_email."
+     },
+     "confirm_credit_charge": {
+      "type": "boolean",
+      "description": "Accepted for backwards compatibility; does not bypass RPS/unmetered unlock restrictions."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Offset requests allow up to 10000 rows; cursor-based pages are capped at 50."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Opaque signed next_cursor from the previous page. Send unchanged with the same filters, a limit no greater than 50, and offset 0."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "Legacy offset pagination; prefer cursor. Unstable ordering, uncached. Restart at offset 0 to obtain a cursor."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/people/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain",
+     "company_name",
+     "linkedin_url",
+     "company_filters",
+     "people_filters",
+     "title",
+     "job_title",
+     "titles",
+     "roles",
+     "query",
+     "required_email",
+     "required_mobile",
+     "channels",
+     "channel_match",
+     "include_company",
+     "include_domain_intel",
+     "include_contact_details",
+     "include_email",
+     "include_mobile",
+     "confirm_credit_charge",
+     "limit",
+     "cursor",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.personal_email_finder",
+   "name": "Personal email finder",
+   "description": "Provide a B2B Profile URL and get back the personal emails of the person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "Professional profile URL or identifier"
+     }
+    },
+    "required": [
+     "profile_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/personal-email-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.preview_cost_mixed",
+   "name": "Preview batch cost",
+   "description": "Estimate the credit cost and budget impact of a batch enrichment without reserving or consuming credits. FREE dry-run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "items": {
+      "type": "array",
+      "description": ""
+     },
+     "budget_user_id": {
+      "type": "string",
+      "description": "User ID to check against configured Credit Budgets."
+     },
+     "client_id": {
+      "type": "string",
+      "description": ""
+     },
+     "client_name": {
+      "type": "string",
+      "description": ""
+     },
+     "metadata": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "items"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/batch/preview-cost",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "items",
+     "budget_user_id",
+     "client_id",
+     "client_name",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.profile_search",
+   "name": "B2 b person profile",
+   "description": "Retrieve comprehensive B2B person profile information including work history, education, certifications, and more.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_url": {
+      "type": "string",
+      "description": "B2B person profile URL or slug"
+     }
+    },
+    "required": [
+     "profile_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/profile-search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "profile_url"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.remove_suppression_emails",
+   "name": "Remove emails from suppression list",
+   "description": "Remove emails from a suppression list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "listId": {
+      "type": "string",
+      "description": "Identifier of the suppression list."
+     },
+     "emails": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "emails",
+     "listId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.leadmagic.io/v1/batch/suppression-lists/{listId}/emails",
+    "path": [
+     "listId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "emails"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.role_finder",
+   "name": "Role finder",
+   "description": "Provide the company name or domain and the required job title, and retrieve the corresponding person.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_name": {
+      "type": "string",
+      "description": "Business Profile URL (with url or public_identifier)"
+     },
+     "company_domain": {
+      "type": "string",
+      "description": "Company domain"
+     },
+     "job_title": {
+      "type": "string",
+      "description": "Enter the job title you want to find in the company."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/people/role-finder",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_name",
+     "company_domain",
+     "job_title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.search_stats_v3",
+   "name": "Search stats",
+   "description": "Free helper endpoint that returns cached high-level coverage, capabilities, and top dimensions for Jobs, Company, and People Search.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "products": {
+      "type": "array",
+      "description": "Search products to include \u2014 jobs, company, and/or people stats."
+     },
+     "sections": {
+      "type": "array",
+      "description": "Stat sections to return \u2014 coverage counts, top dimensions, and/or filter capabilities."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Max top values per dimension. Defaults to 3."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v3/search/stats",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "products",
+     "sections",
+     "limit"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.technographics",
+   "name": "Company technographics",
+   "description": "Get detailed technology stack information for any company by providing their domain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "company_domain": {
+      "type": "string",
+      "description": "The domain of the company to analyze"
+     }
+    },
+    "required": [
+     "company_domain"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.leadmagic.io/v1/companies/technographics",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "company_domain"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "leadmagic.update_budget",
+   "name": "Update credit budget",
+   "description": "Update max_credits, period, alert_threshold_pct, and/or alert_email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Identifier of the credit budget."
+     },
+     "max_credits": {
+      "type": "number",
+      "description": ""
+     },
+     "period": {
+      "type": "string",
+      "description": ""
+     },
+     "alert_threshold_pct": {
+      "type": "number",
+      "description": ""
+     },
+     "alert_email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.leadmagic.io/v1/batch/budgets/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "max_credits",
+     "period",
+     "alert_threshold_pct",
+     "alert_email"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

@@ -1,0 +1,2269 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "companycam",
+ "source": "https://raw.githubusercontent.com/CompanyCam/openapi-spec/main/openapi.yaml",
+ "operations": [
+  {
+   "slug": "companycam.archive_project",
+   "name": "Archive project",
+   "description": "Archive Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.companycam.com/projects/{id}/archive",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.assign_user_to_project",
+   "name": "Assign a user to a project",
+   "description": "Assign a user to a project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the assigner"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "user_id": {
+      "type": "string",
+      "description": "ID of the User"
+     }
+    },
+    "required": [
+     "project_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/projects/{project_id}/assigned_users/{user_id}",
+    "path": [
+     "project_id",
+     "user_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_group",
+   "name": "Create group",
+   "description": "Create Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "group": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/groups",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "group"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_invitation",
+   "name": "Create a new project invitation for collaboration",
+   "description": "Create a new project invitation for collaboration",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the inviter"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/invitations",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_photo_comment",
+   "name": "Add comment",
+   "description": "Add Comment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the commenter"
+     },
+     "photo_id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "comment": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/photos/{photo_id}/comments",
+    "path": [
+     "photo_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "comment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_photo_tags",
+   "name": "Add tags",
+   "description": "Add Tags",
+   "input": {
+    "type": "object",
+    "properties": {
+     "photo_id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "tags": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/photos/{photo_id}/tags",
+    "path": [
+     "photo_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tags"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project",
+   "name": "Create project",
+   "description": "Create Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the project"
+     },
+     "address": {
+      "type": "object",
+      "description": ""
+     },
+     "coordinates": {
+      "type": "object",
+      "description": ""
+     },
+     "geofence": {
+      "type": "array",
+      "description": ""
+     },
+     "primary_contact": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "name",
+     "address",
+     "coordinates",
+     "geofence",
+     "primary_contact"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project_checklist",
+   "name": "Create checklist on project from a checklist template",
+   "description": "Create Checklist on Project from a Checklist Template",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "checklist_template_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/checklists",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "checklist_template_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project_comment",
+   "name": "Add project comment",
+   "description": "Add Project Comment",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the commenter"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "comment": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/comments",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "comment"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project_document",
+   "name": "Upload a document",
+   "description": "Upload a Document",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "document": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/documents",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "document"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project_labels",
+   "name": "Add labels",
+   "description": "Add Labels",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "project": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/labels",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "project"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_project_photo",
+   "name": "Add photo",
+   "description": "Add Photo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "photo": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/projects/{project_id}/photos",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "photo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_tag",
+   "name": "Create tag",
+   "description": "Create Tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "tag": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/tags",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "tag"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_user",
+   "name": "Create user",
+   "description": "Create User",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the creator"
+     },
+     "user": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/users",
+    "path": [],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "user"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.create_webhook",
+   "name": "Create webhook",
+   "description": "Create Webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "scopes": {
+      "type": "array",
+      "description": ""
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "scopes",
+     "enabled"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_group",
+   "name": "Delete a group",
+   "description": "Delete a Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Group"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/groups/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_photo",
+   "name": "Delete photo",
+   "description": "Delete Photo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the editor"
+     },
+     "id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/photos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_project",
+   "name": "Delete project",
+   "description": "Delete Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/projects/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_project_label",
+   "name": "Delete label",
+   "description": "Delete Label",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Label"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/projects/{project_id}/labels/{id}",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_tag",
+   "name": "Delete a tag",
+   "description": "Delete a Tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Tag"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/tags/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_user",
+   "name": "Delete user",
+   "description": "Delete User",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the editor"
+     },
+     "id": {
+      "type": "string",
+      "description": "ID of the User"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.delete_webhook",
+   "name": "Delete webhook",
+   "description": "Delete Webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Webhook"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_current_company",
+   "name": "Retrieve company",
+   "description": "Retrieve Company",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/company",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_current_user",
+   "name": "Retrieve current user",
+   "description": "Retrieve Current User",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/users/current",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_group",
+   "name": "Retrieve group",
+   "description": "Retrieve Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Group"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/groups/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_photo",
+   "name": "Retrieve photo",
+   "description": "Retrieve Photo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/photos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_project",
+   "name": "Retrieve project",
+   "description": "Retrieve Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_project_checklist",
+   "name": "Retrieve project checklist",
+   "description": "Retrieve Project Checklist",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "id": {
+      "type": "string",
+      "description": "ID of the Checklist"
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/checklists/{id}",
+    "path": [
+     "project_id",
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_tag",
+   "name": "Retrieve tag",
+   "description": "Retrieve tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Tag"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/tags/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_user",
+   "name": "Retrieve user",
+   "description": "Retrieve User",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the User"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_video",
+   "name": "Retrieve video",
+   "description": "Returns details for a single video. **Important:** Until `status` is `processed`, `playback_url` returns the raw upload URL (the `pending_uri`) and `format` returns the file extension of that URL \u2014 not the HLS playback URL or `m3u8`. Poll this endpoint until `status: processed` before consuming `playback_url`/`format`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Video"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/videos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.get_webhook",
+   "name": "Retrieve webhook",
+   "description": "Retrieve Webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Webhooks"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_checklist_templates",
+   "name": "List all checklist templates",
+   "description": "List All Checklist Templates",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/templates/checklists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_checklists",
+   "name": "List all checklists",
+   "description": "List All Checklists",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     },
+     "completed": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/checklists",
+    "path": [],
+    "query": [
+     "page",
+     "per_page",
+     "completed"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_groups",
+   "name": "List groups",
+   "description": "List Groups",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/groups",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_photo_comments",
+   "name": "List photo comments",
+   "description": "List Photo Comments",
+   "input": {
+    "type": "object",
+    "properties": {
+     "photo_id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/photos/{photo_id}/comments",
+    "path": [
+     "photo_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_photo_tags",
+   "name": "List photo tags",
+   "description": "List Photo Tags",
+   "input": {
+    "type": "object",
+    "properties": {
+     "photo_id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/photos/{photo_id}/tags",
+    "path": [
+     "photo_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_photos",
+   "name": "List photos",
+   "description": "List Photos",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": "Page number for offset-based pagination. Cannot be used with cursor pagination (after/before params)"
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Number of results per page. Default 50, maximum 100"
+     },
+     "after": {
+      "type": "string",
+      "description": "Cursor for forward pagination. Comes from X-Next-Cursor header value. Returns results after this cursor position. Cannot be used with 'before' or 'page'"
+     },
+     "before": {
+      "type": "string",
+      "description": "Cursor for backward pagination. Comes from X-Prev-Cursor header value. Returns results before this cursor position. Cannot be used with 'after' or 'page'"
+     },
+     "start_date": {
+      "type": "string",
+      "description": "A unix timestamp to return photos captured on or after the provided value"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "A unix timestamp to return photos captured on or before the provided value"
+     },
+     "project_ids": {
+      "type": "array",
+      "description": "Filter results to include photos from one of these project IDs"
+     },
+     "user_ids": {
+      "type": "array",
+      "description": "Filter results to include photos captured by one of these user IDs"
+     },
+     "group_ids": {
+      "type": "array",
+      "description": "Filter results to include photos captured by users in one of these group IDs"
+     },
+     "tag_ids": {
+      "type": "array",
+      "description": "Filter results to include photos with one of these tag IDs"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/photos",
+    "path": [],
+    "query": [
+     "page",
+     "per_page",
+     "after",
+     "before",
+     "start_date",
+     "end_date",
+     "project_ids",
+     "user_ids",
+     "group_ids",
+     "tag_ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_assigned_users",
+   "name": "List assigned users",
+   "description": "List assigned users",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/assigned_users",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_checklists",
+   "name": "List project checklists",
+   "description": "List Project Checklists",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/checklists",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_collaborators",
+   "name": "List project collaborators",
+   "description": "List project collaborators",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/collaborators",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_comments",
+   "name": "List project comments",
+   "description": "List Project Comments",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/comments",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_documents",
+   "name": "List project documents",
+   "description": "List Project Documents",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/documents",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_invitations",
+   "name": "List project invitations",
+   "description": "List project invitations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/invitations",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_labels",
+   "name": "List project labels",
+   "description": "List Project Labels",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/labels",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_photos",
+   "name": "List photos",
+   "description": "List Photos",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": "Page number for offset-based pagination. Cannot be used with cursor pagination (after/before params)"
+     },
+     "per_page": {
+      "type": "integer",
+      "description": "Number of results per page. Default 50, maximum 100"
+     },
+     "after": {
+      "type": "string",
+      "description": "Cursor for forward pagination. Comes from X-Next-Cursor header value. Returns results after this cursor position. Cannot be used with 'before' or 'page'"
+     },
+     "before": {
+      "type": "string",
+      "description": "Cursor for backward pagination. Comes from X-Prev-Cursor header value. Returns results before this cursor position. Cannot be used with 'after' or 'page'"
+     },
+     "start_date": {
+      "type": "string",
+      "description": "A unix timestamp to return photos captured on or after the provided value"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "A unix timestamp to return photos captured on or before the provided value"
+     },
+     "user_ids": {
+      "type": "array",
+      "description": "Filter results to include photos captured by one of these user IDs"
+     },
+     "group_ids": {
+      "type": "array",
+      "description": "Filter results to include photos captured by users in one of these group IDs"
+     },
+     "tag_ids": {
+      "type": "array",
+      "description": "Filter results to include photos with one of these tag IDs"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/photos",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page",
+     "after",
+     "before",
+     "start_date",
+     "end_date",
+     "user_ids",
+     "group_ids",
+     "tag_ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_project_videos",
+   "name": "List videos",
+   "description": "Returns videos captured at the specified project. **Important:** Until a video's `status` is `processed`, the `playback_url` field returns the raw upload URL (the `pending_uri`) and `format` returns the file extension of that URL \u2014 not the HLS playback URL or `m3u8`. Subscribe to the `video.updated` webhook or poll `GET /videos/{id}` until `status: processed` before consuming `playback_url`/`forma",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     },
+     "start_date": {
+      "type": "string",
+      "description": "A unix timestamp to return videos captured on or after the provided value"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "A unix timestamp to return videos captured on or before the provided value"
+     },
+     "user_ids": {
+      "type": "array",
+      "description": "Filter results to include videos captured by one of these user IDs"
+     },
+     "group_ids": {
+      "type": "array",
+      "description": "Filter results to include videos captured by one of these group IDs"
+     },
+     "tag_ids": {
+      "type": "array",
+      "description": "Filter results to include videos tagged with one of these tag IDs"
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects/{project_id}/videos",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "page",
+     "per_page",
+     "start_date",
+     "end_date",
+     "user_ids",
+     "group_ids",
+     "tag_ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_projects",
+   "name": "List projects",
+   "description": "List Projects",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     },
+     "query": {
+      "type": "string",
+      "description": "An optional value to filter the projects by name or address line 1"
+     },
+     "modified_since": {
+      "type": "string",
+      "description": "An ISO8601 formatted date and time to return projects modified on or after the provided value"
+     },
+     "status": {
+      "type": "string",
+      "description": "An optional value to filter the projects by status. Use `active` to return only active projects (excluding deleted ones) or `deleted` to return only deleted projects. When omitted, projects of all statuses are returned.",
+      "enum": [
+       "active",
+       "deleted"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/projects",
+    "path": [],
+    "query": [
+     "page",
+     "per_page",
+     "query",
+     "modified_since",
+     "status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_tags",
+   "name": "List all tags",
+   "description": "List All Tags",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/tags",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_users",
+   "name": "List all users",
+   "description": "List All Users",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/users",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_videos",
+   "name": "List videos",
+   "description": "Returns videos visible to the authenticated user, sorted by capture date (most recent first). Supports the same filtering and pagination parameters as `/photos`. **Important:** Until a video's `status` is `processed`, the `playback_url` field returns the raw upload URL (the `pending_uri`) and `format` returns the file extension of that URL \u2014 not the HLS playback URL or `m3u8`. Subscribe to the `vi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     },
+     "start_date": {
+      "type": "string",
+      "description": "A unix timestamp to return videos captured on or after the provided value"
+     },
+     "end_date": {
+      "type": "string",
+      "description": "A unix timestamp to return videos captured on or before the provided value"
+     },
+     "project_ids": {
+      "type": "array",
+      "description": "Filter results to include videos captured at one of these project IDs"
+     },
+     "user_ids": {
+      "type": "array",
+      "description": "Filter results to include videos captured by one of these user IDs"
+     },
+     "group_ids": {
+      "type": "array",
+      "description": "Filter results to include videos captured by one of these group IDs"
+     },
+     "tag_ids": {
+      "type": "array",
+      "description": "Filter results to include videos tagged with one of these tag IDs"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/videos",
+    "path": [],
+    "query": [
+     "page",
+     "per_page",
+     "start_date",
+     "end_date",
+     "project_ids",
+     "user_ids",
+     "group_ids",
+     "tag_ids"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.list_webhooks",
+   "name": "List webhooks",
+   "description": "List Webhooks",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.companycam.com/webhooks",
+    "path": [],
+    "query": [
+     "page",
+     "per_page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.remove_user_from_project",
+   "name": "Remove assigned user from project",
+   "description": "Remove assigned user from project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the unassigner"
+     },
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "user_id": {
+      "type": "string",
+      "description": "ID of the User"
+     }
+    },
+    "required": [
+     "project_id",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.companycam.com/projects/{project_id}/assigned_users/{user_id}",
+    "path": [
+     "project_id",
+     "user_id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.restore_project",
+   "name": "Restore project",
+   "description": "Restore Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Project"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/projects/{id}/restore",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_group",
+   "name": "Update group",
+   "description": "Update Group",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Group"
+     },
+     "group": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/groups/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "group"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_photo",
+   "name": "Update photo",
+   "description": "Update Photo",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "photo": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/photos/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "photo"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_photo_description",
+   "name": "Update photo description",
+   "description": "Update Photo Description",
+   "input": {
+    "type": "object",
+    "properties": {
+     "photo_id": {
+      "type": "string",
+      "description": "ID of the Photo"
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "photo_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.companycam.com/photos/{photo_id}/descriptions",
+    "path": [
+     "photo_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_project",
+   "name": "Update project",
+   "description": "Update Project",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "name": {
+      "type": "string",
+      "description": "The name of the project"
+     },
+     "address": {
+      "type": "object",
+      "description": ""
+     },
+     "coordinates": {
+      "type": "object",
+      "description": ""
+     },
+     "geofence": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/projects/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "address",
+     "coordinates",
+     "geofence"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_project_notepad",
+   "name": "Update the project notepad",
+   "description": "Update the project notepad",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "ID of the Project"
+     },
+     "notepad": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "notepad",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/projects/{project_id}/notepad",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "notepad"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_tag",
+   "name": "Update tag",
+   "description": "Update Tag",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Tag"
+     },
+     "tag": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/tags/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "tag"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_user",
+   "name": "Update user",
+   "description": "Update User",
+   "input": {
+    "type": "object",
+    "properties": {
+     "X-CompanyCam-User": {
+      "type": "string",
+      "description": "Email of CompanyCam user to be designated as the editor"
+     },
+     "id": {
+      "type": "string",
+      "description": "ID of the User"
+     },
+     "first_name": {
+      "type": "string",
+      "description": ""
+     },
+     "last_name": {
+      "type": "string",
+      "description": ""
+     },
+     "email_address": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_number": {
+      "type": "string",
+      "description": ""
+     },
+     "password": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "X-CompanyCam-User"
+    ],
+    "body": [
+     "first_name",
+     "last_name",
+     "email_address",
+     "phone_number",
+     "password"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "companycam.update_webhook",
+   "name": "Update webhook",
+   "description": "Update Webhook",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "ID of the Webhook"
+     },
+     "url": {
+      "type": "string",
+      "description": ""
+     },
+     "scopes": {
+      "type": "array",
+      "description": ""
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.companycam.com/webhooks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "url",
+     "scopes",
+     "enabled"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

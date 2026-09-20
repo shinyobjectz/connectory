@@ -1,0 +1,475 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "paypal",
+ "source": "https://raw.githubusercontent.com/paypal/paypal-rest-api-specifications/main/openapi/checkout_orders_v2.json",
+ "operations": [
+  {
+   "slug": "paypal.orders_authorize",
+   "name": "Authorize payment for order",
+   "description": "Authorizes payment for an order. To successfully authorize payment for an order, the buyer must first approve the order or a valid payment_source must be provided in the request. A buyer can approve the order upon being redirected to the rel:approve URL that was returned in the HATEOAS links in the create order response.Note: For error handling and troubleshooting, see Orders v2 errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PayPal-Request-Id": {
+      "type": "string",
+      "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc)."
+     },
+     "Prefer": {
+      "type": "string",
+      "description": "The preferred server response upon successful completion of the request. Value is:return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links.return=representation. The server returns a complete resource representation, including the current state of the resource."
+     },
+     "PayPal-Client-Metadata-Id": {
+      "type": "string",
+      "description": "A GUID value originating from Fraudnet and Dyson passed from external API clients via HTTP header. The value is used by Risk decisions to correlate calls which, in turn, might result in lower decline rates.."
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the order for which to authorize."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "payment_source": {
+      "type": "object",
+      "description": "The payment source definition."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}/authorize",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Request-Id",
+     "Prefer",
+     "PayPal-Client-Metadata-Id",
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [
+     "payment_source"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_capture",
+   "name": "Capture payment for order",
+   "description": "Captures payment for an order. To successfully capture payment for an order, the buyer must first approve the order or a valid payment_source must be provided in the request. A buyer can approve the order upon being redirected to the rel:approve URL that was returned in the HATEOAS links in the create order response.Note: For error handling and troubleshooting, see Orders v2 errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PayPal-Request-Id": {
+      "type": "string",
+      "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc)."
+     },
+     "Prefer": {
+      "type": "string",
+      "description": "The preferred server response upon successful completion of the request. Value is:return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links.return=representation. The server returns a complete resource representation, including the current state of the resource."
+     },
+     "PayPal-Client-Metadata-Id": {
+      "type": "string",
+      "description": "A GUID value originating from Fraudnet and Dyson passed from external API clients via HTTP header. The value is used by Risk decisions to correlate calls which, in turn, might result in lower decline rates.."
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the order for which to capture a payment."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "payment_source": {
+      "type": "object",
+      "description": "The payment source definition."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}/capture",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Request-Id",
+     "Prefer",
+     "PayPal-Client-Metadata-Id",
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [
+     "payment_source"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_confirm",
+   "name": "Confirm the order",
+   "description": "Payer confirms their intent to pay for the the Order with the given payment source.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PayPal-Client-Metadata-Id": {
+      "type": "string",
+      "description": "A GUID value originating from Fraudnet and Dyson passed from external API clients via HTTP header. The value is used by Risk decisions to correlate calls which, in turn, might result in lower decline rates.."
+     },
+     "id": {
+      "type": "string",
+      "description": "The ID of the order for which the payer confirms their intent to pay."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "Prefer": {
+      "type": "string",
+      "description": "The preferred server response upon successful completion of the request. Value is:return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links.return=representation. The server returns a complete resource representation, including the current state of the resource."
+     },
+     "payment_source": {
+      "type": "object",
+      "description": "The payment source definition."
+     },
+     "application_context": {
+      "type": "object",
+      "description": "Customizes the payer confirmation experience."
+     }
+    },
+    "required": [
+     "id",
+     "payment_source"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}/confirm-payment-source",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Client-Metadata-Id",
+     "PayPal-Auth-Assertion",
+     "Prefer"
+    ],
+    "body": [
+     "payment_source",
+     "application_context"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_create",
+   "name": "Create order",
+   "description": "Creates an order. Merchants and partners can add Level 2 and 3 data to payments to reduce risk and payment processing costs. For more information about processing payments, see checkout or multiparty checkout.Note: For error handling and troubleshooting, see Orders v2 errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "PayPal-Request-Id": {
+      "type": "string",
+      "description": "The server stores keys for 6 hours. The API callers can request the times to up to 72 hours by speaking to their Account Manager. It is mandatory for all single-step create order calls (E.g. Create Order Request with payment source information like Card, PayPal.vault_id, PayPal.billing_agreement_id, etc)."
+     },
+     "PayPal-Partner-Attribution-Id": {
+      "type": "string",
+      "description": "PayPal Partner can send a PayPal-Partner-Attribution-Id request header with the value that they have been assigned by the PayPal Partner program. This value is known as a BN Code. In order to reward such partners (through partner programs), all the activities (including API calls) that they are doing on behalf of the merchants need to be tracked."
+     },
+     "PayPal-Client-Metadata-Id": {
+      "type": "string",
+      "description": "A GUID value originating from Fraudnet and Dyson passed from external API clients via HTTP header. The value is used by Risk decisions to correlate calls which, in turn, might result in lower decline rates.."
+     },
+     "Prefer": {
+      "type": "string",
+      "description": "The preferred server response upon successful completion of the request. Value is:return=minimal. The server returns a minimal response to optimize communication between the API caller and the server. A minimal response includes the id, status and HATEOAS links.return=representation. The server returns a complete resource representation, including the current state of the resource."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "intent": {
+      "type": "string",
+      "description": "The intent to either capture payment immediately or authorize a payment for an order after order creation.",
+      "enum": [
+       "CAPTURE",
+       "AUTHORIZE"
+      ]
+     },
+     "payer": {
+      "type": "object",
+      "description": "The customer who approves and pays for the order. The customer is also known as the payer."
+     },
+     "purchase_units": {
+      "type": "array",
+      "description": "An array of purchase units. Each purchase unit establishes a contract between a payer and the payee. Each purchase unit represents either a full or partial order that the payer intends to purchase from the payee."
+     },
+     "payment_source": {
+      "type": "object",
+      "description": "The payment source definition."
+     },
+     "application_context": {
+      "type": "object",
+      "description": "Customizes the payer experience during the approval process for the payment with PayPal.Note: Partners and Marketplaces might configure brand_name and shipping_preference during partner account setup, which overrides the request values."
+     }
+    },
+    "required": [
+     "intent",
+     "purchase_units"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders",
+    "path": [],
+    "query": [],
+    "header": [
+     "PayPal-Request-Id",
+     "PayPal-Partner-Attribution-Id",
+     "PayPal-Client-Metadata-Id",
+     "Prefer",
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [
+     "intent",
+     "payer",
+     "purchase_units",
+     "payment_source",
+     "application_context"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_get",
+   "name": "Show order details",
+   "description": "Shows details for an order, by ID.Note: For error handling and troubleshooting, see Orders v2 errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the order for which to show details."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "fields": {
+      "type": "string",
+      "description": "A comma-separated list of fields that should be returned for the order. Valid filter field is `payment_source`."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "fields"
+    ],
+    "header": [
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_patch",
+   "name": "Update order",
+   "description": "Updates an order with a `CREATED` or `APPROVED` status. You cannot update an order with the `COMPLETED` status.To make an update, you must provide a `reference_id`. If you omit this value with an order that contains only one purchase unit, PayPal sets the value to `default` which enables you to use the path: \\\"/purchase_units/@reference_id=='default'/{attribute-or-object}\\\". Merchants and partners",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the order to update."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_track_create",
+   "name": "Add tracking information for an order",
+   "description": "Adds tracking information for an Order.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the order that the tracking information is associated with."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     },
+     "tracking_number": {
+      "type": "string",
+      "description": "The tracking number for the shipment. This property supports Unicode."
+     },
+     "carrier": {
+      "type": "string",
+      "description": "The carrier for the shipment. Some carriers have a global version as well as local subsidiaries. The subsidiaries are repeated over many countries and might also have an entry in the global list. Choose the carrier for your country. If the carrier is not available for your country, choose the global version of the carrier. If your carrier name is not in the list, set `carrier` to `OTHER` and set c",
+      "enum": [
+       "DPD_RU",
+       "BG_BULGARIAN_POST",
+       "KR_KOREA_POST",
+       "ZA_COURIERIT",
+       "FR_EXAPAQ",
+       "ARE_EMIRATES_POST",
+       "GAC",
+       "GEIS",
+       "SF_EX",
+       "PAGO",
+       "MYHERMES",
+       "DIAMOND_EUROGISTICS"
+      ]
+     },
+     "carrier_name_other": {
+      "type": "string",
+      "description": "The name of the carrier for the shipment. Provide this value only if the carrier parameter is OTHER. This property supports Unicode."
+     }
+    },
+    "required": [
+     "carrier",
+     "id",
+     "tracking_number"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}/track",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [
+     "tracking_number",
+     "carrier",
+     "carrier_name_other"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.orders_trackers_patch",
+   "name": "Update or cancel tracking information for an order",
+   "description": "Updates or cancels the tracking information for a PayPal order, by ID. Updatable attributes or objects:AttributeOpNotesitemsreplaceUsing replace op for items will replace the entire items object with the value sent in request.notify_payerreplace, addstatusreplaceOnly patching status to CANCELLED is currently supported.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the order that the tracking information is associated with."
+     },
+     "tracker_id": {
+      "type": "string",
+      "description": "The order tracking ID."
+     },
+     "PayPal-Auth-Assertion": {
+      "type": "string",
+      "description": "Header for an API client-provided JWT assertion that identifies the merchant. Establishing the consent to act-on-behalf of a merchant is a prerequisite for using this header."
+     }
+    },
+    "required": [
+     "id",
+     "tracker_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/{id}/trackers/{tracker_id}",
+    "path": [
+     "id",
+     "tracker_id"
+    ],
+    "query": [],
+    "header": [
+     "PayPal-Auth-Assertion"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "paypal.server_callback",
+   "name": "Receive updated order information via callback url",
+   "description": "The documentation for this 'endpoint' is different from the other endpoints under v2 Orders. For this endpoint the role of client and server is reversed. The client sending the request is PayPal, and the server sending the response is the merchant. In the request, PayPal will send the buyer's redacted shipping address and selected shipping option to the callback URL defined the create order reques",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the order."
+     },
+     "shipping_address": {
+      "type": "object",
+      "description": "The portable international postal address. Maps to [AddressValidationMetadata](https://github.com/googlei18n/libaddressinput/wiki/AddressValidationMetadata) and HTML 5.1 [Autofilling form controls: the autocomplete attribute](https://www.w3.org/TR/html51/sec-forms.html#autofilling-form-controls-the-autocomplete-attribute)."
+     },
+     "shipping_option": {
+      "type": "object",
+      "description": "The options that the payee or merchant offers to the payer to ship or pick up their items."
+     },
+     "purchase_units": {
+      "type": "array",
+      "description": "An array of purchase units. At present only 1 purchase_unit is supported. Each purchase unit establishes a contract between a payer and the payee. Each purchase unit represents either a full or partial order that the payer intends to purchase from the payee."
+     }
+    },
+    "required": [
+     "purchase_units"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api-m.paypal.com/v2/checkout/orders/order-update-callback",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "shipping_address",
+     "shipping_option",
+     "purchase_units"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

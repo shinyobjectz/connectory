@@ -1,0 +1,3086 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "twitter",
+ "source": "https://api.apis.guru/v2/specs/twitter.com/legacy/1.1/swagger.json",
+ "operations": [
+  {
+   "slug": "twitter.account_settings_get",
+   "name": "Account settings get",
+   "description": "Returns settings (including current trend, geo and sleep time information) for the authenticating user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "trend_location_woeid": {
+      "type": "string",
+      "description": "The Yahoo! Where On Earth ID to use as the user's default trend location. Global information is available by using 1 as the WOEID. The woeid must be one of the locations returned by GET trends/available. Example Values: 1"
+     },
+     "sleep_time_enabled": {
+      "type": "string",
+      "description": "When set to true, t or 1, will enable sleep time for the user. Sleep time is the time when push or SMS notifications should not be sent to the user. Example Values: true"
+     },
+     "start_sleep_time": {
+      "type": "string",
+      "description": "The hour that sleep time should begin if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user's time_zone setting. Example Values: 13"
+     },
+     "end_sleep_time": {
+      "type": "string",
+      "description": "The hour that sleep time should end if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user's time_zone setting. Example Values: 13"
+     },
+     "time_zone": {
+      "type": "string",
+      "description": "The timezone dates and times should be displayed in for the user. The timezone must be one of the Rails TimeZone names. Example Values: Europe/Copenhagen, Pacific/Tongatapu"
+     },
+     "lang": {
+      "type": "string",
+      "description": "The language which Twitter should render in for this user. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by GET help/languages. Example Values: it, en, es"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/account/settings.json",
+    "path": [],
+    "query": [
+     "trend_location_woeid",
+     "sleep_time_enabled",
+     "start_sleep_time",
+     "end_sleep_time",
+     "time_zone",
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.account_settings_post",
+   "name": "Account settings post",
+   "description": "Updates the authenticating user's settings.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "trend_location_woeid": {
+      "type": "string",
+      "description": "The Yahoo! Where On Earth ID to use as the user's default trend location. Global information is available by using 1 as the WOEID. The woeid must be one of the locations returned by GET trends/available. Example Values: 1"
+     },
+     "sleep_time_enabled": {
+      "type": "string",
+      "description": "When set to true, t or 1, will enable sleep time for the user. Sleep time is the time when push or SMS notifications should not be sent to the user. Example Values: true"
+     },
+     "start_sleep_time": {
+      "type": "string",
+      "description": "The hour that sleep time should begin if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user's time_zone setting. Example Values: 13"
+     },
+     "end_sleep_time": {
+      "type": "string",
+      "description": "The hour that sleep time should end if it is enabled. The value for this parameter should be provided in ISO8601 format (i.e. 00-23). The time is considered to be in the same timezone as the user's time_zone setting. Example Values: 13"
+     },
+     "time_zone": {
+      "type": "string",
+      "description": "The timezone dates and times should be displayed in for the user. The timezone must be one of the Rails TimeZone names. Example Values: Europe/Copenhagen, Pacific/Tongatapu"
+     },
+     "lang": {
+      "type": "string",
+      "description": "The language which Twitter should render in for this user. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by GET help/languages. Example Values: it, en, es"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/settings.json",
+    "path": [],
+    "query": [
+     "trend_location_woeid",
+     "sleep_time_enabled",
+     "start_sleep_time",
+     "end_sleep_time",
+     "time_zone",
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.account_update_delivery_device",
+   "name": "Account update delivery device",
+   "description": "Sets which device Twitter delivers updates to for the authenticating user. Sending none as the device parameter will disable SMS updates.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device": {
+      "type": "string",
+      "description": "Must be one of: sms, none. Example Values: sms"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet will include a node called \"entities,\". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more detail on entities. Example Values: true"
+     }
+    },
+    "required": [
+     "device"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/update_delivery_device.json",
+    "path": [],
+    "query": [
+     "device",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.account_update_profile",
+   "name": "Account update profile",
+   "description": "Sets values that users are able to set under the Account tab of their settings page. Only the parameters specified will be updated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Full name associated with the profile. Maximum of 20 characters. Example Values: Marcel Molina"
+     },
+     "url": {
+      "type": "string",
+      "description": "URL associated with the profile. Will be prepended with \"http://\" if not present. Maximum of 100 characters. Example Values: http://project.ioni.st"
+     },
+     "location": {
+      "type": "string",
+      "description": "The city or country describing where the user of the account is located. The contents are not normalized or geocoded in any way. Maximum of 30 characters. Example Values: San Francisco, CA"
+     },
+     "description": {
+      "type": "string",
+      "description": "A description of the user owning the account. Maximum of 160 characters. Example Values: Flipped my wig at age 22 and it never grew back. Also: I work at Twitter."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/update_profile.json",
+    "path": [],
+    "query": [
+     "name",
+     "url",
+     "location",
+     "description",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.accounts_update_profile_background_image",
+   "name": "Accounts update profile background image",
+   "description": "Updates the authenticating user's profile background image. This method can also be used to enable or disable the profile background image. Although each parameter is marked as optional, at least one of image, tile or use must be provided when making this request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Content-Type": {
+      "type": "string",
+      "description": "Content type header"
+     },
+     "tile": {
+      "type": "string",
+      "description": "Whether or not to tile the background image. If set to true, t or 1 the background image will be displayed tiled. The image will not be tiled otherwise."
+     },
+     "use": {
+      "type": "string",
+      "description": "Determines whether to display the profile background image or not. When set to true, t or 1 the background image will be displayed if an image is being uploaded with the request, or has been uploaded previously. An error will be returned if you try to use a background image when one is not being uploaded or does not exist. If this parameter is defined but set to anything other than true, t or 1, t"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": [
+     "Content-Type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/update_profile_background_image.json",
+    "path": [],
+    "query": [
+     "tile",
+     "use",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [
+     "Content-Type"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.accounts_update_profile_colors",
+   "name": "Accounts update profile colors",
+   "description": "Sets one or more hex values that control the color scheme of the authenticating user's profile page on twitter.com. Each parameter's value must be a valid hexidecimal value, and may be either three or six characters (ex: #fff or #ffffff).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "profile_background_color": {
+      "type": "string",
+      "description": "Profile background color. Example Values: 3D3D3D"
+     },
+     "profile_link_color": {
+      "type": "string",
+      "description": "Profile link color.Example Values: 0000FF"
+     },
+     "profile_sidebar_border_color": {
+      "type": "string",
+      "description": "Profile sidebar's border color. Example Values: 0F0F0F"
+     },
+     "profile_sidebar_fill_color": {
+      "type": "string",
+      "description": "Profile sidebar's background color. Example Values: 00FF00"
+     },
+     "profile_text_color": {
+      "type": "string",
+      "description": "Profile text color. Example Values: 000000"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/update_profile_colors.json",
+    "path": [],
+    "query": [
+     "profile_background_color",
+     "profile_link_color",
+     "profile_sidebar_border_color",
+     "profile_sidebar_fill_color",
+     "profile_text_color",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.accounts_update_profile_image",
+   "name": "Accounts update profile image",
+   "description": "Updates the authenticating user's profile image. Note that this method expects raw multipart data, not a URL to an image. This method asynchronously processes the uploaded file before updating the user's profile image URL. You can either update your local cache the next time you request the user's information, or, at least 5 seconds after uploading the image, ask for the updated URL using GET user",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Content-Type": {
+      "type": "string",
+      "description": "Content type header"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": [
+     "Content-Type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/account/update_profile_image.json",
+    "path": [],
+    "query": [
+     "skip_status"
+    ],
+    "header": [
+     "Content-Type"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.application_rate_limit_status",
+   "name": "Application rate limit status",
+   "description": "Returns the current rate limits for methods belonging to the specified resource families. Each 1.1 API resource belongs to a \"resource family\" which is indicated in its method documentation. You can typically determine a method's resource family from the first component of the path after the resource version. This method responds with a map of methods belonging to the families specified by the res",
+   "input": {
+    "type": "object",
+    "properties": {
+     "resources": {
+      "type": "string",
+      "description": "A comma-separated list of resource families you want to know the current rate limit disposition for. For best performance, only specify the resource families pertinent to your application.Example Values: statuses,friends,trends,help"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/application/rate_limit_status.json",
+    "path": [],
+    "query": [
+     "resources"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.blocks_create",
+   "name": "Blocks create",
+   "description": "Blocks the specified user from following the authenticating user. In addition the blocked user will not show in the authenticating users mentions or timeline (unless retweeted by another user). If a follow or friend relationship exists it is destroyed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/blocks/create.json",
+    "path": [],
+    "query": [
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.blocks_destroy",
+   "name": "Blocks destroy",
+   "description": "Un-blocks the user specified in the ID parameter for the authenticating user. Returns the un-blocked user in the requested format when successful. If relationships existed before the block was instated, they will not be restored.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/blocks/destroy.json",
+    "path": [],
+    "query": [
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.blocks_ids",
+   "name": "Blocks ids",
+   "description": "Returns an array of numeric user ids the authenticating user is blocking.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stringify_ids": {
+      "type": "string",
+      "description": "Many programming environments will not consume our ids due to their size. Provide this option to have ids returned as strings instead. Read more about Twitter IDs, JSON and Snowflake. Example Values: true"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fo"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/blocks/ids.json",
+    "path": [],
+    "query": [
+     "stringify_ids",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.blocks_list",
+   "name": "Blocks list",
+   "description": "Allows one to enable or disable retweets and device notifications from the specified user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of blocked users to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fo"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/blocks/list.json",
+    "path": [],
+    "query": [
+     "include_entities",
+     "skip_status",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.direct_messages",
+   "name": "Direct messages",
+   "description": "Returns the 20 most recent direct messages sent to the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 incoming DMs. Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "string",
+      "description": "Specifies the number of direct messages to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of Tweets to return because suspended or deleted content is removed after the count has been applied. Example Values: 5"
+     },
+     "since_id": {
+      "type": "string",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available. Example Values: 12345"
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID. Example Values: 54321"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "page": {
+      "type": "string",
+      "description": "Specifies the page of results to retrieve. Example Values: 3"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/direct_messages.json",
+    "path": [],
+    "query": [
+     "count",
+     "since_id",
+     "max_id",
+     "include_entities",
+     "page",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.direct_messages_destroy",
+   "name": "Direct messages destroy",
+   "description": "Destroys the direct message specified in the required ID parameter. The authenticating user must be the recipient of the specified direct message. Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the direct message to delete. Example Values: 1270516771"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/direct_messages/destroy.json",
+    "path": [],
+    "query": [
+     "id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.direct_messages_new",
+   "name": "Direct messages new",
+   "description": "Sends a new direct message to the specified user from the authenticating user. Requires both the user and text parameters and must be a POST. Returns the sent message in the requested format if successful.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "text": {
+      "type": "string",
+      "description": "The text of your direct message. Be sure to URL encode as necessary, and keep the message under 140 characters. Example Values: Meet me behind the cafeteria after school"
+     }
+    },
+    "required": [
+     "text"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/direct_messages/new.json",
+    "path": [],
+    "query": [
+     "text"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.direct_messages_sent",
+   "name": "Direct messages sent",
+   "description": "Returns the 20 most recent direct messages sent by the authenticating user. Includes detailed information about the sender and recipient user. You can request up to 200 direct messages per call, up to a maximum of 800 outgoing DMs. Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "string",
+      "description": "Specifies the number of direct messages to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of Tweets to return because suspended or deleted content is removed after the count has been applied. Example Values: 5"
+     },
+     "since_id": {
+      "type": "string",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available. Example Values: 12345"
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID. Example Values: 54321"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will not be included when set to false. Example Values: false"
+     },
+     "page": {
+      "type": "string",
+      "description": "Specifies the page of results to retrieve. Example Values: 3"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/direct_messages/sent.json",
+    "path": [],
+    "query": [
+     "count",
+     "since_id",
+     "max_id",
+     "include_entities",
+     "page"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.direct_messages_show",
+   "name": "Direct messages show",
+   "description": "Returns a single direct message, specified by an id parameter. Like the /1.1/direct_messages.format request, this method will include the user objects of the sender and recipient. Important: This method requires an access token with RWD (read, write and direct message) permissions. Consult The Application Permission Model for more information.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the direct message. Example Values: 587424932"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/direct_messages/show.json",
+    "path": [],
+    "query": [
+     "id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.favorites_create",
+   "name": "Favorites create",
+   "description": "Favorites the status specified in the ID parameter as the authenticating user. Returns the favorite status when successful. This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status. Example Values: 123"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be omitted when set to false. Example Values: false"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/favorites/create.json",
+    "path": [],
+    "query": [
+     "id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.favorites_destroy",
+   "name": "Favorites destroy",
+   "description": "Un-favorites the status specified in the ID parameter as the authenticating user. Returns the un-favorited status in the requested format when successful. This process invoked by this method is asynchronous. The immediately returned status may not indicate the resultant favorited status of the tweet. A 200 OK response from this method will indicate whether the intended action was successful or not",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status. Example Values: 123"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be omitted when set to false. Example Values: false"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/favorites/destroy.json",
+    "path": [],
+    "query": [
+     "id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.favorites_list",
+   "name": "Favorites list",
+   "description": "Returns the 20 most recent Tweets favorited by the authenticating or specified user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "string",
+      "description": "Specifies the number of records to retrieve. Must be less than or equal to 200. Defaults to 20. Example Values: 5"
+     },
+     "since_id": {
+      "type": "string",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available. Example Values: 12345"
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID. Example Values: 54321"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be omitted when set to false. Example Values: false"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/favorites/list.json",
+    "path": [],
+    "query": [
+     "count",
+     "since_id",
+     "max_id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.followers_ids",
+   "name": "Followers ids",
+   "description": "Returns a cursored collection of user IDs for every user following the specified user. At this time, results are ordered with the most recent following first \u2014 however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using the next_cursor value in subsequent reques",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stringify_ids": {
+      "type": "string",
+      "description": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. Example Values: true"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fort"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/followers/ids.json",
+    "path": [],
+    "query": [
+     "stringify_ids",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friends_ids",
+   "name": "Friends ids",
+   "description": "Returns a cursored collection of user IDs for every user the specified user is following (otherwise known as their \"friends\"). At this time, results are ordered with the most recent following first \u2014 however, this ordering is subject to unannounced change and eventual consistency issues. Results are given in groups of 5,000 user IDs and multiple \"pages\" of results can be navigated through using th",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stringify_ids": {
+      "type": "string",
+      "description": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. Example Values: true"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fort"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/friends/ids.json",
+    "path": [],
+    "query": [
+     "stringify_ids",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_create",
+   "name": "Friendships create",
+   "description": "Allows the authenticating users to follow the user specified in the ID parameter. Returns the befriended user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. If you are already friends with the user a HTTP 403 may be returned, though for performance reasons you may get a 200 OK message even if the friendship already exists. Actions take",
+   "input": {
+    "type": "object",
+    "properties": {
+     "follow": {
+      "type": "string",
+      "description": "Enable notifications for the target user. Example Values: true"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/friendships/create.json",
+    "path": [],
+    "query": [
+     "follow"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_destroy",
+   "name": "Friendships destroy",
+   "description": "Allows the authenticating user to unfollow the user specified in the ID parameter. Returns the unfollowed user in the requested format when successful. Returns a string describing the failure condition when unsuccessful. Actions taken in this method are asynchronous and changes will be eventually consistent.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/friendships/destroy.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_incoming",
+   "name": "Friendships incoming",
+   "description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stringify_ids": {
+      "type": "string",
+      "description": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. Example Values: true"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fort"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/friendships/incoming.json",
+    "path": [],
+    "query": [
+     "stringify_ids",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_lookup",
+   "name": "Friendships lookup",
+   "description": "Returns the relationships of the authenticating user to the comma-separated list of up to 100 screen_names or user_ids provided. Values for connections can be: following, following_requested, followed_by, none.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/friendships/lookup.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_outgoing",
+   "name": "Friendships outgoing",
+   "description": "Returns a collection of numeric IDs for every protected user for whom the authenticating user has a pending follow request.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "stringify_ids": {
+      "type": "string",
+      "description": "Many programming environments will not consume our Tweet ids due to their size. Provide this option to have ids returned as strings instead. Example Values: true"
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the list of connections to be broken into pages of no more than 5000 IDs at a time. The number of IDs returned is not guaranteed to be 5000 as suspended users are filtered out after connections are queried. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and fort"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/friendships/outgoing.json",
+    "path": [],
+    "query": [
+     "stringify_ids",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_show",
+   "name": "Friendships show",
+   "description": "Returns detailed information about the relationship between two arbitrary users.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "source_id": {
+      "type": "string",
+      "description": "The user_id of the subject user. Example Values: 3191321"
+     },
+     "source_screen_name": {
+      "type": "string",
+      "description": "The screen_name of the subject user. Example Values: raffi"
+     },
+     "target_id": {
+      "type": "string",
+      "description": "The user_id of the target user. Example Values: 20"
+     },
+     "target_screen_name": {
+      "type": "string",
+      "description": "The screen_name of the target user. Example Values: noradio"
+     }
+    },
+    "required": [
+     "target_id",
+     "target_screen_name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/friendships/show.json",
+    "path": [],
+    "query": [
+     "source_id",
+     "source_screen_name",
+     "target_id",
+     "target_screen_name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.friendships_update",
+   "name": "Friendships update",
+   "description": "Allows one to enable or disable retweets and device notifications from the specified user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "device": {
+      "type": "string",
+      "description": "Enable/disable device notifications from the target user. Example Values: true, false"
+     },
+     "retweets": {
+      "type": "string",
+      "description": "Enable/disable retweets from the target user. Example Values: true, false"
+     }
+    },
+    "required": [
+     "device",
+     "retweets"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/friendships/update.json",
+    "path": [],
+    "query": [
+     "device",
+     "retweets"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.geo_place_id",
+   "name": "Geo place id",
+   "description": "Returns all the information about a known place.Example Values: df51dec6f4ee2b2c",
+   "input": {
+    "type": "object",
+    "properties": {
+     "place_id": {
+      "type": "string",
+      "description": "A place in the world. These IDs can be retrieved from geo/reverse_geocode. Example Values: df51dec6f4ee2b2c"
+     }
+    },
+    "required": [
+     "place_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/geo/id/{place_id}.json",
+    "path": [
+     "place_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.geo_places",
+   "name": "Geo places",
+   "description": "Creates a new place object at the given latitude and longitude. Before creating a place you need to query GET geo/similar_places with the latitude, longitude and name of the place you wish to create. The query will return an array of places which are similar to the one you wish to create, and a token. If the place you wish to create isn't in the returned array you can use the token with this metho",
+   "input": {
+    "type": "object",
+    "properties": {
+     "attribute:street_address": {
+      "type": "string",
+      "description": "This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more about Place Attributes. Example Values: 795%20Folsom%20St"
+     },
+     "callback": {
+      "type": "string",
+      "description": "If supplied, the response will use the JSONP format with a callback of the given name."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/geo/places.json",
+    "path": [],
+    "query": [
+     "attribute:street_address",
+     "callback"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.geo_reverse_geocode",
+   "name": "Geo reverse geocode",
+   "description": "Given a latitude and a longitude, searches for up to 20 places that can be used as a place_id when updating a status. This request is an informative call and will deliver generalized results about geography",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lat": {
+      "type": "string",
+      "description": "The latitude to search around. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter. Example Values: 37.7821120598956"
+     },
+     "long": {
+      "type": "string",
+      "description": "The longitude to search around. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter. Example Values: -122.400612831116"
+     },
+     "accuracy": {
+      "type": "string",
+      "description": "A hint on the \"region\" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.). Example Values:"
+     },
+     "granularity": {
+      "type": "string",
+      "description": "This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country. Example Values: city"
+     },
+     "max_results": {
+      "type": "string",
+      "description": "A hint as to the number of results to return. This does not guarantee that the number of results returned will equal max_results, but instead informs how many \"nearby\" results to return. Ideally, only pass in the number of places you intend to display to the user here. Example Values: 3"
+     },
+     "callback": {
+      "type": "string",
+      "description": "If supplied, the response will use the JSONP format with a callback of the given name."
+     }
+    },
+    "required": [
+     "lat",
+     "long"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/geo/reverse_geocode.json",
+    "path": [],
+    "query": [
+     "lat",
+     "long",
+     "accuracy",
+     "granularity",
+     "max_results",
+     "callback"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.geo_search",
+   "name": "Geo search",
+   "description": "Search for places that can be attached to a statuses/update. Given a latitude and a longitude pair, an IP address, or a name, this request will return a list of all the valid places that can be used as the place_id when updating a status. Conceptually, a query can be made from the user's location, retrieve a list of places, have the user validate the location he or she is at, and then send the ID ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "accuracy": {
+      "type": "string",
+      "description": "A hint on the \"region\" in which to search. If a number, then this is a radius in meters, but it can also take a string that is suffixed with ft to specify feet. If this is not passed in, then it is assumed to be 0m. If coming from a device, in practice, this value is whatever accuracy the device has measuring its location (whether it be coming from a GPS, WiFi triangulation, etc.). Example Values:"
+     },
+     "granularity": {
+      "type": "string",
+      "description": "This is the minimal granularity of place types to return and must be one of: poi, neighborhood, city, admin or country. If no granularity is provided for the request neighborhood is assumed. Setting this to city, for example, will find places which have a type of city, admin or country. Example Values: city"
+     },
+     "contained_within": {
+      "type": "string",
+      "description": "This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within \"San Francisco, CA USA\", you would specify a place_id of \"5a110d312052166f\" Example Values: 247f43d441defc03"
+     },
+     "attribute:street_address": {
+      "type": "string",
+      "description": "This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more about Place Attributes. Example Values: 795%20Folsom%20St"
+     },
+     "callback": {
+      "type": "string",
+      "description": "If supplied, the response will use the JSONP format with a callback of the given name."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/geo/search.json",
+    "path": [],
+    "query": [
+     "accuracy",
+     "granularity",
+     "contained_within",
+     "attribute:street_address",
+     "callback"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.geo_similar_places",
+   "name": "Geo similar places",
+   "description": "Locates places near the given coordinates which are similar in name. Conceptually you would use this method to get a list of known places to choose from first. Then, if the desired place doesn't exist, make a request to POST geo/place to create a new one. The token contained in the response is the token needed to be able to create a new place.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contained_within": {
+      "type": "string",
+      "description": "This is the place_id which you would like to restrict the search results to. Setting this value means only places within the given place_id will be found. Specify a place_id. For example, to scope all results to places within \"San Francisco, CA USA\", you would specify a place_id of \"5a110d312052166f\" Example Values: 247f43d441defc03"
+     },
+     "attribute:street_address": {
+      "type": "string",
+      "description": "This parameter searches for places which have this given street address. There are other well-known, and application specific attributes available. Custom attributes are also permitted. Learn more about Place Attributes. Example Values: 795%20Folsom%20St"
+     },
+     "callback": {
+      "type": "string",
+      "description": "If supplied, the response will use the JSONP format with a callback of the given name."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/geo/similar_places.json",
+    "path": [],
+    "query": [
+     "contained_within",
+     "attribute:street_address",
+     "callback"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.help_configurations",
+   "name": "Help configurations",
+   "description": "Returns the current configuration used by Twitter including twitter.com slugs which are not usernames, maximum photo resolutions, and t.co URL lengths. It is recommended applications request this endpoint when they are loaded, but no more than once a day.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/help/configuration.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.help_languages",
+   "name": "Help languages",
+   "description": "Returns the list of languages supported by Twitter along with their ISO 639-1 code. The ISO 639-1 code is the two letter value to use if you include lang with any of your requests.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/help/languages.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.help_privacy",
+   "name": "Help privacy",
+   "description": "Returns Twitter's Privacy Policy",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/help/privacy.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.help_tos",
+   "name": "Help tos",
+   "description": "Returns the Twitter Terms of Service in the requested format. These are not the same as the Developer Rules of the Road.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/help/tos.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_create",
+   "name": "Lists create",
+   "description": "Creates a new list for the authenticated user. Note that you can't create more than 20 lists per account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name for the list.A list's name must start with a letter and can consist only of 25 or fewer letters, numbers, \"-\", or \"_\" characters."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Whether your list is public or private. Values can be public or private. If no mode is specified the list will be public."
+     },
+     "description": {
+      "type": "string",
+      "description": "The description to give the list."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/create.json",
+    "path": [],
+    "query": [
+     "name",
+     "mode",
+     "description"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_destroy",
+   "name": "Lists destroy",
+   "description": "Deletes the specified list. The authenticated user must own the list to be able to destroy it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/destroy.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_list",
+   "name": "Lists list",
+   "description": "Returns all lists the authenticating or specified user subscribes to, including their own. The user is specified using the user_id or screen_name parameters. If no user is given, the authenticating user is used. This method used to be GET lists in version 1.0 of the API and has been renamed for consistency with other call.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "screen_name": {
+      "type": "string",
+      "description": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID. Example Values: noradio"
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name. Example Values: 12345 Note:: Specifies the ID of the user to get lists from. Helpful for disambiguating when a valid user ID is also a valid screen name."
+     }
+    },
+    "required": [
+     "screen_name",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/list.json",
+    "path": [],
+    "query": [
+     "screen_name",
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members",
+   "name": "Lists members",
+   "description": "Returns the members of the specified list. Private list members will only be shown if the authenticated user owns the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Causes the collection of list members to be broken into \"pages\" of somewhat consistent size. If no cursor is provided, a value of -1 will be assumed, which is the first \"page.\" The response from the API will include a previous_cursor and next_cursor to allow paging back and forth. See Using cursors to navigate collections for more information. Example Values: 12893764510938"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/members.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "include_entities",
+     "skip_status",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members_create",
+   "name": "Lists members create",
+   "description": "Add a member to a list. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/members/create.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members_create_all",
+   "name": "Lists members create all",
+   "description": "Adds multiple members to a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to add members to it. Note that lists can't have more than 500 members, and you are limited to adding up to 100 members to a list at a time with this method. Please note that there can be issues with lists that rapidly remove and add memberships. ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "A comma separated list of user IDs, up to 100 are allowed in a single request."
+     },
+     "screen_name": {
+      "type": "string",
+      "description": "A comma separated list of screen names, up to 100 are allowed in a single request."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/members/create_all.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "user_id",
+     "screen_name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members_destroy",
+   "name": "Lists members destroy",
+   "description": "Removes the specified member from the list. The authenticated user must be the list's owner to remove members from the list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list_id": {
+      "type": "string",
+      "description": "The numerical id of the list."
+     },
+     "slug": {
+      "type": "string",
+      "description": "You can identify a list by its slug instead of its numerical id. If you decide to do so, note that you'll also have to specify the list owner using the owner_id or owner_screen_name parameters."
+     },
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user to remove from the list. Helpful for disambiguating when a valid user ID is also a valid screen name."
+     },
+     "screen_name": {
+      "type": "string",
+      "description": "The screen name of the user for whom to remove from the list. Helpful for disambiguating when a valid screen name is also a user ID."
+     }
+    },
+    "required": [
+     "list_id",
+     "slug"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/members/destroy.json",
+    "path": [],
+    "query": [
+     "list_id",
+     "slug",
+     "owner_screen_name",
+     "owner_id",
+     "user_id",
+     "screen_name"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members_destroy_all",
+   "name": "Lists members destroy all",
+   "description": "Removes multiple members from a list, by specifying a comma-separated list of member ids or screen names. The authenticated user must own the list to be able to remove members from it. Note that lists can't have more than 500 members, and you are limited to removing up to 100 members to a list at a time with this method. Please note that there can be issues with lists that rapidly remove and add m",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "screen_name": {
+      "type": "string",
+      "description": "A comma separated list of screen names, up to 100 are allowed in a single request."
+     },
+     "user_id": {
+      "type": "string",
+      "description": "A comma separated list of user IDs, up to 100 are allowed in a single request."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/members/destroy_all.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "screen_name",
+     "user_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_members_show",
+   "name": "Lists members show",
+   "description": "Check if the specified user is a member of the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet will include a node called \"entities\". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future."
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/members/show.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_memberships",
+   "name": "Lists memberships",
+   "description": "Returns the lists the specified user has been added to. If user_id or screen_name are not provided the memberships for the authenticating user are returned.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user for whom to return results for. Helpful for disambiguating when a valid user ID is also a valid screen name."
+     },
+     "screen_name": {
+      "type": "string",
+      "description": "The screen name of the user for whom to return results for. Helpful for disambiguating when a valid screen name is also a user ID."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list."
+     },
+     "filter_to_owned_lists": {
+      "type": "string",
+      "description": "When set to true, t or 1, will return just lists the authenticating user owns, and the user represented by user_id or screen_name is a member of."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/memberships.json",
+    "path": [],
+    "query": [
+     "user_id",
+     "screen_name",
+     "cursor",
+     "filter_to_owned_lists"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_show",
+   "name": "Lists show",
+   "description": "Returns the specified list. Private lists will only be shown if the authenticated user owns the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/show.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_statuses",
+   "name": "Lists statuses",
+   "description": "Returns tweet timeline for members of the specified list. Retweets are included by default. You can use the include_rts=false parameter to omit retweet objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "since_id": {
+      "type": "string",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available."
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID."
+     },
+     "count": {
+      "type": "string",
+      "description": "Specifies the number of results to retrieve per \"page."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "Entities are ON by default in API 1.1, each tweet includes a node called \"entities\". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. You can omit entities from the result by using include_entities=false"
+     },
+     "include_rts": {
+      "type": "string",
+      "description": "When set to either true, t or 1, the list timeline will contain native retweets (if they exist) in addition to the standard stream of tweets. The output format of retweeted tweets is identical to the representation you see in home_timeline."
+     }
+    },
+    "required": [
+     "include_rts"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/statuses.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "since_id",
+     "max_id",
+     "count",
+     "include_entities",
+     "include_rts"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_subscribers",
+   "name": "Lists subscribers",
+   "description": "Returns the subscribers of the specified list. Private list subscribers will only be shown if the authenticated user owns the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet will include a node called \"entities\". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details."
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/subscribers.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "cursor",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_subscribers_create",
+   "name": "Lists subscribers create",
+   "description": "Subscribes the authenticated user to the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/subscribers/create.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_subscribers_destroy",
+   "name": "Lists subscribers destroy",
+   "description": "Unsubscribes the authenticated user from the specified list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/subscribers/destroy.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_subscribers_show",
+   "name": "Lists subscribers show",
+   "description": "Check if the specified user is a subscriber of the specified list. Returns the user if they are subscriber.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet will include a node called \"entities\". This node offers a variety of metadata about the tweet in a discreet structure, including: user_mentions, urls, and hashtags. While entities are opt-in on timelines at present, they will be made a default component of output in the future. See Tweet Entities for more details."
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/subscribers/show.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_subscriptions",
+   "name": "Lists subscriptions",
+   "description": "Obtain a collection of the lists the specified user is subscribed to, 20 lists per page by default. Does not include the user's own lists.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "string",
+      "description": "The amount of results to return per page. Defaults to 20. Maximum of 1,000 when using cursors."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "Breaks the results into pages. A single page contains 20 lists. Provide a value of -1 to begin paging. Provide values as returned in the response body's next_cursor and previous_cursor attributes to page back and forth in the list. It is recommended to always use cursors when the method supports them."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/lists/subscriptions.json",
+    "path": [],
+    "query": [
+     "count",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.lists_update",
+   "name": "Lists update",
+   "description": "Updates the specified list. The authenticated user must own the list to be able to update it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "owner_screen_name": {
+      "type": "string",
+      "description": "The screen name of the user who owns the list being requested by a slug."
+     },
+     "owner_id": {
+      "type": "string",
+      "description": "The user ID of the user who owns the list being requested by a slug."
+     },
+     "name": {
+      "type": "string",
+      "description": "The name for the list."
+     },
+     "mode": {
+      "type": "string",
+      "description": "Whether your list is public or private. Values can be public or private. If no mode is specified the list will be public."
+     },
+     "description": {
+      "type": "string",
+      "description": "The description to give the list."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/lists/update.json",
+    "path": [],
+    "query": [
+     "owner_screen_name",
+     "owner_id",
+     "name",
+     "mode",
+     "description"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.saved_searches_create",
+   "name": "Saved searches create",
+   "description": "Create a new saved search for the authenticated user. A user may only have 25 saved searches.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "The query of the search the user would like to save."
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/saved_searches/create.json",
+    "path": [],
+    "query": [
+     "query"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.saved_searches_destroy",
+   "name": "Saved searches destroy",
+   "description": "Destroys a saved search for the authenticating user. The authenticating user must be the owner of saved search id being destroyed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the saved search. Example Values: 313006"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/saved_searches/destroy/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.saved_searches_list",
+   "name": "Saved searches list",
+   "description": "Returns the authenticated user's saved search queries.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/saved_searches/list.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.savedsearchesid",
+   "name": "Savedsearchesid",
+   "description": "Returns the authenticated user's saved search queries.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The ID of the saved search. Example Values: 313006"
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/saved_searches/show/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.search_tweets",
+   "name": "Search tweets",
+   "description": "Returns a collection of relevant Tweets matching a specified query. Please note that Twitter's search service and, by extension, the Search API is not meant to be an exhaustive source of Tweets. Not all Tweets will be indexed or made available via the search interface. In API v1.1, the response format of the Search API has been improved to return Tweet objects more similar to the objects you'll fi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "A UTF-8, URL-encoded search query of 1,000 characters maximum, including operators. Queries may additionally be limited by complexity.Example: @noradio."
+     },
+     "geocode": {
+      "type": "string",
+      "description": "Returns tweets by users located within a given radius of the given latitude/longitude. The location is preferentially taking from the Geotagging API, but will fall back to their Twitter profile. The parameter value is specified by \"latitude,longitude,radius\", where radius units must be specified as either \"mi\" (miles) or \"km\" (kilometers). Note that you cannot use the near operator via the API to "
+     },
+     "lang": {
+      "type": "string",
+      "description": "Restricts tweets to the given language, given by an ISO 639-1 code. Language detection is best-effort.Example Values: eu"
+     },
+     "locale": {
+      "type": "string",
+      "description": "Specify the language of the query you are sending (only ja is currently effective). This is intended for language-specific consumers and the default should work in the majority of cases.Example Values: ja"
+     },
+     "result_type": {
+      "type": "string",
+      "description": "Optional. Specifies what type of search results you would prefer to receive. The current default is \"mixed.\" Valid values include: * mixed: Include both popular and real time results in the response. * recent: return only the most recent results in the response * popular: return only the most popular results in the response. Example Values: mixed, recent, popular"
+     },
+     "count": {
+      "type": "string",
+      "description": "The number of tweets to return per page, up to a maximum of 100. Defaults to 15. This was formerly the \"rpp\" parameter in the old Search API. Example Values: 100"
+     },
+     "until": {
+      "type": "string",
+      "description": "Returns tweets generated before the given date. Date should be formatted as YYYY-MM-DD. Keep in mind that the search index may not go back as far as the date you specify here. Example Values: 2012-09-01"
+     },
+     "since_id": {
+      "type": "string",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available. Example Values: 12345"
+     },
+     "max_id": {
+      "type": "string",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID. Example Values: 12345"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     },
+     "callback": {
+      "type": "string",
+      "description": "If supplied, the response will use the JSONP format with a callback of the given name. The usefulness of this parameter is somewhat diminished by the requirement of authentication for requests to this endpoint. Example Values: processTweets"
+     }
+    },
+    "required": [
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/search/tweets.json",
+    "path": [],
+    "query": [
+     "q",
+     "geocode",
+     "lang",
+     "locale",
+     "result_type",
+     "count",
+     "until",
+     "since_id",
+     "max_id",
+     "include_entities",
+     "callback"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_destroy",
+   "name": "Statuses destroy",
+   "description": "Destroys the status specified by the required ID parameter. The authenticating user must be the author of the specified status. Returns the destroyed status if successful.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/statuses/destroy/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "trim_user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_home_timeline",
+   "name": "Statuses home timeline",
+   "description": "Returns a collection of the most recent Tweets and retweets posted by the authenticating user and the users they follow. The home timeline is central to how most users interact with the Twitter service. Up to 800 Tweets are obtainable on the home timeline. It is more volatile for users that follow many users or follow users who tweet frequently.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Specifies the number of records to retrieve. Must be less than or equal to 200."
+     },
+     "max_id": {
+      "type": "integer",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID."
+     },
+     "since_id": {
+      "type": "integer",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     },
+     "exclude_replies": {
+      "type": "string",
+      "description": "This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets \u2014 this is because the count parameter retrieves that many tweets before filtering out retweets and replies."
+     },
+     "contributor_details": {
+      "type": "string",
+      "description": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/home_timeline.json",
+    "path": [],
+    "query": [
+     "count",
+     "max_id",
+     "since_id",
+     "trim_user",
+     "exclude_replies",
+     "contributor_details"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_mentions_timeline",
+   "name": "Statuses mentions timeline",
+   "description": "Returns the 20 most recent mentions (tweets containing a users's @screen_name) for the authenticating user.The timeline returned is the equivalent of the one seen when you view your mentions on twitter.com.This method can only return up to 800 statuses.This method will include retweets in the JSON response regardless of whether the include_rts parameter is set.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method."
+     },
+     "since_id": {
+      "type": "integer",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available."
+     },
+     "max_id": {
+      "type": "integer",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     },
+     "contributor_details": {
+      "type": "string",
+      "description": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included."
+     },
+     "include_entities": {
+      "type": "boolean",
+      "description": "The entities node will be disincluded when set to false."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/mentions_timeline.json",
+    "path": [],
+    "query": [
+     "count",
+     "since_id",
+     "max_id",
+     "trim_user",
+     "contributor_details",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_oembed",
+   "name": "Statuses oembed",
+   "description": "Returns information allowing the creation of an embedded representation of a Tweet on third party sites. See the oEmbed specification (http://oembed.com) for information about the response format. Either the id or url parameters must be specified in a request, it is not necessary to include both. While this endpoint allows a bit of customization for the final appearance of the embedded Tweet, be a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "maxwidth": {
+      "type": "integer",
+      "description": "The maximum width in pixels that the embed should be rendered at. This value is constrained to be between 250 and 550 pixels. Note that Twitter does not support the oEmbed maxheight parameter. Tweets are fundamentally text, and are therefore of unpredictable height that cannot be scaled like an image or video. Relatedly, the oEmbed response will not provide a value for height. Implementations that"
+     },
+     "hide_media": {
+      "type": "string",
+      "description": "Specifies whether the embedded Tweet should automatically expand images which were uploaded via POST statuses/update_with_media. When set to either true, t or 1 images will not be expanded. Defaults to false."
+     },
+     "hide_thread": {
+      "type": "string",
+      "description": "Specifies whether the embedded Tweet should automatically show the original message in the case that the embedded Tweet is a reply. When set to either true, t or 1 the original Tweet will not be shown. Defaults to false."
+     },
+     "omit_script": {
+      "type": "string",
+      "description": "Specifies whether the embedded Tweet HTML should include a 'script' element pointing to widgets.js. In cases where a page already includes widgets.js, setting this value to true will prevent a redundant script element from being included. When set to either true, t or 1 the 'script'element will not be included in the embed HTML, meaning that pages must include a reference to widgets.js manually. D"
+     },
+     "align": {
+      "type": "string",
+      "description": "Specifies whether the embedded Tweet should be left aligned, right aligned, or centered in the page. Valid values are left, right, center, and none. Defaults to none, meaning no alignment styles are specified for the Tweet.",
+      "enum": [
+       "left",
+       "right",
+       "center",
+       "none"
+      ]
+     },
+     "related": {
+      "type": "string",
+      "description": "A value for the TWT related parameter, as described in Web Intents (https://dev.twitter.com/docs/intents). This value will be forwarded to all Web Intents calls. Example values: twitterapi, twittermedia, twitter."
+     },
+     "lang": {
+      "type": "string",
+      "description": "Language code for the rendered embed. This will affect the text and localization of the rendered HTML. Example value: fr"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/oembed.json",
+    "path": [],
+    "query": [
+     "maxwidth",
+     "hide_media",
+     "hide_thread",
+     "omit_script",
+     "align",
+     "related",
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_retweets",
+   "name": "Statuses retweets",
+   "description": "Returns up to 100 of the first retweets of a given tweet.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status."
+     },
+     "count": {
+      "type": "string",
+      "description": "Specifies the number of records to retrieve. Must be less than or equal to 100."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/retweets/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "count",
+     "trim_user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_show",
+   "name": "Statuses show",
+   "description": "Returns a single status, specified by the id parameter below. The status's author will be returned inline.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     },
+     "include_my_retweet": {
+      "type": "string",
+      "description": "When set to either true, t or 1, any Tweets returned that have been retweeted by the authenticating user will include an additional current_user_retweet node, containing the ID of the source status for the retweet."
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/show/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "trim_user",
+     "include_my_retweet",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_update",
+   "name": "Statuses update",
+   "description": "Updates the authenticating user's status, also known as tweeting. To upload an image to accompany the tweet, use POST statuses/update_with_media (https://dev.twitter.com/docs/api/1/post/statuses/update_with_media). For each update attempt, the update text is compared with the authenticating user's recent tweets. Any attempt that would result in duplication will be blocked, resulting in a 403 error",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "The text of your status update, typically up to 140 characters. URL encode as necessary. t.co link short-url wrapping (https://dev.twitter.com/docs/tco-link-wrapper/faq) may effect character counts."
+     },
+     "in_reply_to_status_id": {
+      "type": "string",
+      "description": "The ID of an existing status that the update is in reply to. Note: This parameter will be ignored unless the author of the tweet this parameter references is mentioned within the status text. Therefore, you must include @username, where username is the author of the referenced tweet, within the update."
+     },
+     "lat": {
+      "type": "string",
+      "description": "The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter."
+     },
+     "long": {
+      "type": "string",
+      "description": "The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, if it is not a number, if geo_enabled is disabled, or if there not a corresponding lat parameter."
+     },
+     "place_id": {
+      "type": "string",
+      "description": "A place in the world. These IDs can be retrieved from GET geo/reverse_geocode (https://dev.twitter.com/docs/api/1/get/geo/reverse_geocode)."
+     },
+     "display_coordinates": {
+      "type": "string",
+      "description": "Whether or not to put a pin on the exact coordinates a tweet has been sent from.",
+      "enum": [
+       "false",
+       "true",
+       ""
+      ]
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     }
+    },
+    "required": [
+     "status"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/statuses/update.json",
+    "path": [],
+    "query": [
+     "status",
+     "in_reply_to_status_id",
+     "lat",
+     "long",
+     "place_id",
+     "display_coordinates",
+     "trim_user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_update_with_media",
+   "name": "Statuses update with media",
+   "description": "Updates the authenticating user's status and attaches media for upload. Unlike POST statuses/update (https://dev.twitter.com/docs/api/1.1/post/statuses/update), this method expects raw multipart data. Your POST request's Content-Type should be set to multipart/form-data with the media[] parameter. The Tweet text will be rewritten to include the media URL(s), which will reduce the number of charact",
+   "input": {
+    "type": "object",
+    "properties": {
+     "status": {
+      "type": "string",
+      "description": "The text of your status update. URL encode as necessary. t.co link wrapping (https://dev.twitter.com/docs/tco-link-wrapper/faq) may affect character counts if the post contains URLs. You must additionally account for the characters_reserved_per_media per uploaded media, additionally accounting for space characters in between finalized URLs. Note: Request the GET help/configuration (https://dev.twi"
+     },
+     "media": {
+      "type": "string",
+      "description": "Up to max_media_per_upload files may be specified in the request, each named media[]. Supported image formats are PNG, JPG and GIF. Animated GIFs are not supported. Note: Request the GET help/configuration (https://dev.twitter.com/docs/api/1.1/get/help/configuration) endpoint to get the current max_media_per_upload and photo_size_limit values."
+     },
+     "possibly_sensitive": {
+      "type": "string",
+      "description": "Set to true for content which may not be suitable for every audience."
+     },
+     "in_reply_to_status_id": {
+      "type": "string",
+      "description": "The ID of an existing status that the update is in reply to. Note: This parameter will be ignored unless the author of the tweet this parameter references is mentioned within the status text. Therefore, you must include @username, where username is the author of the referenced tweet, within the update."
+     },
+     "lat": {
+      "type": "string",
+      "description": "The latitude of the location this tweet refers to. This parameter will be ignored unless it is inside the range -90.0 to +90.0 (North is positive) inclusive. It will also be ignored if there isn't a corresponding long parameter. Example value: 37.7821120598956."
+     },
+     "long": {
+      "type": "string",
+      "description": "The longitude of the location this tweet refers to. The valid ranges for longitude is -180.0 to +180.0 (East is positive) inclusive. This parameter will be ignored if outside that range, not a number, geo_enabled is disabled, or if there not a corresponding lat parameter. Example value: -122.400612831116."
+     },
+     "place_id": {
+      "type": "string",
+      "description": "A place in the world identified by a Twitter place ID. Place IDs can be retrieved from geo/reverse_geocode."
+     },
+     "display_coordinates": {
+      "type": "string",
+      "description": "Whether or not to put a pin on the exact coordinates a tweet has been sent from."
+     },
+     "Content-Type": {
+      "type": "string",
+      "description": "Content type."
+     }
+    },
+    "required": [
+     "Content-Type",
+     "media",
+     "status"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/statuses/update_with_media.json",
+    "path": [],
+    "query": [
+     "status",
+     "media",
+     "possibly_sensitive",
+     "in_reply_to_status_id",
+     "lat",
+     "long",
+     "place_id",
+     "display_coordinates"
+    ],
+    "header": [
+     "Content-Type"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statuses_user_timeline",
+   "name": "Statuses user timeline",
+   "description": "Returns the 20 most recent statuses posted by the authenticating user. It is also possible to request another user's timeline by using the screen_name or user_id parameter. The other users timeline will only be visible if they are not protected, or if the authenticating user's follow request was accepted by the protected user. The timeline returned is the equivalent of the one seen when you view a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "count": {
+      "type": "integer",
+      "description": "Specifies the number of tweets to try and retrieve, up to a maximum of 200. The value of count is best thought of as a limit to the number of tweets to return because suspended or deleted content is removed after the count has been applied. We include retweets in the count, even if include_rts is not supplied. It is recommended you always send include_rts=1 when using this API method."
+     },
+     "since_id": {
+      "type": "integer",
+      "description": "Returns results with an ID greater than (that is, more recent than) the specified ID. There are limits to the number of Tweets which can be accessed through the API. If the limit of Tweets has occured since the since_id, the since_id will be forced to the oldest ID available."
+     },
+     "max_id": {
+      "type": "integer",
+      "description": "Returns results with an ID less than (that is, older than) or equal to the specified ID."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     },
+     "exclude_replies": {
+      "type": "boolean",
+      "description": "This parameter will prevent replies from appearing in the returned timeline. Using exclude_replies with the count parameter will mean you will receive up-to count tweets \u2014 this is because the count parameter retrieves that many tweets before filtering out retweets and replies. This parameter is only supported for JSON and XML responses."
+     },
+     "contributor_details": {
+      "type": "boolean",
+      "description": "This parameter enhances the contributors element of the status response to include the screen_name of the contributor. By default only the user_id of the contributor is included."
+     },
+     "include_rts": {
+      "type": "boolean",
+      "description": "When set to false, the timeline will strip any native retweets (though they will still count toward both the maximal length of the timeline and the slice selected by the count parameter). Note: If you're using the trim_user parameter in conjunction with include_rts, the retweets will still contain a full user object."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/statuses/user_timeline.json",
+    "path": [],
+    "query": [
+     "count",
+     "since_id",
+     "max_id",
+     "trim_user",
+     "exclude_replies",
+     "contributor_details",
+     "include_rts"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.statusesretweetid",
+   "name": "Statusesretweetid",
+   "description": "Retweets a tweet. Returns the original tweet with retweet details embedded.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The numerical ID of the desired status."
+     },
+     "trim_user": {
+      "type": "string",
+      "description": "When set to either true, t or 1, each tweet returned in a timeline will include a user object including only the status authors numerical ID. Omit this parameter to receive the complete user object."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/statuses/retweet/{id}.json",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "trim_user"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.trends_available",
+   "name": "Trends available",
+   "description": "Returns the locations that Twitter has trending topic information for. The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in. A WOEID is a Yahoo! Where On Earth ID.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/trends/available.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.trends_closest",
+   "name": "Trends closest",
+   "description": "Returns the locations that Twitter has trending topic information for, closest to a specified location. The response is an array of \"locations\" that encode the location's WOEID and some other human-readable information such as a canonical name and country the location belongs in. A WOEID is a Yahoo! Where On Earth ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lat": {
+      "type": "string",
+      "description": "If provided with a long parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive. Example Values: 37.781157"
+     },
+     "long": {
+      "type": "string",
+      "description": "If provided with a lat parameter the available trend locations will be sorted by distance, nearest to furthest, to the co-ordinate pair. The valid ranges for longitude is -180.0 to +180.0 (West is negative, East is positive) inclusive. Example Values: -122.400612831116"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/trends/closest.json",
+    "path": [],
+    "query": [
+     "lat",
+     "long"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.trends_place",
+   "name": "Trends place",
+   "description": "Returns the top 10 trending topics for a specific WOEID, if trending information is available for it. The response is an array of \"trend\" objects that encode the name of the trending topic, the query parameter that can be used to search for the topic on Twitter Search, and the Twitter Search URL. This information is cached for 5 minutes. Requesting more frequently than that will not return any mor",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "The Yahoo! Where On Earth ID of the location to return trending information for. Global information is available by using 1 as the WOEID."
+     },
+     "exclude": {
+      "type": "string",
+      "description": "Setting this equal to hashtags will remove all hashtags from the trends list."
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/trends/place.json",
+    "path": [],
+    "query": [
+     "id",
+     "exclude"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_contributees",
+   "name": "Users contributees",
+   "description": "Returns a collection of users that the specified user can contribute to.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/contributees.json",
+    "path": [],
+    "query": [
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_contributors",
+   "name": "Users contributors",
+   "description": "Returns a collection of users who can contribute to the specified account.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     },
+     "skip_status": {
+      "type": "string",
+      "description": "When set to either true, t or 1 statuses will not be included in the returned user objects."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/contributors.json",
+    "path": [],
+    "query": [
+     "include_entities",
+     "skip_status"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_lookup",
+   "name": "Users lookup",
+   "description": "Returns fully-hydrated user objects for up to 100 users per request, as specified by comma-separated values passed to the user_id and/or screen_name parameters. This method is especially useful when used in conjunction with collections of user IDs returned from GET friends/ids and GET followers/ids. GET users/show is used to retrieve a single user object.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "screen_name": {
+      "type": "string",
+      "description": "A comma separated list of screen names, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger (up to 100 screen names) requests. Example Values: twitterapi,twitter"
+     },
+     "user_id": {
+      "type": "string",
+      "description": "A comma separated list of user IDs, up to 100 are allowed in a single request. You are strongly encouraged to use a POST for larger requests. Example Values: 783214,6253282"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node that may appear within embedded statuses will be disincluded when set to false. Example Values: false"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/lookup.json",
+    "path": [],
+    "query": [
+     "screen_name",
+     "user_id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_report_spam",
+   "name": "Users report spam",
+   "description": "The user specified in the id is blocked by the authenticated user and reported as a spammer.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.twitter.com/users/report_spam.json",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_search",
+   "name": "Users search",
+   "description": "Provides a simple, relevance-based search interface to public user accounts on Twitter. Try querying by topical interest, full name, company name, location, or other criteria. Exact match searches are not supported. Only the first 1,000 matching results are available.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": "The search query to run against people search. Example Values: Twitter%20API"
+     },
+     "page": {
+      "type": "string",
+      "description": "Specifies the page of results to retrieve. Example Values: 3"
+     },
+     "count": {
+      "type": "string",
+      "description": "The number of potential user results to retrieve per page. This value has a maximum of 20. Example Values: 5"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     }
+    },
+    "required": [
+     "q"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/search.json",
+    "path": [],
+    "query": [
+     "q",
+     "page",
+     "count",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_show",
+   "name": "Users show",
+   "description": "Returns a variety of information about the user specified by the required user_id or screen_name parameter. The author's most recent Tweet will be returned inline when possible. GET users/lookup is used to retrieve a bulk collection of user objects.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "screen_name": {
+      "type": "string",
+      "description": "The screen name of the user for whom to return results for. Either a id or screen_name is required for this method. Example Values: noradio"
+     },
+     "user_id": {
+      "type": "string",
+      "description": "The ID of the user for whom to return results for. Either an id or screen_name is required for this method. Example Values: 12345"
+     },
+     "include_entities": {
+      "type": "string",
+      "description": "The entities node will be disincluded when set to false. Example Values: false"
+     }
+    },
+    "required": [
+     "screen_name",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/show.json",
+    "path": [],
+    "query": [
+     "screen_name",
+     "user_id",
+     "include_entities"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_suggestions",
+   "name": "Users suggestions",
+   "description": "Access to Twitter's suggested user list. This returns the list of suggested user categories. The category can be used in GET users/suggestions/:slug to get the users in that category.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "lang": {
+      "type": "string",
+      "description": "Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help/languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users/suggestions/:slug"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/suggestions.json",
+    "path": [],
+    "query": [
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_suggestions_slug",
+   "name": "Users suggestions slug",
+   "description": "Access the users in a given category of the Twitter suggested user list. It is recommended that applications cache this data for no more than one hour.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "slug": {
+      "type": "string",
+      "description": "The short name of list or a category Example Values: twitter"
+     },
+     "lang": {
+      "type": "string",
+      "description": "Restricts the suggested categories to the requested language. The language must be specified by the appropriate two letter ISO 639-1 representation. Currently supported languages are provided by the GET help/languages API request. Unsupported language codes will receive English (en) results. If you use lang in this request, ensure you also include it when requesting the GET users/suggestions/:slug"
+     }
+    },
+    "required": [
+     "slug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/suggestions/{slug}.json",
+    "path": [
+     "slug"
+    ],
+    "query": [
+     "lang"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "twitter.users_suggestionsslugmembers",
+   "name": "Users suggestionsslugmembers",
+   "description": "Access the users in a given category of the Twitter suggested user list and return their most recent status if they are not a protected user.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "slug": {
+      "type": "string",
+      "description": "The short name of list or a category Example Values: twitter"
+     }
+    },
+    "required": [
+     "slug"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.twitter.com/users/suggestions/{slug}/members.json",
+    "path": [
+     "slug"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}
