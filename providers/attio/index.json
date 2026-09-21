@@ -2033,6 +2033,41 @@
    }
   },
   {
+   "slug": "attio.patch_v2_meetings_meeting_id",
+   "name": "Update a meeting (append linked records)",
+   "description": "Links records to a meeting. The records supplied are added to the meeting's existing linked records, and records which are already linked are ignored. Use the `PUT` endpoint to replace or remove linked records. No other meeting fields can be updated. Attio automatically links the meeting participants' companies to the meeting; this behavior is asynchronous. This endpoint is in beta. We will aim to",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "attio.patch_v2_notes_note_id",
    "name": "Update a note",
    "description": "Updates an existing note's title and/or content. Only the fields you provide are changed, and any field you omit is left untouched. Providing `content` replaces the note's entire content. A note's parent record cannot be changed. Required scopes: `note:read-write`, `object_configuration:read`, `record_permission:read`.",
@@ -3401,6 +3436,41 @@
      "list",
      "entry_id",
      "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio.put_v2_meetings_meeting_id",
+   "name": "Update a meeting (overwrite linked records)",
+   "description": "Replaces a meeting's linked records with the records supplied. Any record which is currently linked and is not in the request is unlinked, including records which Attio linked automatically from the meeting's participants. Passing an empty array unlinks every record. Use the `PATCH` endpoint to add linked records without removing the records which already exist. No other meeting fields can be upda",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://api.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
     ],
     "query": [],
     "header": [],

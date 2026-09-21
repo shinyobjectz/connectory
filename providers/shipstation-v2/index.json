@@ -1,0 +1,57 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "shipstation-v2",
+ "source": "https://api.apis.guru/v2/specs/shipstation.com/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "shipstation-v2.create_a_new_question",
+   "name": "Create a new question",
+   "description": "You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "choices": {
+      "type": "array",
+      "description": ""
+     },
+     "question": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.shipstation.com/questions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "choices",
+     "question"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "shipstation-v2.list_all_questions",
+   "name": "List all questions",
+   "description": "List All Questions",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.shipstation.com/questions",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

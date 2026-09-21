@@ -1,0 +1,1958 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "hail-mcp",
+ "source": "https://api.hail.so/openapi.json",
+ "operations": [
+  {
+   "slug": "hail-mcp.acquire_number_v1_numbers_post",
+   "name": "Acquire number",
+   "description": "Buy a dedicated phone number for the caller's organization. This purchases a real number at the carrier and starts a recurring monthly fee immediately \u2014 it is not a reservation. The number is usable for voice, SMS, or both depending on the requested capabilities and what the carrier offers for the given country_code/number_type.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": ""
+     },
+     "country_code": {
+      "type": "string",
+      "description": "ISO alpha-2 country code to acquire a number in (e.g. 'US'). Case-insensitive."
+     },
+     "number_type": {
+      "type": "string",
+      "description": "Kind of number to acquire: 'local', 'mobile', 'toll_free', or 'national'.",
+      "enum": [
+       "local",
+       "mobile",
+       "toll_free",
+       "national"
+      ]
+     }
+    },
+    "required": [
+     "country_code"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/numbers",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "country_code",
+     "number_type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.activate_provider",
+   "name": "Activate provider",
+   "description": "Switch which saved provider is active for ``layer``. 404 when that provider has no saved config.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "layer": {
+      "type": "string",
+      "description": ""
+     },
+     "provider": {
+      "type": "string",
+      "description": "Previously saved provider to make active for this layer."
+     }
+    },
+    "required": [
+     "layer",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/providers/{layer}/activate",
+    "path": [
+     "layer"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "provider"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.check_domain_v1_email_domains_check_domain_get",
+   "name": "Check domain",
+   "description": "Does this domain already receive mail? Drives apex-vs-prefix onboarding.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/email-domains/check-domain",
+    "path": [],
+    "query": [
+     "domain"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_call_v1_calls_post",
+   "name": "Create call",
+   "description": "Place an outbound AI voice call. The call is placed asynchronously \u2014 this returns as soon as the call is queued, not when it completes. Poll GET /v1/calls/{call_id} or configure a webhook to get the final status and transcript. Requires recipient_consent=true on the request body; Hail does not verify lawful basis to contact the recipient, the caller warrants it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": ""
+     },
+     "recipient_consent": {
+      "type": "boolean",
+      "description": "Attestation that you have obtained the lawful consent required to contact this recipient. Hail does not verify consent itself \u2014 you are responsible for a lawful basis under TCPA/ePrivacy/PECR/CAN-SPAM/GDPR as applicable. Rejected (422) if not true."
+     },
+     "consent_source": {
+      "type": "string",
+      "description": "Where/how consent was obtained (e.g. 'signup form', 'prior customer relationship'). Required (non-empty) when message_type is 'marketing'."
+     },
+     "consent_obtained_at": {
+      "type": "string",
+      "description": "When consent was obtained, if known."
+     },
+     "message_type": {
+      "type": "string",
+      "description": "'marketing' additionally requires a non-empty consent_source. Use 'informational' for transactional/service communications.",
+      "enum": [
+       "marketing",
+       "informational"
+      ]
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient phone number, E.164 format (e.g. +14155551234)."
+     },
+     "from": {
+      "type": "string",
+      "description": "Caller-id phone number, E.164 format. Must be a number owned by the organization with the voice capability. Omitted: an active org-owned number is used if one exists, else a number is claimed from the shared pool."
+     },
+     "system_prompt": {
+      "type": "string",
+      "description": "Task instructions for the agent, sent as its leading system message. At least one of system_prompt or llm is required; both together is also valid."
+     },
+     "llm": {
+      "type": "string",
+      "description": "BYO LLM endpoint the call runs on instead of Hail's default model. At least one of system_prompt or llm is required; both together is also valid."
+     },
+     "first_message": {
+      "type": "string",
+      "description": "Opening line the agent speaks first. Omitted: the agent waits for the callee to speak first."
+     },
+     "ai_disclosure": {
+      "type": "boolean",
+      "description": "Speak the AI self-disclosure line ('Hi, this is an AI assistant calling on behalf of ...') as the first thing on the call. Enabled by default. Disable only if you have verified the disclosure is not required for this call \u2014 47 CFR 64.1200(b)(1) requires identifying the initiating business at the start of artificial-voice calls in the US, and several jurisdictions have AI bot-disclosure laws. Hail "
+     },
+     "voice_config": {
+      "type": "object",
+      "description": ""
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "Groups this call with other calls/emails/SMS into one conversation thread. Omitted: the call is not linked to a conversation."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Free-form JSON object attached to the call and echoed back on reads. Not interpreted by Hail."
+     },
+     "tools": {
+      "type": "string",
+      "description": "Agent tools to allow on this call. Omitted: every tool the organization's configured channels support (new channels appear automatically). Empty list: no tools. Tool names are validated against the server's registry."
+     }
+    },
+    "required": [
+     "recipient_consent",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/calls",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "recipient_consent",
+     "consent_source",
+     "consent_obtained_at",
+     "message_type",
+     "to",
+     "from",
+     "system_prompt",
+     "llm",
+     "first_message",
+     "ai_disclosure",
+     "voice_config",
+     "conversation_id",
+     "metadata",
+     "tools"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_contact_v1_contacts_post",
+   "name": "Create contact",
+   "description": "Create a manual contact with a phone and/or an email. Requires at least one of phone_e164 or email. Fails with 409 if a contact with the same phone or email already exists in this organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Display name for the contact."
+     },
+     "phone_e164": {
+      "type": "string",
+      "description": "Phone number, E.164 format. At least one of phone_e164 or email is required."
+     },
+     "email": {
+      "type": "string",
+      "description": "Email address, stored lowercased. At least one of phone_e164 or email is required."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/contacts",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "phone_e164",
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_email_domain_v1_email_domains_post",
+   "name": "Create email domain",
+   "description": "Register a sender identity to send outbound email through. kind=\"hail_mail\" mints an address on the shared hail-mail domain and is immediately verified \u2014 no DNS work needed. kind=\"custom\" registers your own domain with SES and returns DKIM records; the domain stays unverified (POST /v1/email-domains/{domain_id}/verify) until you publish those DNS records and Hail confirms them.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "kind": {
+      "type": "string",
+      "description": "'hail_mail' for a Hail-hosted address (domain omitted, composed from the prefix fields), or 'custom' to send from your own domain (domain required, prefix fields omitted).",
+      "enum": [
+       "hail_mail",
+       "custom"
+      ]
+     },
+     "domain": {
+      "type": "string",
+      "description": "DNS domain to send from (e.g. 'acme.com'). Required for kind='custom'; must be omitted for kind='hail_mail'."
+     },
+     "local_prefix_user": {
+      "type": "string",
+      "description": "User-chosen local-part prefix for a hail_mail address. Only valid for kind='hail_mail'. Falls back to HAIL_MAIL_DEFAULT_USER_PREFIX if omitted."
+     },
+     "local_prefix_org": {
+      "type": "string",
+      "description": "Org-chosen local-part prefix for a hail_mail address. Only valid for kind='hail_mail'. Falls back to HAIL_MAIL_DEFAULT_ORG_PREFIX if omitted."
+     }
+    },
+    "required": [
+     "kind"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/email-domains",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "kind",
+     "domain",
+     "local_prefix_user",
+     "local_prefix_org"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_email_v1_emails_post",
+   "name": "Create email",
+   "description": "Send an outbound email through SES. Sends synchronously \u2014 the response reports the final status (sent or failed), not a queued placeholder; no separate poll is needed for the happy path, though a bounce or complaint can still arrive later as a webhook or GET /v1/emails/{email_id}/events entry. Requires recipient_consent=true on the request body; Hail does not verify lawful basis to contact the rec",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": ""
+     },
+     "recipient_consent": {
+      "type": "boolean",
+      "description": "Attestation that you have obtained the lawful consent required to contact this recipient. Hail does not verify consent itself \u2014 you are responsible for a lawful basis under TCPA/ePrivacy/PECR/CAN-SPAM/GDPR as applicable. Rejected (422) if not true."
+     },
+     "consent_source": {
+      "type": "string",
+      "description": "Where/how consent was obtained (e.g. 'signup form', 'prior customer relationship'). Required (non-empty) when message_type is 'marketing'."
+     },
+     "consent_obtained_at": {
+      "type": "string",
+      "description": "When consent was obtained, if known."
+     },
+     "message_type": {
+      "type": "string",
+      "description": "'marketing' additionally requires a non-empty consent_source. Use 'informational' for transactional/service communications.",
+      "enum": [
+       "marketing",
+       "informational"
+      ]
+     },
+     "from": {
+      "type": "string",
+      "description": "Sender email address. Must be a verified identity on the organization's email domains. Omitted: the org's resolved default sending address, if one exists."
+     },
+     "from_name": {
+      "type": "string",
+      "description": "Display name for the From: header (e.g. 'Acme Billing'). Omitted: no display name."
+     },
+     "to": {
+      "type": "array",
+      "description": "Recipient email addresses. At least one required."
+     },
+     "cc": {
+      "type": "string",
+      "description": "CC recipient email addresses."
+     },
+     "bcc": {
+      "type": "string",
+      "description": "BCC recipient email addresses."
+     },
+     "reply_to": {
+      "type": "string",
+      "description": "Reply-To email address. Omitted: replies go to the From address."
+     },
+     "subject": {
+      "type": "string",
+      "description": "Email subject line."
+     },
+     "body_text": {
+      "type": "string",
+      "description": "Plain-text body. Either body_text or body_html (or both) is required. A plain-text-only email cannot be tracked for opens or clicks; include body_html to get those events."
+     },
+     "body_html": {
+      "type": "string",
+      "description": "HTML body. Either body_text or body_html (or both) is required. Prefer including body_html: open and click tracking only works for emails with an HTML body. Plain-text-only emails still get sent, delivered, and bounce events, but opens and clicks are never tracked."
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": "Groups this email with other calls/emails/SMS into one conversation thread. Omitted: the email is not linked to a conversation."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Free-form JSON object attached to the email and echoed back on reads. Not interpreted by Hail."
+     },
+     "attachment_ids": {
+      "type": "string",
+      "description": "Ids returned by POST /email-attachments to attach to this send. Omitted: no attachments."
+     }
+    },
+    "required": [
+     "recipient_consent",
+     "subject",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/emails",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "recipient_consent",
+     "consent_source",
+     "consent_obtained_at",
+     "message_type",
+     "from",
+     "from_name",
+     "to",
+     "cc",
+     "bcc",
+     "reply_to",
+     "subject",
+     "body_text",
+     "body_html",
+     "conversation_id",
+     "metadata",
+     "attachment_ids"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_sms_v1_sms_post",
+   "name": "Create sms",
+   "description": "Send an outbound SMS. Sends synchronously \u2014 the response reports the final status (sent or failed), not a queued placeholder, though delivery confirmation from the carrier can still arrive later as a webhook or GET /v1/sms/{sms_id} update. An explicit from resolves a dedicated number; otherwise Hail picks an alphanumeric sender ID where the destination corridor allows it, or requires a dedicated S",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": ""
+     },
+     "recipient_consent": {
+      "type": "boolean",
+      "description": "Attestation that you have obtained the lawful consent required to contact this recipient. Hail does not verify consent itself \u2014 you are responsible for a lawful basis under TCPA/ePrivacy/PECR/CAN-SPAM/GDPR as applicable. Rejected (422) if not true."
+     },
+     "consent_source": {
+      "type": "string",
+      "description": "Where/how consent was obtained (e.g. 'signup form', 'prior customer relationship'). Required (non-empty) when message_type is 'marketing'."
+     },
+     "consent_obtained_at": {
+      "type": "string",
+      "description": "When consent was obtained, if known."
+     },
+     "message_type": {
+      "type": "string",
+      "description": "'marketing' additionally requires a non-empty consent_source. Use 'informational' for transactional/service communications.",
+      "enum": [
+       "marketing",
+       "informational"
+      ]
+     },
+     "to": {
+      "type": "string",
+      "description": "Recipient phone number, E.164 format (e.g. +14155551234)."
+     },
+     "from": {
+      "type": "string",
+      "description": "Sender phone number, E.164 format. Must be a number owned by the organization with the SMS capability. Omitted: an active org-owned number is used if one exists, else a number is claimed from the shared pool."
+     },
+     "body": {
+      "type": "string",
+      "description": "Message text. Long bodies are split into multiple carrier segments."
+     },
+     "metadata": {
+      "type": "object",
+      "description": "Free-form JSON object attached to the message and echoed back on reads. Not interpreted by Hail."
+     }
+    },
+    "required": [
+     "body",
+     "recipient_consent",
+     "to"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/sms",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "recipient_consent",
+     "consent_source",
+     "consent_obtained_at",
+     "message_type",
+     "to",
+     "from",
+     "body",
+     "metadata"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.create_subscription_v1_webhooks_post",
+   "name": "Create subscription",
+   "description": "Create a webhook subscription for one or more event types. The response includes the plaintext signing secret \u2014 this is the only time it is ever returned; store it now. Every later GET omits it. Use POST /v1/webhooks/{sub_id}/rotate-secret to get a new plaintext secret if it is lost or compromised.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target_url": {
+      "type": "string",
+      "description": "HTTPS URL Hail POSTs event payloads to."
+     },
+     "event_types": {
+      "type": "array",
+      "description": "Event types to subscribe to (e.g. 'call.completed', 'email.bounced'). At least one required."
+     }
+    },
+    "required": [
+     "event_types",
+     "target_url"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "target_url",
+     "event_types"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_contact_v1_contacts_contact_id_delete",
+   "name": "Delete contact",
+   "description": "Permanently remove a manual contact. Manual contacts only \u2014 a member: id returns 422; org members are removed via the membership APIs, not this route. Irreversible.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/contacts/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_email_domain_v1_email_domains_domain_id_delete",
+   "name": "Delete email domain",
+   "description": "Permanently remove a sender domain/identity. Irreversible \u2014 for a custom domain, also deletes the SES identity, so the domain can no longer send until re-registered and re-verified. Fails with 409 if any Email rows still reference this domain; delete or wait for those to age out first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/email-domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_member_phone_v1_members_user_id_phone_delete",
+   "name": "Delete member phone",
+   "description": "Clear an org member's phone number. Pass user_id=\"me\" to clear your own, or a member's user id \u2014 clearing another member's phone requires the caller to be an org owner or admin. Returns 404 if the target is not a member of this organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/members/{user_id}/phone",
+    "path": [
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_provider",
+   "name": "Delete provider",
+   "description": "Delete one provider row. Deleting the active row promotes the most-recently-updated sibling. Idempotent: deleting a row that isn't there is a 204 too. 404 on an unknown layer.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "layer": {
+      "type": "string",
+      "description": ""
+     },
+     "provider": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "layer",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/providers/{layer}/{provider}",
+    "path": [
+     "layer",
+     "provider"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_sms_suppression_v1_sms_suppressions_number_delete",
+   "name": "Delete sms suppression",
+   "description": "Remove one number from the SMS suppression list, re-allowing sends to it. Does not itself constitute renewed consent \u2014 the caller is responsible for having a lawful basis (e.g. a fresh opt-in) before sending again. Returns 404 if the number was not suppressed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "number"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/sms/suppressions/{number}",
+    "path": [
+     "number"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.delete_subscription_v1_webhooks_sub_id_delete",
+   "name": "Delete subscription",
+   "description": "Permanently remove a webhook subscription. Irreversible \u2014 no further events are delivered to it, and its delivery history is deleted with it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}",
+    "path": [
+     "sub_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.dns_check_email_domain_v1_email_domains_domain_id_dns_check_get",
+   "name": "Dns check email domain",
+   "description": "Guided DNS check: detect the tenant's DNS host and confirm published records. Read-only \u2014 runs live lookups against public DNS (no resolver dependency) and never touches verification_status; SES stays the authority for that (see POST /{domain_id}/verify). Org-scoped: returns 404 for a domain belonging to a different organization. kind='hail_mail' rows do no DNS lookups at all \u2014 the shared hail-mai",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/email-domains/{domain_id}/dns-check",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.enable_sms_v1_numbers_number_id_enable_sms_post",
+   "name": "Enable sms",
+   "description": "Attach a dedicated number to the org's shared SMS Messaging Service. Required once per number before it can send/receive SMS; the number must already have been acquired with sms capability. Idempotent \u2014 calling this again on an already-enabled number just returns its current state. Fails with 422 for a released number or one that lacks sms capability.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "number_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/numbers/{number_id}/enable-sms",
+    "path": [
+     "number_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_call_v1_calls_call_id_get",
+   "name": "Get call",
+   "description": "Fetch one call by id, including its current status and end reason. Org-scoped: returns 404 for a call belonging to a different organization (not 403, to avoid confirming the id exists). Use this to poll for the final outcome of a call placed with POST /v1/calls.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "call_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "call_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/calls/{call_id}",
+    "path": [
+     "call_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_email_attachment_v1_emails_email_id_attachments_attachment_id_get",
+   "name": "Get email attachment",
+   "description": "302 \u2192 presigned S3 URL for one attachment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": ""
+     },
+     "attachment_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "attachment_id",
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails/{email_id}/attachments/{attachment_id}",
+    "path": [
+     "email_id",
+     "attachment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_email_domain_v1_email_domains_domain_id_get",
+   "name": "Get email domain",
+   "description": "Fetch one sender domain/identity by id, including its DNS records. Org-scoped: returns 404 for a domain belonging to a different organization. For a pending custom domain, dns_records lists the DKIM records still to publish.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/email-domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_email_raw_v1_emails_email_id_raw_get",
+   "name": "Get email raw",
+   "description": "302 \u2192 presigned S3 URL for the raw inbound MIME (404 for outbound).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails/{email_id}/raw",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_email_stats_v1_emails_stats_get",
+   "name": "Get email stats",
+   "description": "Aggregate send/delivery/open/click/bounce counts and rates over a range. Defaults to the last 7 days, bucketed by day. bucket=hour is limited to an 8-day range; any bucket size is limited to a 92-day range. Registered above GET /v1/emails/{email_id} so \"stats\" is not swallowed by the id path param.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "from": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "string",
+      "description": ""
+     },
+     "bucket": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "hour",
+       "day"
+      ]
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails/stats",
+    "path": [],
+    "query": [
+     "from",
+     "to",
+     "bucket"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_email_v1_emails_email_id_get",
+   "name": "Get email",
+   "description": "Fetch one email by id, including attachments and last event time. Org-scoped: returns 404 for an email belonging to a different organization. For an inbound email with a stored raw MIME, raw_url points at GET /v1/emails/{email_id}/raw.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails/{email_id}",
+    "path": [
+     "email_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_number_v1_numbers_number_id_get",
+   "name": "Get number",
+   "description": "Fetch one dedicated number by id, including its capabilities and state. Org-scoped: returns 404 for a number belonging to a different organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "number_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/numbers/{number_id}",
+    "path": [
+     "number_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_sender_id_v1_sms_sender_id_get",
+   "name": "Get sender id",
+   "description": "Get the org's custom alphanumeric SMS sender ID, if any is set. effective_default is the platform sender id used for alphanumeric-eligible corridors when custom_sender_id is null.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/sms/sender-id",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_sms_v1_sms_sms_id_get",
+   "name": "Get sms",
+   "description": "Fetch one SMS by id, including its current status. Org-scoped: returns 404 for an SMS belonging to a different organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sms_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "sms_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/sms/{sms_id}",
+    "path": [
+     "sms_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_subscription_v1_webhooks_sub_id_get",
+   "name": "Get subscription",
+   "description": "Fetch one webhook subscription by id. The signing secret is omitted.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}",
+    "path": [
+     "sub_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.get_whoami_v1_whoami_get",
+   "name": "Get whoami",
+   "description": "Identify the caller: auth kind, organization, and (if resolvable) user. Useful for an agent that needs the human's address to put in Reply-To, since the bearer token itself only carries an organization. user_id/email/name come back null for a shared-key (HAIL_API_KEY) call, which has no individual user behind it.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/whoami",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.healthz_healthz_get",
+   "name": "Healthz",
+   "description": "Liveness check. Returns {\"status\": \"ok\"} with no auth required.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/healthz",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_calls_v1_calls_get",
+   "name": "List calls",
+   "description": "List calls for the caller's organization, newest first. Cursor-paginated: pass the returned next_cursor to fetch the next page; a null next_cursor means there are no more results. Filter by status or destination number (to) to narrow the list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/calls",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "status",
+     "to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_contacts_v1_contacts_get",
+   "name": "List contacts",
+   "description": "List contacts for the caller's organization, newest first. Merges two sources into one list: org members (kind=\"member\", ids prefixed \"member:\", managed via membership \u2014 not editable here) and manually-created contacts (kind=\"manual\", editable via PATCH/DELETE /contacts/{contact_id}). Cursor-paginated; q does a substring search over name/phone/email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "q": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/contacts",
+    "path": [],
+    "query": [
+     "q",
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_deliveries_v1_webhooks_sub_id_deliveries_get",
+   "name": "List deliveries",
+   "description": "List delivery attempts for one webhook subscription, newest first. Cursor-paginated. Each entry shows the attempt count, response status, and response body Hail recorded \u2014 use POST /v1/webhooks/{sub_id}/ deliveries/{delivery_id}/redeliver to retry a failed one.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}/deliveries",
+    "path": [
+     "sub_id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_email_domains_v1_email_domains_get",
+   "name": "List email domains",
+   "description": "List sender domains/identities for the caller's organization. Cursor-paginated, newest first. The response also includes default_from \u2014 the address a from-less POST /v1/emails would use right now given the org's current verified senders.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/email-domains",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_email_events_v1_emails_email_id_events_get",
+   "name": "List email events",
+   "description": "Chronological lifecycle events for one email (org-scoped). Cursor-paginated with the same forward-walk shape as ``GET /events``: strictly-greater on ``(occurred_at, id)``, ascending.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email_id": {
+      "type": "string",
+      "description": ""
+     },
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "email_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails/{email_id}/events",
+    "path": [
+     "email_id"
+    ],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_emails_v1_emails_get",
+   "name": "List emails",
+   "description": "List emails for the caller's organization, newest first. Cursor-paginated: pass the returned next_cursor to fetch the next page; a null next_cursor means there are no more results. Filter by status or direction (outbound/inbound). List entries omit body_text/body_html \u2014 fetch GET /v1/emails/{email_id} for the full body.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "direction": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/emails",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "status",
+     "direction"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_events_v1_events_get",
+   "name": "List events",
+   "description": "Cursor-paginated forward stream of call, email, and SMS events. Scoped to the caller's organization. Pass id (typed \":\", e.g. \"call:\") to narrow to one resource's events, or kind to narrow to one event kind. Walks forward in time \u2014 pass the returned next_cursor to continue tailing where you left off.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "kind": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/events",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "id",
+     "kind"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_numbers_v1_numbers_get",
+   "name": "List numbers",
+   "description": "List dedicated numbers owned by the caller's organization. Cursor-paginated, newest first. Only org-owned numbers are listed \u2014 shared pool numbers used for outbound calls never appear here.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/numbers",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_providers",
+   "name": "List providers",
+   "description": "Every saved provider row for the caller's organization, all layers.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_sms_suppressions_v1_sms_suppressions_get",
+   "name": "List sms suppressions",
+   "description": "List SMS numbers suppressed from receiving messages, newest first. Cursor-paginated. A suppressed number blocks POST /v1/sms sends to it with a 403 until removed via DELETE /v1/sms/suppressions/{number}.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/sms/suppressions",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_sms_v1_sms_get",
+   "name": "List sms",
+   "description": "List SMS messages for the caller's organization, newest first. Cursor-paginated: pass the returned next_cursor to fetch the next page; a null next_cursor means there are no more results. Filter by status or destination number (to) to narrow the list.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "status": {
+      "type": "string",
+      "description": ""
+     },
+     "to": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/sms",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit",
+     "status",
+     "to"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.list_subscriptions_v1_webhooks_get",
+   "name": "List subscriptions",
+   "description": "List webhook subscriptions for the caller's organization. Cursor-paginated, newest first. The signing secret is never included \u2014 only POST /v1/webhooks and POST /v1/webhooks/{sub_id}/rotate-secret return it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "cursor": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/webhooks",
+    "path": [],
+    "query": [
+     "cursor",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.patch_contact_v1_contacts_contact_id_patch",
+   "name": "Patch contact",
+   "description": "Update a manual contact's fields. Only fields present in the body change. Manual contacts only \u2014 a member: id (org members synced from membership) returns 422; edit those via the membership APIs instead. The contact must still have at least one of phone_e164 or email after the update. Fails with 409 on a duplicate phone/email.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contact_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "New display name. Omit to leave unchanged; cannot be set to null."
+     },
+     "phone_e164": {
+      "type": "string",
+      "description": "New phone number, E.164 format. Omit to leave unchanged; explicit null clears it. The contact must keep at least one of phone_e164 or email."
+     },
+     "email": {
+      "type": "string",
+      "description": "New email address, stored lowercased. Omit to leave unchanged; explicit null clears it. The contact must keep at least one of phone_e164 or email."
+     }
+    },
+    "required": [
+     "contact_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.hail.so/v1/contacts/{contact_id}",
+    "path": [
+     "contact_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "phone_e164",
+     "email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.patch_email_domain_v1_email_domains_domain_id_patch",
+   "name": "Patch email domain",
+   "description": "Edit hail-mail prefixes and/or inbound action settings. Two modes, mutually compatible: * **Prefix edit** (``local_prefix_user`` / ``local_prefix_org``): hail_mail rows only. The managed-cloud console writes here when an org admin changes the visible hail-mail address. * **Inbound action edit** (``inbound_enabled`` / ``forward_to`` / ``forward_rate_per_hour``): any row kind.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     },
+     "local_prefix_user": {
+      "type": "string",
+      "description": "New user local-part prefix. Only valid on kind='hail_mail' rows. Omit to leave unchanged."
+     },
+     "local_prefix_org": {
+      "type": "string",
+      "description": "New org local-part prefix. Only valid on kind='hail_mail' rows. Omit to leave unchanged."
+     },
+     "inbound_enabled": {
+      "type": "string",
+      "description": "Whether to accept inbound mail on this domain. Requires forward_to (or an existing one) when true. Omit to leave unchanged."
+     },
+     "forward_to": {
+      "type": "string",
+      "description": "Email addresses to forward inbound mail to. Omit to leave unchanged."
+     },
+     "forward_rate_per_hour": {
+      "type": "string",
+      "description": "Cap on forwarded messages per hour. Omit to leave unchanged."
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.hail.so/v1/email-domains/{domain_id}",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "local_prefix_user",
+     "local_prefix_org",
+     "inbound_enabled",
+     "forward_to",
+     "forward_rate_per_hour"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.patch_sender_id_v1_sms_sender_id_patch",
+   "name": "Patch sender id",
+   "description": "Set or clear the org's custom alphanumeric SMS sender ID. Pass custom_sender_id=null to clear it and fall back to the platform default sender id. Only affects alphanumeric-eligible corridors \u2014 a corridor requiring a dedicated number is unaffected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "custom_sender_id": {
+      "type": "string",
+      "description": "Alphanumeric sender id (2-11 characters, letters/digits only) to use on alphanumeric-eligible corridors instead of a phone number. Explicit null clears it, reverting to the platform default."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.hail.so/v1/sms/sender-id",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "custom_sender_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.patch_subscription_v1_webhooks_sub_id_patch",
+   "name": "Patch subscription",
+   "description": "Update a webhook subscription's target_url, event_types, and/or status. Only fields present in the request body are changed. Setting status=\"active\" resets the consecutive-failure counter, so a subscription that was auto-disabled after 50 straight delivery failures does not immediately re-disable itself.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     },
+     "target_url": {
+      "type": "string",
+      "description": "New delivery URL. Omit to leave unchanged."
+     },
+     "event_types": {
+      "type": "string",
+      "description": "New set of subscribed event types. Omit to leave unchanged."
+     },
+     "status": {
+      "type": "string",
+      "description": "Set to 'disabled' to pause deliveries, or 'active' to resume. Omit to leave unchanged."
+     }
+    },
+    "required": [
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}",
+    "path": [
+     "sub_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "target_url",
+     "event_types",
+     "status"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.put_member_phone_v1_members_user_id_phone_put",
+   "name": "Put member phone",
+   "description": "Set an org member's phone number. Pass user_id=\"me\" to set your own, or a member's user id \u2014 setting another member's phone requires the caller to be an org owner or admin. Returns 404 if the target is not a member of this organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "user_id": {
+      "type": "string",
+      "description": ""
+     },
+     "phone_e164": {
+      "type": "string",
+      "description": "Phone number to save for the caller, E.164 format."
+     }
+    },
+    "required": [
+     "phone_e164",
+     "user_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.hail.so/v1/members/{user_id}/phone",
+    "path": [
+     "user_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "phone_e164"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.redeliver_v1_webhooks_sub_id_deliveries_delivery_id_redeliver_post",
+   "name": "Redeliver",
+   "description": "Retry one webhook delivery attempt. Resets it to pending with a fresh attempt counter \u2014 the delivery worker picks it up and re-sends the same event payload to target_url shortly after. Useful after fixing an endpoint that was returning errors.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     },
+     "delivery_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "delivery_id",
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}/deliveries/{delivery_id}/redeliver",
+    "path": [
+     "sub_id",
+     "delivery_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.release_number_v1_numbers_number_id_delete",
+   "name": "Release number",
+   "description": "Release a dedicated number. The monthly fee stops accruing after the release month; months already accrued stay owed (the rater bills late, never forgives).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "number_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "number_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.hail.so/v1/numbers/{number_id}",
+    "path": [
+     "number_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.rotate_secret_v1_webhooks_sub_id_rotate_secret_post",
+   "name": "Rotate secret",
+   "description": "Generate a new signing secret and immediately invalidate the old one. The response includes the new plaintext secret \u2014 this is the only time it is returned; update your verification code with it right away, since the old secret stops validating new deliveries immediately.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sub_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "sub_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/webhooks/{sub_id}/rotate-secret",
+    "path": [
+     "sub_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.unsubscribe_v1_unsubscribe_get",
+   "name": "Unsubscribe",
+   "description": "One-click email opt-out (RFC 8058), reached by clicking a link in a sent email. Public and unauthenticated \u2014 the signed token query param is the sole credential, proving the caller holds a link Hail sent to that address. On success, the address is added to the org's suppression list and all future outbound email to it is blocked. Returns an HTML page, not JSON.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.hail.so/v1/unsubscribe",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.upload_email_attachment",
+   "name": "Create email attachment",
+   "description": "Upload a file and get back a reusable attachment id. The returned id can be referenced from attachment_ids on many later POST /v1/emails calls until it is garbage-collected for being unused; it is not deleted immediately after first use. Uploads are size-limited and scoped to the caller's organization.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "The file to upload, as multipart/form-data. Size-limited; an oversize upload is rejected with 422."
+     }
+    },
+    "required": [
+     "file"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/email-attachments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.upsert_provider",
+   "name": "Upsert provider",
+   "description": "Save a provider for ``layer`` and make it the active one. A partial write: anything you omit keeps its saved value. Omitting ``api_key`` keeps the stored key, ``params`` keys you don't send are preserved, and omitting ``fallback_enabled`` leaves the flag alone (``false`` on a new row). The merged result \u2014 not the partial input \u2014 is validated against the layer's schema (422 on a mismatch). 404 on a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "layer": {
+      "type": "string",
+      "description": ""
+     },
+     "provider": {
+      "type": "string",
+      "description": "Provider name to save/activate for this layer (e.g. 'openai', 'cartesia')."
+     },
+     "params": {
+      "type": "object",
+      "description": "Provider-specific config, validated against the layer's schema (LLMParams/TTSParams/STTParams). Only the keys you send are changed; other saved keys are kept."
+     },
+     "fallback_enabled": {
+      "type": "string",
+      "description": "Whether to fall back to Hail's default provider on failure. Omit to leave unchanged; defaults to false on a new row."
+     }
+    },
+    "required": [
+     "layer",
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.hail.so/v1/providers/{layer}",
+    "path": [
+     "layer"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "provider",
+     "params",
+     "fallback_enabled"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.validate_provider",
+   "name": "Validate provider",
+   "description": "Probe a provider key against the real provider. Empty body tests the layer's active provider with its stored key; send ``provider`` to test a specific saved row, or ``api_key`` (plus ``provider``/``params``) to test a key before saving it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "layer": {
+      "type": "string",
+      "description": ""
+     },
+     "provider": {
+      "type": "string",
+      "description": "Provider to test. Omitted: the layer's currently active provider."
+     },
+     "params": {
+      "type": "object",
+      "description": "Provider-specific config to test alongside the key."
+     }
+    },
+    "required": [
+     "layer"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/providers/{layer}/validate",
+    "path": [
+     "layer"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "provider",
+     "params"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "hail-mcp.verify_email_domain_v1_email_domains_domain_id_verify_post",
+   "name": "Verify email domain",
+   "description": "Re-poll the email provider for the current verification status. On-demand only \u2014 there is no background poller in v1. Operators / tenants hit this after publishing DNS to flip the row to ``verified``. Hail-mail rows are no-ops (they're already verified by construction).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.hail.so/v1/email-domains/{domain_id}/verify",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}

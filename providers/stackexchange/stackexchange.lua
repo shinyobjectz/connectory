@@ -1,7 +1,7 @@
 -- Stack Exchange — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/stackexchange.com/2.0/openapi.json
--- APIs.guru's mirror, matched on stackexchange.com. A mirror lags the vendor.
+-- APIs.guru's mirror of stackexchange.com, matched on stackexchange.com. A mirror lags the vendor.
 -- 124 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

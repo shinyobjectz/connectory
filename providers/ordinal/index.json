@@ -110,7 +110,7 @@
   {
    "slug": "ordinal.analytics_linkedin_posts",
    "name": "Linked in post analytics",
-   "description": "Retrieve post analytics for a LinkedIn profile within a date range. When a post was published from Ordinal, the response includes an ordinalPost object with the linked post's id, title, labels, and campaign. For personal profiles, the response also includes saveCount (times the post was saved) and sendCount (times the post was sent via DM). Posts with type `Video` also include videoViewCount, vide",
+   "description": "Retrieve post analytics for a LinkedIn profile within a date range. When a post was published from Ordinal, the response includes an ordinalPost object with the linked post's id, title, labels, and campaign. **Click metrics by profile type:** - Personal (member) profiles return `linkClickCount`, `profileViewFromContentCount`, `premiumCtaClickCount`, and `followerGainedFromContentCount`. `clickCoun",
    "input": {
     "type": "object",
     "properties": {

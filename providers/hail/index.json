@@ -699,6 +699,34 @@
    }
   },
   {
+   "slug": "hail.dns_check_email_domain_v1_email_domains_domain_id_dns_check_get",
+   "name": "Dns check email domain",
+   "description": "Guided DNS check: detect the tenant's DNS host and confirm published records. Read-only \u2014 runs live lookups against public DNS (no resolver dependency) and never touches verification_status; SES stays the authority for that (see POST /{domain_id}/verify). Org-scoped: returns 404 for a domain belonging to a different organization. kind='hail_mail' rows do no DNS lookups at all \u2014 the shared hail-mai",
+   "input": {
+    "type": "object",
+    "properties": {
+     "domain_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "domain_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.hail.so/v1/email-domains/{domain_id}/dns-check",
+    "path": [
+     "domain_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "hail.enable_sms_v1_numbers_number_id_enable_sms_post",
    "name": "Enable sms",
    "description": "Attach a dedicated number to the org's shared SMS Messaging Service. Required once per number before it can send/receive SMS; the number must already have been acquired with sms capability. Idempotent \u2014 calling this again on an already-enabled number just returns its current state. Fails with 422 for a released number or one that lacks sms capability.",

@@ -1,7 +1,7 @@
 -- DocuSign — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/docusign.net/v2.1/openapi.json
--- APIs.guru's mirror, matched on docusign.net. A mirror lags the vendor.
+-- APIs.guru's mirror of docusign.net, matched on docusign.net. A mirror lags the vendor.
 -- 393 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

@@ -1,7 +1,7 @@
 -- Zuora — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/zuora.com/2021-08-20/openapi.json
--- APIs.guru's mirror, matched on zuora.com. A mirror lags the vendor.
+-- APIs.guru's mirror of zuora.com, matched on zuora.com. A mirror lags the vendor.
 -- 428 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

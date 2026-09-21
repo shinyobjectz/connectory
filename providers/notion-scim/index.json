@@ -1,0 +1,493 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "notion-scim",
+ "source": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
+ "operations": [
+  {
+   "slug": "notion-scim.append_block_children",
+   "name": "Append block children",
+   "description": "Append block children",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     },
+     "children": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.notion.com/v1/blocks/{id}/children",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [
+     "children"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.delete_ablock",
+   "name": "Delete a block",
+   "description": "Delete a block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.notion.com/v1/blocks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.query_adatabase",
+   "name": "Query a database",
+   "description": "Query a database",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     },
+     "filter": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.notion.com/v1/databases/{id}/query",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [
+     "filter"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_ablock",
+   "name": "Retrieve a block",
+   "description": "Retrieve a block",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/blocks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_adatabase",
+   "name": "Retrieve a database",
+   "description": "Retrieves a database object using the ID specified in the request path.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/databases/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_apage",
+   "name": "Retrieve a page",
+   "description": "Retrieves a Page object using the ID in the request path. This endpoint exposes page properties, not page content.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/pages/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_apage_property_item",
+   "name": "Retrieve a page property item",
+   "description": "Retrieve a Page Property Item",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": ""
+     },
+     "property_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "page_id",
+     "property_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/pages/{page_id}/properties/{property_id}",
+    "path": [
+     "page_id",
+     "property_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_auser",
+   "name": "Retrieve a user",
+   "description": "Retrieve a user object using the ID specified in the request path.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/users/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_block_children",
+   "name": "Retrieve block children",
+   "description": "Retrieve block children",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "page_size": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/blocks/{id}/children",
+    "path": [
+     "id"
+    ],
+    "query": [
+     "page_size"
+    ],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.retrieve_comments",
+   "name": "Retrieve comments",
+   "description": "Retrieve a user object using the ID specified in the request path.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "block_id": {
+      "type": "string",
+      "description": ""
+     },
+     "page_size": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.notion.com/v1/comments",
+    "path": [],
+    "query": [
+     "block_id",
+     "page_size"
+    ],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.update_ablock",
+   "name": "Update a block",
+   "description": "This endpoint allows you to update block content. [See Full Documentation](https://developers.notion.com/reference/update-a-block)",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     },
+     "paragraph": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.notion.com/v1/blocks/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [
+     "paragraph"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.update_adatabase",
+   "name": "Update a database",
+   "description": "Update a database",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     },
+     "properties": {
+      "type": "object",
+      "description": ""
+     },
+     "title": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.notion.com/v1/databases/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [
+     "properties",
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "notion-scim.update_page_properties",
+   "name": "Update page properties",
+   "description": "Updates a page by setting the values of any properties specified in the JSON body of the request. Properties not updated via parameters will remain unchanged.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "Notion-Version": {
+      "type": "string",
+      "description": ""
+     },
+     "properties": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://api.notion.com/v1/pages/{id}",
+    "path": [
+     "id"
+    ],
+    "query": [],
+    "header": [
+     "Notion-Version"
+    ],
+    "body": [
+     "properties"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

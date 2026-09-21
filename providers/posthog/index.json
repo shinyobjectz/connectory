@@ -15392,6 +15392,34 @@
    }
   },
   {
+   "slug": "posthog.conversations_ai_context_account_properties_list",
+   "name": "Conversations ai context account properties list",
+   "description": "Account-target Customer analytics properties that can be included in AI reply context. Capped at the first 500 properties by name.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/conversations/ai_context_account_properties/",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "posthog.conversations_ai_reply_playbook_retrieve",
    "name": "Conversations ai reply playbook retrieve",
    "description": "Inherited support-reply playbook for this project, plus the team's custom addendum if any.",
@@ -22885,9 +22913,13 @@
       "type": "integer",
       "description": "A unique integer value identifying this dashboard."
      },
+     "max_result_chars": {
+      "type": "integer",
+      "description": "Per-tile character budget for 'optimized' output, truncation marker included. A longer table keeps its header and both ends, and names how many rows were dropped from the middle. Defaults to 2000; pass 0 for the whole table, or 200 or more, since a smaller budget cannot carry the marker. Ignored when output_format is 'json'. Any value above zero is also held down to what the response has left of i"
+     },
      "output_format": {
       "type": "string",
-      "description": "'optimized' (default) returns LLM-friendly formatted text per insight. 'json' returns the raw query result objects.",
+      "description": "'optimized' (default) returns LLM-friendly formatted text per insight, bounded by max_result_chars. 'json' returns the raw query result objects, unbounded.",
       "enum": [
        "json",
        "optimized"
@@ -22905,6 +22937,10 @@
        "force_blocking",
        "force_cache"
       ]
+     },
+     "tile_ids": {
+      "type": "string",
+      "description": "Comma-separated dashboard tile IDs to run. Defaults to every insight tile on the dashboard. Use it to read one tile without receiving the others. An ID that is not on this dashboard is rejected."
      },
      "variables_override": {
       "type": "string",
@@ -22926,8 +22962,10 @@
     "query": [
      "filters_override",
      "format",
+     "max_result_chars",
      "output_format",
      "refresh",
+     "tile_ids",
      "variables_override"
     ],
     "header": [],
@@ -24186,1215 +24224,6 @@
     "header": [],
     "body": [
      "names"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_check_suite_runs_check_runs_list",
-   "name": "Data catalog metrics check suite runs check runs list",
-   "description": "Every check execution in this suite run.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "Id of the metric whose suite runs these are."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/check_suite_runs/{id}/check_runs/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_check_suite_runs_list",
-   "name": "Data catalog metrics check suite runs list",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "Id of the metric whose suite runs these are."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/check_suite_runs/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_check_suite_runs_retrieve",
-   "name": "Data catalog metrics check suite runs retrieve",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "Id of the metric whose suite runs these are."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/check_suite_runs/{id}/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_check_types_list",
-   "name": "Data catalog metrics checks check types list",
-   "description": "The check types this project can author, with the JSON schema of each type's config.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/check_types/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_create",
-   "name": "Data catalog metrics checks create",
-   "description": "Create a check on this table or view, or refine the one already carrying the same fingerprint. Re-creating a semantically identical check returns 200 and the existing row, never a duplicate.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "metric_id",
-     "owner",
-     "project_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_destroy",
-   "name": "Data catalog metrics checks destroy",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "DELETE",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_health_retrieve",
-   "name": "Data catalog metrics checks health retrieve",
-   "description": "Health rollup for this table or view, from the denormalized status of its checks.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/health/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_list",
-   "name": "Data catalog metrics checks list",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_output_schema_retrieve",
-   "name": "Data catalog metrics checks output schema retrieve",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/output_schema/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_partial_update",
-   "name": "Data catalog metrics checks partial update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "PATCH",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_retrieve",
-   "name": "Data catalog metrics checks retrieve",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_run_all_create",
-   "name": "Data catalog metrics checks run all create",
-   "description": "Run every enabled check on this table or view. Returns the suite run to poll.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/run_all/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_run_create",
-   "name": "Data catalog metrics checks run create",
-   "description": "Run this check now. Returns the suite run to poll for the report.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/run/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_runs_list",
-   "name": "Data catalog metrics checks runs list",
-   "description": "Recent run history for this check, newest first.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "id",
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/runs/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_schedule_partial_update",
-   "name": "Data catalog metrics checks schedule partial update",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "interval": {
-      "type": "string",
-      "description": "How often all enabled checks on the metric run. * `1hour` - 1hour * `6hour` - 6hour * `12hour` - 12hour * `24hour` - 24hour * `7day` - 7day",
-      "enum": [
-       "1hour",
-       "6hour",
-       "12hour",
-       "24hour",
-       "7day"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Whether checks run automatically on this schedule."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "PATCH",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/schedule/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "interval",
-     "enabled"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_schedule_retrieve",
-   "name": "Data catalog metrics checks schedule retrieve",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     }
-    },
-    "required": [
-     "metric_id",
-     "project_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/schedule/",
-    "path": [
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.data_catalog_metrics_checks_update",
-   "name": "Data catalog metrics checks update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "metric_id": {
-      "type": "string",
-      "description": "The data catalog metric this check evaluates. Exclusive with table and saved_query."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "metric_id",
-     "owner",
-     "project_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "PUT",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_catalog/metrics/{metric_id}/checks/{id}/",
-    "path": [
-     "id",
-     "metric_id",
-     "project_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
     ],
     "body_format": "json"
    }
@@ -26901,15 +25730,318 @@
    }
   },
   {
-   "slug": "posthog.data_quality_checks_health_list",
-   "name": "Data quality checks health list",
-   "description": "Health rollup for every table and view in the project that has checks.",
+   "slug": "posthog.data_quality_checks_check_types_list",
+   "name": "Data quality checks check types list",
+   "description": "The check types this project can author, with the JSON schema of each type's config. Pass subject_type to narrow it to the types that kind of subject supports.",
    "input": {
     "type": "object",
     "properties": {
      "project_id": {
       "type": "string",
       "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/check_types/",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "subject_type"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_create",
+   "name": "Data quality checks create",
+   "description": "Create a check on the table, view or metric named by subject_type and subject_uuid, or refine the one already carrying the same fingerprint. Re-creating a semantically identical check returns 200 and the existing row, never a duplicate.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
+     },
+     "description": {
+      "type": "string",
+      "description": "Why this check exists and what a failure means."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object to check: 'table', 'view', 'metric', or 'posthog_table'. * `table` - table * `view` - view * `metric` - metric * `posthog_table` - posthog_table",
+      "enum": [
+       "table",
+       "view",
+       "metric",
+       "posthog_table"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table to check."
+     },
+     "subject_name": {
+      "type": "string",
+      "description": "Queryable name of the subject, refreshed on every run."
+     },
+     "subject_status": {
+      "type": "string",
+      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
+     },
+     "column_name": {
+      "type": "string",
+      "description": "Column the check applies to. Omit for table-scoped types like row_count."
+     },
+     "check_type": {
+      "type": "string",
+      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
+      "enum": [
+       "not_null",
+       "unique",
+       "accepted_values",
+       "relationships",
+       "row_count",
+       "freshness",
+       "custom_sql"
+      ]
+     },
+     "config": {
+      "type": "object",
+      "description": "Type-specific configuration, validated against the check type's JSON schema."
+     },
+     "severity": {
+      "type": "string",
+      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
+      "enum": [
+       "error",
+       "warn"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": "Disabled checks are never run by any trigger."
+     },
+     "tags": {
+      "type": "array",
+      "description": "Free-form string labels for grouping and filtering."
+     },
+     "owner": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Email of the human accountable for this check, or null."
+     },
+     "last_run_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last executed."
+     },
+     "last_status": {
+      "type": "string",
+      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
+     },
+     "last_succeeded_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
+     },
+     "failing_since": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
+     },
+     "fingerprint": {
+      "type": "string",
+      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
+     },
+     "created_source": {
+      "type": "string",
+      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
+      "enum": [
+       "user",
+       "ai_generated"
+      ]
+     },
+     "ai_model": {
+      "type": "string",
+      "description": "Model that generated the check, if AI-authored."
+     },
+     "confidence": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "AI author's confidence in the check, 0-1."
+     },
+     "reasoning": {
+      "type": "string",
+      "description": "AI author's reasoning, surfaced as review context."
+     },
+     "created_by": {
+      "type": "object",
+      "description": "User who first created this check."
+     },
+     "created_at": {
+      "type": "string",
+      "description": ""
+     },
+     "updated_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": ""
+     }
+    },
+    "required": [
+     "check_type",
+     "created_at",
+     "created_by",
+     "failing_since",
+     "fingerprint",
+     "id",
+     "last_run_at",
+     "last_status",
+     "last_succeeded_at",
+     "owner",
+     "project_id",
+     "subject_name",
+     "subject_status",
+     "subject_type",
+     "subject_uuid",
+     "updated_at"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "name",
+     "description",
+     "subject_type",
+     "subject_uuid",
+     "subject_name",
+     "subject_status",
+     "column_name",
+     "check_type",
+     "config",
+     "severity",
+     "enabled",
+     "tags",
+     "owner",
+     "last_run_at",
+     "last_status",
+     "last_succeeded_at",
+     "failing_since",
+     "fingerprint",
+     "created_source",
+     "ai_model",
+     "confidence",
+     "reasoning",
+     "created_by",
+     "created_at",
+     "updated_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_destroy",
+   "name": "Data quality checks destroy",
+   "description": "Every check in the project: authoring, running, results, health, and schedules.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this data quality check."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_health_list",
+   "name": "Data quality checks health list",
+   "description": "Health rollup per subject, for every subject in the project that has checks. Narrow it to one subject with subject_type and subject_uuid.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
      }
     },
     "required": [
@@ -26922,7 +26054,10 @@
     "path": [
      "project_id"
     ],
-    "query": [],
+    "query": [
+     "subject_type",
+     "subject_uuid"
+    ],
     "header": [],
     "body": [],
     "body_format": "json"
@@ -26931,10 +26066,23 @@
   {
    "slug": "posthog.data_quality_checks_list",
    "name": "Data quality checks list",
-   "description": "Every check in the project, and the health of every subject that has one. The per-subject surfaces answer \"what is wrong with this table\". This answers \"what is wrong across the project\", which they cannot: each is nested under one parent. Read-only -- authoring still happens against the subject that owns the check.",
+   "description": "Every check in the project. Narrow it to one subject with subject_type and subject_uuid, or to one assertion with check_type.",
    "input": {
     "type": "object",
     "properties": {
+     "check_type": {
+      "type": "string",
+      "description": "Only the checks that make this assertion. See /check_types/.",
+      "enum": [
+       "accepted_values",
+       "custom_sql",
+       "freshness",
+       "not_null",
+       "relationships",
+       "row_count",
+       "unique"
+      ]
+     },
      "limit": {
       "type": "integer",
       "description": "Number of results to return per page."
@@ -26946,6 +26094,20 @@
      "project_id": {
       "type": "string",
       "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
      }
     },
     "required": [
@@ -26959,8 +26121,11 @@
      "project_id"
     ],
     "query": [
+     "check_type",
      "limit",
-     "offset"
+     "offset",
+     "subject_type",
+     "subject_uuid"
     ],
     "header": [],
     "body": [],
@@ -26970,7 +26135,7 @@
   {
    "slug": "posthog.data_quality_checks_metric_subjects_list",
    "name": "Data quality checks metric subjects list",
-   "description": "Every check in the project, and the health of every subject that has one. The per-subject surfaces answer \"what is wrong with this table\". This answers \"what is wrong across the project\", which they cannot: each is nested under one parent. Read-only -- authoring still happens against the subject that owns the check.",
+   "description": "Every check in the project: authoring, running, results, health, and schedules.",
    "input": {
     "type": "object",
     "properties": {
@@ -26996,9 +26161,777 @@
    }
   },
   {
+   "slug": "posthog.data_quality_checks_output_schema_retrieve",
+   "name": "Data quality checks output schema retrieve",
+   "description": "Columns the subject's query returns, for authoring a check against them. Metrics only.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/output_schema/",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "subject_type",
+     "subject_uuid"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_partial_update",
+   "name": "Data quality checks partial update",
+   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The subject it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "name": {
+      "type": "string",
+      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
+     },
+     "description": {
+      "type": "string",
+      "description": "Why this check exists and what a failure means."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'. * `table` - table * `view` - view * `metric` - metric * `posthog_table` - posthog_table",
+      "enum": [
+       "table",
+       "view",
+       "metric",
+       "posthog_table"
+      ]
+     },
+     "subject_uuid": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Id of the table, view, metric, or PostHog table being checked. Null once the subject is deleted."
+     },
+     "subject_name": {
+      "type": "string",
+      "description": "Queryable name of the subject, refreshed on every run."
+     },
+     "subject_status": {
+      "type": "string",
+      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
+     },
+     "column_name": {
+      "type": "string",
+      "description": "Column the check applies to. Omit for table-scoped types like row_count."
+     },
+     "check_type": {
+      "type": "string",
+      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
+      "enum": [
+       "not_null",
+       "unique",
+       "accepted_values",
+       "relationships",
+       "row_count",
+       "freshness",
+       "custom_sql"
+      ]
+     },
+     "config": {
+      "type": "object",
+      "description": "Type-specific configuration, validated against the check type's JSON schema."
+     },
+     "severity": {
+      "type": "string",
+      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
+      "enum": [
+       "error",
+       "warn"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": "Disabled checks are never run by any trigger."
+     },
+     "tags": {
+      "type": "array",
+      "description": "Free-form string labels for grouping and filtering."
+     },
+     "owner": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Email of the human accountable for this check, or null."
+     },
+     "last_run_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last executed."
+     },
+     "last_status": {
+      "type": "string",
+      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
+     },
+     "last_succeeded_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
+     },
+     "failing_since": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
+     },
+     "fingerprint": {
+      "type": "string",
+      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
+     },
+     "created_source": {
+      "type": "string",
+      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
+      "enum": [
+       "user",
+       "ai_generated"
+      ]
+     },
+     "ai_model": {
+      "type": "string",
+      "description": "Model that generated the check, if AI-authored."
+     },
+     "confidence": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "AI author's confidence in the check, 0-1."
+     },
+     "reasoning": {
+      "type": "string",
+      "description": "AI author's reasoning, surfaced as review context."
+     },
+     "created_by": {
+      "type": "object",
+      "description": "User who first created this check."
+     },
+     "created_at": {
+      "type": "string",
+      "description": ""
+     },
+     "updated_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "name",
+     "description",
+     "subject_type",
+     "subject_uuid",
+     "subject_name",
+     "subject_status",
+     "column_name",
+     "check_type",
+     "config",
+     "severity",
+     "enabled",
+     "tags",
+     "owner",
+     "last_run_at",
+     "last_status",
+     "last_succeeded_at",
+     "failing_since",
+     "fingerprint",
+     "created_source",
+     "ai_model",
+     "confidence",
+     "reasoning",
+     "created_by",
+     "created_at",
+     "updated_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_retrieve",
+   "name": "Data quality checks retrieve",
+   "description": "Every check in the project: authoring, running, results, health, and schedules.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this data quality check."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_run_create",
+   "name": "Data quality checks run create",
+   "description": "Run this check now. Returns the suite run to poll for the report.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this data quality check."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/run/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_runs_list",
+   "name": "Data quality checks runs list",
+   "description": "Recent run history for this check, newest first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this data quality check."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/runs/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_schedule_partial_update",
+   "name": "Data quality checks schedule partial update",
+   "description": "Change how often this subject's checks run, or stop running them automatically. Name the subject with subject_type and subject_uuid in the body.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object: 'table', 'view', 'metric', or 'posthog_table'. * `table` - table * `view` - view * `metric` - metric * `posthog_table` - posthog_table",
+      "enum": [
+       "table",
+       "view",
+       "metric",
+       "posthog_table"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
+     },
+     "interval": {
+      "type": "string",
+      "description": "How often all enabled checks on the subject run. * `1hour` - 1hour * `6hour` - 6hour * `12hour` - 12hour * `24hour` - 24hour * `7day` - 7day",
+      "enum": [
+       "1hour",
+       "6hour",
+       "12hour",
+       "24hour",
+       "7day"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": "Whether checks run automatically on this schedule."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/schedule/",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "subject_type",
+     "subject_uuid",
+     "interval",
+     "enabled"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_schedule_retrieve",
+   "name": "Data quality checks schedule retrieve",
+   "description": "The schedule every enabled check on this subject runs on.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/schedule/",
+    "path": [
+     "project_id"
+    ],
+    "query": [
+     "subject_type",
+     "subject_uuid"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_schedules_list",
+   "name": "Data quality checks schedules list",
+   "description": "The schedule of every subject in the project whose checks run on one, for the checks the caller may read. One request for the overview instead of one per subject.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/schedules/",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_subjects_list",
+   "name": "Data quality checks subjects list",
+   "description": "Everything in this project you can author a check on, with each subject's columns.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/subjects/",
+    "path": [
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_checks_update",
+   "name": "Data quality checks update",
+   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The subject it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": ""
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "name": {
+      "type": "string",
+      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
+     },
+     "description": {
+      "type": "string",
+      "description": "Why this check exists and what a failure means."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'. * `table` - table * `view` - view * `metric` - metric * `posthog_table` - posthog_table",
+      "enum": [
+       "table",
+       "view",
+       "metric",
+       "posthog_table"
+      ]
+     },
+     "subject_uuid": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Id of the table, view, metric, or PostHog table being checked. Null once the subject is deleted."
+     },
+     "subject_name": {
+      "type": "string",
+      "description": "Queryable name of the subject, refreshed on every run."
+     },
+     "subject_status": {
+      "type": "string",
+      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
+     },
+     "column_name": {
+      "type": "string",
+      "description": "Column the check applies to. Omit for table-scoped types like row_count."
+     },
+     "check_type": {
+      "type": "string",
+      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
+      "enum": [
+       "not_null",
+       "unique",
+       "accepted_values",
+       "relationships",
+       "row_count",
+       "freshness",
+       "custom_sql"
+      ]
+     },
+     "config": {
+      "type": "object",
+      "description": "Type-specific configuration, validated against the check type's JSON schema."
+     },
+     "severity": {
+      "type": "string",
+      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
+      "enum": [
+       "error",
+       "warn"
+      ]
+     },
+     "enabled": {
+      "type": "boolean",
+      "description": "Disabled checks are never run by any trigger."
+     },
+     "tags": {
+      "type": "array",
+      "description": "Free-form string labels for grouping and filtering."
+     },
+     "owner": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Email of the human accountable for this check, or null."
+     },
+     "last_run_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last executed."
+     },
+     "last_status": {
+      "type": "string",
+      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
+     },
+     "last_succeeded_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
+     },
+     "failing_since": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
+     },
+     "fingerprint": {
+      "type": "string",
+      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
+     },
+     "created_source": {
+      "type": "string",
+      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
+      "enum": [
+       "user",
+       "ai_generated"
+      ]
+     },
+     "ai_model": {
+      "type": "string",
+      "description": "Model that generated the check, if AI-authored."
+     },
+     "confidence": {
+      "type": [
+       "number",
+       "null"
+      ],
+      "description": "AI author's confidence in the check, 0-1."
+     },
+     "reasoning": {
+      "type": "string",
+      "description": "AI author's reasoning, surfaced as review context."
+     },
+     "created_by": {
+      "type": "object",
+      "description": "User who first created this check."
+     },
+     "created_at": {
+      "type": "string",
+      "description": ""
+     },
+     "updated_at": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": ""
+     }
+    },
+    "required": [
+     "check_type",
+     "created_at",
+     "created_by",
+     "failing_since",
+     "fingerprint",
+     "id",
+     "last_run_at",
+     "last_status",
+     "last_succeeded_at",
+     "owner",
+     "project_id",
+     "subject_name",
+     "subject_status",
+     "subject_type",
+     "subject_uuid",
+     "updated_at"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_checks/{id}/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "id",
+     "name",
+     "description",
+     "subject_type",
+     "subject_uuid",
+     "subject_name",
+     "subject_status",
+     "column_name",
+     "check_type",
+     "config",
+     "severity",
+     "enabled",
+     "tags",
+     "owner",
+     "last_run_at",
+     "last_status",
+     "last_succeeded_at",
+     "failing_since",
+     "fingerprint",
+     "created_source",
+     "ai_model",
+     "confidence",
+     "reasoning",
+     "created_by",
+     "created_at",
+     "updated_at"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.data_quality_runs_check_runs_list",
+   "name": "Data quality runs check runs list",
+   "description": "Every check execution in this suite run.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this data quality suite run."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/data_quality_runs/{id}/check_runs/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "posthog.data_quality_runs_create",
    "name": "Data quality runs create",
-   "description": "Run the named checks now, or every enabled check in the project when none are named. Returns the suite run to poll for the report.",
+   "description": "Run checks now: the ones named by check_ids, every enabled check on the subject named by subject_type and subject_uuid, or every enabled check in the project when neither is given. Returns the suite run to poll for the report.",
    "input": {
     "type": "object",
     "properties": {
@@ -27009,6 +26942,20 @@
      "check_ids": {
       "type": "array",
       "description": "Ids of the checks to run. Omit to run every enabled check in the project."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Narrow the run to one subject. Pass subject_uuid with it. Ignored when check_ids is given. * `table` - table * `view` - view * `metric` - metric * `posthog_table` - posthog_table",
+      "enum": [
+       "table",
+       "view",
+       "metric",
+       "posthog_table"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the subject to run every enabled check on. Pass subject_type with it."
      }
     },
     "required": [
@@ -27024,7 +26971,9 @@
     "query": [],
     "header": [],
     "body": [
-     "check_ids"
+     "check_ids",
+     "subject_type",
+     "subject_uuid"
     ],
     "body_format": "json"
    }
@@ -27032,7 +26981,7 @@
   {
    "slug": "posthog.data_quality_runs_list",
    "name": "Data quality runs list",
-   "description": "Project-wide check runs: start one over a selection, and read every run the project has had. The per-subject surfaces only serve runs scoped to their own subject, so this is where a sweep across several subjects -- a manual project-wide run, a materialization, a source sync -- is readable. Scoped to `warehouse_objects` because it spans tables and views at once.",
+   "description": "Every check-suite run in the project, newest first. Narrow it to one subject with subject_type and subject_uuid.",
    "input": {
     "type": "object",
     "properties": {
@@ -27047,6 +26996,20 @@
      "project_id": {
       "type": "string",
       "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "subject_type": {
+      "type": "string",
+      "description": "Kind of object being checked: 'table', 'view', 'metric', or 'posthog_table'.",
+      "enum": [
+       "metric",
+       "posthog_table",
+       "table",
+       "view"
+      ]
+     },
+     "subject_uuid": {
+      "type": "string",
+      "description": "Id of the table, view, metric, or PostHog table."
      }
     },
     "required": [
@@ -27061,7 +27024,9 @@
     ],
     "query": [
      "limit",
-     "offset"
+     "offset",
+     "subject_type",
+     "subject_uuid"
     ],
     "header": [],
     "body": [],
@@ -27071,7 +27036,7 @@
   {
    "slug": "posthog.data_quality_runs_retrieve",
    "name": "Data quality runs retrieve",
-   "description": "Project-wide check runs: start one over a selection, and read every run the project has had. The per-subject surfaces only serve runs scoped to their own subject, so this is where a sweep across several subjects -- a manual project-wide run, a materialization, a source sync -- is readable. Scoped to `warehouse_objects` because it spans tables and views at once.",
+   "description": "Check-suite executions: start one over a selection, and read every run the project has had. A suite run may sweep several subjects at once -- a manual project-wide run, a materialization, a source sync -- so it is reported here rather than under any one of them.",
    "input": {
     "type": "object",
     "properties": {
@@ -34107,6 +34072,14 @@
       "type": "string",
       "description": "URL of the linked external issue in the provider's system."
      },
+     "external_id": {
+      "type": "string",
+      "description": "Provider-native identifier of the linked issue."
+     },
+     "title": {
+      "type": "string",
+      "description": "Title of the linked issue."
+     },
      "integration_id": {
       "type": "integer",
       "description": "ID of the connected integration to create the external issue with. List the project's integrations to find the right ID and its kind (one of 'github', 'gitlab', 'linear', 'jira')."
@@ -34122,12 +34095,14 @@
     },
     "required": [
      "config",
+     "external_id",
      "external_url",
      "id",
      "integration",
      "integration_id",
      "issue",
-     "project_id"
+     "project_id",
+     "title"
     ]
    },
    "request": {
@@ -34142,6 +34117,8 @@
      "id",
      "integration",
      "external_url",
+     "external_id",
+     "title",
      "integration_id",
      "config",
      "issue"
@@ -34205,7 +34182,7 @@
      },
      "external_context": {
       "type": "object",
-      "description": "Identifier of the existing external issue to link, as returned by the search-issues endpoint. Required keys depend on the integration kind: github -> {repository, number}; gitlab -> {issue_id}; linear -> {id}; jira -> {key}."
+      "description": "Identifier and optional title of the existing external issue to link, as returned by the search-issues endpoint. Required keys depend on the integration kind: github -> {repository, number}; gitlab -> {issue_id}; linear -> {id}; jira -> {key}."
      }
     },
     "required": [
@@ -34327,7 +34304,7 @@
      },
      "search": {
       "type": "string",
-      "description": "Text to match against existing issue titles / keys in the provider. GitHub matches it as an exact phrase. Leave blank for recent issues."
+      "description": "Text to match against existing issue titles or identifiers in the provider. GitHub matches titles as an exact phrase. Leave blank for recent issues."
      }
     },
     "required": [
@@ -51801,6 +51778,114 @@
     "query": [],
     "header": [],
     "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.feature_flags_roll_out_to_everyone_create",
+   "name": "Feature flags roll out to everyone create",
+   "description": "Serve a feature flag to every user. Adds a release condition with no property filters at 100% and keeps the existing conditions below it. Payloads, holdout and every other field are left as they are. On a boolean flag, removing the new condition restores the previous targeting. On a multivariate flag the variant distribution is rewritten as well, so removing the condition restores the audience but",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "A unique integer value identifying this feature flag."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "version": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "The `version` from your most recent read of this flag. The change is refused with 409 if anyone else changed the flag after that version. A flag written before versioning reads as `null`; send that back unchanged and it is read as 0, so the value a read returns is always one this accepts."
+     },
+     "variant_key": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The variant every user gets. Required for a multivariate flag and rejected for any other flag, because a release condition decides who the flag serves and not which variant they get."
+     }
+    },
+    "required": [
+     "id",
+     "project_id",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/feature_flags/{id}/roll_out_to_everyone/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "version",
+     "variant_key"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "posthog.feature_flags_set_release_condition_rollout_create",
+   "name": "Feature flags set release condition rollout create",
+   "description": "Set what percentage of one release condition's audience a feature flag is served to. Changes `rollout_percentage` on the release condition at `condition_index` and nothing else. The condition's property filters, every other condition, the variants, payloads, holdout and every remaining field are left as they are. Send the `version` your last read returned. A change to the flag after that version i",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "A unique integer value identifying this feature flag."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "condition_index": {
+      "type": "integer",
+      "description": "Zero-based position of the release condition in `filters.groups`, counted from the read that produced `version`."
+     },
+     "rollout_percentage": {
+      "type": "number",
+      "description": "Percentage of the users matching that condition who are served the flag, 0 through 100. On a multivariate flag this is how many matching users get a variant at all, not how the variants are split between them. Fractional percentages such as 0.5 are accepted, the same as a write that sends `filters`."
+     },
+     "version": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "The `version` from your most recent read of this flag. The change is refused with 409 if anyone else changed the flag after that version. A flag written before versioning reads as `null`; send that back unchanged and it is read as 0, so the value a read returns is always one this accepts."
+     }
+    },
+    "required": [
+     "condition_index",
+     "id",
+     "project_id",
+     "rollout_percentage",
+     "version"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/feature_flags/{id}/set_release_condition_rollout/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "condition_index",
+     "rollout_percentage",
+     "version"
+    ],
     "body_format": "json"
    }
   },
@@ -109635,6 +109720,10 @@
       ],
       "description": "The full set of follow-up prompts (questions or next-step actions) the report should offer above its `Ask AI` box. Replaces the report's prompts rather than adding to them, so send every one you want kept. Omit the field (or send null) to leave them untouched, and send an empty list to take them down, which is what you want once a rewrite has left them pointing at the old report."
      },
+     "links": {
+      "type": "array",
+      "description": "Typed, directed links from this report to others, recording how the work relates. Use `depends_on` when you split one finding into a stack and the second report's fix cannot land until the first one's does, so the order is recorded rather than left to a reader of the diffs. Additive: links join what the report already has rather than replacing them, and only this report gets a row, so link from th"
+     },
      "supersedes_implementation": {
       "type": "boolean",
       "description": "Set this only when your rewrite changes what the fix should be: a different root cause, a different file or layer, a materially wider or narrower scope. More evidence for the same fix is not a reason, because the report's open pull request already implements it. Setting it true records a replacement decision for a ready report. Policy and eligibility checks gate the replacement. The existing pull "
@@ -109667,6 +109756,7 @@
      "charts",
      "metrics",
      "suggested_prompts",
+     "links",
      "supersedes_implementation"
     ],
     "body_format": "json"
@@ -132161,6 +132251,40 @@
    }
   },
   {
+   "slug": "posthog.vision_observations_thumbnail_retrieve",
+   "name": "Vision observations thumbnail retrieve",
+   "description": "Redirect to the frame that illustrates this observation, so a caller with only the observation id can show it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this replay observation."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     }
+    },
+    "required": [
+     "id",
+     "project_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/vision/observations/{id}/thumbnail/",
+    "path": [
+     "id",
+     "project_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "posthog.vision_observations_viewed_create",
    "name": "Vision observations viewed create",
    "description": "Record that the calling user opened this observation. Idempotent.",
@@ -134041,6 +134165,46 @@
    }
   },
   {
+   "slug": "posthog.vision_scanners_observations_thumbnail_retrieve",
+   "name": "Vision scanners observations thumbnail retrieve",
+   "description": "Redirect to the frame that illustrates this observation, so a caller with only the observation id can show it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "A UUID string identifying this replay observation."
+     },
+     "project_id": {
+      "type": "string",
+      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
+     },
+     "scanner_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "id",
+     "project_id",
+     "scanner_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/vision/scanners/{scanner_id}/observations/{id}/thumbnail/",
+    "path": [
+     "id",
+     "project_id",
+     "scanner_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "posthog.vision_scanners_observations_viewed_create",
    "name": "Vision scanners observations viewed create",
    "description": "Record that the calling user opened this observation. Idempotent.",
@@ -135611,7 +135775,7 @@
   {
    "slug": "posthog.visual_review_runs_approve_create",
    "name": "Visual review runs approve create",
-   "description": "Mark snapshots reviewed (DB only). Records the per-snapshot \"Accept change\" decision. Does not commit the baseline or change the GitHub gate \u2014 call finalize to ship the run. Works on a quarantined snapshot too: a quarantined NEW snapshot approved here is committed by finalize, which gives a quarantined story a baseline entry without lifting the quarantine.",
+   "description": "Mark snapshots reviewed (DB only). Records the per-snapshot \"Accept change\" decision. Does not commit the baseline or change the GitHub gate \u2014 call finalize to ship the run. Works on a quarantined snapshot too: a quarantined snapshot approved here is committed by finalize, which updates a quarantined story's baseline entry without lifting the quarantine.",
    "input": {
     "type": "object",
     "properties": {
@@ -135811,7 +135975,7 @@
   {
    "slug": "posthog.visual_review_runs_finalize_create",
    "name": "Visual review runs finalize create",
-   "description": "Finalize a fully-reviewed run: commit the approved baseline and green the gate. Commits exactly the snapshots approved in the DB (tolerated ones keep their baseline) and only succeeds once every changed/new snapshot is resolved. With approve_all=true, any still-pending changed/new snapshot is approved first; quarantined snapshots are skipped, but a quarantined NEW snapshot approved by identifier i",
+   "description": "Finalize a fully-reviewed run: commit the approved baseline and green the gate. Commits exactly the snapshots approved in the DB (tolerated ones keep their baseline) and only succeeds once every changed/new snapshot is resolved. With approve_all=true, any still-pending changed/new snapshot is approved first; quarantined snapshots are skipped, but a quarantined snapshot approved by identifier is st",
    "input": {
     "type": "object",
     "properties": {
@@ -137365,1095 +137529,6 @@
      "incremental_key",
      "unique_key",
      "lookback_seconds"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_check_suite_runs_check_runs_list",
-   "name": "Warehouse saved queries check suite runs check runs list",
-   "description": "Every check execution in this suite run.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "Id of the saved query whose suite runs these are."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/check_suite_runs/{id}/check_runs/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_check_suite_runs_list",
-   "name": "Warehouse saved queries check suite runs list",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "Id of the saved query whose suite runs these are."
-     }
-    },
-    "required": [
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/check_suite_runs/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_check_suite_runs_retrieve",
-   "name": "Warehouse saved queries check suite runs retrieve",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "Id of the saved query whose suite runs these are."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/check_suite_runs/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_check_types_list",
-   "name": "Warehouse saved queries checks check types list",
-   "description": "The check types this project can author, with the JSON schema of each type's config.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/check_types/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_create",
-   "name": "Warehouse saved queries checks create",
-   "description": "Create a check on this table or view, or refine the one already carrying the same fingerprint. Re-creating a semantically identical check returns 200 and the existing row, never a duplicate.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     },
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "owner",
-     "project_id",
-     "saved_query_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_destroy",
-   "name": "Warehouse saved queries checks destroy",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "DELETE",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_health_retrieve",
-   "name": "Warehouse saved queries checks health retrieve",
-   "description": "Health rollup for this table or view, from the denormalized status of its checks.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/health/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_list",
-   "name": "Warehouse saved queries checks list",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_partial_update",
-   "name": "Warehouse saved queries checks partial update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "PATCH",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_retrieve",
-   "name": "Warehouse saved queries checks retrieve",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_run_all_create",
-   "name": "Warehouse saved queries checks run all create",
-   "description": "Run every enabled check on this table or view. Returns the suite run to poll.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/run_all/",
-    "path": [
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_run_create",
-   "name": "Warehouse saved queries checks run create",
-   "description": "Run this check now. Returns the suite run to poll for the report.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/run/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_runs_list",
-   "name": "Warehouse saved queries checks runs list",
-   "description": "Recent run history for this check, newest first.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/runs/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_saved_queries_checks_update",
-   "name": "Warehouse saved queries checks update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "saved_query_id": {
-      "type": "string",
-      "description": "The view or matview this check audits. Exclusive with table."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "owner",
-     "project_id",
-     "saved_query_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "PUT",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_saved_queries/{saved_query_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "saved_query_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
     ],
     "body_format": "json"
    }
@@ -140035,1095 +139110,6 @@
     "body_format": "json"
    },
    "described": "derived"
-  },
-  {
-   "slug": "posthog.warehouse_tables_check_suite_runs_check_runs_list",
-   "name": "Warehouse tables check suite runs check runs list",
-   "description": "Every check execution in this suite run.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "Id of the warehouse table whose suite runs these are."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/check_suite_runs/{id}/check_runs/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_check_suite_runs_list",
-   "name": "Warehouse tables check suite runs list",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "Id of the warehouse table whose suite runs these are."
-     }
-    },
-    "required": [
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/check_suite_runs/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_check_suite_runs_retrieve",
-   "name": "Warehouse tables check suite runs retrieve",
-   "description": "Read-only reports for this subject's check-suite executions.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality suite run."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "Id of the warehouse table whose suite runs these are."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/check_suite_runs/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_check_types_list",
-   "name": "Warehouse tables checks check types list",
-   "description": "The check types this project can author, with the JSON schema of each type's config.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/check_types/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_create",
-   "name": "Warehouse tables checks create",
-   "description": "Create a check on this table or view, or refine the one already carrying the same fingerprint. Re-creating a semantically identical check returns 200 and the existing row, never a duplicate.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     },
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "owner",
-     "project_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "table_id",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_destroy",
-   "name": "Warehouse tables checks destroy",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "DELETE",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_health_retrieve",
-   "name": "Warehouse tables checks health retrieve",
-   "description": "Health rollup for this table or view, from the denormalized status of its checks.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/health/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_list",
-   "name": "Warehouse tables checks list",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "Number of results to return per page."
-     },
-     "offset": {
-      "type": "integer",
-      "description": "The initial index from which to return the results."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [
-     "limit",
-     "offset"
-    ],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_partial_update",
-   "name": "Warehouse tables checks partial update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "PATCH",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_retrieve",
-   "name": "Warehouse tables checks retrieve",
-   "description": "CRUD for one subject's checks, plus the actions that run them and report on them.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_run_all_create",
-   "name": "Warehouse tables checks run all create",
-   "description": "Run every enabled check on this table or view. Returns the suite run to poll.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/run_all/",
-    "path": [
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_run_create",
-   "name": "Warehouse tables checks run create",
-   "description": "Run this check now. Returns the suite run to poll for the report.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "POST",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/run/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_runs_list",
-   "name": "Warehouse tables checks runs list",
-   "description": "Recent run history for this check, newest first.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": "A UUID string identifying this data quality check."
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     }
-    },
-    "required": [
-     "id",
-     "project_id",
-     "table_id"
-    ]
-   },
-   "request": {
-    "method": "GET",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/runs/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [],
-    "body_format": "json"
-   }
-  },
-  {
-   "slug": "posthog.warehouse_tables_checks_update",
-   "name": "Warehouse tables checks update",
-   "description": "Edit this check in place, including what it asserts (check_type, column_name, config). The table or view it audits is fixed, and the check keeps its id, run history, latest status, and latest run time. A definition or name already held by another active check comes back as a field error, with nothing written.",
-   "input": {
-    "type": "object",
-    "properties": {
-     "id": {
-      "type": "string",
-      "description": ""
-     },
-     "project_id": {
-      "type": "string",
-      "description": "Project ID of the project you're trying to access. To find the ID of the project, make a call to /api/projects/."
-     },
-     "table_id": {
-      "type": "string",
-      "description": "The warehouse source table this check audits. Exclusive with saved_query."
-     },
-     "name": {
-      "type": "string",
-      "description": "Optional identifier-safe handle, unique per project. Omit to address the check by id."
-     },
-     "description": {
-      "type": "string",
-      "description": "Why this check exists and what a failure means."
-     },
-     "subject_type": {
-      "type": "string",
-      "description": "Kind of catalog object being checked: 'table', 'view', or 'metric'. * `table` - table * `view` - view * `metric` - metric",
-      "enum": [
-       "table",
-       "view",
-       "metric"
-      ]
-     },
-     "subject_uuid": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Id of the table, view, or metric being checked, from the parent resource in the URL."
-     },
-     "subject_name": {
-      "type": "string",
-      "description": "Queryable name of the subject, refreshed on every run."
-     },
-     "subject_status": {
-      "type": "string",
-      "description": "'orphaned' once the subject stops resolving. Orphaned checks are skipped, not deleted."
-     },
-     "column_name": {
-      "type": "string",
-      "description": "Column the check applies to. Omit for table-scoped types like row_count."
-     },
-     "check_type": {
-      "type": "string",
-      "description": "Which assertion to make. Determines the shape of config; see /check_types/. * `not_null` - not_null * `unique` - unique * `accepted_values` - accepted_values * `relationships` - relationships * `row_count` - row_count * `freshness` - freshness * `custom_sql` - custom_sql",
-      "enum": [
-       "not_null",
-       "unique",
-       "accepted_values",
-       "relationships",
-       "row_count",
-       "freshness",
-       "custom_sql"
-      ]
-     },
-     "config": {
-      "type": "object",
-      "description": "Type-specific configuration, validated against the check type's JSON schema."
-     },
-     "severity": {
-      "type": "string",
-      "description": "'error' failures mark the subject failing and notify; 'warn' failures only surface. * `error` - error * `warn` - warn",
-      "enum": [
-       "error",
-       "warn"
-      ]
-     },
-     "enabled": {
-      "type": "boolean",
-      "description": "Disabled checks are never run by any trigger."
-     },
-     "tags": {
-      "type": "array",
-      "description": "Free-form string labels for grouping and filtering."
-     },
-     "owner": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "Email of the human accountable for this check, or null."
-     },
-     "last_run_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last executed."
-     },
-     "last_status": {
-      "type": "string",
-      "description": "Outcome of the newest run: passed, failed, errored, skipped, or empty if never run."
-     },
-     "last_succeeded_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the check last passed. Read failing_since for how long a failing check has been failing. Null means it has not passed within the run retention window."
-     },
-     "failing_since": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": "When the current streak of failing runs started, so a failing check can say how long it has been failing. Null when the check is not failing."
-     },
-     "fingerprint": {
-      "type": "string",
-      "description": "sha256 of the subject, type, column, and config. Re-creating the same check upserts."
-     },
-     "created_source": {
-      "type": "string",
-      "description": "Whether a human ('user') or an agent ('ai_generated') authored this check. * `user` - user * `ai_generated` - ai_generated",
-      "enum": [
-       "user",
-       "ai_generated"
-      ]
-     },
-     "ai_model": {
-      "type": "string",
-      "description": "Model that generated the check, if AI-authored."
-     },
-     "confidence": {
-      "type": [
-       "number",
-       "null"
-      ],
-      "description": "AI author's confidence in the check, 0-1."
-     },
-     "reasoning": {
-      "type": "string",
-      "description": "AI author's reasoning, surfaced as review context."
-     },
-     "created_by": {
-      "type": "object",
-      "description": "User who first created this check."
-     },
-     "created_at": {
-      "type": "string",
-      "description": ""
-     },
-     "updated_at": {
-      "type": [
-       "string",
-       "null"
-      ],
-      "description": ""
-     }
-    },
-    "required": [
-     "check_type",
-     "created_at",
-     "created_by",
-     "failing_since",
-     "fingerprint",
-     "id",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "owner",
-     "project_id",
-     "subject_name",
-     "subject_status",
-     "subject_type",
-     "subject_uuid",
-     "table_id",
-     "updated_at"
-    ]
-   },
-   "request": {
-    "method": "PUT",
-    "url": "https://{subdomain}.posthog.com/api/projects/{project_id}/warehouse_tables/{table_id}/checks/{id}/",
-    "path": [
-     "id",
-     "project_id",
-     "table_id"
-    ],
-    "query": [],
-    "header": [],
-    "body": [
-     "id",
-     "name",
-     "description",
-     "subject_type",
-     "subject_uuid",
-     "subject_name",
-     "subject_status",
-     "column_name",
-     "check_type",
-     "config",
-     "severity",
-     "enabled",
-     "tags",
-     "owner",
-     "last_run_at",
-     "last_status",
-     "last_succeeded_at",
-     "failing_since",
-     "fingerprint",
-     "created_source",
-     "ai_model",
-     "confidence",
-     "reasoning",
-     "created_by",
-     "created_at",
-     "updated_at"
-    ],
-    "body_format": "json"
-   }
   },
   {
    "slug": "posthog.warehouse_tables_create",

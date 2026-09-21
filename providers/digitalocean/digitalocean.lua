@@ -1,7 +1,7 @@
 -- DigitalOcean — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/digitalocean.com/2.0/openapi.json
--- APIs.guru's mirror, matched on digitalocean.com. A mirror lags the vendor.
+-- APIs.guru's mirror of digitalocean.com, matched on digitalocean.com. A mirror lags the vendor.
 -- 288 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

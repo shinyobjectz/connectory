@@ -2324,25 +2324,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **keyword** type: string **url** type: string"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "project_id": {
       "type": "integer",
@@ -2393,11 +2393,11 @@
     "url": "https://api.ahrefs.com/v3/gsc/anonymous-queries",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "project_id",
      "date_from",
      "country",
@@ -3521,25 +3521,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return. Max: `150000`."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **cpc**: Cost Per Click shows the average price that advertisers pay for each ad click in paid search results for a keyword, in USD cents. type: integer nullable **cps**: Clicks Per Search (or CPS) is the ratio of Clicks to Keyword Search volume. It shows"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return. Max: `150000`."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "keyword_list_id": {
       "type": "integer",
@@ -3603,11 +3603,11 @@
     "url": "https://api.ahrefs.com/v3/keywords-explorer/matching-terms",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "keyword_list_id",
      "keywords",
      "country",
@@ -3627,25 +3627,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **clicks**: The average monthly number of clicks on the search results that people make while searching for the target keyword. type: integer nullable **cpc**: Cost Per Click shows the average price that advertisers pay for each ad click in paid search re"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "keyword_list_id": {
       "type": "integer",
@@ -3723,11 +3723,11 @@
     "url": "https://api.ahrefs.com/v3/keywords-explorer/overview",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "keyword_list_id",
      "keywords",
      "country",
@@ -3750,25 +3750,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return. Max: `150000`."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **cpc**: Cost Per Click shows the average price that advertisers pay for each ad click in paid search results for a keyword, in USD cents. type: integer nullable **cps**: Clicks Per Search (or CPS) is the ratio of Clicks to Keyword Search volume. It shows"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return. Max: `150000`."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "keyword_list_id": {
       "type": "integer",
@@ -3833,11 +3833,11 @@
     "url": "https://api.ahrefs.com/v3/keywords-explorer/related-terms",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "keyword_list_id",
      "keywords",
      "country",
@@ -3857,25 +3857,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return. Max: `150000`."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **cpc**: Cost Per Click shows the average price that advertisers pay for each ad click in paid search results for a keyword, in USD cents. type: integer nullable **cps**: Clicks Per Search (or CPS) is the ratio of Clicks to Keyword Search volume. It shows"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `volume_monthly`, which is not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return. Max: `150000`."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "keyword_list_id": {
       "type": "integer",
@@ -3923,11 +3923,11 @@
     "url": "https://api.ahrefs.com/v3/keywords-explorer/search-suggestions",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "keyword_list_id",
      "keywords",
      "country",
@@ -5386,25 +5386,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **country**: The country that a given keyword is being tracked in. A two-letter country code (ISO 3166-1 alpha-2). type: string enum: `\"AD\"` `\"AE\"` `\"AF\"` `\"AG\"` `\"AI\"` `\"AL\"` `\"AM\"` `\"AO\"` `\"AQ\"` `\"AR\"` `\"AS\"` `\"AT\"` `\"AU\"` `\"AW\"` `\"AX\"` `\"AZ\"` `\"BA\"` `\""
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -5461,11 +5461,11 @@
     "url": "https://api.ahrefs.com/v3/rank-tracker/competitors-domains",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "project_id",
      "device",
@@ -5486,25 +5486,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **country**: The country that a given keyword is being tracked in. A two-letter country code (ISO 3166-1 alpha-2). type: string enum: `\"AD\"` `\"AE\"` `\"AF\"` `\"AG\"` `\"AI\"` `\"AL\"` `\"AM\"` `\"AO\"` `\"AQ\"` `\"AR\"` `\"AS\"` `\"AT\"` `\"AU\"` `\"AW\"` `\"AX\"` `\"AZ\"` `\"BA\"` `\""
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -5555,11 +5555,11 @@
     "url": "https://api.ahrefs.com/v3/rank-tracker/competitors-overview",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "project_id",
      "device",
@@ -5579,25 +5579,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **country**: The country that a given keyword is being tracked in. A two-letter country code (ISO 3166-1 alpha-2). type: string enum: `\"AD\"` `\"AE\"` `\"AF\"` `\"AG\"` `\"AI\"` `\"AL\"` `\"AM\"` `\"AO\"` `\"AQ\"` `\"AR\"` `\"AS\"` `\"AT\"` `\"AU\"` `\"AW\"` `\"AX\"` `\"AZ\"` `\"BA\"` `\""
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -5654,11 +5654,11 @@
     "url": "https://api.ahrefs.com/v3/rank-tracker/competitors-pages",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "project_id",
      "device",
@@ -5749,25 +5749,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **best_position_has_thumbnail**: The top position (or target URL\u2019s, if set) has a thumbnail. type: boolean nullable **best_position_has_thumbnail_previous**: The top position (or target URL\u2019s, if set) has a thumbnail on the comparison date. type: boolean "
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -5820,11 +5820,11 @@
     "url": "https://api.ahrefs.com/v3/rank-tracker/overview",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "project_id",
      "device",
@@ -6371,25 +6371,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `link_group_count`, which is not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **ahrefs_rank_source**: The strength of the referring domain's backlink profile compared to the other websites in our database, with rank #1 being the strongest. type: integer **ahrefs_rank_target**: The strength of the target domain's backlink profile co"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `link_group_count`, which is not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "aggregation": {
       "type": "string",
@@ -6448,11 +6448,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/all-backlinks",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "aggregation",
      "history",
      "mode",
@@ -6472,25 +6472,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **discovered_status**: The reason the link was discovered during the last crawl: the page was crawled for the first time, the link was added to the page, or the link re-appeared a"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "history": {
       "type": "string",
@@ -6540,11 +6540,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/anchors",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "history",
      "mode",
      "target",
@@ -6629,25 +6629,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `last_visited_target`, `link_group_count`, which are not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **ahrefs_rank_source**: The strength of the referring domain's backlink profile compared to the other websites in our database, with rank #1 being the strongest. type: integer **ahrefs_rank_target**: The strength of the target domain's backlink profile co"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `last_visited_target`, `link_group_count`, which are not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "aggregation": {
       "type": "string",
@@ -6702,11 +6702,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/broken-backlinks",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "aggregation",
      "mode",
      "target",
@@ -7016,25 +7016,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **dofollow_links**: The number of outbound links with a given anchor from your target that don\u2019t have the \u201cnofollow\u201d attribute. type: integer **domain**: A linked domain that has "
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "mode": {
       "type": "string",
@@ -7080,11 +7080,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/linked-anchors-external",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "mode",
      "target",
      "protocol",
@@ -7102,25 +7102,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **dofollow_links**: The number of outbound links with a given anchor from your target that don\u2019t have the \u201cnofollow\u201d attribute. type: integer **domain**: A linked domain that has "
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "mode": {
       "type": "string",
@@ -7166,11 +7166,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/linked-anchors-internal",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "mode",
      "target",
      "protocol",
@@ -7188,25 +7188,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **dofollow_linked_domains**: The number of unique root domains with dofollow links linked from the linked domain. type: integer **dofollow_links**: The number of links from your t"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "mode": {
       "type": "string",
@@ -7252,11 +7252,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/linkeddomains",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "mode",
      "target",
      "protocol",
@@ -7377,13 +7377,13 @@
    "input": {
     "type": "object",
     "properties": {
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
      "select": {
       "type": "string",
       "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
      },
      "date": {
       "type": "string",
@@ -7449,8 +7449,8 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/metrics-by-country",
     "path": [],
     "query": [
-     "limit",
      "select",
+     "limit",
      "date",
      "mode",
      "target",
@@ -7594,25 +7594,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **competitor_domain**: A competitor's domain of your target in \u201cdomains\" group mode. type: domain nullable **competitor_url**: A competitor's URL of your target in pages\" group mode. type: url nullable **cpc_competitor**: Cost Per Click shows the average "
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -7702,11 +7702,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/organic-competitors",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "traffic_mode",
      "date",
@@ -7729,25 +7729,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **best_position**: The top position your target ranks for in the organic search results for a keyword. type: integer nullable **best_position_diff**: The change in position between your selected dates. type: integer nullable **best_position_has_thumbnail*"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -7835,11 +7835,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/organic-keywords",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "traffic_mode",
      "date",
@@ -7922,25 +7922,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `languages_target`, `last_visited_target`, `powered_by_target`, `target_redirect`, `title_target`, `url_rating_target`, which are not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **dofollow_to_target**: The number of links to your target page that don\u2019t have the \u201cnofollow\u201d attribute. type: integer **domain_rating_source**: The strength of the referring dom"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `languages_target`, `last_visited_target`, `powered_by_target`, `target_redirect`, `title_target`, `url_rating_target`, which are not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "history": {
       "type": "string",
@@ -7990,11 +7990,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/pages-by-backlinks",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "history",
      "mode",
      "target",
@@ -8013,25 +8013,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `languages_target`, `last_visited_target`, `powered_by_target`, `target_redirect`, `title_target`, `url_rating_target`, which are not supported in `order_by` for this endpoint."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **canonical_to_target**: The number of inbound canonical links to your target page. type: integer **dofollow_to_target**: The number of links to your target page that don\u2019t have t"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A column to order results by. See the response schema for valid column identifiers, except for `http_code_target`, `languages_target`, `last_visited_target`, `powered_by_target`, `target_redirect`, `title_target`, `url_rating_target`, which are not supported in `order_by` for this endpoint."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "mode": {
       "type": "string",
@@ -8077,11 +8077,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/pages-by-internal-links",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "mode",
      "target",
      "protocol",
@@ -8305,25 +8305,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **ads_count**: The number of unique ads with a page. type: integer **ads_count_diff**: The change in ads between your selected dates. type: integer **ads_count_prev**: The number of ads on the comparison date. type: integer **cpc** type: integer nullable "
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -8404,11 +8404,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/paid-pages",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "date",
      "date_compared",
@@ -8430,25 +8430,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **anchor**: The clickable words in a link that point to a URL. type: string **discovered_status**: The reason the link was discovered during the last crawl: the page was crawled for the first time, the link was added to the page, or the link re-appeared a"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "history": {
       "type": "string",
@@ -8498,11 +8498,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/refdomains",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "history",
      "mode",
      "target",
@@ -8602,25 +8602,25 @@
    "input": {
     "type": "object",
     "properties": {
-     "timeout": {
-      "type": "integer",
-      "description": "A manual timeout duration in seconds."
-     },
-     "limit": {
-      "type": "integer",
-      "description": "The number of results to return."
-     },
-     "order_by": {
+     "select": {
       "type": "string",
-      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
      },
      "where": {
       "type": "string",
       "description": "The filter expression. The following column identifiers are recognized (this differs from the identifiers recognized by the `select` parameter). **ai_responses_chatgpt** (10 units): The number of ChatGPT responses in which the page appeared, in the selected country (or summed across all countries). This includes cases where the page was cited as a source or only retrieved in the background. Powere"
      },
-     "select": {
+     "order_by": {
       "type": "string",
-      "description": "A comma-separated list of columns to return. See response schema for valid column identifiers."
+      "description": "A comma-separated list of columns to order results by, with optional direction. See response schema for valid column identifiers."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The number of results to return."
+     },
+     "timeout": {
+      "type": "integer",
+      "description": "A manual timeout duration in seconds."
      },
      "volume_mode": {
       "type": "string",
@@ -8709,11 +8709,11 @@
     "url": "https://api.ahrefs.com/v3/site-explorer/top-pages",
     "path": [],
     "query": [
-     "timeout",
-     "limit",
-     "order_by",
-     "where",
      "select",
+     "where",
+     "order_by",
+     "limit",
+     "timeout",
      "volume_mode",
      "traffic_mode",
      "date",

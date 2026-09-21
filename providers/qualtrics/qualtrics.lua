@@ -1,7 +1,7 @@
 -- Qualtrics — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/qualtrics.com/0.2/openapi.json
--- APIs.guru's mirror, matched on qualtrics.com. A mirror lags the vendor.
+-- APIs.guru's mirror of qualtrics.com, matched on qualtrics.com. A mirror lags the vendor.
 -- 8 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

@@ -1,7 +1,7 @@
 -- Slack — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/slack.com/1.7.0/openapi.json
--- APIs.guru's mirror, matched on slack.com. A mirror lags the vendor.
+-- APIs.guru's mirror of slack.com, matched on slack.com. A mirror lags the vendor.
 -- 174 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

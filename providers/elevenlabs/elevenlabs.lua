@@ -1,7 +1,7 @@
 -- Eleven Labs — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/elevenlabs.io/1.0/openapi.json
--- APIs.guru's mirror, matched on elevenlabs.io. A mirror lags the vendor.
+-- APIs.guru's mirror of elevenlabs.io, matched on elevenlabs.io. A mirror lags the vendor.
 -- 18 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

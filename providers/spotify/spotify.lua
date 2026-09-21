@@ -1,7 +1,7 @@
 -- Spotify — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/spotify.com/1.0.0/openapi.json
--- APIs.guru's mirror, matched on spotify.com. A mirror lags the vendor.
+-- APIs.guru's mirror of spotify.com, matched on spotify.com. A mirror lags the vendor.
 -- 88 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

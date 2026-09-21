@@ -1,7 +1,7 @@
 -- Vercel — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/vercel.com/0.0.1/openapi.json
--- APIs.guru's mirror, matched on vercel.com. A mirror lags the vendor.
+-- APIs.guru's mirror of vercel.com, matched on vercel.com. A mirror lags the vendor.
 -- 112 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

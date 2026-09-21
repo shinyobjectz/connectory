@@ -1,7 +1,7 @@
 -- Telegram — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/telegram.org/5.0.0/openapi.json
--- APIs.guru's mirror, matched on telegram.org. A mirror lags the vendor.
+-- APIs.guru's mirror of telegram.org, matched on telegram.org. A mirror lags the vendor.
 -- 74 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

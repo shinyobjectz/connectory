@@ -2,7 +2,7 @@
 --
 -- GENERATED from https://api.dynatrace.com/openapi.json
 -- Published on the vendor's own documentation site (https://api.dynatrace.com).
--- 87 operations · do not edit
+-- 91 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value
 -- stays in the environment, which is what makes this file safe to publish.
@@ -80,6 +80,10 @@ return {
     ["dynatrace.list_wif_trust_policies"] = { method = "GET", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies", path = {"account-uuid"}, query = {"pageNumber", "pageSize"} },
     ["dynatrace.patch_wif_service_user_mapping_status"] = { method = "PATCH", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}/mappings/{mapping-uuid}", path = {"account-uuid", "trust-policy-uuid", "mapping-uuid"}, body = {"status"} },
     ["dynatrace.patch_wif_trust_policy_status"] = { method = "PATCH", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/wif/trust-policies/{trust-policy-uuid}", path = {"account-uuid", "trust-policy-uuid"}, body = {"status"} },
+    ["dynatrace.permissions_controller_add_group_permissions"] = { method = "POST", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions", path = {"account-uuid", "group-uuid"} },
+    ["dynatrace.permissions_controller_get_group_permissions"] = { method = "GET", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions", path = {"account-uuid", "group-uuid"} },
+    ["dynatrace.permissions_controller_overwrite_group_permissions"] = { method = "PUT", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions", path = {"account-uuid", "group-uuid"} },
+    ["dynatrace.permissions_controller_remove_group_permissions"] = { method = "DELETE", url = "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions", path = {"account-uuid", "group-uuid"}, query = {"scope", "permission-name", "scope-type"} },
     ["dynatrace.post_policy_boundary"] = { method = "POST", url = "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries", path = {"account-id"}, body = {"name", "boundaryQuery", "metadata"} },
     ["dynatrace.put_policy_boundary"] = { method = "PUT", url = "https://{environmentId}.live.dynatrace.com/iam/v1/repo/account/{account-id}/boundaries/{policy-boundary-uuid}", path = {"policy-boundary-uuid", "account-id"}, body = {"name", "boundaryQuery", "metadata"} },
     ["dynatrace.reference_data_controller"] = { method = "GET", url = "https://{environmentId}.live.dynatrace.com/ref/v1/time-zones" },

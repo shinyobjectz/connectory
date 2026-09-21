@@ -1,7 +1,7 @@
 -- Nyne AI — every call this API accepts, as data.
 --
--- GENERATED from https://nyne.ai/.well-known/openapi.json
--- Published on the vendor's own documentation site (https://nyne.ai).
+-- GENERATED from https://api.nyne.ai/.well-known/openapi.json
+-- Published on the vendor's own documentation site (https://api.nyne.ai).
 -- 1 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

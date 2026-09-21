@@ -2489,6 +2489,180 @@
    }
   },
   {
+   "slug": "dynatrace.permissions_controller_add_group_permissions",
+   "name": "Assigns permissions to a user group  existing permissions remain unaffected",
+   "description": "Environment access should be managed using IAM policies. Learn how to manage policies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.permissions_controller_get_group_permissions",
+   "name": "Lists all permissions of a user group",
+   "description": "Environment access should be managed using IAM policies. Learn how to manage policies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.permissions_controller_overwrite_group_permissions",
+   "name": "Sets permissions of a user group  existing permissions are overwritten",
+   "description": "Environment access should be managed using IAM policies. Learn how to manage policies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "dynatrace.permissions_controller_remove_group_permissions",
+   "name": "Removes a permission from a user group",
+   "description": "Environment access should be managed using IAM policies. Learn how to manage policies.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account-uuid": {
+      "type": "string",
+      "description": "The ID of the required account. You can find the UUID on the **Account Management** > **Identity & access management** > **OAuth clients** page, during creation of an OAuth client."
+     },
+     "group-uuid": {
+      "type": "string",
+      "description": "The UUID of the required user group."
+     },
+     "scope": {
+      "type": "string",
+      "description": "The scope of the permission to be deleted. Depending on the type of the scope, specify one of the following: * `account`: The UUID of the account. * `tenant`: The ID of the environment. * `management-zone`: The ID of the management zone from an environment in `{environment-id}:{management-zone-id}` format."
+     },
+     "permission-name": {
+      "type": "string",
+      "description": "The name of the permission to be deleted.",
+      "enum": [
+       "account-company-info",
+       "account-user-management",
+       "account-viewer",
+       "account-saml-flexible-federation",
+       "tenant-viewer",
+       "tenant-manage-settings",
+       "tenant-agent-install",
+       "tenant-logviewer",
+       "tenant-view-sensitive-request-data",
+       "tenant-configure-request-capture-data",
+       "tenant-replay-sessions-with-masking",
+       "tenant-replay-sessions-without-masking"
+      ]
+     },
+     "scope-type": {
+      "type": "string",
+      "description": "The scope type of the permission to be deleted.",
+      "enum": [
+       "account",
+       "tenant",
+       "management-zone"
+      ]
+     }
+    },
+    "required": [
+     "account-uuid",
+     "group-uuid",
+     "permission-name",
+     "scope",
+     "scope-type"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://{environmentId}.live.dynatrace.com/iam/v1/accounts/{account-uuid}/groups/{group-uuid}/permissions",
+    "path": [
+     "account-uuid",
+     "group-uuid"
+    ],
+    "query": [
+     "scope",
+     "permission-name",
+     "scope-type"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "dynatrace.post_policy_boundary",
    "name": "Create a policy boundary within a level",
    "description": "Create a policy boundary within a level",

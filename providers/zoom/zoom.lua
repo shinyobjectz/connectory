@@ -1,7 +1,7 @@
 -- Zoom — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/zoom.us/2.0.0/openapi.json
--- APIs.guru's mirror, matched on zoom.us. A mirror lags the vendor.
+-- APIs.guru's mirror of zoom.us, matched on zoom.us. A mirror lags the vendor.
 -- 369 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

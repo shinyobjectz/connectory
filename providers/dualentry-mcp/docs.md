@@ -44,7 +44,7 @@ vouches for**: read it, then read their reference.
 - [DualEntry CLI Reference: Commands, Flags, and Exit Codes](https://docs.dualentry.com/developers/guides/cli-reference.md): Full DualEntry CLI reference: every resource, subcommand, flag, exit code, environment variable, and config file option, with syntax examples for each command.
 - [Building a Custom Integration](https://docs.dualentry.com/developers/guides/building-a-custom-integration.md): Design, build, and certify a custom DualEntry Public API integration: API key auth, webhook handling, pagination, error retries, and partner review criteria.
 
-- [API Reference (449 pages)](https://docs.dualentry.com/_llms/api-reference.md): Documentation for API Reference.
+- [API Reference (451 pages)](https://docs.dualentry.com/_llms/api-reference.md): Documentation for API Reference.
 
 ## OpenAPI Specs
 
@@ -52,4 +52,5 @@ vouches for**: read it, then read their reference.
 
 ## Indexes
 
-- [API Reference (449 pages)](https://docs.dualentry.com/_llms/api-reference.md): Documentation for API Reference.
+- [API Reference (451 pages)](https://docs.dualentry.com/_llms/api-reference.md): Documentation for API Reference.
+- [API Reference / V2 (latest) (255 pages)](https://docs.dualentry.com/_llms/api-reference/v2-latest.md): Documentation for API Reference / V2 (latest).

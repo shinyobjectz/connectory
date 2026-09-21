@@ -1,7 +1,7 @@
 -- AutoTask — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/autotask.net/v1/swagger.json
--- APIs.guru's mirror, matched on autotask.net. A mirror lags the vendor.
+-- APIs.guru's mirror of autotask.net, matched on autotask.net. A mirror lags the vendor.
 -- 2958 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

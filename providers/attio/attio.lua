@@ -2,7 +2,7 @@
 --
 -- GENERATED from https://attio.com/openapi.json
 -- Published on the vendor's own documentation site (https://attio.com).
--- 94 operations · do not edit
+-- 96 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value
 -- stays in the environment, which is what makes this file safe to publish.
@@ -78,6 +78,7 @@ return {
     ["attio.patch_v2_activities_activity_records_record_id"] = { method = "PATCH", url = "https://api.attio.com/v2/activities/{activity}/records/{record_id}", path = {"activity", "record_id"}, body = {"data"} },
     ["attio.patch_v2_lists_list"] = { method = "PATCH", url = "https://api.attio.com/v2/lists/{list}", path = {"list"}, body = {"data"} },
     ["attio.patch_v2_lists_list_entries_entry_id"] = { method = "PATCH", url = "https://api.attio.com/v2/lists/{list}/entries/{entry_id}", path = {"list", "entry_id"}, body = {"data"} },
+    ["attio.patch_v2_meetings_meeting_id"] = { method = "PATCH", url = "https://api.attio.com/v2/meetings/{meeting_id}", path = {"meeting_id"}, body = {"data"} },
     ["attio.patch_v2_notes_note_id"] = { method = "PATCH", url = "https://api.attio.com/v2/notes/{note_id}", path = {"note_id"}, body = {"data"} },
     ["attio.patch_v2_objects_object"] = { method = "PATCH", url = "https://api.attio.com/v2/objects/{object}", path = {"object"}, body = {"data"} },
     ["attio.patch_v2_objects_object_records_record_id"] = { method = "PATCH", url = "https://api.attio.com/v2/objects/{object}/records/{record_id}", path = {"object", "record_id"}, body = {"data"} },
@@ -114,6 +115,7 @@ return {
     ["attio.put_v2_lists_list_entries"] = { method = "PUT", url = "https://api.attio.com/v2/lists/{list}/entries", path = {"list"}, body = {"data"} },
     ["attio.put_v2_lists_list_entries_entry_id"] = { method = "PUT", url = "https://api.attio.com/v2/lists/{list}/entries/{entry_id}", path = {"list", "entry_id"}, body = {"data"} },
     ["attio.put_v2_lists_list_entries_entry_id_attributes_attribute_values"] = { method = "PUT", url = "https://api.attio.com/v2/lists/{list}/entries/{entry_id}/attributes/{attribute}/values", path = {"list", "entry_id", "attribute"}, body = {"data"} },
+    ["attio.put_v2_meetings_meeting_id"] = { method = "PUT", url = "https://api.attio.com/v2/meetings/{meeting_id}", path = {"meeting_id"}, body = {"data"} },
     ["attio.put_v2_objects_object_records"] = { method = "PUT", url = "https://api.attio.com/v2/objects/{object}/records", path = {"object"}, query = {"matching_attribute"}, body = {"data"} },
     ["attio.put_v2_objects_object_records_record_id"] = { method = "PUT", url = "https://api.attio.com/v2/objects/{object}/records/{record_id}", path = {"object", "record_id"}, body = {"data"} },
     ["attio.put_v2_objects_object_records_record_id_attributes_attribute_values"] = { method = "PUT", url = "https://api.attio.com/v2/objects/{object}/records/{record_id}/attributes/{attribute}/values", path = {"object", "record_id", "attribute"}, body = {"data"} },

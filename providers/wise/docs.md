@@ -23,19 +23,18 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/activity/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/address/tag.md)
  - [Performance: API Availability Metrics](https://docs.wise.com/api-performance.md): Wise Platform public endpoint availability metrics for the most recent quarter.
+ - [tag.md](https://docs.wise.com/api-reference/balance/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/balance-statement/tag.md)
- - [Error Handling Guide: API Status Codes and Client Errors](https://docs.wise.com/guides/developer/errors.md): This guide is intended for Wise Platform partners to understand how Wise API error codes function
+ - [tag.md](https://docs.wise.com/api-reference/bank-account-details/tag.md)
  - [Open Banking API: Guide for TPPs on Account Access and Payment Initiation](https://docs.wise.com/guides/developer/open-banking.md): The Wise Open Banking API is aimed for Financially Regulated Third Party Providers. This guide gives a full overview of using open banking with Wise.
  - [Setting up a Wise Account](https://docs.wise.com/guides/developer/account-creation.md)
  - [Versioning](https://docs.wise.com/guides/developer/global-versioning.md)
- - [tag.md](https://docs.wise.com/api-reference/balance/tag.md)
  - [Changelog 2023](https://docs.wise.com/changelog/changelog-2023.md): 2023 Wise Platform API changelog.
  - [Changelog 2024](https://docs.wise.com/changelog/changelog-2024.md): 2024 Wise Platform API changelog.
  - [Changelog 2025](https://docs.wise.com/changelog/changelog-2025.md): 2025 Wise Platform API changelog.
  - [Changelog](https://docs.wise.com/changelog.md): API updates and platform release notes. What's changed in the Wise Platform API in the current year.
  - [Getting started with Wise API](https://docs.wise.com/guides/developer.md): This guide provides engineers with essential information and key concepts to quickly begin integrating with the Wise API.
  - [Welcome to the Wise API documentation portal](https://docs.wise.com/guides.md): Build global payments and accounts with the Wise Platform API.
- - [tag.md](https://docs.wise.com/api-reference/bank-account-details/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/batch-group/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/bulk-settlement/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/card/tag.md)
@@ -90,13 +89,13 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/legacy/balance-statement/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/bank-account-details/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/batch-group/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/legacy/card/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/bulk-settlement/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/legacy/card/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/card-kiosk-collection/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/card-order/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/card-sensitive-details/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/legacy/case/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/card-transaction/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/legacy/case/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/claim-account/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/comparison/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/contact/tag.md)
@@ -107,8 +106,8 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/legacy/disputes/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/facetec/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/incoming-transfer/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/legacy/kyc-review/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/jose/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/legacy/kyc-review/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/multi-currency-account/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/oauth-token/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/payin-deposit-detail/tag.md)
@@ -117,8 +116,8 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/legacy/quote/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/rate/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/recipient/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/legacy/sca-device-fingerprints/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/sca-facemaps/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/legacy/sca-device-fingerprints/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/sca-otp/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/sca-ott/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/sca-pin/tag.md)
@@ -126,10 +125,10 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/legacy/simulation/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/spend-controls/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/spend-limits/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/legacy/transfer/tag.md)
- - [standard-transfer-tag.md](https://docs.wise.com/api-reference/legacy/transfer/standard-transfer-tag.md)
- - [third-party-transfer-tag.md](https://docs.wise.com/api-reference/legacy/transfer/third-party-transfer-tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/user/tag.md)
+ - [standard-transfer-tag.md](https://docs.wise.com/api-reference/legacy/transfer/standard-transfer-tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/legacy/transfer/tag.md)
+ - [third-party-transfer-tag.md](https://docs.wise.com/api-reference/legacy/transfer/third-party-transfer-tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/user-security/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/verification/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/legacy/webhook/tag.md)
@@ -169,13 +168,13 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/preview/payins/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/profile/tag.md)
  - [Types of quotes](https://docs.wise.com/api-reference/preview/quote/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/preview/recipient/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/rate/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/preview/recipient/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/sca-device-fingerprints/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/sca-facemaps/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/preview/sca-ott/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/sca-otp/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/sca-pin/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/preview/sca-ott/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/sca-sessions/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/settlement/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/simulation/tag.md)
@@ -185,8 +184,8 @@ vouches for**: read it, then read their reference.
  - [tag.md](https://docs.wise.com/api-reference/preview/transfer/tag.md)
  - [third-party-transfer-tag.md](https://docs.wise.com/api-reference/preview/transfer/third-party-transfer-tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/user/tag.md)
- - [tag.md](https://docs.wise.com/api-reference/preview/verification/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/user-security/tag.md)
+ - [tag.md](https://docs.wise.com/api-reference/preview/verification/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/webhook/tag.md)
  - [tag.md](https://docs.wise.com/api-reference/preview/webhook-events/tag.md)
  - [Card Address Validation](https://docs.wise.com/guides/developer/api-guides/card-address-validation.md)
@@ -195,11 +194,19 @@ vouches for**: read it, then read their reference.
  - [Security expiry notifications](https://docs.wise.com/guides/developer/auth-and-security/expiry-notifications.md): Rotate JSON Web Signature (JWS) signing keys in Developer Hub (DevHub) by uploading a new public key, switching your signer to the new private key, and then revoking the old key safely.
  - [Security and access](https://docs.wise.com/guides/developer/auth-and-security.md): Wise uses standard OAuth 2.0 protocol for authentication and authorization, as well as provides advanced security via mTLS and JOSE frameworks.
  - [Mutual TLS (mTLS) guide for implementing client and server authentication.](https://docs.wise.com/guides/developer/auth-and-security/mtls.md)
- - [OAuth 2.0 Setup](https://docs.wise.com/guides/developer/auth-and-security/oauth-2-setup.md): Initial setup and management details for OAuth 2.0 with the Wise Platform API.
  - [One Time Token](https://docs.wise.com/guides/developer/auth-and-security/one-time-token.md): One Time Token (OTT): Managing Strong Customer Authentication sessions.
+ - [OAuth 2.0 Setup](https://docs.wise.com/guides/developer/auth-and-security/oauth-2-setup.md): Initial setup and management details for OAuth 2.0 with the Wise Platform API.
  - [Strong Customer Authentication & 2FA](https://docs.wise.com/guides/developer/auth-and-security/sca-and-2fa.md): Strong Customer Authentication (SCA) is a new European regulatory requirement as part of the second Payment Services Directive (PSD2) for authenticating online payments and make them more secure.
  - [API Environments: Sandbox, Production URLs, and mTLS Endpoints](https://docs.wise.com/guides/developer/environments.md): Wise platform has two environments for testing and production.
  - [Migrating to the new Sandbox](https://docs.wise.com/guides/developer/environments/sandbox-v2-migration.md)
+ - [Funding errors](https://docs.wise.com/guides/developer/errors/funding.md): Handle rejected Wise transfer funding, insufficient funds, and SCA responses.
+ - [Authentication and access errors](https://docs.wise.com/guides/developer/errors/authentication.md): Handle invalid credentials, invalid tokens, access denials, and SCA responses from the Wise API.
+ - [Wise API errors: handling and recovery](https://docs.wise.com/guides/developer/errors.md): Handle Wise API errors, help customers correct input, and retry safely.
+ - [Profile errors](https://docs.wise.com/guides/developer/errors/profiles.md): Handle validation, conflict, address, and ownership errors for Wise profiles.
+ - [Quote errors](https://docs.wise.com/guides/developer/errors/quotes.md): Handle validation, route, access, and lifecycle errors for Wise quotes.
+ - [Recipient errors](https://docs.wise.com/guides/developer/errors/recipients.md): Handle Wise recipient validation, bank detail, address, and access errors.
+ - [User errors](https://docs.wise.com/guides/developer/errors/users.md): Handle validation and duplicate-user errors when creating Wise users.
+ - [Webhook errors](https://docs.wise.com/guides/developer/errors/webhooks.md): Handle validation, access, scope, and state errors for Wise webhook subscriptions.
  - [Correlation ID](https://docs.wise.com/guides/developer/headers/correlation-id.md)
  - [Essential webhooks](https://docs.wise.com/guides/developer/webhooks/essential-webhooks.md)
  - [Event handling guide: Processing webhook delivery and signature verification.](https://docs.wise.com/guides/developer/webhooks/event-handling.md): To receive events, you must set up a publicly accessible HTTPS endpoint and create a subscription that uses this endpoint. Our system will send HTTP POST requests to this endpoint with JSON event payloads.
@@ -215,8 +222,8 @@ vouches for**: read it, then read their reference.
  - [Personal API tokens](https://docs.wise.com/guides/developer/auth-and-security/personal-api-token.md): Small-to-medium businesses (SMBs) with Wise business accounts can automate parts of their transfer flow with a Wise personal API token.
  - [Refresh tokens](https://docs.wise.com/guides/developer/auth-and-security/refresh-tokens.md): Obtain new user access tokens without requiring your user to reauthorize, maintaining long-term access.
  - [User access tokens](https://docs.wise.com/guides/developer/auth-and-security/user-access-token.md): Obtaining and using user access tokens in the Wise Platform API OAuth 2.0 flow.
- - [SCA over API](https://docs.wise.com/guides/developer/auth-and-security/sca-over-api.md): SCA over API: Implementing Strong Customer Authentication challenges.
  - [Subscribe to webhooks](https://docs.wise.com/guides/developer/webhooks/subscribe-to-webhooks.md): Subscribe to webhooks in Developer Hub or programmatically via the API.
+ - [SCA over API](https://docs.wise.com/guides/developer/auth-and-security/sca-over-api.md): SCA over API: Implementing Strong Customer Authentication challenges.
  - [Transfer from balance account](https://docs.wise.com/guides/product/accounts/transfer-from-balance-account.md): Transfer from balance: Sending money from a balance account via API.
  - [Best Practices Guide: Operational Advice for Card Issuance and Tokenization](https://docs.wise.com/guides/product/issue-cards/card-best-practices.md)
  - [Spend Controls API: Configuring Authorization Rules by Merchant Category and Currency](https://docs.wise.com/guides/product/issue-cards/card-spend-controls.md)
@@ -228,11 +235,8 @@ vouches for**: read it, then read their reference.
  - [Set up to receive transfers: Account details and BIC connection guide](https://docs.wise.com/guides/product/receive-money/setup.md)
  - [Send Money API: Creating and funding global money transfers](https://docs.wise.com/guides/product/send-money.md)
  - [Transfer creation API: Requirements and transfer types](https://docs.wise.com/guides/product/send-money/transfers.md)
- - [JSON Object Signing and Encryption](https://docs.wise.com/guides/developer/auth-and-security/jose.md): An intro to the JOSE framework and how Wise implements JOSE with JWS, JWE, and JWS+JWE.
- - [Rotate JWE keys](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jwe-key-rotation.md): Rotate JSON Web Encryption (JWE) keys in Developer Hub (DevHub) by uploading a new public key, switching your encryption key to the new public key, and then revoking the old key safely.
- - [JSON Web Encryption (JWE)](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jwe.md): JWE: Encrypting requests and responses with JOSE.
- - [Rotate JWS keys](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jws-key-rotation.md): Rotate JSON Web Signature (JWS) keys in Developer Hub (DevHub) by uploading a new public key, switching your signing key to the new private key, and then revoking the old key safely.
  - [Manage Disputes API: Tracking Status and Withdrawing Claims](https://docs.wise.com/guides/product/issue-cards/card-disputes-management.md)
+ - [Card Disputes API: Direct Submission Guide for Disputes and File Uploads](https://docs.wise.com/guides/product/issue-cards/card-disputes-api.md)
  - [Card Testing Guide: Simulating Transactions and Payment Flows in Sandbox](https://docs.wise.com/guides/product/issue-cards/card-testing.md)
  - [Balance statement API: Reconcile incoming transfers](https://docs.wise.com/guides/product/receive-money/reconcile-incoming-transfers.md)
  - [Testing Guide: Simulating Incoming Payments in Sandbox for Go-Live](https://docs.wise.com/guides/product/receive-money/test-and-go-live.md)
@@ -240,15 +244,19 @@ vouches for**: read it, then read their reference.
  - [Custom receipts: API for generating transfer and banking partner records.](https://docs.wise.com/guides/product/send-money/receipts.md): Learn how to create and customize your own transfer receipt. You can create a PDF, HTML, or plain text receipt, and share it with your customers via email or other communication channels.
  - [Standard Transfers: Creating Direct Payments with the Transfer API](https://docs.wise.com/guides/product/send-money/standard-api-transfers.md)
  - [Third-Party Transfer API: Capturing Originator Details for Compliance](https://docs.wise.com/guides/product/send-money/third-party-api-transfers.md)
- - [Card Disputes API: Direct Submission Guide for Disputes and File Uploads](https://docs.wise.com/guides/product/issue-cards/card-disputes-api.md)
+ - [JSON Object Signing and Encryption](https://docs.wise.com/guides/developer/auth-and-security/jose.md): An intro to the JOSE framework and how Wise implements JOSE with JWS, JWE, and JWS+JWE.
+ - [Rotate JWE keys](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jwe-key-rotation.md): Rotate JSON Web Encryption (JWE) keys in Developer Hub (DevHub) by uploading a new public key, switching your encryption key to the new public key, and then revoking the old key safely.
+ - [JSON Web Encryption (JWE)](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jwe.md): JWE: Encrypting requests and responses with JOSE.
+ - [Rotate JWS keys](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jws-key-rotation.md): Rotate JSON Web Signature (JWS) keys in Developer Hub (DevHub) by uploading a new public key, switching your signing key to the new private key, and then revoking the old key safely.
  - [JSON Web Signature (JWS)](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jws.md): JWS: Implementing API request integrity and non-repudiation.
+ - [Transfer errors](https://docs.wise.com/guides/developer/errors/transfers.md): Handle standard and third-party transfer validation, state, and lifecycle errors.
  - [API and hybrid customer onboarding](https://docs.wise.com/guides/product/kyc/wise-kyc/api-hybrid-kyc.md): Build your own customer onboarding experience, leveraging the Wise API for requirements and final submission.
  - [Quote API guide: FX rates, fees, authenticated vs. unauthenticated quotes for transfers](https://docs.wise.com/guides/product/send-money/quotes.md)
  - [Update Quote API: Adding recipient data for final price accuracy.](https://docs.wise.com/guides/product/send-money/quotes/update-quote.md)
  - [Recipient verification reference](https://docs.wise.com/guides/product/send-money/recipient-verification/recipient-verification-reference.md): A reference guide to confirm verification behaviour for currencies that support recipient verification.
- - [JWS + JWE](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jws-jwe.md): JWS+JWE: Implementing API request integrity, authenticity, and confidentiality.
  - [Refund guide for partners using the bulk settlement option to fund transfers.](https://docs.wise.com/guides/product/send-money/refunds/net-settlement.md)
  - [Refund guide: Implementing direct refunds to the Wise account balance.](https://docs.wise.com/guides/product/send-money/refunds/refund-to-balance.md)
+ - [JWS + JWE](https://docs.wise.com/guides/developer/auth-and-security/jose/jose-jws-jwe.md): JWS+JWE: Implementing API request integrity, authenticity, and confidentiality.
  - [Authenticated quotes: Rate locking API for real money transfers.](https://docs.wise.com/guides/product/send-money/quotes/authenticated-quote.md)
  - [Flexible partner pricing: Customize transfer fees via quote API.](https://docs.wise.com/guides/product/send-money/quotes/pricing.md): Get started with flexible partner pricing.
  - [Refund guide: Implementing direct bank account refunds for senders.](https://docs.wise.com/guides/product/send-money/refunds/refund-to-bank-account.md)
@@ -264,10 +272,10 @@ vouches for**: read it, then read their reference.
  - [Embedded Finance: Next Steps and Transfer Implementation Guide](https://docs.wise.com/guides/product/send-money/use-cases/embedded/next-steps.md)
  - [Enterprise Payouts: Send Money from Your Own Wise Account](https://docs.wise.com/guides/product/send-money/use-cases/enterprise.md): The Partner Account Guide is intended for Wise partners who are the direct customer of Wise either by transacting on their own partner account (First Party), OR by transacting on their partner account as their customer, providing originator data (Third Party)
  - [WisePublicApi](https://docs.wise.com/remote/wise-public-api.md)
- - [Wise Platform API](https://docs.wise.com/api-reference.md): The Wise Platform API is a REST-based interface that enables programmatic access to Wise's payment infrastructure. All endpoints return JSON-formatted responses and use standard HTTP methods and status codes. {% admonition type="success" name="New to wise?" %} We strongly recommend first reading our **[Getting Started Guide](/guides/developer/index.md)** to help you set up credentials and make your first call. {% /admonition %} Before you begin {% .title-2 .m-t-5 %} To use this API reference effectively, you should have: - Received Valid [API credentials from Wise](/guides/developer/auth-and-security/index.md) (Client ID and Client Secret) - Understand OAuth 2.0 authentication - Be familiar with RESTful API concepts Core API resources {% .title-2 .m-t-5 .m-b-0 %} | Resource | Purpose | |----------|---------| | **[Quote](/api-reference/quote)** | Exchange rate and fee calculations | | **[Recipient](/api-reference/recipient)** | Beneficiary account management | | **[Transfer](/api-reference/transfer)** | Payment creation and execution | | **[Balance](/api-reference/balance)** | Multi-currency account operations | | **[Profile](/api-reference/profile)** | Account ownership details | | **[Rate](/api-reference/rate)** | Current and historical exchange rates | **Not sure which workflow to build?**<br> Start with our [Integration Guides](/guides/product/send-money/use-cases/index.md) for step-by-step implementation examples.{% .m-t-3 .m-b-5 %}
+ - [Wise Platform API](https://docs.wise.com/api-reference.md): The Wise Platform API is a REST-based interface that enables programmatic access to Wise's payment infrastructure. All endpoints return JSON-formatted responses and use standard HTTP methods and status codes. {% admonition type="success" name="New to wise?" %} We strongly recommend first reading our **[Getting Started Guide](/guides/developer/index.md)** to help you set up credentials and make your first call. {% /admonition %} Before you begin {% .title-2 .m-t-5 %} To use this API reference effectively, you should have: - Received Valid [API credentials from Wise](/guides/developer/auth-and-security/index.md) (Client ID and Client Secret) - Understand OAuth 2.0 authentication - Be familiar with RESTful API concepts We recommend connecting to our Docs MCP Server. {% connect-mcp /%} Core API resources {% .title-2 .m-t-5 .m-b-0 %} | Resource | Purpose | |----------|---------| | **[Quote](/api-reference/quote)** | Exchange rate and fee calculations | | **[Recipient](/api-reference/recipient)** | Beneficiary account management | | **[Transfer](/api-reference/transfer)** | Payment creation and execution | | **[Balance](/api-reference/balance)** | Multi-currency account operations | | **[Profile](/api-reference/profile)** | Account ownership details | | **[Rate](/api-reference/rate)** | Current and historical exchange rates | **Not sure which workflow to build?**<br> Start with our [Integration Guides](/guides/product/send-money/use-cases/index.md) for step-by-step implementation examples.{% .m-t-3 .m-b-5 %}
  - [Wise Platform API](https://docs.wise.com/api-reference/legacy.md): The Wise Platform API is a REST-based interface that enables programmatic access to Wise's payment infrastructure. All endpoints return JSON-formatted responses and use standard HTTP methods and status codes. {% admonition type="success" name="New to wise?" %} We strongly recommend first reading our **[Getting Started Guide](/guides/developer/index.md)** to help you set up credentials and make your first call. {% /admonition %} Before you begin {% .title-2 .m-t-5 %} To use this API reference effectively, you should have: - Received Valid [API credentials from Wise](/guides/developer/auth-and-security/index.md) (Client ID and Client Secret) - Understand OAuth 2.0 authentication - Be familiar with RESTful API concepts Core API resources {% .title-2 .m-t-5 .m-b-0 %} | Resource | Purpose | |----------|---------| | **[Quote](/api-reference/legacy/quote)** | Exchange rate and fee calculations | | **[Recipient](/api-reference/legacy/recipient)** | Beneficiary account management | | **[Transfer](/api-reference/legacy/transfer)** | Payment creation and execution | | **[Balance](/api-reference/legacy/balance)** | Multi-currency account operations | | **[Profile](/api-reference/legacy/profile)** | Account ownership details | | **[Rate](/api-reference/legacy/rate)** | Current and historical exchange rates | **Not sure which workflow to build?**<br> Start with our [Integration Guides](/guides/product/send-money/use-cases/index.md) for step-by-step implementation examples.{% .m-t-3 .m-b-5 %}
- - [Webhook Sender API](https://docs.wise.com/api-reference/webhook/tmp/generated/openapi.md): API for managing webhooks
  - [Wise Platform API](https://docs.wise.com/api-reference/preview.md): The Wise Platform API is a REST-based interface that enables programmatic access to Wise's payment infrastructure. All endpoints return JSON-formatted responses and use standard HTTP methods and status codes. {% admonition type="success" name="New to wise?" %} We strongly recommend first reading our **[Getting Started Guide](/guides/developer/index.md)** to help you set up credentials and make your first call. {% /admonition %} Before you begin {% .title-2 .m-t-5 %} To use this API reference effectively, you should have: - Received Valid [API credentials from Wise](/guides/developer/auth-and-security/index.md) (Client ID and Client Secret) - Understand OAuth 2.0 authentication - Be familiar with RESTful API concepts Core API resources {% .title-2 .m-t-5 .m-b-0 %} | Resource | Purpose | |----------|---------| | **[Quote](/api-reference/quote)** | Exchange rate and fee calculations | | **[Recipient](/api-reference/recipient)** | Beneficiary account management | | **[Transfer](/api-reference/transfer)** | Payment creation and execution | | **[Balance](/api-reference/balance)** | Multi-currency account operations | | **[Profile](/api-reference/profile)** | Account ownership details | | **[Rate](/api-reference/rate)** | Current and historical exchange rates | **Not sure which workflow to build?**<br> Start with our [Integration Guides](/guides/product/send-money/use-cases/index.md) for step-by-step implementation examples.{% .m-t-3 .m-b-5 %}
+ - [Webhook Sender API](https://docs.wise.com/api-reference/webhook/tmp/generated/openapi.md): API for managing webhooks
  - [Webhook Sender API](https://docs.wise.com/api-reference/legacy/webhook/tmp/generated/openapi.md): API for managing webhooks
  - [Embedded Finance: Creating Personal & Business Profiles via API](https://docs.wise.com/guides/product/send-money/use-cases/embedded/onboarding-customers.md)
  - [Enterprise Payouts: Quote, Recipient, Transfer, and Funding API Steps](https://docs.wise.com/guides/product/send-money/use-cases/enterprise/send-money.md)

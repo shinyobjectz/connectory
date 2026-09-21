@@ -1,0 +1,2416 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "loops-so",
+ "source": "https://loops.so/openapi.json",
+ "operations": [
+  {
+   "slug": "loops-so.add_workflow_branch",
+   "name": "Add a branch",
+   "description": "Add a branch and a child node under an existing Branch or Experiment node. Returns the created child node plus the latest workflow. - Adding a branch to a `BranchNode` creates one `AudienceFilter` child node. - Adding a branch to an `ExperimentBranchNode` creates one `VariantNode` child node. This endpoint does not accept node configuration fields; update the child node with `POST /v1/workflows/{w",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The ID of the BranchNode or ExperimentBranchNode that should receive one new child."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "nodeId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}/add-branch",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.change_workflow_mailing_list",
+   "name": "Change workflow mailing list",
+   "description": "Dry run or apply a workflow mailing list change. If queued contacts would be removed from the workflow due to the change of mailing list, Loops returns with `\"status\": \"queuedContactsFound\"` instead of applying the change. Retry with `queuedContactPolicy: \"discard\"` to apply the change and discard those contacts. Confirmed update responses include the simplified workflow after the mailing list cha",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "mailingListId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The mailing list to use for the workflow. When assigning a mailing list, queued contacts excluded by the new list can return `queuedContactsFound`; retry with `queuedContactPolicy: \"discard\"` to apply the change and discard those contacts. Use `null` to clear the workflow mailing list; clearing does not discard queued contacts."
+     },
+     "dryRun": {
+      "type": "boolean",
+      "description": "If `true`, the request will be validated but the workflow will not be modified."
+     },
+     "queuedContactPolicy": {
+      "type": "string",
+      "description": "`fail` returns queued-contact impact instead of mutating. `discard` confirms that matching queued contacts should be discarded. Defaults to `fail` when omitted.",
+      "enum": [
+       "fail",
+       "discard"
+      ]
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "mailingListId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/mailing-list",
+    "path": [
+     "workflowId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "mailingListId",
+     "dryRun",
+     "queuedContactPolicy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.complete_upload",
+   "name": "Complete an upload",
+   "description": "Finalize an image upload after the file has been uploaded to the pre-signed URL. Returns the public URL of the uploaded image asset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "emailAssetId": {
+      "type": "string",
+      "description": "The `emailAssetId` returned when the upload was created via `POST /v1/uploads`."
+     }
+    },
+    "required": [
+     "emailAssetId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/uploads/{emailAssetId}/complete",
+    "path": [
+     "emailAssetId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_audience_segment",
+   "name": "Create an audience segment",
+   "description": "Create a new audience segment.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the audience segment. Must be unique within the team."
+     },
+     "description": {
+      "type": "string",
+      "description": "An optional description of the audience segment."
+     },
+     "filter": {
+      "type": "object",
+      "description": "A tree of audience conditions combined with `match`."
+     }
+    },
+    "required": [
+     "filter",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/audience-segments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "filter"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_campaign",
+   "name": "Create a campaign",
+   "description": "Create a new draft campaign. An empty email message is created automatically and its `emailMessageId` is returned. Use the `/email-messages/{emailMessageId}` endpoint to set subject, sender, preview text, and LMX content. The audience (mailing list, segment, or filter), group, and scheduling can be set on create or later via update.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The campaign name."
+     },
+     "campaignGroupId": {
+      "type": "string",
+      "description": "The ID of the group to add this campaign to. Defaults to the team's default group when omitted."
+     },
+     "mailingListId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of the mailing list to send to."
+     },
+     "audienceSegmentId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of an audience segment. Setting this without also providing `audienceFilter` clears any existing `audienceFilter`. If both are provided, the filter is applied on top of the segment's filter."
+     },
+     "audienceFilter": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "A tree of audience conditions combined with `match`. Setting this without also providing `audienceSegmentId` clears any existing `audienceSegmentId`. When both are provided, this filter is applied on top of the segment's filter."
+     },
+     "scheduling": {
+      "type": "object",
+      "description": "When the campaign should send. `timestamp` is required and must be in the future when `method` is `schedule`, and must be omitted when `method` is `now`."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/campaigns",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "campaignGroupId",
+     "mailingListId",
+     "audienceSegmentId",
+     "audienceFilter",
+     "scheduling"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_campaign_group",
+   "name": "Create a campaign group",
+   "description": "Create a new campaign group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The group name. Cannot be the reserved name \"Unsorted\"."
+     },
+     "description": {
+      "type": "string",
+      "description": "An optional description for the group."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/campaign-groups",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_component",
+   "name": "Create a component",
+   "description": "Create a new email component from an LMX body.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The component name."
+     },
+     "lmx": {
+      "type": "string",
+      "description": "The component body as an LMX string."
+     }
+    },
+    "required": [
+     "lmx",
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/components",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "lmx"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_contact",
+   "name": "Create a contact",
+   "description": "Add a contact to your audience.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The contact's email address."
+     },
+     "firstName": {
+      "type": "string",
+      "description": "The contact's first name."
+     },
+     "lastName": {
+      "type": "string",
+      "description": "The contact's last name."
+     },
+     "source": {
+      "type": "string",
+      "description": "A custom source value to replace the default \u201cAPI\u201d."
+     },
+     "subscribed": {
+      "type": "boolean",
+      "description": "Whether the contact will receive campaign and workflow emails. All new contacts are subscribed by default."
+     },
+     "userGroup": {
+      "type": "string",
+      "description": "The contact's user group."
+     },
+     "userId": {
+      "type": "string",
+      "description": "A unique user ID (for example, from an external application)."
+     },
+     "mailingLists": {
+      "type": "object",
+      "description": "Manage mailing list subscriptions. Include key-value pairs of mailing list IDs and a `boolean` denoting if the contact should be added (`true`) or removed (`false`) from the list."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/contacts/create",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "firstName",
+     "lastName",
+     "source",
+     "subscribed",
+     "userGroup",
+     "userId",
+     "mailingLists"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_contact_property",
+   "name": "Create a contact property",
+   "description": "Create a custom contact property.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the property. This should be in camelCase, like `planName` or `importDate`."
+     },
+     "type": {
+      "type": "string",
+      "description": "The type of property.",
+      "enum": [
+       "string",
+       "number",
+       "boolean",
+       "date"
+      ]
+     }
+    },
+    "required": [
+     "name",
+     "type"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/contacts/properties",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "type"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_theme",
+   "name": "Create a theme",
+   "description": "Create a new email theme for use across Loops emails.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The theme name."
+     },
+     "styles": {
+      "type": "object",
+      "description": "Flat map of style attributes, matching the attribute names accepted by the LMX `` tag."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/themes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "styles"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_transactional_email",
+   "name": "Create a transactional email",
+   "description": "Create a new transactional email. An empty draft email message is created automatically and its `draftEmailMessageId` is returned. Use the `POST /v1/email-messages/{emailMessageId}` endpoint along with the returned `draftEmailMessageContentRevisionId` to set subject, sender, preview text, and LMX content, then call `POST /v1/transactional-emails/{transactionalId}/publish` to publish the draft.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the transactional email."
+     },
+     "transactionalGroupId": {
+      "type": "string",
+      "description": "The ID of the group to add this transactional email to. Defaults to the team's default group when omitted."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-emails",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "transactionalGroupId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_transactional_group",
+   "name": "Create a transactional group",
+   "description": "Create a new transactional group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The group name. Cannot be the reserved name \"Unsorted\"."
+     },
+     "description": {
+      "type": "string",
+      "description": "An optional description for the group."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-groups",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_upload",
+   "name": "Create an upload",
+   "description": "Request a pre-signed URL to upload an image asset. Upload the file with an HTTP `PUT` to the returned `presignedUrl` (sending the same `Content-Type` and `Content-Length`), then call `/uploads/{emailAssetId}/complete` to finalize the asset.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "contentType": {
+      "type": "string",
+      "description": "The MIME type of the file to upload. Supported types are `image/jpeg`, `image/png`, `image/gif` and `image/webp`."
+     },
+     "contentLength": {
+      "type": "integer",
+      "description": "The size of the file in bytes. Must be a positive integer no greater than 4,000,000 bytes."
+     }
+    },
+    "required": [
+     "contentLength",
+     "contentType"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/uploads",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "contentType",
+     "contentLength"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_workflow",
+   "name": "Create a workflow",
+   "description": "Create a draft workflow with a blank trigger and exit node.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "The name of the workflow."
+     },
+     "description": {
+      "type": "string",
+      "description": "The description of the workflow."
+     },
+     "mailingListId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of a mailing list the workflow sends to. After creation, the mailing list can be changed with the `/v1/workflows/{workflowId}/mailing-list` endpoint."
+     }
+    },
+    "required": [
+     "name"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "mailingListId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.create_workflow_node",
+   "name": "Create a workflow node",
+   "description": "Create a new default workflow node and return it with the latest workflow. Choose where the node goes with `insertMode`: `between` places it between an existing `fromNodeId` -> `toNodeId` connection, `before` places it before `toNodeId`, and `after` places it after `fromNodeId` when that node has exactly one outgoing connection. `after` is a convenience for simple linear paths, so callers do not n",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     }
+    },
+    "required": [
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes",
+    "path": [
+     "workflowId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.delete_contact",
+   "name": "Delete a contact",
+   "description": "Delete a contact by `email` or `userId`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The contact's email address. Provide this or `userId`, not both."
+     },
+     "userId": {
+      "type": "string",
+      "description": "The contact's unique user ID. Provide this or `email`, not both."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/contacts/delete",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "userId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.delete_workflow",
+   "name": "Delete a workflow",
+   "description": "Delete a workflow. Successful deletion returns `204 No Content`. If the workflow is currently sending or has queued contacts, Loops returns `409 Conflict` with a message instead of deleting. Retry with `confirmDelete: true` to delete the workflow, stop sending, and cancel queued contacts.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "confirmDelete": {
+      "type": "boolean",
+      "description": "Set to `true` after a confirmation-required `409 Conflict` response to confirm deleting a sending workflow or a workflow with queued contacts."
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}",
+    "path": [
+     "workflowId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "confirmDelete"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.delete_workflow_node",
+   "name": "Delete a workflow node",
+   "description": "Delete a single workflow node. If contacts are queued at the node, Loops returns with `\"status\": \"queuedContactsFound\"` instead of deleting. Retry with `queuedContactPolicy: \"discard\"` to delete the node and discard those queued contacts. Confirmed deletion responses include the simplified workflow after the node is removed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The ID of the workflow node."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "dryRun": {
+      "type": "boolean",
+      "description": "If `true`, the request will be validated but the workflow will not be modified."
+     },
+     "queuedContactPolicy": {
+      "type": "string",
+      "description": "`fail` returns queued-contact impact instead of mutating. `discard` confirms that matching queued contacts should be discarded. Defaults to `fail` when omitted.",
+      "enum": [
+       "fail",
+       "discard"
+      ]
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "nodeId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "dryRun",
+     "queuedContactPolicy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.delete_workflow_node_recursively",
+   "name": "Delete workflow nodes recursively",
+   "description": "Delete a node and its downstream subtree. If contacts are queued at any node that would be deleted, Loops returns with `\"status\": \"queuedContactsFound\"` instead of deleting. Retry with `queuedContactPolicy: \"discard\"` to delete the nodes and discard those queued contacts. Confirmed deletion responses include the simplified workflow after the nodes are removed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The root node ID of the subtree to delete."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "dryRun": {
+      "type": "boolean",
+      "description": "If `true`, the request will be validated but the workflow will not be modified."
+     },
+     "queuedContactPolicy": {
+      "type": "string",
+      "description": "`fail` returns queued-contact impact instead of mutating. `discard` confirms that matching queued contacts should be discarded. Defaults to `fail` when omitted.",
+      "enum": [
+       "fail",
+       "discard"
+      ]
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "nodeId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}/recursive",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "dryRun",
+     "queuedContactPolicy"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.ensure_transactional_draft",
+   "name": "Ensure a draft email message",
+   "description": "Ensure the transactional email has a draft email message. If a draft already exists it is returned unchanged; otherwise a new empty draft is created (seeded from the most recent published version when present). Use `POST /v1/email-messages/{emailMessageId}` to edit the draft's content.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalId": {
+      "type": "string",
+      "description": "The ID of the transactional email."
+     }
+    },
+    "required": [
+     "transactionalId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-emails/{transactionalId}/draft",
+    "path": [
+     "transactionalId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.find_contact",
+   "name": "Find a contact",
+   "description": "Search for a contact by `email` or `userId`. Only one parameter is allowed.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address (URI-encoded)"
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/contacts/find",
+    "path": [],
+    "query": [
+     "email",
+     "userId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_audience_segment",
+   "name": "Get an audience segment",
+   "description": "Retrieve a single audience segment by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "audienceSegmentId": {
+      "type": "string",
+      "description": "The ID of the audience segment."
+     }
+    },
+    "required": [
+     "audienceSegmentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/audience-segments/{audienceSegmentId}",
+    "path": [
+     "audienceSegmentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_campaign",
+   "name": "Get a campaign",
+   "description": "Retrieve a single campaign by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "The ID of the campaign."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/campaigns/{campaignId}",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_campaign_group",
+   "name": "Get a campaign group",
+   "description": "Retrieve a single campaign group by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignGroupId": {
+      "type": "string",
+      "description": "The ID of the campaign group."
+     }
+    },
+    "required": [
+     "campaignGroupId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/campaign-groups/{campaignGroupId}",
+    "path": [
+     "campaignGroupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_component",
+   "name": "Get a component",
+   "description": "Retrieve a single component by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "componentId": {
+      "type": "string",
+      "description": "The ID of the component."
+     }
+    },
+    "required": [
+     "componentId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/components/{componentId}",
+    "path": [
+     "componentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_contact_suppression",
+   "name": "Get suppression status for a contact",
+   "description": "Retrieve suppression status and removal quota for a contact by `email` or `userId`. Include only one query parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address (URI-encoded)"
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/contacts/suppression",
+    "path": [],
+    "query": [
+     "email",
+     "userId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_email_message",
+   "name": "Get an email message",
+   "description": "Retrieve an email message, including its compiled LMX content.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "emailMessageId": {
+      "type": "string",
+      "description": "The ID of the email message."
+     }
+    },
+    "required": [
+     "emailMessageId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/email-messages/{emailMessageId}",
+    "path": [
+     "emailMessageId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_email_message_guardian",
+   "name": "Run guardian checks on an email message",
+   "description": "Validate an email message's content against Guardian rules and return any errors and warnings. Errors must be resolved before the email can be published, warnings are advisory.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "emailMessageId": {
+      "type": "string",
+      "description": "The ID of the email message."
+     }
+    },
+    "required": [
+     "emailMessageId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/email-messages/{emailMessageId}/guardian",
+    "path": [
+     "emailMessageId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_event_pattern",
+   "name": "Get an event pattern by id",
+   "description": "Retrieve event pattern details for a workflow event trigger.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventPatternId": {
+      "type": "string",
+      "description": "The ID of the event pattern."
+     }
+    },
+    "required": [
+     "eventPatternId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/event-patterns/{eventPatternId}",
+    "path": [
+     "eventPatternId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_event_pattern_by_name",
+   "name": "Get an event pattern by name",
+   "description": "Retrieve event pattern details by event name for a workflow event trigger. Event names are case-sensitive, so `PaymentReceived` and `paymentReceived` are different events.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "eventName": {
+      "type": "string",
+      "description": "The exact event name. Event names are case-sensitive and should be URL-encoded if they contain special characters."
+     }
+    },
+    "required": [
+     "eventName"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/event-patterns/by-name/{eventName}",
+    "path": [
+     "eventName"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_theme",
+   "name": "Get a theme",
+   "description": "Retrieve a single theme by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "themeId": {
+      "type": "string",
+      "description": "The ID of the theme."
+     }
+    },
+    "required": [
+     "themeId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/themes/{themeId}",
+    "path": [
+     "themeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_transactional_email",
+   "name": "Get a transactional email",
+   "description": "Retrieve a single transactional email by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalId": {
+      "type": "string",
+      "description": "The ID of the transactional email."
+     }
+    },
+    "required": [
+     "transactionalId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/transactional-emails/{transactionalId}",
+    "path": [
+     "transactionalId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_transactional_group",
+   "name": "Get a transactional group",
+   "description": "Retrieve a single transactional group by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalGroupId": {
+      "type": "string",
+      "description": "The ID of the transactional group."
+     }
+    },
+    "required": [
+     "transactionalGroupId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/transactional-groups/{transactionalGroupId}",
+    "path": [
+     "transactionalGroupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_workflow",
+   "name": "Get a workflow",
+   "description": "Retrieve a workflow graph with node type names, connections, and selected display fields.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     }
+    },
+    "required": [
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}",
+    "path": [
+     "workflowId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.get_workflow_node",
+   "name": "Get a workflow node",
+   "description": "Retrieve detailed data for a single workflow node.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The ID of the workflow node."
+     }
+    },
+    "required": [
+     "nodeId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_audience_segments",
+   "name": "List audience segments",
+   "description": "Retrieve a paginated list of audience segments, most recently created first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/audience-segments",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_campaign_groups",
+   "name": "List campaign groups",
+   "description": "Retrieve a paginated list of campaign groups, most recently created first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/campaign-groups",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_campaigns",
+   "name": "List campaigns",
+   "description": "Retrieve a paginated list of campaigns.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/campaigns",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_components",
+   "name": "List components",
+   "description": "Retrieve a paginated list of email components.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/components",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_contact_properties",
+   "name": "List contact properties",
+   "description": "Retrieve a list of your account's contact properties.Use the `list` parameter to query \"all\" or \"custom\" properties.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "`all` (default) or `custom` (only custom contact properties)"
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/contacts/properties",
+    "path": [],
+    "query": [
+     "list"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_dedicated_sending_ips",
+   "name": "List dedicated sending ip addresses",
+   "description": "Retrieve a list of Loops' dedicated sending IP addresses. This endpoint is provided for the rare instances where you may need to whitelist our sending IPs. Please note that this list is subject to change and will not include shared IPs used for sending mail. Unless you are sure you need this and are comfortable watching for changes, we strongly recommend you _do not_ whitelist these IPs.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/dedicated-sending-ips",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_event_patterns",
+   "name": "List event patterns",
+   "description": "Retrieve a paginated list of event patterns available to workflow event trigger nodes.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/event-patterns",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_mailing_lists",
+   "name": "List mailing lists",
+   "description": "Retrieve a list of your account's mailing lists.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_themes",
+   "name": "List themes",
+   "description": "Retrieve a paginated list of email themes, most recently created first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/themes",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_transactional_emails",
+   "name": "List transactional emails",
+   "description": "Retrieve a paginated list of transactional emails, most recently created first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/transactional-emails",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_transactional_groups",
+   "name": "List transactional groups",
+   "description": "Retrieve a paginated list of transactional groups, most recently created first.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/transactional-groups",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.list_workflows",
+   "name": "List workflows",
+   "description": "Retrieve a paginated list of workflows.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "perPage": {
+      "type": "string",
+      "description": "How many results to return in each request. Must be between 10 and 50. Default is 20."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor to return a specific page of results. Cursors can be found from the `pagination.nextCursor` value in each response."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/workflows",
+    "path": [],
+    "query": [
+     "perPage",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.preview_email_message",
+   "name": "Send a preview of an email message",
+   "description": "Send a test preview of an email message to one or more addresses. The accepted variable fields depend on the parent's type - campaign previews accept `contactProperties`, workflow previews accept `contactProperties` and `eventProperties`, and transactional previews accept `dataVariables`. Supplying a field the parent cannot reference is rejected with 400.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "emailMessageId": {
+      "type": "string",
+      "description": "The ID of the email message."
+     },
+     "emails": {
+      "type": "array",
+      "description": "One or more addresses to send the preview to."
+     },
+     "contactProperties": {
+      "type": "object",
+      "description": "Contact property values to render. Accepted for campaign and workflow previews."
+     },
+     "eventProperties": {
+      "type": "object",
+      "description": "Event property values to render. Accepted for workflow previews only."
+     },
+     "dataVariables": {
+      "type": "object",
+      "description": "Transactional data variables to render. Accepted for transactional previews only."
+     }
+    },
+    "required": [
+     "emailMessageId",
+     "emails"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/email-messages/{emailMessageId}/preview",
+    "path": [
+     "emailMessageId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "emails",
+     "contactProperties",
+     "eventProperties",
+     "dataVariables"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.publish_transactional_email",
+   "name": "Publish a transactional email draft",
+   "description": "Publish the transactional email's current draft email message. The draft becomes the published version and the draft is cleared.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalId": {
+      "type": "string",
+      "description": "The ID of the transactional email."
+     }
+    },
+    "required": [
+     "transactionalId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-emails/{transactionalId}/publish",
+    "path": [
+     "transactionalId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.remove_contact_suppression",
+   "name": "Remove a contact from suppression list",
+   "description": "Remove a suppressed contact from the suppression list by `email` or `userId`. Include only one query parameter.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "Email address (URI-encoded)"
+     },
+     "userId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.loops.so/api/v1/contacts/suppression",
+    "path": [],
+    "query": [
+     "email",
+     "userId"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.reroute_node_connection",
+   "name": "Reroute a node connection",
+   "description": "Reroute the source node's existing connection to another valid target node. Returns the updated source node and the latest workflow.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The ID of the source workflow node whose outgoing connection should be moved."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "newTargetNodeId": {
+      "type": "string",
+      "description": "The valid workflow node that should receive the connection from the source node."
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "newTargetNodeId",
+     "nodeId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}/reroute",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "newTargetNodeId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.send_event",
+   "name": "Send an event",
+   "description": "Send events to trigger workflows.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "Include a unique ID for this request (maximum 100 characters) to avoid duplicate emails. The value should be a string of up to 100 characters and should be unique for each request. We recommend using V4 UUIDs or some other method with enough guaranteed entropy to avoid collisions during a 24 hour window. This endpoint will return a `409 Conflict` response if the idempotency key has been used in th"
+     },
+     "email": {
+      "type": "string",
+      "description": "The contact's email address. **Required if `userId` is not provided.**"
+     },
+     "userId": {
+      "type": "string",
+      "description": "The contact's unique user ID. **Required if `email` is not provided.**"
+     },
+     "eventName": {
+      "type": "string",
+      "description": "The name of the event."
+     },
+     "eventProperties": {
+      "type": "object",
+      "description": "An object containing event property data for the event, available in emails sent by the event."
+     },
+     "mailingLists": {
+      "type": "object",
+      "description": "Manage mailing list subscriptions. Include key-value pairs of mailing list IDs and a `boolean` denoting if the contact should be added (`true`) or removed (`false`) from the list."
+     }
+    },
+    "required": [
+     "eventName"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/events/send",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "email",
+     "userId",
+     "eventName",
+     "eventProperties",
+     "mailingLists"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.send_transactional_email",
+   "name": "Send a transactional email",
+   "description": "Send a transactional email to a contact.Please [email us](mailto:help@loops.so) to enable attachments on your account before using them with the API. To set dynamic Subject, From, Reply to, CC, BCC email header fields, add data variables to those fields in the editor, then include data for each variable in the API request. Read our transactional email guide for more details.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "Idempotency-Key": {
+      "type": "string",
+      "description": "Include a unique ID for this request (maximum 100 characters) to avoid duplicate emails. The value should be a string of up to 100 characters and should be unique for each request. We recommend using V4 UUIDs or some other method with enough guaranteed entropy to avoid collisions during a 24 hour window. This endpoint will return a `409 Conflict` response if the idempotency key has been used in th"
+     },
+     "email": {
+      "type": "string",
+      "description": "The recipient's email address."
+     },
+     "transactionalId": {
+      "type": "string",
+      "description": "The ID of the transactional email to send."
+     },
+     "addToAudience": {
+      "type": "boolean",
+      "description": "If `true`, a contact will be created in your audience using the `email` value (if a matching contact doesn't already exist)."
+     },
+     "dataVariables": {
+      "type": "object",
+      "description": "An object containing data as defined by the data variables added to the transactional email template. Values can be of type string or number. If you have added optional data variables to your email, you can exclude them from the dataVariables object or set the value to \"\". If you have added an array data variable to your email, make sure to include an array matching the data variables you added to"
+     },
+     "attachments": {
+      "type": "array",
+      "description": "A list containing file objects to be sent along with an email message. Attachments must be enabled by Loops support before they can be used with the API."
+     }
+    },
+    "required": [
+     "email",
+     "transactionalId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional",
+    "path": [],
+    "query": [],
+    "header": [
+     "Idempotency-Key"
+    ],
+    "body": [
+     "email",
+     "transactionalId",
+     "addToAudience",
+     "dataVariables",
+     "attachments"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.test_api_key",
+   "name": "Api key",
+   "description": "Test your API key and get team context.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.loops.so/api/v1/api-key",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_campaign",
+   "name": "Update a campaign",
+   "description": "Update a draft campaign's name, group, audience (mailing list, segment, or filter), or scheduling. At least one field must be provided. Once a campaign has been sent, only its `name` and `campaignGroupId` can be updated.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignId": {
+      "type": "string",
+      "description": "The ID of the campaign."
+     },
+     "name": {
+      "type": "string",
+      "description": "The updated campaign name."
+     },
+     "campaignGroupId": {
+      "type": "string",
+      "description": "The ID of the group to move this campaign to."
+     },
+     "mailingListId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of the mailing list to send to."
+     },
+     "audienceSegmentId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The ID of an audience segment. Setting this without also providing `audienceFilter` clears any existing `audienceFilter`. If both are provided, the filter is applied on top of the segment's filter."
+     },
+     "audienceFilter": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "A tree of audience conditions combined with `match`. Setting this without also providing `audienceSegmentId` clears any existing `audienceSegmentId`. When both are provided, this filter is applied on top of the segment's filter."
+     },
+     "scheduling": {
+      "type": "object",
+      "description": "When the campaign should send. `timestamp` is required and must be in the future when `method` is `schedule`, and must be omitted when `method` is `now`."
+     }
+    },
+    "required": [
+     "campaignId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/campaigns/{campaignId}",
+    "path": [
+     "campaignId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "campaignGroupId",
+     "mailingListId",
+     "audienceSegmentId",
+     "audienceFilter",
+     "scheduling"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_campaign_group",
+   "name": "Update a campaign group",
+   "description": "Update a campaign group's name or description. At least one field must be provided. The reserved \"Unsorted\" group cannot be edited.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "campaignGroupId": {
+      "type": "string",
+      "description": "The ID of the campaign group."
+     },
+     "name": {
+      "type": "string",
+      "description": "The group name. Cannot be the reserved name \"Unsorted\"."
+     },
+     "description": {
+      "type": "string",
+      "description": "A description for the group."
+     }
+    },
+    "required": [
+     "campaignGroupId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/campaign-groups/{campaignGroupId}",
+    "path": [
+     "campaignGroupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_component",
+   "name": "Update a component",
+   "description": "Update a component's name and/or body. When the `lmx` body changes, the update cascades to every email using this component, and `affectedEmailCount` reports how many were affected. A change that would introduce a dynamic variable an email using the component cannot use is rejected.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "componentId": {
+      "type": "string",
+      "description": "The ID of the component."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "lmx": {
+      "type": "string",
+      "description": "The component body as an LMX string."
+     }
+    },
+    "required": [
+     "componentId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/components/{componentId}",
+    "path": [
+     "componentId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "lmx"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_contact",
+   "name": "Update a contact",
+   "description": "Update a contact by `email` or `userId`. You must provide one of these parameters. If you want to update a contact's email address, the contact will first need a `userId` value. You can then make a request containing the `userId` field along with an updated email address. This endpoint will create a contact if a matching contact does not already exist in your audience. Provide either `email` or `u",
+   "input": {
+    "type": "object",
+    "properties": {
+     "email": {
+      "type": "string",
+      "description": "The contact's email address."
+     },
+     "firstName": {
+      "type": "string",
+      "description": "The contact's first name."
+     },
+     "lastName": {
+      "type": "string",
+      "description": "The contact's last name."
+     },
+     "source": {
+      "type": "string",
+      "description": "A custom source value to replace the default \u201cAPI\u201d."
+     },
+     "subscribed": {
+      "type": "boolean",
+      "description": "Whether the contact will receive campaign and workflow emails. All new contacts are subscribed by default."
+     },
+     "userGroup": {
+      "type": "string",
+      "description": "The contact's user group."
+     },
+     "userId": {
+      "type": "string",
+      "description": "A unique user ID (for example, from an external application)."
+     },
+     "mailingLists": {
+      "type": "object",
+      "description": "Manage mailing list subscriptions. Include key-value pairs of mailing list IDs and a `boolean` denoting if the contact should be added (`true`) or removed (`false`) from the list."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://app.loops.so/api/v1/contacts/update",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "email",
+     "firstName",
+     "lastName",
+     "source",
+     "subscribed",
+     "userGroup",
+     "userId",
+     "mailingLists"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_email_message",
+   "name": "Update an email message",
+   "description": "Update fields on an email message (subject, preview text, sender, LMX content). The campaign must be in draft status. Supply `expectedRevisionId` matching the current `contentRevisionId` \u2014 the server rejects mismatched revisions with 409.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "emailMessageId": {
+      "type": "string",
+      "description": "The ID of the email message."
+     },
+     "expectedRevisionId": {
+      "type": "string",
+      "description": "The `contentRevisionId` you last fetched, or the `emailMessageContentRevisionId` you received when creating the campaign."
+     },
+     "subject": {
+      "type": "string",
+      "description": ""
+     },
+     "previewText": {
+      "type": "string",
+      "description": ""
+     },
+     "fromName": {
+      "type": "string",
+      "description": ""
+     },
+     "fromEmail": {
+      "type": "string",
+      "description": "The email sender email address, without the team's sending domain."
+     },
+     "replyToEmail": {
+      "type": "string",
+      "description": "Reply-to email. Must be empty or a valid email address."
+     },
+     "ccEmail": {
+      "type": "string",
+      "description": "CC email address. Requires the team to have CC/BCC enabled. Not supported for campaign emails."
+     },
+     "bccEmail": {
+      "type": "string",
+      "description": "BCC email address. Requires the team to have CC/BCC enabled. Not supported for campaign emails."
+     },
+     "languageCode": {
+      "type": "string",
+      "description": "ISO 639-1 language code for the email, e.g. `en` or `fr`."
+     },
+     "emailFormat": {
+      "type": "string",
+      "description": "The rendering format of the email.",
+      "enum": [
+       "styled",
+       "plain"
+      ]
+     },
+     "lmx": {
+      "type": "string",
+      "description": "The email body serialized as LMX. Styles must be embedded in the LMX `` tag."
+     },
+     "contactPropertiesFallbacks": {
+      "type": "object",
+      "description": "Fallback values for contact properties, keyed by property name. Per-key merge: a string value sets the fallback, a null value deletes it, and keys omitted from the map are left unchanged."
+     },
+     "eventPropertiesFallbacks": {
+      "type": "object",
+      "description": "Fallback values for event properties, keyed by property name. Per-key merge: a string value sets the fallback, a null value deletes it, and keys omitted from the map are left unchanged."
+     },
+     "dataVariablesFallbacks": {
+      "type": "object",
+      "description": "Fallback values for data variables, keyed by variable name. Per-key merge: a string value sets the fallback, a null value deletes it, and keys omitted from the map are left unchanged."
+     }
+    },
+    "required": [
+     "emailMessageId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/email-messages/{emailMessageId}",
+    "path": [
+     "emailMessageId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "subject",
+     "previewText",
+     "fromName",
+     "fromEmail",
+     "replyToEmail",
+     "ccEmail",
+     "bccEmail",
+     "languageCode",
+     "emailFormat",
+     "lmx",
+     "contactPropertiesFallbacks",
+     "eventPropertiesFallbacks",
+     "dataVariablesFallbacks"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_theme",
+   "name": "Update a theme",
+   "description": "Update a theme's name and/or styles. When `styles` change, the update cascades to every email using this theme, and `affectedEmailCount` in the response reports how many emails were affected. Manual style edits made on individual emails are preserved: the cascade only changes properties an email has not overridden. A per-email override is removed only when it becomes identical to the theme's new v",
+   "input": {
+    "type": "object",
+    "properties": {
+     "themeId": {
+      "type": "string",
+      "description": "The ID of the theme."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "styles": {
+      "type": "object",
+      "description": "Flat map of style attributes, matching the attribute names accepted by the LMX `` tag."
+     }
+    },
+    "required": [
+     "themeId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/themes/{themeId}",
+    "path": [
+     "themeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "styles"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_transactional_email",
+   "name": "Update a transactional email",
+   "description": "Update a transactional email by ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalId": {
+      "type": "string",
+      "description": "The ID of the transactional email."
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "transactionalGroupId": {
+      "type": "string",
+      "description": "The ID of the group to move this transactional email to."
+     }
+    },
+    "required": [
+     "transactionalId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-emails/{transactionalId}",
+    "path": [
+     "transactionalId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "transactionalGroupId"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_transactional_group",
+   "name": "Update a transactional group",
+   "description": "Update a transactional group's name or description. At least one field must be provided. The reserved \"Unsorted\" group cannot be edited.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "transactionalGroupId": {
+      "type": "string",
+      "description": "The ID of the transactional group."
+     },
+     "name": {
+      "type": "string",
+      "description": "The group name. Cannot be the reserved name \"Unsorted\"."
+     },
+     "description": {
+      "type": "string",
+      "description": "A description for the group."
+     }
+    },
+    "required": [
+     "transactionalGroupId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/transactional-groups/{transactionalGroupId}",
+    "path": [
+     "transactionalGroupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_workflow_node",
+   "name": "Update a workflow node",
+   "description": "Update workflow-node-owned fields for a single node. Shared resources such as email messages and audience segments should be updated through their own APIs.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "nodeId": {
+      "type": "string",
+      "description": "The ID of the workflow node."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "payload": {
+      "type": "string",
+      "description": "Node-type-specific fields to update. The allowed fields depend on the existing node type. Trigger node updates may include `typeName` when changing one trigger node type to another trigger node type."
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "nodeId",
+     "payload",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}/nodes/{nodeId}",
+    "path": [
+     "workflowId",
+     "nodeId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "payload"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "loops-so.update_workflow_properties",
+   "name": "Update a workflow",
+   "description": "Update a workflow's display properties. At least one property must be provided. To change the workflow's mailing list, use the `POST /v1/workflows/{workflowId}/mailing-list` endpoint instead.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workflowId": {
+      "type": "string",
+      "description": "The ID of the workflow."
+     },
+     "expectedRevisionId": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "The workflow revision token returned by the latest workflow read or mutation. Older workflows may return `null` before their first revision-aware mutation; pass `null` back as `expectedRevisionId` in that case. If the token is stale, the API returns a `409 Conflict` error."
+     },
+     "name": {
+      "type": "string",
+      "description": "The updated workflow name."
+     },
+     "description": {
+      "type": "string",
+      "description": "The updated workflow description."
+     }
+    },
+    "required": [
+     "expectedRevisionId",
+     "workflowId"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.loops.so/api/v1/workflows/{workflowId}",
+    "path": [
+     "workflowId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "expectedRevisionId",
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

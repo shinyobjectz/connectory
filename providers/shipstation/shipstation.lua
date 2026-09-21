@@ -1,7 +1,7 @@
 -- Shipstation — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/shipstation.com/1.0.0/openapi.json
--- APIs.guru's mirror, matched on shipstation.com. A mirror lags the vendor.
+-- APIs.guru's mirror of shipstation.com, matched on shipstation.com. A mirror lags the vendor.
 -- 2 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

@@ -1,7 +1,7 @@
 -- SendGrid — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/sendgrid.com/1.0.0/openapi.json
--- APIs.guru's mirror, matched on sendgrid.com. A mirror lags the vendor.
+-- APIs.guru's mirror of sendgrid.com, matched on sendgrid.com. A mirror lags the vendor.
 -- 334 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

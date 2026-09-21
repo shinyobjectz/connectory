@@ -438,13 +438,13 @@
       "type": "string",
       "description": "LinkedIn post URN"
      },
-     "page": {
-      "type": "integer",
-      "description": "Page number (1-indexed). Optional."
-     },
      "perPage": {
       "type": "integer",
       "description": "Number of items per page. Max 100. Optional."
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token from the previous response. Omit to fetch the first page."
      }
     },
     "required": [
@@ -458,8 +458,8 @@
      "urn"
     ],
     "query": [
-     "page",
-     "perPage"
+     "perPage",
+     "paginationToken"
     ],
     "header": [],
     "body": [],
@@ -477,13 +477,13 @@
       "type": "string",
       "description": "LinkedIn post URN"
      },
-     "page": {
-      "type": "integer",
-      "description": "Page number (1-indexed). Optional."
-     },
      "perPage": {
       "type": "integer",
       "description": "Number of items per page. Max 100. Optional."
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token from the previous response. Omit to fetch the first page."
      }
     },
     "required": [
@@ -497,8 +497,8 @@
      "urn"
     ],
     "query": [
-     "page",
-     "perPage"
+     "perPage",
+     "paginationToken"
     ],
     "header": [],
     "body": [],
@@ -516,13 +516,13 @@
       "type": "string",
       "description": "LinkedIn post URN"
      },
-     "page": {
-      "type": "integer",
-      "description": "Page number (1-indexed). Optional."
-     },
      "perPage": {
       "type": "integer",
       "description": "Number of items per page. Max 100. Optional."
+     },
+     "paginationToken": {
+      "type": "string",
+      "description": "Pagination token from the previous response. Omit to fetch the first page."
      }
     },
     "required": [
@@ -536,8 +536,8 @@
      "urn"
     ],
     "query": [
-     "page",
-     "perPage"
+     "perPage",
+     "paginationToken"
     ],
     "header": [],
     "body": [],
@@ -608,7 +608,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://bee.theswarm.com/v2/profiles/fetch/refresh",
+    "url": "https://bee.theswarm.com/v3/profiles/fetch/refresh",
     "path": [],
     "query": [
      "linkedinName"

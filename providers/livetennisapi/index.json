@@ -441,6 +441,10 @@
      "after_seq": {
       "type": "integer",
       "description": "Return only points with `seq` greater than this \u2014 the resume cursor. Pass the `last_seq` of the previous page (or the last seq your WS stream delivered) to continue; 0 or absent reads from the start of the match. A non-integer or negative value is a 400 `bad_after_seq`."
+     },
+     "changed_since": {
+      "type": "string",
+      "description": "Added 2026-09-20. Return only rows whose `ts` OR `tagged_at` is later than this instant \u2014 the revision filter for a reader without a socket, composable with `after_seq`. ISO-8601 with a `Z` or an offset (e.g. `2026-09-20T00:35:18Z`); a naive value is read as UTC; a date alone is not an instant and is refused. Anything that is not an ISO-8601 timestamp is a 400 `bad_changed_since`. An empty page on"
      }
     },
     "required": [
@@ -454,7 +458,8 @@
      "matchId"
     ],
     "query": [
-     "after_seq"
+     "after_seq",
+     "changed_since"
     ],
     "header": [],
     "body": [],
@@ -645,7 +650,7 @@
   {
    "slug": "livetennisapi.get_player",
    "name": "One player's bio + ranking + cached stats (free)",
-   "description": "One player's bio + ranking + cached stats (FREE)",
+   "description": "`playerId` is a ROSTER id \u2014 the live player registry, the id space `/players`, `/matches` and `/rankings` all speak. It is NOT the archive corpus person id. The results archive (1968\u20132022) keeps its own person registry, and archive match rows publish those ids as `winner.player_id` / `loser.player_id`. The two spaces are disjoint: no corpus id resolves here, and since 2026-09-20 a 404 for one says",
    "input": {
     "type": "object",
     "properties": {
@@ -861,6 +866,14 @@
    "input": {
     "type": "object",
     "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Look a person up BY the corpus person id \u2014 the value archive match rows publish as `winner.player_id` / `loser.player_id`. This is the only place that reads the PERSON by that id; the one other surface taking it, `/rankings?archive_player=`, is ULTRA, requires `system=elo`, and answers with ratings rather than a bio. Corpus ids and roster ids are disjoint id spaces, so the same value on `/players/"
+     },
+     "player_id": {
+      "type": "integer",
+      "description": "Alias of `id`, under the name the same value carries on an archive match row. Sending both with different values is a 400."
+     },
      "name": {
       "type": "string",
       "description": "Case-insensitive substring filter (min 3 chars)."
@@ -889,6 +902,8 @@
     "url": "https://api.livetennisapi.com/api/public/v1/history/archive/players",
     "path": [],
     "query": [
+     "id",
+     "player_id",
      "name",
      "tour",
      "limit",
@@ -1536,7 +1551,7 @@
      },
      "tour": {
       "type": "string",
-      "description": "REQUIRED for an `elo` listing and for `archive_player`. The ATP and WTA Elo walks are disjoint universes whose players never meet, so a combined leaderboard would not be comparable.",
+      "description": "REQUIRED for an `elo` listing and for `archive_player`. The ATP and WTA Elo walks are disjoint universes whose players never meet, so a combined leaderboard would not be comparable. On an OFFICIAL system it is accepted when it agrees with that system's own tour (`system=atp&tour=atp`) and REFUSED with 400 when it contradicts it. CORRECTION 2026-09-20: until that date `system=atp&tour=wta` returned",
       "enum": [
        "atp",
        "wta"
@@ -1544,15 +1559,15 @@
      },
      "surface": {
       "type": "array",
-      "description": "`system=elo` only. Listing mode takes exactly one (default `overall`); per-player mode is repeatable and defaults to all four ladders. A ladder the player has never played is omitted, never substituted."
+      "description": "`system=elo` only. Listing mode takes exactly one (default `overall`); per-player mode is repeatable and defaults to all four ladders. A ladder the player has never played is omitted, never substituted. REFUSED with 400 when no requested system is `elo` \u2014 there is no clay ATP ranking, so the filter cannot be made to act. CORRECTION 2026-09-20: until that date `system=atp&surface=clay` returned 200"
      },
      "min_matches": {
       "type": "integer",
-      "description": "`system=elo` listing only. Minimum matches on that ladder. Every ladder starts at 1500, so without a floor the top of the table is players who won a handful of matches from the starting rating. Echoed back in `meta.coverage.qualified`."
+      "description": "`system=elo` listing only. Minimum matches on that ladder. Every ladder starts at 1500, so without a floor the top of the table is players who won a handful of matches from the starting rating. Echoed back in `meta.coverage.qualified`. REFUSED with 400 when no requested system is `elo` (2026-09-20); it was previously accepted and ignored."
      },
      "activity_weeks": {
       "type": "integer",
-      "description": "`system=elo` listing only. The ladder must have moved within this many weeks of `as_of`. Elo does not decay, so without an activity window every leaderboard is topped permanently by players who have stopped playing. Echoed back in `meta.coverage.qualified`."
+      "description": "`system=elo` listing only. The ladder must have moved within this many weeks of `as_of`. Elo does not decay, so without an activity window every leaderboard is topped permanently by players who have stopped playing. Echoed back in `meta.coverage.qualified`. REFUSED with 400 when no requested system is `elo` (2026-09-20); it was previously accepted and ignored."
      },
      "as_of": {
       "type": "string",

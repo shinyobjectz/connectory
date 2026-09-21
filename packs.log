@@ -1,0 +1,53 @@
+checking 178 description(s)
+
+affinity-v2: 103 added, 0 removed, 0 changed
+amplitude-mcp: 34 added, 0 removed, 0 changed
+amplitude-mcp-eu: 34 added, 0 removed, 0 changed
+  ! asana-mcp AttributeError: 'NoneType' object has no attribute 'get'
+asana-scim: 167 added, 0 removed, 0 changed
+attio: 2 added, 0 removed, 0 changed
+attio-mcp: 96 added, 0 removed, 0 changed
+  ! bird HTTPError: HTTP Error 503: Service Unavailable
+cloudflare: 7 added, 0 removed, 2 changed
+    arguments moved: cloudflare.get_security_center_partner_insight_count
+    arguments moved: cloudflare.issues_patch
+cloudflare-mcp: 3238 added, 0 removed, 0 changed
+  ! contactout ScannerError: mapping values are not allowed here
+  in "<unicode string>", line 55, column 98:
+     ...  sales man
+  ! digits-mcp AttributeError: 'NoneType' object has no attribute 'get'
+  ! drchrono InvalidURL: URL can't contain control characters. '/v2/specs/drchrono.com/v4 (Hunt Valley)/openapi.json' (found 
+dynatrace: 4 added, 0 removed, 0 changed
+figma-scim: 50 added, 0 removed, 0 changed
+google-calendar-mcp: 37 added, 0 removed, 0 changed
+granola-mcp: 9 added, 0 removed, 0 changed
+hail: 1 added, 0 removed, 0 changed
+hail-mcp: 54 added, 0 removed, 0 changed
+loops-so: 64 added, 0 removed, 0 changed
+neon: 163 added, 0 removed, 0 changed
+neon-mcp: 163 added, 0 removed, 0 changed
+notion-mcp: 13 added, 0 removed, 0 changed
+notion-scim: 13 added, 0 removed, 0 changed
+okta-preview: 341 added, 0 removed, 0 changed
+open-hands: 43 added, 0 removed, 0 changed
+openai-admin: 337 added, 0 removed, 0 changed
+pandadoc-mcp: 128 added, 0 removed, 0 changed
+pandadoc-mcp-eu: 128 added, 0 removed, 0 changed
+paylocity-nextgen: 30 added, 0 removed, 0 changed
+posthog: 19 added, 45 removed, 1 changed
+    gone: posthog.data_catalog_metrics_check_suite_runs_check_runs_list
+    gone: posthog.data_catalog_metrics_check_suite_runs_list
+    gone: posthog.data_catalog_metrics_check_suite_runs_retrieve
+    gone: posthog.data_catalog_metrics_checks_check_types_list
+    gone: posthog.data_catalog_metrics_checks_create
+    arguments moved: posthog.error_tracking_external_references_create
+shipstation-v2: 2 added, 0 removed, 0 changed
+  ! stripe-app AttributeError: 'NoneType' object has no attribute 'get'
+stripe-express: 1015 added, 0 removed, 0 changed
+the-swarm: 0 added, 0 removed, 1 changed
+    arguments moved: the-swarm.get_refreshed_profile
+trello-scim: 324 added, 0 removed, 0 changed
+vercel-mcp: 112 added, 0 removed, 0 changed
+zapier-nla: 4 added, 0 removed, 0 changed
+
+146 unchanged, 32 rebuilt, 3 with operations removed or moved

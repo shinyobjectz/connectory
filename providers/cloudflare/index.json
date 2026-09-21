@@ -22283,6 +22283,86 @@
    }
   },
   {
+   "slug": "cloudflare.brapi_get_recording",
+   "name": "Get recording data",
+   "description": "Returns the recording data for a given session as a dictionary of events per targetId.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Account ID."
+     },
+     "session_id": {
+      "type": "string",
+      "description": "Session ID."
+     }
+    },
+    "required": [
+     "account_id",
+     "session_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/browser-rendering/recording/{session_id}",
+    "path": [
+     "account_id",
+     "session_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudflare.brapi_get_recording_network",
+   "name": "Get network recording data",
+   "description": "Returns network recording events for the requested target ID. Use ?format=har for a HAR JSON document.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Account ID."
+     },
+     "session_id": {
+      "type": "string",
+      "description": "Session ID."
+     },
+     "format": {
+      "type": "string",
+      "description": "Set to `har` to return a HAR JSON document."
+     },
+     "target": {
+      "type": "string",
+      "description": "Target ID to include in the response."
+     }
+    },
+    "required": [
+     "account_id",
+     "session_id",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/browser-rendering/recording/{session_id}/network",
+    "path": [
+     "account_id",
+     "session_id"
+    ],
+    "query": [
+     "format",
+     "target"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "cloudflare.brapi_post_accessibility_tree",
    "name": "Get accessibility tree page",
    "description": "Returns the page's accessibility tree. Use `interestingOnly` to only return semantically meaningful nodes; use `root` to scope the tree to a CSS-selector-anchored subtree. Control page loading with `gotoOptions` and `waitFor*` options.",
@@ -51423,7 +51503,7 @@
      },
      "destination": {
       "type": "string",
-      "description": "",
+      "description": "Required when action is 'MOVE'.",
       "enum": [
        "Inbox",
        "JunkEmail",
@@ -51434,7 +51514,7 @@
      },
      "expected_disposition": {
       "type": "string",
-      "description": "",
+      "description": "Nonfunctional field. End of life: December 1, 2026.",
       "enum": [
        "MALICIOUS",
        "MALICIOUS-BEC",
@@ -53754,7 +53834,7 @@
      },
      "expected_disposition": {
       "type": "string",
-      "description": "",
+      "description": "Nonfunctional field. End of life: December 1, 2026.",
       "enum": [
        "MALICIOUS",
        "MALICIOUS-BEC",
@@ -53827,7 +53907,7 @@
      },
      "expected_disposition": {
       "type": "string",
-      "description": "",
+      "description": "Nonfunctional field. End of life: December 1, 2026.",
       "enum": [
        "MALICIOUS",
        "MALICIOUS-BEC",
@@ -64520,7 +64600,7 @@
    },
    "request": {
     "method": "GET",
-    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/security-center/insights/count",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/security-center/insights/partner-count",
     "path": [
      "account_id"
     ],
@@ -67470,6 +67550,44 @@
      "since",
      "before",
      "order"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudflare.get_zone_security_center_partner_insight_count",
+   "name": "Retrieves a partner zone security center insight count",
+   "description": "Retrieves the uncapped count of active, non-dismissed, unclassified RiskRecon insights for the zone.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "zone_id": {
+      "type": "string",
+      "description": "Identifier."
+     },
+     "source": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "riskrecon"
+      ]
+     }
+    },
+    "required": [
+     "source",
+     "zone_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://api.cloudflare.com/client/v4/zones/{zone_id}/security-center/insights/partner-count",
+    "path": [
+     "zone_id"
+    ],
+    "query": [
+     "source"
     ],
     "header": [],
     "body": [],
@@ -71603,6 +71721,162 @@
    }
   },
   {
+   "slug": "cloudflare.issues_groups_create",
+   "name": "Create an issue group",
+   "description": "Group two or more issues under a new customer-defined identity.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Your Cloudflare account ID."
+     },
+     "issueIds": {
+      "type": "array",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "issueIds",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/workers/observability/issues/groups",
+    "path": [
+     "account_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "issueIds",
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudflare.issues_groups_delete",
+   "name": "Dissolve an issue group",
+   "description": "Dissolve an issue group and restore its members as standalone issues.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Your Cloudflare account ID."
+     },
+     "groupId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "groupId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/workers/observability/issues/groups/{groupId}",
+    "path": [
+     "account_id",
+     "groupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudflare.issues_groups_members_add",
+   "name": "Add issue group members",
+   "description": "Add one or more ungrouped issues to an existing issue group.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Your Cloudflare account ID."
+     },
+     "groupId": {
+      "type": "string",
+      "description": ""
+     },
+     "issueIds": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "groupId",
+     "issueIds"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/workers/observability/issues/groups/{groupId}/members",
+    "path": [
+     "account_id",
+     "groupId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "issueIds"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "cloudflare.issues_groups_members_remove",
+   "name": "Remove an issue group member",
+   "description": "Remove an issue from a group, dissolving the group when fewer than two members remain.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "account_id": {
+      "type": "string",
+      "description": "Your Cloudflare account ID."
+     },
+     "groupId": {
+      "type": "string",
+      "description": ""
+     },
+     "issueId": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "account_id",
+     "groupId",
+     "issueId"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://api.cloudflare.com/client/v4/accounts/{account_id}/workers/observability/issues/groups/{groupId}/members/{issueId}",
+    "path": [
+     "account_id",
+     "groupId",
+     "issueId"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
    "slug": "cloudflare.issues_list",
    "name": "List detected issues",
    "description": "List detected issues.",
@@ -71635,7 +71909,6 @@
       "enum": [
        "id",
        "service",
-       "fingerprint",
        "title",
        "type",
        "status",
@@ -71777,7 +72050,7 @@
   {
    "slug": "cloudflare.issues_patch",
    "name": "Modify an issue",
-   "description": "Modify an issue status.",
+   "description": "Modify an issue status or group title.",
    "input": {
     "type": "object",
     "properties": {
@@ -71797,12 +72070,15 @@
        "resolved",
        "ignored"
       ]
+     },
+     "title": {
+      "type": "string",
+      "description": ""
      }
     },
     "required": [
      "account_id",
-     "issueId",
-     "status"
+     "issueId"
     ]
    },
    "request": {
@@ -71815,7 +72091,8 @@
     "query": [],
     "header": [],
     "body": [
-     "status"
+     "status",
+     "title"
     ],
     "body_format": "json"
    }

@@ -2,7 +2,7 @@
 --
 -- GENERATED from https://api.hail.so/openapi.json
 -- Published on the vendor's own documentation site (https://api.hail.so).
--- 53 operations · do not edit
+-- 54 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value
 -- stays in the environment, which is what makes this file safe to publish.
@@ -38,6 +38,7 @@ return {
     ["hail.delete_provider"] = { method = "DELETE", url = "https://api.hail.so/v1/providers/{layer}/{provider}", path = {"layer", "provider"} },
     ["hail.delete_sms_suppression_v1_sms_suppressions_number_delete"] = { method = "DELETE", url = "https://api.hail.so/v1/sms/suppressions/{number}", path = {"number"} },
     ["hail.delete_subscription_v1_webhooks_sub_id_delete"] = { method = "DELETE", url = "https://api.hail.so/v1/webhooks/{sub_id}", path = {"sub_id"} },
+    ["hail.dns_check_email_domain_v1_email_domains_domain_id_dns_check_get"] = { method = "GET", url = "https://api.hail.so/v1/email-domains/{domain_id}/dns-check", path = {"domain_id"} },
     ["hail.enable_sms_v1_numbers_number_id_enable_sms_post"] = { method = "POST", url = "https://api.hail.so/v1/numbers/{number_id}/enable-sms", path = {"number_id"} },
     ["hail.get_call_v1_calls_call_id_get"] = { method = "GET", url = "https://api.hail.so/v1/calls/{call_id}", path = {"call_id"} },
     ["hail.get_email_attachment_v1_emails_email_id_attachments_attachment_id_get"] = { method = "GET", url = "https://api.hail.so/v1/emails/{email_id}/attachments/{attachment_id}", path = {"email_id", "attachment_id"} },

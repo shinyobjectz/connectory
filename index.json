@@ -8,10 +8,10 @@
   "`env` lists the NAMES of environment variables. This repository contains no",
   "credentials, and a pull request that adds one should be closed."
  ],
- "providers": 853,
- "described": 197,
+ "providers": 854,
+ "described": 201,
  "with_mcp": 79,
- "with_context": 152,
+ "with_context": 168,
  "index": [
   {
    "slug": "1password-events",
@@ -896,7 +896,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": {
     "method": "GET",
@@ -920,7 +920,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": {
     "method": "GET",
@@ -945,7 +945,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -1043,9 +1043,30 @@
    "env": [
     "APPLE_BUSINESS_MANAGER_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 251,
    "operations_from": "apple-app-store",
+   "logo": true,
+   "context": false,
+   "mcp": 0,
+   "verify": null
+  },
+  {
+   "slug": "apple-calendar",
+   "name": "Apple Calendar",
+   "categories": [
+    "productivity"
+   ],
+   "docs": "https://nango.dev/docs/api-integrations/apple-calendar",
+   "base": "https://caldav.icloud.com",
+   "auth": "basic",
+   "env": [
+    "APPLE_CALENDAR_USER",
+    "APPLE_CALENDAR_PASS"
+   ],
+   "spec": null,
+   "operations": 0,
+   "operations_from": null,
    "logo": true,
    "context": false,
    "mcp": 0,
@@ -1237,11 +1258,11 @@
    "env": [
     "ATLASSIAN_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 474,
    "operations_from": "jira",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 1,
    "verify": null
   },
@@ -1257,11 +1278,11 @@
    "env": [
     "ATLASSIAN_ADMIN_API_KEY"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 474,
    "operations_from": "jira",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 1,
    "verify": null
   },
@@ -1299,11 +1320,11 @@
     "ATLASSIAN_SERVICE_ACCOUNT_API_USER",
     "ATLASSIAN_SERVICE_ACCOUNT_API_PASS"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 474,
    "operations_from": "jira",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 1,
    "verify": null
   },
@@ -1344,7 +1365,7 @@
     "ATTIO_TOKEN"
    ],
    "spec": "docs",
-   "operations": 94,
+   "operations": 96,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -1365,7 +1386,7 @@
     "ATTIO_MCP_TOKEN"
    ],
    "spec": "docs",
-   "operations": 94,
+   "operations": 96,
    "operations_from": "attio",
    "logo": true,
    "context": false,
@@ -1725,7 +1746,7 @@
     "AWS_SIGV4_SERVICE",
     "AWS_SIGV4_REGION"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 316,
    "operations_from": "aws-iam",
    "logo": true,
@@ -1768,7 +1789,7 @@
     "AZURE_BLOB_STORAGE_TOKEN",
     "AZURE_BLOB_STORAGE_ACCOUNTNAME"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 56,
    "operations_from": null,
    "logo": true,
@@ -3519,7 +3540,7 @@
     "CLOUDFLARE_API_KEY"
    ],
    "spec": "vendor",
-   "operations": 3232,
+   "operations": 3239,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -3541,7 +3562,7 @@
     "CLOUDFLARE_MCP_MCP_SERVER_URL"
    ],
    "spec": "vendor",
-   "operations": 3232,
+   "operations": 3239,
    "operations_from": "cloudflare",
    "logo": true,
    "context": false,
@@ -4914,7 +4935,7 @@
     "DYNATRACE_ENVIRONMENTID"
    ],
    "spec": "docs",
-   "operations": 87,
+   "operations": 91,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -4975,7 +4996,7 @@
    "env": [
     "EBAY_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 36,
    "operations_from": null,
    "logo": true,
@@ -6603,7 +6624,7 @@
    "env": [
     "GOOGLE_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": null,
    "logo": true,
@@ -6623,7 +6644,7 @@
    "env": [
     "GOOGLE_ADS_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": "google",
    "logo": true,
@@ -6787,7 +6808,7 @@
    "env": [
     "GOOGLE_GEMINI_API_KEY"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": "google",
    "logo": true,
@@ -6851,7 +6872,7 @@
    "env": [
     "GOOGLE_MAPS_API_KEY"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": "google",
    "logo": true,
@@ -6872,7 +6893,7 @@
    "env": [
     "GOOGLE_MEET_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": "google",
    "logo": true,
@@ -7511,7 +7532,7 @@
     "HAIL_API_KEY"
    ],
    "spec": "docs",
-   "operations": 53,
+   "operations": 54,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -7537,7 +7558,7 @@
     "HAIL_MCP_TOKEN"
    ],
    "spec": "docs",
-   "operations": 53,
+   "operations": 54,
    "operations_from": "hail",
    "logo": true,
    "context": false,
@@ -7990,7 +8011,7 @@
    "env": [
     "HUBSPOT_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 2,
    "operations_from": null,
    "logo": true,
@@ -9529,8 +9550,8 @@
    "env": [
     "LOOPS_SO_API_KEY"
    ],
-   "spec": null,
-   "operations": 0,
+   "spec": "docs",
+   "operations": 64,
    "operations_from": null,
    "logo": true,
    "context": true,
@@ -10053,7 +10074,7 @@
    "env": [
     "MICROSOFT_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 11412,
    "operations_from": null,
    "logo": true,
@@ -10076,7 +10097,7 @@
    "env": [
     "MICROSOFT_ADMIN_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 11412,
    "operations_from": "microsoft",
    "logo": true,
@@ -10096,7 +10117,7 @@
    "env": [
     "MICROSOFT_ADS_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 11412,
    "operations_from": "microsoft",
    "logo": true,
@@ -10161,7 +10182,7 @@
    "env": [
     "MICROSOFT_OAUTH2_CC_CERT_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 11412,
    "operations_from": "microsoft",
    "logo": true,
@@ -10221,7 +10242,7 @@
    "env": [
     "MICROSOFT_TENANT_SPECIFIC_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 11412,
    "operations_from": "microsoft",
    "logo": true,
@@ -10713,8 +10734,8 @@
    "env": [
     "NEON_API_KEY"
    ],
-   "spec": null,
-   "operations": 0,
+   "spec": "docs",
+   "operations": 163,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -10737,8 +10758,8 @@
    "env": [
     "NEON_MCP_TOKEN"
    ],
-   "spec": null,
-   "operations": 0,
+   "spec": "docs",
+   "operations": 163,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -11314,8 +11335,8 @@
    "env": [
     "OPEN_HANDS_API_KEY"
    ],
-   "spec": null,
-   "operations": 0,
+   "spec": "docs",
+   "operations": 43,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -12112,11 +12133,11 @@
    "env": [
     "PERSONIO_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 13,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -12133,11 +12154,11 @@
    "env": [
     "PERSONIO_RECRUITING_API_KEY"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 13,
    "operations_from": "personio",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": {
     "method": "GET",
@@ -12156,11 +12177,11 @@
    "env": [
     "PERSONIO_V2_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 13,
    "operations_from": "personio",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -12357,7 +12378,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": {
     "method": "GET",
@@ -12463,7 +12484,7 @@
     "POSTHOG_SUBDOMAIN"
    ],
    "spec": "docs",
-   "operations": 2190,
+   "operations": 2164,
    "operations_from": null,
    "logo": true,
    "context": false,
@@ -13008,7 +13029,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -13045,11 +13066,11 @@
     "RAPIDAPI_API_KEY",
     "RAPIDAPI_SUBDOMAIN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 1,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -15153,7 +15174,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": null
   },
@@ -15472,7 +15493,7 @@
    "operations": 0,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 0,
    "verify": {
     "method": "GET",
@@ -15492,7 +15513,7 @@
    "env": [
     "STITCH_MCP_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 29,
    "operations_from": "google",
    "logo": true,
@@ -16940,7 +16961,7 @@
    "env": [
     "TWITTER_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 83,
    "operations_from": null,
    "logo": true,
@@ -16961,7 +16982,7 @@
    "env": [
     "TWITTER_V2_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 83,
    "operations_from": "twitter",
    "logo": true,
@@ -18252,11 +18273,11 @@
    "env": [
     "ZAPIER_TOKEN"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 4,
    "operations_from": null,
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 1,
    "verify": null
   },
@@ -18292,11 +18313,11 @@
    "env": [
     "ZAPIER_SCIM_API_KEY"
    ],
-   "spec": "apis.guru",
+   "spec": null,
    "operations": 4,
    "operations_from": "zapier",
    "logo": true,
-   "context": false,
+   "context": true,
    "mcp": 1,
    "verify": {
     "method": "GET",

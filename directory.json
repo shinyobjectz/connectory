@@ -10,7 +10,7 @@
   "file is a credential, and none ever should be."
  ],
  "source": "https://raw.githubusercontent.com/NangoHQ/nango/master/packages/providers/providers.yaml",
- "count": 852,
+ "count": 853,
  "providers": [
   {
    "slug": "1password-events",
@@ -1358,6 +1358,27 @@
    "source": {
     "registry": "nango",
     "provider": "apple-business-manager"
+   }
+  },
+  {
+   "slug": "apple-calendar",
+   "name": "Apple Calendar",
+   "icon": "applecalendar",
+   "categories": [
+    "productivity"
+   ],
+   "docs": "https://nango.dev/docs/api-integrations/apple-calendar",
+   "base": "https://caldav.icloud.com",
+   "auth": {
+    "kind": "basic",
+    "mode": "BASIC",
+    "user_env": "APPLE_CALENDAR_USER",
+    "pass_env": "APPLE_CALENDAR_PASS",
+    "about": "Apple ID and App-Specific Password"
+   },
+   "source": {
+    "registry": "nango",
+    "provider": "apple-calendar"
    }
   },
   {

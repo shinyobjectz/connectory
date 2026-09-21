@@ -7,17 +7,593 @@
   "does not send one. A pack is rebuilt only when these stop matching."
  ],
  "providers": {
+  "affinity": {
+   "spec": "https://developer.affinity.co/api-reference/openapi.json",
+   "sha256": "ec4482de7fa439f8cd90ea7808b58ccc662098f629c839d29c97f198374acb4d",
+   "etag": "W/\"7kp7biWKfJngjpOQ\"",
+   "operations": 103
+  },
+  "affinity-v2": {
+   "spec": "https://developer.affinity.co/api-reference/openapi.json",
+   "sha256": "ec4482de7fa439f8cd90ea7808b58ccc662098f629c839d29c97f198374acb4d",
+   "etag": "W/\"7kp7biWKfJngjpOQ\"",
+   "operations": 103
+  },
+  "agentcard": {
+   "spec": "https://docs.agentcard.sh/openapi.json",
+   "sha256": "8762bcfde31ef4d844db07a37209ea5973d8ee3e830fa9ee8b226bf3d2e16afa",
+   "etag": "W/\"DssuvcvFyd3BZU2Q\"",
+   "operations": 43
+  },
+  "agentline": {
+   "spec": "https://docs.agentline.cloud/openapi.json",
+   "sha256": "afe127fa3ee9904f1337638bdd597fa1d990be74e19e3b8a7690a7a1a188f80c",
+   "etag": "W/\"xXFjFM4ROG81zJ_H\"",
+   "operations": 33
+  },
+  "ahrefs": {
+   "spec": "https://docs.ahrefs.com/openapi.json",
+   "sha256": "4951cef560acc9b2a91397357c299020e4977a951f04e5e9b86c212a40383282",
+   "etag": "W/\"6ab10158-215b8a\"",
+   "operations": 151
+  },
+  "amplitude": {
+   "spec": "https://amplitude.com/openapi.json",
+   "sha256": "76b9769ac9115e04b19f17814a4b05f4589f40c8e77c09a4a9571f8776c30f20",
+   "etag": null,
+   "operations": 34
+  },
+  "amplitude-mcp": {
+   "spec": "https://amplitude.com/openapi.json",
+   "sha256": "76b9769ac9115e04b19f17814a4b05f4589f40c8e77c09a4a9571f8776c30f20",
+   "etag": null,
+   "operations": 34
+  },
+  "amplitude-mcp-eu": {
+   "spec": "https://amplitude.com/openapi.json",
+   "sha256": "76b9769ac9115e04b19f17814a4b05f4589f40c8e77c09a4a9571f8776c30f20",
+   "etag": null,
+   "operations": 34
+  },
+  "apify": {
+   "spec": "https://docs.apify.com/api/openapi.json",
+   "sha256": "2541d985f1e982bd3a2e259310c6270bb38572ebec6b86ff9647c0e24d195f9d",
+   "etag": "\"6ab13c61-fdf68\"",
+   "operations": 224
+  },
+  "apple-app-store": {
+   "spec": "https://api.apis.guru/v2/specs/apple.com/app-store-connect/1.4.1/openapi.json",
+   "sha256": "eb14e66ac73aff98ebe07cbf98f962066df58814ec86a36490a8de550fc4b1be",
+   "etag": "\"856ce98dc5a5eda1e23752da8f1a6ea7\"",
+   "operations": 251
+  },
+  "appstle-subscriptions": {
+   "spec": "https://developers.appstle.com/api-reference/openapi.json",
+   "sha256": "919eb7a392aafe9825cc9fc0e5b2174643803e1f825816a5a2cb95fb20a94aa9",
+   "etag": "W/\"UKc9XSdC2X3ycGqd\"",
+   "operations": 3
+  },
+  "asana": {
+   "spec": "https://api.apis.guru/v2/specs/asana.com/1.0/openapi.json",
+   "sha256": "40c1c94d476c897f707c2974a3aeedee1d0b8a6eab8b7654819c0effa0f8ffa6",
+   "etag": "\"78947b09baf632b53a9ed0c9e8f50732\"",
+   "operations": 167
+  },
+  "asana-scim": {
+   "spec": "https://api.apis.guru/v2/specs/asana.com/1.0/openapi.json",
+   "sha256": "40c1c94d476c897f707c2974a3aeedee1d0b8a6eab8b7654819c0effa0f8ffa6",
+   "etag": "\"78947b09baf632b53a9ed0c9e8f50732\"",
+   "operations": 167
+  },
+  "atlas-so": {
+   "spec": "https://api.atlas.so/openapi.json",
+   "sha256": "c02b8532173ea02f7285001db5f8fffbc56f82bd591b691e320b74a67c900397",
+   "etag": null,
+   "operations": 67
+  },
+  "attention": {
+   "spec": "https://api.attention.tech/swagger.json",
+   "sha256": "d7bea6ac451b8bbaa31ddff787c2313f78f415550fc70ad0c12d1497ba019ebb",
+   "etag": null,
+   "operations": 34
+  },
+  "attio": {
+   "spec": "https://attio.com/openapi.json",
+   "sha256": "61101003ebb5020b67fc17897ef755ea38bda8b759cbf818c97c42b65babb7b9",
+   "etag": null,
+   "operations": 96
+  },
+  "attio-mcp": {
+   "spec": "https://attio.com/openapi.json",
+   "sha256": "61101003ebb5020b67fc17897ef755ea38bda8b759cbf818c97c42b65babb7b9",
+   "etag": null,
+   "operations": 96
+  },
+  "autotask": {
+   "spec": "https://api.apis.guru/v2/specs/autotask.net/v1/swagger.json",
+   "sha256": "e568c47b214bfb12069e96eb6e5f8920d4a3c5cf1431af86958b6223ee14f400",
+   "etag": "\"9447f62c98d3c4664006891190f4e69f\"",
+   "operations": 2958
+  },
+  "aws-iam": {
+   "spec": "https://api.apis.guru/v2/specs/amazonaws.com/iam/2010-05-08/openapi.json",
+   "sha256": "0a757164b70fe92482fd731aa28f089de4e5fdc45f1a1d66db427646d6ae43cf",
+   "etag": "\"142502229699a0a057948d2bbeaf04b8\"",
+   "operations": 316
+  },
+  "aws-inspector2": {
+   "spec": "https://api.apis.guru/v2/specs/amazonaws.com/inspector/2016-02-16/openapi.json",
+   "sha256": "54b4be2b439f71e74bb894ec53fb11d8c4729fb5186a70d0c9f4535e73a5af08",
+   "etag": "\"52cb871b0cac6155763987cf5727b4bb\"",
+   "operations": 37
+  },
+  "aws-multi-service": {
+   "spec": "https://api.apis.guru/v2/specs/amazonaws.com/service-quotas/2019-06-24/openapi.json",
+   "sha256": "94ee2c5895a72533a0bc05f697f32aac82457a34f1baf6851c8cc0a0fa6e88f0",
+   "etag": "\"1527f773ada54f32c07fd554977e4ba0\"",
+   "operations": 19
+  },
+  "bigchange": {
+   "spec": "https://api.bigchange.com/swagger/v1/swagger.json",
+   "sha256": "553de7d50a1cd8df841e8e5705f4a6a54b66a208ccb053ad3bc8653a79355be9",
+   "etag": null,
+   "operations": 227
+  },
+  "bitbucket": {
+   "spec": "https://api.apis.guru/v2/specs/bitbucket.org/2.0/openapi.json",
+   "sha256": "f41a6949a8b64b022f53c0791ef599768c5b45a5ed48dc6e7057ea04594759d7",
+   "etag": "\"00ecb4e9d6f6d8f817eb8ee8769f8e48\"",
+   "operations": 292
+  },
+  "boldsign": {
+   "spec": "https://api.boldsign.com/swagger/v1/swagger.json",
+   "sha256": "316b71bdaa94ed3abf05125b605749bd1d27eff348bd87d51beccd7efe07ed56",
+   "etag": null,
+   "operations": 87
+  },
+  "box": {
+   "spec": "https://raw.githubusercontent.com/box/box-openapi/main/openapi.json",
+   "sha256": "0f8794edec1caf44761777f791b36388ec997f4220233a1a0166712e0d3b0a06",
+   "etag": "\"8360c50d63227787bada7cdb36c994b8c72d3d81ef3245a7404e6b928f34c62c\"",
+   "operations": 295
+  },
+  "builtwith": {
+   "spec": "https://api.builtwith.com/openapi.json",
+   "sha256": "128fc6ec8424d643430df928e442234965fd2e140fee48b4483fb10155755e89",
+   "etag": null,
+   "operations": 14
+  },
+  "clerk": {
+   "spec": "https://clerk.com/openapi.json",
+   "sha256": "18e81d87dc32163c062c6165bb5fa7c455b3976f853da60ee6382ce6207738fa",
+   "etag": null,
+   "operations": 236
+  },
+  "clicksend": {
+   "spec": "https://api.apis.guru/v2/specs/clicksend.com/1.0.0/openapi.json",
+   "sha256": "316a4282846b0963de96b70bff997299a19a53abd1e07330a21cda4d3e943c97",
+   "etag": "\"475bf0839445c179527ac901de8dadfa\"",
+   "operations": 200
+  },
+  "clickup": {
+   "spec": "https://api.apis.guru/v2/specs/clickup.com/1.0.0/openapi.json",
+   "sha256": "62e8866b8bf9147759442557b8457409582dad98967ee1377a8c400334d7156a",
+   "etag": "\"4224fbc8313d96d1412a76818c547f53\"",
+   "operations": 2
+  },
+  "close": {
+   "spec": "https://developer.close.com/openapi.json",
+   "sha256": "6dbc48d8450fc79f5f01594d55b87c40d7881ba50156a2b2a2cec8acb0cb8899",
+   "etag": null,
+   "operations": 302
+  },
+  "cloudbeds": {
+   "spec": "https://raw.githubusercontent.com/cloudbeds/openapi-specs/main/src/pms-v1.3-openapi.yaml",
+   "sha256": "fce9319fe397e7962eb78b08fff232a393cd2d297363bb395b1d1d9f605fd434",
+   "etag": "\"a4efd0305d18486fd97421fa22478e5cae407b85ffa0d37109e42c3e052daf03\"",
+   "operations": 115
+  },
+  "cloudflare": {
+   "spec": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.json",
+   "sha256": "d3b83f7099902ff29ec054c98b9429a87bf09397278689bad5c99a6f56334753",
+   "etag": "\"057b0272c944a87983d05eb0ed319198aef58feee6c5461f5a20f57e80f99130\"",
+   "operations": 3238
+  },
+  "cloudflare-mcp": {
+   "spec": "https://raw.githubusercontent.com/cloudflare/api-schemas/main/openapi.json",
+   "sha256": "d3b83f7099902ff29ec054c98b9429a87bf09397278689bad5c99a6f56334753",
+   "etag": "\"057b0272c944a87983d05eb0ed319198aef58feee6c5461f5a20f57e80f99130\"",
+   "operations": 3238
+  },
+  "cloudtalk": {
+   "spec": "https://developers.cloudtalk.io/api-reference/openapi.json",
+   "sha256": "ba0bc53959ebfb9d59a4f3a37b917aa0d16674d61f4b7d427ab429f10e56183e",
+   "etag": "W/\"1ttLZWcvxCVobvF2\"",
+   "operations": 84
+  },
+  "companycam": {
+   "spec": "https://raw.githubusercontent.com/CompanyCam/openapi-spec/main/openapi.yaml",
+   "sha256": "32f1dca50fede3c4fce3303394e24cd35167b164022cfef424c379441aee871c",
+   "etag": "\"40d730f8cf7c489e20d1eda023e13ae03fb558a055ff66d0fb4c130a58ed9f50\"",
+   "operations": 62
+  },
+  "copper": {
+   "spec": "https://developer.copper.com/v1/openapi.json",
+   "sha256": "96adc8557a40b74bffa27f1becf5b5b56fc2ca1d0f16f99a2d94878865b0ab53",
+   "etag": "\"1618fb76b0fedd695fc956ac7b253cf6\"",
+   "operations": 27
+  },
+  "devin": {
+   "spec": "https://docs.devin.ai/openapi.yaml",
+   "sha256": "bb0fabac5cbec492e9432e0297c1d860e04a41d24a7226aff3966fa784418a07",
+   "etag": "W/\"~\"",
+   "operations": 23
+  },
+  "digitalocean": {
+   "spec": "https://api.apis.guru/v2/specs/digitalocean.com/2.0/openapi.json",
+   "sha256": "21c7fd1ddfb7476410fe75934acb74be59e0747b27361a0e67da7f396ef861c5",
+   "etag": "\"0e271a50326ab2120a392a418c4b12d5\"",
+   "operations": 288
+  },
+  "digits": {
+   "spec": "https://digits.com/openapi.json",
+   "sha256": "895db63ca4d24286767dffb2f6ac49d7b8140ea58855b76bf775ebba1e20fa20",
+   "etag": null,
+   "operations": 4
+  },
+  "discolike": {
+   "spec": "https://api.discolike.com/v1/openapi.json",
+   "sha256": "a8b88cb82dc82a1dea30b8dd95c955378b6d332a65bfc53b90bf7f8baeea2130",
+   "etag": null,
+   "operations": 57
+  },
+  "discord": {
+   "spec": "https://raw.githubusercontent.com/discord/discord-api-spec/main/specs/openapi_preview.json",
+   "sha256": "1ca4bd1c1cd8c3d33d17a439845ab6a8f719c0487e7f00c03c6a30151800470a",
+   "etag": "\"23512eb818c9dfb39d8bbb05895fee9cda89257dc28fb5c5e5f08cf23dc53a82\"",
+   "operations": 246
+  },
+  "docusign": {
+   "spec": "https://api.apis.guru/v2/specs/docusign.net/v2.1/openapi.json",
+   "sha256": "bcdba766a39b7760e00c7822946879192a63db1f440f91f2d57335c9b78ffaef",
+   "etag": "\"49b26ab261419256cfedf339e4fa552f\"",
+   "operations": 393
+  },
+  "dropbox-sign": {
+   "spec": "https://raw.githubusercontent.com/hellosign/hellosign-openapi/main/openapi-fern.yaml",
+   "sha256": "db99d5f8a7e4656bf29ae90331b84df7392583e2a08ab12ebed566e60c633440",
+   "etag": "\"33f7c8ce56f7ef699c388ab089656e7b0fcf40b10fedcee16d69692b64eee885\"",
+   "operations": 73
+  },
+  "dynamic-mockups": {
+   "spec": "https://dynamicmockups.com/openapi.json",
+   "sha256": "711c989e7ab2bf93e5fbccb7c2d1d4af387c7636ac33e82afadb57fb483ff508",
+   "etag": null,
+   "operations": 20
+  },
+  "dynatrace": {
+   "spec": "https://api.dynatrace.com/openapi.json",
+   "sha256": "3dabdc6d20b902cb35b6ac6a5102167c6583bc71cf2cb53cd5636819752f9226",
+   "etag": "W/\"2fdda-nHsehPr/sU7YULQ+AXR3DJV87aI:dtagent10345260810170330rUT8\"",
+   "operations": 90
+  },
+  "elevenlabs": {
+   "spec": "https://api.apis.guru/v2/specs/elevenlabs.io/1.0/openapi.json",
+   "sha256": "beafed07a89c0d1ffdf5f2308d6da8e86a11f090a868c13fe44cd9ade22757f3",
+   "etag": "\"8f23f08b167a1f0bc5d9ada278d451f6\"",
+   "operations": 18
+  },
+  "embat": {
+   "spec": "https://api.embat.io/openapi.json",
+   "sha256": "5ae1bca5852e7a5af383a3e13cb3ecea50774d64b138c7f3f61f2aebd3a65875",
+   "etag": null,
+   "operations": 104
+  },
+  "exa": {
+   "spec": "https://api.exa.ai/openapi.json",
+   "sha256": "6a4f87583728d3252626490dc63e8bbd110b9a92276558e4a91901172b6ee511",
+   "etag": "W/\"8ae3b-Yba45N+RoLhK8j2a2JcApQuvmOM\"",
+   "operations": 63
+  },
+  "fiber-ai": {
+   "spec": "https://api.fiber.ai/openapi.json",
+   "sha256": "4124c1dafb1298ba7ede97943ea820a71f2ab3a2d71b731f847dcd911381c2a5",
+   "etag": null,
+   "operations": 247
+  },
+  "figma": {
+   "spec": "https://raw.githubusercontent.com/figma/rest-api-spec/main/openapi/openapi.yaml",
+   "sha256": "d7ab5681d84cbf3398084e5182583b53ab73da21a3bc8b6cb0d8cf5409350a5c",
+   "etag": "\"50bd9655d6ee9491d7681d967f2eaec5dddb1e3ac80887602132786177573fa2\"",
+   "operations": 50
+  },
+  "figma-scim": {
+   "spec": "https://raw.githubusercontent.com/figma/rest-api-spec/main/openapi/openapi.yaml",
+   "sha256": "d7ab5681d84cbf3398084e5182583b53ab73da21a3bc8b6cb0d8cf5409350a5c",
+   "etag": "\"50bd9655d6ee9491d7681d967f2eaec5dddb1e3ac80887602132786177573fa2\"",
+   "operations": 50
+  },
+  "finta": {
+   "spec": "https://api.finta.io/v1/openapi.json",
+   "sha256": "97ad98dd3b61cafac9295d28ccc6ddcb934750268763246cf791c9481685361a",
+   "etag": null,
+   "operations": 6
+  },
+  "fullenrich": {
+   "spec": "https://docs.fullenrich.com/api-reference/openapi.json",
+   "sha256": "a2d864f3a8db2389f1e6e2793b8e8ed06d270835c7a1deafccfa9df1f4e21742",
+   "etag": "W/\"~\"",
+   "operations": 3
+  },
+  "getty-images": {
+   "spec": "https://api.apis.guru/v2/specs/gettyimages.com/3/openapi.json",
+   "sha256": "660af4b8a10981b6c9191d38938046e3a3be8b7d8e585363f15ac1d87e50e871",
+   "etag": "\"984206c8d7c386a5bbb6b179d3d1ceb0\"",
+   "operations": 52
+  },
   "github": {
    "spec": "https://raw.githubusercontent.com/github/rest-api-description/main/descriptions/api.github.com/api.github.com.json",
    "sha256": "4fbdc7d0102276803a07f9880d14ed543ba1afc10a4c9fd7bd3782408d9abaf7",
    "etag": "\"bfb09f2785836f67c959743b1087467f10b76ea3f6dcb5e291e35213fc5f15f2\"",
    "operations": 1201
   },
+  "gitlab": {
+   "spec": "https://api.apis.guru/v2/specs/gitlab.com/v3/swagger.json",
+   "sha256": "273a4d76df784e5e48d323daae37d5dd4c88c9f0dff2167876e959a93d579561",
+   "etag": "\"fa97468371282bca235a9bb62909e030\"",
+   "operations": 358
+  },
+  "glyphic": {
+   "spec": "https://api.glyphic.ai/openapi.json",
+   "sha256": "af0c369e7360a4c5833c1b9762350cd6b0b425a94e6a01a46ba6eed95c91879a",
+   "etag": null,
+   "operations": 13
+  },
   "gmail": {
    "spec": "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest",
-   "sha256": "ffc158b593c7763a0d37cee5b4c765ee6517653db87b77ba81dd090940a5fff6",
+   "sha256": "b4d385c5a866c0ba6a5e3abdcc20ebe6d2d6b9a968b333b85373c6e260948cde",
    "etag": null,
    "operations": 79
+  },
+  "google-bigquery": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/bigquery/v2/openapi.json",
+   "sha256": "067fe7b1ec3279d0fb62ee5fadd080d98aced8d8d60a83292a951d9cd94a3c76",
+   "etag": "\"09655a1f3810595f826a0803fd4a406b\"",
+   "operations": 36
+  },
+  "google-calendar": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/calendar/v3/openapi.json",
+   "sha256": "f6488df876df850fb11e2eb4ba1fd55df8f0c48a5b78309e010482a249012268",
+   "etag": "\"82fdfc4fc8858b062c836352cb447de6\"",
+   "operations": 37
+  },
+  "google-calendar-mcp": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/calendar/v3/openapi.json",
+   "sha256": "f6488df876df850fb11e2eb4ba1fd55df8f0c48a5b78309e010482a249012268",
+   "etag": "\"82fdfc4fc8858b062c836352cb447de6\"",
+   "operations": 37
+  },
+  "google-chat": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/chat/v1/openapi.json",
+   "sha256": "88d074d3d065f80983e1584653c811d2a747e642117ae729edebd44ef91b6298",
+   "etag": "\"b82319dfdf2274f1529a4de9978434b9\"",
+   "operations": 8
+  },
+  "google-contacts": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/essentialcontacts/v1/openapi.json",
+   "sha256": "cb757b9285a0be66e0fc43f4be0489aa1d1f9da2edbb7f0a9d0505ed287dd06e",
+   "etag": "\"a190f98bf4fa5a0d149d8663d4e8e4e0\"",
+   "operations": 7
+  },
+  "google-docs": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/docs/v1/openapi.json",
+   "sha256": "5f0a0342d83146444a81cdf311c89608a651f48bc664658f9826397fbe0ac5da",
+   "etag": "\"997ef6f72bff21f85d46bd2f5c4c5a9d\"",
+   "operations": 3
+  },
+  "google-forms": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/forms/v1/openapi.json",
+   "sha256": "ce5abc7b7d316bf92096b36bd079c441e5d2b2b52159b87266d4b5bf90dd6c67",
+   "etag": "\"b6a95561e2c7bffbbe0dab69e5f49e0d\"",
+   "operations": 9
+  },
+  "google-health": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/healthcare/v1beta1/openapi.json",
+   "sha256": "1f07783f551343b7d8e6c5a16b0546dfa64c8e1e2b7553d468695014bf78c043",
+   "etag": "\"26182ab6985cd8fad54a64372e49bd98\"",
+   "operations": 72
+  },
+  "google-mail": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/gmail/v1/openapi.json",
+   "sha256": "5acbed6ac4384d93053cd4346b22c9babef10965b1aeb3396c4e5a647db14ecd",
+   "etag": "\"d4af77450be445e57193402c72dc0071\"",
+   "operations": 79
+  },
+  "google-play": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/displayvideo/v2/openapi.json",
+   "sha256": "9cb1e3fe266ab11f29778a73376ad2d814261530af49fd1587d86eaac18edcbe",
+   "etag": "\"c8d349d8d565eb92680d90e02a01d5ab\"",
+   "operations": 151
+  },
+  "google-search-console": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/kgsearch/v1/openapi.json",
+   "sha256": "448d1e28e33ff8e949675f0d37d25e980ecc5a3ddd0b828c5280e2ece668e6d0",
+   "etag": "\"02e4b283b1acf311651a75f5a706664a\"",
+   "operations": 1
+  },
+  "google-sheet": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/sheets/v4/openapi.json",
+   "sha256": "ac02b8944a49ddabc2352e6a7c0b0d8724bd42f1e77fd49f20924ebdf4fdf046",
+   "etag": "\"95fb9cd6b39f095ed68274120851e6f5\"",
+   "operations": 17
+  },
+  "google-slides": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/slides/v1/openapi.json",
+   "sha256": "8cf2b6064490ec81d3b0cd8478d995005171e9f46c9e2b38e15bcb5964187265",
+   "etag": "\"8039e3ec5f81f2d4c337db4739ceb8a2\"",
+   "operations": 5
+  },
+  "google-tasks": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/tasks/v1/openapi.json",
+   "sha256": "efe3c735588bb5b81f5eb97c9ce172b9b1d7f9f79ab39728fd6ce64eb6983c48",
+   "etag": "\"530db61d9e6d79eeeebbfe07a8e34358\"",
+   "operations": 14
+  },
+  "google-workspace-admin": {
+   "spec": "https://api.apis.guru/v2/specs/googleapis.com/admin/directory_v1/openapi.json",
+   "sha256": "5104f51f586de564f60ec8f92ad8168dabe08f7135862d6ae2b211935fb9e3d8",
+   "etag": "\"62f62ff40d6041a23b47476305b51a5d\"",
+   "operations": 122
+  },
+  "granola": {
+   "spec": "https://docs.granola.ai/api-reference/openapi.json",
+   "sha256": "28ceaf13105355c7f86c5a364362d76310ec179313b76d172049fbc740cb3786",
+   "etag": "W/\"Qhldb3a6gccnVxdx\"",
+   "operations": 9
+  },
+  "granola-mcp": {
+   "spec": "https://docs.granola.ai/api-reference/openapi.json",
+   "sha256": "28ceaf13105355c7f86c5a364362d76310ec179313b76d172049fbc740cb3786",
+   "etag": "W/\"Qhldb3a6gccnVxdx\"",
+   "operations": 9
+  },
+  "hail": {
+   "spec": "https://api.hail.so/openapi.json",
+   "sha256": "6b667eb19abde08e2d0315594290a1987d9adf68205bcbd88bf3f2a1727c4a5c",
+   "etag": null,
+   "operations": 54
+  },
+  "hail-mcp": {
+   "spec": "https://api.hail.so/openapi.json",
+   "sha256": "6b667eb19abde08e2d0315594290a1987d9adf68205bcbd88bf3f2a1727c4a5c",
+   "etag": null,
+   "operations": 54
+  },
+  "heygen": {
+   "spec": "https://docs.heygen.com/openapi.yaml",
+   "sha256": "45eb48b80814a5b5380b5bfa3ecb42124f2a62cc2ab03aae08c8a4ed691d57a0",
+   "etag": "W/\"EonvgSf9A-TBXt2C\"",
+   "operations": 53
+  },
+  "heymarket": {
+   "spec": "https://developers.heymarket.com/api-reference/openapi.json",
+   "sha256": "919eb7a392aafe9825cc9fc0e5b2174643803e1f825816a5a2cb95fb20a94aa9",
+   "etag": "W/\"~\"",
+   "operations": 3
+  },
+  "heyreach": {
+   "spec": "https://docs.heyreach.io/openapi.json",
+   "sha256": "cf5b6ef0897f9ff8dbb15786a916d67e1131f0188305d1bfd7a61a2fc139028d",
+   "etag": null,
+   "operations": 88
+  },
+  "ids-fulfillment": {
+   "spec": "https://api.idsfulfillment.com/swagger/v1/swagger.json",
+   "sha256": "3dd5de07443bdfe9026594a18e98cc1467478629f77a55c6339a4b7107349965",
+   "etag": null,
+   "operations": 18
+  },
+  "instagram": {
+   "spec": "https://api.apis.guru/v2/specs/instagram.com/1.0.0/swagger.json",
+   "sha256": "470f2d1d3d1ea34de4686bf3b71f45cf93df5f47449cd0d26336c6ac65621e36",
+   "etag": "\"c00eb30748b42ce6fc909f32268c849a\"",
+   "operations": 24
+  },
+  "instantly": {
+   "spec": "https://developer.instantly.ai/api-reference/openapi.json",
+   "sha256": "7915881e9c230ef967bacc798bc44e61fa835f08dc82c2781755811818afe58b",
+   "etag": "W/\"~\"",
+   "operations": 167
+  },
+  "jira": {
+   "spec": "https://api.apis.guru/v2/specs/atlassian.com/jira/1001.0.0-SNAPSHOT/openapi.json",
+   "sha256": "866a6ae6a8d5b292a7b2477f6e1fa95bffbf133c4f848b28dac8989a0c6e309a",
+   "etag": "\"53cffeb17b8d6296100d2e4c2b7b745c\"",
+   "operations": 474
+  },
+  "juniper-mist": {
+   "spec": "https://api.apis.guru/v2/specs/mist.com/0.36.1/openapi.json",
+   "sha256": "3400d5c7b18d0e36d728b1c57a0329e212222a6a808e9b327e8e37f731975210",
+   "etag": "\"94fb923a956d587f6c53aecc40edaae6\"",
+   "operations": 768
+  },
+  "kintone": {
+   "spec": "https://raw.githubusercontent.com/kintone/rest-api-spec/main/kintone/20250423000000/openapi.yaml",
+   "sha256": "f6972d81c1c473fc492b986102c1a6bf98eb86cd842decb2ca647a65d427c1c6",
+   "etag": "\"d8d96aa8b96898c78f7733f19715bfaf68f82f3e05b11bd3beb7cd158fde2f1a\"",
+   "operations": 0
+  },
+  "kintone-user-api": {
+   "spec": "https://raw.githubusercontent.com/kintone/rest-api-spec/main/kintone/20250423000000/openapi.yaml",
+   "sha256": "f6972d81c1c473fc492b986102c1a6bf98eb86cd842decb2ca647a65d427c1c6",
+   "etag": "\"d8d96aa8b96898c78f7733f19715bfaf68f82f3e05b11bd3beb7cd158fde2f1a\"",
+   "operations": 0
+  },
+  "klaviyo": {
+   "spec": "https://raw.githubusercontent.com/klaviyo/openapi/main/openapi/stable.json",
+   "sha256": "640e468927b6b20f4283ab7b65c7becea576a335e44d504f8d80cc62f2dd26b6",
+   "etag": "\"fd2109689191556b442c8ffb26ccd665dcaa6e8a8b42052f13fa07ca0d294b36\"",
+   "operations": 345
+  },
+  "leadmagic": {
+   "spec": "https://raw.githubusercontent.com/LeadMagic/leadmagic-openapi/main/leadmagic-openapi-3.1.json",
+   "sha256": "3bd16e890ee8a9731674cc321cc65e425f9ebd7727b18838da66da44979de937",
+   "etag": "\"fd8f738d98984b4151ffbaa9da10f5f67b0420f791c303f2f2f9f2452387b124\"",
+   "operations": 90
+  },
+  "listrak": {
+   "spec": "https://api.listrak.com/v1/openapi.json",
+   "sha256": "a8085df07c5c050ec1c30f899654f44a56b7e4070d368cb5154c50f70722de14",
+   "etag": null,
+   "operations": 3
+  },
+  "livetennisapi": {
+   "spec": "https://raw.githubusercontent.com/livetennisapi/openapi/main/openapi.yaml",
+   "sha256": "f32cd0db3b0ae92e0bc140615a5025b7b3f2cc1e81fe406f04e6e6ccb15dbf9e",
+   "etag": "\"d4a0db637ffd55c9d7d9feb9515f820eadb9be3efc2b016cad73261242ad3fe1\"",
+   "operations": 43
+  },
+  "loops-so": {
+   "spec": "https://loops.so/openapi.json",
+   "sha256": "6308509eb47e8aed682035b29d9ccfe21ec81a211484a237450e82ca11ccba84",
+   "etag": "W/\"600ea-1a0c47b0640\"",
+   "operations": 64
+  },
+  "lumos": {
+   "spec": "https://api.lumos.com/openapi.json",
+   "sha256": "a70516125abaca266fcf0a212c9cd3fae90951b97c2103de24721ce864b809ac",
+   "etag": null,
+   "operations": 89
+  },
+  "mandrill": {
+   "spec": "https://api.apis.guru/v2/specs/mandrillapp.com/1.0/swagger.json",
+   "sha256": "9a324373f3cc93745a2f76b0a8cff88645188d565ff9d3bf98285c87e6cc757b",
+   "etag": "\"8f732f1804d7df95607a89daa09a9ab2\"",
+   "operations": 90
+  },
+  "monday": {
+   "spec": "https://monday.com/openapi.json",
+   "sha256": "7dd6de55d1b1119810c4e4f592b8b51f497302e0543cf530494bfd35c2cd0d17",
+   "etag": "W/\"2299-1a0bd31fd08\"",
+   "operations": 2
+  },
+  "moneybird": {
+   "spec": "https://raw.githubusercontent.com/moneybird/openapi/main/openapi.json",
+   "sha256": "808148619ed91ae188bf426e0618b09d929d66a0a7e03e3d97e9a40747a808c0",
+   "etag": "\"01d9a0d7e1d31ffdbb7de17787524d1386fc6a11b4736068e10d210315fdf599\"",
+   "operations": 291
+  },
+  "neon": {
+   "spec": "https://neon.tech/openapi.json",
+   "sha256": "147ad72af735ce36aaf9aa08960bd94671473e6624b31492db661382ac61a2f3",
+   "etag": "\"4ffa6374f02e101a6623b674905cf814\"",
+   "operations": 163
+  },
+  "neon-mcp": {
+   "spec": "https://neon.tech/openapi.json",
+   "sha256": "147ad72af735ce36aaf9aa08960bd94671473e6624b31492db661382ac61a2f3",
+   "etag": "\"4ffa6374f02e101a6623b674905cf814\"",
+   "operations": 163
   },
   "notion": {
    "spec": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
@@ -25,17 +601,443 @@
    "etag": "\"45c1fc473583ec14732f106c28aad075\"",
    "operations": 13
   },
+  "notion-mcp": {
+   "spec": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
+   "sha256": "6df5889eac35a3f4eb99115eac7dd9b28b9d6040c664a742368ef7b68d45d983",
+   "etag": "\"45c1fc473583ec14732f106c28aad075\"",
+   "operations": 13
+  },
+  "notion-scim": {
+   "spec": "https://api.apis.guru/v2/specs/notion.com/1.0.0/openapi.json",
+   "sha256": "6df5889eac35a3f4eb99115eac7dd9b28b9d6040c664a742368ef7b68d45d983",
+   "etag": "\"45c1fc473583ec14732f106c28aad075\"",
+   "operations": 13
+  },
+  "nyne-ai": {
+   "spec": "https://api.nyne.ai/.well-known/openapi.json",
+   "sha256": "592108b66031864e01c5d3eaa3430f15ff643ea3e687de629e3ba6a6cc98da1a",
+   "etag": "\"e08-640ebc8fb8329\"",
+   "operations": 1
+  },
+  "ocean-io": {
+   "spec": "https://api.ocean.io/openapi.json",
+   "sha256": "09dea4c3eda08d3b2ad9a4bf8fa5970667e235330b9d27e3c8ac703f40abfb0c",
+   "etag": null,
+   "operations": 24
+  },
+  "okta": {
+   "spec": "https://raw.githubusercontent.com/okta/okta-management-openapi-spec/master/dist/legacy-v1-swagger/spec.json",
+   "sha256": "7e5249c3057164d1330e2429e149bbdab403ba5d1712e8ae268f49bdc15df5e1",
+   "etag": "\"b91cfe242bb2c046a5cd0d4bff37e796b8416389c24c908ec605f73dc5cae6ea\"",
+   "operations": 341
+  },
+  "okta-preview": {
+   "spec": "https://raw.githubusercontent.com/okta/okta-management-openapi-spec/master/dist/legacy-v1-swagger/spec.json",
+   "sha256": "7e5249c3057164d1330e2429e149bbdab403ba5d1712e8ae268f49bdc15df5e1",
+   "etag": "\"b91cfe242bb2c046a5cd0d4bff37e796b8416389c24c908ec605f73dc5cae6ea\"",
+   "operations": 341
+  },
+  "open-hands": {
+   "spec": "https://docs.all-hands.dev/openapi.json",
+   "sha256": "4daa2bb4dbf1ea1fe4ea21c3a597722c8e6ec522bed41c875dc864760f1058a3",
+   "etag": "W/\"~\"",
+   "operations": 43
+  },
+  "openai": {
+   "spec": "https://raw.githubusercontent.com/openai/openai-openapi/main/openapi.json",
+   "sha256": "9b3fe0902e71ad60004949c1b4bef39b79503c39506466c283a613f9fa65aea9",
+   "etag": "\"c7ed16ed2dc31bfba2c2a1efa24b3b2b7ed1dc35fd1b3218879dedfbed455e5b\"",
+   "operations": 337
+  },
+  "openai-admin": {
+   "spec": "https://raw.githubusercontent.com/openai/openai-openapi/main/openapi.json",
+   "sha256": "9b3fe0902e71ad60004949c1b4bef39b79503c39506466c283a613f9fa65aea9",
+   "etag": "\"c7ed16ed2dc31bfba2c2a1efa24b3b2b7ed1dc35fd1b3218879dedfbed455e5b\"",
+   "operations": 337
+  },
+  "ordinal": {
+   "spec": "https://docs.tryordinal.com/api/openapi.json",
+   "sha256": "130324ebc97a018fb006c4f418fbdb74d0f893eef5919bc1660b3b9ac9359972",
+   "etag": "W/\"2z1b_3saKS-XG8PK\"",
+   "operations": 67
+  },
+  "outline": {
+   "spec": "https://raw.githubusercontent.com/outline/openapi/main/spec3.json",
+   "sha256": "a75820943fbbc34b1fde0ba455bd1efe68da1ff81ca654016109e1f8c235a245",
+   "etag": "\"4b1abaefc9eb1e55d215dd94d33731f70446c667bcfa3fec6f819ca8a699b092\"",
+   "operations": 154
+  },
+  "pagerduty": {
+   "spec": "https://raw.githubusercontent.com/PagerDuty/api-schema/main/reference/REST/openapiv3.json",
+   "sha256": "c1bb3b5bc38f668346b7d13b418ee0e61d2c07a080193d30f07c2d70e2f21f96",
+   "etag": "\"0f4665c19537e297cf50735be283e5a4b25d0b5252ad5c876c0534182f816db8\"",
+   "operations": 451
+  },
+  "pandadoc": {
+   "spec": "https://raw.githubusercontent.com/PandaDoc/pandadoc-openapi-specification/main/openapi.json",
+   "sha256": "8d1f9f081df2befcf454e814a780adb74369116f76c77cb1690d2c5c83f7c739",
+   "etag": "\"8c2776f01c99b65a83bcb79301c523c36c57bb65a6cbeb0d4c5e5f0fecc3f3d2\"",
+   "operations": 128
+  },
+  "pandadoc-mcp": {
+   "spec": "https://raw.githubusercontent.com/PandaDoc/pandadoc-openapi-specification/main/openapi.json",
+   "sha256": "8d1f9f081df2befcf454e814a780adb74369116f76c77cb1690d2c5c83f7c739",
+   "etag": "\"8c2776f01c99b65a83bcb79301c523c36c57bb65a6cbeb0d4c5e5f0fecc3f3d2\"",
+   "operations": 128
+  },
+  "pandadoc-mcp-eu": {
+   "spec": "https://raw.githubusercontent.com/PandaDoc/pandadoc-openapi-specification/main/openapi.json",
+   "sha256": "8d1f9f081df2befcf454e814a780adb74369116f76c77cb1690d2c5c83f7c739",
+   "etag": "\"8c2776f01c99b65a83bcb79301c523c36c57bb65a6cbeb0d4c5e5f0fecc3f3d2\"",
+   "operations": 128
+  },
+  "paylocity": {
+   "spec": "https://api.apis.guru/v2/specs/paylocity.com/2/openapi.json",
+   "sha256": "b1b16d319803a3e6aa51efaf2d38f8956684f9a0fa5bd7986404685534ddbe6b",
+   "etag": "\"7cc138061ff8151b055f649ce2428396\"",
+   "operations": 30
+  },
+  "paylocity-nextgen": {
+   "spec": "https://api.apis.guru/v2/specs/paylocity.com/2/openapi.json",
+   "sha256": "b1b16d319803a3e6aa51efaf2d38f8956684f9a0fa5bd7986404685534ddbe6b",
+   "etag": "\"7cc138061ff8151b055f649ce2428396\"",
+   "operations": 30
+  },
+  "paypal": {
+   "spec": "https://raw.githubusercontent.com/paypal/paypal-rest-api-specifications/main/openapi/checkout_orders_v2.json",
+   "sha256": "14db0b9e0d7440e38595b823724599edc7ab8b7a2b41ac442463e81b7d477fd6",
+   "etag": "\"f213ea3dbb242ec9e6823e5f3e4f744960027a28c81c21eb9f224677067dcf43\"",
+   "operations": 9
+  },
+  "pendo": {
+   "spec": "https://api.apis.guru/v2/specs/pendo.io/1.0.0/swagger.json",
+   "sha256": "e13f7b86c01bd276491430c5d05ac9287d99206cbf3a14d8b634e5d63c481cd8",
+   "etag": "\"440a15b7c9d869eafae926f6fbc224a9\"",
+   "operations": 31
+  },
+  "perplexity": {
+   "spec": "https://docs.perplexity.ai/openapi.json",
+   "sha256": "4855b1adf451a84026ee7fd686c7c7f1f2e4a8062c1e5c9a74886d8a46beebcd",
+   "etag": "W/\"wBZk3hxTCqJY5JKs\"",
+   "operations": 22
+  },
+  "pinterest": {
+   "spec": "https://raw.githubusercontent.com/pinterest/api-description/main/v5/openapi.json",
+   "sha256": "b698c180678a616bf1d635b374c086ba9cb2484117035c12f2b906eebe92a3e5",
+   "etag": "\"3022d26a2896cd91254a2638370bab992eeafaa54ea6c0e2e419b3a138545d49\"",
+   "operations": 266
+  },
+  "pleo": {
+   "spec": "https://developers.pleo.io/openapi.json",
+   "sha256": "0e31831c99bcb64eccfed74d0ad94165ba5a3ef31fcdd3cef3bafc4bbe652e71",
+   "etag": "W/\"UuiilCOMmC9ytc__\"",
+   "operations": 5
+  },
+  "posthog": {
+   "spec": "https://posthog.com/openapi.json",
+   "sha256": "74e3e571c9abdac1860302d38e3756acd8503b23e088424b841e382179a6ff71",
+   "etag": "\"562689f3fa05b52702415089a196a009\"",
+   "operations": 2164
+  },
+  "qualtrics": {
+   "spec": "https://api.apis.guru/v2/specs/qualtrics.com/0.2/openapi.json",
+   "sha256": "c54a207a0f68a899901d0d6744bbd5f7e3d76bc5093a9629e6cdb2b65d324751",
+   "etag": "\"3f4e422e5cf51e0bb3cc27749b14f076\"",
+   "operations": 8
+  },
+  "ramp": {
+   "spec": "https://ramp.com/openapi.json",
+   "sha256": "3058a5f3f33a3ee753742ab4e6d20fa66236a01e4e6ce761f52696f728b8c09f",
+   "etag": "W/\"246c7b14b9072e68eedc432d93e4fbba\"",
+   "operations": 2
+  },
+  "razorpay": {
+   "spec": "https://razorpay.com/openapi.json",
+   "sha256": "824ca9e6faef0f08da4670d219931a842a68e6c88a4015160e5f4815a5e6a9a4",
+   "etag": "W/\"623f5-1a0aa9dcb18\"",
+   "operations": 136
+  },
+  "render-mcp": {
+   "spec": "https://render.com/openapi.json",
+   "sha256": "3e6992eb80cbdb364dae131f9a79b852f4613464ab949cf15de15cecae8251b2",
+   "etag": null,
+   "operations": 14
+  },
+  "resend": {
+   "spec": "https://resend.com/openapi.json",
+   "sha256": "95bcbad452fed0381d6d35e24b6f370076a733fbeea2515026bca21113e62712",
+   "etag": "\"9ecf5320048742e26682874fa967b06a\"",
+   "operations": 79
+  },
+  "retell-ai": {
+   "spec": "https://docs.retellai.com/openapi.yaml",
+   "sha256": "9ca27c4bf78637caf958a90fd65daa608e93a25b28bf4731311538b0062738f4",
+   "etag": "W/\"zNMBQctarzzOnA4e\"",
+   "operations": 108
+  },
+  "ring-central": {
+   "spec": "https://raw.githubusercontent.com/ringcentral/ringcentral-api-specifications/master/ringcentral.spec.2019110220191017-1140.openapi3.json",
+   "sha256": "e5fa47f8ac02a620b8f53176ae56d150e49eb7925082563ab663f124dcba55d4",
+   "etag": "\"e151f6fd1e6b4826aef405691501180586c69fb96ca8fdbc81830fa7493ffa01\"",
+   "operations": 294
+  },
+  "rock-gym-pro": {
+   "spec": "https://api.rockgympro.com/openapi.yaml",
+   "sha256": "b22c2e6ea0bcc07a0e912de423d70bbecf72a49b7e50fd97ff7df2a330db2741",
+   "etag": null,
+   "operations": 26
+  },
+  "salescaptain": {
+   "spec": "https://docs.salescaptain.com/api-reference/openapi.json",
+   "sha256": "d3ac9f6b3496f2f42cb29b91c9ba02cca793fceeca0d9093df44ddf5716811ba",
+   "etag": "W/\"wVElTbhoWYALOfoz\"",
+   "operations": 26
+  },
+  "salesloft": {
+   "spec": "https://api.apis.guru/v2/specs/salesloft.com/v2/openapi.json",
+   "sha256": "91df97d3694f6f9eb27d93c2e5d5b25f05791161f5e17063cc9b0c7bbd92bc60",
+   "etag": "\"efaa8199ad64c9cebc5c5bfbd62f39aa\"",
+   "operations": 118
+  },
+  "scrollstash-mcp": {
+   "spec": "https://api.scrollstash.com/v1/openapi.json",
+   "sha256": "9a0bf441ea3190c10afab14f728dab9f3c2b51cf342f77411d00b7c18a8d6414",
+   "etag": null,
+   "operations": 58
+  },
+  "sendgrid": {
+   "spec": "https://api.apis.guru/v2/specs/sendgrid.com/1.0.0/openapi.json",
+   "sha256": "80aaf7926007ffa486bf9d2d5d8b1337ec8a361d465a0f17dbe784258f8b2a1f",
+   "etag": "\"d14f476eff23c528ed9c8cd6ff1d976b\"",
+   "operations": 334
+  },
+  "shippo": {
+   "spec": "https://docs.goshippo.com/api-reference/openapi.json",
+   "sha256": "919eb7a392aafe9825cc9fc0e5b2174643803e1f825816a5a2cb95fb20a94aa9",
+   "etag": "W/\"qod-rUUZlwCqwKqx\"",
+   "operations": 3
+  },
+  "shipstation": {
+   "spec": "https://api.apis.guru/v2/specs/shipstation.com/1.0.0/openapi.json",
+   "sha256": "c9579288ee372c4f93f7772bb4d28cb1fe95433e0a65051c6b2850d4b8cd23ec",
+   "etag": "\"b610548c5682c9bdfc93c85e2ae048ee\"",
+   "operations": 2
+  },
+  "shipstation-v2": {
+   "spec": "https://api.apis.guru/v2/specs/shipstation.com/1.0.0/openapi.json",
+   "sha256": "c9579288ee372c4f93f7772bb4d28cb1fe95433e0a65051c6b2850d4b8cd23ec",
+   "etag": "\"b610548c5682c9bdfc93c85e2ae048ee\"",
+   "operations": 2
+  },
+  "shopvox": {
+   "spec": "https://developers.shopvox.com/openapi.yaml",
+   "sha256": "5fc46c606df08129de64db611b6f4149ea631a616d46ad186128e781cdd7f11b",
+   "etag": "\"6aacfdd3-1b82f\"",
+   "operations": 42
+  },
+  "shortcut": {
+   "spec": "https://shortcut.com/openapi.json",
+   "sha256": "321c345bc57b29452556d934a06e8735dd057fd230a4efcbee4a855bc245db28",
+   "etag": null,
+   "operations": 239
+  },
+  "signnow": {
+   "spec": "https://docs.signnow.com/api/openapi.json",
+   "sha256": "a5935b6fe12a939df8518b7d9a7bc95919052cdb0deb2a42be9676e3d790483b",
+   "etag": null,
+   "operations": 353
+  },
   "slack": {
    "spec": "https://api.slack.com/specs/openapi/v2/slack_web.json",
    "sha256": "1f41356634b6636d1cd64ba68b72aa12b76989bde483c334f6069e2828e9f2d5",
    "etag": null,
    "operations": 170
   },
+  "slack-mcp": {
+   "spec": "https://api.apis.guru/v2/specs/slack.com/1.7.0/openapi.json",
+   "sha256": "a623a38a3be7e3b6bc47e74401b509d4e044025b4ce8eefe611034c7bca1077a",
+   "etag": "\"9c5ef2cc4545dd244eec2ada97273aa4\"",
+   "operations": 174
+  },
+  "smartlead-ai": {
+   "spec": "https://api.smartlead.ai/api-reference/openapi.json",
+   "sha256": "919eb7a392aafe9825cc9fc0e5b2174643803e1f825816a5a2cb95fb20a94aa9",
+   "etag": "W/\"~\"",
+   "operations": 3
+  },
+  "spotify": {
+   "spec": "https://api.apis.guru/v2/specs/spotify.com/1.0.0/openapi.json",
+   "sha256": "3a652300be23d23f2efc67b03738851be4f99949b05f0fc7f465504dee075594",
+   "etag": "\"f558cdb4384b2f5b3c5a4e623b419076\"",
+   "operations": 88
+  },
+  "squareup": {
+   "spec": "https://api.apis.guru/v2/specs/squareup.com/2.0/openapi.json",
+   "sha256": "1001c992f9e5f68f71356390c160044a555afd036d0b6c5509f5ab492ad56c43",
+   "etag": "\"78038e6b8240cbc24803eebf4406ee2a\"",
+   "operations": 200
+  },
+  "stackexchange": {
+   "spec": "https://api.apis.guru/v2/specs/stackexchange.com/2.0/openapi.json",
+   "sha256": "b10f4129a635123583ed6565c7ea31b813aa0c733114ce06d787e9a7d6c82099",
+   "etag": "\"dde1f22ad74737cd31ee4b0373b2fc3f\"",
+   "operations": 124
+  },
+  "streak": {
+   "spec": "https://api.streak.com/api/openapi.json",
+   "sha256": "e55610732a6c4bb373797bac8d167a2fa65f9eb105139e05c3338ba7793475c5",
+   "etag": null,
+   "operations": 58
+  },
   "stripe": {
    "spec": "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.json",
    "sha256": "f0e0fc8fffbffda45bf5f3df59846443c1d47a3cfcbfae232eedf4743124ebee",
    "etag": "\"9e5daf02bb9412c2152c7888bb13b30c6154ece4dd6540d35efaca758d60d1ec\"",
    "operations": 588
+  },
+  "stripe-express": {
+   "spec": "https://raw.githubusercontent.com/stripe/openapi/master/preview/openapi.private_preview.spec3.sdk.yaml",
+   "sha256": "30dc9b4a8ce901d78efcb9b5c61496fad1249412a9560408d3acfd7bb68ffb10",
+   "etag": "\"250508f3472e7af9c737b5af71182bd6753696cc4364e716508f0c12f8673009\"",
+   "operations": 1015
+  },
+  "supabase-mcp": {
+   "spec": "https://supabase.com/openapi.json",
+   "sha256": "5b11a7fd32ed31bac59170c02e14f1619d0f0218a78b7fab3be41d3f2d69b600",
+   "etag": "W/\"5586c-SZqyA2lcm1mEnQZovJWAVHAwU2c\"",
+   "operations": 167
+  },
+  "survey-monkey": {
+   "spec": "https://surveymonkey.com/openapi.json",
+   "sha256": "670299e95183944a6655ed600f80faca129942144e6e15a3e0980899a83564c1",
+   "etag": null,
+   "operations": 4
+  },
+  "tally": {
+   "spec": "https://developers.tally.so/api-reference/openapi.json",
+   "sha256": "28b98ea5fb21692746d85f8bb8110c74d3826c6e15d33dd0ccf1aa0e92f1db7b",
+   "etag": "W/\"15TmsM20LNiLP_HO\"",
+   "operations": 38
+  },
+  "telegram": {
+   "spec": "https://api.apis.guru/v2/specs/telegram.org/5.0.0/openapi.json",
+   "sha256": "cebab51778f0341333daafbe124bf7944197ca8c09a6b4740f72f1ae84c6c087",
+   "etag": "\"3ecf00981c6ad4ea047f69439de63f33\"",
+   "operations": 74
+  },
+  "the-swarm": {
+   "spec": "https://docs.theswarm.com/openapi.json",
+   "sha256": "40af11e74d757fb0c9a48a09c2e5e954c09c659ea239febcd51df52df0763ad9",
+   "etag": "W/\"gkH1Ubf9xGxyOHRu\"",
+   "operations": 26
+  },
+  "theirstack": {
+   "spec": "https://api.theirstack.com/openapi.json",
+   "sha256": "7e99d027acf1bf6b1873b301e611d9d5102960eae1ff02aa4a8a9844203e0224",
+   "etag": null,
+   "operations": 58
+  },
+  "ticktick": {
+   "spec": "https://ticktick.com/openapi.yaml",
+   "sha256": "374ecf8d643ca35edf9fbe420be57c7a4379016bc526e383931ffaef367200b5",
+   "etag": null,
+   "operations": 24
+  },
+  "todoist": {
+   "spec": "https://developer.todoist.com/openapi.json",
+   "sha256": "ac5abcb1297d6be0709a8f5d7799d0384148dcf2ae7bf719f72f7ccd3e7e1d5f",
+   "etag": null,
+   "operations": 108
+  },
+  "trading-economics": {
+   "spec": "https://api.tradingeconomics.com/swagger/v1/swagger.json",
+   "sha256": "9e8608c78c7c1203daefd593440045c1d03f5929117b3df388a9492dcc443980",
+   "etag": null,
+   "operations": 168
+  },
+  "trello": {
+   "spec": "https://api.apis.guru/v2/specs/trello.com/1.0/openapi.json",
+   "sha256": "a95a221416a14321bbac3a570dbabaff9ebb83c8707021a9d0496921a856f0b4",
+   "etag": "\"646fc4606341c30af796e63771fdf097\"",
+   "operations": 324
+  },
+  "trello-scim": {
+   "spec": "https://api.apis.guru/v2/specs/trello.com/1.0/openapi.json",
+   "sha256": "a95a221416a14321bbac3a570dbabaff9ebb83c8707021a9d0496921a856f0b4",
+   "etag": "\"646fc4606341c30af796e63771fdf097\"",
+   "operations": 324
+  },
+  "twilio": {
+   "spec": "https://api.apis.guru/v2/specs/twilio.com/api/1.42.0/openapi.json",
+   "sha256": "da7415f66ddf68ca230abda171c15ad08e32c290045f9865f6a4460b0adc58aa",
+   "etag": "\"f822d817d8b87fa88c9422f9df3a2eda\"",
+   "operations": 199
+  },
+  "vercel": {
+   "spec": "https://api.apis.guru/v2/specs/vercel.com/0.0.1/openapi.json",
+   "sha256": "0f92aad225ff03a997b1127e7692ba2ad30a8560797945146bcc47139ca6491b",
+   "etag": "\"aa221ea748cc0057e20640bb0ae83363\"",
+   "operations": 112
+  },
+  "vercel-mcp": {
+   "spec": "https://api.apis.guru/v2/specs/vercel.com/0.0.1/openapi.json",
+   "sha256": "0f92aad225ff03a997b1127e7692ba2ad30a8560797945146bcc47139ca6491b",
+   "etag": "\"aa221ea748cc0057e20640bb0ae83363\"",
+   "operations": 112
+  },
+  "vimeo": {
+   "spec": "https://api.apis.guru/v2/specs/vimeo.com/3.4/openapi.json",
+   "sha256": "903a5ccd13df36451e3f3855c686cbc4f379b0a5767cbdb47421634af9a7fcc9",
+   "etag": "\"8e550cbbb34c44d63b3d770fcca13714\"",
+   "operations": 326
+  },
+  "webflow": {
+   "spec": "https://raw.githubusercontent.com/webflow/openapi-spec/main/openapi/v2.yml",
+   "sha256": "a765cfec420d5f9c3dc4fe5af81396594a27547a591ba6c25ac1248e64a967f7",
+   "etag": "\"ed5361f0c4cbf0aed857f1f64b000b4de765f78be686f76379d846398c789063\"",
+   "operations": 125
+  },
+  "wiza": {
+   "spec": "https://docs.wiza.co/api-reference/openapi.json",
+   "sha256": "919eb7a392aafe9825cc9fc0e5b2174643803e1f825816a5a2cb95fb20a94aa9",
+   "etag": "W/\"~\"",
+   "operations": 3
+  },
+  "workos": {
+   "spec": "https://raw.githubusercontent.com/workos/openapi-spec/main/spec/open-api-spec.yaml",
+   "sha256": "4364fb71d28ca9c04717162a60f436314a2688e644948e688b9eae9acb8f564e",
+   "etag": "\"fc437a6225b90ef5f1031569e275a66e71203511a5450386860d947c7eb5e544\"",
+   "operations": 261
+  },
+  "xai": {
+   "spec": "https://docs.x.ai/openapi.json",
+   "sha256": "04a3a2d03a8279009e24e16710d4f54931867b30702aaf837fc0cb7d66838967",
+   "etag": null,
+   "operations": 43
+  },
+  "xero": {
+   "spec": "https://api.apis.guru/v2/specs/xero.com/xero_files/2.9.4/openapi.json",
+   "sha256": "704c1712373cb9cfeee8e6d9af8dbcbad4e6806f226eb817e5e0485f5c22d76d",
+   "etag": "\"701e0836e7f62bef3591b6574b7b2674\"",
+   "operations": 16
+  },
+  "zapier-nla": {
+   "spec": "https://api.apis.guru/v2/specs/zapier.com/nla/1.0.0/openapi.json",
+   "sha256": "4e7cae2613c35e18c6028b9f8d0aeab1c9331f630cdc793e420a571a22b4bbb7",
+   "etag": "\"ee7d7f12804ec9961d995f0eb531d15a\"",
+   "operations": 4
+  },
+  "zoom": {
+   "spec": "https://api.apis.guru/v2/specs/zoom.us/2.0.0/openapi.json",
+   "sha256": "cdfd27047bb0e4f7038135605d9aa4e72eeb17d86f2195b5f92f09f76191ce18",
+   "etag": "\"a643ea16dd98dd9f879e2e6063098600\"",
+   "operations": 369
+  },
+  "zuora": {
+   "spec": "https://api.apis.guru/v2/specs/zuora.com/2021-08-20/openapi.json",
+   "sha256": "823d97fec116859779c59009f4952fc13214821d6c4726374502157b93bfebac",
+   "etag": "\"f9272e8003c6bee5c1d8a18ab89813ad\"",
+   "operations": 428
   }
  }
 }

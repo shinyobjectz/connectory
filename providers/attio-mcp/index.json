@@ -1,0 +1,3614 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "attio-mcp",
+ "source": "https://attio.com/openapi.json",
+ "operations": [
+  {
+   "slug": "attio-mcp.delete_v2_activities_activity",
+   "name": "Delete an activity",
+   "description": "Deletes a single activity by its `activity_id` or slug, along with all of its records. Archived activities can also be deleted. This endpoint should be used with caution as it has the potential to remove a large amount of potentially valuable data. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_configuration:read-write`, `activity",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     }
+    },
+    "required": [
+     "activity"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/activities/{activity}",
+    "path": [
+     "activity"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_activities_activity_records_record_id",
+   "name": "Delete an activity record",
+   "description": "Deletes a single activity record by its `record_id`. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_record:read-write`, `activity_configuration:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the activity record to delete."
+     }
+    },
+    "required": [
+     "activity",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records/{record_id}",
+    "path": [
+     "activity",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_comments_comment_id",
+   "name": "Delete a comment",
+   "description": "Deletes a comment by ID. If deleting a comment at the head of a thread, all messages in the thread are also deleted. A workspace-level access token may delete any comment. A user-level access token may only delete comments authored by the member it acts for. Required scopes: `comment:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "The ID of the comment to delete."
+     }
+    },
+    "required": [
+     "comment_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/comments/{comment_id}",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_files_file_id",
+   "name": "Delete a file",
+   "description": "Delete a single file by ID. Deleting a folder will delete all of its descendants. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `file:read-write`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "A UUID which identifies the file to delete."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/files/{file_id}",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_lists_list_entries_entry_id",
+   "name": "Delete a list entry",
+   "description": "Deletes a single list entry by its `entry_id`. Required scopes: `list_entry:read-write`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug identifying the list the entry is in."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID identifying the entry to delete."
+     }
+    },
+    "required": [
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}",
+    "path": [
+     "list",
+     "entry_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_meetings_meeting_id",
+   "name": "Delete a meeting",
+   "description": "Deletes a single meeting by ID. Meetings created by calendar sync cannot be deleted through the API. Delete the underlying calendar event, or disconnect the calendar, instead. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting to delete."
+     }
+    },
+    "required": [
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_meetings_meeting_id_call_recordings_call_recording_id",
+   "name": "Delete call recording",
+   "description": "Deletes the specified call recording. This will remove the call recording and all associated data. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `call_recording:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "The ID of the meeting this call recording belongs to."
+     },
+     "call_recording_id": {
+      "type": "string",
+      "description": "The ID of the call recording to delete."
+     }
+    },
+    "required": [
+     "call_recording_id",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}/call_recordings/{call_recording_id}",
+    "path": [
+     "meeting_id",
+     "call_recording_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_notes_note_id",
+   "name": "Delete a note",
+   "description": "Delete a single note by ID. Required scopes: `note:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "note_id": {
+      "type": "string",
+      "description": "A UUID which identifies the note to delete."
+     }
+    },
+    "required": [
+     "note_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/notes/{note_id}",
+    "path": [
+     "note_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_objects_object",
+   "name": "Delete an object",
+   "description": "Deletes a single object by its `object_id` or slug, along with all of its records. Only custom objects can be deleted; system objects, such as people and companies, cannot. This endpoint should be used with caution as it has the potential to remove a large amount of potentially valuable data. Required scopes: `object_configuration:read-write`, `record_permission:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object."
+     }
+    },
+    "required": [
+     "object"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/objects/{object}",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_objects_object_records_record_id",
+   "name": "Delete a record",
+   "description": "Deletes a single record (e.g. a company or person) by ID. Required scopes: `object_configuration:read`, `record_permission:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "The UUID or slug of the object the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "The UUID of the record to delete."
+     }
+    },
+    "required": [
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}",
+    "path": [
+     "object",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_tasks_task_id",
+   "name": "Delete a task",
+   "description": "Delete a task by ID. Required scopes: `task:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task to delete."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.delete_v2_webhooks_webhook_id",
+   "name": "Delete a webhook",
+   "description": "Delete a webhook by ID. Required scopes: `webhook:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "A UUID identifying the webhook to delete."
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://mcp.attio.com/v2/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_activities",
+   "name": "List activities",
+   "description": "Lists all system-defined and user-defined activities in your workspace. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of activities to return. Must be between 1 and 1000. Defaults to 100."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor used to fetch the next page of activities. Responses with more activities will include a cursor for you to use here. If not provided, the first page will be returned."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/activities",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_activities_activity",
+   "name": "Get an activity",
+   "description": "Gets a single activity by its `activity_id` or slug. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     }
+    },
+    "required": [
+     "activity"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/activities/{activity}",
+    "path": [
+     "activity"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_activities_activity_records_record_id",
+   "name": "Get an activity record",
+   "description": "Gets a single activity record by its `record_id`. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_record:read`, `activity_configuration:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the activity record."
+     }
+    },
+    "required": [
+     "activity",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records/{record_id}",
+    "path": [
+     "activity",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_comments_comment_id",
+   "name": "Get a comment",
+   "description": "Get a single comment by ID. To view comments on records, you will need the `object_configuration:read` and `record_permission:read` scopes. To view comments on list entries, you will need the `list_configuration:read` and `list_entry:read` scopes. Required scopes: `comment:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "comment_id": {
+      "type": "string",
+      "description": "A UUID which identifies the comment."
+     }
+    },
+    "required": [
+     "comment_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/comments/{comment_id}",
+    "path": [
+     "comment_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_emails",
+   "name": "List emails",
+   "description": "Lists email metadata from your workspace's connected mailboxes. Email content is never returned. At least one of `linked_object` with `linked_record_ids`, `participants`, or `domain` must be supplied; there is no way to list every email. When several are supplied they are combined with OR: emails matching any of the filters are returned. > **Requesting access:** this endpoint is enabled per worksp",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of emails to return. Must be between 1 and 50. Defaults to 25."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor used to fetch the next page of emails. Responses with more emails will include a cursor for you to use here. If not provided, the first page will be returned."
+     },
+     "linked_object": {
+      "type": "string",
+      "description": "The object to filter emails by. Must be the slug or ID of either the people or companies object. If provided, linked_record_ids must also be provided."
+     },
+     "linked_record_ids": {
+      "type": "string",
+      "description": "A comma-separated list of up to 10 record IDs to filter emails by. All IDs must belong to the object given in `linked_object`, so filtering by both people and companies requires two requests. If provided, linked_object must also be provided."
+     },
+     "participants": {
+      "type": "string",
+      "description": "A comma-separated list of up to 10 email addresses. Emails that include at least one of them as a participant are returned."
+     },
+     "domain": {
+      "type": "string",
+      "description": "A domain to filter emails by. Emails with at least one participant at this domain are returned."
+     },
+     "sent_after": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Only return emails sent after this timestamp. `sent_after` is exclusive, so an email sent at exactly this timestamp is not returned."
+     },
+     "sent_before": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Only return emails sent before this timestamp. `sent_before` is exclusive, so an email sent at exactly this timestamp is not returned."
+     },
+     "exclude_automated_participants": {
+      "type": "boolean",
+      "description": "If `true`, an email is only returned when at least one participant outside your workspace looks like a person rather than an automated sender (`notifications@`, `no-reply@`, meeting notetakers, \u2026). Defaults to `false`, which returns every email regardless of who sent it."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/emails",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "linked_object",
+     "linked_record_ids",
+     "participants",
+     "domain",
+     "sent_after",
+     "sent_before",
+     "exclude_automated_participants"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_files",
+   "name": "List files",
+   "description": "Lists internal files, externally connected files and folders for a specific record. Use the `object` and `record_id` query parameters to specify the record. Optional query parameters may be provided to filter results by storage provider or parent folder. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `ob",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "The object slug or ID."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "The record ID for the specific record whose files you want to list."
+     },
+     "storage_provider": {
+      "type": "string",
+      "description": "Filter results by storage provider.",
+      "enum": [
+       "attio",
+       "dropbox",
+       "box",
+       "google-drive",
+       "microsoft-onedrive"
+      ]
+     },
+     "parent_folder_id": {
+      "type": "string",
+      "description": "Filter by parent folder ID. Each file entry has provided optioanl parent_folder_id that can be used to filter results by folder. When omitted, entries at all nesting levels are returned."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of files to return. Must be between 1 and 200. Defaults to 50."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor used to fetch the next page of files. Responses with more files will include a cursor for you to use here. If not provided, the first page will be returned."
+     }
+    },
+    "required": [
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/files",
+    "path": [],
+    "query": [
+     "object",
+     "record_id",
+     "storage_provider",
+     "parent_folder_id",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_files_file_id",
+   "name": "Get a file",
+   "description": "Get a single file entry by ID. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `file:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": "A UUID which identifies the file entry."
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/files/{file_id}",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_files_file_id_download",
+   "name": "Download a file",
+   "description": "Downloads a file by redirecting to a signed URL. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `object_configuration:read`, `record_permission:read`, `file:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "file_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/files/{file_id}/download",
+    "path": [
+     "file_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_lists",
+   "name": "List all lists",
+   "description": "List all lists that your access token has access to. lists are returned in the order that they are sorted in the sidebar. Required scopes: `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_lists_list",
+   "name": "Get a list",
+   "description": "Gets a single list in your workspace that your access token has access to. Required scopes: `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug to identify the list."
+     }
+    },
+    "required": [
+     "list"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/lists/{list}",
+    "path": [
+     "list"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_lists_list_entries_entry_id",
+   "name": "Get a list entry",
+   "description": "Gets a single list entry by its `entry_id`. Required scopes: `list_entry:read`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug identifying the list the entry is in."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID identifying the entry."
+     }
+    },
+    "required": [
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}",
+    "path": [
+     "list",
+     "entry_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_lists_list_entries_entry_id_attributes_attribute_values",
+   "name": "List attribute values for a list entry",
+   "description": "Gets all values for a given attribute on a list entry. This endpoint has the ability to return all historic values using the `show_historic` query param. Historic values are sorted from oldest to newest (by `active_from`). Required scopes: `list_entry:read`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug identifying the list the entry is in."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID identifying the entry."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to query values on."
+     },
+     "show_historic": {
+      "type": "boolean",
+      "description": "If `true`, the endpoint will return all historic values for the attribute. If `false`, the endpoint will only return the currently active value(s). Defaults to `false`. Can only be set to `true` for attributes which support historic data; the endpoint will throw if set to `true` for non-historic attributes."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "attribute",
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}/attributes/{attribute}/values",
+    "path": [
+     "list",
+     "entry_id",
+     "attribute"
+    ],
+    "query": [
+     "show_historic",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_lists_list_views",
+   "name": "List views for list",
+   "description": "Lists saved views for a list. Results are ordered by view ID (`id.view_id` ascending). Required scopes: `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug to identify the list."
+     },
+     "show_archived": {
+      "type": "boolean",
+      "description": "`true` to include archived views. See our [archiving guide](/docs/archiving-vs-deleting) for more information on archiving."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of views to return. Must be between 1 and 1000. Defaults to 500."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor from a previous response's `pagination.next_cursor`. Omit for the first page."
+     }
+    },
+    "required": [
+     "list"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/lists/{list}/views",
+    "path": [
+     "list"
+    ],
+    "query": [
+     "show_archived",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_meetings",
+   "name": "List meetings",
+   "description": "Lists all meetings in the workspace using a deterministic sort order. When both the `participants` and `linked_record_id` filters are supplied, they are combined with OR: meetings that match either filter are returned. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `record_permission:read",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of meetings to return. Must be between 1 and 200. Defaults to 50."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor used to fetch the next page of meetings. Responses with more meetings will include a cursor for you to use here. If not provided, the first page will be returned."
+     },
+     "linked_object": {
+      "type": "string",
+      "description": "The object to filter meetings by. Must be a valid object slug or ID. If provided, linked_record_id must also be provided."
+     },
+     "linked_record_id": {
+      "type": "string",
+      "description": "Used to filter meetings to only those values that include a specific linked record. Must be a valid record ID. If provided, linked_object must also be provided. When combined with `participants`, the filters are combined with OR: meetings matching either filter are returned."
+     },
+     "participants": {
+      "type": "string",
+      "description": "A comma-separated list of emails to filter meetings by. If provided, meetings will be filtered to only include meetings that include at least one of the provided emails as participants. When combined with `linked_record_id`, the filters are combined with OR: meetings matching either filter are returned."
+     },
+     "sort": {
+      "type": "string",
+      "description": "The order in which to sort the meetings. Defaults to start_asc.",
+      "enum": [
+       "start_asc",
+       "start_desc"
+      ]
+     },
+     "ends_from": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Use `ends_from` to filter meetings to only those that end after the specified timestamp. `ends_from` is inclusive, meaning that meetings that end at the exact timestamp will be included in results. When evaluating all-day meetings, we filter results from the perspective of a specific timezone (see `timezone` for more information)."
+     },
+     "starts_before": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Use `starts_before` to filter meetings to only those that start before the specified timestamp. `starts_before` is exclusive, meaning that meetings that start at the exact timestamp will not be included in results. When evaluating all-day meetings, we filter results from the perspective of a specific timezone (see `timezone` for more information)."
+     },
+     "timezone": {
+      "type": "string",
+      "description": "The timezone to use when filtering meetings using `ends_from` and `starts_before`. Defaults to UTC. This property has no effect for non-all-day meetings."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/meetings",
+    "path": [],
+    "query": [
+     "limit",
+     "cursor",
+     "linked_object",
+     "linked_record_id",
+     "participants",
+     "sort",
+     "ends_from",
+     "starts_before",
+     "timezone"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_meetings_meeting_id",
+   "name": "Get a meeting",
+   "description": "Get a single meeting by ID. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting."
+     }
+    },
+    "required": [
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_meetings_meeting_id_call_recordings",
+   "name": "List call recordings",
+   "description": "List all call recordings for a meeting. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `call_recording:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "The ID of the meeting to list call recordings for."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. Defaults to 50 with a maximum of 200."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor for pagination. Use the `next_cursor` from the previous response to get the next page of results."
+     }
+    },
+    "required": [
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}/call_recordings",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_meetings_meeting_id_call_recordings_call_recording_id",
+   "name": "Get call recording",
+   "description": "Get a single call recording by ID. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `call_recording:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "The ID of the meeting this recording belongs to."
+     },
+     "call_recording_id": {
+      "type": "string",
+      "description": "The ID of the call recording to retrieve."
+     }
+    },
+    "required": [
+     "call_recording_id",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}/call_recordings/{call_recording_id}",
+    "path": [
+     "meeting_id",
+     "call_recording_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_meetings_meeting_id_call_recordings_call_recording_id_transcript",
+   "name": "Deprecated: get call transcript",
+   "description": "Deprecated: prefer using `GET /v2/meetings/:meeting_id/call_recordings/:call_recording_id` to get the transcript for a call recording. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read`, `call_recording:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "The ID of the meeting."
+     },
+     "call_recording_id": {
+      "type": "string",
+      "description": "The ID of the call recording to get the transcript for."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor for pagination through transcript segments. Use the `next_cursor` from the previous response to get the next page of speech segments within this transcript."
+     }
+    },
+    "required": [
+     "call_recording_id",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}/call_recordings/{call_recording_id}/transcript",
+    "path": [
+     "meeting_id",
+     "call_recording_id"
+    ],
+    "query": [
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_notes",
+   "name": "List notes",
+   "description": "List notes for all records or for a specific record. This endpoint is temporarily rate limited to 10 requests per second. Required scopes: `note:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. The default is `10` and the maximum is `50`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. The default is `0`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "parent_object": {
+      "type": "string",
+      "description": "The slug or ID of the parent object the notes belong to."
+     },
+     "parent_record_id": {
+      "type": "string",
+      "description": "The ID of the parent record the notes belong to."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/notes",
+    "path": [],
+    "query": [
+     "limit",
+     "offset",
+     "parent_object",
+     "parent_record_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_notes_note_id",
+   "name": "Get a note",
+   "description": "Get a single note by ID. Required scopes: `note:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "note_id": {
+      "type": "string",
+      "description": "A UUID which identifies the note."
+     }
+    },
+    "required": [
+     "note_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/notes/{note_id}",
+    "path": [
+     "note_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects",
+   "name": "List objects",
+   "description": "Lists all system-defined and user-defined objects in your workspace. Required scopes: `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects_object",
+   "name": "Get an object",
+   "description": "Gets a single object by its `object_id` or slug. Required scopes: `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object."
+     }
+    },
+    "required": [
+     "object"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects/{object}",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects_object_records_record_id",
+   "name": "Get a record",
+   "description": "Gets a single person, company or other record by its `record_id`. Required scopes: `record_permission:read`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug identifying the object that the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the record."
+     }
+    },
+    "required": [
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}",
+    "path": [
+     "object",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects_object_records_record_id_attributes_attribute_values",
+   "name": "List record attribute values",
+   "description": "Gets all values for a given attribute on a record. Historic values can be queried using the `show_historic` query param. Historic values cannot be queried on COMINT (Communication Intelligence) or enriched attributes and the endpoint will return a 400 error if this is attempted. Historic values are sorted from oldest to newest (by `active_from`). Some attributes are subject to billing status and w",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID to identify the record you want to query values on."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to query values on."
+     },
+     "show_historic": {
+      "type": "boolean",
+      "description": "If `true`, the endpoint will return all historic values for the attribute. If `false`, the endpoint will only return the currently active value(s). Defaults to `false`. Cannot be set to `true` for COMINT attributes or enriched attributes on people/company objects."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "attribute",
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}/attributes/{attribute}/values",
+    "path": [
+     "object",
+     "record_id",
+     "attribute"
+    ],
+    "query": [
+     "show_historic",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects_object_records_record_id_entries",
+   "name": "List record entries",
+   "description": "List all entries, across all lists, for which this record is the parent. The response includes metadata for each entry, including `entry_id`, `list_id`, and `created_at`, but does not include entry values. To retrieve the values, call [Get a list entry](/rest-api/endpoint-reference/entries/get-a-list-entry) separately for each entry. Required scopes: `record_permission:read`, `object_configuration",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug identifying the object that the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the record."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. The default is `100` and the maximum is `1000`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. The default is `0`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}/entries",
+    "path": [
+     "object",
+     "record_id"
+    ],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_objects_object_views",
+   "name": "List views for object",
+   "description": "Lists saved views for an object. Results are ordered by view ID (`id.view_id` ascending). Required scopes: `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object."
+     },
+     "show_archived": {
+      "type": "boolean",
+      "description": "`true` to include archived views. See our [archiving guide](/docs/archiving-vs-deleting) for more information on archiving."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of views to return. Must be between 1 and 1000. Defaults to 500."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A pagination cursor from a previous response's `pagination.next_cursor`. Omit for the first page."
+     }
+    },
+    "required": [
+     "object"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/objects/{object}/views",
+    "path": [
+     "object"
+    ],
+    "query": [
+     "show_archived",
+     "limit",
+     "cursor"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_self",
+   "name": "Identify",
+   "description": "Identify the current access token, the workspace it is linked to, and any permissions it has. Every kind of Attio access token can be introspected: - **Workspace access tokens**, created from a workspace's settings. These have no OAuth client, so `client_id` and `aud` contain the workspace access token's own ID. - **OAuth access tokens**, granted to an app through the OAuth 2.0 authorization code ",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/self",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_target_identifier_attributes",
+   "name": "List attributes",
+   "description": "Lists all attributes defined on a specific object or list. Attributes are returned in the order that they are sorted by in the UI. When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attributes are on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the attributes belong to."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "show_archived": {
+      "type": "boolean",
+      "description": "Whether archived attributes should be included in the results. See the [full guide to archiving here](/docs/archiving-vs-deleting)."
+     }
+    },
+    "required": [
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes",
+    "path": [
+     "target",
+     "identifier"
+    ],
+    "query": [
+     "limit",
+     "offset",
+     "show_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_target_identifier_attributes_attribute",
+   "name": "Get an attribute",
+   "description": "Gets information about a single attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute."
+     }
+    },
+    "required": [
+     "attribute",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_target_identifier_attributes_attribute_options",
+   "name": "List select options",
+   "description": "Lists all select options for a particular attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the select attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to list select options on."
+     },
+     "show_archived": {
+      "type": "boolean",
+      "description": "`true` if you want the results to include archived select options."
+     }
+    },
+    "required": [
+     "attribute",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/options",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [
+     "show_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_target_identifier_attributes_attribute_statuses",
+   "name": "List statuses",
+   "description": "Lists all statuses for a particular status attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read`. When `target` is `lists`, the required scopes are `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "lists",
+       "objects"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the status attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to list statuses on."
+     },
+     "show_archived": {
+      "type": "boolean",
+      "description": "`true` if you want the results to include archived statuses. See our [archiving guide](/docs/archiving-vs-deleting) for more information on archiving."
+     }
+    },
+    "required": [
+     "attribute",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/statuses",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [
+     "show_archived"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_tasks",
+   "name": "List tasks",
+   "description": "List all tasks. Results are sorted by creation date, from oldest to newest. Required scopes: `task:read`, `object_configuration:read`, `record_permission:read`, `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "sort": {
+      "type": "string",
+      "description": "Optionally sort the results. \"created_at:asc\" returns oldest results first, \"created_at:desc\" returns the newest results first. \"completed_at:asc\" and \"completed_at:desc\" sort by completion time. With \"completed_at:asc\", incomplete tasks (no completion date) appear first, followed by completed tasks oldest-first. With \"completed_at:desc\", completed tasks appear first (newest-first), followed by in",
+      "enum": [
+       "created_at:asc",
+       "created_at:desc",
+       "completed_at:asc",
+       "completed_at:desc"
+      ]
+     },
+     "linked_object": {
+      "type": "string",
+      "description": "Pass a value to this parameter to filter results to only those tasks that contain the specified record in the `linked_records` property of the task. This parameter should identify the object that the linked record belongs to. For example, if filtering to tasks that link to a specific person record, this parameter should be `people`. If provided, `linked_record_id` must also be provided."
+     },
+     "linked_record_id": {
+      "type": "string",
+      "description": "Pass a value to this parameter to filter results to only those tasks that contain the specified record in the `linked_records` property of the task. This parameter should contain the record ID of the linked record. If provided, `linked_object` must also be provided."
+     },
+     "assignee": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Filter tasks by workspace member assignees. Workspace members can be referenced by either their email address or ID. Pass an empty value or the string `null` to find tasks with no assignee."
+     },
+     "is_completed": {
+      "type": "boolean",
+      "description": "Filter tasks by whether they have been completed. By default, both completed and non-completed tasks are returned. Specify `true` to only return completed tasks, or `false` to only return non-completed tasks."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/tasks",
+    "path": [],
+    "query": [
+     "limit",
+     "offset",
+     "sort",
+     "linked_object",
+     "linked_record_id",
+     "assignee",
+     "is_completed"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_tasks_task_id",
+   "name": "Get a task",
+   "description": "Get a single task by ID. Required scopes: `task:read`, `object_configuration:read`, `record_permission:read`, `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task."
+     }
+    },
+    "required": [
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_threads",
+   "name": "List threads",
+   "description": "List threads of comments on a record or list entry. Each thread in the response includes at most `80` replies, starting with the oldest. When a thread holds more, its `has_more_comments` is `true`; use [Get a thread and its comments](/rest-api/endpoint-reference/threads/get-a-thread-and-its-comments) to page through every comment in that thread. To view threads on records, you will need the `objec",
+   "input": {
+    "type": "object",
+    "properties": {
+     "record_id": {
+      "type": "string",
+      "description": "Use this parameter to filter to threads on a specific record. Must be passed with `object`."
+     },
+     "object": {
+      "type": "string",
+      "description": "Use this parameter to filter to threads on a specific record. Must be passed with `record_id`. Accepts either a slug or an ID."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "Use this parameter to filter to threads on a specific entry. Must be passed with `list`."
+     },
+     "list": {
+      "type": "string",
+      "description": "Use this parameter to filter to threads on a specific entry. Must be passed with `entry_id`. Accepts either a slug or an ID."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return. The default is `10` and the maximum is `50`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning. The default is `0`. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/threads",
+    "path": [],
+    "query": [
+     "record_id",
+     "object",
+     "entry_id",
+     "list",
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_threads_thread_id",
+   "name": "Get a thread and its comments",
+   "description": "Get a thread and page through its comments, oldest first, starting with the comment that opened it. Comments are paginated: at most `250` are returned per request. Keep paginating for as long as a `next_cursor` is returned. Supply `created_after` to return only the comments created after a timestamp, which is useful when polling a thread for new replies. The comment that opened the thread is retur",
+   "input": {
+    "type": "object",
+    "properties": {
+     "thread_id": {
+      "type": "string",
+      "description": "A UUID which identifies the thread."
+     },
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of comments to return. Defaults to `250`, which is also the maximum."
+     },
+     "cursor": {
+      "type": "string",
+      "description": "A cursor for pagination. Use the `next_cursor` from the previous response to get the next page of comments."
+     },
+     "created_after": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Only return comments created after this timestamp."
+     }
+    },
+    "required": [
+     "thread_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/threads/{thread_id}",
+    "path": [
+     "thread_id"
+    ],
+    "query": [
+     "limit",
+     "cursor",
+     "created_after"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_webhooks",
+   "name": "List webhooks",
+   "description": "Get all of the webhooks in your workspace. Required scopes: `webhook:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "limit": {
+      "type": "integer",
+      "description": "The maximum number of results to return, between 10 and 100, defaults to 10. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "integer",
+      "description": "The number of results to skip over before returning, defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/webhooks",
+    "path": [],
+    "query": [
+     "limit",
+     "offset"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_webhooks_webhook_id",
+   "name": "Get a webhook",
+   "description": "Get a single webhook. Required scopes: `webhook:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "A UUID which identifies the webhook."
+     }
+    },
+    "required": [
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_workspace_members",
+   "name": "List workspace members",
+   "description": "Lists all workspace members in the workspace. Required scopes: `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/workspace_members",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.get_v2_workspace_members_workspace_member_id",
+   "name": "Get a workspace member",
+   "description": "Gets a single workspace member by ID. Required scopes: `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "workspace_member_id": {
+      "type": "string",
+      "description": "A UUID to identify the workspace member."
+     }
+    },
+    "required": [
+     "workspace_member_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://mcp.attio.com/v2/workspace_members/{workspace_member_id}",
+    "path": [
+     "workspace_member_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_activities_activity",
+   "name": "Update an activity",
+   "description": "Updates a single activity by its `activity_id` or slug. The schema an activity extends is fixed after creation, so `extends` cannot be changed. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "activity",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/activities/{activity}",
+    "path": [
+     "activity"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_activities_activity_records_record_id",
+   "name": "Update an activity record (append multiselect values)",
+   "description": "Use this endpoint to update activity records by `record_id`. If the update payload includes multiselect attributes, the values supplied will be created and prepended to the list of values that already exist (if any). Use the `PUT` endpoint to overwrite or remove multiselect attribute values. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the activity record to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "activity",
+     "data",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records/{record_id}",
+    "path": [
+     "activity",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_lists_list",
+   "name": "Update a list",
+   "description": "Updates an existing list. Permissions for the list are controlled with the `workspace_access` and `workspace_member_access` parameters. Please note that lists must have either `workspace_access` set to `\"full-access\"` or one or more element of `workspace_member_access` with a `\"full-access\"` level. It is also possible to receive a `403` billing error if your workspace is not on a plan that support",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug to identify the list to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/lists/{list}",
+    "path": [
+     "list"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_lists_list_entries_entry_id",
+   "name": "Update a list entry (append multiselect values)",
+   "description": "Use this endpoint to update list entries by `entry_id`. If the update payload includes multiselect attributes, the values supplied will be created and prepended to the list of values that already exist (if any). Use the `PUT` endpoint to overwrite or remove multiselect attribute values. Required scopes: `list_entry:read-write`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug of the list the list entry belongs to."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID of the list entry to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}",
+    "path": [
+     "list",
+     "entry_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_meetings_meeting_id",
+   "name": "Update a meeting (append linked records)",
+   "description": "Links records to a meeting. The records supplied are added to the meeting's existing linked records, and records which are already linked are ignored. Use the `PUT` endpoint to replace or remove linked records. No other meeting fields can be updated. Attio automatically links the meeting participants' companies to the meeting; this behavior is asynchronous. This endpoint is in beta. We will aim to",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_notes_note_id",
+   "name": "Update a note",
+   "description": "Updates an existing note's title and/or content. Only the fields you provide are changed, and any field you omit is left untouched. Providing `content` replaces the note's entire content. A note's parent record cannot be changed. Required scopes: `note:read-write`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "note_id": {
+      "type": "string",
+      "description": "A UUID which identifies the note to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "note_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/notes/{note_id}",
+    "path": [
+     "note_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_objects_object",
+   "name": "Update an object",
+   "description": "Updates a single object. The object to be updated is identified by its `object_id`. Required scopes: `object_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "object"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/objects/{object}",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_objects_object_records_record_id",
+   "name": "Update a record (append multiselect values)",
+   "description": "Use this endpoint to update people, companies, and other records by `record_id`. If the update payload includes multiselect attributes, the values supplied will be created and prepended to the list of values that already exist (if any). Use the `PUT` endpoint to overwrite or remove multiselect attribute values. Required scopes: `record_permission:read-write`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug of the object the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID of the record to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}",
+    "path": [
+     "object",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_target_identifier_attributes_attribute",
+   "name": "Update an attribute",
+   "description": "Updates a single attribute on a given object or list. When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_target_identifier_attributes_attribute_options_option",
+   "name": "Update a select option",
+   "description": "Updates a select option on an attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the select attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the select attribute."
+     },
+     "option": {
+      "type": "string",
+      "description": "A UUID or select option title to identify the select option you would like to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "identifier",
+     "option",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/options/{option}",
+    "path": [
+     "target",
+     "identifier",
+     "attribute",
+     "option"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_target_identifier_attributes_attribute_statuses_status",
+   "name": "Update a status",
+   "description": "Update a status on an status attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "lists",
+       "objects"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the status attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute to update the status on."
+     },
+     "status": {
+      "type": "string",
+      "description": "A UUID or status title to identify the status to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "identifier",
+     "status",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/statuses/{status}",
+    "path": [
+     "target",
+     "identifier",
+     "attribute",
+     "status"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_tasks_task_id",
+   "name": "Update a task",
+   "description": "Updates an existing task by `task_id`. At present, only the `deadline_at`, `is_completed`, `linked_records`, and `assignees` fields can be updated. Required scopes: `task:read-write`, `object_configuration:read`, `record_permission:read`, `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "task_id": {
+      "type": "string",
+      "description": "The ID of the task to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "task_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/tasks/{task_id}",
+    "path": [
+     "task_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.patch_v2_webhooks_webhook_id",
+   "name": "Update a webhook",
+   "description": "Update a webhook and associated subscriptions. Each combination of target URL, event type and filter must be unique within your workspace; duplicates are rejected with a 409. Changing the target URL re-checks the webhook's existing subscriptions against the new URL. Required scopes: `webhook:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "webhook_id": {
+      "type": "string",
+      "description": "A UUID which identifies the webhook."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "webhook_id"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://mcp.attio.com/v2/webhooks/{webhook_id}",
+    "path": [
+     "webhook_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_activities",
+   "name": "Create an activity",
+   "description": "Creates a new custom activity in your workspace. Your workspace must have the custom activities billing feature enabled. Public apps may instead create activities with the integration activities billing feature. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/activities",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_activities_activity_records",
+   "name": "Create an activity record",
+   "description": "Creates a new activity record, for example one specific phone call. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_record:read-write`, `activity_configuration:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "activity",
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records",
+    "path": [
+     "activity"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_activities_activity_records_query",
+   "name": "List activity records",
+   "description": "Lists activity records, with the option to filter and sort results. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required scopes: `activity_record:read`, `activity_configuration:read`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "filter": {
+      "type": "object",
+      "description": "An object used to filter results to a subset of results. Cannot be used together with `filter_view_id`. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "An object used to sort results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "limit": {
+      "type": "number",
+      "description": "The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "number",
+      "description": "The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "activity"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records/query",
+    "path": [
+     "activity"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter",
+     "sorts",
+     "limit",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_comments",
+   "name": "Create a comment",
+   "description": "Creates a new comment related to an existing thread, record or entry. To create comments on records, you will need the `object_configuration:read` and `record_permission:read` scopes. To create comments on list entries, you will need the `list_configuration:read` and `list_entry:read` scopes. Required scopes: `comment:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/comments",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_files",
+   "name": "Create a folder",
+   "description": "Creates a native folder entry or a connected file/folder entry on an object record. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `file:read-write`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/files",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_files_upload",
+   "name": "Upload a file",
+   "description": "Uploads a file to native Attio storage for a record. Send multipart/form-data with a single binary field named `file` together with the body fields `object`, `record_id`, and optional `parent_folder_id`. Maximum file size is 50 MB. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `file:read-write`, `object",
+   "input": {
+    "type": "object",
+    "properties": {
+     "file": {
+      "type": "string",
+      "description": "The file to upload."
+     },
+     "object": {
+      "type": "string",
+      "description": "The object slug or ID."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "The ID of the record to upload the file to."
+     },
+     "parent_folder_id": {
+      "type": "string",
+      "description": "Optional parent folder ID. Omit to upload to the root folder."
+     }
+    },
+    "required": [
+     "file",
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/files/upload",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "file",
+     "object",
+     "record_id",
+     "parent_folder_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_lists",
+   "name": "Create a list",
+   "description": "Creates a new list. Once you have your list, add attributes to it using the [Create attribute](/rest-api/endpoint-reference/attributes/create-an-attribute) API, and add records to it using the [Add records to list](/rest-api/endpoint-reference/entries/create-an-entry-add-record-to-list) API. New lists must specify which records can be added with the `parent_object` parameter which accepts either a",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/lists",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_lists_list_entries",
+   "name": "Create an entry (add record to list)",
+   "description": "Adds a record to a list as a new list entry. This endpoint will throw on conflicts of unique attributes. Multiple list entries are allowed for the same parent record Required scopes: `list_entry:read-write`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "The UUID or slug identifying the list that the created list entry should belong to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries",
+    "path": [
+     "list"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_lists_list_entries_query",
+   "name": "List entries",
+   "description": "Lists entries in a given list, with the option to filter and sort results. Required scopes: `list_entry:read`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug to identify the list to retrieve entries from."
+     },
+     "filter": {
+      "type": "object",
+      "description": "An object used to filter results to a subset of results. Cannot be used together with `filter_view_id`. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "filter_view_id": {
+      "type": "string",
+      "description": "UUID of a saved view on this object or list. When set, results are filtered using that view's filter configuration. Cannot be used together with `filter`. Note: sorts, limits, and offsets are applied independently and are not taken from the view. All attributes are returned regardless of which attributes are visible in the view."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "An object used to sort results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "limit": {
+      "type": "number",
+      "description": "The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "number",
+      "description": "The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "list"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/query",
+    "path": [
+     "list"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter",
+     "filter_view_id",
+     "sorts",
+     "limit",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_meetings",
+   "name": "Create a meeting",
+   "description": "Creates a new meeting. [See here](/rest-api/guides/syncing-meetings) for guidance on avoiding duplicate meetings. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `meeting:read-write`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/meetings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_meetings_meeting_id_call_recordings",
+   "name": "Create call recording",
+   "description": "Create a call recording for a meeting. This endpoint is rate limited to 1 request per second. A `transcript` should always be provided \u2014 it is technically optional for backwards compatibility, but a call recording created without one will be missing summaries and other transcript-derived features. `video_url` is optional, and a transcript-only call recording (with no video) is fully supported. Thi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "The ID of the meeting this recording belongs to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}/call_recordings",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_notes",
+   "name": "Create a note",
+   "description": "Creates a new note for a given record. Required scopes: `note:read-write`, `object_configuration:read`, `record_permission:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/notes",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_objects",
+   "name": "Create an object",
+   "description": "Creates a new custom object in your workspace. Required scopes: `object_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/objects",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_objects_object_records",
+   "name": "Create a record",
+   "description": "Creates a new person, company or other record. This endpoint will throw on conflicts of unique attributes. If you would prefer to update records on conflicts, please use the [Upsert record endpoint](/rest-api/endpoint-reference/records/upsert-a-record) instead. Required scopes: `record_permission:read-write`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "The UUID or slug identifying the object the created record should belong to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "object"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_objects_object_records_merge",
+   "name": "Merge two records",
+   "description": "Merges two records of the same object together. Where both records have a value for the same attribute, the primary record's value takes precedence. Merging produces a **new** record, so the `new_record_id` returned will match neither of the records supplied in the request. Both of the original records are marked as merged and can no longer be read or written. Large merges are completed asynchrono",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug of the object both records belong to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "object"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/merge",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_objects_object_records_query",
+   "name": "List records",
+   "description": "Lists people, company or other records, with the option to filter and sort results. Required scopes: `record_permission:read`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object to list records for."
+     },
+     "filter": {
+      "type": "object",
+      "description": "An object used to filter results to a subset of results. Cannot be used together with `filter_view_id`. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "filter_view_id": {
+      "type": "string",
+      "description": "UUID of a saved view on this object or list. When set, results are filtered using that view's filter configuration. Cannot be used together with `filter`. Note: sorts, limits, and offsets are applied independently and are not taken from the view. All attributes are returned regardless of which attributes are visible in the view."
+     },
+     "sorts": {
+      "type": "array",
+      "description": "An object used to sort results. See the [full guide to filtering and sorting here](/rest-api/guides/filtering-and-sorting)."
+     },
+     "limit": {
+      "type": "number",
+      "description": "The maximum number of results to return. Defaults to 500. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     },
+     "offset": {
+      "type": "number",
+      "description": "The number of results to skip over before returning. Defaults to 0. See the [full guide to pagination here](/rest-api/guides/pagination)."
+     }
+    },
+    "required": [
+     "object"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/query",
+    "path": [
+     "object"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "filter",
+     "filter_view_id",
+     "sorts",
+     "limit",
+     "offset"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_objects_records_search",
+   "name": "Search records",
+   "description": "The search records endpoint provides a convenient way to fuzzy search for records across one or more objects. The matching strategy employed in this endpoint follows the in-product strategy and will match names, domains, emails, phone numbers and social handles on people and companies, and labels on all other objects. Please note, results returned from this endpoint are eventually consistent. For ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": "Query string to search for. An empty string returns a default set of results."
+     },
+     "limit": {
+      "type": "number",
+      "description": "The maximum number of results to return. Defaults to 25."
+     },
+     "objects": {
+      "type": "array",
+      "description": "Specifies which objects to filter results by. At least one object must be specified. Accepts object slugs or IDs."
+     },
+     "request_as": {
+      "type": "string",
+      "description": "Specifies the context in which to perform the search. Use 'workspace' to return all search results or specify a workspace member to limit results to what one specific person in your workspace can see."
+     }
+    },
+    "required": [
+     "objects",
+     "query",
+     "request_as"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/objects/records/search",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "query",
+     "limit",
+     "objects",
+     "request_as"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_sequences_unsubscribed_emails",
+   "name": "Add emails to the unsubscribe list",
+   "description": "Adds email addresses to the workspace's sequence unsubscribe list. Email addresses on the unsubscribe list cannot be enrolled in any sequence, and any of their active sequence runs are exited. Email addresses that are already on the unsubscribe list are ignored, so this endpoint is safe to retry. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we r",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/sequences/unsubscribed_emails",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_sql",
+   "name": "Query sql",
+   "description": "Query records and lists with SQL. Your workspace must be on the Enterprise plan in order to access this endpoint. This endpoint is in beta. We will aim to avoid breaking changes, but small updates may be made as we roll out to more users. Required scopes: `record_permission:read`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sql": {
+      "type": "string",
+      "description": "The SQL query to be executed."
+     }
+    },
+    "required": [
+     "sql"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/sql",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "sql"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_target_identifier_attributes",
+   "name": "Create an attribute",
+   "description": "Creates a new attribute on either an object or a list. For record-reference attributes, you can optionally create a bidirectional relationship by providing a `relationship` object. This will create two entangled attributes: one on the specified object and a reverse attribute on the related object. To create an attribute on an object, you must also have the `object_configuration:read-write` scope. ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is to be created on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the attribute belongs to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes",
+    "path": [
+     "target",
+     "identifier"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_target_identifier_attributes_attribute_options",
+   "name": "Create a select option",
+   "description": "Adds a select option to a select attribute on an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "objects",
+       "lists"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the select attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute to create a select option on."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/options",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_target_identifier_attributes_attribute_statuses",
+   "name": "Create a status",
+   "description": "Add a new status to a status attribute on either an object or a list. When `target` is `objects`, the required scopes are `object_configuration:read-write`. When `target` is `lists`, the required scopes are `list_configuration:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "target": {
+      "type": "string",
+      "description": "Whether the attribute is on an object or a list.",
+      "enum": [
+       "lists",
+       "objects"
+      ]
+     },
+     "identifier": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object or list the status attribute belongs to."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute the status will belong to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "identifier",
+     "target"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/{target}/{identifier}/attributes/{attribute}/statuses",
+    "path": [
+     "target",
+     "identifier",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_tasks",
+   "name": "Create a task",
+   "description": "Creates a new task. At present, tasks can only be created from plaintext without record reference formatting. Required scopes: `task:read-write`, `object_configuration:read`, `record_permission:read`, `user_management:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/tasks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.post_v2_webhooks",
+   "name": "Create a webhook",
+   "description": "Create a webhook and associated subscriptions. Each combination of target URL, event type and filter must be unique within your workspace; duplicates are rejected with a 409. Required scopes: `webhook:read-write`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://mcp.attio.com/v2/webhooks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_activities_activity_records_record_id",
+   "name": "Update an activity record (overwrite multiselect values)",
+   "description": "Use this endpoint to update activity records by `record_id`. If the update payload includes multiselect attributes, the values supplied will overwrite/remove the list of values that already exist (if any). Use the `PATCH` endpoint to append multiselect values without removing those that already exist. This endpoint is in alpha and may be subject to breaking changes as we gather feedback. Required ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "activity": {
+      "type": "string",
+      "description": "A UUID or slug to identify the activity."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID identifying the activity record to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "activity",
+     "data",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/activities/{activity}/records/{record_id}",
+    "path": [
+     "activity",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_lists_list_entries",
+   "name": "Upsert a list entry by parent",
+   "description": "Use this endpoint to create or update a list entry for a given parent record. If an entry with the specified parent record is found, that entry will be updated. If no such entry is found, a new entry will be created instead. If there are multiple entries with the same parent record, this endpoint with return the \"MULTIPLE_MATCH_RESULTS\" error. When writing to multi-select attributes, all values wi",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug of the list the list entry belongs to."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries",
+    "path": [
+     "list"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_lists_list_entries_entry_id",
+   "name": "Update a list entry (overwrite multiselect values)",
+   "description": "Use this endpoint to update list entries by `entry_id`. If the update payload includes multiselect attributes, the values supplied will overwrite/remove the list of values that already exist (if any). Use the `PATCH` endpoint to add multiselect attribute values without removing those value that already exist. Required scopes: `list_entry:read-write`, `list_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug of the list the list entry belongs to."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID of the list entry to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}",
+    "path": [
+     "list",
+     "entry_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_lists_list_entries_entry_id_attributes_attribute_values",
+   "name": "Write list entry attribute values",
+   "description": "Replaces the entire value history of a single attribute on a list entry, primarily to migrate historic data from an external source. Every value the attribute currently has is destroyed, including values not present in the request, and the supplied values are written with the `active_from` and `active_until` timestamps given. Values may be supplied in any order and gaps between intervals are allow",
+   "input": {
+    "type": "object",
+    "properties": {
+     "list": {
+      "type": "string",
+      "description": "A UUID or slug identifying the list the entry is in."
+     },
+     "entry_id": {
+      "type": "string",
+      "description": "A UUID identifying the entry."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to query values on."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "entry_id",
+     "list"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/lists/{list}/entries/{entry_id}/attributes/{attribute}/values",
+    "path": [
+     "list",
+     "entry_id",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_meetings_meeting_id",
+   "name": "Update a meeting (overwrite linked records)",
+   "description": "Replaces a meeting's linked records with the records supplied. Any record which is currently linked and is not in the request is unlinked, including records which Attio linked automatically from the meeting's participants. Passing an empty array unlinks every record. Use the `PATCH` endpoint to add linked records without removing the records which already exist. No other meeting fields can be upda",
+   "input": {
+    "type": "object",
+    "properties": {
+     "meeting_id": {
+      "type": "string",
+      "description": "A UUID which identifies the meeting to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "meeting_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/meetings/{meeting_id}",
+    "path": [
+     "meeting_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_objects_object_records",
+   "name": "Upsert a record",
+   "description": "Use this endpoint to create or update people, companies and other records. A matching attribute is used to search for existing records. If a record is found with the same value for the matching attribute, that record will be updated. If no record with the same value for the matching attribute is found, a new record will be created instead. If you would like to avoid matching, please use the [Creat",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object the record should belong to."
+     },
+     "matching_attribute": {
+      "type": "string",
+      "description": "The ID or slug of the attribute to use to check if a record already exists. The attribute must be unique."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "matching_attribute",
+     "object"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records",
+    "path": [
+     "object"
+    ],
+    "query": [
+     "matching_attribute"
+    ],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_objects_object_records_record_id",
+   "name": "Update a record (overwrite multiselect values)",
+   "description": "Use this endpoint to update people, companies, and other records by `record_id`. If the update payload includes multiselect attributes, the values supplied will overwrite/remove the list of values that already exist (if any). Use the `PATCH` endpoint to append multiselect values without removing those that already exist. Required scopes: `record_permission:read-write`, `object_configuration:read`.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug of the object the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID of the record to update."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "data",
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}",
+    "path": [
+     "object",
+     "record_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "attio-mcp.put_v2_objects_object_records_record_id_attributes_attribute_values",
+   "name": "Write record attribute values",
+   "description": "Replaces the entire value history of a single attribute on a record, primarily to migrate historic data from an external source. Every value the attribute currently has is destroyed, including values not present in the request, and the supplied values are written with the `active_from` and `active_until` timestamps given. Values may be supplied in any order and gaps between intervals are allowed. ",
+   "input": {
+    "type": "object",
+    "properties": {
+     "object": {
+      "type": "string",
+      "description": "A UUID or slug to identify the object the record belongs to."
+     },
+     "record_id": {
+      "type": "string",
+      "description": "A UUID to identify the record you want to query values on."
+     },
+     "attribute": {
+      "type": "string",
+      "description": "A UUID or slug to identify the attribute you want to query values on."
+     },
+     "data": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": [
+     "attribute",
+     "data",
+     "object",
+     "record_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://mcp.attio.com/v2/objects/{object}/records/{record_id}/attributes/{attribute}/values",
+    "path": [
+     "object",
+     "record_id",
+     "attribute"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "data"
+    ],
+    "body_format": "json"
+   }
+  }
+ ]
+}

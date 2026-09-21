@@ -1,7 +1,7 @@
 -- Getty Images — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/gettyimages.com/3/openapi.json
--- APIs.guru's mirror, matched on gettyimages.com. A mirror lags the vendor.
+-- APIs.guru's mirror of gettyimages.com, matched on gettyimages.com. A mirror lags the vendor.
 -- 52 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

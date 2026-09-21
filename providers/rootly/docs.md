@@ -153,7 +153,7 @@ vouches for**: read it, then read their reference.
 ### Edge Connectors
 
 ### Private Agent
-- [Private Agent Limits (Early Access)](https://docs.rootly.com/private-agent-limits.md): Reference for Private Agent execution, Kubernetes, Prometheus, Loki, MCP, and AI context limits.
+- [Private Agent Limits (Early Access)](https://docs.rootly.com/private-agent-limits.md): Reference for Private Agent execution, Kubernetes, Prometheus, Loki, Elasticsearch, OpenSearch, PostgreSQL, MySQL, MCP, HTTP, and AI context limits.
 
 ## Integrations
 

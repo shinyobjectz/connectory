@@ -1,7 +1,7 @@
 -- Bitbucket — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/bitbucket.org/2.0/openapi.json
--- APIs.guru's mirror, matched on bitbucket.org. A mirror lags the vendor.
+-- APIs.guru's mirror of bitbucket.org, matched on bitbucket.org. A mirror lags the vendor.
 -- 292 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

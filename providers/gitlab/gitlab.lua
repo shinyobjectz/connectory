@@ -1,7 +1,7 @@
 -- GitLab — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/gitlab.com/v3/swagger.json
--- APIs.guru's mirror, matched on gitlab.com. A mirror lags the vendor.
+-- APIs.guru's mirror of gitlab.com, matched on gitlab.com. A mirror lags the vendor.
 -- 358 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

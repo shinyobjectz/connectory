@@ -1,7 +1,7 @@
 -- Trello — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/trello.com/1.0/openapi.json
--- APIs.guru's mirror, matched on trello.com. A mirror lags the vendor.
+-- APIs.guru's mirror of trello.com, matched on trello.com. A mirror lags the vendor.
 -- 324 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

@@ -548,6 +548,10 @@
      "id": {
       "type": "string",
       "description": "Unique identifier for the collection."
+     },
+     "reason": {
+      "type": "string",
+      "description": "An optional reason for archiving the collection. This is stored and returned as `deprecatedReason`."
      }
     },
     "required": [
@@ -561,7 +565,8 @@
     "query": [],
     "header": [],
     "body": [
-     "id"
+     "id",
+     "reason"
     ],
     "body_format": "json"
    }
@@ -638,6 +643,10 @@
      "id": {
       "type": "string",
       "description": ""
+     },
+     "reason": {
+      "type": "string",
+      "description": "An optional reason for deleting the collection. This is stored and returned as `deprecatedReason`."
      }
     },
     "required": [
@@ -651,7 +660,8 @@
     "query": [],
     "header": [],
     "body": [
-     "id"
+     "id",
+     "reason"
     ],
     "body_format": "json"
    }
@@ -1137,6 +1147,10 @@
      "sharing": {
       "type": "boolean",
       "description": "Whether public sharing of documents is allowed"
+     },
+     "deprecatedReason": {
+      "type": "string",
+      "description": "The reason the collection was archived. Can only be updated on an archived collection."
      }
     },
     "required": [
@@ -1157,7 +1171,8 @@
      "permission",
      "icon",
      "color",
-     "sharing"
+     "sharing",
+     "deprecatedReason"
     ],
     "body_format": "json"
    }
@@ -1824,6 +1839,10 @@
      "id": {
       "type": "string",
       "description": "Unique identifier for the document. Either the UUID or the urlId is acceptable."
+     },
+     "reason": {
+      "type": "string",
+      "description": "An optional reason for archiving the document. This is stored and returned as `deprecatedReason`."
      }
     },
     "required": [
@@ -1837,7 +1856,8 @@
     "query": [],
     "header": [],
     "body": [
-     "id"
+     "id",
+     "reason"
     ],
     "body_format": "json"
    }
@@ -1973,6 +1993,10 @@
      "permanent": {
       "type": "boolean",
       "description": "If set to true the document will be destroyed with no way to recover rather than moved to the trash."
+     },
+     "reason": {
+      "type": "string",
+      "description": "An optional reason for deleting the document. This is stored and returned as `deprecatedReason`."
      }
     },
     "required": [
@@ -1987,7 +2011,8 @@
     "header": [],
     "body": [
      "id",
-     "permanent"
+     "permanent",
+     "reason"
     ],
     "body_format": "json"
    }
@@ -2768,6 +2793,10 @@
      "dataAttributes": {
       "type": "array",
       "description": "Data attributes to be updated. Attributes not included will be removed from the document."
+     },
+     "deprecatedReason": {
+      "type": "string",
+      "description": "The reason the document was archived or deleted. Can only be updated on an archived or deleted document."
      }
     },
     "required": [
@@ -2795,7 +2824,8 @@
      "findText",
      "publish",
      "lastRevision",
-     "dataAttributes"
+     "dataAttributes",
+     "deprecatedReason"
     ],
     "body_format": "json"
    }
@@ -3090,6 +3120,10 @@
      "name": {
       "type": "string",
       "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": "A short description of the group."
      }
     },
     "required": [
@@ -3103,7 +3137,8 @@
     "query": [],
     "header": [],
     "body": [
-     "name"
+     "name",
+     "description"
     ],
     "body_format": "json"
    }
@@ -4126,7 +4161,7 @@
     "properties": {
      "id": {
       "type": "string",
-      "description": "Unique identifier for the share."
+      "description": "Unique identifier for the share. Either the UUID or the share slug is acceptable."
      },
      "documentId": {
       "type": "string",

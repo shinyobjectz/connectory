@@ -1,7 +1,7 @@
 -- Paylocity — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/paylocity.com/2/openapi.json
--- APIs.guru's mirror, matched on paylocity.com. A mirror lags the vendor.
+-- APIs.guru's mirror of paylocity.com, matched on paylocity.com. A mirror lags the vendor.
 -- 30 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

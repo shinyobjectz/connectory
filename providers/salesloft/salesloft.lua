@@ -1,7 +1,7 @@
 -- Salesloft — every call this API accepts, as data.
 --
 -- GENERATED from https://api.apis.guru/v2/specs/salesloft.com/v2/openapi.json
--- APIs.guru's mirror, matched on salesloft.com. A mirror lags the vendor.
+-- APIs.guru's mirror of salesloft.com, matched on salesloft.com. A mirror lags the vendor.
 -- 118 operations · do not edit
 --
 -- The credential is never in here. `auth.env` names an environment variable; the value

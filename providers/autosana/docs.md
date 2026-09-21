@@ -1748,9 +1748,9 @@ Example response (abbreviated):
     {
       "platform": "ios",
       "physical": false,
-      "model": "iPhone 17 Pro",
-      "os_versions": ["26.5"],
-      "fast_os_versions": ["26.5"]
+      "model": "iPhone 18 Pro",
+      "os_versions": ["27.0"],
+      "fast_os_versions": ["27.0"]
     },
     ...
   ]

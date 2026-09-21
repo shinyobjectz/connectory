@@ -1,0 +1,1427 @@
+{
+ "_": "GENERATED \u2014 what an authoring tool needs to FIND an operation. The calling table is the .lua beside it.",
+ "provider": "open-hands",
+ "source": "https://docs.all-hands.dev/openapi.json",
+ "operations": [
+  {
+   "slug": "open-hands.add_event_api_conversations_conversation_id_events_post",
+   "name": "Add event",
+   "description": "Add Event",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/events",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.alive_alive_get",
+   "name": "Alive",
+   "description": "Alive",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/alive",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.create_custom_secret_api_secrets_post",
+   "name": "Create custom secret",
+   "description": "Create Custom Secret",
+   "input": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     },
+     "value": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "name",
+     "value"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/secrets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description",
+     "value"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.delete_conversation_api_conversations_conversation_id_delete",
+   "name": "Delete conversation",
+   "description": "Delete Conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.delete_custom_secret_api_secrets_secret_id_delete",
+   "name": "Delete custom secret",
+   "description": "Delete Custom Secret",
+   "input": {
+    "type": "object",
+    "properties": {
+     "secret_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "secret_id"
+    ]
+   },
+   "request": {
+    "method": "DELETE",
+    "url": "https://app.all-hands.dev/api/secrets/{secret_id}",
+    "path": [
+     "secret_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_agents_api_options_agents_get",
+   "name": "List agents",
+   "description": "List available agent types supported by this server.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/options/agents",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_config_api_options_config_get",
+   "name": "Get config",
+   "description": "Get current config.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/options/config",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_conversation_api_conversations_conversation_id_get",
+   "name": "Get conversation",
+   "description": "Get Conversation",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_litellm_models_api_options_models_get",
+   "name": "List supported models",
+   "description": "List model identifiers available on this server based on configured providers.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/options/models",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_microagents_api_conversations_conversation_id_microagents_get",
+   "name": "Get microagents",
+   "description": "Get all microagents associated with the conversation. This endpoint returns all repository and knowledge microagents that are loaded for the conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/microagents",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_prompt_api_conversations_conversation_id_remember_prompt_get",
+   "name": "Get prompt",
+   "description": "Get Prompt",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "event_id": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id",
+     "event_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/remember-prompt",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [
+     "event_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_remote_runtime_config_api_conversations_conversation_id_config_get",
+   "name": "Get remote runtime config",
+   "description": "Retrieve the runtime configuration. Currently, this is the session ID and runtime ID (if available).",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/config",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_repository_branches_api_user_repository_branches_get",
+   "name": "Get repository branches",
+   "description": "Get branches for a repository.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "repository": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "repository"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/repository/branches",
+    "path": [],
+    "query": [
+     "repository"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_repository_microagent_content_api_user_repository_repository_name_microagents_content_get",
+   "name": "Get repository microagent content",
+   "description": "Fetch the content of a specific microagent file from a repository.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "repository_name": {
+      "type": "string",
+      "description": ""
+     },
+     "file_path": {
+      "type": "string",
+      "description": "Path to the microagent file within the repository"
+     }
+    },
+    "required": [
+     "file_path",
+     "repository_name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/repository/{repository_name}/microagents/content",
+    "path": [
+     "repository_name"
+    ],
+    "query": [
+     "file_path"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_repository_microagents_api_user_repository_repository_name_microagents_get",
+   "name": "Get repository microagents",
+   "description": "Scan the microagents directory of a repository and return the list of microagents. The microagents directory location depends on the git provider and actual repository name: - If git provider is not GitLab and actual repository name is \".openhands\": scans \"microagents\" folder - If git provider is GitLab and actual repository name is \"openhands-config\": scans \"microagents\" folder - Otherwise: scans",
+   "input": {
+    "type": "object",
+    "properties": {
+     "repository_name": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "repository_name"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/repository/{repository_name}/microagents",
+    "path": [
+     "repository_name"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_security_analyzers_api_options_security_analyzers_get",
+   "name": "List security analyzers",
+   "description": "List supported security analyzers.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/options/security-analyzers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_suggested_tasks_api_user_suggested_tasks_get",
+   "name": "Get suggested tasks",
+   "description": "Get suggested tasks for the authenticated user across their most recently pushed repositories.",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/suggested-tasks",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_trajectory_api_conversations_conversation_id_trajectory_get",
+   "name": "Get trajectory",
+   "description": "Get trajectory. This function retrieves the current trajectory and returns it.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/trajectory",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_user_api_user_info_get",
+   "name": "Get user",
+   "description": "Get User",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/info",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_user_installations_api_user_installations_get",
+   "name": "Get user installations",
+   "description": "Get User Installations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "provider": {
+      "type": "string",
+      "description": "",
+      "enum": [
+       "github",
+       "gitlab",
+       "bitbucket",
+       "enterprise_sso"
+      ]
+     }
+    },
+    "required": [
+     "provider"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/installations",
+    "path": [],
+    "query": [
+     "provider"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.get_user_repositories_api_user_repositories_get",
+   "name": "Get user repositories",
+   "description": "Get User Repositories",
+   "input": {
+    "type": "object",
+    "properties": {
+     "sort": {
+      "type": "string",
+      "description": ""
+     },
+     "selected_provider": {
+      "type": "string",
+      "description": ""
+     },
+     "page": {
+      "type": "string",
+      "description": ""
+     },
+     "per_page": {
+      "type": "string",
+      "description": ""
+     },
+     "installation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/repositories",
+    "path": [],
+    "query": [
+     "sort",
+     "selected_provider",
+     "page",
+     "per_page",
+     "installation_id"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.git_changes_api_conversations_conversation_id_git_changes_get",
+   "name": "Git changes",
+   "description": "Git Changes",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/git/changes",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.git_diff_api_conversations_conversation_id_git_diff_get",
+   "name": "Git diff",
+   "description": "Git Diff",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "path": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id",
+     "path"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/git/diff",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [
+     "path"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.health_health_get",
+   "name": "Health",
+   "description": "Health",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/health",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.list_files_api_conversations_conversation_id_list_files_get",
+   "name": "List workspace files",
+   "description": "List workspace files visible to the conversation runtime. Applies .gitignore and internal ignore rules.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "path": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/list-files",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [
+     "path"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.load_custom_secrets_names_api_secrets_get",
+   "name": "Load custom secrets names",
+   "description": "Load Custom Secrets Names",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/secrets",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.load_settings_api_settings_get",
+   "name": "Load settings",
+   "description": "Load Settings",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/settings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.new_conversation_api_conversations_post",
+   "name": "New conversation",
+   "description": "Initialize a new session or join an existing one. After successful initialization, the client should connect to the WebSocket using the returned conversation ID.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "repository": {
+      "type": "string",
+      "description": ""
+     },
+     "git_provider": {
+      "type": "string",
+      "description": ""
+     },
+     "selected_branch": {
+      "type": "string",
+      "description": ""
+     },
+     "initial_user_msg": {
+      "type": "string",
+      "description": ""
+     },
+     "image_urls": {
+      "type": "string",
+      "description": ""
+     },
+     "replay_json": {
+      "type": "string",
+      "description": ""
+     },
+     "suggested_task": {
+      "type": "string",
+      "description": ""
+     },
+     "create_microagent": {
+      "type": "string",
+      "description": ""
+     },
+     "conversation_instructions": {
+      "type": "string",
+      "description": ""
+     },
+     "mcp_config": {
+      "type": "string",
+      "description": ""
+     },
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "repository",
+     "git_provider",
+     "selected_branch",
+     "initial_user_msg",
+     "image_urls",
+     "replay_json",
+     "suggested_task",
+     "create_microagent",
+     "conversation_instructions",
+     "mcp_config",
+     "conversation_id"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.reset_settings_api_reset_settings_post",
+   "name": "Reset settings",
+   "description": "Resets user settings. (Deprecated)",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/reset-settings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.search_conversations_api_conversations_get",
+   "name": "Search conversations",
+   "description": "Search Conversations",
+   "input": {
+    "type": "object",
+    "properties": {
+     "page_id": {
+      "type": "string",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     },
+     "selected_repository": {
+      "type": "string",
+      "description": ""
+     },
+     "conversation_trigger": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations",
+    "path": [],
+    "query": [
+     "page_id",
+     "limit",
+     "selected_repository",
+     "conversation_trigger"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.search_events_api_conversations_conversation_id_events_get",
+   "name": "Search events",
+   "description": "Search through the event stream with filtering and pagination.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "start_id": {
+      "type": "integer",
+      "description": ""
+     },
+     "end_id": {
+      "type": "string",
+      "description": ""
+     },
+     "reverse": {
+      "type": "boolean",
+      "description": ""
+     },
+     "limit": {
+      "type": "integer",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/events",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [
+     "start_id",
+     "end_id",
+     "reverse",
+     "limit"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.search_repositories_api_user_search_repositories_get",
+   "name": "Search repositories",
+   "description": "Search Repositories",
+   "input": {
+    "type": "object",
+    "properties": {
+     "query": {
+      "type": "string",
+      "description": ""
+     },
+     "per_page": {
+      "type": "integer",
+      "description": ""
+     },
+     "sort": {
+      "type": "string",
+      "description": ""
+     },
+     "order": {
+      "type": "string",
+      "description": ""
+     },
+     "selected_provider": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "query"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/user/search/repositories",
+    "path": [],
+    "query": [
+     "query",
+     "per_page",
+     "sort",
+     "order",
+     "selected_provider"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.select_file_api_conversations_conversation_id_select_file_get",
+   "name": "Get file content",
+   "description": "Return the content of the given file from the conversation workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "file": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id",
+     "file"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/select-file",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [
+     "file"
+    ],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.start_conversation_api_conversations_conversation_id_start_post",
+   "name": "Start conversation",
+   "description": "Start an agent loop for a conversation. This endpoint calls the conversation_manager's maybe_start_agent_loop method to start a conversation. If the conversation is already running, it will return the existing agent loop info.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "providers_set": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/start",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "providers_set"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.stop_conversation_api_conversations_conversation_id_stop_post",
+   "name": "Stop conversation",
+   "description": "Stop an agent loop for a conversation. This endpoint calls the conversation_manager's close_session method to stop a conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/stop",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.store_provider_tokens_api_add_git_providers_post",
+   "name": "Store provider tokens",
+   "description": "Store Provider Tokens",
+   "input": {
+    "type": "object",
+    "properties": {
+     "mcp_config": {
+      "type": "string",
+      "description": ""
+     },
+     "provider_tokens": {
+      "type": "object",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/add-git-providers",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "mcp_config",
+     "provider_tokens"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.store_settings_api_settings_post",
+   "name": "Store settings",
+   "description": "Store Settings",
+   "input": {
+    "type": "object",
+    "properties": {
+     "language": {
+      "type": "string",
+      "description": ""
+     },
+     "agent": {
+      "type": "string",
+      "description": ""
+     },
+     "max_iterations": {
+      "type": "string",
+      "description": ""
+     },
+     "security_analyzer": {
+      "type": "string",
+      "description": ""
+     },
+     "confirmation_mode": {
+      "type": "string",
+      "description": ""
+     },
+     "llm_model": {
+      "type": "string",
+      "description": ""
+     },
+     "llm_api_key": {
+      "type": "string",
+      "description": ""
+     },
+     "llm_base_url": {
+      "type": "string",
+      "description": ""
+     },
+     "remote_runtime_resource_factor": {
+      "type": "string",
+      "description": ""
+     },
+     "secrets_store": {
+      "type": "object",
+      "description": ""
+     },
+     "enable_default_condenser": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enable_sound_notifications": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enable_proactive_conversation_starters": {
+      "type": "boolean",
+      "description": ""
+     },
+     "enable_solvability_analysis": {
+      "type": "boolean",
+      "description": ""
+     },
+     "user_consents_to_analytics": {
+      "type": "string",
+      "description": ""
+     },
+     "sandbox_base_container_image": {
+      "type": "string",
+      "description": ""
+     },
+     "sandbox_runtime_container_image": {
+      "type": "string",
+      "description": ""
+     },
+     "mcp_config": {
+      "type": "string",
+      "description": ""
+     },
+     "search_api_key": {
+      "type": "string",
+      "description": ""
+     },
+     "sandbox_api_key": {
+      "type": "string",
+      "description": ""
+     },
+     "max_budget_per_task": {
+      "type": "string",
+      "description": ""
+     },
+     "email": {
+      "type": "string",
+      "description": ""
+     },
+     "email_verified": {
+      "type": "string",
+      "description": ""
+     },
+     "git_user_name": {
+      "type": "string",
+      "description": ""
+     },
+     "git_user_email": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/settings",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [
+     "language",
+     "agent",
+     "max_iterations",
+     "security_analyzer",
+     "confirmation_mode",
+     "llm_model",
+     "llm_api_key",
+     "llm_base_url",
+     "remote_runtime_resource_factor",
+     "secrets_store",
+     "enable_default_condenser",
+     "enable_sound_notifications",
+     "enable_proactive_conversation_starters",
+     "enable_solvability_analysis",
+     "user_consents_to_analytics",
+     "sandbox_base_container_image",
+     "sandbox_runtime_container_image",
+     "mcp_config",
+     "search_api_key",
+     "sandbox_api_key",
+     "max_budget_per_task",
+     "email",
+     "email_verified",
+     "git_user_name",
+     "git_user_email"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.submit_feedback_api_conversations_conversation_id_submit_feedback_post",
+   "name": "Submit feedback",
+   "description": "Submit user feedback. This function stores the provided feedback data. To submit feedback:",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/submit-feedback",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.unset_provider_tokens_api_unset_provider_tokens_post",
+   "name": "Unset provider tokens",
+   "description": "Unset Provider Tokens",
+   "input": {
+    "type": "object",
+    "properties": {},
+    "required": []
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/unset-provider-tokens",
+    "path": [],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.update_conversation_api_conversations_conversation_id_patch",
+   "name": "Update conversation",
+   "description": "Update conversation metadata. This endpoint allows updating conversation details like title. Only the conversation owner can update the conversation.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "title": {
+      "type": "string",
+      "description": "New conversation title"
+     }
+    },
+    "required": [
+     "conversation_id",
+     "title"
+    ]
+   },
+   "request": {
+    "method": "PATCH",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "title"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.update_custom_secret_api_secrets_secret_id_put",
+   "name": "Update custom secret",
+   "description": "Update Custom Secret",
+   "input": {
+    "type": "object",
+    "properties": {
+     "secret_id": {
+      "type": "string",
+      "description": ""
+     },
+     "name": {
+      "type": "string",
+      "description": ""
+     },
+     "description": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "name",
+     "secret_id"
+    ]
+   },
+   "request": {
+    "method": "PUT",
+    "url": "https://app.all-hands.dev/api/secrets/{secret_id}",
+    "path": [
+     "secret_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "name",
+     "description"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.upload_files_api_conversations_conversation_id_upload_files_post",
+   "name": "Upload files",
+   "description": "Upload Files",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     },
+     "files": {
+      "type": "array",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id",
+     "files"
+    ]
+   },
+   "request": {
+    "method": "POST",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/upload-files",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [
+     "files"
+    ],
+    "body_format": "json"
+   }
+  },
+  {
+   "slug": "open-hands.zip_current_workspace_api_conversations_conversation_id_zip_directory_get",
+   "name": "Download workspace archive",
+   "description": "Return a ZIP archive of the current conversation workspace.",
+   "input": {
+    "type": "object",
+    "properties": {
+     "conversation_id": {
+      "type": "string",
+      "description": ""
+     }
+    },
+    "required": [
+     "conversation_id"
+    ]
+   },
+   "request": {
+    "method": "GET",
+    "url": "https://app.all-hands.dev/api/conversations/{conversation_id}/zip-directory",
+    "path": [
+     "conversation_id"
+    ],
+    "query": [],
+    "header": [],
+    "body": [],
+    "body_format": "json"
+   }
+  }
+ ]
+}
